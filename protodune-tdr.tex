@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+
+\topmargin=-0.5in
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6.2in
+\textheight=9.25in
+
+\usepackage{graphics}
+\usepackage{rotating}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{enumerate}
+
+%% draftwatermark causes infinite loop on SL6's ancient TeXLive
+%\usepackage[firstpage]{draftwatermark}
+\usepackage{lipsum}
+\usepackage{tikz}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[blocks,affil-it]{authblk}
+
+\usepackage{lineno}
+
+\bibliographystyle{plain}
+\bibliographystyle{unsrt}
+
+\usepackage{graphicx, subfigure}
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black,bookmarks=true]{hyperref}
+
+\setcounter{tocdepth}{2}
+
+
+
+\begin{document}
+%\linenumbers
+
+\title{Technical Design Report for the protoDUNE Detector and Beam Test at CERN}
+
+\date{\today}
+%\date{April 15, 2015}
+
+% https://dune.bnl.gov/people/members/export/?filename=author-payload-authblk.tex&date=now
+\input{authors}
+
+\maketitle
+
+\centerline{submitted on behalf of the DUNE collaboration}
+
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkLightness{0.8}
+%\SetWatermarkScale{5}
+
+
+%\begin{abstract}
+
+%\end{abstract}
+
+% --- executive summary section ---
+\newpage
+\centerline{\textbf{\centerline{\bf{\Large {Executive Summary}}}}} 
+\input{execsum}
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+\input{introduction}
+
+%
+% Add more sections here
+% 
+
+
+\newpage
+\section{Summary}
+\input{summary}
+
+\newpage
+\input{bibliography}
+
+
+% \newpage
+% \section*{Appendix}
+% \input{appendix}
+
+\end{document}
