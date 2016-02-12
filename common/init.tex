@@ -1,0 +1,79 @@
+% This should be \input first thing after \begin{document}
+
+
+\pagestyle{titlepage}
+
+\begin{center}
+   {\Huge  \thedocsubtitle}  %Yes, I know title and subtitle are reversed!
+
+  \vspace{5mm}
+
+  {\Huge  \pdtdrtitle}  
+
+  \vspace{10mm}
+
+ %{\LARGE \thedoctitle}
+
+  \vspace{15mm}
+
+\titleextra
+
+  \vspace{10mm}
+  \today
+    \vspace{15mm}
+    
+\end{center}
+
+\cleardoublepage
+
+%\includepdf[pages={-}]{pd-tdr-authors.pdf}  
+
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\thepage}{\roman{page}}
+\setcounter{page}{0}
+
+\pagestyle{plain} 
+
+%\clearpage
+
+%\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
+\textsf{\tableofcontents}
+%\clearpage
+
+
+\textsf{\listoffigures}
+%\clearpage
+
+\textsf{\listoftables}
+%\clearpage
+
+%For acronym list to appear just after TOC, TOF, TOT
+\printnomenclature
+%\clearpage
+
+\iffinal\else
+\textsf{\listoftodos}
+\clearpage
+\fi
+
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+
+% Set how header/footers look
+\renewcommand{\chaptermark}[1]{%
+\markboth{Chapter \thechapter:\ #1}{}}
+\fancyhead{}
+\fancyhead[RO,LE]{\textsf{\footnotesize \thechapter--\thepage}}
+\fancyhead[LO,RE]{\textsf{\footnotesize \leftmark}}
+
+\fancyfoot{}
+\fancyfoot[RO]{\textsf{\footnotesize ProtoDUNE Single-Phase Technical Design Report}}
+%\fancyfoot[LO]{\textsf{\footnotesize \thedoctitle}}
+\fancypagestyle{plain}{}
+
+\renewcommand{\headrule}{\vspace{-4mm}\color[gray]{0.5}{\rule{\headwidth}{0.5pt}}}
+

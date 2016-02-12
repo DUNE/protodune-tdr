@@ -1,99 +1,47 @@
-\documentclass[12pt]{article}
+\ifdefined\isfinal\documentclass[final]{pd-tdr}\else\documentclass{pd-tdr}\fi
+\pdfoutput=1            % must be in first 5 lines so arXiv finds it
+\graphicspath{ {figures/}{/generated/} }
 
-\topmargin=-0.5in
-\oddsidemargin=0in
-\evensidemargin=0in
-\textwidth=6.2in
-\textheight=9.25in
+\input{common/preamble}
 
-\usepackage{graphics}
-\usepackage{rotating}
-\usepackage{amssymb,amsmath}
-\usepackage{graphicx}
-\usepackage{cite}
-\usepackage{color}
-\usepackage[table]{xcolor}
-\usepackage{colortbl}
-\usepackage{enumerate}
-
-%% draftwatermark causes infinite loop on SL6's ancient TeXLive
-%\usepackage[firstpage]{draftwatermark}
-\usepackage{lipsum}
-\usepackage{tikz}
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[blocks,affil-it]{authblk}
-
-\usepackage{lineno}
-
-\bibliographystyle{plain}
-\bibliographystyle{unsrt}
-
-\usepackage{graphicx, subfigure}
-\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black,bookmarks=true]{hyperref}
-
-\setcounter{tocdepth}{2}
-
-
+%\renewcommand\thedoctitle{\voldunetitle}
+\def\titleextra{\includegraphics[width=0.8\textwidth]{2015-02-23-CDR-TPC-Figure.jpg}}
 
 \begin{document}
-%\linenumbers
 
-\title{Technical Design Report for ProtoDUNE }
+\input{common/init}
 
-\date{\today}
-%\date{April 15, 2015}
+\input{common/acronyms-shared-vol1-2-4}
+\input{common/acronyms-shared-vol1-4}
+\input{common/acronyms-shared-vol2-4}
+\input{common/acronyms-vol4}
 
-% https://dune.bnl.gov/people/members/export/?filename=author-payload-authblk.tex&date=now
-%%%\input{authors}
+\chapter{LaTeX Writing Standards; Please Read!}
+\input{writing-standards}
 
-\maketitle
-
-\centerline{submitted on behalf of the DUNE collaboration}
-
-%\SetWatermarkText{DRAFT}
-%\SetWatermarkLightness{0.8}
-%\SetWatermarkScale{5}
-
-
-%\begin{abstract}
-
-%\end{abstract}
-
-% --- executive summary section ---
-\newpage
-\centerline{\textbf{\centerline{\bf{\Large {Executive Summary {\color{red} [1 page]}}}}}} 
-\input{execsum}
-
-\newpage
-\tableofcontents
-
-\newpage
-
-\section{Introduction {\color{red} (Flavio,Christos) [5 pages]}}
+\chapter{Introduction {\color{red} (Flavio,Christos) [5 pages]}}
 \input{introduction}
 
-\section{Scientific and technical motivations {\color{red} (Thomas)[10 pages]}}
+\chapter{Scientific and technical motivations {\color{red} (Thomas)[10 pages]}}
 \input{sciencetech}
 
-\section{ProtoDUNE detector overview {\color{red} (Flavio,Christos,Thomas)[15 pages]}}
+\chapter{ProtoDUNE detector overview {\color{red} (Flavio,Christos,Thomas)[15 pages]}}
 \input{det-overview}
 
-\section{Detector components {\color{red} (Tim, Jim)[5-7 p. per sub-system = 60 - 74 p.]}}
+\chapter{Detector components {\color{red} (Tim, Jim)[5-7 p. per sub-system = 60 - 74 p.]}}
 \input{det-comp}
 
-\section{ProtoDUNE computing and software {\color{red} (Tom, Amir)[15 pages]}}
+\chapter{ProtoDUNE computing and software {\color{red} (Tom, Amir)[15 pages]}}
 \input{computing}
 
-\section{Space and infrastructure requirements {\color{red} (Maria)[10 pages]}}
+\chapter{Space and infrastructure requirements {\color{red} (Maria)[10 pages]}}
 \input{spacereq}
 
-\section{Test beam specifications {\color{red} (Cheng-Ju, Paola)[10 pages]}} 
+\chapter{Test beam specifications {\color{red} (Cheng-Ju, Paola)[10 pages]}} 
 \input{beam}
 
-\section{Organization, cost estimate and schedule {\color{red} (Eric, Maria)[5-10 pages]}}
-\input{organization}
+\chapter{Organization, cost estimate and schedule {\color{red} (Eric, Maria)[5-10 pages]}}
+%\input{organization}
 
 
 %
@@ -102,15 +50,17 @@
 
 
 \newpage
-\section{Summary {\color{red}[2 pages]}}
-\input{summary}
+\chapter{Summary {\color{red}[2 pages]}}
+%\input{summary}
 
-\newpage
-\input{bibliography}
 
 
 % \newpage
-% \section*{Appendix}
+% \chapter*{Appendix}
 % \input{appendix}
 
+\cleardoublepage
+
+\input{common/final}
 \end{document}
+
