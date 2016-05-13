@@ -48,6 +48,58 @@ energies of initial particles.}
 \label{fig:signal}
 \end{figure}
 
+Figure~\ref{fig:signal_formation} illustrates the major elements of the  
+processes involved in forming the TPC signals. 
+When the ionization electrons drift through the wire planes, current is 
+induced on the nearby wires. This process is described by the field response
+functions. The physics of the current induction is described by the Shockley-Ramo 
+theorem~\cite{Shockley,Ramo}.  For an element of ionization charge, 
+the instantaneous, induced current $i$ is proportional to the amount of that
+charge $q$ and its drifting velocity $v_q$:
+\begin{equation}
+i = q \cdot E_{weight} \cdot v_q.
+\end{equation}
+The proportionality factor is the weighting field $E_{weight}$ at the 
+location of the charge which 
+depends on the geometry of the electrodes. Figure~\ref{fig:signal_formation} shows a 
+calculated weighting potential for one induction plane wire using a 2D simulation based 
+on Garfield~\cite{garfield}. 
+In this setup, the wire pitch is assumed to be 3 mm. There are three wire planes 
+with the first two being induction and last one being collection plane. 
+
+The induced current on the wire is received, amplified, and shaped by
+a pre-amplifier. This part is described by the electronics response
+function.  The resulting signal waveform is then digitally sampled at
+regular intervals.  This data is referred to as the raw digits.  The
+goal of the signal calibration process is to recover the number of
+ionization electrons that must have arrived at each anode plane at a
+given sample time in order to produce the measured raw digits.  The
+information regarding the number, location (in the directions transverse
+to and in the plane of the wires) and sample time of ionization
+electrons are then used as input to the event reconstruction chain.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Signal_formation.png}
+\caption{The process of TPC signal formation. See text for more explanations.}
+\label{fig:signal_formation}
+\end{figure}
+
+While the principle is straight forward, calculating the measured
+current itself can be very complicated. As shown in
+Fig.~\ref{fig:signal_formation}, the weighting field becomes smaller
+at locations further away from the wire of interest.  
+The weighting field also extends beyond the ``boundary'' of the wire.
+Wire boundaries are defined by imaginary planes parallel to a wire,
+perpendicular to the wire's plane and half way between two neighboring
+wires.  That is, in an ideal case, all charge produced in a boundary
+will drift nearest to its associated wire.
+Due to the extent of the weighting field, electrons drifting inside
+one wire's boundary can induce current in other wires.  This fact
+makes the induced current strongly depend on the local ionization
+charge distribution near the wire of interest, which in turn depends
+on the event topology of the initial energetic, charged particles.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Space charge effects}
