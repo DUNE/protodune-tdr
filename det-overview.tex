@@ -101,6 +101,49 @@ charge distribution near the wire of interest, which in turn depends
 on the event topology of the initial energetic, charged particles.
 
 
+To illustrate the complication of the induction plane signal, we show an ideal track with a uniform charge 
+distribution along the track as an example in Figure~\ref{fig:ideal_track_1}.
+On the left panel, the two black lines represent the boundary of one wire region. In this case, 
+if one just counts the ionization charge distribution within the wire region, the expected 
+distribution is shown in the panel a) on the right.  However, the induced current on the wire of 
+interest depends on the weighting field, which is smaller when the ionization electron is 
+further away from the wire itself. Therefore, the effective charge distribution seen by 
+the wire would be similar to the panel b) on the right side of 
+Fig.~\ref{fig:ideal_track_1}. However, this is not the end of story. For ionization electrons 
+drifting by in the near-by wires boundaries, the wire of interest will also experience a 
+further induced current. In this case, since the ionization electrons are further away 
+from the target wire, the weighting field is even smaller and thus their induction is 
+also smaller. The realistic effective charge distribution will be similar to the panel c) on 
+the right side of Fig.~\ref{fig:ideal_track_2}. 
+
+We can then see what happens to the raw digits when we take into account the bipolar induction 
+field response function. In the left panel of Fig.~\ref{fig:ideal_track_2}, the top half shows 
+the real charge distribution going through the targeted wire region. The convolution of this 
+distribution with a bipolar response function will lead to results shown at the bottom. In this 
+case, we can see the signal height is still large at least for the start and the end of the 
+signal. In the right panel of Fig.~\ref{fig:ideal_track_2}, the top half shows the more 
+realistic effective charge distribution seen by the targeted wire. The convolution of this 
+distribution with a bipolar response function will lead to results shown at the bottom. In 
+this case, we can see that the signal height is much smaller though the length of signal is 
+long. This effect will lead to complications in designing the zero-suppression algorithm.
+
+
+\begin{figure}[!h!tbp]
+\includegraphics[width=0.95\textwidth]{figures/ideal_track.png}
+\caption{Illustration of the induction plane field response for an ideal track. See text for more 
+discussions. }
+\label{fig:ideal_track_1}
+\end{figure}
+
+\begin{figure}[!h!tbp]
+\includegraphics[width=0.95\textwidth]{figures/ideal_track_2.png}
+\caption{Illustration of the induction plane field response for an ideal track. See text for more 
+discussions.}
+\label{fig:ideal_track_2}
+\end{figure}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Space charge effects}
 
