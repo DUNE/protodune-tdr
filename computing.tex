@@ -26,7 +26,9 @@ digitized TPC signal.
 
 \subsubsection{Deconvolution Technique}\label{sec:decon}
 Deconvolution is a mathematical technique to extract a \textit{real signal}
-$S(t)$ from a \textit{measured signal} $M(t_0)$. The goal of the 
+$S(t)$ from a \textit{measured signal} $M(t_0)$. 
+The deconvolution technique was introduced to LArTPC signal processing by 
+Bruce Baller in the context ArgoNEUT data analysis~\cite{bruce}. The goal of the 
 deconvolution is to ``remove'' the field and electronics response functions 
 from the measured signal to recover the number of ionized electrons. This 
 technique has the advantages of being robust and fast and is an essential 
@@ -299,3 +301,150 @@ This technique can in principle be improved to include the position dependent
 response once the local ionization charge distribution is roughly reconstructed. 
 
 \subsubsection{Additional Challenges in Deconvolution}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/induction_field_response.png}
+\caption{(left) Simulated field response functions for induction (black and red) and 
+collection (blue) wires are shown in the time domain. (right) The same are shown in 
+the frequency domain.}
+\label{fig:induction_field}
+\end{figure}
+
+The 1D and 2D deconvolution procedures provide a robust method to extract the ionization
+electrons for the collection and induction planes, respectively. 
+%
+While working well for the collection plane the procedure is still not optimal for the induction plane due to the 
+nature of the induction plane signal. Figure~\ref{fig:induction_field} shows the 
+field response as simulated by Garfield for induction and collection wire planes and point ionization
+electrons. While the field response for the collection wire plane is uni-polar, the field 
+response for the induction wire plane is bipolar. 
+%
+The early, negative half corresponds to the ionization electron moving
+towards the wire plane and the late, positive half corresponds
+to the ionization electron moving away.
+%
+The integration of the field response function is close to zero
+as the bias wire voltages are applied such that that none of the ionization electrons are
+collected. The right panel of Fig.~\ref{fig:induction_field} shows the 
+frequency components of the field response. 
+%
+Since an induction plane field response has a
+bipolar shape in the time domain there is a corresponding suppression at low frequency in the frequency 
+domain. At zero frequency, the frequency component essentially gives the 
+integration of field response function over time and thus should be near zero (again, because no charge is collected).
+
+
+The suppression of the induction field response at low frequency is problematic for the
+proposed deconvolution procedure. First,  the measured signal contains the electronic noise, 
+which usually increases at low frequency (the so-called 1/f noise). Therefore, as shown in 
+Eq.~\eqref{eq:decon_filt}, the low frequency noise will be amplified in the deconvolution 
+process, since the denominator (i.e. the induction field response) is generally small at 
+low frequency. This can be seen clearly in Fig.~\ref{fig:decon_example}, where the low frequency noise
+is significant. The large low frequency noise would lead to large uncertainty 
+in the charge estimation and needs to be dealt with. Three ways to deal with this problem 
+are considered. 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/decon_example.png}
+\caption{An example deconvoluted spectrum for the induction plane (simulation).}
+\label{fig:decon_example}
+\end{figure}
+
+
+\subsubsubsection{Usage of An Imbalanced Response Function}
+
+As described above, it is the balanced and bipolar nature of the
+induction response which leads to it being small at low frequencies
+and it is this which then can enhance the noise.
+It's natural to then imagine using an intentionally imbalanced field
+response in the deconvolution procedure.
+As it turns out, this is indeed what has been done initially with the default 1D field response. 
+However, the mismatch of the field response function
+used in the deconvolution and the actual physical field response 
+leads to a distortion of the signal. This in particular is troublesome
+near the interaction vertex where multiple tracks are present. 
+Therefore, this approach is {\it NOT} acceptable as it introduces large distortions
+on the deconvoluted image. On the other hand, one may consider to investigate 
+hardware solution of intentionally allow some portion of drifting ionization charge 
+to be collected on the induction wires. 
+
+\subsubsubsection{Low-frequency Software Filter}\label{sec:low_freq_filter}
+
+In Eq.~\eqref{eq:decon_filt}, a frequency-domain  filter function is introduced 
+to suppress the numerical instability caused by the presence of noise. One can imagine to use this
+software filter to suppress the electronic noise at low frequency. This is also 
+{\it NOT} acceptable due to large distortion introduced on the signal. To understand this 
+point, we recall the discussion in Sec.~\ref{sec:decon_equiv} that the software filter 
+is effectively a smearing function. Figure~\ref{fig:low_f_filter} shows an illustrative 
+real signal (left), its convolution with a low-frequency filter (middle), and 
+the low-frequency filter itself (right). It is obvious that the signal is strongly 
+distorted due to the application of the low-frequency software filter. 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/low_freq.png}
+\caption{The impact of the low-frequency filter (right). The unit of the X-axis 
+is MHz.  The real signal and the convoluted signal are shown in the left and
+middle panel, respectively. A time tick is 0.5 $\mu s$.}
+\label{fig:low_f_filter}
+\end{figure}
+
+\subsubsection{Region Of Interests (ROI) and Adaptive Baseline (AB)}\label{sec:roi_ab}
+
+In the previous two sections, we show that we cannot suppress the low-frequency 
+electronic noises with either the intentionally imbalanced response functions nor 
+the low-frequency software filter. 
+Instead we turn to using two techniques in the time domain: region of interest and 
+adaptive baseline. 
+
+The region of interest (ROI) technique
+was proposed by Bruce Baller in the context of reducing data size and speeding up the 
+deconvolution process. At the same time, the ROI technique can also be used to 
+suppressed the low-frequency noise. In order to recognize this point, we consider
+a time window with $N$ time ticks.  For MicroBooNE this would be a window of $N\times0.5\mu\mbox{s}$.
+The highest frequency that can be resolved with such sampling would be 
+1 MHz. The first discrete frequency above zero is be $2/N$ MHz and no result
+within the ROI can be sensitive 
+to any noise components below this frequency.  Therefore, if we can identify 
+the signal region and create a ROI to cover the signal, we can naturally suppress 
+the low-frequency noises. 
+
+The adaptive baseline (AB) technique was introduced by 
+Mike Mooney in the context of dealing with the ASIC saturation observed in MicroBooNE.
+The AB is essentially a local baseline calculated in a given a ROI. However, instead of 
+a simple average of the baseline at the start and end points of a ROI, a linear
+interpolation is used to correct the baseline. Given the two constraints (start and 
+end points of the ROI), the linear interpolation with two degrees of freedom is the best 
+that one can achieve to  remove bias in the baseline. 
+
+
+\subsubsection{Algorithm Currently Implemented}
+
+\subsubsection{Calculation of Field Response Function}
+
+The field response is calculated by Garfield~\cite{garfield} in a 22 cm (along the 
+field direction) $\times$ 30 cm (along the wire plane direction) region in 2D.  
+In the drift direction, the grid plane is labeled as G, the two induction planes wire 
+planes are labeled U and V, and the collection plane is W.  The spacing between the wire 
+planes is 4.76 mm. The bias voltages of-665 V, -370 V, 0 V, and +820 V for the G, U, V, and 
+W planes, respectively, are configured according the operating conditions which ensure 100 \%
+    transmission of ionization electrons through the first two induction planes.  
+    101 wires with 150 $\mu$m diameter are set on each wire plane with 4.667 (4.79 for collection) mm
+    pitch.  A ground plane is placed 1 cm behind the W plane.  The drift
+    field is uniform with 500 V/cm. The electron drift velocity as a function of
+    electric field is taken from measurements~\cite{Li:2015rqa,lar_property}
+    instead of using the default velocity table contained in Garfield. The electron
+    diffusion is turned off in the simulation. The field response function then can
+    be calculated for each individual wire in the form of induction current 
+    (U and V planes) and collection current on (W planes) as a function of time for
+    an electron drift which starts from arbitrary position within the region of calculation.
+    Figure~\ref{fig:garfield_2d} shows the configuration used in garfield 2D simulation.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/Garfield_simu.png}
+\caption{Description of the Garfield 2D simulation of field response functions.}
+\label{fig:garfield_2d}
+\end{figure}
