@@ -12,9 +12,290 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Event reconstruction algorithms and performance}
 
-\subsection{TPC Signal Processing (Xin)}
-
 description of computing, data handling and on/off-line software\\
 
 may also include reconstruction software description
 
+\subsection{TPC Signal Calibration (Xin)}
+
+In Sec.~\ref{sec:tpc_signal_formation}, the signal formation in TPC
+is described. In this section, we describe the procedure of the TPC signal
+calibration. As shown in Fig.~\ref{fig:signal_formation}, the goal of TPC 
+signal calibration is to recover the number of ionized electrons from the 
+digitized TPC signal. 
+
+\subsubsection{Deconvolution Technique}\label{sec:decon}
+Deconvolution is a mathematical technique to extract a \textit{real signal}
+$S(t)$ from a \textit{measured signal} $M(t_0)$. The goal of the 
+deconvolution is to ``remove'' the field and electronics response functions 
+from the measured signal to recover the number of ionized electrons. This 
+technique has the advantages of being robust and fast and is an essential 
+step in the overall signal calibration process. 
+
+The measured signal is
+modeled as a convolution integral over the real signal $S(t)$ and a
+given detector \textit{response function} $R(t,t_0)$ which gives the
+instantaneous portion of the measured signal at some time $t_0$ due to
+an element of real signal at time $t$.
+\begin{equation}\label{eq:decon_1}
+M(t_0) = \int_{-\infty}^{\infty}  R(t,t_0) \cdot S(t) \cdot dt.
+\end{equation}
+If the detector response function only depends on the relative time 
+difference between $t$ and $t_0$, we can solve the above equation by 
+doing a Fourier transformation on both sides of the equation:
+\begin{equation}
+M(\omega) = R(\omega) \cdot S(\omega), 
+\end{equation}
+where $\omega$ is the frequency. In this case, we can derive the signal in the 
+frequency domain by taking the ratio of measured signal and the given
+response function:
+\begin{equation}\label{eq:decon_2}
+S(\omega) = \frac{M(\omega)}{R(\omega)}.
+\end{equation}
+The real signal in the time domain can then be obtained by applying the 
+inverse Fourier transformation from the frequency domain. 
+
+The Shockley-Ramo response function $R(\omega)$ does not address
+contributions to the measured signal which are due to real world
+sources of electrical \textit{noise} from thermal and unwanted transmitting
+sources or the approximation in the digitization.
+Such contributions to $M(\omega)$ will not be ``divided out'' by the deconvolution.
+Worse, because the response function becomes small (see below) at low 
+frequencies for the induction planes and at high frequencies for all
+planes, the noise components in these frequencies will become
+enhanced by the deconvolution.
+
+To address the problem of noise, a \textit{filter function} $F(\omega)$ is
+introduced.  Its purpose is to attenuate the problematic noise.  The
+addition of this function can be considered an augmentation to the
+response function which may in any case be chosen freely as it is a model.  
+The two functions are kept distinct for clarity in the notation here.
+Equation~\ref{eq:decon_2} is then updated to become
+\begin{equation}\label{eq:decon_filt}
+S(\omega) = \frac{M(\omega)}{R(\omega)} \cdot F(\omega).
+\end{equation}
+With a suitable noise model an improved estimator for the signal
+$S(t)$ in the time domain can then be found by applying an inverse Fourier 
+transform to $S(\omega)$.  Essentially, the deconvolution replaces the field and 
+electronics response function with the filter response function. The 
+advantage of this procedure shows up on the induction plane where the irregular bipolar 
+field response function is replaced by a regular uni-polar response function through
+the inclusion of the software filter. 
+
+\subsubsection{Nature of Deconvolution and Role of Software Filter}\label{sec:decon_equiv}
+
+In the previous section, we described the basic procedure of the
+signal deconvolution through forward and inverse Fourier transforms. 
+%
+In practice, the measured signal is digitally sampled at some fixed
+frequency.  In this case the deconvolution employees forward and
+inverse Discrete Fourier Transformations (DFT).  In this section we
+describe the deconvolution formalism in terms of DFT and $\chi^2$
+minimization and the role of the filter function.
+
+\subsubsubsection{Signal Extraction with Matrix Inversion}
+The convolution integral in Eq.~\ref{eq:decon_1} can also be written 
+in the discrete summation format:
+\begin{equation}\label{eq:matrix_1}
+M_i = \sum_j R_{ij} \cdot S_j,
+\end{equation}
+where $R_{ij}$ represents the impact of the overall response function. 
+$S_j$ and $M_i$ are the original signal at $j$th time bin and 
+the measured signal at $i$th time bin. We can also write the above 
+equation in the matrix format.
+\begin{equation}\label{eq:matrix_2}
+M = R \cdot S,
+\end{equation}
+and we can simply derive the solution of $S$ as 
+\begin{equation}\label{eq:matrix_sol}
+S = R^{-1} \cdot M,
+\end{equation}
+where the subscript $-1$ represents the inversion of matrix $R$.
+
+\subsubsubsection{$\chi^2$ Minimization}
+
+Solving Eq.~\ref{eq:matrix_1} may also be written as a minimization of a $\chi^2$ function:
+\begin{equation}
+\chi^2 = \sum_i \left( M_i - \sum_j R_{ij} \cdot S_j \right)^2.
+\end{equation}
+The minimum of $\chi^2$ can be derived as:
+\begin{equation}
+\frac{\partial \chi^2}{\partial S_k} = 0 \rightarrow 
+\sum_i 2 \cdot \left( M_i - \sum_j R_{ij}\cdot S_j \right) R_{ik} = 0,
+\end{equation}
+for any $k$. 
+A solution for
+Eq.~\ref{eq:matrix_1} will also solve this equation.
+We note this is general to the case that a filter function is included.
+
+\subsubsubsection{$\chi^2$ Minimization with a Penalty Term}
+As we discussed previously, without a filter function the result of
+the deconvolution will not be numerically stable.
+In the $\chi^2$ formalism a filter function can be introduced in terms
+of a \textit{penalty term} in the $\chi^2$ definition which constrains the
+smoothness of the solution:
+\begin{equation}\label{eq:chi2p}
+\chi^2 = \sum_i \left( M_i - \sum_j R_{ij} \cdot S_j \right)^2 + 
+\chi^2_{penalty}.
+\end{equation} 
+%\fixme{Is ``typical'' the right term?  Typical over what population?  How about ``allowed'' or ``possible''?}
+An example penalty term is the square of the second derivative of the 
+solution:
+\begin{equation}
+\chi^2_{penalty} = c^2 \sum_i \left( S_i^{''}\right)^2.
+\end{equation}
+In the discrete space, we can write this as
+\begin{equation}
+S_i^{''} \sim S_{i+1} - 2S_i + S_{i-1} \equiv \sum_{j} F_{ij} \cdot S_{j}.
+\end{equation}
+In the last step, we use a generic matrix $F$ to express the summation. 
+Plugging the above expression to Eq.~\ref{eq:chi2p} to derive the minimum, 
+we have 
+\begin{equation}
+\frac{\partial \chi^2}{\partial S_k} = 0 \rightarrow 
+\sum_i \left( M_i - \sum_j \left( R_{ij} + \frac{F_{ij} \cdot F_{ik}}{R_{ik}} \right) \cdot S_j \right) \cdot R_{ik} = 0,
+\end{equation}
+for any $k$. Similarly, the solution is 
+\begin{equation}
+\sum_i \left( M_i\cdot R_{ik} - \sum_j R_{ij} \cdot R_{ik} \cdot \left (
+1 + \frac{F_{ij} \cdot F_{ik}}{R_{ij} \cdot R_{ik}} \right) \cdot S_j \right) = 0.
+\end{equation}
+In  matrix notation this is
+\begin{equation}
+R\cdot M = \left( R^2 + F^2 \right) \cdot S,
+\end{equation}
+or 
+\begin{equation}\label{eq:filter_sol}
+S = \left( 1 + \frac{F^2}{R^2} \right)^{-1} \cdot R^{-1} \cdot M.
+\end{equation}
+In comparison with Eq.~\ref{eq:matrix_sol}, the above 
+solution has an addition term of $\left( 1 + \frac{F^2}{R^2} \right)^{-1}$,
+which depends on the penalty term in the $\chi^2$ definition. 
+Thus, the nature of the penalty term is to make sure the solution is 
+smooth. 
+
+\subsubsubsection{Role of the Deconvolution Filter}
+Now, given the above preparation, we can evaluate the role of the 
+deconvolution filter. 
+First, as described in Sec.~\ref{sec:decon}, the filter is applied to remove 
+or suppress the contributions from certain frequencies where the noise 
+dominates. This directly justifies its name ``filter''. 
+%
+Second, the augmentation of the response function by the filter
+function can be equivalently and instead written to be considered part
+of the signal
+\begin{equation}
+S_{filter}(\omega) = S_{nofilter} (\omega) \cdot F (\omega) 
+\end{equation}
+based on Eq.~\ref{eq:decon_filt}.
+The above equation can be converted back into the time domain:
+\begin{equation}\label{eq:filter_time}
+S_{filter}(t_0) = \int_{\{t\}} F(t-t_0) .\, S_{nofilter}(t) \, dt,  
+\end{equation}
+in which the estimator for the filtered signal ($S_{filter}(t)$) receives contribution 
+from non-filtered signal ($S_{nofilter}(t)$) at various time. 
+Written in this way, we can see, the filter function is effectively 
+a smearing function. The application of a smearing function leads 
+to cancellations of nearby large positive and negative values in the 
+non-filtered signal resulting in a smoother filtered signal. 
+Third, it can be easily seen that Eq.~\ref{eq:filter_sol} is 
+basically the discrete form of Eq.~\ref{eq:filter_time}. In this 
+case, the filter function is related to the penalty term added to 
+$\chi^2$ function which is to constrain the smoothness of the final 
+solution. 
+
+Given the above understanding of the role of deconvolution filter, we
+can construct various filters.  In particular there are two filters
+constructed which achieve different goals.  The first filter is a
+\textit{Wiener-inspired}\cite{wiener} filter which is applied to
+maximize the signal-to-noise ratio in the deconvoluted signal while
+conserving the signal strength, but there are some negative tails 
+for this filter. The second is a \textit{Gaussian}
+smearing function containing no negative tails, this choice also
+conserves charge and
+preserves the time coincidences in the real signal.
+
+
+\subsubsection{Importance of 2D Deconvolution for Induction Planes}
+The 1D deconvolution procedure described in the previous section 
+works well in dealing with signal in the collection wire plane, but is not 
+optimal when applied to signals in the induction wire planes. 
+As described in Sec.~\ref{sec:tpc_signal_formation}, the induction plane wire 
+signal receives contributions not only from ionization charge 
+passing by the wire of interest, but also from ionization charge drifting in 
+nearby wire boundaries. In addition, within the boundary of the wire of 
+interest the value of the field response function varies appreciably 
+and so at small scales the location of the drifting charge relative to the wire 
+is important. In this case, Eq.~\ref{eq:decon_1} would naturally expand to 
+\begin{equation}\label{eq:decon_2d_1}
+M_i(t_0) = \int_{-\infty}^{\infty} \left( R_0 \cdot (t-t_0) \cdot S_i(t) + 
+R_1 \cdot (t-t_0) \cdot S_{i+1} (t) + ...\right) \cdot dt,
+\end{equation}
+where $M_i$ represents the measured signal from wire $i$.  $S_i$ and
+$S_{i+1}$ represents the real signal in the boundaries of wire $i$ and
+its next neighbor respectively.
+The $R_0$ represents the average response function for an ionization
+charge passing through the wire boundary of interest.
+Similarly, the $R_1$ represents the average response function for an
+ionization charge drifting past in the next adjacent wire boundary. One can
+easily expand this definition to some number of neighbors by introducing terms up 
+to $R_n$.
+
+If we then apply a Fourier transformation on both sides of Eq.~\ref{eq:decon_2d_1},
+we have:
+\begin{equation}\label{eq:decon_2d_2}
+M_i(\omega) = R_0(\omega) \cdot S_i(\omega) + R_1(\omega) \cdot S_{i+1} (\omega) + ...,
+\end{equation} 
+which can be written in a matrix notation as:
+\begin{equation}
+\begin{pmatrix}
+    M_1(\omega)\\
+    M_2(\omega)\\
+    \vdots\\
+    M_{n-1}(\omega)\\
+    M_{n}(\omega)
+\end{pmatrix}
+=
+\begin{pmatrix}
+R_0(\omega) & R_1(\omega) & \ldots & R_{n-1}(\omega) & R_n(\omega) \\
+R_1(\omega) & R_0(\omega) & \ldots & R_{n-2}(\omega) & R_{n-1}(\omega) \\
+    \vdots  & \vdots      & \ddots & \vdots          & \vdots \\
+    R_{n-1}(\omega) & R_{n-2}(\omega) & \ldots & R_0(\omega) & R_1(\omega) \\
+    R_{n}(\omega) & R_{n-1}(\omega) & \ldots & R_1(\omega) & R_0(\omega) \\
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+    S_1(\omega)\\
+    S_2(\omega)\\
+    \vdots\\
+    S_{n-1}(\omega)\\
+    S_{n}(\omega)
+\end{pmatrix}
+\label{eq:matrix_expansion}
+\end{equation}
+Now, if we assume that we know response functions (i.e. the matrix $R$), the 
+problem converts into deducing the vector of $S$ with the measured signal $M$. 
+%
+This can be achieved by inverting the matrix $R$. In practice and away
+from plane edges the matrix $R$ is taken to be symmetric and its
+inversion can again be achieved by the discrete-space techniques
+described in Sec.~\ref{sec:decon_equiv}.
+%
+As this expands the 1D deconvolution (with respect to the time axis)
+into a 2D deconvolution (with respect to both the time and wire
+axes) similarly we must also expand the filter function to cover
+both time and wire dimensions.
+
+A comment on the limitation (or approximation) 
+assumed in the 2D deconvolution is needed. As shown in Eq.~\ref{eq:decon_2d_1}, the 
+average response functions are used in describing the measured signal. These 
+ignore the detailed position dependence of the response function. 
+This approximation ignores the fine grained but clear position
+dependence in the calculated weighting fields.
+However, since we can only measured the signal from any given wire as
+a function of time there is no additional information to be used to
+resolve the ionization electron distributions within a wire boundary.
+This technique can in principle be improved to include the position dependent
+response once the local ionization charge distribution is roughly reconstructed. 
+
+\subsubsection{Additional Challenges in Deconvolution}
