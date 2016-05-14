@@ -20,11 +20,11 @@ ionization electrons are generated. They would travel at a constant speed
 toward the multiple anode wire planes. The first wire planes encountered collect 
 an induction signals as the drifting charge passes through.  The charge is collected 
 on the wires in the final plane. This transparency of the induction planes is assured by 
-by applying an appropriate bias voltage to these wire planes.
+applying an appropriate bias voltage to these wire planes.
 During this process, current will be produced on the wire planes. 
 Since the locations of wires are accurately known, the position of the
 ionization charge in the direction transverse to the drift can be determined in 
-three independent views. The time of the initial interaction is determined by collecting 
+three independent views. The time of the initial interaction can be determined by collecting 
 scintillation light 
 in a fast optical detector system.
 Measuring the time from this prompt activity to signals on the wires it is 
@@ -60,7 +60,7 @@ charge $q$ and its drifting velocity $v_q$:
 i = q \cdot E_{weight} \cdot v_q.
 \end{equation}
 The proportionality factor is the weighting field $E_{weight}$ at the 
-location of the charge which 
+location of the charge. The weighting field $E_{weight}$ 
 depends on the geometry of the electrodes. Figure~\ref{fig:signal_formation} shows a 
 calculated weighting potential for one induction plane wire using a 2D simulation based 
 on Garfield~\cite{garfield}. 
@@ -69,7 +69,8 @@ with the first two being induction and last one being collection plane.
 
 The induced current on the wire is received, amplified, and shaped by
 a pre-amplifier. This part is described by the electronics response
-function.  The resulting signal waveform is then digitally sampled at
+function (see Fig.~\ref{fig:ele_res}).  
+The resulting signal waveform is then digitally sampled at
 regular intervals.  This data is referred to as the raw digits.  The
 goal of the signal calibration process is to recover the number of
 ionization electrons that must have arrived at each anode plane at a
@@ -80,8 +81,23 @@ electrons are then used as input to the event reconstruction chain.
 
 \begin{figure}[htb]
 \centering
+\includegraphics[width=0.8\textwidth]{figures/electronics_res.pdf}
+\caption{The simulated electronics response function in the time domain at 4.7 mV/fC gain. 
+The front-end cold electronics are designed to be programmable with 4 different 
+gain settings (4.7, 7.8, 14, and 25 mV/fC) and 4 shaping time settings 
+(0.5, 1, 2, and 3 us). The shaping time is defined as the time 
+between peak and 5\% of the peak. For a fixed gain setting, the peak 
+is always at the same height independent of the shaping time. }
+\label{fig:ele_res}
+\end{figure}
+
+
+
+\begin{figure}[htb]
+\centering
 \includegraphics[width=0.8\textwidth]{figures/Signal_formation.png}
-\caption{The process of TPC signal formation. See text for more explanations.}
+\caption{The process of TPC signal formation. See text for more explanations.
+\textcolor{red}{This plot will be replaced with DUNE garfield simulation ...}}
 \label{fig:signal_formation}
 \end{figure}
 
@@ -125,7 +141,7 @@ signal. In the right panel of Fig.~\ref{fig:ideal_track_2}, the top half shows t
 realistic effective charge distribution seen by the targeted wire. The convolution of this 
 distribution with a bipolar response function will lead to results shown at the bottom. In 
 this case, we can see that the signal height is much smaller though the length of signal is 
-long. This effect will lead to complications in designing the zero-suppression algorithm.
+long. This effect leads to complications in designing the zero-suppression algorithm.
 
 
 \begin{figure}[!h!tbp]
