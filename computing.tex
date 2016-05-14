@@ -307,6 +307,11 @@ W planes, respectively, are configured according the operating conditions which 
     an electron drift which starts from arbitrary position within the region of calculation.
     Figure~\ref{fig:garfield_2d} shows the configuration used in garfield 2D simulation.
 The Garfield-simulated response functions are shown in Fig.~\ref{figs:overall_response}.
+ The average response function for single electrons within a wire region 
+is calculated for the closest wire $R_0$, next adjacent wire $R_1$, and so on. The U and 
+V plane responses functions are shown in the middle and right panel of 
+Fig.~\ref{figs:overall_response}, respectively.  For induction wire planes, these response 
+functions are reasonably balanced as expected.
 
 \begin{figure}[htb]
 \centering
@@ -315,3 +320,217 @@ The Garfield-simulated response functions are shown in Fig.~\ref{figs:overall_re
 \label{fig:garfield_2d}
 \end{figure}
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/dune_field_res.pdf}
+\caption{The overall response functions, which is the convolution of the
+electronics response function (14 mV/fC gain and 2 $\mu$s shaping time) 
+and the field response, are shown. }
+\label{fig:overall_response}
+\end{figure}
+
+
+\subsubsection{Choice of Software Filter}
+
+We select and implement two types of filters.  The first inspired by the Wiener filter.  It is modified to not suppress
+low frequency components.  The second one is the Gaussian filter. While the first one is optimized for 
+each wire plane to produce a high signal-to-noise ratio, the second one is optimized and same to all the planes 
+to correctly estimate the charge which is independently measured on each of the three planes.  This latter is 
+important if all three planes are used for energy measurement and critical for proper application of the
+Wire-Cell imaging technique.  In this section, we describe the choice on these software filters.
+
+The standard Wiener noise filter~\cite{wiener} is constructed using the expected 
+signal $S(\omega)$ and noise $N(\omega)$ frequency spectra:
+\begin{equation}
+F(\omega) = \frac{S^2(\omega)}{S^2(\omega) + N^2(\omega)}.
+\end{equation}
+With this construction, the Wiener filter is expected to achieve the best signal to noise ratio. 
+However, applying the Wiener filter to TPC signal processing is problematic. 
+%
+First, in LArTPC, the TPC signal $S(\omega)$ varies substantially
+depending on the exact nature of the event topology.
+%
+Second, the electronic noise spectrum is a function of the time window
+over which it is observed. A longer time window allows for observation
+of more low frequency noise components.
+%
+Third, the induction wire signal spectrum is small at low frequency
+and so would be its Wiener filter.  However, as discussed previously, 
+a software filter with low-frequency suppression leads to large distortions 
+of the signal and is thus not ideal.  
+
+The functional form of the software filter is chosen as:
+\begin{equation}
+F(\omega) = 
+\begin{cases}
+e^{- \frac{1}{2} \cdot \left( \frac{\omega}{a} \right)^b} &  \omega >0 \\
+0 &  \omega = 0, \\
+\end{cases}
+\end{equation}
+with $a$ and $b$ are two free parameters. 
+Note, $b=2$ is basically the Gaussian filter. 
+The filter is explicitly zero at $\omega = 0$ in order to remove the DC component in the deconvoluted signal. 
+This removes information about the baseline and a new baseline is calculated and restored for the waveform after 
+deconvolution. The above functional form of the filter has another advantageous property:
+\begin{equation}
+lim_{\omega \rightarrow 0} F(\omega) = 1.
+\end{equation}
+which means the integral of the smearing function is unity, which does not introduce any
+extra factor in the overall normalization. The free parameter $a$ and $b$ in the above 
+form is determined by matching the tail of Wiener filter at its high frequency side. 
+An example of software filter is shown in Fig.~\ref{fig:soft_filter_1}. 
+
+\begin{figure}[!h!tbp]
+\includegraphics[width=0.8\textwidth]{figures/filter_1.png}
+\caption{The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution. 
+The time and frequency domain content are shown on the left and right panel, respectively.
+The x-axis's unit for the time domain is $\mu$s. For the frequency domain, the number 2000
+corresponds to $\sim$0.42 MHz.}
+\label{fig:soft_filter_1}
+\end{figure}
+
+Beside the high-frequency software filter described above, there is also a low-frequency 
+software filter which is used to select ROIs (discussed in the next section). 
+The functional form of the low-frequency software filter is 
+\begin{equation}
+F(\omega) = 1- e^{-\frac{1}{2}\cdot \left( \frac{\omega}{c} \right)^2}.
+\end{equation}
+
+\subsubsection{ROI Selection}
+The region of interest (ROI) is an important technique to limit the contribution of low-frequency 
+electronic noise. The ROI selection was based on the deconvoluted results. Essentially, we perform
+three rounds of deconvolution:
+\begin{itemize}
+\item 1D deconvolution with the imbalanced data-driven field response function (``1D deconvolution'').
+\item 2D deconvolution with the balanced Garfield-simulated field response function with a low-frequency filter (``2D deconvolution with low-frequency filter'').
+\item 2D deconvolution with the balanced Garfield-simulated field response function without a low-frequency filter (``2D deconvolution'').
+\end{itemize}
+The first two are used to select ROIs, and the results from the third deconvolution are then used to obtain the final 
+deconvoluted results. 
+
+\subsubsection{``Calibration'' of Field Response Function}
+
+In the TPC signal calibration procedure, the response functions are required to be known. 
+Assuming the shape of the response functions is known, the relative time 
+offsets among the induction U, induction V, and collection W can be calibrated directly 
+from the data. Same can be done for the relative normalization 
+of the field response function. In this section, we describe the procedure 
+that we used to calibrate these time offsets and the relative normalization among field response
+functions. 
+
+Wire-Cell imaging determines the likely spatial distribution of
+activity in the detector volume which is consistent with the measured
+signals.  The distribution is defined on a collection of voxels
+filling the volume.  The voxels are shaped as polygonal, right-angled
+extrusions.  The two polygonal faces are called ``cells'' and are
+parallel to the wire planes.
+
+A cell covers the region near a triple-overlap of one wire from each
+plane.  If one imagines a strip with width $\pm\frac{1}{2}$ wire pitch
+which runs parallel to the wire and in the wire plane and then further
+imagines three strips, one from a wire in each plane, overlapping then
+their intersection forms a cell.
+
+The sides of the voxels are parallel to the drift and extend to cover
+the distance electrons will drift during one ``time slice'' (chosen to be six
+ticks for MicroBooNE with 70 kV drift high voltage.).~\footnote{Space charge 
+corrections will lead to a certain warping.}
+
+The measured signal on a wire is subject to a threshold.  For a given
+time slice, if the signal is above this threshold the wire is
+considered ``hit''.  Likewise, for each time slice, any cell which has
+its three associated wires ``hit'' is itself considered
+``hit''.~\footnote{In the real world case where some channels do not
+  read out, the signal the requirement is relaxed to consider the cell
+  hit if at least two wires are hit and the third wire is a known dead 
+channel.  This leads to complications such
+  as producing artificial cell hits (``ghosting'').}  Given the time
+of the hit cell and external information about the initial interaction
+time (from the optical detector system), the cell can be projected
+into the detector volume along the drift path to provide the location
+of the voxel.
+
+The time offsets among the field response functions are therefore calibrated by 
+counting the number of cells in the imaging process. For example, a time shift in the 
+field 
+response function would lead to a time shift in the location of the corresponding hit 
+and thus lead to a mist-match hits among three planes, which will reduce the number of 
+cells reconstructed. 
+
+One of the unique features of the LArTPC is that each wire plane, be it induction or 
+collection provides a measure of the same distribution of ionization electrons.
+This 
+feature is independent of the initial event topology (i.e. track angle, shower, vertex etc.). 
+Therefore, this feature can be used to remove ambiguities made by using wire planes for the 
+readout. Using the concept of wire and cell, we can thus write down the following charge 
+equation:
+\begin{equation}\label{eq:charge}
+B\cdot W = G\cdot C.
+\end{equation}
+Here, $W$ represents a vector of charge measures in wires from all wire planes in a given time slice. 
+$B$ is a matrix connecting \textit{merged wires} with single wires~\footnote{A group of ``merged wires'' is formed by collecting together all neighboring hit wires in the time slice.  This is done to reduce the rank of the matrix equation.}.
+$C$ is a vector representing the likely amount of ionization electrons in \textit{merged cells} or \textit{blobs}~\footnote{``A group of ``merged cells'' is formed by collecting together all primitive cells which are hit and self-contiguous.}.  $G$ is the geometry 
+matrix connecting merged cells and the merged wires. This equation can be expanded into 
+a chi-square function:
+\begin{equation}\label{eq:chi2}
+\chi^2 = \left( B\cdot W - G\cdot C \right)^T V_{BW}^{-1} \left(B\cdot W - G\cdot C\right),
+\end{equation}
+which also takes into account the uncertainties of the measured charge in 
+wires. In particular, $V_{BW} \equiv B \cdot V_{W} \cdot B^{T}$ is the 
+covariance matrix describing the uncertainty in (merged) wire 
+charges. 
+
+The minimum of the above chi-square function can be found by calculating the 
+first derivative
+\begin{equation}
+\frac{\partial \chi^2}{\partial C} = 0  \rightarrow
+G^{T} V_{BW}^{-1} \left(B\cdot W - G\cdot C\right) +
+\left(B\cdot W- G\cdot C\right)^{T} V_{BW}^{-1} G = 0,
+\end{equation}
+and the solution can be written as:
+\begin{equation}\label{eq:solution}
+C = \left( G^{T} \cdot V_{BW}^{-1} \cdot G \right)^{-1} \cdot G^{T} \cdot V_{BW}^{-1} \cdot B\cdot W.
+\end{equation}
+The core of the Eq.~\eqref{eq:solution} is the inversion of the matrix 
+$G^{T} \cdot V_{BW}^{-1} \cdot G$, which will be referred to as $M$. 
+When this matrix can be inverted, the charge
+of merged cells can be derived directly. For faked hits (merged cells without 
+any ionization charge), the derived charge is likely to be close to zero. For 
+real hits (merged cells with ionization charge), the derived charge is like to be
+large and close to the true value. On the other hand, if this matrix can not be
+inverted, additional assumptions and more advanced techniques are needed to 
+derive the solution. The details of these techniques are beyond the scope of this
+technote, and will not be discussed here. However, when the charge on the cell is 
+solved, we can use them to predict the charge on the wire. Then by comparing the 
+the measured charge vs. the predicted charge on the wire, we can calibrate the 
+relative normalization of the field response. This is possible because the predicted
+charge is calculated assuming all three wire planes are seeing the same amount of 
+ionization charge. 
+
+
+
+\subsubsection{Metrics in Evaluating TPC Signal Processing}
+
+In order to evaluate the TPC signal processing, which include both the noise filtering and 
+the signal calibration, there are two robust metrics that can be used for evaluation 
+purpose. 
+They are:
+\begin{itemize}
+\item Equivalent Noise Charge (ENC): \\
+  ENC is  basically proportional to the pedestal RMS in terms of ADC, and is a direct 
+measure of the noise level in the unit of electrons. It can be used to compare the 
+noise levels from different experiments.
+\item Deconvoluted Noise Charge after the TPC signal calibration (DNC): \\
+The goal of the TPC signal calibration process is to recover the number of ionization 
+electrons from the measured TPC signal. With the same procedure, the electronic noise
+will also be converted. The unit of these noise is again electrons, which can be compared with 
+the expected ionization electrons from energetic charge particles. As described in this technote, 
+the DNC depends on the ENC as well as the frequency content of the noise spectrum. It
+also depends on the response function used for deconvolution. This is the primary reason 
+why the induction plane DNC is much higher than the collection plane DNC. Furthermore, since
+we have to rely on ROI and AB techniques to reduce the noise level for the induction plane,
+DNC also depends on the time window length of ROI. 
+\end{itemize}
+Understanding the ENC and DNC for the current-generation experiments and the expected 
+performance for the future experiments are important steps to achieve automated event 
+reconstruction for LArTPCs.
