@@ -305,7 +305,7 @@ W planes, respectively, are configured according the operating conditions which 
     be calculated for each individual wire in the form of induction current 
     (U and V planes) and collection current on (W planes) as a function of time for
     an electron drift which starts from arbitrary position within the region of calculation.
-    Figure~\ref{fig:garfield_2d} shows the configuration used in garfield 2D simulation.
+    Figure~\ref{fig:garfield_2d} shows the configuration used in Garfield 2D simulation.
 The Garfield-simulated response functions are shown in Fig.~\ref{figs:overall_response}.
  The average response function for single electrons within a wire region 
 is calculated for the closest wire $R_0$, next adjacent wire $R_1$, and so on. The U and 
@@ -337,7 +337,7 @@ low frequency components.  The second one is the Gaussian filter. While the firs
 each wire plane to produce a high signal-to-noise ratio, the second one is optimized and same to all the planes 
 to correctly estimate the charge which is independently measured on each of the three planes.  This latter is 
 important if all three planes are used for energy measurement and critical for proper application of the
-Wire-Cell imaging technique.  In this section, we describe the choice on these software filters.
+Wire-Cell imaging technique~\cite{wire-cell}.  In this section, we describe the choice on these software filters.
 
 The standard Wiener noise filter~\cite{wiener} is constructed using the expected 
 signal $S(\omega)$ and noise $N(\omega)$ frequency spectra:
@@ -407,6 +407,33 @@ three rounds of deconvolution:
 \end{itemize}
 The first two are used to select ROIs, and the results from the third deconvolution are then used to obtain the final 
 deconvoluted results. 
+
+\subsubsection{Metrics in Evaluating TPC Signal Processing}
+
+In order to evaluate the TPC signal processing, which include both the noise filtering and 
+the signal calibration, there are two robust metrics that can be used for evaluation 
+purpose. 
+They are:
+\begin{itemize}
+\item Equivalent Noise Charge (ENC): \\
+  ENC is  basically proportional to the pedestal RMS in terms of ADC, and is a direct 
+measure of the noise level in the unit of electrons. It can be used to compare the 
+noise levels from different experiments.
+\item Deconvoluted Noise Charge after the TPC signal calibration (DNC): \\
+The goal of the TPC signal calibration process is to recover the number of ionization 
+electrons from the measured TPC signal. With the same procedure, the electronic noise
+will also be converted. The unit of these noise is again electrons, which can be compared with 
+the expected ionization electrons from energetic charge particles. 
+The DNC depends on the ENC as well as the frequency content of the noise spectrum. It
+also depends on the response function used for deconvolution. This is the primary reason 
+why the induction plane DNC is much higher than the collection plane DNC. Furthermore, since
+we have to rely on ROI and AB techniques to reduce the noise level for the induction plane,
+DNC also depends on the time window length of ROI. 
+\end{itemize}
+Understanding the ENC and DNC for the current-generation experiments and the expected 
+performance for the future experiments are important steps to achieve automated event 
+reconstruction for LArTPCs.
+
 
 \subsubsection{``Calibration'' of Field Response Function}
 
@@ -499,8 +526,7 @@ any ionization charge), the derived charge is likely to be close to zero. For
 real hits (merged cells with ionization charge), the derived charge is like to be
 large and close to the true value. On the other hand, if this matrix can not be
 inverted, additional assumptions and more advanced techniques are needed to 
-derive the solution. The details of these techniques are beyond the scope of this
-technote, and will not be discussed here. However, when the charge on the cell is 
+derive the solution. When the charge on the cell is 
 solved, we can use them to predict the charge on the wire. Then by comparing the 
 the measured charge vs. the predicted charge on the wire, we can calibrate the 
 relative normalization of the field response. This is possible because the predicted
@@ -508,29 +534,20 @@ charge is calculated assuming all three wire planes are seeing the same amount o
 ionization charge. 
 
 
-
-\subsubsection{Metrics in Evaluating TPC Signal Processing}
-
-In order to evaluate the TPC signal processing, which include both the noise filtering and 
-the signal calibration, there are two robust metrics that can be used for evaluation 
-purpose. 
-They are:
+\subsubsection{Shape Calibration of Field Response Function}
+In the previous section, we describe the calibration of the time offset and the relative normalization
+among the field response using Wire-Cell imaging technique. However, it is rather difficult to 
+calibrate the shape of the field response function with the real data. In order to properly 
+calibrate the shape of the field response function, it is crucial to satisfy the following requirements:
 \begin{itemize}
-\item Equivalent Noise Charge (ENC): \\
-  ENC is  basically proportional to the pedestal RMS in terms of ADC, and is a direct 
-measure of the noise level in the unit of electrons. It can be used to compare the 
-noise levels from different experiments.
-\item Deconvoluted Noise Charge after the TPC signal calibration (DNC): \\
-The goal of the TPC signal calibration process is to recover the number of ionization 
-electrons from the measured TPC signal. With the same procedure, the electronic noise
-will also be converted. The unit of these noise is again electrons, which can be compared with 
-the expected ionization electrons from energetic charge particles. As described in this technote, 
-the DNC depends on the ENC as well as the frequency content of the noise spectrum. It
-also depends on the response function used for deconvolution. This is the primary reason 
-why the induction plane DNC is much higher than the collection plane DNC. Furthermore, since
-we have to rely on ROI and AB techniques to reduce the noise level for the induction plane,
-DNC also depends on the time window length of ROI. 
+\item a bright point-like electron source,
+\item the electron source can be generated at multiple known positions,
+\item precise averaging of the waveform is needed to minimize the electronics noises,
+\item distortion by digitization must be minimized,
+\item the electron spot is relative close to the wire plane to limit the diffusion,
+\item negligible influence on the drift field is required.
 \end{itemize}
-Understanding the ENC and DNC for the current-generation experiments and the expected 
-performance for the future experiments are important steps to achieve automated event 
-reconstruction for LArTPCs.
+
+The above requirements can be achieved with a system with photocathode driven by pulsed laser. 
+
+\textcolor{red}{more stuff ...}
