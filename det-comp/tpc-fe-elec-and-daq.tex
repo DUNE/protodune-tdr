@@ -141,6 +141,7 @@ The COLDATA ASIC provides:
 \item Four 4:1 Muxs that combine 16 serial lines from the ADCs of eight channels each into four serial lines of 32 channels each
 \item Four 1-Gbps serial drivers that form the data link to DAQ
 \end{itemize}
+\fixme{Have we decided on the 4:1 Mux?  Is the 8:1 still an option?}
 If it is demonstrated that the COLDATA ASIC can achieve 2~Gbps,
 then the 4:1 Mux will be increased to 8:1 and only two serial drivers will be implemented,
 with a subsequent reduction in cabling, etc.
@@ -157,6 +158,7 @@ and data is transmitted via optical fiber to front-end computers.
 % 2015-02-27 chc: remove reference to the outdated block diagram
 %Figure~\ref{fig:elec_asic_layout} shows a block diagram of the proposed 16-channel front-end ASIC.
 The analog FE ASIC has 16 channels.
+\fixme{Are these gains and time constants still correct?}
 Each channel includes a charge amplifier with a gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
 (full scale charge of 55, 100, 180 and 300~fC),
 a high-order anti-aliasing filter with adjustable time
@@ -210,10 +212,11 @@ The first issue is the need for realistic models at the operating temperature
 of all active and passive components in order to reliably predict operating points,
 signal response and noise during the design process.
 The second issue is that the design must ensure a long operational lifetime, since once the TPC is filled 
-with LAr the detector must operate for about 15~years without any access to the 
+with LAr the far detector must operate for about 15~years without any access to the 
 electronics for repair or replacement.
 Concerning the availability of realistic models, 
 our preliminary results from the cryogenic characterization (down to 40 K) of a complete 
+\fixme{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.} 
 mixed-signal ASIC \cite{CMOS-Compton} in a commercial CMOS 0.25~$\mu$m technology, 
 originally developed for room-temperature applications, indicates that the models 
 are useful to first order.
@@ -224,13 +227,16 @@ have been used to refine the device models at 89~K.
 
 The lifetime of CMOS circuits is limited by several mechanisms which degrade 
 the performance over time, eventually causing the circuit to fail to perform as specified. 
+\fixme{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.} 
 The rates of most degradation mechanisms in CMOS, such as electro-migration (EM), 
 stress migration (SM), time-dependent dielectric breakdown (TDDB), thermal cycling (TC), 
 and negative bias-temperature instability (NBTI), all scale with temperature such that 
 cryogenic operation is favored \cite{CMOS-lifetime}\cite{PMOS-model}. The only mechanism 
 that could affect the lifetime at cryogenic temperature is the degradation due to 
 impact ionization, which causes charge trapping in the MOSFET gate oxide at 
-large drain-current densities (the ``Hot Carrier'' effect). Results from a CMOS reliability study~\cite{CMOS-reliability} 
+large drain-current densities (the ``Hot Carrier'' effect).
+\fixme{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.} 
+Results from a CMOS reliability study~\cite{CMOS-reliability} 
 provide general design guidelines (for device geometry, bias and current density) 
 that should guarantee a lifetime well in excess of 15~years for continuous cryogenic operation. 
 These design guidelines also provide information for designing test conditions to observe the 
@@ -240,6 +246,7 @@ measured under stressed conditions within practical times, to the ultimate lifet
 A monitor of the impact ionization is the bulk current, which reaches a maximum at $V_{DS} = V_{DD}$ and at $V_{GS} = 0.5 V_{DD}$.
 When operating constantly in this condition at room temperature, a properly designed device 
 will typically have a lifetime (defined as a 10\% degradation in $g_m$) of about 10~years. 
+\fixme{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.} 
 The bulk current (i.e., the impact ionization) increases by roughly a factor of four from 300~K to 77~K 
 \cite{CMOS-reliability} and a circuit designed for operation at room temperature would have 
 a proportionately shorter useful life at cryogenic temperature. As stated above, in order to guarantee 
@@ -261,7 +268,7 @@ prototype samples throughout the development process to verify the long-term rel
 \subsubsection{Cold Analog ASICs}
 \label{subsubsec:fe_CMOS_analog}
 
-The development of the readout ASIC has begun by designing and fabricating in a commercial CMOS
+The development of the readout ASIC began by designing and fabricating in a commercial CMOS
 process (0.18~$\mu$m and 1.8V) a 16-channel ASIC implementing the complete analog front-end section.
 The FE ASIC layout is shown in Figure~\ref{fig:tpcce_FE_ASIC}.
 This process is expected to be available for at least another 10~years. 
@@ -269,6 +276,7 @@ The charge amplifier input MOSFET is a p-channel biased at 2~mA with a L/W (chan
 of 0.27~$\mu$m / 10~$\mu$m, followed by dual cascade stages.
 The charge amplification and shaping filter have digitally programmable gain and peaking time
 (as listed in Section~\ref{subsec:fe_arch}).
+\fixme{This contains an old reference to microboone-url, which is no longer in the bibliography.} 
 Each channel also implements a high-performance output driver,
 which is used to drive a long cable when it is used in a standalone mode, as it is in MicroBooNE.\cite{microboone-url}
 The buffer can be disabled when it is interfaced to an ADC ASIC to reduce the power consumption.
@@ -281,7 +289,8 @@ The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
 \includegraphics[width=\linewidth]{tpcce_FE_ASIC.pdf} % New one.
 \end{cdrfigure}
 
-This ASIC has now been through four design/fabrication/testing revision cycles.
+\fixme{Is "five cycles" correct?  Or is it six?}
+This ASIC has now been through five design/fabrication/testing revision cycles.
 Prototypes from each cycle have been evaluated and characterized at room (300~K) and liquid nitrogen (77~K) temperatures.
 During these tests the circuits have been cycled multiple times
 between the two temperatures and operated without any change in performance.
@@ -304,6 +313,7 @@ which are in close agreement with the simulations as well.
 \includegraphics[width=4in]{tpcce_enc.pdf}
 \end{cdrfigure}
 
+\fixme{Are these noise values the latest?  Should we include anything from the 35t test?}
 Figure~\ref{fig:tpcce_enc} shows the measured ENC versus filter-time constant (peaking time).
 At 1~$\mu$s about 650 e$^{-}$ was measured, to be compared to the simulated value of 500 e$^{-}$.
 The difference is mainly due to the thermal noise from a $\sim$11-ohm parasitic resistance of the input
@@ -327,10 +337,11 @@ out on the individual test structures fabricated on this ASIC to
 confirm device models and design guidelines.
 
 % 2015-02-27 chc: ADC ASIC is below
-The development of the ADC ASIC is also using CMOS process (0.18~$\mu$m and 1.8V).
+The development of the ADC ASIC is also using the CMOS process (0.18~$\mu$m and 1.8V).
 A 16-channel ASIC has been prototyped and tested.
 The layout of the ADC ASIC is shown in Figure~\ref{fig:tpcce_ADC_ASIC}. 
 The ADC ASIC has 12-bit resolution, 2~MS/s sampling rate, built in FIFO, two 8:1 multiplexing and two pairs of serialized output.
+\fixme{I believe the number of transistors has increased.  What is the latest count?}
 The ADC is a complex design, which has more than 300,000 transistors.
 All of the transistor design has been done following the rules for long cryo-lifetime.
 
@@ -352,13 +363,15 @@ The ADC along with the input buffers are biased internally using a bias generato
 The bandgap voltage (VBGR) can be monitored and/or controlled externally.
 It can be put in the low-power sleep mode, and woken up in less than 1~$\mu$s.
 
-The ADC ASIC has now been through four design/fabrication/testing revision cycles.
+\fixme{Is "five cycles" correct?  Or is it six?}
+The ADC ASIC has now been through five design/fabrication/testing revision cycles.
 Prototypes from each cycle have been evaluated and characterized at room (300~K) and liquid nitrogen (77~K) temperatures.
 During these tests the circuits have been cycled multiple times.
 The effective resolution with reference to the input referred noise is $\sim$11.6~bits at both 300~K and 77~K.
 The differential non-linearity (DNL) is less than 4 LSBs for 99\% of ADC bins at both 300~K and 77~K.
 The performance of the ADC meets the far detector requirements.
 
+\fixme{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.} 
 An analog front-end ASIC was adopted by the MicroBooNE experiment in 2010.\cite{microboone-url}
 The fabrication and installation was successfully completed in early 2014, and now 
 a total of 8,256 channels (516 FE ASICs) instrument the MicroBooNE TPC. 
@@ -373,9 +386,8 @@ being tested at 77~K before final installation. % on the TPC.
 \subsubsection{Cold Digital Data ASICs}
 \label{subsubsec:fe_CMOS_digital}
 
-The development of the COLDATA ASIC will follow the same general guidelines developed for the cold analog ASICs, but
-%The COLDATA ASIC design 
-will differ from the analog design in a couple of aspects.
+The development of the Cold Digital Data (COLDATA) ASIC will follow the same general guidelines developed for the cold analog ASICs,
+but will differ from the analog design in a couple of aspects.
 It is anticipated that the digital ASIC will make use of a 65-nm CMOS technology and require a
 digital library with accurate cold timing models allowing for high-level language design and
 automated place-and-route for design blocks using extensive digital logic.
@@ -427,7 +439,7 @@ Optical fiber will be employed externally to the cryostat, under DAQ scope.
 
 The design for the signal feedthroughs is complete except for some small adjustments,
 which are expected to be complete by June 2016.
-We have been working in tandem with the SBND group, which has very similar feedthrough needs.
+We have been working in tandem with the SBND group because of our very similar feedthrough needs.
 Some views from the current design of a signal feedthrough is shown in Figure~\ref{fig:tpcce_signal_FT}.
 Based on a standard 14-in conflat flange,
 each of these feedthroughs would serve the bias/power/digital IO needs of two APAs.  
@@ -442,7 +454,8 @@ these cables will be strain-relieved on the mounting rails above the APAs.
 % Two APAs will be cabled to one feedthrough in ``chimneys'' in the roof of the cryostat that
 % contain the support rods for the TPC planes.
 
-\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{The signal/power feedthrough}
+\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{The signal/power feedthrough
+\fixme{This is actually the SBND feedthrough, very similar to ours, but we should update this when available.}}
 \includegraphics[width=3in]{tpcce_signal_FT_1.jpg}
 \includegraphics[width=3in]{tpcce_signal_FT_2.jpg}
 \end{cdrfigure}
@@ -472,6 +485,7 @@ moderate-speed cables for a communication downlink to the FE boards,
 high-speed cables to carry the data out of the cryostat and signal cables to carry the photon detection out.
 All of these cables will pass through the feedthrough port provided for each pair of stacked APAs.
 
+\fixme{Have the connectors been selected?}
 The cables --- and connectors --- will be selected to have a low outgas and provide minimal contamination to the LAr environment.
 %The same is true of connectors.
 Connectors will also need to be tested for usage in LAr to make sure that a low ohmic contact is maintained
@@ -488,8 +502,7 @@ two or three thousand volts with less than a couple of milliamps.
 We anticipate using a coaxial cable and connectors which have been tested and found sufficient to provide this load.
 
 The cables for the moderate speed downlink could utilize LVDS signaling and low-skew pairs.
-Again, testing will be required to %identify and 
-select the final cable and connectors.
+Again, testing will be required to select the final cable and connectors.
 
 For the high-speed data links, we anticipate using a low-skew copper twinax cable.
 We have prototyped such a cable and found that we can drive data at 2~Gbps for a 20~m length.
@@ -497,6 +510,7 @@ We have prototyped such a cable and found that we can drive data at 2~Gbps for a
 Finally, the photon detector cables currently make use of shielded twisted pair cables which carry both
 the DC bias voltage as well as the signals.
 
+\fixme{Should we add a requirement about the connectors being keyed?}
 It will be important that all cables and connectors be somewhat rugged,
 locking and able to withstand a minimum of several tens of mating cycles.
 This is in addition to concerns about material compatibility and the fact they must work in the cryogenic environment.
@@ -506,6 +520,7 @@ This is in addition to concerns about material compatibility and the fact they m
 \subsubsection{Power for the Cold Electronics }
 \label{subsubsec:ce_feedthrough_power}
 
+\fixme{Haven't we made some changes here, regarding DC/DC converters?}
 The power-per-channel for the FE electronics is designed be about 25~mW and the total low-voltage
 power requirement for each APA is expected to be about 64~W.
 Power will be supplied to the electronics on each APA separately by low-noise
@@ -558,6 +573,7 @@ a full complement of tests will be performed during the development stage and be
 %%%%%%%%%%%%%%%%
 \subsubsection{Prototype Testing}
 \label{subsubsec:ce_install_proto}
+\fixme{Do we want to keep some or all of this here?  Or, should this migrate to the QA/QC section?}
 
 Dedicated test boards for the FE ASIC and ADC ASIC,
 were used to characterize the performance of prototype ASICs at both 300~K and 77~K,
@@ -568,7 +584,9 @@ and another such board is currently being designed for the ADC ASIC.
 The development of the FE and ADC ASICs has proceeded through a series of prototype designs.
 A 128-channel prototype analog mother board has been developed and tested in the lab.
 Together with an FPGA mezzanine in place of the digital ASIC mezzanine,
-they form a FEMB for use in the 35-ton prototype TPC.
+they form a FEMB for use in the protoDUNE TPC,
+since the COLDATA work is unlikely to be advanced enough to
+provide more than a fraction of the electronics needed for the aggressive protoDUNE schedule.
 A test stand has been developed to test the FEMB
 using a commercial FPGA evaluation board as a mini-DAQ system.
 All evaluation test data are stored on a desktop PC and analyzed to
@@ -599,6 +617,7 @@ Tests will be performed on each board and bad chips replaced as needed.
 \item If the yield is not high, an automated test fixture will be 
 fabricated to validate every ASIC chip before mounting on the readout boards.
 Board-level tests after mounting the ASICs will be conducted.
+However, previous experience indicates that this scenario is very unlikely.
 \item The fully assembled front-end boards will be thermally cycled multiple times while connected
 to a simple DAQ system to ensure reliable operation.
 \item After the front-end electronics boards have been installed on an APA,
@@ -624,5 +643,6 @@ After the cryostat is filled with LAr and the detector is cooled down,
 an electronics calibration test will be performed to evaluate
 the detector performance prior to data taking.
 
+\fixme{Space-permitting, it seems to me that more details on commissioning would be in order.}
 %
 
