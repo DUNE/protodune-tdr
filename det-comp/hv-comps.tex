@@ -19,4 +19,73 @@ arrays, the HV bus providing low-resistance connections between CPAs,
 connections to the field cage, and devices for monitoring steady state
 and transient conditions of current and voltage.
 
-\fixme{put in the text describing the current reference design for the above}
+A schematic of the complete TPC HV circuit is shown in Fig.\ \ref{fig:TPCHVcircuit}.
+
+\begin{cdrfigure}[TPC HV circuit]{TPCHVcircuit}{A schematic of the TPC high voltage circuit.}
+  \fixme{put in the HV schematic}
+  %\includegraphics[width=0.8\textwidth]{TPCHVcircuit-Figure}
+\end{cdrfigure}
+
+
+The two cathode planes are biased at \SI{-180}{kV} to provide the
+required \SI{500}{V/cm} drift field.  Each cathode plane will be
+powered by a dedicated HV power supply through an RC filter and
+feedthrough.  The power supplies for the cathode planes must be able
+to provide \SI{-200}{kV} at \SI{1}{mA} current.  The output voltage
+ripple must not introduce more than 10\% of the equivalent thermal
+noise from the front-end electronics. The power supplies must be
+programmable to shut down their output at a certain current
+limit. During power on and off, including output loss (for any
+reason), the voltage ramp rate at the feedthrough must be controllable
+to prevent damage to the in-vessel electronics from excess charge
+injection. High-voltage feedthroughs must be able to withstand \SI{-250}{kV}
+at their center conductors in a \SI{1}{atm} argon gas environment when
+terminated in liquid argon.
+
+The current candidate for the high-voltage power supplies is the
+Heinzinger PNChp series, which has the lowest output ripple
+specification. Additional filtering of the voltage ripples is done
+through the intrinsic HV cable capacitance and series resistors
+installed inside the filter box. Established techniques and practices
+will be implemented to eliminate micro-discharges and minimize
+unwanted energy transfer in case of an HV breakdown.
+
+We have two current candidates for the feedthrough: a feedthrough
+designed by and under construction at UCLA, and the dual-phase
+feedthrough design.
+
+As described in the CPA section above, the cathode planes will be
+resistive, with electrical connections at the corners, in order to
+control the energy delivered in any discharges.  A low resistance
+``high voltage bus'' will provide the high voltage to the field cage
+circuit and cathodes with voltage drop much less than 0.1\% of the
+cathode voltage.  Field-shaping electrodes on the faces of the CPA
+frames will be part of the field cage circuit, described in the field
+cage section above. Field cage electrodes on the outer edges of the
+CPA frames will be held at the cathode potential to provide field
+uniformity and to protect the HV bus from discharge.  The feedthrough
+will connect to a high voltage cup on one side of a CPA at one end of
+the cathode plane.  Interconnection of the bus between CPAs will be
+through HV cables passed through the CPA frames.  See
+Fig.~\ref{fig:HVbus} for drawings of the high voltage bus and its
+interfaces.
+
+\begin{cdrfigure}[The HV bus.]{HVbus}{(a) Transverse cross-section of CPA top frame showing the location of the HV bus cable and equipotential countours; (b) front view showing location of cable and interconnect between two CPAs; (c) Attachment to HV cup on outer CPA frame.}
+  \fixme{put in the nice figures of the HV bus}
+  %\includegraphics[width=0.8\textwidth]{HVbus-figure}
+\end{cdrfigure}
+
+HV circuit monitoring devices include a toroid transformer to detect
+spikes and noise in the current draw and a monitoring point at the end
+of the field cage resistor chain, which also provides a means to
+control field shaping around the edge of the
+APA. (Fig.\ \ref{fig:TPCHVcircuit}.)
+
+To ensure safe and reliable operation, the HV components will be
+tested at a much higher voltage than expected in routine operation
+($\sim\SI{250}{kV}$) in LAr. Among these tests will be a planned
+``full scale'' high voltage test at Fermilab in which all components
+are subjected to the full voltage and field in liquid argon in the
+35-ton cryostat.
+
+
