@@ -1,16 +1,101 @@
 %\chapter{organization}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{ProtoDUNE organization}
+\section{ProtoDUNE-SP organization}
 
-protoDUNE organization within DUNE\\
+Given its technical challenges, its importance to the DUNE experiment and the timeframe in which it must operate, ProtoDUNE-SP requires a strong organizational structure with effective leadership to ensure its success. This detector is similar in design to the Short-Baseline Neutrino Detector (SBND), the near detector of the SBN experiment at Fermilab. The timelines of the two experiments are very similar, and therefore the development of effective synergies, in particular, the exploitation of common detector solutions, common test tooling, and the optimal use of resources (human and financial) will help to achieve the goals of both efforts.  The full description of the protoDUNE-SP organization is in~\cite{pdune-sp-org}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{A Detector Organization within the DUNE Collaboration}
+
+A Detector Organization within the DUNE Collaboration
+ProtoDUNE-SP is a detector organization within the DUNE collaboration, at the same level as the Far Detector (FD), Near Detector (ND) and ProtoDUNE-DP organizations, as indicated in Figure~\ref{fig:hi-lev-org-det}. The ProtoDUNE-SP effort is led by two Coordinators, supported by a Deputy, and by a Manager. 
+
+\begin{cdrfigure}[High-level organization of the detector efforts within DUNE]{hi-lev-org-det}{High-level organization of the detector efforts within DUNE. Each has a structure of working groups (WG) beneath, dedicated to particular subsystems or components.}
+ \includegraphics[width=0.95\textwidth]{hi-lev-org-det}
+\end{cdrfigure}
+
+The main ProtoDUNE-SP detector elements (TPC, CE and PDS) are intended as engineering prototypes for the DUNE FD. The DUNE FD organization is responsible for the management of the production of these detector components. The ProtoDUNE-SP organization is responsible for the activities at CERN, including the detector integration, installation, commissioning and operation of the experiment in the charged-particle test beam at the Neutrino Platform.  This also includes interfaces to DUNE Physics and DUNE Computing \& Software organizations. Efficient coordination between the ProtoDUNE-SP and FD organizations is key to success of this project.
+
+Each member of the ProtoDUNE-SP leadership has a distinct role:
+\begin{itemize}
+\item The DUNE Technical Board (TB), chaired by the DUNE Technical Coordinator, will act as the main decision-making body for the design of the ProtoDUNE-SP detector. All major decisions regarding the design of ProtoDUNE-SP will take place in the TB, which is responsible for the careful evaluation of all technical aspects and prompt selection of available alternatives during the design and construction phases. Both the DUNE FD and the ProtoDUNE-SP leadership are members of the TB, ensuring that all stakeholders are involved in the decision-making process.
+\item The ProtoDUNE-SP Coordinators effectively act as spokespersons for the ProtoDUNE-SP project and report to the DUNE management. They are ex-officio members of the DUNE Technical Board (TB).
+\item The ProtoDUNE-SP Deputy Coordinator supports the ProtoDUNE-SP coordinators as required and, in addition, oversees the ProtoDUNE-SP scientific activities. 
+\item The ProtoDUNE-SP Project Manager is responsible for all project management aspects for ProtoDUNE-SP. He or she maintains and is responsible for the overall schedule for ProtoDUNESP; represents ProtoDUNE-SP in the Far Detector international project management; manages the ProtoDUNE-SP work at CERN and liaises with the CERN teams responsible for the Neutrino Platform infrastructure for installation and operation of ProtoDUNE-SP.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Synergies with ProtoDUNE-DP}
+
+Concurrently with ProtoDUNE-SP, ProtoDUNE-DP will address a complementary part of the DUNE strategy for reaching the design goal of a 40-kt fiducial mass detector. ProtoDUNE-SP and ProtoDUNEDP share the CERN Neutrino Platform; this offers great opportunities for expanding common infrastructures (e.g., the cryogenics system, LAr purification, DAQ, computing) and for an optimal use and sharing of resources.
+
+As mentioned, ProtoDUNE-SP and ProtoDUNE-DP are placed at the same high level as the far and near detector organizations in the DUNE organizational chart. This fosters a strong coupling and overlap between the two ProtoDUNEs as well as between them and the Far Detector working groups and their activities. It should be noted, however, that the ProtoDUNEs (SP and DP) are identified as distinct organizations that take ownership of and responsibility for their separate experiments.
+During a meeting of the two ProtoDUNE management teams at CERN in February 2016, it was agreed that the organizations would pursue common development in several areas either through new joint working groups of the DUNE collaboration or existing working groups, as follows. 
+
+\begin{itemize}
+\item Online Computing -- New joint Working Group
+\item Offline Computing -- Common development through DUNE Software \& Computing Working Group
+\item Slow Control/Detector Monitoring -- New joint Working Group
+\item DAQ -- Independent efforts but potential for using common software tools
+\item Timing System -- Potential for shared implementation of White Rabbit System
+\item High Voltage Distribution -- Common development through Far Detector CPA/FC/ HV Working Group
+\item Beam Monitoring Detectors -- New joint Working Group
+\item Cosmic Tagging Detectors -- New joint Working Group
+\item Field Cage -- Common development through Far Detector CPA/FC/ HV Working Group
+\item Beam Window and Plug -- Common development for ProtoDUNEs through Far Detector
+\item CPA/FC/ HV Working Group
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Integration with CERN's Neutrino Platform}
+
+As the ProtoDUNE-SP Project Manager is responsible for all project management aspects for ProtoDUNE-SP, he or she is the primary liaison with the CERN teams responsible for the Neutrino Platform infrastructure for installation and operation of ProtoDUNE-SP.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{ProtoDUNE-SP Teams and Leadership Responsibilities}
+
+The ProtoDUNE-SP work is divided into several major tasks, each of which has a dedicated team, as illustrated in Figure~\ref{fig:pDUNE-SP-org}.
+
+\begin{cdrfigure}[ProtoDUNE-SP Organization Structure]{pDUNE-SP-org}{ProtoDUNE-SP Organization Structure}
+  \includegraphics[width=0.95\textwidth]{pDUNE-SP-org.jpeg}
+\end{cdrfigure}
+
+%%%%%%%%%%%%
+\subsubsection{Detector Integration, Testing and Installation (DITI)}
+
+This CERN-based Detector Integration, Testing and Installation (DITI) team is led by the ProtoDUNE-SP Project Manager and a Deputy acting as Floor Manager. A Test Coordinator and an Installation Coordinator lead these three activities starting from the arrival of the detector components at CERN through to the detector commissioning.
+
+The Integration/Infrastructure Engineer provides the interface to CERN in all matters related to the infrastructures in the assembly hall and in the experimental hall at the Neutrino Platform, including the cryostat and the cryogenics and LAr purification systems.
+Specific team members based at CERN provide the interface between the DITI team and each of the DUNE Far Detector WGs responsible for delivering the ProtoDUNE-SP detector components. 
+
+Correspondingly, the TPC, Photon Detection System and cold electronics WG leaders for the DUNE FD are ex-officio members of the ProtoDUNE-SP DITI managerial structure, ensuring a direct connection. The DITI team includes members (based at CERN) who take responsibility for the major detector components once they are at CERN.
+
+%%%%%%%%%%%%
+\subsubsection{High Voltage, Cryogenics, Beam Window and DAQ }
+
+The high voltage (HV) System, Cryogenics System, Beam Window and DAQ are managed by dedicated ProtoDUNE-SP teams. Where appropriate, these teams may overlap with the corresponding ProtoDUNEDP teams. Team leaders take the responsibility for the timely and technical success of their task. The team leaders will be invited to the DUNE Technical Board meetings when matters relating to ProtoDUNE-SP are discussed.
+
+%%%%%%%%%%%%
+\subsubsection{Other Tasks}
+
+\begin{itemize}
+\item If a Cosmic Muon Tracker/Trigger and/or Laser Calibration system are implemented for ProtoDUNE-SP, separate teams will be set up mirroring those for the HV and other systems. 
+\item Dedicated ProtoDUNE-SP teams will be set up for the Computing Infrastructure and for Beamline Detectors. They will provide the interface with CERN IT and with the Neutrino Platform and will support the experiment during run operations.
+\item The ProtoDUNE-SP physics planning and analysis will be led by Software Development and Physics teams. They will take responsibility for the preparations and fast delivery of detector performance characterization and physics results based on beam and cosmic ray data.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cost estimate}
+\section{Cost estimate}
 
 cost of components and coordination of production, QA/QC and installation\\
 
+Summary by subsystem, core costs, include major cost-drivers
+Identify DOE/non-DOE contributions
+ProtoDUNE-SP operations support
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{ProtoDUNE and EHN1 schedule}
+\section{ProtoDUNE and EHN1 schedule}
 
 schedule\\

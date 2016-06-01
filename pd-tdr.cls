@@ -147,17 +147,17 @@
 %%% originals come from booktabs
 %%% maybe want to customize:
 % \renewcommand{\toprule}{
-%   \arrayrulecolor{red}
+%   \arrayrulecolor{gray}
 %   \specialrule{1.5pt}{2pt}{0pt}
 %   \arrayrulecolor{black}
 % }
 % \renewcommand{\midrule}{
-%   \arrayrulecolor{red}
+%   \arrayrulecolor{gray}
 %   \specialrule{1pt}{1pt}{1pt}
 %   \arrayrulecolor{black}
 % }
 % \renewcommand{\bottomrule}{
-%   \arrayrulecolor{red}
+%   \arrayrulecolor{gray}
 %   \specialrule{1.5pt}{0pt}{2pt}
 %   \arrayrulecolor{black}
 % }
