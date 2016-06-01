@@ -21,3 +21,172 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cryostat and feedthroughs}
+
+The cryostat consists of a steel warm structure, layers of insulation and an inner cold membrane.  The steel warm structure represents the mechanical support of the inner membrane cold cryostat and its insulation. It consists of vertical beams alternated with a web of metal frames, capable to withstand the hydrostatic pressure of the liquid argon, the pressure of the gas volumes and all possible external constrains. The steel warm structure for NP04 is shown in Figure~\ref{fig:warm-vessel-layout}
+
+\begin{cdrfigure}[Warm vessel layout]{warm-vessel-layout}{lWarm vessel layout showing the various major components}
+  \includegraphics[width=0.8\textwidth]{warm-vessel-layout}
+\end{cdrfigure}
+
+The main requirement is that this mechanical structure is constructed in EHN1 without any mechanical attachment to the floor or the building side walls.  Inside the steel structure, a 10 mm skin of stainless steel plates are welded to provide a gas barrier to the outside.
+
+The top of the cryostat will be accessible for installation of the detectors, the electrical/signal feed-through, the detector supports and other cryogenics services.  In Figure~\ref{fig:cryo-structure-2d} you can see a drawing of the structure. The dimensions requirements are dictated by the need to provide a sufficient active volume of LAr to the detector. This means a transversal internal dimension of the liquid volume of width = 8548 mm, length = 8548 mm and height = 7900 mm. The dimensions have been adapted in order to ensure that all crossing penetrations are arranged as requested and that there is enough space for maintenance.
+
+\begin{cdrfigure}[2D drawing of the structure]{cryo-structure-2d}{2D drawing of the structure}
+  \includegraphics[width=0.8\textwidth]{cryo-structure-2d}
+\end{cdrfigure}
+
+Section view B in Figure~\ref{fig:cryo-structure-2d} shows the warm structure on the outside, 10 mm SS skin, 800 mm of insulation and the inner cold vessel.  The secondary membrane that is located within the insulation layer is not shown in this view.  The cold vessel is based on the GTT membrane technology.  The initial thermal requirements call for an insulation thickness of 800 mm, including the primary and secondary membrane. These two membranes will provide a first and second level of containment. There is no requirement at this point to have an additional containment at the level of the warm steel structure. The SS skin of 10mm thickness between the warm structure and insulation will provide an effective gas enclosure, which will allow controlling the Argon atmosphere inside the insulation volume.
+All necessary information can be found in \url{https://edms.cern.ch/document/1531438/3} \fixme{make it a citation}
+The 3D detailed cad model is visible in \url{https://edms.cern.ch/document/1531439/3} \fixme{make it a citation}
+
+Prior to installation of the GTT insulation and cold liquid membranes, the gas tightness of the SS 10mm membrane will be qualified by CERN using dye penetrant analysis, local vacuum bags techniques and He leaks sniffing detection at the level of the natural He present in the atmosphere ($\sim2-3 \times 10_{-6}6 mbar/l/sec$) and a report will be presented to GTT.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Storage characteristics}
+
+
+The expected function of the cryostat is to store LAr in liquid form at atmospheric pressure or just above. 
+The cryostat will be placed inside an existing CERN experimental hall at CERN (EHN1 building). The 
+cryostat is required to store the LAr at a temperature between 86.7 K and 87.7 K with a pressure inside the 
+tank of 950 < P < 1100 mbar. A special emphasis has been made on the thermal fluxes. They must be controlled and kept under 5 W/m2 on the walls/floor in contact with liquid to prevent boiling of the LAr.
+
+\begin{enumerate} % Need  \usepackage{enumerate} to append this: [(a)]
+\item The inner dimensions are $7900 mm \times 8548 mm \times 8548 mm (height \times length \times width$).  This corresponds to a total volume of ~580 m3. 
+\item Tank liquid capacity (assuming a ~4\% ullage): $\sim 557 m^3$
+\item Residual Heat Input (RHI): 5-6 W/m2
+\item Insulation weight: 90 kg/m3  
+\item Insulation thickness (all included): 0.8 m 
+\item Design pressure: Max 1350 mBar / Min 950 mBar.  The 1350 mBar is for an accidental condition during the cryogenics operation.
+\item Operating temperature: 86K-89K
+\end{enumerate}
+
+Figure~\ref{fig:cryo-overall-dim} shows the inner dimensions of the cryostat, dimensions of the \SI{10}{mm} SS skin and the overall outer dimensions of the warm structure.
+
+\begin{cdrfigure}[Overall dimensions]{cryo-overall-dim}{Overall dimensions}
+  \includegraphics[width=0.8\textwidth]{cryo-overall-dim}
+\end{cdrfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fe warm cryostat design}
+
+The design and structural analysis of the warm support structure including the 10 mm SS gas containment membrane is not a part of this study and has to be treated as a CERN deliverable. 
+
+The structural beams are the main elements of the floor, roof and side walls of the warm structure and the corner structural elements can be found only at the corners where the side wall is connected with the other side wall. The structural beams are the principal load bearing elements of the structure. Their purpose is to withstand the hydrostatic pressure from the LAr, as well as to support the roof load. They consist of IPE V 600 standard profile. 
+\fixme{add and reference figures   Figure~\ref{fig:struct-beam-detail} and Figure~\ref{fig:corner-struct-element-detail} }
+
+\begin{cdrfigure}[Structural beam detail]{struct-beam-detail}{Structural beam detail}
+  \includegraphics[width=0.4\textwidth]{struct-beam-detail}
+\end{cdrfigure}
+
+\begin{cdrfigure}[Corner structural element detail]{corner-struct-element-detail}{Corner structural element detail}
+  \includegraphics[width=0.4\textwidth]{corner-struct-element-detail}
+\end{cdrfigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The web interlink structure}
+
+The web interlink structure purpose is to provide an adequate support of the polyurethane insulation of the membrane. They consist of IPE O 270 profiles. \fixme{Reference Figure~\ref{fig:web-interlinks-detail}}
+
+\begin{cdrfigure}[Web interlinks detail]{web-interlinks-detail}{Web interlinks detail}
+  \includegraphics[width=0.4\textwidth]{web-interlinks-detail}
+\end{cdrfigure}
+
+
+Additional \SI{10}{mm} stainless steel plates are welded to the web interlink structure to create a gas containment barrier to the inside, as well as to ensure even better support for the membrane insulation. 
+The web interlink structure is also used for the floor, in-between the corner beams, as well as for the roof structure.
+
+A very detailed technical report is available at \url{https://edms.cern.ch/document/1531442/1} \fixme{make it a citation}.
+In this report the following items are discussed:
+\begin{itemize}
+\item all of the various load conditions including boundary conditions and the safety factors,
+\item buckling analysis,
+\item design and stress calculations for all of the bolted connections,
+\item finite element analysis calculations for the 10 mm skin and structure, and
+\item the compliance with the required codes.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cold GTT Vessel}
+
+Inside the warm support structure, which includes the stainless steel gas enclosure membrane, the GTT cold vessel will be installed. It consists of a thermal insulation, a primary corrugated stainless steel membrane, as well as a secondary thin membrane, to provide primary and secondary liquid containment. A cross sectional view of this is shown in Figure~\ref{fig:xsec-insulation-layers}.
+
+\begin{cdrfigure}[Cross section of insulation layers on membranes]{xsec-insulation-layers}{Cross section of insulation layers on membranes}
+  \includegraphics[width=0.8\textwidth]{xsec-insulation-layers}
+\end{cdrfigure}
+
+
+The primary membrane is made of corrugated stainless steel 304 L and is 1.2 mm in thickness.  The standard size of the sheets is 3 m x 1 m.  The secondary membrane is made of Triplex.  This is a composite laminated material of a thin sheet of aluminium between two layers of glass cloth and resin.  It is positioned inside the prefabricated insulation panels between two of the insulation layers.  Details of the two membranes are shown in Figure~\ref{fig:prim-2nd-membranes}.   The insulation is made from reinforced polyurethane foam.  The insulation panels are bonded to the inner 10 mm skin using resin ropes.  The insulation layers will be instrumented with gas inlets, outlets, temperature and pressure sensors.
+
+\begin{cdrfigure}[Primary membrane, prefabricated insulation and secondary membrane]{prim-2nd-membranes}{lLeft shows the primary stainless steel corrugated membrane and right shows the prefabricated panels of insulation and the secondary membrane}
+  \includegraphics[width=0.45\textwidth]{primary-membrane}
+  \includegraphics[width=0.45\textwidth]{prefab-insul-2nd-membrane}
+\end{cdrfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{TCO (Temporary Construction Opening)}
+
+A dedicated access window will be necessary to install the NP04 detector.  This is referred to as the TCO.  This means that no insulation of membrane can be installed at the beginning in this location. Once the detector installation has progressed as far as possible and all of the large TPC components are inside the cryostat, the TCO will be closed.  The 10 mm SS skin, insulation and cold membranes will be installed and welded in place. \fixme{reference Figure~\ref{fig:front-tco-np04}}
+
+\begin{cdrfigure}[Front view of the TCO for the NP04 cryostat]{front-tco-np04}{Front view of the TCO for the NP04 cryostat}
+  \includegraphics[width=0.8\textwidth]{front-tco-np04}
+\end{cdrfigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{LAr pump penetration}
+
+On one side wall, as low as possible, a special penetration has to be foreseen to connect the extraction liquid argon pumps that will allow the liquid recirculation to an external filtering system. For both solutions the penetration will be the same but placed in different locations (see section 8.2).
+To keep the high level of purity required, an external pump is connected on the one side to the bottom of the liquid, through a dedicated system of safety valves. This penetration requires a local modification of the insulation panels and the SS primary membrane, and will be a crossing tube with diameter of 168 mm for the insulation and the membrane and a larger diameter hole at the stainless steel plate.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Beam pipe penetration}
+
+Once constructed, the NP04 detector will be exposed to ionizing particle beams at CERN in the SPS accelerator. To avoid an important absorption of the energy of these particles in the dead material of the cryostat and its insulation, a beam pipe needs to be inserted which will remove a large fraction of this unnecessary material. Pipe dimension: 250 mm in diameter. This pipe will be placed upstream of the primary membrane and therefore the primary membrane will remain intact. CERN will deliver a full engineering description of the proposed beam pipe.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Roof signal, services and supports penetrations}
+
+The penetrations through the cryostat have been arranged by positions and diameters (see Section 8). Most of the penetrations are placed on the ceiling of the cryostat. They have been differentiated into two main groups according to their function and the thermal stresses they will be submitted to: whether they can be used to support the weight of the detector or not.
+The penetrations on the roof of the cryostat for the NP04 cryostat details are shown below.  A 3D cad model to identify all position can be found at:
+\url{https://edms.cern.ch/document/1543241/3} and drawing CENDUNCR0016. \fixme{make them citations}
+
+\fixme{add reference to Table~\ref{tab:roofpenetrations} }
+
+\begin{cdrtable}[Detector penetrations, roof]{llll}{roofpenetrations}{Detector penetrations, roof}
+Component & Header Column 2??  & Quantity & Value \\ \toprowrule
+West TPC translation suspension: &  N.3 & crossing tube diameter & \SI{200}{mm}\\ \colhline
+Center TPC translation suspension:& N.3 & crossing tube diameter & \SI{200}{mm}\\ \colhline
+East TPC translation suspension:& N.3 & crossing tube diameter & \SI{200}{mm}\\ \colhline
+Signal cable chimney FTs:&  N.8& crossing tube diameter & \SI{250}{mm}\\ \colhline
+Spare on Signal cable row FTs: & N.2 & crossing tube diameter & \SI{250}{mm}\\ \colhline
+Laser FTs: & N.1 & crossing tube diameter & \SI{160}{mm}\\ \colhline
+Calibration Fiber CPA FT:& N.1 & crossing tube diameter & \SI{250}{mm}\\ \colhline
+Spare on CPA line FTs:& N.2 & crossing tube diameter & \SI{150}{mm}\\ \colhline
+HV FT: & N.1 & crossing tube diameter & \SI{250}{mm}\\ \colhline
+Manhole:&  & crossing tube diameter & \SI{710}{mm}\\ \colhline
+Angled beam windows -- west side:&  & crossing tube diameter & \SI{250}{mm}\\ \colhline
+ &  &  Vertical: \SI{11.342}{\degree} & \\ \colhline
+ &  &  Horizontal: \SI{11.844}{\degree} & \\ \colhline
+TCO - side:&  & \num{1200}\si{mm} $\times$ \num{7300}\si{mm} & \\ \colhline
+ Cryogenic pipes - roof: &  &  & \\ \colhline
+ &  N.4& crossing tube diameter & \SI{250}{mm}\\ \colhline
+ &  N.1& crossing tube diameter & \SI{304}{mm}\\ \colhline
+ & N.5 & crossing tube diameter & \SI{152}{mm}\\ \colhline
+ &  N.1& crossing tube diameter & \SI{125}{mm}\\ \colhline
+ &  N.3& crossing tube diameter & \SI{250}{mm}\\ \colhline
+ Cryogenic pipes -- north side: &  N.1& crossing tube diameter & \SI{168}{mm}\\ 
+\end{cdrtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mechanical mounts and supports}
+\begin{itemize}
+\item Introduction 
+\item Layout and general design
+\item Technical information and specifications
+\item Interface with cryostat and warm structure
+\item Interface with TPC including electrical/grounding 
+\item Structural analysis and factors of safety
+\end{itemize}
+
