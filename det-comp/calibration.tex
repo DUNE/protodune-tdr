@@ -1,0 +1,234 @@
+
+\section{Calibration}
+\fixme{from Josh K}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Motivation}
+
+
+	The scientific program of protoDUNE is critical to the ultimate success
+of DUNE.  protoDUNE will be the DUNE Collaboration's only opportunity to
+measure the response of a DUNE-style LAr-TPC to hadrons (as well as $\gamma$s,
+$\mu$s, and electrons), and to compare those measurements to a model of the
+detector response. That model can then be used to predict the response for DUNE
+itself.  Precision measurements of response in testbeams are a common approach
+of long-baseline neutrino experiments. As a recent example, NO{$\nu$}A has
+found that some of their measurements are limited by the lack of knowledge of
+this response, which a testbeam would have provided.
+	
+	By itself, however, protoDUNE does {\it not} provide a response
+measurement that can simply be mapped onto DUNE.  Rather, protoDUNE provides
+measurements of the part of the response that depends on the interactions of
+various particle species in LAr.  The remainder of the detector response, which
+includes reconstruction resolutions and biases, the effects of noise, space
+charge and how it impacts reconstruction, and the conversion from observed
+charge to energy, all must be calibrated and ultimately removed from the
+physical hadron response.  Misinterpreting, for example, longitudinal diffusion
+as a fundamental part of shower development of $\pi^+$s means our understanding
+of $\pi$s will be wrong in DUNE---and there will be no test of that response in
+the DUNE FD, independent of neutrino events themselves.  By building protoDUNE
+in a way that mimics the DUNE far detector, we anticipate that such errors will
+`cancel out'; in practice we cannot rely on such a cancellation without knowing
+how different the parameters governing the response may be.
+
+	Ultimately, what this means is that we must calibrate a model of the
+detector---likely a LArSoft model---and use it to predict the response to
+hadrons.  If the detector model is accurate, differences between the predicted
+response to various hadrons and measurements allows a correction to the hadron
+response that can be used for the DUNE experiment.  
+
+	The existing option for creating a calibrated detector model for
+protoDUNE is to presume that calculations of the electric field throughout the
+detector, including space charge effects and impurities, are accurate, and that
+with this as input the detector response is uniquely calculable throughout the
+volume and for all times, up to the details of the electronics transfer
+function (and of course the response to various particle species which is what
+is being measured by protoDUNE).  
+
+	Figure~\ref{fig:35t} shows the variations in electron lifetime within
+the 35 tonne prototype as a function of position, as measured by {\it in-situ}
+purity monitors. The clear differences top and bottom indicate that we cannot
+assume that measurements in just a few places represent the detector at a
+whole. In addition to these variations, changes with the ambient environment
+were also seen, indicating that measurements must be made with reasonable
+frequency as well.  An idealized view of how an operating detector will behave
+would miss such variations.
+	 
+	The calibration program for DUNE has as its goal both the
+measurement of the parameters governing detector response and {\it tests} of
+the predicted response.  Table~\ref{tab:params} lists many of the critical
+
+\begin{cdrtable}[Parameters to be calibrated for ProtoDUNE model]{lllll}{params}{Parameters to be calibrated for ProtoDUNE model}
+Parameter & Name & Ex-situ Calibration & Calibration & Test \\ \toprowrule
+$W$ & Ionization Energy  & Benchtop & None & Cosmics \\  \colhline
+$C$ & ADC/Charge Map & Benchtop Pulsers & Front-End Pulsers & Cosmics \\ \colhline
+$f$ & Energy Scale & Calculation & Stopped cosmics & Through-going cosmics \\ \colhline
+$R$ & Electron recombination & Calculation & Laser & Cosmics \\ \colhline
+$\tau$ & Electron lifetime & Purity Monitors & Laser & Cosmics \\ \colhline
+$\vec{E}(x,y,z)$ & Electric Field map & Calculation & Laser & Cosmics \\ \colhline
+$v_d$ & Drift Speed & Purity+temp+Calc.& Laser & Cosmics \\ \colhline
+$d$ & Electron Diffusion & Calculation & Laser & Cosmics \\  \colhline
+$\rho_E$ & Field response & Calculation & Photocathode & Cosmics \\
+\end{cdrtable}
+
+parameters that need to be measured.  We assume in this note that there will be
+several auxiliary systems that already provide measurements or estimates of
+some of these parameters:
+\begin{itemize}
+\item Monitors of HV and current to the APAs
+\item Survey of wire positions
+\item Temperature sensors {\it in situ} at several places in the volume
+\item Purity monitors at several positions within the volume
+\item Front-end electronics response calibration pulsers.
+\end{itemize}
+	These systems provide the initial input to the model for electric
+field, and for calculations of average drift velocity, electron lifetime, and
+electron diffusion.  The goal of the calibration systems we describe in this
+note is first to measure the response parameters with granularity in time and
+position that cannot be accomplished by the above systems, and to test the
+resultant model with tracks of known positions, trajectories, and energy
+deposits.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Laser System}	
+%Much of this comes from J. Maricic's laser system proposal from Hawaii
+
+	The primary goal of the laser system is to provide realtime
+measurements of the parameters that determine the detector response: electron
+diffusion, and position-dependent variations in electron lifetime and drift
+velocity.  One way of viewing this is that the laser system provides a
+map of the electric field and impurities in the detector---in fact, it is
+really a generator of position-dependent corrections to the field and
+impurities.  As a realtime device, it also provides measurements of how these
+things vary with time.
+
+	Given the high space charge that will build up due to the high cosmic
+flux on the surface, we expect the ProtoDUNE-SP detector to have large
+variations in electric field as a function of position.  Simulation of an
+example uniformly distributed space charge in protoDUNE using the simulation
+package SpaCE~\cite{mooney} shows great variations in all three components of
+the electric field $E_x$, $E_y$ and $E_z$ (up to 12\%), leading to a 4.5!cm
+longitudinal and 20~cm transverse track distortion at the nominal electric
+field of 500 V/cm and protoDUNE nominal geometry with 3.6m drift length.
+Measuring the drift velocity from known laser trajectories allows a mapping of
+that field.
+
+	To accomplish this mapping, the laser system needs to be able to
+illuminate a large fraction of the TPC volume, and the trajectory of the laser
+needs to be measured by detecting the light on the far side of the active
+volume.
+
+%%%%%%%%%%%%%%%
+\subsubsection{Laser System Design}
+
+	The design of the laser system follows that of a system built for the
+MiniCAPTAIN detector by the University of Hawaii.  In the current ProtoDUNE-SP
+cryostat design includes four entry ports for laser periscopes, two in each of
+the two volumes between each of the anode planes and the single cathode plane.
+Two periscope entries are important to increase the volume of the TPC that will
+be illuninated and to ensure laser access even in a case of shortening the
+drift distane from 3.6~m to 2.5~m (or even 2.0m which is still under
+discussion). The final choice will depend on how well the field distortions can
+be handled. Each periscopes will be placed behind the TPC cage and reflects the
+laser beam from a mirror at the bottom of the periscope into the TPC volume
+through the gap between anode assembly planes. Entire periscopes can rotate
+around their central axis for azimuthal coverage. The mirror at the bottom of a
+periscope can swivel in the vertical plane to send the beam at different polar
+angles.  
+%A conceptual drawing of the cones of light
+
+%defing the coverage of the detectors from two laser beams is shown in the
+
+%picture Fig. 8. 
+%In the design, the laser beam will enter the TPC volume through
+%the gaps between two adjucent eld cage frames.  Field cage is made out of
+%hemispherical metal pipes held together in the fence like frames made out of
+%FR-4. There may be changes in the nal eld cage design where each side will
+%consist of 2x4 frames, instead of 2x3 as shown in the gure.  Consequently,
+%this will change the location of the bottom mirror and the overall height of
+%the periscope.  Fig. 10 shows details of the gap size between the frames. At
+%the locations of the bottom
+
+Laser beam pulses will be generated by a pulsed Nd:Yag laser's fourth harmonic
+at 266~nm. The laser must deliver tens of mJ per pulse at 266 nm. The pulse
+frequency is typically 10 Hz and pulse duration around 5 ns. Important
+characteristic of the laser is small divergence of the beam. Two companies have
+been identifid: Quantel and Surelite that feature very low divergence beams at
+less than 0.5 mrad. This is important feature will ensure that the beam remains
+relatively tightly collimated over long distances, retaining high ux and
+producing a narrow ionization track inside the TPC. Laser beam will be directed
+through a set of mirrors to the mirror at the top of the cryostat oriented at
+\SI{45}{\degree} angle to the beam, that bends the beam at right angle into the periscope,
+hitting the mirror at the bottom of the periscope and delivering the beam into
+the TPC.
+
+While the direction of the laser beam will be very well known based on the
+reading from a rotary position encoder and linear actuator that is part of the
+periscope assembly, there will still be some residual uncertainty or
+unpredictable shift in the pointing direction.  Having in mind long length of
+the ionization track of more than 7 m, even a small offset in the pointing
+direction can lead to vastly different ionization track location, especially
+close to the end of the track. Such inaccuracies will directly impact the
+ability to precisely calibrate any variations in the electric drift field.
+
+To mitigate this issue, each laser pulse will be localized by a laser
+positioning system (LPS) that will use groups of pin dodes.  Five groups of
+these diodes are distributed in a cross-like pattern.  One group is directly
+opposite the mirror when it is facing the front at \SI{45}{\degree} tilt mirror.  Two
+groups are in the same vertical plane close to the top and bottom of the same
+vertical axis. The two final groups are to the left and to the right from the
+central group. The electronics used to collect signals from the LPS will be
+commercially made by CAEN. 
+%We have received the quote for the V1740D high
+%density modules that take 64 channels each. 
+%There are several unoccupied ports
+%on the opposite side from the laser ports that can be
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cosmic Tracker}
+
+	While there may be motivations from a reconstruction standpoint for
+cosmic veto, from a calibration standpoint what we are interested in a tracking
+system to provide known cosmic trajectories.  The tracker may also be used for
+off-beam triggering on stopped muons, as well as detector triggering during
+times when there is no beam.  
+
+	Counters for a cosmic tracker are available from spares made for the
+Double CHOOZ experiment by the Universit of Chicago. Light created in the
+counters is transmitted via fibers to a 64-anode PMT and readout via
+electronics that use a USB interface.  The counter size is roughly 2.5~cm, but
+multiple layers of the counters could be used for finer granularity.
+
+	Although there are many possible configurations for deployment of the
+counters, a particularly interesting deployment would be fore-and-aft,
+therefore triggering on muons that had trajectories similar to beam events. In
+this configuration, the counters could also serve as a tagger for beam halo
+events.  By tagging such events, only those whose energy and position are
+reasonably well constrained will be part of the beam calibration.
+
+	While this deployment scheme works well for calibration plans, it
+provides little help on tagging cosmics that could cause difficulty for
+reconstruction algorithms, since the vast majority of those will be
+downward-going.  
+
+	There are two primary goasl for the cosmic tracker. The first is to use
+the parameters measured by the purity monitors and temperature sensors, and the
+measurements of electric field as a function of position and time provided by
+the laser system, to predict the precision and bias of reconstruction of
+straight tracks from cosmic muons. The reconstruction of the tracked cosmics
+can then be compared to the results of reconconstructed simulated events. If
+the differences are within the uncertainties derived from the initial parameter
+measurements, then we have confidence that the Monte Carlo model is predictive
+with the precision needed to measure beam event responses.  
+
+	The second goal is to provide a measurement of the detector's energy
+scale---essentially the global mapping of deposited energy to ADC counts.  Such
+a measurement can use either the through-going cosmic rays that hit both the
+fore and aft counters, corrected for the expected energy spectrum (and
+calculated dE/dx for the primarily minimum-ionizing cosmics), to provide a
+MIP-based energy scale, or to trigger on stopped cosmics outside of the beam
+gate, and using the part of the muon trajectory that has a residual range
+anticipated to be in the minimum-ionizing regime (similar to what was done for
+MINOS).  
+	
+
