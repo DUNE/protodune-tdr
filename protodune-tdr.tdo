@@ -15,10 +15,10 @@
 \contentsline {todo}{I believe the number of transistors has increased. What is the latest count?}{29}{section*.29}
 \contentsline {todo}{Is "five cycles" correct? Or is it six?}{31}{section*.30}
 \contentsline {todo}{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.}{31}{section*.31}
-\contentsline {todo}{This is actually the SBND feedthrough, very similar to ours, but we should update this when available.}{33}{section*.35}
-\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{33}{section*.36}
-\contentsline {todo}{Have the connectors been selected?}{34}{section*.38}
-\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{34}{section*.39}
-\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{34}{section*.41}
-\contentsline {todo}{Do we want to keep some or all of this here? Or, should this migrate to the QA/QC section?}{35}{section*.44}
+\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{33}{section*.34}
+\contentsline {todo}{Have the connectors been selected?}{34}{section*.36}
+\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{34}{section*.37}
+\contentsline {todo}{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}{34}{section*.39}
+\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{35}{section*.41}
+\contentsline {todo}{Do we want to keep some or all of this here? Or, should this migrate to the QA/QC section?}{36}{section*.44}
 \contentsline {todo}{Space-permitting, it seems to me that more details on commissioning would be in order.}{37}{section*.47}

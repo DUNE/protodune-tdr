@@ -440,7 +440,7 @@ Optical fiber will be employed externally to the cryostat, under DAQ scope.
 The design for the signal feedthroughs is complete except for some small adjustments,
 which are expected to be complete by June 2016.
 We have been working in tandem with the SBND group because of our very similar feedthrough needs.
-Some views from the current design of a signal feedthrough is shown in Figure~\ref{fig:tpcce_signal_FT}.
+Some views from the current design of a signal feedthrough is shown in Fig.~\ref{fig:tpcce_signal_FT}.
 Based on a standard 14-in conflat flange,
 each of these feedthroughs would serve the bias/power/digital IO needs of two APAs.  
 
@@ -454,10 +454,9 @@ these cables will be strain-relieved on the mounting rails above the APAs.
 % Two APAs will be cabled to one feedthrough in ``chimneys'' in the roof of the cryostat that
 % contain the support rods for the TPC planes.
 
-\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{The signal/power feedthrough
-\fixme{This is actually the SBND feedthrough, very similar to ours, but we should update this when available.}}
-\includegraphics[width=3in]{tpcce_signal_FT_1.jpg}
-\includegraphics[width=3in]{tpcce_signal_FT_2.jpg}
+\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{The signal/power feedthrough}
+\includegraphics[width=2.75in]{tpcce_signal_FT_1.jpg}
+\includegraphics[width=4in]{tpcce_signal_FT_2.jpg}
 \end{cdrfigure}
 
 For the protoDUNE detector APA there will be 20 electronics boards.
@@ -514,6 +513,19 @@ the DC bias voltage as well as the signals.
 It will be important that all cables and connectors be somewhat rugged,
 locking and able to withstand a minimum of several tens of mating cycles.
 This is in addition to concerns about material compatibility and the fact they must work in the cryogenic environment.
+
+%
+%%%%%%%%%%%%%%%%
+\subsubsection{Warm Interface Board}
+\label{subsubsec:ce_feedthrough_wib}
+\fixme{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}
+The warm interface boards (WIB) reside on the warm side of the feedthroughs.
+Each WIB connects to two FEMBs, and acts as a flexible, optical interface to DAQ.
+While the FPGA on the FEMB in the cold would in principle be able to provide any required flexibility,
+all flexibility is lost once the FPGA is replaced with the COLDATA chip,
+which represents a hard compilation in permanent silicon of a particular instance of FPGA code.
+The right panel of Fig. \ref{tpcce_signal_FT} shows the WIBs installed on a feedthrough.
+The WIB is nearly identical to that for SBND; we are therefore working in tandem with SBND on this.
 
 %
 %%%%%%%%%%%%%%%%
