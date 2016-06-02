@@ -61,10 +61,8 @@ connection to the HV cable and a round-shaped elastic contact for the connection
 The design of the full HV chain foreseen for the DP detector, will be finalised  after a series of tests on a prototype feed through and on the Heinzinger 300 kV Power Supply, which are presently ongoing at ETHZ and CERN. An alternative but similar design for the HV feedthrough is also under development at UCLA. Final decision on the design options will be based on max reachable HV, reliability /stability at design HV, residual noise performance.
 
 
-\begin{cdrfigure}[Drawings of the HV bus.]{HVbus}{From top: A perspective view of CPA frame showing the location of the HV bus cable and attachments to the HV cup and resistive cathode (with CPA frame electrodes omitted to make HV bus visible); a sketch showing interconnection between two CPAs; a cross-section view showing equipotential lines around the HV bus and CPA frame.}
-  \includegraphics[height=0.29\textheight]{DUNE_SP_CPA_Design_Update-slide17-mod}
-  \includegraphics[height=0.3\textheight]{HVbus-connections}
-  \includegraphics[height=0.3\textheight]{HVbus-vcontour}
+\begin{cdrfigure}[HV feed-through]{hv-feed-through}{Preliminary design of the DP HV feed-through.}
+\includegraphics[width=0.8\linewidth]{tpc_HVFT300kV-1.png}
 \end{cdrfigure}
 
 %%
@@ -85,6 +83,8 @@ unwanted energy transfer in case of an HV breakdown.
 %designed by and under construction at UCLA, and the dual-phase
 %feedthrough design.
 
+\subsection{HV Bus}
+
 As described in the CPA section above, the cathode planes will be
 resistive, with electrical connections at the corners, in order to
 control the energy delivered in any discharges.  A low resistance
@@ -101,16 +101,21 @@ through HV cables passed through the CPA frames.  See
 Fig.~\ref{fig:HVbus} for drawings of the high voltage bus and its
 interfaces.
 
-\begin{cdrfigure}[The HV bus.]{HVbus}{(a) Transverse cross-section of CPA top frame showing the location of the HV bus cable and equipotential contours; (b) front view showing location of cable and interconnect between two CPAs; (c) Attachment to HV cup on outer CPA frame.}
-  \fixme{put in the nice figures of the HV bus}
-  %\includegraphics[width=0.8\textwidth]{HVbus-figure}
+\begin{cdrfigure}[Drawings of the HV bus.]{HVbus}{Top: A perspective view of CPA frame showing the location of the HV bus cable and attachments to the HV cup and resistive cathode, with CPA frame electrodes omitted to make HV bus visible. Middle: A sketch showing interconnection between two CPAs. Bottom: A transverse cross-section with equipotential lines around the HV bus and CPA frame.}
+\includegraphics[height=0.29\textheight]{DUNE_SP_CPA_Design_Update-slide17-mod}
+\includegraphics[height=0.3\textheight]{HVbus-connections}
+\includegraphics[height=0.3\textheight]{HVbus-vcontour}
 \end{cdrfigure}
+
+\subsection{HV monitoring}
 
 HV circuit monitoring devices include a toroid transformer to detect
 spikes and noise in the current draw and a monitoring point at the end
 of the field cage resistor chain, which also provides a means to
 control field shaping around the edge of the
-APA. (Fig.\ \ref{fig:TPCHVcircuit}.)
+APA.
+
+\subsection{HV testing}
 
 To ensure safe and reliable operation, the HV components will be
 tested at a much higher voltage than expected in routine operation

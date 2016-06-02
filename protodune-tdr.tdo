@@ -1,31 +1,33 @@
 \contentsline {todo}{testing}{1}{section*.6}
-\contentsline {todo}{Or is this two feedthroughs for three APAs?}{20}{section*.15}
-\contentsline {todo}{This contains an old reference to lar-fd-req, which is no longer in the bibliography.}{20}{section*.16}
-\contentsline {todo}{Have we decided on the 4:1 Mux? Is the 8:1 still an option?}{22}{section*.17}
-\contentsline {todo}{Are these gains and time constants still correct?}{22}{section*.18}
-\contentsline {todo}{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.}{24}{section*.19}
-\contentsline {todo}{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.}{26}{section*.20}
-\contentsline {todo}{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.}{26}{section*.21}
-\contentsline {todo}{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.}{26}{section*.22}
-\contentsline {todo}{This contains an old reference to microboone-url, which is no longer in the bibliography.}{27}{section*.24}
-\contentsline {todo}{Is "five cycles" correct? Or is it six?}{27}{section*.25}
-\contentsline {todo}{Are these noise values the latest? Should we include anything from the 35t test?}{27}{section*.26}
-\contentsline {todo}{I believe the number of transistors has increased. What is the latest count?}{30}{section*.27}
-\contentsline {todo}{Is "five cycles" correct? Or is it six?}{32}{section*.28}
-\contentsline {todo}{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.}{32}{section*.29}
-\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{34}{section*.32}
-\contentsline {todo}{Have the connectors been selected?}{35}{section*.34}
-\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{35}{section*.35}
-\contentsline {todo}{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}{36}{section*.37}
-\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{36}{section*.39}
-\contentsline {todo}{Do we want to keep some or all of this here? Or, should this migrate to the QA/QC section?}{37}{section*.42}
-\contentsline {todo}{Space-permitting, it seems to me that more details on commissioning would be in order.}{38}{section*.45}
-\contentsline {todo}{make it a citation}{40}{section*.46}
-\contentsline {todo}{make it a citation}{40}{section*.47}
-\contentsline {todo}{add and reference figures Figure\nobreakspace {}\ref {fig:struct-beam-detail} and Figure\nobreakspace {}\ref {fig:corner-struct-element-detail} }{42}{section*.48}
-\contentsline {todo}{Reference Figure\nobreakspace {}\ref {fig:web-interlinks-detail}}{42}{section*.49}
-\contentsline {todo}{make it a citation}{43}{section*.50}
-\contentsline {todo}{reference Figure\nobreakspace {}\ref {fig:front-tco-np04}}{44}{section*.51}
-\contentsline {todo}{make them citations}{46}{section*.52}
-\contentsline {todo}{add reference to Table\nobreakspace {}\ref {tab:roofpenetrations} }{46}{section*.53}
-\contentsline {todo}{from Josh K}{47}{section*.54}
+\contentsline {todo}{Do we have an installation section?}{26}{section*.22}
+\contentsline {todo}{(?) check ripple requirement}{26}{section*.23}
+\contentsline {todo}{Or is this two feedthroughs for three APAs?}{33}{section*.31}
+\contentsline {todo}{This contains an old reference to lar-fd-req, which is no longer in the bibliography.}{35}{section*.32}
+\contentsline {todo}{Have we decided on the 4:1 Mux? Is the 8:1 still an option?}{36}{section*.33}
+\contentsline {todo}{Are these gains and time constants still correct?}{37}{section*.34}
+\contentsline {todo}{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.}{39}{section*.35}
+\contentsline {todo}{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.}{41}{section*.36}
+\contentsline {todo}{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.}{41}{section*.37}
+\contentsline {todo}{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.}{41}{section*.38}
+\contentsline {todo}{This contains an old reference to microboone-url, which is no longer in the bibliography.}{42}{section*.40}
+\contentsline {todo}{Is "five cycles" correct? Or is it six?}{42}{section*.41}
+\contentsline {todo}{Are these noise values the latest? Should we include anything from the 35t test?}{42}{section*.42}
+\contentsline {todo}{I believe the number of transistors has increased. What is the latest count?}{45}{section*.43}
+\contentsline {todo}{Is "five cycles" correct? Or is it six?}{47}{section*.44}
+\contentsline {todo}{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.}{47}{section*.45}
+\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{49}{section*.48}
+\contentsline {todo}{Have the connectors been selected?}{50}{section*.50}
+\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{50}{section*.51}
+\contentsline {todo}{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}{50}{section*.53}
+\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{51}{section*.55}
+\contentsline {todo}{Do we want to keep some or all of this here? Or, should this migrate to the QA/QC section?}{52}{section*.58}
+\contentsline {todo}{Space-permitting, it seems to me that more details on commissioning would be in order.}{53}{section*.61}
+\contentsline {todo}{make it a citation}{54}{section*.62}
+\contentsline {todo}{make it a citation}{54}{section*.63}
+\contentsline {todo}{add and reference figures Figure\nobreakspace {}\ref {fig:struct-beam-detail} and Figure\nobreakspace {}\ref {fig:corner-struct-element-detail} }{56}{section*.64}
+\contentsline {todo}{Reference Figure\nobreakspace {}\ref {fig:web-interlinks-detail}}{57}{section*.65}
+\contentsline {todo}{make it a citation}{58}{section*.66}
+\contentsline {todo}{reference Figure\nobreakspace {}\ref {fig:front-tco-np04}}{59}{section*.67}
+\contentsline {todo}{make them citations}{60}{section*.68}
+\contentsline {todo}{add reference to Table\nobreakspace {}\ref {tab:roofpenetrations} }{60}{section*.69}
+\contentsline {todo}{from Josh K}{62}{section*.70}
