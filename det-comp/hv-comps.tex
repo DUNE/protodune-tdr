@@ -22,23 +22,23 @@ and transient conditions of current and voltage.
 A schematic of the complete TPC HV circuit is shown in Fig.\ \ref{fig:TPCHVcircuit}.
 
 \begin{cdrfigure}[TPC HV circuit]{TPCHVcircuit}{A schematic of the TPC high voltage circuit.}
-  \fixme{put in the HV schematic}
-  %\includegraphics[width=0.8\textwidth]{TPCHVcircuit-Figure}
+  \includegraphics[width=0.75\textwidth]{VR_TPC_HV_schem-mod-1}
 \end{cdrfigure}
 
 
-The cathode plane  biased at \SI{-180}{kV} to provide the
+The cathode plane will be biased at \SI{-180}{kV} to provide the
 required \SI{500}{V/cm} drift field.  It will be
 powered by a dedicated HV power supply through an RC filter and
 feedthrough.  The power supply for the cathode plane must be able
 to provide \SI{-200}{kV}.  The output voltage
-ripple must not introduce more than 10\%(?) of the equivalent thermal
+ripple must not introduce more than 10\%\fixme{(?) check ripple requirement}
+of the equivalent thermal
 noise from the front-end electronics. The power supply must be
 programmable to shut down its output at a certain current
 limit. During power on and off, including output loss (for any
 reason), the voltage ramp rate at the feedthrough must be controllable
 to prevent damage to the in-vessel electronics from excess charge
-injection. High-voltage feedthrough must be able to withstand \SI{-250}{kV}
+injection. The high-voltage feedthrough must be able to withstand \SI{-250}{kV}
 at their center conductors in a \SI{1}{atm} argon gas environment when
 terminated in liquid argon.
 
@@ -61,14 +61,16 @@ connection to the HV cable and a round-shaped elastic contact for the connection
 The design of the full HV chain foreseen for the DP detector, will be finalised  after a series of tests on a prototype feed through and on the Heinzinger 300 kV Power Supply, which are presently ongoing at ETHZ and CERN. An alternative but similar design for the HV feedthrough is also under development at UCLA. Final decision on the design options will be based on max reachable HV, reliability /stability at design HV, residual noise performance.
 
 
-\begin{cdrfigure}[HV feed-through]{hv-feed-through}{Preliminary design of the DP HV feed-through.}
-\includegraphics[width=0.8\linewidth]{tpc_HVFT300kV-1.png}
+\begin{cdrfigure}[Drawings of the HV bus.]{HVbus}{From top: A perspective view of CPA frame showing the location of the HV bus cable and attachments to the HV cup and resistive cathode (with CPA frame electrodes omitted to make HV bus visible); a sketch showing interconnection between two CPAs; a cross-section view showing equipotential lines around the HV bus and CPA frame.}
+  \includegraphics[height=0.29\textheight]{DUNE_SP_CPA_Design_Update-slide17-mod}
+  \includegraphics[height=0.3\textheight]{HVbus-connections}
+  \includegraphics[height=0.3\textheight]{HVbus-vcontour}
 \end{cdrfigure}
 
 %%
 
 
-Despite of the ripple spec of $10^{-5}$ from the Heinzinger power supply, the ripple amplitude is still too large for the TPC.  At 2.5m drift distance (the short drift configuration), the capacitive coupling between the cathode and the grid plane, assuming a simple parallel plate capacitor, is about 73~pF.  About 20\% of this coupling goes to the first induction plane (U).  There are 800 U wires per APA, each wire faces the CPA with half of its length. So the capacitance between a U wire and the CPA is about 18~fF.  To inject 100e noise into a U channel, it only needs about 0.9~mV of ripple on the cathode.  While the power supply at 180~kV will generate ripple voltage of 1.8~V.  Obviously for the SP TPC, further filtering of the HV output with attenuation factor of >2000 is needed. 
+Despite of the ripple spec of $10^{-5}$ from the Heinzinger power supply, the ripple amplitude is still too large for the TPC.  At 2.5m drift distance (the short drift configuration), the capacitive coupling between the cathode and the grid plane, assuming a simple parallel plate capacitor, is about 73~pF.  About 20\% of this coupling goes to the first induction plane (U).  There are 800 U wires per APA, each wire faces the CPA with half of its length. So the capacitance between a U wire and the CPA is about 18~fF.  To inject 100e noise into a U channel, it only needs about 0.9~mV of ripple on the cathode.  While the power supply at 180~kV will generate ripple voltage of 1.8~V.  Obviously for the SP TPC, further filtering of the HV output with attenuation factor of $>2000$ is needed. 
 
 %The current candidate for the high-voltage power supplies is the 
 %Heinzinger PNChp series, which has the lowest output ripple 
