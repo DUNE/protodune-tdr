@@ -11,11 +11,41 @@
 \section{Field Cage}
 
 \subsection{Scope, Requirements and Design Parameters}
+
+In the SP ProtoDUNE TPC, each pair of facing cathode and anode planes forms an
+electron-drift region. A field cage must completely surround the four
+open sides of this region to provide the necessary boundary conditions
+to ensure a uniform electric field within, unaffected by the presence
+of the cryostat walls and other nearby conductive structures.
+
+The SP ProtoDUNE field cages are
+constructed using multiple copper-clad FR-4 sheets reinforced with
+fiber glass I-beams to form modules of 2.3~m $\times$ 3.6~m in
+size. Parallel copper strips are etched on the FR-4 sheets using
+standard printed circuit board fabrication techniques. Strips are
+biased at appropriate voltages provided by a resistive-divider 
+network. These strips create a linear electric-potential gradient in
+the LAr, ensuring a uniform drift field in the TPC active volume. 
+Simulations have shown that the non-uniformity of the drift field quickly
+drops to about 1\%, roughly a strip pitch away from the field-cage
+surface.
+
+\begin{cdrfigure}[The field cages]{fc-overview}{A view of the TPC field cage}
+\includegraphics[width=0.8\linewidth]{tpc_fc_overview.png}
+\end{cdrfigure}
+
+
 \begin{itemize}
-\item Field uniformity
-\item Modularity
-\item Compatibility with FD design
-\item Discharge behavior
+\item Provide the nominal drift field of 500V/cm 
+\item Withstand -180kV near the cathode
+\item Define the drift distance between the APAs and CPAs to <1cm
+\item Limit the electric field exposed to LAr to under 30kV/cm
+\item Prevent damage to the TPC In case of a HV discharge anywhere on the field cage, or cathode.
+\item Provide redundancy in the resistor divider
+\item The divider current must be >> the ionization current in the TPC drift cell, yet less than the power supply current limit when all dividers are connected in parallel
+\item Constructed in modular form that can be easily installed in the cryostat
+\item Provide support for the beam plug
+\item Allow calibration laser beams to enter into the active volume 
 \end{itemize}
 
 \subsection{Electrical Design}
@@ -25,6 +55,10 @@
 \subsubsection{Surge suppressor on field cage}
 
 \subsubsection{Resister tolerance and spec}
+
+\begin{cdrfigure}[The resistive divider]{fc-divider-view}{A view of a resistive divider}
+\includegraphics[width=0.8\linewidth]{tpc_fc_r_divider.png}
+\end{cdrfigure}
 
 \subsubsection{Electrical Schematic}
  
@@ -145,13 +179,27 @@ Further GP panels need to be attached to the top FC module:
 
 \subsubsection{Top and bottom modules}
 
+
+%\begin{cdrfigure}[A top field cage module]{fc-top_module}{A view of a top field cage module}
+%\includegraphics[width=0.8\linewidth]{tpc_fc_top_module.png}
+%\end{cdrfigure}
+
+
 \subsubsection{End wall modules}
 
+\begin{cdrfigure}[An end wall field cage module]{fc-endwall_module}{A view of a end wall field cage module}
+\includegraphics[width=0.8\linewidth]{tpc_fc_endwall_module.png}
+\end{cdrfigure}
 
 
 \subsection{Interfaces to Other TPC Components}
 
 \subsubsection{Field cage to CPA}
+
+\begin{cdrfigure}[CPA to field cage connection]{cpa-fc-connection}{A top field cage module connected to 2 CPA modules}
+\includegraphics[width=0.8\linewidth]{tpc_fc_cpa_connection.png}
+\end{cdrfigure}
+
 
 \subsubsection{Field cage to APA}
 

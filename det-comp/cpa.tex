@@ -143,7 +143,7 @@ The resistive panel is 1/8'' thick G10 and floats within the framework so that n
 
 Figure~\ref{fig:cpa-hinge1} shows how the FC will be attached to the assembled CPA plane.  The top and bottom cross bars will have elongated slots through which pins will be inserted to attach the hinged connection.  The weight of the FC is applied to the center of each top and bottom bar.  
 
-\begin{cdrfigure}[CPA hinge1]{cpa-hinge1}{The top field cage modules are hung vertically with the CPAs when moved into the cryostat, then rotated to horizontal to attach to the APA} 
+\begin{cdrfigure}[CPA and FCA hinged connection]{cpa-hinge1}{The top field cage modules are hung vertically with the CPAs when moved into the cryostat, then rotated to horizontal to attach to the APA} 
 \includegraphics[width=\linewidth]{tpc_cpa_fc_hinge.png}
 \end{cdrfigure}
 
@@ -153,47 +153,48 @@ Figure~\ref{fig:cpa-view2}a shows the block at the top of the CPA that is secure
 The strap must have the ability to allow the CPA to pivot and rotate in three directions.  
 
 
-The CPA frame has been evaluated using empirical and FEA calculations.  Detailed calculations are shown in ??? 
+The CPA frame has been evaluated using empirical and FEA calculations.  The following is a summary of 6 key aspects of the analysis. Detailed calculations are shown in 
+\fixme{reference to Vic's writeup}.  
 
 The highest stresses and deflections occur during assembly before the cryostat is filled with liquid.  During installation the CPA must carry the full weight of the FC rather than sharing it with the APA and the buoyancy force which reduces the load from gravity is not present.
 
 In all of the analysis the resistive panels were not included.  In the design of the CPA it is planned that the resistive panel will float within a frame and no load will be applied to it and therefore it does not contribute to the stiffness of the modules.  
 
-{\bf Lifting the CPA During Installation}
+{\it A. Lifting the CPA During Installation}
 
 During installation the three frames that make up a CPA module will be placed horizontally on the floor and connected together.  The top of the module will then be secured to the crane and lifted; the bottom of the module will be pivoted on the floor.  By lifting and transversing the hook attached to the top of the module the CPA will be lifted into the vertical position.  The worst case loading occurs immediately after the crane begins to lift the top of the module when it is simply supported at the bottom and top.  The stresses and deflections are small as see in Figure~\ref{fig:cpa-h_load}.   The plane will sag a maximum of roughly 2'' and the stresses are below 2,000psi which is far below the ultimate stress.  
 
-\begin{cdrfigure}[CPA H load]{cpa-h_load}{Stress and deflection of a connected 3 CPA stack in horizontal position supported at both ends} 
+\begin{cdrfigure}[CPA stress in horizontal position]{cpa-h_load}{Stress and deflection of a connected 3 CPA stack in horizontal position supported at both ends} 
 \includegraphics[width=\linewidth]{tpc_cpa_h_load.png}
 \end{cdrfigure}
 
 
-{\bf CPA Hanging with all FC Attached in Installation Position}
+{\it  B. CPA Hanging with all FC Attached in Installation Position}
 
 The current estimate for the FC weight is 440 lbs.  This load is carried by 2 CPAs so each hinge on the CPA will supposed 220 lbs in the installation position.  Figure~\ref{fig:cpa-load1} below shows the deflections and maximum stresses.  The larges deflections are at the bottom cross bar of 0.07'' and the stresses are less than 2,000psi which is far below the ultimate stress of G10.
 
-\begin{cdrfigure}[CPA hinge1]{cpa-load1}{Stress and deflection of a connected 3 CPA stack suspended on the rail with 4 FC modules} 
+\begin{cdrfigure}[CPA and 4 FCA load]{cpa-load1}{Stress and deflection of a connected 3 CPA stack suspended on the rail with 4 FC modules} 
 \includegraphics[width=\linewidth]{tpc_cpa_fc_load1.png}
 \end{cdrfigure}
 
 
-{\bf CPA Hanging with all FC Attached in Deployed Position With Weight of Workers on FC}
+{\it  C. CPA Hanging with all FC Attached in Deployed Position With Weight of Workers on FC}
 
 The current estimate for the FC weight is 440 lbs.  This load is carried by 2 CPAs and by the APAs so each hinge on the CPA will supposed 110 lbs in the installation position.  In addition, in the worst case a 200 lbs worker could be standing directly over an I-beam on the FC directly next to a CPA.  The top two hinges on the CPA will have 110 lbs applied.  One of the bottom hinges will have a 110 lbs load also and the second bottom hinge will have 110 lbs of the FC plus the 200 lbs of the worker applied.  The largest deflection is 0.1'' at the bottom cross bar and the stresses are less than 2200psi which is far below the ultimate stress of G10.
 
-\begin{cdrfigure}[CPA hinge1]{cpa-load2}{Stresses and Deflections of CPA with FC Deployed and 200 lb Worker Load} 
+\begin{cdrfigure}[CPA load plus 200lb]{cpa-load2}{Stresses and Deflections of CPA with FC Deployed and 200 lb Worker Load} 
 \includegraphics[width=\linewidth]{tpc_cpa_fc_load2.png}
 \end{cdrfigure}
 
-{\bf Connection Stresses}
+{\it D. Connection Stresses}
 
 The weight of the CPA and the bottom FC is transferred through the side bars of the CPA frame.  The connection between the side bars and the top cross bar therefore will experience the highest loads.  A single 1/4'' diameter G10 pin at the connection would have a shear stress of 7740psi which provides a safety factor of greater than 4.  A second pin at each connection would increase the safety factor to 8.  
 
-{\bf Deformation and Stress Due to Pressure from Circulating Liquid Argon}
+{\it E. Deformation and Stress Due to Pressure from Circulating Liquid Argon}
 
 Calculations done at FermiLab indicate that a uniform 2Pa pressure during cool down will be applied to the resistive panels.  Calculations show that this will result in 0.090'' deflections of the panel at its center.  The CPA/FC/APA assembly will displace 8.8mm laterally as a result of the next force from this pressure.  
 
-{\bf Thermal Considerations}
+{\it F. Thermal Considerations}
 
 When the CPA modules are cooled their width will shrink by 0.9mm.  The supporting stainless steel beam will shrink by 1.6mm over the width of the CPA.  If the CPA supports are rigidly attached to the supporting stainless steel beam then an interference of 1.6m-.9mm = .7mm will occur.  In order to prevent this interference an initial gap of 0.7mm between CPA’s is required which will insure that the CPAs are in contact after cool down.  
 
