@@ -35,3 +35,13 @@ protodune-tdr.pdf
 .waf-*
 build
 auto
+protodune-tdr.aux 
+protodune-tdr.fdb_latexmk 
+protodune-tdr.fls 
+protodune-tdr.log 
+protodune-tdr.nlo 
+protodune-tdr.nls 
+protodune-tdr.out 
+protodune-tdr.pdf 
+protodune-tdr.tdo 
+protodune-tdr.toc
