@@ -1,0 +1,40 @@
+\contentsline {todo}{reference to Vic's writeup}{25}{section*.25}
+\contentsline {todo}{Do we have an installation section?}{47}{section*.38}
+\contentsline {todo}{(?) check ripple requirement}{48}{section*.39}
+\contentsline {todo}{Or is this two feedthroughs for three APAs?}{56}{section*.47}
+\contentsline {todo}{This contains an old reference to lar-fd-req, which is no longer in the bibliography.}{56}{section*.48}
+\contentsline {todo}{Have we decided on the 4:1 Mux? Is the 8:1 still an option?}{58}{section*.49}
+\contentsline {todo}{Are these gains and time constants still correct?}{58}{section*.50}
+\contentsline {todo}{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.}{60}{section*.51}
+\contentsline {todo}{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.}{62}{section*.52}
+\contentsline {todo}{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.}{62}{section*.53}
+\contentsline {todo}{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.}{62}{section*.54}
+\contentsline {todo}{This contains an old reference to microboone-url, which is no longer in the bibliography.}{63}{section*.56}
+\contentsline {todo}{Is "five cycles" correct? Or is it six?}{63}{section*.57}
+\contentsline {todo}{Are these noise values the latest? Should we include anything from the 35t test?}{63}{section*.58}
+\contentsline {todo}{I believe the number of transistors has increased. What is the latest count?}{66}{section*.59}
+\contentsline {todo}{Is "five cycles" correct? Or is it six?}{68}{section*.60}
+\contentsline {todo}{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.}{68}{section*.61}
+\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{70}{section*.64}
+\contentsline {todo}{Have the connectors been selected?}{71}{section*.66}
+\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{71}{section*.67}
+\contentsline {todo}{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}{72}{section*.69}
+\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{72}{section*.71}
+\contentsline {todo}{Do we want to keep some or all of this here? Or, should this migrate to the QA/QC section?}{73}{section*.74}
+\contentsline {todo}{Space-permitting, it seems to me that more details on commissioning would be in order.}{74}{section*.77}
+\contentsline {todo}{make it a citation}{76}{section*.78}
+\contentsline {todo}{make it a citation}{76}{section*.79}
+\contentsline {todo}{add and reference figures Figure\nobreakspace {}\ref {fig:struct-beam-detail} and Figure\nobreakspace {}\ref {fig:corner-struct-element-detail} }{78}{section*.80}
+\contentsline {todo}{Reference Figure\nobreakspace {}\ref {fig:web-interlinks-detail}}{78}{section*.81}
+\contentsline {todo}{make it a citation}{79}{section*.82}
+\contentsline {todo}{reference Figure\nobreakspace {}\ref {fig:front-tco-np04}}{80}{section*.83}
+\contentsline {todo}{make them citations}{82}{section*.84}
+\contentsline {todo}{add reference to Table\nobreakspace {}\ref {tab:roofpenetrations} }{82}{section*.85}
+\contentsline {todo}{from Josh K}{83}{section*.86}
+\contentsline {todo}{Do we want to discuss SLAC beam test and Field cage mockup test in PC4 in this TDR?}{89}{section*.88}
+\contentsline {todo}{provide a figure from Mike Mooney showing space-charge distortions}{96}{section*.89}
+\contentsline {todo}{some duplication with the text below is still here. Need to merge descriptions. But the reco steps really do diverge in the alternate methods}{97}{section*.90}
+\contentsline {todo}{Need simulation results from Nikos}{114}{section*.103}
+\contentsline {todo}{Need to update the run plan when Nikos's H4 simulation results are available}{118}{section*.115}
+\contentsline {todo}{Need the physics sample requirement table from the Measurement group}{119}{section*.116}
+\contentsline {todo}{testing}{127}{section*.120}
