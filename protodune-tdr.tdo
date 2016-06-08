@@ -30,11 +30,26 @@
 \contentsline {todo}{reference Figure\nobreakspace {}\ref {fig:front-tco-np04}}{80}{section*.83}
 \contentsline {todo}{make them citations}{82}{section*.84}
 \contentsline {todo}{add reference to Table\nobreakspace {}\ref {tab:roofpenetrations} }{82}{section*.85}
-\contentsline {todo}{from Josh K}{83}{section*.86}
-\contentsline {todo}{Do we want to discuss SLAC beam test and Field cage mockup test in PC4 in this TDR?}{89}{section*.88}
-\contentsline {todo}{provide a figure from Mike Mooney showing space-charge distortions}{96}{section*.89}
-\contentsline {todo}{some duplication with the text below is still here. Need to merge descriptions. But the reco steps really do diverge in the alternate methods}{97}{section*.90}
-\contentsline {todo}{Need simulation results from Nikos}{114}{section*.103}
-\contentsline {todo}{Need to update the run plan when Nikos's H4 simulation results are available}{118}{section*.115}
-\contentsline {todo}{Need the physics sample requirement table from the Measurement group}{119}{section*.116}
-\contentsline {todo}{testing}{127}{section*.120}
+\contentsline {todo}{DM question: is this part ok in this document??]}{85}{section*.86}
+\contentsline {todo}{ [Will this be written in another section?? If not, we can leave it here]DM}{85}{section*.87}
+\contentsline {todo}{Add citation}{85}{section*.88}
+\contentsline {todo}{Waiting for orig diagram for process flow from DM}{86}{section*.89}
+\contentsline {todo}{Waiting for orig diagram for 3D view of the installation from DM; May be replaced with a more complete one with building also}{87}{section*.90}
+\contentsline {todo}{Waiting for orig diagram for int-cryogenics-detail from DM}{87}{section*.91}
+\contentsline {todo}{xxx}{87}{section*.92}
+\contentsline {todo}{50 m3}{87}{section*.93}
+\contentsline {todo}{(lower??)}{88}{section*.96}
+\contentsline {todo}{Waiting for orig diagram for 2D simulation of the purge in open loop process from DM; May be replaced with a more complete one with building also}{89}{section*.97}
+\contentsline {todo}{xxx [add reference]}{89}{section*.98}
+\contentsline {todo}{fix units}{89}{section*.100}
+\contentsline {todo}{too many layers deep; AH}{92}{section*.109}
+\contentsline {todo}{reference table with label Table\nobreakspace {}\ref {tab:cryostat-norm-pressures}}{96}{section*.113}
+\contentsline {todo}{(?? to be confirmed).}{96}{section*.114}
+\contentsline {todo}{from Josh K}{97}{section*.117}
+\contentsline {todo}{Do we want to discuss SLAC beam test and Field cage mockup test in PC4 in this TDR?}{103}{section*.119}
+\contentsline {todo}{provide a figure from Mike Mooney showing space-charge distortions}{110}{section*.120}
+\contentsline {todo}{some duplication with the text below is still here. Need to merge descriptions. But the reco steps really do diverge in the alternate methods}{111}{section*.121}
+\contentsline {todo}{Need simulation results from Nikos}{128}{section*.134}
+\contentsline {todo}{Need to update the run plan when Nikos's H4 simulation results are available}{132}{section*.146}
+\contentsline {todo}{Need the physics sample requirement table from the Measurement group}{133}{section*.147}
+\contentsline {todo}{testing}{141}{section*.151}
