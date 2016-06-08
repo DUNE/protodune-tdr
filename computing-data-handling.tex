@@ -1,17 +1,16 @@
-\section{Data handling and processing system}
+\section{Data storage and management system}
 
-\subsection{The protoDUNE Data Characteristics}
-
-The design of the Liquid Argon TPC has a few fundamental properties which affect the data characteristics in the experiment:
+\subsection{The \pd Data Characteristics}
+It is the characteristics of the \pd data which determine the scale and possible design options for its computing infrastructure.
+These characteristics are in a large part defined by a few fundamental properties of the \pd Liquid Argon TPC:
 \begin{itemize}
-\item High spatial granularity of readout (e.g. the pitch of the electrode pattern), and the resulting high channel count
+\item High spatial granularity of readout (e.g. the pitch of the electrode pattern etc), and the resulting high channel count
 \item High digitization frequency (which is essential to ensure a precise position measurement along the drift direction)
 \item Relatively slow drift velocity of electrons in Liquid Argon, which  leads to a substantial readout window (of the order of milliseconds) required to collect
 all of the ionization in the Liquid Argon volume due the event of interest. 
 \end{itemize}
 
-\noindent
-Combination of these factors leads to a considerable amount of data per event and depending on
+\noindent Combination of these factors leads to a considerable amount of data per event and depending on
 the chosen conditions (i.e. trigger rate and total required statistics) may result in considerable requirements
 regarding the bandwidth and storage. These issues will be addressed in the sections below.
 

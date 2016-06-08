@@ -1,1 +1,31 @@
-\section{Offline Processing of the Data}
+\section{Offline Processing of the Experimental and MC Data}
+%\subsection{Data processing}
+%\label{sec:protodune-dataprocess}
+
+%In addition to the raw data preparations being made for offline data handling, processing and storage.
+The offline data can be classified as follows:
+\begin{itemize}
+\item Monte Carlo data, which will contain multiple event samples to cover various event types and other conditions during the measurements
+with protoDUNE
+
+\item Data derived from Monte Carlo events, and produced with a variety of tracking and pattern recognition algorithms
+in order to create a basis for the detector characterization
+
+\item Intermediate calibration files, derived from calibration data
+
+\item Processed experimental data, whichmay exist in several parallel branches corresponding to different reconstruction
+algorithms being applied, with the purpose of evaluating the performance of the different algorithms.
+\end{itemize}
+
+\noindent In the latter item, there will likely be more than one processing step, thus multiplying the data volume. 
+The derived data will at most contain a fraction of the raw data in order to keep the data manageable,
+hence the size of the processed data will likely be smaller than the input (the raw data). 
+Given the consideration presented above, and numbers in Table\,\ref{fig:det_perf}
+on page~\pageref{fig:det_perf} we will plan for
+$\sim$ $O($1 PB$)$ of tape storage to keep the processed data. 
+For efficient processing, disk storage will be necessary
+to stage a considerable portion of both raw data (inputs) and one or a few steps in processing (outputs).
+
+Extrapolating from our previous experience running Monte Carlo for the former LBNE Far Detector, it is estimated
+that  a few hundred TB of continuously available disk space will be needed. It is expected that protoDUNE will require
+a few~PB of storage at Fermilab to ensure optimal data availability and  processing efficiency. 

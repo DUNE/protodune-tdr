@@ -2,10 +2,20 @@
 This chapter of the Technical Design Report is based on documents and plans developed earlier, in particular
 on the \textit{Computing Model for the DUNE Experiment} (DocDB 914) -- which contains the description
 of the \pd Computing Model as an Appendix section, and \textit{Design of the Data Management System for the protoDUNE Experiment}
-(DocDB 1212). The aim was to capture the most important characteristics of the online system being proposed in a concise manner.
+(DocDB 1212). The aim was to capture and present the most important characteristics of the online system to be built, in a concise manner.
 
 Depending on the plan of measurements for \pd (in development at the time of writing), beam characteristics that will be realized
 and many other parameters precise estimate of data rates and volume aren't available. However, it is possible to create ranges
 of estimates based on a few realistic scenarios, and translate this into requirements for the system configuration, scale and
 performance.
+
+The overall design for the protoDUNE computing can be described as consisting of two major components, which are related:
+\begin{itemize}
+\item The online data storage and management system which interfaces the DAQ and which is tasked with buffering
+the data and transporing it to mass storage at CERN and beyond.
+\item The offline system for data distribution and processing on the Grid(e.g. calibration, production and reconstruction)
+\end{itemize}
+
+\noindent Crucial for operation of both components is a Metadata and file catalog system.
+
 
