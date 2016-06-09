@@ -53,14 +53,10 @@ frequencies lie is 10 KHz, while easily-filtered noise is at much
 higher and lower frequencies.  A typical filter function is shown in
 Figure~\ref{fig:wienerfilter}
 
-\begin{figure}[htb]
-\centering
-%\includegraphics[width=0.95\textwidth]{figures/wienerfilter.png}
-Include figure of the Wiener filter
-\caption{The noise filter function applied to 35-ton data.  A similar
-  procedure will produce a noise filter function for ProtoDUNE-SP}
-\label{fig:wienerfilter}
-\end{figure}
+\fixme{Include figure of the Wiener filter; please use cdrfigure standard}
+\begin{cdrfigure}[The noise filter function applied to 35-ton data]{wienerfilter}{The noise filter function applied to 35-ton data.  A similar procedure will produce a noise filter function for ProtoDUNE-SP}
+%  \includegraphics[width=0.8\textwidth]{wienerfilter}
+\end{cdrfigure}
 
 Hits are then identified by seeking deconvoluted signals exceeding
 thresholds that are adjusted to minimize the creation of false noise
@@ -97,14 +93,13 @@ reconstruction for photons that are produced inside the detector.  A
 distribution of reconstructed $\pi^0$ masses in Monte Carlo is shown
 in Figure~\ref{fig:pizeromass}.
 
-\begin{figure}[htb]
-\centering
-%\includegraphics[width=0.95\textwidth]{figures/pizeromass.png}
-Include pizero mass peak plot
-\caption{The reconstructed invariant masses of $\pi^0$ candidates in
-  Monte Carlo using the BlurredCluster and EMShower algorithms.  }
-\label{fig:muonpandoraperf}
-\end{figure}
+
+\begin{cdrfigure}[The reconstructed invariant masses of $\pi^0$ candidates in
+  Monte Carlo]{muonpandoraperf}{The reconstructed invariant masses of $\pi^0$ candidates in
+  Monte Carlo using the BlurredCluster and EMShower algorithms.}
+%  \includegraphics[width=0.8\textwidth]{pizeromass}
+\end{cdrfigure}
+\fixme{add figure}
 
 The reconstruction framework PANDORA~\cite{pandora} also works by
 building up a three-dimensional picture from two-dimensional
@@ -137,13 +132,14 @@ Figure~\ref{fig:pandoraresolution}.
 
 \begin{figure}[htb]
 \centering
-%\includegraphics[width=0.95\textwidth]{figures/muonpandoraperf.png}
+%\includegraphics[width=0.95\textwidth]{muonpandoraperf.png}
 Include figure of PANDORA performance for muons.  Efficiency and
 completeness (purity too if we can get the plot).
 \caption{The performance of PANDORA for muons in charged-current
   $\nu_mu$ events in MicroBooNE.  }
 \label{fig:muonpandoraperf}
 \end{figure}
+\fixme{please fix all figures to cdrfigure standard}
 
 A very successful approach to reconstruction is called the Projection
 Matching Algorithm (PMA)~\cite{pma_algorithm}.  Instead of building up
@@ -160,7 +156,7 @@ in Figure~\ref{fig:PMApioninteraction}.
 
 \begin{figure}[htb]
 \centering
-%\includegraphics[width=0.95\textwidth]{figures/PMAentryresolution.png}
+%\includegraphics[width=0.95\textwidth]{PMAentryresolution.png}
 Include figure of PMA's resolution on the entry point for charged
 particles See Robert's talk from the April collab meeting
 \caption{Spatial resolution on the 3D entry position of the primary
@@ -171,7 +167,7 @@ particles See Robert's talk from the April collab meeting
 
 \begin{figure}[htb]
 \centering
-%\includegraphics[width=0.95\textwidth]{figures/PMAdirection.png}
+%\includegraphics[width=0.95\textwidth]{PMAdirection.png}
 Include figure of PMA's resolution on the direction for charged
 particles See Robert's talk from the April collab meeting
 \caption{Angular resolution of the momentum vector of the the primary
@@ -182,8 +178,8 @@ particles See Robert's talk from the April collab meeting
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
-\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
+\includegraphics[width=0.45\textwidth]{pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
+\includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
 \caption{Vertex position resolution in cm in $x$, $y$, and $z$ and 3D for the
   inelastic interaction of charged pions on liquid argon nuclei in events in which a $\pi^0$ is produced, in
   ProtoDUNE-SP, using the PMA algorithm.}

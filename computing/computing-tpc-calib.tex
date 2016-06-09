@@ -152,7 +152,7 @@ response once the local ionization charge distribution is roughly reconstructed.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/induction_field_response.png}
+\includegraphics[width=0.95\textwidth]{induction_field_response.png}
 \caption{(left) Simulated field response functions for induction (black and red) and 
 collection (blue) wires are shown in the time domain. (right) The same are shown in 
 the frequency domain.}
@@ -195,7 +195,7 @@ are considered.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/decon_example.png}
+\includegraphics[width=0.8\textwidth]{decon_example.png}
 \caption{An example deconvoluted spectrum for the induction plane (simulation).}
 \label{fig:decon_example}
 \end{figure}
@@ -230,7 +230,7 @@ distorted due to the application of the low-frequency software filter.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/low_freq.png}
+\includegraphics[width=0.95\textwidth]{low_freq.png}
 \caption{The impact of the low-frequency filter (right). The unit of the X-axis 
 is MHz.  The real signal and the convoluted signal are shown in the left and
 middle panel, respectively. A time tick is 0.5 $\mu s$.}
@@ -295,16 +295,27 @@ V plane responses functions are shown in the middle and right panel of
 Fig.~\ref{figs:overall_response}, respectively.  For induction wire planes, these response 
 functions are reasonably balanced as expected.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/Garfield_simu.png}
-\caption{Description of the Garfield 2D simulation of field response functions.}
-\label{fig:garfield_2d}
-\end{figure}
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=0.95\textwidth]{Garfield_simu.png}
+%\caption{Description of the Garfield 2D simulation of field response functions.}
+%\label{fig:garfield_2d}
+%\end{figure}
+
+\fixme{please use cdrfigure standard as below; label doesn't include ``fig:'' and no path to filename}
+\begin{cdrfigure}[short caption for table of figures]{label}{long caption that appears below picture}
+%  \includegraphics[width=0.8\textwidth]{figurefile}
+\end{cdrfigure}
+
+
+\begin{cdrfigure}[Description of the Garfield 2D simulation of field response functions]{garfield_2d}{Description of the Garfield 2D simulation of field response functions}
+  \includegraphics[width=0.95\textwidth]{Garfield_simu.png}
+\end{cdrfigure}
+
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/dune_field_res.pdf}
+\includegraphics[width=0.95\textwidth]{dune_field_res.pdf}
 \caption{The overall response functions, which is the convolution of the
 electronics response function (14 mV/fC gain and 2 $\mu$s shaping time) 
 and the field response, are shown. }
@@ -363,7 +374,7 @@ form is determined by matching the tail of Wiener filter at its high frequency s
 An example of software filter is shown in Fig.~\ref{fig:soft_filter_1}. 
 
 \begin{figure}[!h!tbp]
-\includegraphics[width=0.8\textwidth]{figures/filter_1.png}
+\includegraphics[width=0.8\textwidth]{filter_1.png}
 \caption{The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution. 
 The time and frequency domain content are shown on the left and right panel, respectively.
 The x-axis's unit for the time domain is $\mu$s. For the frequency domain, the number 2000
