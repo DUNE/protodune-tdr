@@ -2,56 +2,56 @@
 \contentsline {todo}{(?) check ripple requirement}{46}{section*.38}
 \contentsline {todo}{Or is this two feedthroughs for three APAs?}{53}{section*.43}
 \contentsline {todo}{This contains an old reference to lar-fd-req, which is no longer in the bibliography.}{55}{section*.44}
-\contentsline {todo}{Have we decided on the 4:1 Mux? Is the 8:1 still an option?}{56}{section*.45}
-\contentsline {todo}{Are these gains and time constants still correct?}{57}{section*.46}
-\contentsline {todo}{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.}{59}{section*.47}
-\contentsline {todo}{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.}{61}{section*.48}
-\contentsline {todo}{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.}{61}{section*.49}
-\contentsline {todo}{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.}{61}{section*.50}
-\contentsline {todo}{This contains an old reference to microboone-url, which is no longer in the bibliography.}{62}{section*.52}
-\contentsline {todo}{Is "five cycles" correct? Or is it six?}{62}{section*.53}
-\contentsline {todo}{Are these noise values the latest? Should we include anything from the 35t test?}{62}{section*.54}
-\contentsline {todo}{I believe the number of transistors has increased. What is the latest count?}{65}{section*.55}
-\contentsline {todo}{Is "five cycles" correct? Or is it six?}{67}{section*.56}
-\contentsline {todo}{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.}{67}{section*.57}
-\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{69}{section*.60}
-\contentsline {todo}{Have the connectors been selected?}{70}{section*.62}
-\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{70}{section*.63}
+\contentsline {todo}{Have we decided on the 4:1 Mux? Is the 8:1 still an option?}{58}{section*.45}
+\contentsline {todo}{Are these gains and time constants still correct?}{58}{section*.46}
+\contentsline {todo}{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.}{60}{section*.47}
+\contentsline {todo}{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.}{60}{section*.48}
+\contentsline {todo}{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.}{60}{section*.49}
+\contentsline {todo}{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.}{60}{section*.50}
+\contentsline {todo}{This contains an old reference to microboone-url, which is no longer in the bibliography.}{61}{section*.52}
+\contentsline {todo}{Is "five cycles" correct? Or is it six?}{61}{section*.53}
+\contentsline {todo}{Are these noise values the latest? Should we include anything from the 35t test?}{61}{section*.54}
+\contentsline {todo}{I believe the number of transistors has increased. What is the latest count?}{64}{section*.55}
+\contentsline {todo}{Is "five cycles" correct? Or is it six?}{66}{section*.56}
+\contentsline {todo}{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.}{66}{section*.57}
+\contentsline {todo}{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}{68}{section*.60}
+\contentsline {todo}{Have the connectors been selected?}{69}{section*.62}
+\contentsline {todo}{Should we add a requirement about the connectors being keyed?}{69}{section*.63}
 \contentsline {todo}{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}{70}{section*.65}
-\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{71}{section*.67}
+\contentsline {todo}{Haven't we made some changes here, regarding DC/DC converters?}{70}{section*.67}
 \contentsline {todo}{Do we want to keep some or all of this here? Or, should this migrate to the QA/QC section?}{71}{section*.70}
-\contentsline {todo}{Space-permitting, it seems to me that more details on commissioning would be in order.}{73}{section*.73}
-\contentsline {todo}{make it a citation}{75}{section*.77}
-\contentsline {todo}{make it a citation}{75}{section*.78}
-\contentsline {todo}{add and reference figures Figure\nobreakspace {}\ref {fig:struct-beam-detail} and Figure\nobreakspace {}\ref {fig:corner-struct-element-detail} }{77}{section*.79}
-\contentsline {todo}{Reference Figure\nobreakspace {}\ref {fig:web-interlinks-detail}}{77}{section*.80}
-\contentsline {todo}{make it a citation}{78}{section*.81}
+\contentsline {todo}{Space-permitting, it seems to me that more details on commissioning would be in order.}{72}{section*.73}
+\contentsline {todo}{make it a citation}{74}{section*.77}
+\contentsline {todo}{make it a citation}{74}{section*.78}
+\contentsline {todo}{add and reference figures Figure\nobreakspace {}\ref {fig:struct-beam-detail} and Figure\nobreakspace {}\ref {fig:corner-struct-element-detail} }{75}{section*.79}
+\contentsline {todo}{Reference Figure\nobreakspace {}\ref {fig:web-interlinks-detail}}{76}{section*.80}
+\contentsline {todo}{make it a citation}{76}{section*.81}
 \contentsline {todo}{reference Figure\nobreakspace {}\ref {fig:front-tco-np04}}{79}{section*.82}
-\contentsline {todo}{make them citations}{81}{section*.83}
-\contentsline {todo}{add reference to Table\nobreakspace {}\ref {tab:roofpenetrations} }{81}{section*.84}
+\contentsline {todo}{make them citations}{80}{section*.83}
+\contentsline {todo}{add reference to Table\nobreakspace {}\ref {tab:roofpenetrations} }{80}{section*.84}
 \contentsline {todo}{Have two instances of this figure; we'll need to get rid of one. Anne}{83}{section*.85}
-\contentsline {todo}{DM question: is this part ok in this document??]}{85}{section*.86}
-\contentsline {todo}{ [Will this be written in another section?? If not, we can leave it here]DM}{85}{section*.87}
+\contentsline {todo}{DM question: is this part ok in this document??]}{86}{section*.86}
+\contentsline {todo}{ [Will this be written in another section?? If not, we can leave it here]DM}{86}{section*.87}
 \contentsline {todo}{Add citation}{86}{section*.88}
 \contentsline {todo}{DM: May be replaced with a more complete one with building also}{88}{section*.89}
 \contentsline {todo}{xxx}{89}{section*.90}
-\contentsline {todo}{50 m3}{90}{section*.91}
+\contentsline {todo}{50 m3}{89}{section*.91}
 \contentsline {todo}{(lower??)}{90}{section*.94}
-\contentsline {todo}{xxx [add reference]}{91}{section*.95}
-\contentsline {todo}{fix units}{91}{section*.97}
+\contentsline {todo}{xxx [add reference]}{92}{section*.95}
+\contentsline {todo}{fix units}{92}{section*.97}
 \contentsline {todo}{too many layers deep; AH}{95}{section*.106}
-\contentsline {todo}{reference table with label Table\nobreakspace {}\ref {tab:cryostat-norm-pressures}}{99}{section*.110}
-\contentsline {todo}{(?? to be confirmed).}{99}{section*.111}
+\contentsline {todo}{reference table with label Table\nobreakspace {}\ref {tab:cryostat-norm-pressures}}{98}{section*.110}
+\contentsline {todo}{(?? to be confirmed).}{98}{section*.111}
 \contentsline {todo}{from Josh K}{100}{section*.114}
-\contentsline {todo}{Do we want to discuss SLAC beam test and Field cage mockup test in PC4 in this TDR?}{108}{section*.116}
-\contentsline {todo}{provide a figure from Mike Mooney showing space-charge distortions}{115}{section*.117}
-\contentsline {todo}{please use cdrfigure standard as shown below}{115}{section*.118}
-\contentsline {todo}{some duplication with the text below is still here. Need to merge descriptions. But the reco steps really do diverge in the alternate methods}{116}{section*.119}
-\contentsline {todo}{Include figure of the Wiener filter; please use cdrfigure standard}{117}{section*.120}
-\contentsline {todo}{add figure}{117}{section*.121}
-\contentsline {todo}{please fix all figures to cdrfigure standard}{118}{section*.122}
-\contentsline {todo}{please use cdrfigure standard as below; label doesn't include ``fig:'' and no path to filename}{125}{section*.130}
-\contentsline {todo}{Need simulation results from Nikos}{134}{section*.136}
-\contentsline {todo}{Need to update the run plan when Nikos's H4 simulation results are available}{138}{section*.148}
-\contentsline {todo}{Need the physics sample requirement table from the Measurement group}{139}{section*.149}
-\contentsline {todo}{testing}{147}{section*.153}
+\contentsline {todo}{Do we want to discuss SLAC beam test and Field cage mockup test in PC4 in this TDR?}{106}{section*.117}
+\contentsline {todo}{provide a figure from Mike Mooney showing space-charge distortions}{114}{section*.118}
+\contentsline {todo}{please use cdrfigure standard as shown below}{114}{section*.119}
+\contentsline {todo}{some duplication with the text below is still here. Need to merge descriptions. But the reco steps really do diverge in the alternate methods}{115}{section*.120}
+\contentsline {todo}{Include figure of the Wiener filter; please use cdrfigure standard}{116}{section*.121}
+\contentsline {todo}{add figure}{116}{section*.122}
+\contentsline {todo}{please fix all figures to cdrfigure standard}{117}{section*.123}
+\contentsline {todo}{please use cdrfigure standard as below; label doesn't include ``fig:'' and no path to filename}{124}{section*.131}
+\contentsline {todo}{Need simulation results from Nikos}{133}{section*.137}
+\contentsline {todo}{Need to update the run plan when Nikos's H4 simulation results are available}{137}{section*.149}
+\contentsline {todo}{Need the physics sample requirement table from the Measurement group}{138}{section*.150}
+\contentsline {todo}{testing}{146}{section*.154}
