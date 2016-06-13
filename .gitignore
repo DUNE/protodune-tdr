@@ -29,6 +29,8 @@
 *.ilg
 *.ind
 *.ist
+*.nlo
+*.tdo
 .DS_Store
 protodune-tdr.pdf
 .lock-waf*
