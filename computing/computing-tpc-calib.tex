@@ -1,12 +1,12 @@
-\subsection{TPC Signal Calibration (Xin)}
-
+\section{TPC Signal Calibration (Xin)}
+\label{sec:tpc-signal-calibration}
 In Sec.~\ref{sec:tpc_signal_formation}, the signal formation in TPC
 is described. In this section, we describe the procedure of the TPC signal
 calibration. As shown in Fig.~\ref{fig:signal_formation}, the goal of TPC 
 signal calibration is to recover the number of ionized electrons from the 
 digitized TPC signal. 
 
-\subsubsection{Deconvolution Technique}\label{sec:decon}
+\subsection{Deconvolution Technique}\label{sec:decon}
 Deconvolution is a mathematical technique to extract a \textit{real signal}
 $S(t)$ from a \textit{measured signal} $M(t_0)$. 
 The deconvolution technique was introduced to LArTPC signal processing by 
@@ -67,7 +67,7 @@ field response function is replaced by a regular uni-polar response function thr
 the inclusion of the software filter. 
 
 
-\subsubsection{Importance of 2D Deconvolution for Induction Planes}
+\subsection{Importance of 2D Deconvolution for Induction Planes}
 The 1D deconvolution procedure described in the previous section 
 works well in dealing with signal in the collection wire plane, but is not 
 optimal when applied to signals in the induction wire planes. 
@@ -148,7 +148,7 @@ resolve the ionization electron distributions within a wire boundary.
 This technique can in principle be improved to include the position dependent
 response once the local ionization charge distribution is roughly reconstructed. 
 
-\subsubsection{Additional Challenges in Deconvolution}
+\subsection{Additional Challenges in Deconvolution}
 
 \begin{figure}[htb]
 \centering
@@ -200,7 +200,7 @@ are considered.
 \label{fig:decon_example}
 \end{figure}
 
-\subsubsubsection{Usage of An Imbalanced Response Function}
+\subsubsection{Usage of An Imbalanced Response Function}
 
 As described above, it is the balanced and bipolar nature of the
 induction response which leads to it being small at low frequencies
@@ -217,7 +217,7 @@ on the deconvoluted image. On the other hand, one may consider to investigate
 hardware solution of intentionally allow some portion of drifting ionization charge 
 to be collected on the induction wires. 
 
-\subsubsubsection{Low-frequency Software Filter}\label{sec:low_freq_filter}
+\subsubsection{Low-frequency Software Filter}\label{sec:low_freq_filter}
 
 In Eq.~\eqref{eq:decon_filt}, a frequency-domain  filter function is introduced 
 to suppress the numerical instability caused by the presence of noise. One can imagine to use this
@@ -237,7 +237,7 @@ middle panel, respectively. A time tick is 0.5 $\mu s$.}
 \label{fig:low_f_filter}
 \end{figure}
 
-\subsubsubsection{Region Of Interests (ROI) and Adaptive Baseline (AB)}\label{sec:roi_ab}
+\subsubsection{Region Of Interests (ROI) and Adaptive Baseline (AB)}\label{sec:roi_ab}
 
 In the previous two sections, we show that we cannot suppress the low-frequency 
 electronic noises with either the intentionally imbalanced response functions nor 
@@ -269,7 +269,7 @@ that one can achieve to  remove bias in the baseline.
 
 In the following, we describe various parts used in the signal calibration.
 
-\subsubsection{Calculation of Field Response Function}
+\subsection{Calculation of Field Response Function}
 
 The field response is calculated by Garfield~\cite{garfield} in a 22 cm (along the 
 field direction) $\times$ 30 cm (along the wire plane direction) region in 2D.  
@@ -323,7 +323,7 @@ and the field response, are shown. }
 \end{figure}
 
 
-\subsubsection{Choice of Software Filter}
+\subsection{Choice of Software Filter}
 
 We select and implement two types of filters.  The first inspired by the Wiener filter.  It is modified to not suppress
 low frequency components.  The second one is the Gaussian filter. While the first one is optimized for 
@@ -389,7 +389,7 @@ The functional form of the low-frequency software filter is
 F(\omega) = 1- e^{-\frac{1}{2}\cdot \left( \frac{\omega}{c} \right)^2}.
 \end{equation}
 
-\subsubsection{ROI Selection}
+\subsection{ROI Selection}
 The region of interest (ROI) is an important technique to limit the contribution of low-frequency 
 electronic noise. The ROI selection was based on the deconvoluted results. Essentially, we perform
 three rounds of deconvolution:
@@ -401,7 +401,7 @@ three rounds of deconvolution:
 The first two are used to select ROIs, and the results from the third deconvolution are then used to obtain the final 
 deconvoluted results. 
 
-\subsubsection{Metrics in Evaluating TPC Signal Processing}
+\subsection{Metrics in Evaluating TPC Signal Processing}
 
 In order to evaluate the TPC signal processing, which include both the noise filtering and 
 the signal calibration, there are two robust metrics that can be used for evaluation 
@@ -428,7 +428,7 @@ performance for the future experiments are important steps to achieve automated 
 reconstruction for LArTPCs.
 
 
-\subsubsection{``Calibration'' of Field Response Function}
+\subsection{``Calibration'' of Field Response Function}
 
 In the TPC signal calibration procedure, the response functions are required to be known. 
 Assuming the shape of the response functions is known, the relative time 
@@ -527,7 +527,7 @@ charge is calculated assuming all three wire planes are seeing the same amount o
 ionization charge. 
 
 
-\subsubsection{Shape Calibration of Field Response Function}
+\subsection{Shape Calibration of Field Response Function}
 In the previous section, we describe the calibration of the time offset and the relative normalization
 among the field response using Wire-Cell imaging technique. However, it is rather difficult to 
 calibrate the shape of the field response function with the real data. In order to properly 
