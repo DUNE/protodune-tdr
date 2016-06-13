@@ -5,29 +5,139 @@
 Science description
 
 
-One of the crucial goal of the protoDUNE-SP experiment is to measure and study the response of the detector to charged
+One of the crucial goals of the protoDUNE-SP experiment is to measure and study the response of the detector to charged
 particles of different types and energies. Results from these measurements serve to
 assess systematic detector uncertainties and validate MC simulations. They also enable
 validation and tuning of event reconstruction algorithms and particle identification tools.
 
-The beam-line will produce particles with properties partially covering the 
+The DUNE experiment will run in both neutrino and anti-neutrino 
+configurations. These beams will be composed mainly of muon neutrinos (anti-neutrinos) as well as electron neutrinos (anti-neutrinos). In Fig.~\ref{fig:particle_momenta} the distributions of momenta of particles created in neutrino interactions from simulated beam fluxes, including oscillation effects, are shown. The particle rates are normalized  to the number of neutrino interactions in the DUNE far detector and the neutrino beam flux.
 
-\begin{cdrfigure}[Placeholder ]{ParticleMomenta}{Placeholder: Left: Momenta distributions of particles produced by the neutrinos from DUNE neutrino beam. Right: the predicted rate of particles as a function of their momentum for the charged particle beam-line.}
+
+\begin{cdrfigure}[Placeholder ]{ParticleMomenta}{Placeholder: Left: Momenta distributions of particles produced by the neutrinos from DUNE neutrino beam.. Right: the predicted rate of particles as a function of their momentum for the charged particle beam-line.} \label{fig:particle_momenta}
   \includegraphics[width=0.8\textwidth]{figures/True_Momenta_per_Particle_9_2_1_0_logy_logx}
 \end{cdrfigure}
 
 The main studies that will be performed using charged particles from the beam and particles created by cosmic muons are
 (Each of the point below will be described in details in the next draft.)
-\begin{itemize}
-\item Characterisation of  hadronic showers (high momenta) and  topologies of the hadronic interactions (low momenta).
+\begin{description}
+\item [Characterisation of  hadronic showers (high momenta) and  topologies of the hadronic interactions (low momenta).]
+
+Accurate measurement of neutrino energy will require reconstruction of both electromagnetic and hadronic showers. Reconstruction of hadron energy 
+in these energy ranges will require knowledge of the fate (interact, decay, or stop) of the
+initiating hadron ($\pi^{+/-}$, $p$, or $K^{+/-}$).
+For the case of  interacting hadrons the composition of secondaries
+will need to be determined to characterize the response. 
+These will include neutrals and particles which 
+deposit energy electromagnetically ($\pi^o$, $\gamma$), as well as
+secondary hadrons.
+The test beam with known incoming particle type and momentum will be used
+to characterize interacting hadrons in this energy range.
+
+
+Fig.~\ref{fig:hadronshwr} shows the fraction of true energy deposited by interacting protons with 1~GeV/c (left) and
+3~GeV/c (right) incident momenta simulated using FLUKA particle transport code~\cite{fluka05}. 
+Interacting protons (65\% of the 1~GeV/c sample) are selected.
+For this study, visible energy is summed using hit information with corrections applied for the lifetime of 
+the drift electrons (No attempt is made to correct for recombination effects or electromagnetic shower fractions). 
+The resulting energy deposition in the two cases cannot be 
+accurately characterized by an average shower calibration factor. Monte Carlo simulations of 
+outgoing particles, especially at low energies, must be checked and bench-marked against calibration data to avoid
+large uncertainties from shower modeling. 
+\begin{figure}[h!]
+  \centering
+
+\includegraphics[width=0.49\textwidth,height=5.0cm]{figures/pr1GeV_v2a}
+\includegraphics[width=0.49\textwidth,height=5.0cm]{figures/pr3GeV_v2a}
+  \caption{Fraction of true energy deposited by interacting protons of 1~GeV/c (left) and
+3~GeV/c (right) momenta simulated using FLUKA~\cite{fluka05}.
+}
+\label{fig:hadronshwr}
+\end{figure}
+
+Pion showers at low energies will also be important both for determining the interacted neutrino energy as well
+as for modeling neutral current backgrounds resulting from $\pi^o$ content in showers. Significant
+ differences in energy deposited in interactions initiated
+by $\pi^+$ versus $\pi^-$  are present up to momenta on the order of 1~GeV/c due to different
+final state particles and interaction cross sections. This is illustrated in 
+Fig.~\ref{fig:pionshwr} which shows the differences in mean energy deposited (left) and width (right) 
+for interacting pions ranging from 0.2~GeV/c up to 5~GeV/c momenta.
+Resulting shower calibrations and reconstruction will differ and therefore each charge must be 
+studied separately.
+
+\begin{figure}[h!]
+  \centering
+
+\includegraphics[width=0.49\textwidth,height=6.0cm]{figures/pipimean_ticks1}
+\includegraphics[width=0.49\textwidth,height=6.0cm]{figures/pipisigma_ticks1}
+  \caption{Differences in mean energy deposited (left) and width of visible energy (right) 
+for interacting $\pi^+$ versus $\pi^-$ ranging from 0.2~GeV/c up to 5~GeV/c. 
+}
+\label{fig:pionshwr}
+\end{figure}
+
 \item Characterisation of electromagnetic showers.
-\item Study $e/\gamma$ separation capabilities.
+\item [Study $e/\gamma$ separation capabilities]
+
+The search for a CP violation phase using $\nu_e$ appearance 
+in a $\nu_\mu$ beam requires good electron/photon separation.
+Backgrounds originating from photons produced primarily from 
+final state $\pi^0$'s must be identified and removed from the signal
+electron sample. 
+
+High energy photons can undergo two process: pair production and Compton scattering. 
+The dominant process for photons with energies of several hundred MeV or more is 
+e$^+$ e$^-$ pair production.
+%energies. 
+%For pair production the 
+e/$\gamma$ discrimination
+for this process can be achieved using the beginning of the electromagnetic shower, where 
+a single MIP is characteristic of electron energy deposition while two MIPs is consistent 
+with a photon hypothesis.
+In the case where the photon Compton scatters, the two particles cannot easily be distinguished
+from the energy deposition pattern.
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[width=0.49\textwidth,height=6.0cm]{figures/eff-bgdrej-diffen}
+  \caption{
+ Photon background rejection versus electron identification efficiency for various energies, calculated for and normalized to samples which pass the reconstruction. 
+The simulation was performed in APA design configuration (4.67~mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires). 
+}
+
+\label{fig:egam}
+\end{figure}
+Electron-photon separation has been studied in LAr TPCs
+(ICARUS~\cite{icarus_eg} and ArgoNeuT~\cite{argoneut_eg}).
+
+Fig.~\ref{fig:egam} 
+ shows estimated photon background rejection versus electron identification efficiency using 
+simulated isotropic electron and photon event samples  with the 
+APA geometry configuration ~\cite{dunecdr}.
+
+The results are found to be mildly dependent
+on incoming particle energy in the range of interest. 
+%
+Our studies indicate that rejection and efficiency depend 
+on particular features of the geometry including wire pitch and plane 
+orientation which affect the reconstruction. 
+For example, a preliminary comparison of signal efficiencies for a simulated 
+DUNE APA configuration with the ICARUS T600 geometry
+and averaged over the energy range 0.2-1.0 GeV shows 
+a 10\% higher efficiency for the 3~mm wire spacing used in ICARUS.
+The study does not yet include electron diffusion.
+%
+Pure samples of electrons and photons in the sub-GeV energy range will be
+needed to tune the separation algorithms and to measure 
+detector-dependent electron-photon separation efficiency and purity.
+
+
 \item Measurement of the field distortion effect (space-charge, LAr flow, beam window effect, etc).
 \item Measure event reconstruction efficiencies as a function of energy and particle type
 \item Measure performance of particle identification algorithms as function of energy
 \item Validate accuracy of Monte Carlo simulations for relevant energy ranges as well as
 directions with respect to the wire-plane geometry
-\end{itemize}
+\end{description}
 
 
 Additional items to be described in this section
@@ -40,10 +150,68 @@ Additional items to be described in this section
 Plots to be generated for  sections 3.1-3.3. Not necessary all of them need to be included in the final version of the TDR.
 \begin{itemize}
 \item Containment for charge particles in the protoDUNE for the predicted particle beam. 
+
+Fig.~\ref{fig:containment} shows the simulated longitudinal and transverse 
+energy containment for proton showers up to 10~GeV in energy.
+For 10 GeV showers, more than 95\% of the energy is contained in a detector of longitudinal size of 6~m and 
+radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied and similar or better containment is achieved in those cases, given the above detector dimensions.
+\begin{figure}[htp]
+  \centering
+  \begin{tabular}{ccc}
+   \includegraphics[width=0.49\textwidth,height=4.9cm]{figures/protons_lcont_overlay}&
+   \includegraphics[width=0.49\textwidth,height=4.9cm]{figures/protons_wcont_overlay}\\
+  \end{tabular}
+  \caption{Simulated longitudinal and transverse containment for proton showers of 4 and 10~GeV/c momenta.
+}
+  \label{fig:containment}  
+\end{figure}
+
+
 \item $e/\gamma$ separation for reconstruction algorithms already incorporated into protoDUNE.
 \item Reconstruction efficiency for primary and secondary particles (from beam and cosmics).
-\item dQ/dx and dQ/dx vs. range for charge particles (protons, pion, muon, kaon)
+\item [dQ/dx and dQ/dx vs. range for charge particles (protons, pion, muon, kaon)]
+
+Information on range and charge deposition for stopping charged-particles can be used to 
+accurately identify particle type as well as measure kinetic energy. 
+Fig.~\ref{fig:resrange}  (left) shows track energy loss per unit length\footnote{Signal attenuation due to recombination effect is not corrected for the PID purpose since it is a deterministic transformation which does not add measurement information.}
+(dQ/dx) as a function of residual 
+track range for simulated muon, pion, proton and kaon particle tracks. 
+A neural-net-based algorithm~\cite{nn_pid,rd_pid}
+was used to determine PID functions for each particle hypothesis.
+
+Fig.~\ref{fig:resrange} (right) 
+shows the distribution of reconstructed dQ/dx in a narrow bin of residual range 6($\pm$1)cm to illustrate the scale of difference between particle types. Proton and kaon bands are well separated from each other and from pion and muon bands, while pion and muon bands are almost overlapping which is challenging for the efficient separation. 
+Simulation is performed with
+FLUKA~\cite{fluka05} and ICARUS geometry (3~mm wire pitch) and reconstruction code~\cite{icarus_reco}.
+
+
+The PID efficiency and purity will  depend on the detector configuration, geometry and 
+reconstruction algorithm. The DUNE APA configuration and reconstruction algorithms
+may give significantly different results, especially for pion/muon separation. 
+It is therefore important to test PID in a realistic prototype detector
+data in the presence of all detector effects.
+Event samples which include an adequate number of stopping particles for each species
+(muon, pions, protons and kaons) are included in the particle summary request in order to 
+perform tests of PID algorithms and Bethe-Bloch calibration measurements.
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[width=0.53\textwidth,height=6.0cm]{figures/pids_new}
+\includegraphics[width=0.46\textwidth,height=6.0cm]{figures/prkpimu_new}
+  \caption{ICARUS simulated track dQ/dx as a function of residual range for muons, pions, protons and kaons, used as training data in a neutral-net-based PID algorithm (left). Distribution of dQ/dx for each particle type for a bin with residual range 
+6($\pm$1)~cm (right). The small difference between muon and pion PID is illustrated.
+}
+\label{fig:resrange}
+\end{figure}
+
 \item Fraction of true energy deposited by interacting charge particles 
+The measured energy deposition for various particles and its dependence on the direction of the particle will be used to tune
+Monte Carlo simulations and allow improvements to reconstruction of neutrino energy and interaction topologies. % with good particle identification.
+Measurements of the response to charged particles and
+photons with the DUNE-PT will extend and be complementary to
+measurements made with other smaller detectors, such as LArIAT \cite{LArIAT}
+and CAPTAIN~\cite{captain}.
+
 \item Differences in mean energy deposited and width of visible energy  for interacting particles.
 \item $\Delta X, \Delta Y and \Delta Z$ due to  field distortion effects. 
 \end{itemize}
@@ -84,11 +252,63 @@ images from the raw digits with the images after the deconvolution procedure.
 \section{Particle interactions and cross sections}
 
 
+
+Final state pions are produced copiously in neutrino interactions in the energy range for the DUNE beam  and contribute 
+substantially to total visible energy in the interaction.
+These particles can re-interact either in the nuclear medium or after emerging from the target nucleus
+and substantially change the visible energy deposited in the event. 
+The importance of modeling final state pion interactions on reconstructed neutrino energy have 
+been recently demonstrated in the NuMI and Booster beam energy ranges~\cite{miniboonefsi, minervafsi}. 
+
+Detailed knowledge of pion-nucleus cross sections in the sub-GeV energy range is required
+to tune generators~\cite{genie} to accurately model event visible energy. 
+Existing data used to tune the models cover limited energies ($<$200~MeV) and are primarily on lighter target nuclei~\cite{fsirev}.
+% need to check this reference from R. Ransom talk.
+The requested $\pi^+$ and $\pi^-$ samples will allow new data samples for measuring
+exclusive final state processes over the full relevant energy range and specifically on argon nuclei. 
 A high statistic samples of charge particles will allow precise measurements of their interaction cross sections.
+
 \begin{itemize}
 \item pion interaction kinematics and cross sections
 \item kaon interaction cross section to remove proton decay backgrounds
+
+
+The DUNE experiment in the deep underground location will seek to detect several modes of proton decay.
+In particular, a first ever LAr detector of this scale underground will primarily improve sensitivity to 
+proton decays with final state kaons such as  ${p \rightarrow K^+ \overline{\nu}}$. 
+Sensitivity to this process is studied in \cite{bueno}. $K^+$ detection efficiency is estimated to be $>$97\% in the
+appropriate momentum range (500-800 MeV/c). The kaon samples requested in Table~\ref{tab:runsum} are needed to directly measure 
+$K^+$ PID and detection efficiency. 
+
+Obtaining low energy kaons will likely be difficult in this beamline.
+A sample of 13k beam kaons with 1~GeV/c momentum are requested to provide 2k stopping $K^+$ track samples for PID studies.
+(Only 15\% of $K^+$ stop at 1~GeV/c.)
+A sizable sample of protons ($\sim 10^6$)
+are requested to study the possible background contributions to  $p \rightarrow K^+ \overline{\nu}$.
+This sample of  protons are needed to quantify the possibility that an interacting proton 
+is  misidentified as stopping kaon. A proton interaction which produces neutrals and one charged pion 
+(which is misidentified or subsequently decays to $\mu$) can fake the final state kaon signal.
+
+
 \item muon capture for charge identification
+
+It is not possible to determine the charge of the particle on an event by event basis with non-magnetized LAr TPC detectors. A statistical separation will be studied which will make use of differences in muon versus anti-muon capture cross sections and lifetime.
+%However, the statistical analyst will be possible. We will fit the muon's half time which is different for muons and antimony due to different muon capture cross sections. 
+For the $\mu^-$ we expect about 99.9\% to be captured on argon whereas essentially all $\mu^+$ decay \cite{stopmu}.
+Charge-sign tagged $\nu_\mu$ samples may be useful to constrain exotic possibilities such as
+non-standard neutrino interactions which predict differences in the particle and anti-particle survival probabilities. 
+
+\item Supernova and Michel electrons
+
+Neutrinos produced in supernova burst (SNB) explosions are calculated to be in the few-to-30-MeV range.
+The DUNE Far Detector is expected to have unique sensitivity to the $\nu_e$'s from a SNB in our galaxy.
+%
+The test beam cannot offer a sample of  such low energy electrons, but Michel electrons  produced by 
+decaying stopped muons are ideal to calibrate electron response in the appropriate 10-50~MeV energy range. 
+The requested sample of low energy muons will supply the 1400 Michel electrons required for a 1\% 
+calibration of electrons in this energy range. This sample can be compared to a similar Michel electron sample
+stemming from stopping cosmic muons.
+
 \end{itemize}
 
 
