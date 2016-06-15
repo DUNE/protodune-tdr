@@ -29,3 +29,45 @@ to stage a considerable portion of both raw data (inputs) and one or a few steps
 Extrapolating from our previous experience running Monte Carlo for the former LBNE Far Detector, it is estimated
 that  a few hundred TB of continuously available disk space will be needed. It is expected that protoDUNE will require
 a few~PB of storage at Fermilab to ensure optimal data availability and  processing efficiency. 
+
+\subsection{Workload Management}
+\label{sec:dune-wms}
+For DUNE requirements to its Workload Management System please see \ref{sec:req-wms}. There are a few systems currently used by various experiments which
+differ in the following aspects:
+\begin{itemize}
+
+\item Degree of integration with their corresponding data management system.
+
+\item Depth and breadth of monitoring capabilities offered by the system to the user and to the expeiment's operations team.
+
+\item Ability to handle complex workflows automatically.
+
+\item Functionality to correct various error conditions and failure modes, for example ``retry'' a set of jobs that were stuck in an unfinished state
+due to corrupted or otherwise missing data and other such conditions.
+
+\end{itemize}
+
+\noindent
+A few examples of widely deployed WMS include:
+\begin{itemize}
+
+\item Dirac (Distributed Infrastructure with Remote Agent Control) WMS~\cite{dirac_wms} used at CERN by LHCb.
+
+\item PanDA (``Production and Distributed Analysis'') \cite{panda_chep13}, which forms the backbone of ATLAS processing and has been used in other experiments such as AMS.
+PanDA has scaled up to manage O(10$^6$) Grid jobs daily, upgraded to use a fine-grained workflow management system, added an event service to
+make it easier to use short-term opportunistics resource and a host of other features. A distinguishing feature of PanDA is sophisticated and powerful
+monitoring system which allows efficient troubleshooting and optimal degree of control over execution of workflows.
+
+\item GlideinWMS \cite{glideinwms_chep13} used in CMS and a variety of projects in other disciplines via the Open Science Grid Consortium.
+
+\item Alien \cite{alien} deployed for the Alice experiment at the LHC.
+
+\end{itemize}
+
+\noindent
+FNAL has successfully deployed a Grid toolkit named \textit{jobsub} \cite{jobsub_chep13}, which has been used for a number of years to facilitate users' access to
+Grid facilities at FNAL and at other grid sites, such as those participating in the Open Science Grid Consortium \cite{osg}. It integrates FNAL-local access via
+HTCondor facilities with GlideinWMS extensions to reach available resources elsewhere.
+
+Where needed, \textit{jobsub} leverages the CVMFS network file system for software provisioning and the \textit{ifdh} data handling tool which integrates
+with SAM, dCache, Amason S3 etc.
