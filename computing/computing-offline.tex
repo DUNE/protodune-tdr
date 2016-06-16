@@ -31,9 +31,13 @@ that  a few hundred TB of continuously available disk space will be needed. It i
 a few~PB of storage at Fermilab to ensure optimal data availability and  processing efficiency. 
 
 \subsection{Prompt Processing}
-In the present context, \textit{Prompt Processing} means a number of fast reconstruction processes (also called
-``express stream'' sometimes) which process a fraction of raw data. Its main purpose is to aid in QA of the data
-and produce quick calibrations which may be necessary for high quality monitoring of the detector. It is understood
+In the present context, \textit{Prompt Processing} means a number of fast signal processing and reconstruction processes
+(also called ``express stream'' sometimes) which process a fraction of raw data. Its main purpose is to aid in QA of the data
+and produce quick calibrations which may be necessary for high quality monitoring of the detector. As one example,
+calculating frequency spectra of noise and watching its level, evolution and other characteristincs is an important aspect of ensuring
+the stability of the readout chain.
+
+It is understood
 that a limited number of metrics will be calculated to make the proccess as quick as possible in order to enable
 researchers to take action should the QA process indicate a potential problem in the detector or the data.
 
@@ -80,8 +84,8 @@ monitoring system which allows efficient troubleshooting and optimal degree of c
 
 \noindent
 FNAL has successfully deployed a Grid toolkit named \textit{jobsub} \cite{jobsub_chep13}, which has been used for a number of years to facilitate users' access to
-Grid facilities at FNAL and at other grid sites, such as those participating in the Open Science Grid Consortium \cite{osg}. It integrates FNAL-local access via
-HTCondor facilities with GlideinWMS extensions to reach available resources elsewhere.
+Grid facilities at FNAL and at other grid sites, such as those participating in the Open Science Grid Consortium ({\tt https://www.opensciencegrid.org/}).
+It integrates FNAL-local access via HTCondor facilities with GlideinWMS extensions to reach available resources elsewhere.
 
 Where needed, \textit{jobsub} leverages the CVMFS network file system for software provisioning and the \textit{ifdh} data handling tool which integrates
 with SAM, dCache, Amason S3 etc.
