@@ -1,33 +1,40 @@
 \section{Offline Processing of the Experimental and MC Data}
+\label{sec:protodune-offline}
 %\subsection{Data processing}
 %\label{sec:protodune-dataprocess}
 
-%In addition to the raw data preparations being made for offline data handling, processing and storage.
-The offline data can be classified as follows:
+The raw data collected by \pd will undergo offline processing. More broadly, the offline data
+can be classified as follows:
 \begin{itemize}
-\item Monte Carlo data, which will contain multiple event samples to cover various event types and other conditions during the measurements
-with protoDUNE
 
-\item Data derived from Monte Carlo events, and produced with a variety of tracking and pattern recognition algorithms
+\item A variety of calibration data derived from experimental data (also including dedicated calibration
+runs where necessary, and/or subsamples of data collected specifically for calibration
+purposes during normal running conditions)
+
+\item Processed experimental data, which may exist in several parallel branches corresponding to
+different reconstruction algorithms being applied, with the purpose of evaluating the performance
+of the different algorithms
+
+\item Monte Carlo (MC) data, which will contain multiple event samples to cover various event types
+and other conditions during the measurements with protoDUNE
+
+\item Data derived from MC events, and produced with a variety of tracking and pattern recognition algorithms
 in order to create a basis for the detector characterization
 
-\item Intermediate calibration files, derived from calibration data
-
-\item Processed experimental data, which may exist in several parallel branches corresponding to different reconstruction
-algorithms being applied, with the purpose of evaluating the performance of the different algorithms.
 \end{itemize}
 
-\noindent In the latter item, there will likely be more than one processing step, thus multiplying the data volume. 
-The derived data will at most contain a fraction of the raw data in order to keep the data manageable,
-hence the size of the processed data will likely be smaller than the input (the raw data). 
+\noindent The production processing will likely have more than one processing step,
+thus multiplying the data volume. It is desirable that the derived data would be reduced
+in size with respect to the raw data in order to keep the data volume manageable.
+It is thus assumed that the size of the processed data will likely be smaller than the input (the raw data). 
 Given the consideration presented above, and numbers in Table\,\ref{fig:det_perf}
 on page~\pageref{fig:det_perf} we will plan for
 $\sim$ $O($1 PB$)$ of tape storage to keep the processed data. 
 For efficient processing, disk storage will be necessary
 to stage a considerable portion of both raw data (inputs) and one or a few steps in processing (outputs).
 
-Extrapolating from our previous experience running Monte Carlo for the former LBNE Far Detector, it is estimated
-that  a few hundred TB of continuously available disk space will be needed. It is expected that protoDUNE will require
+Extrapolating from our previous experience running Monte Carlo for the previous DUNE MC campaigns of comparable scale,
+it is estimated that  a few hundred TB of continuously available disk space will be needed. It is expected that protoDUNE will require
 a few~PB of storage at Fermilab to ensure optimal data availability and  processing efficiency. 
 
 \subsection{Prompt Processing}
@@ -39,7 +46,7 @@ the stability of the readout chain.
 
 It is understood
 that a limited number of metrics will be calculated to make the proccess as quick as possible in order to enable
-researchers to take action should the QA process indicate a potential problem in the detector or the data.
+the operators to take action should the QA process indicate a potential problem in the detector or the data.
 
 The following parameters of prompt processing need to considered:
 \begin{itemize}
@@ -50,7 +57,8 @@ The following parameters of prompt processing need to considered:
 
 \subsection{Workload Management}
 \label{sec:dune-wms}
-For DUNE requirements to its Workload Management System please see \ref{sec:req-wms}. There are a few systems currently used by various experiments which
+For DUNE requirements to its Workload Management System please see the Computing Model document\,\cite{dune_computing_model}.
+There are a few systems currently used by various experiments which
 differ in the following aspects:
 \begin{itemize}
 
