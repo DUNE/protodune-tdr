@@ -12,14 +12,48 @@ all of the ionization in the Liquid Argon volume due the event of interest.
 
 \noindent Combination of these factors leads to a considerable amount of data per event and depending on
 the chosen conditions (i.e. trigger rate and total required statistics) may result in considerable requirements
-regarding the bandwidth and storage. These issues will be addressed in the sections below.
+regarding the bandwidth and storage. These can be illustrated as follows.
 
-%There are a few data reduction (compression) techniques that may be applicable to \pd raw data in order to reduce its size. Some of the algorithms
-%are inherently lossy, such as the so-called \textit{Zero Suppression} algorithm which rejects parts of the digitized waveforms in LArTPC channels according
-%to certain logic (e.g. when the signal is consistently below a predefined threshold for a period of time). There are also lossless compression
-%techniques such as Huffman algorithm and others. At the time of writing it is assumed that only the lossless algorithms will be applied
-%during the compression
-%of the \pd raw data, while zero suppression is considered a separate option that may be implemented when taking a portion of the data.
+The ``\pd/SP Data Scenarios'' spreadsheet\,\cite{data_spreadsheet}
+describes three possible running conditions and estimates for their
+resulting data volumes and rates and interpretations in terms of
+network and disk bandwidth.  It also includes estimates for non-beam
+trigger for acquiring additional cosmic-$\mu$ data.  Some highlights
+of these estimates for the mid-range (so-called ``Goldilocks'')
+scenario are in Table~\ref{tab:goldi}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[h]{l|r}
+    Trigger rate & \SI{10}{\Hz} \\
+    Spill time & \SI{4.8}{\second} \\
+    Cycle time & \SI{16.8}{\second} \\
+    Readout time & \SI{5}{\milli\second} \\
+    \#APA & 3 \\
+    \hline
+    Readout & \SI{115}{\mega\byte} \\
+    Compression & $\times$5 \\
+    Instant rate & \SI{230}{\mega\byte\per\second} \\
+    Average rate & \SI{66}{\mega\byte\per\second} \\
+    \hline
+    3-Day volume & \SI{17}{\tera\byte} \\
+    \hline\hline
+    cosmic-$\mu$ & $\times$2 \\
+  \end{tabular}
+  \caption{Parameters governing data rates and volumes for the ``Goldilocks'' (v5) scenario.  See text.}
+  \label{tab:goldi}
+\end{table}
+
+Based on preliminary plan for calibrations (to be done studying a few types of tracks of cosmic $\mu$),
+the current assumption is that for every beam trigger one non-beam
+trigger (labeled as ``cosmic-$\mu$`` in the table) be acquired during the time when the beam is not spilling. 
+This assumption represents a doubling of the data rates and volumes presented in Table~\ref{tab:goldi}.
+The instant and average rates are those for when the beam is spilling or if the rate is amortized over the
+entire beam cycle. 
+
+The current run plan calls for about 5\,M beam events to be collected in the first run of \pd. Triggers (such as PID) will be
+actuated using beam instrumentation which is being developed at the time of writing. Its efficiency will likely be far less
+than 100\,\% and for estimation purposes is assumed to be 50\,\%.
 
 %It is foreseen that the total amount of data to be produced by the \pd detectors will be of the order of a few
 %petabytes (including commissioning runs with cosmic rays). Instantaneous and average data rates in the data transmission chain are expected to be
