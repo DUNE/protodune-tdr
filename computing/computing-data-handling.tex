@@ -15,45 +15,52 @@ the chosen conditions (i.e. trigger rate and total required statistics) may resu
 regarding the bandwidth and storage. These can be illustrated as follows.
 
 The ``\pd/SP Data Scenarios'' spreadsheet\,\cite{data_spreadsheet}
+(reference to DUNE DocDB 1086)
 describes three possible running conditions and estimates for their
 resulting data volumes and rates and interpretations in terms of
 network and disk bandwidth.  It also includes estimates for non-beam
 trigger for acquiring additional cosmic-$\mu$ data.  Some highlights
 of these estimates for the mid-range (so-called ``Goldilocks'')
-scenario are in Table~\ref{tab:goldi}.
+scenario are in Table~\ref{tab:goldi}. The lossless compression factor cited
+in the table is based on the assumption that noise level are under control
+and of the same order or better as in $\mu$BooNE.
 
 \begin{table}[htbp]
   \centering
   \begin{tabular}[h]{l|r}
+\hline
     Trigger rate & \SI{10}{\Hz} \\
-    Spill time & \SI{4.8}{\second} \\
-    Cycle time & \SI{16.8}{\second} \\
-    Readout time & \SI{5}{\milli\second} \\
-    \#APA & 3 \\
+    Spill duration & \SI{4.8}{\second} \\
+    SPS Cycle & \SI{16.8}{\second} \\
+    Readout time window & \SI{5}{\milli\second} \\
+    \# of APAs to be read out & 3 \\
     \hline
-    Readout & \SI{115}{\mega\byte} \\
-    Compression & $\times$5 \\
-    Instant rate & \SI{230}{\mega\byte\per\second} \\
-    Average rate & \SI{66}{\mega\byte\per\second} \\
+    Single readout size (per trigger) & \SI{115}{\mega\byte} \\
+    Compression factor & 5 \\
+    Instantaneous data rate & \SI{230}{\mega\byte\per\second} \\
+    Average data rate & \SI{66}{\mega\byte\per\second} \\
     \hline
-    3-Day volume & \SI{17}{\tera\byte} \\
-    \hline\hline
-    cosmic-$\mu$ & $\times$2 \\
+    3-Day buffer depth & \SI{17}{\tera\byte} \\
+    \hline
   \end{tabular}
-  \caption{Parameters governing data rates and volumes for the ``Goldilocks'' (v5) scenario.  See text.}
+  \caption{Parameters defining data rate and volume in the ``Goldilocks'' scenario v5\,\cite{data_spreadsheet}.}
   \label{tab:goldi}
 \end{table}
 
-Based on preliminary plan for calibrations (to be done studying a few types of tracks of cosmic $\mu$),
+Based on preliminary plan for calibrations which involves measuring a few types of cosmic $\mu$ tracks
+(e.g. at different angles),
 the current assumption is that for every beam trigger one non-beam
-trigger (labeled as ``cosmic-$\mu$`` in the table) be acquired during the time when the beam is not spilling. 
+trigger be acquired out-of-spill. 
 This assumption represents a doubling of the data rates and volumes presented in Table~\ref{tab:goldi}.
 The instant and average rates are those for when the beam is spilling or if the rate is amortized over the
 entire beam cycle. 
 
 The current run plan calls for about 5\,M beam events to be collected in the first run of \pd. Triggers (such as PID) will be
-actuated using beam instrumentation which is being developed at the time of writing. Its efficiency will likely be far less
-than 100\,\% and for estimation purposes is assumed to be 50\,\%.
+actuated using beam instrumentation which is being developed at the time of writing. Its efficiency will certainly be less
+than 100\,\% and for estimation purposes is assumed to be 50\,\%. This leads to the requested total statistics of 10\,M
+events. Combined with readout size quoted in Table\,\ref{tab:goldi} it results in the anticipated volume of raw data of
+about 0.5\,PB to be taken during the SPS run. To account for commissioning of the detector this should be doubled,
+resulting in estimated 1\,PB of raw data.
 
 %It is foreseen that the total amount of data to be produced by the \pd detectors will be of the order of a few
 %petabytes (including commissioning runs with cosmic rays). Instantaneous and average data rates in the data transmission chain are expected to be
