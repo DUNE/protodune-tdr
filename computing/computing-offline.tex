@@ -27,8 +27,8 @@ in order to create a basis for the detector characterization
 thus multiplying the data volume. It is desirable that the derived data would be reduced
 in size with respect to the raw data in order to keep the data volume manageable.
 It is thus assumed that the size of the processed data will likely be smaller than the input (the raw data). 
-Given the consideration presented above, and numbers in Table\,\ref{fig:det_perf}
-on page~\pageref{fig:det_perf} we will plan for
+Given the considerations for the anticipated raw data volume presented above,
+the currentl plan is to provision 
 $\sim$ O(1PB) of tape storage to keep the processed data. 
 For efficient processing, disk storage will be necessary
 to stage a considerable portion of both raw data (inputs) and one or a few steps in processing (outputs).
@@ -55,6 +55,18 @@ The following parameters of prompt processing need to considered:
 \item Location of the computing resources utilized.
 \item Fraction and type of data to be processed in this manner.
 \end{itemize}
+
+\noindent As to the latter item, it is estimated that processing roughly 1\% of the data stream collected by the detector will
+be enough to meet most important goals of prompt processing. 
+The general strategy is to locate some of the prompt processing capability at CERN, at a scale adequate for the mid-range
+data taking scenario such as presented in Table\, \ref{tab:goldi}. A very preliminary estimate indicated that about 300 cores
+will be needed to cope with processing at that rate.
+
+If the need materializes to scale up from this capacity due to necessity to increase the trigger rate,
+the plan is to take advantage of the high bandwidth of the network connection between
+CERN and a few significant sites in the US (such as FNAL, BNL and others) and do additional processing there.
+
+
 
 \subsection{Workload Management}
 \label{sec:dune-wms}
@@ -99,3 +111,5 @@ It integrates FNAL-local access via HTCondor facilities with GlideinWMS extensio
 
 Where needed, \textit{jobsub} leverages the CVMFS network file system for software provisioning and the \textit{ifdh} data handling tool which integrates
 with SAM, dCache, Amason S3 etc.
+
+Implementing a WMS in \pd is desirable since it could be and important factor in ensuring efficient, reliable and flexible prompt processing capability (\ref{sec:prompt_processing}).
