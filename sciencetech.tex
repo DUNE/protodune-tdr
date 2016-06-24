@@ -219,25 +219,35 @@ and CAPTAIN~\cite{captain}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluation of event reconstruction performance}
 
-Xin's input
 
-In the following, we define the goals that we must achieve regarding the TPC signal processing.
+In the following, we define the goals that we aim to achieve regarding the TPC 
+electronic noise and signal processing.
 \begin{itemize}
 \item Number of unusable channels is required to be smaller than 1\%: \\
 All the past large LArTPC experiments (ICARUS, MicroBooNE, and DUNE-35ton) suffer from a sizable
-number unusable channels ($\sim$ 10\%) due to various reasons such as high noises, dead electronics.
-It is crucial to demonstrate the number of unusable channels can be reduced by at least one order
-of magnitude. 
-\item The ENC generated beyond the cold preamplifier is required to negligible ($<$ 50\%) compared to the 
+number unusable channels ($>$ 10\%) due to various reasons such as high noises, dead electronics, 
+and disconnected wires. At the same time, successes have been achieved for various sub-systems in 
+different experiments. For example, there is no disconnected wires in ICARUS. In LAriat, all 
+cold electronics channels ($\sim$ 500) are live and achieve expected $\sim$400 electrons equivalent 
+noise charge (ENC). In ATLAS LAr calorimeter, only about 0.1\% cold electronics channels are unusable. 
+In MicroBooNE, the ENC after software noise filtering is about 400 electrons, which is consistent with 
+the design specification of the cold electronics. In addition, sources of all major electronic noises
+have been identified and hardware solutions are in order. Therefore, with careful and systematic 
+quality assurance and controls, it is definitely possible to reduce the total number of unusable channels
+by at least one oder of magnitude. This is one of the primary goal of protoDUNE.
+\item The ENC generated beyond the cold preamplifier is required to negligible ($<$ 50\%~\footnote{Since the 
+noises are added in quadrature, an extra electronic noise with less than 50\% of intrinsic cold preamplier
+noise would lead to less than 10\% increase of the total noise.}) compared to the 
 expected ENC generated from the cold preamplifier in $>$ 95\% of the channels: \\
 The only irreducible electronics noise is coming from the preamplifier on the TPC wires. It is thus
 crucial to optimize the overall system to reduce the noises generating from other sub-systems. 
+LAriat acehived such a performance with about a total of 500 channels. 
 \item A robust procedure to validate the TPC field response function is required
 be developed: \\
 Field response on the induction plane is very complicated, but holds the key to achieve a robust TPC 
-signal processing. It is therefore important to develop a program to calculate and validate field 
-response functions in a real experiment. This validation of the field response function can be
-achieved by comparing the measured average response functions for cosmic muons with the simulated
+signal processing and thus the overall event reconstruction. It is therefore important to develop a 
+program to calculate, calibrate, and validate field response functions. This validation of the field response function 
+can be achieved by comparing the measured average response functions for cosmic muons with the simulated
 ones. 
 \item The overall signal calibration process is required to be validated: \\
 The goal of the signal calibration process is to recover the number of the ionized electrons based on
@@ -246,7 +256,8 @@ validate that such a procedure is robust. This validation can be achieved by com
 images from the raw digits with the images after the deconvolution procedure.
 \end{itemize}
 
-%\subsection{TPC Signal Processing (Xin)}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Particle interactions and cross sections}
