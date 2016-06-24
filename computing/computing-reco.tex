@@ -19,10 +19,12 @@ because the offline processing must flexibly accommodate changing DAQ
 formats without rewriting the downstream processing software, the
 choice is made to represent the data in the offline format.
 
-\fixme{some duplication with the text below is still here. Need to merge
-descriptions. But the reco steps really do diverge in the alternate methods}
+%\fixme{some duplication with the text below is still here. Need to merge
+%descriptions. But the reco steps really do diverge in the alternate methods}
 
-Noise filtering is then applied.  Existing LArTPC experiments have a
+For current large LArTPC detectors, noise filtering is then applied to remove
+electronic noises beyond the intrinsic ones from cold preamplifier.
+In particular, existing LArTPC experiments have a
 large component of their noise from coherent sources -- sources that
 affect many neighboring wires and/or neighboring readout channels
 (channels from different planes may be interleaved in the front-end
@@ -33,30 +35,35 @@ drawback of this procedure is that signals also arrive on neighboring
 channels at the same time, and this procedure reduces the signal as
 well as the noise, in a manner that depends on the angle of a track or
 shower with respect to the drift field.  Procedures that first
-identify signal hits and protect them from
-distortion~\cite{microboone_noise} are under study.
+identify signal hits and protect them from distortion~\cite{microboone_noise} 
+are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
+has achieved excellent noise level as expected by the design specification
+of cold electronics (Fig.~\ref{rms3} in Sec.~\ref{sec:tpc-signal-cabliration}).
 
-The raw signals are then processed through a signal deconvolution and
-noise filtering step.  This step is done using a discrete Fourier
-transform, the application of the deconvolution kernel and filter
-function in frequency space, and then followed by an inverse discrete
-Fourier transform.  The deconvolution kernel serves to convert the
-bipolar induction-plane signals into unipolar estimates of the charge
-arrival time, and serves to remove as much of the electronics
-distortions from both the induction-plane signals and the
-collection-plane signals as possible.  It is needed since the positive
-lobe of the induction-plane signal from one charge deposit may cancel
-the negative lobe of the signal from another charge deposit.  The
-filter is a Wiener filter, where the expected signals and backgrounds
-are obtained from data samples.  A typical band in which signal
-frequencies lie is 10 KHz, while easily-filtered noise is at much
-higher and lower frequencies.  A typical filter function is shown in
-Figure~\ref{fig:wienerfilter}
+The raw signals are then processed to recover the ionization charge
+as described in Sec.~\ref{sec:tpc-signal-calibration} in details. 
 
-\fixme{Include figure of the Wiener filter; please use cdrfigure standard}
-\begin{cdrfigure}[The noise filter function applied to 35-ton data]{wienerfilter}{The noise filter function applied to 35-ton data.  A similar procedure will produce a noise filter function for ProtoDUNE-SP}
+%through a signal deconvolution and
+%noise filtering step.  This step is done using a discrete Fourier
+%transform, the application of the deconvolution kernel and filter
+%function in frequency space, and then followed by an inverse discrete
+%Fourier transform.  The deconvolution kernel serves to convert the
+%bipolar induction-plane signals into unipolar estimates of the charge
+%arrival time, and serves to remove as much of the electronics
+%distortions from both the induction-plane signals and the
+%collection-plane signals as possible.  It is needed since the positive
+%lobe of the induction-plane signal from one charge deposit may cancel
+%the negative lobe of the signal from another charge deposit.  The
+%filter is a Wiener filter, where the expected signals and backgrounds
+%are obtained from data samples.  A typical band in which signal
+%frequencies lie is 10 KHz, while easily-filtered noise is at much
+%higher and lower frequencies.  A typical filter function is shown in
+%Figure~\ref{fig:wienerfilter}
+
+%\fixme{Include figure of the Wiener filter; please use cdrfigure standard}
+%\begin{cdrfigure}[The noise filter function applied to 35-ton data]{wienerfilter}{The noise filter function applied to 35-ton data.  A similar procedure will produce a noise filter function for ProtoDUNE-SP}
 %  \includegraphics[width=0.8\textwidth]{wienerfilter}
-\end{cdrfigure}
+%\end{cdrfigure}
 
 Hits are then identified by seeking deconvoluted signals exceeding
 thresholds that are adjusted to minimize the creation of false noise
@@ -185,3 +192,7 @@ particles See Robert's talk from the April collab meeting
   ProtoDUNE-SP, using the PMA algorithm.}
 \label{fig:PMApioninteraction}
 \end{figure}
+
+
+
+%% Wire-Cell ... 
