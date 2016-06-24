@@ -74,7 +74,7 @@ finder fits Gaussians to the deconvoluted signals, and saves the
 times, widths, and amplitudes of the Gaussians, as well as the sum of
 the ADC readings in the time windows corresponding to the hits, as a
 Gaussian function is not always representative of the charge arrival
-distributin and the resolution of the calorimetry is improved by
+distribution and the resolution of the calorimetry is improved by
 summing the ADC counts.  The hits are associated with DAQ channels and
 not wire segments, since, due to the wrapping of the induction-plane
 wires in the ProtoDUNE-SP APA's, there is ambiguity of where the
@@ -197,6 +197,37 @@ particles See Robert's talk from the April collab meeting
 
 
 %% Wire-Cell ... 
+WireCell~\cite{wire-cell}, which adopts a very different approach from the 
+fore-mentioned algorithms, is a new reconstruction method under development.
+Instead of directly doing pattern recognition on each of the 2D views (drift 
+time vs. wire number), the first step of the WireCell reconstruction is to 
+perform 3D imaging with time, geometry, and charge information. The definition
+of "Hit" is based on signal strength after charge extraction (described in 
+Sec.~\ref{sec:tpc-signal-cabliration}) in a 2 $\mu$s time slice. The usage of 
+time information means that hits from different wire planes at different time 
+slice cannot be associated. The usage of geometry information means that hits
+from wires that are not crossing each other cannot be associated together. 
+The usage of charge information means that the hits from different wire plane
+with different signal strength are unlikely to be associated together. The 
+usage of the charge information is quite unique for LArTPC, as each of the 
+wire plane in principle detect the same amount of the ionization electrons. 
+Figure~\ref{fig:quality} shows the performance of the WireCell 3D imaging. 
+The large blue blob reflects the ambiguities due to wire readout for a track
+traveling parallel to the wire plane. In this case, a group of wires from each 
+wire plane is fired simultaneously. Therefore, the time and geometry 
+information will provide rather limited constraints on the hit associations. 
+The advantage of the WireCell approach is that it utilizes full TPC 
+information. The strong requirement of the time/geometry/charge information
+provides a natural way to suppress electronic noise at the cost of more
+sensitive to the hit inefficiency. Since the track and shower hypotheses
+are not used, the 3D imaging works for any event topology. Once the 3D
+images are reconstructed, 3D pattern recognition is needed to identify 
+the content inside the image. Figure~\ref{fig:tracking2} shows the 
+performance of the current available 3D pattern recognition inside
+WireCell. More developments on the WireCell pattern recognition 
+are needed before the calculating of physics quantities. 
+
+
 
 %% Wire-Cell Imaging
 
