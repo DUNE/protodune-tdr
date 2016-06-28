@@ -18,17 +18,30 @@ The physics requirements that drive the design of the APA are listed in Table \r
 
 \begin{cdrtable}[APA Physics Requirements]{cc}{physicsrequirements}{Physics requirements that motivate APA design parameters.}   
 Requirement & Value  \\ \toprowrule
-Identify MIPs above noise & x \\ \colhline
-High efficiency for charge reconstruction & y \\ \colhline
-Vertex Resolution & (2.5 cm, 2.5 cm, 2.5 cm)\\ \colhline
-Particle Identification & \\ \colhline
-Shower identification/separation & \\
+Identify MIPs anywhere in active detector & S/N > 9:1 \\ \colhline
+High efficiency for charge reconstruction & $>$90$\%$ for $>$100 MeV \\ \colhline
+Vertex Resolution (x,y,z) & (2.5 cm, 2.5 cm, 2.5 cm)\\ \colhline
+\textbf{Particle Identification} & \\ 
+Muon Momentum Resolution & $<$18$\%$ for non-contained \\
+            & $<$5$\%$ for contained\\ 
+Muon Angular Resolution & $<$1$^{\circ}$\\            
+Stopping Hadrons Energy Resolution & 1-5$\%$\\
+Hadron Angular Resolution & $<$10$^{\circ}$ \\ \colhline
+\textbf{Shower identification} & \\
+Electron efficiency & $>$90$\%$\\
+Photon mis-identification & $<$1$\%$\\
+Electron Angular Resolution & $<$1$^{\circ}$ \\
+Electron Energy Scale Uncertainty & $<$5$\%$\\
 \end{cdrtable}
 
+The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including: argon purity, drift distance, diffusion, wire pitch, and ENC.  protoDUNE requires that MIPs originating anywhere inside the active volume of the detector be reconstructed.  For the design values of the parameters just mentioned, a S/N greater than 9:1 should be achievable even for MIPs originating at the furthest drift distances (e.g. 3.6 m), which would make their reconstruction possible with the current software tools.
+
+Precisely identifying the location of any vertices in an event (e.g. primary vertex in a neutrino interaction, gamma conversion points in a $\pi^{0}$ decay) has direct impact on reconstruction efficiency.  The fine-granularity of the LArTPC enables excellent performance in this task.  protoDUNE requires a vertex resolution such that the fiducial volume, which among other factors determines the number of target nucleons which is a component in cross-section measurements, in an analysis can be determined to $<$1$\%$.  This translates into a vertex resolution of 2.5 cm along each coordinate direction.  In practice, the drift-coordiinate will have a better resolution than the $y-z$ plane, originating from the combination of drift-velocity and electronics sampling-rate.
+\fixme{double-check these vertex numbers, which are very likely incorrect at the moment.}
 
 \subsubsection{Overall physical description - connection to requirements.}
 
-Figure \ref{fig:tpc_apa1} depicts a diagram of a protoDUNE APA.  Each side of an APA consists of three layers of sense wires, plus additional grid and mesh layers.  Collection plane (labeled ``X'') wires span vertically from the bottom of the APA to the top.  There are two planes of Induction wires (labeled ``U'' and ``V'') that wrap in a helical fashion, around the long edge of the APA, from the bottom of the APA to the top.  A grid layer (labeled ``G'') also spans from the bottom of the APA to the top, and is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The arrangement of all layers, from the outside-in, is G-U-V-X-M. 
+Figure \ref{fig:tpc_apa1} depicts a diagram of a protoDUNE APA.  Each side of an APA consists of three layers of sense wires, plus additional grid and mesh layers.  Collection plane wires (labeled ``X'') span vertically from the bottom of the APA to the top.  There are two planes of Induction wires (labeled ``U'' and ``V'') that wrap in a helical fashion, around the long edge of the APA, from the bottom of the APA to the top.  A grid layer (labeled ``G'') also spans from the bottom of the APA to the top, and is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The arrangement of all layers, from the outside-in, is G-U-V-X-M. 
 
 \begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a protoDUNE APA. The frame with portions of three wire layers: X is dark blue, V is magenta and U is green.  All layers fill the entire frame area.  There is fourth layer, the G or grid layer, in which the wires run parallel to the X layer.}
 \includegraphics[width=0.8\textwidth, angle=90]{figures/tpc_apa1.png} 
@@ -49,15 +62,15 @@ Wire Angle (w.r.t. vertical) (X,G) & 0$^{\circ}$\\ \colhline
 Number Wires / APA & 960 (X), 960 (G), 800 (U), 800 (V) \\ \colhline
 Number Electronic Channels / APA & 2560 \\ \colhline
 Wire Tension & 5.0 N \\ \colhline
-Wire Material & Copper Beryllium \\ \colhline
+Wire Material & Beryllium Copper \\ \colhline
 Wire Diameter & 150 $\mu$m \\ \colhline
 Frame Planarity & 5 mm \\ \colhline
 Photon Detector Slots & 10 \\
 \end{cdrtable}
 
-The APA layers are listed in Table \ref{tab:bias}, along with their operating voltages.  When operated at these voltages, the Grid and Induction layers are completely transparent to drifting ionization, and the Collection plane is completely opaque.  Thus, the drifting ionization follows trajectories around the Grid and Inductions wires, and terminates on a Collection plane wire.  The grid layer is present for pulse-shaping purposes, effectively shielding the first Induction plane from the drifting charge and removing the long leading-edge from the signals on that layer, and is not connected for electronics readout. The mesh layer serves to shield the sense planes from pickup from the Photon Detection System and also from ``ghost" tracks that would otherwise be created when ionizing particles have a trajectory that passes through the planes.  
+The APA layers are listed in Table \ref{tab:bias}, along with their operating voltages.  When operated at these voltages, the Grid and Induction layers are completely transparent to drifting ionization, and the Collection plane is completely opaque.  Thus, the drifting ionization follows trajectories around the Grid and Inductions wires, and terminates on a Collection plane wire.  The grid layer is present for pulse-shaping purposes, effectively shielding the first Induction plane from the drifting charge and removing the long leading-edge from the signals on that layer, and is not connected for electronics readout. The mesh layer serves to shield the sense planes from pickup from the Photon Detection System and also from ``ghost'' tracks that would otherwise be created when ionizing particles have a trajectory that passes through the planes.  
 
-\begin{cdrtable}[APA Bias Voltages]{cc}{bias}{Layers within the APA, and baseline bias voltages.  All five of these layers are present on both sides of the APA structure, with the Induction layers connected (``wrapped") electrically across both sides.}   
+\begin{cdrtable}[APA Bias Voltages]{cc}{bias}{Layers within the APA, and baseline bias voltages.  All five of these layers are present on both sides of the APA structure, with the Induction layers connected (``wrapped'') electrically across both sides.}   
 Anode Plane & Bias Voltage  \\ \toprowrule
 Grid (G) & -665 V\\ \colhline
 Induction (U) & -370 V\\ \colhline
@@ -66,26 +79,35 @@ Collection (X) & 820 V\\ \colhline
 Mesh (M) & 0 V\\
 \end{cdrtable}
 
+The wrapped style allows the APAs to tile the active area of the LArTPC, minimizing the amount of dead space occupied by electronics and associated cabling.  The size of the APAs is chosen to be compatible with over-the-road shipping, and eventual transport underground (at SURF) and into the membrane cryostat of the experiment.  The dimensions are also chosen such that an integral number of electronic readout channels and boards will fill in the full area of the APA. The modularity of the APAs also allows them to be built and tested at off-site production facilities, decoupling their manufacturing time from the construction of the membrane cryostat.  
+
+A feature inherent in the design of the wrapped APAs is that the induction plane wires can sense drifting ionization originating from either side of the APA.  This is desirable for the current design of the single-phase DUNE detector, where the central row of APAs is flanked on either side by a drift-field, requiring the APA to be sensitive on both sides.  This double-sided feature is not strictly necessary for the protoDUNE arrangement, with APAs located against cryostat walls and only having a drift field on one side, but can be compatible with this setup if proper bias voltage is applied to the grid layer facing the wall.
+
+Reconstruction of events recorded by the APAs will need to address ambiguities inherent to the wrapped wire design, such as occurs when multiple isochronic hits are recorded, leading to reconstructed hits compatible with multiple wire-crossing positions in the detector.  The angle of the Induction planes in the APA ($\pm$35.7$^{\circ}$) is chosen such that each Induction wire only crosses a given Collection wire one time, reducing the ambiguities that the reconstruction must address.
+
+The choice of wire pitch and angle, along with the tolerance allowed for these parameters, is made to enable high-efficiency reconstruction of all particle species.  In particular, the pitch should be fine enough that multiple measurements are made of the dE/dx profile in the first few centimeters of an electromagnetic shower.  The dE/dx profile in the shower start is a strong metric for recognizing electrons and photons, and distinguishing between the two.  Studies with existing reconstruction indicate that the default parameters for the APA are compatible with the desired electron efficiency and photon rejection, and compare favorably against APAs with finer wire pitch (e.g. 3 mm) or different induction angle (e.g. 45$^{\circ}$).  Refinement of these dE/dx studies, and testing them with new data, is a major part of protoDUNE's science program.
+
+The choice of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and also to provide the precision necessary for reconstruction.  The tension of 5 N, when combined with the intermediate support combs that will be described in the next section, ensure that the wires are held taught in place and will not have any sag.  Wire sag can impact the precision of reconstruction, as well as the transparency condition of the TPC.  The tension of 5 N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire (engineering issues described in following sections).
 
 
-\begin{itemize}
-\item{Angle and reason for chosen angle}
-\item{Wire placement accuracy}
-\begin{itemize}
-\item{Wire Tension}
-\item{Double anchor at each wire end}
-\item{Need for intermediate support}
-\begin{itemize}
-\item{Sag prevention}
-\item{Break mitigation}
-\end{itemize}
-\end{itemize}
-\item{Voltage requirements for induction plane transparency.}
-\item{Frame distortion consequences - (Lee G. will update previous study)}
-\item{Trapped volume and bubbles}
-\item{Mesh, reasons for mesh}
-\item{Grounding - (based on input from EE and grounding/shielding group)}
-\end{itemize}
+%\begin{itemize}
+%\item{Angle and reason for chosen angle}
+%\item{Wire placement accuracy}
+%\begin{itemize}
+%\item{Wire Tension}
+%\item{Double anchor at each wire end}
+%\item{Need for intermediate support}
+%\begin{itemize}
+%\item{Sag prevention}
+%\item{Break mitigation}
+%\end{itemize}
+%\end{itemize}
+%\item{Voltage requirements for induction plane transparency.}
+%\item{Frame distortion consequences - (Lee G. will update previous study)}
+%\item{Trapped volume and bubbles}
+%\item{Mesh, reasons for mesh}
+%\item{Grounding - (based on input from EE and grounding/shielding group)}
+%\end{itemize}
 
 
 
