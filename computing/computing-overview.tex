@@ -1,6 +1,6 @@
 \section{Overview}
 
-This chapter of the Technical Design Report is based on documents and plans developed earlier:
+This chapter of the Technical Design Report is based on the following two documents:
 \begin{itemize}
 \item DocDB 914 --  \textit{Computing Model for the DUNE Experiment}  which contains the
 description of the \pd Computing Model as an Appendix section
@@ -10,25 +10,24 @@ protoDUNE Experiment}
 
 \end{itemize}
 
-\noindent The aim is to capture and describe the most important characteristics of the online and offline systems to be built, in a concise manner,
-and to also present information developed more recently.
+\noindent This chapter defines the technical design of the online and offline systems.
+The data rate and the total data volume will be the defining factors influencing the design choices and scale of \pd
+online and offline computing systems.   At the time of writing, the measurement program, the beam characteristics, the beamline
+instrumentation, and many other parameters are being better defined, and thus precise estimates of the data rate and the total
+data volume are not yet available.  In the interim, ranges of estimates are given and this chapter presents a small number of
+realistic scenarios for the system configuration, scale and performance.
 
-Data rate and volume will be the defining factor for the design choice and scale of \pd
-online and other computing systems. Depending on the plan of measurements for \pd
-(in development at the time of writing), beam characteristics that will be realized
-and many other parameters precise estimate of data rates and volume aren't available just yet. However, it is possible to create ranges
-of estimates based on a few realistic scenarios, and translate this into requirements for the system configuration, scale and
-performance.
-
-The overall design for the protoDUNE computing can be described as consisting of a few major components, which are related:
+The following components comprise the computing system:
 \begin{itemize}
 
 \item The online data storage and management system which interfaces the DAQ and which is tasked with buffering
-the data and transporing it to mass storage at CERN and beyond.
+the data and transporing it to mass storage at CERN and beyond, as well basic monitoring of the data as it is collected.
 
-\item The offline system for data distribution and processing on the Grid (e.g. calibration, production and reconstruction). A special case
-of such processing is the so-called \textit{prompt processing}, which aims to perform partial reconstruction of the data for QA/QC purposes
-with a short turnaround time and can be considered a more advanced type of monitoring (see\,\ref{sec:prompt_processing}).
+\item The offline system for data distribution, processing, and analysis on the Grid.  The steps envisaged for data processing are: 
+calibration, reconstruction, ntuplizing and user analysis.  Multiple passes through this chain will be required for final results as
+calibrations, algorithms, and ntuple definitions are expected to evolve.
+A fraction of the data will be subject to \textit{prompt processing}, which performs partial reconstruction of the data for QA/QC purposes
+with a short turnaround time (see\,\ref{sec:prompt_processing}).
 
 \item  A Metadata and file catalog system.
 \end{itemize}

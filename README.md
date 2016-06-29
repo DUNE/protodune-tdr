@@ -7,10 +7,12 @@ See the [document-guidance](https://github.com/DUNE/document-guidance#readme)
 repository for instructions and guidance on editing.
 
 A PDF of this document is also generated through the services of
-[ShareLaTeX](https://www.sharelatex.com).  Visit
+~~ShareLatex~~ Brett.  Visit:
 
-  <https://www.sharelatex.com/github/repos/DUNE/protodune-tdr>
+https://dune.bnl.gov/docs/protodune-tdr.pdf
 
-Click "Previous Builds," click on the version's tag (at left), and on
-that second page, click the "Download PDF" button in front of "Build
-was successful!"
+Or check the directory listing to see the date of the last successful build.
+
+https://dune.bnl.gov/docs/
+
+Pushed commits that cause this build to fail will lead to an email sent to the pusher.

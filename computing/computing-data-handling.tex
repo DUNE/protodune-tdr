@@ -1,69 +1,68 @@
 \section{Data storage and management system}
 
 \subsection{The \pd Data Characteristics}
-The characteristics of the \pd data determine the scale and possible design
-options for its computing infrastructure.
+The characteristics of the desired \pd data guide the scale and design
+choices for its computing infrastructure.
 These characteristics are in a large part defined by a few fundamental
 properties of the \pd Liquid Argon TPC:
 \begin{itemize}
-\item High spatial granularity of readout (e.g. the pitch of the electrode pattern etc), and the resulting high channel count
+\item The high spatial granularity of the detector (e.g. the pitch of the wires, etc), and the resulting high channel count
 \item High digitization frequency (which is essential to ensure a precise position measurement along the drift direction)
 \item Relatively slow drift velocity of electrons in Liquid Argon, which  leads to a substantial readout window (of the order of milliseconds) required to collect
-all of the ionization in the Liquid Argon volume due the event of interest. 
+all of the ionization in the Liquid Argon volume due the event of interest and also overlapping cosmic rays.
 \end{itemize}
 
-\noindent Combination of these factors leads to a considerable amount of data per
-event and depending on
-the chosen run plan (i.e. trigger rate and total required statistics) may result in considerable requirements
-regarding the bandwidth and storage. These can be illustrated as follows.
+\noindent Triggered readouts of the detector, denoted ``events'' here, 
+thus contain a significant amount of raw data, thus impacting the bandwidth and
+storage requirments.   The run plan, which defines the expected trigger rate
+and the total number of events, are also input to the design requirements.
 
 The \textit{``\pd/SP Data Scenarios''} spreadsheet\,\cite{data_spreadsheet}
 (DUNE DocDB 1086)
 describes three possible running conditions and estimates for their
 resulting data volumes and rates and interpretations in terms of
 network and disk bandwidth.  It also includes estimates for non-beam
-trigger for acquiring additional cosmic-$\mu$ data.  Some highlights
-of these estimates for the mid-range (so-called ``Goldilocks'')
-scenario are in Table~\ref{tab:goldi}. The lossless compression factor cited
-in the table is based on the assumption that noise level are under control
-and of the same order or better as in $\mu$BooNE.
+data in order to constrain the contributions of cosmic rays to the beam-on data.  Some highlights
+of these estimates for the ``central'' scenario
+are listed in Table~\ref{tab:goldi}. The lossless compression factor cited
+in the table is based on the assumption that the signal-to-noise level 
+is similar to or better than that achieved by MicroBooNE.
 
 \begin{table}[htbp]
   \centering
   \begin{tabular}[h]{l|r}
 \hline
-    Trigger rate & \SI{10}{\Hz} \\
-    Spill duration & \SI{4.8}{\second} \\
-    SPS Cycle & \SI{16.8}{\second} \\
+    Trigger rate & \SI{25}{\Hz} \\
+    Spill duration & \SI{4.5}{\second} \\
+    SPS Cycle & \SI{22.5}{\second} \\
     Readout time window & \SI{5}{\milli\second} \\
-    \# of APAs to be read out & 3 \\
+    \# of APAs to be read out & 6 \\
     \hline
-    Single readout size (per trigger) & \SI{115}{\mega\byte} \\
+    Single readout size (per trigger) & \SI{230.4}{\mega\byte} \\
     Compression factor & 5 \\
-    Instantaneous data rate & \SI{230}{\mega\byte\per\second} \\
-    Average data rate & \SI{66}{\mega\byte\per\second} \\
+    Instantaneous data rate & \SI{1440}{\mega\byte\per\second} \\
+    Average data rate & \SI{576}{\mega\byte\per\second} \\
     \hline
-    3-Day buffer depth & \SI{17}{\tera\byte} \\
+    3-Day buffer depth & \SI{150}{\tera\byte} \\
     \hline
   \end{tabular}
-  \caption{Parameters defining data rate and volume in the ``Goldilocks'' scenario v5\,\cite{data_spreadsheet}.}
+  \caption{Parameters defining data rate and volume in the ``central'' scenario v5\,\cite{data_spreadsheet}, including both
+  the in-spill and out-of-spill data.}
   \label{tab:goldi}
 \end{table}
 
 Based on preliminary plan for calibrations which involves measuring a few types of cosmic $\mu$ tracks
 (e.g. at different angles, stopped vs not stopped etc),
-the current assumption is that for every beam trigger one non-beam
-trigger be acquired out-of-spill. 
-This assumption represents a doubling of the data rates and volumes presented in Table~\ref{tab:goldi}.
-The instant and average rates are those for when the beam is spilling or if the rate is amortized over the
-entire beam cycle. 
+the current assumption is that for every beam trigger, one non-beam
+trigger be acquired between spills.  The average data rate and the buffer depth include a factor of two due to this,
+while the instantaneous data rate remains unchanged.
 
-The current run plan calls for about 5\,M beam events to be collected in the first run of \pd. Triggers (such as PID) will be
+The current run plan calls for about 5\,M analyzable beam events to be collected in the first run of \pd. Triggers (such as PID) will be
 actuated using beam instrumentation which is being developed at the time of writing. Its efficiency will certainly be less
 than 100\,\% and for estimation purposes is assumed to be 50\,\%. This leads to the requested total statistics of 10\,M
 events. Combined with readout size quoted in Table\,\ref{tab:goldi} it results in the anticipated volume of raw data of
 about 0.5\,PB to be taken during the SPS run. To account for commissioning of the detector this estimate should be roughly doubled,
-resulting in estimated 1\,PB of raw data.
+resulting in an estimated 3\,PB of raw data.
 
 
 %%%%%%%%%%%%%%% Tom's stuff
@@ -82,7 +81,7 @@ resulting in estimated 1\,PB of raw data.
 %performance.
 
 
-Table\,\ref{tab:goldi} contains the nominal trigger rate of 10\,Hz for
+Table\,\ref{tab:goldi} contains the nominal trigger rate of 25\,Hz for
 the mid-range scenario. It may be necessary to provide the capability
 to run at  an instantaneous trigger rate of up to 100\,Hz in order to
 allow for commissioning and schedule delays. For that reason,
@@ -111,9 +110,9 @@ interfacing with the electronics, building events, writing data files,
 and providing an interface to online monitoring of data as it is
 acquired is {\it artdaq}~\cite{artdaq}.
 
-Assuming that each RCE reads out 128 channels of the TPC, 120 RCE's
-will need to be active.  Twelve computers running BoardReader
-processes will read out ten RCE's each.  These computers should be
+Assuming that each RCE reads out 256 channels of the TPC, 60 RCE's
+will need to be active.  Ten computers running BoardReader
+processes will read out six RCE's each.  These computers should be
 provisioned with at least 8 cores and 16 GBytes of RAM each, along
 with a 10\,Gbit/sec network connection.  The BoardReader processes will
 transmit data to a set of computers running EventBuilder processes.

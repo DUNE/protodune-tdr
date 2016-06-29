@@ -19,10 +19,12 @@ because the offline processing must flexibly accommodate changing DAQ
 formats without rewriting the downstream processing software, the
 choice is made to represent the data in the offline format.
 
-\fixme{some duplication with the text below is still here. Need to merge
-descriptions. But the reco steps really do diverge in the alternate methods}
+%\fixme{some duplication with the text below is still here. Need to merge
+%descriptions. But the reco steps really do diverge in the alternate methods}
 
-Noise filtering is then applied.  Existing LArTPC experiments have a
+For current large LArTPC detectors, noise filtering is then applied to remove
+electronic noises beyond the intrinsic ones from cold preamplifier.
+In particular, existing LArTPC experiments have a
 large component of their noise from coherent sources -- sources that
 affect many neighboring wires and/or neighboring readout channels
 (channels from different planes may be interleaved in the front-end
@@ -33,30 +35,37 @@ drawback of this procedure is that signals also arrive on neighboring
 channels at the same time, and this procedure reduces the signal as
 well as the noise, in a manner that depends on the angle of a track or
 shower with respect to the drift field.  Procedures that first
-identify signal hits and protect them from
-distortion~\cite{microboone_noise} are under study.
+identify signal hits and protect them from distortion~\cite{microboone_noise} 
+are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
+has achieved excellent noise level as expected by the design specification
+of cold electronics (Fig.~\ref{rms3} in Sec.~\ref{sec:tpc-signal-cabliration}).
+For protoDUNE, the goal is to achieve such a performance without 
+software noise filtering. 
 
-The raw signals are then processed through a signal deconvolution and
-noise filtering step.  This step is done using a discrete Fourier
-transform, the application of the deconvolution kernel and filter
-function in frequency space, and then followed by an inverse discrete
-Fourier transform.  The deconvolution kernel serves to convert the
-bipolar induction-plane signals into unipolar estimates of the charge
-arrival time, and serves to remove as much of the electronics
-distortions from both the induction-plane signals and the
-collection-plane signals as possible.  It is needed since the positive
-lobe of the induction-plane signal from one charge deposit may cancel
-the negative lobe of the signal from another charge deposit.  The
-filter is a Wiener filter, where the expected signals and backgrounds
-are obtained from data samples.  A typical band in which signal
-frequencies lie is 10 KHz, while easily-filtered noise is at much
-higher and lower frequencies.  A typical filter function is shown in
-Figure~\ref{fig:wienerfilter}
+The raw signals are then processed to recover the ionization charge
+as described in Sec.~\ref{sec:tpc-signal-calibration} in details. 
 
-\fixme{Include figure of the Wiener filter; please use cdrfigure standard}
-\begin{cdrfigure}[The noise filter function applied to 35-ton data]{wienerfilter}{The noise filter function applied to 35-ton data.  A similar procedure will produce a noise filter function for ProtoDUNE-SP}
+%through a signal deconvolution and
+%noise filtering step.  This step is done using a discrete Fourier
+%transform, the application of the deconvolution kernel and filter
+%function in frequency space, and then followed by an inverse discrete
+%Fourier transform.  The deconvolution kernel serves to convert the
+%bipolar induction-plane signals into unipolar estimates of the charge
+%arrival time, and serves to remove as much of the electronics
+%distortions from both the induction-plane signals and the
+%collection-plane signals as possible.  It is needed since the positive
+%lobe of the induction-plane signal from one charge deposit may cancel
+%the negative lobe of the signal from another charge deposit.  The
+%filter is a Wiener filter, where the expected signals and backgrounds
+%are obtained from data samples.  A typical band in which signal
+%frequencies lie is 10 KHz, while easily-filtered noise is at much
+%higher and lower frequencies.  A typical filter function is shown in
+%Figure~\ref{fig:wienerfilter}
+
+%\fixme{Include figure of the Wiener filter; please use cdrfigure standard}
+%\begin{cdrfigure}[The noise filter function applied to 35-ton data]{wienerfilter}{The noise filter function applied to 35-ton data.  A similar procedure will produce a noise filter function for ProtoDUNE-SP}
 %  \includegraphics[width=0.8\textwidth]{wienerfilter}
-\end{cdrfigure}
+%\end{cdrfigure}
 
 Hits are then identified by seeking deconvoluted signals exceeding
 thresholds that are adjusted to minimize the creation of false noise
@@ -65,7 +74,7 @@ finder fits Gaussians to the deconvoluted signals, and saves the
 times, widths, and amplitudes of the Gaussians, as well as the sum of
 the ADC readings in the time windows corresponding to the hits, as a
 Gaussian function is not always representative of the charge arrival
-distributin and the resolution of the calorimetry is improved by
+distribution and the resolution of the calorimetry is improved by
 summing the ADC counts.  The hits are associated with DAQ channels and
 not wire segments, since, due to the wrapping of the induction-plane
 wires in the ProtoDUNE-SP APA's, there is ambiguity of where the
@@ -185,3 +194,62 @@ particles See Robert's talk from the April collab meeting
   ProtoDUNE-SP, using the PMA algorithm.}
 \label{fig:PMApioninteraction}
 \end{figure}
+
+
+%% Wire-Cell ... 
+WireCell~\cite{wire-cell}, which adopts a very different approach from the 
+fore-mentioned algorithms, is a new reconstruction method under development.
+Instead of directly doing pattern recognition on each of the 2D views (drift 
+time vs. wire number), the first step of the WireCell reconstruction is to 
+perform 3D imaging with time, geometry, and charge information. The definition
+of "Hit" is based on signal strength after charge extraction (described in 
+Sec.~\ref{sec:tpc-signal-cabliration}) in a 2 $\mu$s time slice. The usage of 
+time information means that hits from different wire planes at different time 
+slice cannot be associated. The usage of geometry information means that hits
+from wires that are not crossing each other cannot be associated together. 
+The usage of charge information means that the hits from different wire plane
+with different signal strength are unlikely to be associated together. The 
+usage of the charge information is quite unique for LArTPC, as each of the 
+wire plane in principle detect the same amount of the ionization electrons. 
+Figure~\ref{fig:quality} shows the performance of the WireCell 3D imaging. 
+The large blue blob reflects the ambiguities due to wire readout for a track
+traveling parallel to the wire plane. In this case, a group of wires from each 
+wire plane is fired simultaneously. Therefore, the time and geometry 
+information will provide rather limited constraints on the hit associations. 
+The advantage of the WireCell approach is that it utilizes full TPC 
+information. The strong requirement of the time/geometry/charge information
+provides a natural way to suppress electronic noise at the cost of more
+sensitive to the hit inefficiency. Since the track and shower hypotheses
+are not used, the 3D imaging works for any event topology. Once the 3D
+images are reconstructed, 3D pattern recognition is needed to identify 
+the content inside the image. Figure~\ref{fig:tracking2} shows the 
+performance of the current available 3D pattern recognition inside
+WireCell. More developments on the WireCell pattern recognition 
+are needed before the calculating of physics quantities. 
+
+
+
+%% Wire-Cell Imaging
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{quality.png}
+\caption{\label{fig:quality} Comparison of imaging reconstruction 
+qualities with and without the charge information. The 3D web-based 
+display can be found at 
+\protect\url{http://www.phy.bnl.gov/wire-cell/bee/set/6/event/20/}. 
+See text for more discussions. }
+\end{figure}
+
+%% Wire-Cell 3D pattern recognition
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.9\textwidth]{Tracking_2.png}
+\caption{\label{fig:tracking2} The reconstructed image is shown 
+on the left panel for one neutrino interaction event. The image 
+was passed through the 3D pattern recognition program with tracks 
+identified (middle panel). The identified pattern is compared 
+with Monte-Carlo truth (right panel). }
+\end{figure*}
+
