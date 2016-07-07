@@ -403,7 +403,7 @@ The download data must be transmitted to the FE and ADC ASICs on the FEMB.
 The system clock will provide a frequency reference to a crystal-based Phase Lock Loop (PLL)
 which will generate a low-jitter stable clock to the high-speed serializer.
 
-A single COLDATA ASIC on each FEMB will also be receiving the data from each of the eight ADCs on a board.
+Two COLDATA ASICs on each FEMB will also be receiving the data from each of the eight ADCs on a board.
 Each ADC will transmit two streams of data at 192~Mbps for a total data input of 3.072~Gbps.
 All data will be transmitted off-board to DAQ.
 Twelve bits of ADC data per APA channel every 500~ns yields a single-channel bit rate of 0.024~Gbps.
