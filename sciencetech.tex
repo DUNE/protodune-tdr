@@ -44,16 +44,14 @@ The resulting energy deposition in the two cases cannot be
 accurately characterized by an average shower calibration factor. Monte Carlo simulations of 
 outgoing particles, especially at low energies, must be checked and bench-marked against calibration data to avoid
 large uncertainties from shower modeling. 
-\begin{figure}[h!]
-  \centering
 
+\begin{cdrfigure}[Fraction of true energy deposited by interacting protons of 1~GeV/c and
+3~GeV/c]{hadronshwr}{Fraction of true energy deposited by interacting protons of 1~GeV/c (left) and
+3~GeV/c (right) momenta simulated using FLUKA~\cite{fluka05}.}
 \includegraphics[width=0.49\textwidth,height=5.0cm]{figures/pr1GeV_v2a}
 \includegraphics[width=0.49\textwidth,height=5.0cm]{figures/pr3GeV_v2a}
-  \caption{Fraction of true energy deposited by interacting protons of 1~GeV/c (left) and
-3~GeV/c (right) momenta simulated using FLUKA~\cite{fluka05}.
-}
-\label{fig:hadronshwr}
-\end{figure}
+\end{cdrfigure}
+
 
 Pion showers at low energies will also be important both for determining the interacted neutrino energy as well
 as for modeling neutral current backgrounds resulting from $\pi^o$ content in showers. Significant
@@ -65,16 +63,13 @@ for interacting pions ranging from 0.2~GeV/c up to 5~GeV/c momenta.
 Resulting shower calibrations and reconstruction will differ and therefore each charge must be 
 studied separately.
 
-\begin{figure}[h!]
-  \centering
-
+\begin{cdrfigure}[Differences in mean energy deposited and width of visible energy, 
+ $\pi^+$ versus $\pi^-$]{pionshwr}{Differences in mean energy deposited (left) and width of visible energy (right) 
+for interacting $\pi^+$ versus $\pi^-$ ranging from 0.2~GeV/c up to 5~GeV/c. }
 \includegraphics[width=0.49\textwidth,height=6.0cm]{figures/pipimean_ticks1}
 \includegraphics[width=0.49\textwidth,height=6.0cm]{figures/pipisigma_ticks1}
-  \caption{Differences in mean energy deposited (left) and width of visible energy (right) 
-for interacting $\pi^+$ versus $\pi^-$ ranging from 0.2~GeV/c up to 5~GeV/c. 
-}
-\label{fig:pionshwr}
-\end{figure}
+\end{cdrfigure}
+
 
 \item Characterisation of electromagnetic showers.
 \item [Study $e/\gamma$ separation capabilities]
@@ -97,16 +92,12 @@ with a photon hypothesis.
 In the case where the photon Compton scatters, the two particles cannot easily be distinguished
 from the energy deposition pattern.
 
-\begin{figure}[h!]
-  \centering
+\begin{cdrfigure}[Photon background rejection versus electron identification efficiency for various energies]{egam}{Photon background rejection versus electron identification efficiency for various energies, calculated for and normalized to samples which pass the reconstruction. 
+The simulation was performed in APA design configuration (4.67~mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).}
 \includegraphics[width=0.49\textwidth,height=6.0cm]{figures/eff-bgdrej-diffen}
-  \caption{
- Photon background rejection versus electron identification efficiency for various energies, calculated for and normalized to samples which pass the reconstruction. 
-The simulation was performed in APA design configuration (4.67~mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires). 
-}
+\end{cdrfigure}
 
-\label{fig:egam}
-\end{figure}
+
 Electron-photon separation has been studied in LAr TPCs
 (ICARUS~\cite{icarus_eg} and ArgoNeuT~\cite{argoneut_eg}).
 
@@ -155,16 +146,14 @@ Fig.~\ref{fig:containment} shows the simulated longitudinal and transverse
 energy containment for proton showers up to 10~GeV in energy.
 For 10 GeV showers, more than 95\% of the energy is contained in a detector of longitudinal size of 6~m and 
 radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied and similar or better containment is achieved in those cases, given the above detector dimensions.
-\begin{figure}[htp]
-  \centering
+
+
+\begin{cdrfigure}[Simulated longitudinal and transverse containment for proton showers, 4 and 10~GeV/c]{containment}{Simulated longitudinal and transverse containment for proton showers of 4 and 10~GeV/c momenta.}
   \begin{tabular}{ccc}
    \includegraphics[width=0.49\textwidth,height=4.9cm]{figures/protons_lcont_overlay}&
    \includegraphics[width=0.49\textwidth,height=4.9cm]{figures/protons_wcont_overlay}\\
   \end{tabular}
-  \caption{Simulated longitudinal and transverse containment for proton showers of 4 and 10~GeV/c momenta.
-}
-  \label{fig:containment}  
-\end{figure}
+\end{cdrfigure}
 
 
 \item $e/\gamma$ separation for reconstruction algorithms already incorporated into protoDUNE.
@@ -194,15 +183,12 @@ Event samples which include an adequate number of stopping particles for each sp
 (muon, pions, protons and kaons) are included in the particle summary request in order to 
 perform tests of PID algorithms and Bethe-Bloch calibration measurements.
 
-\begin{figure}[h!]
-  \centering
+\begin{cdrfigure}[ICARUS simulated track dQ/dx]{resrange}{ICARUS simulated track dQ/dx as a function of residual range for muons, pions, protons and kaons, used as training data in a neutral-net-based PID algorithm (left). Distribution of dQ/dx for each particle type for a bin with residual range 
+6($\pm$1)~cm (right). The small difference between muon and pion PID is illustrated.}
 \includegraphics[width=0.53\textwidth,height=6.0cm]{figures/pids_new}
 \includegraphics[width=0.46\textwidth,height=6.0cm]{figures/prkpimu_new}
-  \caption{ICARUS simulated track dQ/dx as a function of residual range for muons, pions, protons and kaons, used as training data in a neutral-net-based PID algorithm (left). Distribution of dQ/dx for each particle type for a bin with residual range 
-6($\pm$1)~cm (right). The small difference between muon and pion PID is illustrated.
-}
-\label{fig:resrange}
-\end{figure}
+\end{cdrfigure}
+
 
 \item Fraction of true energy deposited by interacting charge particles 
 The measured energy deposition for various particles and its dependence on the direction of the particle will be used to tune

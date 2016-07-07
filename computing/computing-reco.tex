@@ -102,7 +102,6 @@ reconstruction for photons that are produced inside the detector.  A
 distribution of reconstructed $\pi^0$ masses in Monte Carlo is shown
 in Figure~\ref{fig:pizeromass}.
 
-
 \begin{cdrfigure}[The reconstructed invariant masses of $\pi^0$ candidates in
   Monte Carlo]{muonpandoraperf}{The reconstructed invariant masses of $\pi^0$ candidates in
   Monte Carlo using the BlurredCluster and EMShower algorithms.}
@@ -139,16 +138,15 @@ events in MicroBooNE are shown in Figure~\ref{fig:muonpandoraperf}.
 The resolution of vertex-finding is shown in
 Figure~\ref{fig:pandoraresolution}.
 
-\begin{figure}[htb]
-\centering
-%\includegraphics[width=0.95\textwidth]{muonpandoraperf.png}
-Include figure of PANDORA performance for muons.  Efficiency and
-completeness (purity too if we can get the plot).
-\caption{The performance of PANDORA for muons in charged-current
-  $\nu_mu$ events in MicroBooNE.  }
-\label{fig:muonpandoraperf}
-\end{figure}
-\fixme{please fix all figures to cdrfigure standard}
+
+\begin{cdrfigure}[Performance of PANDORA for muons in CC
+  $\nu_mu$ events in MicroBooNE. ]{muonpandoraperf}{The performance of PANDORA for muons in charged-current
+  $\nu_mu$ events in MicroBooNE. }
+%\includegraphics[width=0.95\textwidth]{muonpandoraperf.png}\end{cdrfigure}
+\end{cdrfigure}
+
+\fixme{Include figure of PANDORA performance for muons.  Efficiency and
+completeness (purity too if we can get the plot).}
 
 A very successful approach to reconstruction is called the Projection
 Matching Algorithm (PMA)~\cite{pma_algorithm}.  Instead of building up
@@ -163,37 +161,34 @@ Figure~\ref{fig:PMAdirection}, and the spatial resolution of the the
 inelastic interaction point of charged pions in ProtoDUNE-SP is shown
 in Figure~\ref{fig:PMApioninteraction}.
 
-\begin{figure}[htb]
-\centering
+\begin{cdrfigure}[Spatial resolution on 3D entry position of primary
+  charged particle]{PMAentryresolution}{Spatial resolution on the 3D entry position of the primary
+  charged particle from the beam in ProtoDUNE-SP, using the PMA
+  reconstruction algorithm.}
 %\includegraphics[width=0.95\textwidth]{PMAentryresolution.png}
-Include figure of PMA's resolution on the entry point for charged
-particles See Robert's talk from the April collab meeting
-\caption{Spatial resolution on the 3D entry position of the primary
+\end{cdrfigure}
+\fixme{Include figure of PMA's resolution on the entry point for charged
+particles See Robert's talk from the April collab meeting}
+
+\begin{cdrfigure}[Angular resolution of momentum vector of the primary
+  charged particle]{PMAdirection}{Angular resolution of the momentum vector of the primary
   charged particle from the beam in ProtoDUNE-SP, using the PMA
   reconstruction algorithm.}
-\label{fig:PMAentryresolution}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
 %\includegraphics[width=0.95\textwidth]{PMAdirection.png}
-Include figure of PMA's resolution on the direction for charged
-particles See Robert's talk from the April collab meeting
-\caption{Angular resolution of the momentum vector of the the primary
-  charged particle from the beam in ProtoDUNE-SP, using the PMA
-  reconstruction algorithm.}
-\label{fig:PMAdirection}
-\end{figure}
+\end{cdrfigure}
+\fixme{Include figure of PMA's direction on the direction for charged
+particles See Robert's talk from the April collab meeting}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.45\textwidth]{pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
-\includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
-\caption{Vertex position resolution in cm in $x$, $y$, and $z$ and 3D for the
+
+
+\begin{cdrfigure}[Vertex resolution for
+  inelastic interaction of charged $\pi$'s on Ar nuclei where a $\pi^0$ is produced]{PMApioninteraction}{Vertex position resolution in cm in $x$, $y$, and $z$ and 3D for the
   inelastic interaction of charged pions on liquid argon nuclei in events in which a $\pi^0$ is produced, in
   ProtoDUNE-SP, using the PMA algorithm.}
-\label{fig:PMApioninteraction}
-\end{figure}
+\includegraphics[width=0.45\textwidth]{pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
+\includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
+\end{cdrfigure}
+
 
 
 %% Wire-Cell ... 
@@ -213,7 +208,9 @@ usage of the charge information is quite unique for LArTPC, as each of the
 wire plane in principle detect the same amount of the ionization electrons. 
 Figure~\ref{fig:quality} shows the performance of the WireCell 3D imaging. 
 The large blue blob reflects the ambiguities due to wire readout for a track
-traveling parallel to the wire plane. In this case, a group of wires from each 
+traveling parallel to the wire plane. (The 3D web-based 
+display can be found at 
+\url{http://www.phy.bnl.gov/wire-cell/bee/set/6/event/20/}.) In this case, a group of wires from each 
 wire plane is fired simultaneously. Therefore, the time and geometry 
 information will provide rather limited constraints on the hit associations. 
 The advantage of the WireCell approach is that it utilizes full TPC 
@@ -228,28 +225,19 @@ WireCell. More developments on the WireCell pattern recognition
 are needed before the calculating of physics quantities. 
 
 
-
 %% Wire-Cell Imaging
-
-\begin{figure}
-\centering
+\begin{cdrfigure}[Comparison of imaging recon
+qualities with and without charge information]{quality}{Comparison of imaging reconstruction 
+qualities with and without the charge information. }
 \includegraphics[width=0.5\textwidth]{quality.png}
-\caption{\label{fig:quality} Comparison of imaging reconstruction 
-qualities with and without the charge information. The 3D web-based 
-display can be found at 
-\protect\url{http://www.phy.bnl.gov/wire-cell/bee/set/6/event/20/}. 
-See text for more discussions. }
-\end{figure}
+\end{cdrfigure}
+
 
 %% Wire-Cell 3D pattern recognition
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.9\textwidth]{Tracking_2.png}
-\caption{\label{fig:tracking2} The reconstructed image is shown 
+\begin{cdrfigure}[Reconstructed image for one neutrino interaction event; comparison to MC]{tracking2}{The reconstructed image is shown 
 on the left panel for one neutrino interaction event. The image 
 was passed through the 3D pattern recognition program with tracks 
 identified (middle panel). The identified pattern is compared 
-with Monte-Carlo truth (right panel). }
-\end{figure*}
-
+with Monte-Carlo truth (right panel).}
+ \includegraphics[width=0.9\textwidth]{Tracking_2.png}
+\end{cdrfigure}

@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Detector Requirements}
 
-insert detector overview here
+insert detector overview here \fixme{The whole chapter is `overview'; insert detector requirements here!}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Liquid argon detector properties}
@@ -31,11 +31,7 @@ along the drift direction. Therefore, one can achieve a 3D imaging of the trajec
 of the charged particles in the LAr. The amount of ionization electrons depends on 
 the energy and type of the initial particles, and can be used to deduce their properties.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.48\textwidth]{figures/TPC_1.png}
-\includegraphics[width=0.48\textwidth]{figures/TPC_2.png}
-\caption{The principles of LArTPC are shown. (left) When energetic, charged particles 
+\begin{cdrfigure}[The principles of LArTPC technology]{signal}{The principles of LArTPC technology are shown. (left) When energetic, charged particles 
 traverse the LAr medium, ionization electrons are produced and move
 along the external electric field towards the anode planes. (right) The ionization
 electrons pass through the induction wire planes and are  collected by the 
@@ -43,8 +39,10 @@ final collection wire plane.
 During this process, signals are measured on the wires
 in each plane which provides information about the 3D positions and
 energies of initial particles.}
-\label{fig:signal}
-\end{figure}
+\includegraphics[width=0.48\textwidth]{TPC_1.png}
+\includegraphics[width=0.48\textwidth]{TPC_2.png}
+\end{cdrfigure}
+
 
 Figure~\ref{fig:signal_formation} illustrates the major elements of the processes 
 involved in forming the TPC signals. When the ionization electrons drift through the 
@@ -78,24 +76,19 @@ information regarding the number, location (in the directions transverse
 to and in the plane of the wires) and sample time of ionization
 electrons are then used as input to the event reconstruction chain.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/Signal_Extraction.png}
-\caption{The process of TPC signal formation. See text for more explanations.}
-\label{fig:signal_formation}
-\end{figure}
+\begin{cdrfigure}[The process of TPC signal formation.]{signal_formation}{The process of TPC signal formation.}
+\includegraphics[width=0.8\textwidth]{Signal_Extraction.png}
+\end{cdrfigure}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/electronics_res.pdf}
-\caption{The simulated electronics response function in the time 
+\begin{cdrfigure}[Simulated electronics response function in the time 
+domain at 4.7 mV/fC gain]{ele_res}{The simulated electronics response function in the time 
 domain at 4.7 mV/fC gain. The front-end cold electronics are designed to be 
 programmable with 4 different gain settings (4.7, 7.8, 14, and 25 mV/fC) and 
 4 shaping time settings (0.5, 1, 2, and 3 us). The shaping time is defined as the time 
 between peak and 5\% of the peak at the falling edge. For a fixed gain setting, 
 the peak is always at the same height independent of the shaping time. }
-\label{fig:ele_res}
-\end{figure}
+\includegraphics[width=0.8\textwidth]{electronics_res.pdf}
+\end{cdrfigure}
 
 
 While the principle is straight forward, calculating the measured
@@ -142,22 +135,19 @@ this case, we can see that the signal height is much smaller though the length o
 long. This effect leads to complications in designing the data compression algorithm.
 
 
-\begin{figure}[!h!tbp]
-\includegraphics[width=0.95\textwidth]{figures/ideal_track.png}
-\caption{Illustration of the induction plane field response for an ideal track. See text for more 
-discussions. }
-\label{fig:ideal_track_1}
-\end{figure}
+\begin{cdrfigure}[Induction plane field response for an ideal track (1)]{ideal_track_1}{Illustration of the induction plane field response for an ideal track.}
+  \includegraphics[width=0.8\textwidth]{ideal_track.png}
+\end{cdrfigure}
 
-\begin{figure}[!h!tbp]
-\includegraphics[width=0.95\textwidth]{figures/ideal_track_2.png}
-\caption{Illustration of the induction plane field response for an ideal track. See text for more 
-discussions.}
-\label{fig:ideal_track_2}
-\end{figure}
+\begin{cdrfigure}[Induction plane field response for an ideal track (2)]{ideal_track_2}{Illustration of the induction plane field response for an ideal track.}
+\includegraphics[width=0.95\textwidth]{ideal_track_2.png}
+\end{cdrfigure}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tpc-signal-extraction.tex}
+
+%   It is:    \section{TPC Charge Extraction}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Space charge effect}
@@ -169,10 +159,10 @@ In order to correctly reconstruct the trajectories of particles that travel thro
 
 In principle this effect could have modest impact in any TPC (liquid or gaseous) if the dimensions of the detector are large enough (in particular the maximal drift distance) to accumulate a high ion density.  In these cases, having a robust calibration method is necessary in order to account for the effect in particle trajectory reconstruction and calorimetry.  An example of the impact of the space charge effect on track reconstruction is shown in Figure~\ref{fig:SCEtrackEffects}~\cite{Mooney:2015kke}.  It should be understood that observations of these spatial distortions in data may include other effects, e.g.\ distortions of the applied field due to geometric and electric potential errors, distortion of the wire geometry, etc.  Within the context of this section, these other possible sources of distortions in reconstructed ionization electron cluster position are ignored as they are expected to be small in comparison with the distortions caused by the SCE.
 
-\begin{figure}[tb]
+\begin{cdrfigure}[Impact of the space charge effect on reconstructed tracks in the detector.]{SCEtrackEffects}{Impact of the space charge effect on reconstructed tracks in the detector.  The impact on a reconstructed track can be broken up into two distinct features:  a squeezing of the sides of the tracks in the transverse TPC directions that can somewhat resemble a rotation (``A'') and a bowing of the track toward the cathode that is most pronounced in the middle of the TPC (``B'').}
 \includegraphics[width=0.99\linewidth]{trackSCE.pdf}
-\caption{Impact of the space charge effect on reconstructed tracks in the detector.  The impact on a reconstructed track can be broken up into two distinct features:  a squeezing of the sides of the tracks in the transverse TPC directions that can somewhat resemble a rotation (``A'') and a bowing of the track toward the cathode that is most pronounced in the middle of the TPC (``B'').} \label{fig:SCEtrackEffects}
-\end{figure}
+\end{cdrfigure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation} \label{sec:SCEsim}
@@ -181,16 +171,14 @@ Software was developed \cite{SCEsimNote} to simulate the impact of space charge 
 
 An assumption is made that the charge deposition rate from cosmic muons is uniform across the TPC volume:  $2{\times}10^{-10}~\mathrm{C}/\mathrm{m}^{3}/\mathrm{s}$ at a drift field of 500~V/cm~\cite{KirkSCE}.  As a result, ignoring higher-order effects of the electric field distortions on the space charge configuration itself, the space charge density is linear with respect to the distance from the anode plane.  The space charge density profile used in the simulation is shown in Figure~\ref{fig:simSCDist} for a drift field of 500~V/cm.
 
-\begin{figure}[tb]
-\centering
+\begin{cdrfigure}[Space charge density $\rho$ as a function of the $x$ position assumed in the simulation]{simSCDist}{Space charge density $\rho$ as a function of the $x$ position assumed in the simulation. The space charge density at the cathode, $90$ $\mathrm{nC}/\mathrm{m}^3$, reflects both the expected rate of cosmic ray charge deposition and effects of recombination~\cite{KirkSCE}. The distribution is independent of $y$ and $z$ in the simulation (an approximation).}
 \includegraphics[width=.6\textwidth]{SCprofile.png}
-\caption{Space charge density $\rho$ as a function of the $x$ position assumed in the simulation. The space charge density at the cathode, $90$ $\mathrm{nC}/\mathrm{m}^3$, reflects both the expected rate of cosmic ray charge deposition and effects of recombination~\cite{KirkSCE}. The distribution is independent of $y$ and $z$ in the simulation (an approximation).} \label{fig:simSCDist}
-\end{figure}
+\end{cdrfigure}
+
 
 Some of the simulation results are shown in Figure~\ref{fig:simexample_Evals} and Figure~\ref{fig:simexample_Dvals}, which illustrate the impact of space charge on both the drift electric field (Figure~\ref{fig:simexample_Evals}) as well as the distortions in reconstructed ionization electron cluster position (Figure~\ref{fig:simexample_Dvals}).  At a drift field of 500~V/cm (corresponding to expected conditions during data-taking at protoDUNE), the expected maximal impact on the electric field is roughly 10\% in both the drift and transverse directions.
 
-\begin{figure}
-\centering
+\begin{cdrfigure}[Simulated effects of space charge on the drift electric field in the protoDUNE TPC]{simexample_Evals}{Illustration of the simulated effects of space charge on the drift electric field in the protoDUNE TPC.  Results are shown for the effect in $x$ (top row), $y$ (middle row), and $z$ (bottom row).  The electric field distortions are normalized to the nominal drift electric field magnitude ($E_{0}$) of 500~V/cm and are plotted as a function of the true position in the TPC.  Simulation results are shown both for a central slice in $z$ (left column) and for a slice in $z$ closer to the end of the TPC, $z$ = 19 cm (right column).}
 \includegraphics[width=.41\textwidth]{Ex_center_ProtoDUNE_E500.pdf}
 \includegraphics[width=.41\textwidth]{Ex_end_ProtoDUNE_E500.pdf}
 \\
@@ -199,11 +187,10 @@ Some of the simulation results are shown in Figure~\ref{fig:simexample_Evals} an
 \\
 \includegraphics[width=.41\textwidth]{Ez_center_ProtoDUNE_E500.pdf}
 \includegraphics[width=.41\textwidth]{Ez_end_ProtoDUNE_E500.pdf}
-\caption{Illustration of the simulated effects of space charge on the drift electric field in the protoDUNE TPC.  Results are shown for the effect in $x$ (top row), $y$ (middle row), and $z$ (bottom row).  The electric field distortions are normalized to the nominal drift electric field magnitude ($E_{0}$) of 500~V/cm and are plotted as a function of the true position in the TPC.  Simulation results are shown both for a central slice in $z$ (left column) and for a slice in $z$ closer to the end of the TPC, $z$ = 19 cm (right column).} \label{fig:simexample_Evals}
-\end{figure}
+\end{cdrfigure}
 
-\begin{figure}
-\centering
+
+\begin{cdrfigure}[Simulated effects of space charge on distortions in recon ionization e- cluster position]{simexample_Dvals}{Illustration of the simulated effects of space charge on the distortions in reconstructed ionization electron cluster position in the protoDUNE TPC.  Results are shown for the effect in $x$ (top row), $y$ (middle row), and $z$ (bottom row).  The distortions in reconstructed ionization electron cluster position are shown in units of cm and are plotted as a function of the true position in the TPC.  Simulation results are shown both for a central slice in $z$ (left column) and for a slice in $z$ closer to the end of the TPC, $z$ = 19 cm (right column).}
 \includegraphics[width=.41\textwidth]{Dx_center_ProtoDUNE_E500.pdf}
 \includegraphics[width=.41\textwidth]{Dx_end_ProtoDUNE_E500.pdf}
 \\
@@ -212,8 +199,9 @@ Some of the simulation results are shown in Figure~\ref{fig:simexample_Evals} an
 \\
 \includegraphics[width=.41\textwidth]{Dz_center_ProtoDUNE_E500.pdf}
 \includegraphics[width=.42\textwidth]{Dz_end_ProtoDUNE_E500.pdf}
-\caption{Illustration of the simulated effects of space charge on the distortions in reconstructed ionization electron cluster position in the protoDUNE TPC.  Results are shown for the effect in $x$ (top row), $y$ (middle row), and $z$ (bottom row).  The distortions in reconstructed ionization electron cluster position are shown in units of cm and are plotted as a function of the true position in the TPC.  Simulation results are shown both for a central slice in $z$ (left column) and for a slice in $z$ closer to the end of the TPC, $z$ = 19 cm (right column).} \label{fig:simexample_Dvals}
-\end{figure}
+\end{cdrfigure}
+
+
 
 While the simulation provides a useful order-of-magnitude estimation of the distortions in electric field and reconstructed ionization electron cluster position within the protoDUNE TPC, and provides basic shape features that we might expect in the data, there are several understood limitations of the simulation.  First of all, the flow of liquid argon, which may move positive argon ions in or out of the active TPC volume, is not considered.  Also, the assumption of uniform charge deposition from cosmics throughout the TPC may not be the case in reality as enhanced cosmogenic activity near the top of the detector may lead to greater ion production rates closer to the top of the TPC active volume.  Finally, the linear space charge density assumed in the simulation (see Figure~\ref{fig:simSCDist}) is not quite correct; this approximates the ion drift speed (roughly 8 mm/s at a drift field of 500~V/cm) as constant throughout the TPC, while in reality the electric field distortions arising from the SCE itself would break this assumption.  With that in mind, comparisons of the simulation to first data collected at MicroBooNE show good agreement in terms of both magnitude and shape, looking at the top and bottom of the MicroBooNE TPC, with minor discrepancies due to what is believed to be effects of liquid argon flow moving space charge outside of the TPC active volume~\cite{SCEnoteMicroBooNE}.
 
