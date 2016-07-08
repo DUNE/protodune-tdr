@@ -51,7 +51,7 @@ Figure \ref{fig:tpc_apa1} depicts a diagram of a protoDUNE APA.  Each side of an
 
 Table \ref{tab:apaparameters} lists some of the high-level parameters of the APA design.
 
-\begin{cdrtable}[APA Design Parameters]{cc}{apaparameters}{APA Design Parameters}   
+\begin{cdrtable}[APA Design Parameters]{cc}{apaparameters}{APA Design Parameters.}   
 Parameter & Value  \\ \toprowrule
 Active Height & 5.920 m\\ \colhline
 Active Width & 2.295 m\\ \colhline
@@ -66,6 +66,8 @@ Number Electronic Channels / APA & 2560 \\ \colhline
 Wire Tension & 5.0 N \\ \colhline
 Wire Material & Beryllium Copper \\ \colhline
 Wire Diameter & 150 $\mu$m \\ \colhline
+Wire Resistivity & 7.68 $\mu\Omega$-cm $@$ 20$^{\circ}$ C \\ \colhline
+Wire Resistance/m & 4.4 $\Omega$/m $@$ 20$^{\circ}$ C \\ \colhline
 Frame Planarity & 5 mm \\ \colhline
 Photon Detector Slots & 10 \\
 \end{cdrtable}
@@ -89,7 +91,7 @@ Reconstruction of events recorded by the APAs will need to address ambiguities i
 
 The choice of wire pitch and angle, along with the tolerance allowed for these parameters, is made to enable high-efficiency reconstruction of all particle species.  In particular, the pitch should be fine enough that multiple measurements are made of the dE/dx profile in the first few centimeters of an electromagnetic shower.  The dE/dx profile in the shower start is a strong metric for recognizing electrons and photons, and distinguishing between the two.  Studies with existing reconstruction indicate that the default parameters for the APA are compatible with the desired electron efficiency and photon rejection, and compare favorably against APAs with finer wire pitch (e.g. 3 mm) or different induction angle (e.g. 45$^{\circ}$).  Refinement of these dE/dx studies, and testing them with data, is a major part of protoDUNE's science program.
 
-The choice of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and also to provide the precision necessary for reconstruction.  The tension of 5 N, when combined with the intermediate support combs that will be described in the next section, ensure that the wires are held taught in place and will not have any sag.  Wire sag can impact the precision of reconstruction, as well as the transparency condition of the TPC.  The tension of 5 N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in the following section.
+The choice of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and also to provide the precision necessary for reconstruction.  The tension of 5 N, when combined with the intermediate support combs that will be described in the next section, ensure that the wires are held taught in place and will not have any sag.  Wire sag can impact the precision of reconstruction, as well as the transparency condition of the TPC.  The tension of 5 N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in the following section.  To further mitigate wire breakage and its impact on detector performance, each wire in the APA is anchored twice on both ends, with both solder and epoxy.  Details of this arrangement is provided in the following sections. 
 
 
 %\begin{itemize}
@@ -118,7 +120,7 @@ The choice of wire tension and wire placement accuracy are made to ensure proper
 \subsection{APA physical description, Meeting requirements, Fabrication}
 \subsubsection{Wires}
 
-Beryllium copper wire is known for its high durability and yield strength. It is composed of $\sim$98$\%$ copper, approximately 1.9$\%$ beryllium, and a negligible amount of other elements. The DUNE APA wire has a diameter of 150$\mu$m (.006 in), and is strung in varying lengths across the apparatus. Two key properties for usage in the APA are tensile or yield strength and coefficient of thermal expansion.
+Beryllium copper wire is known for its high durability and yield strength. It is composed of $\sim$98$\%$ copper, approximately 1.9$\%$ beryllium, and a negligible amount of other elements. The DUNE APA wire has a diameter of 150$\mu$m (.006 in), and is strung in varying lengths across the apparatus. Three key properties for usage in the APA are: low resistivity, high tensile or yield strength, and coefficient of thermal expansion suitable for use with the APA's stainless steel frame.
 
 Tensile strength of the wire describes the wire breaking stress (Table \ref{tab:wire}).  The yield strength is the stress at which the wire starts to take a permanent (inelastic) deformation and is the important limit stress for our usage -- though most specifications give tensile strength.  Fortunately, for the CuBe alloys we are interested in, the two are fairly close to each other.  Based on the tensile strength of wire purchased from Little Falls Alloy (over 1380 MPa or 200,000 psi), the yield strength will be greater than 1100 MPa.  Given that the stress in use is around 280 MPa we have a comfortable margin.
 
@@ -137,6 +139,13 @@ Tensile Strength (from actual wire) (psi) & 212,530 \\ \colhline
 CTE of CuBe, integrated to 87 K (m/m) & 2.9e-3 \\ \colhline
 CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 \end{cdrtable}
+
+Figure \ref{fig:tpc_apa_wirelengthvsnoise} shows the intrinsic noise behavior in stainless steel wire and stainless steel wire plated with copper and gold.  The plated wire is what is used in the MicroBooNE TPC, for example.  CuBe wire has very similar electrical properties to the plated stainless steel wire, and the figure indicates the expected intrinsic noise levels for protoDUNE induction and collection wires.  These very low levels of noise are an important factor in the choice of CuBe wire for the APAs.
+
+\begin{cdrfigure}[APA Wire Length vs Noise]{tpc_apa_wirelengthvsnoise}{Noise levels in wire as a function of wire length.  CuBe wire is very similar in behavior to stainless steel wire plated with copper and gold (blue line).}
+\includegraphics[width=0.9\textwidth]{figures/tpc_apa_wirelengthvsnoise.png} 
+\end{cdrfigure}
+
 
 
 \subsubsection{APA Frame}
@@ -360,7 +369,7 @@ The angled wires are located by pins as shown in the right-hand picture of Fig. 
 The polymer used for the strips is Vectra e130i (a trade name for 30$\%$ glass filled liquid crystal polymer or LCP). It retains its strength at cryogenic temperature and has a CTE similar enough to G10 that differential expansion/contraction is not a problem.
 
 \paragraph{Glue and solder}
-The ends of the wires are soldered to pads on the edge or wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor the wires are glued for roughly 10 mm near the solder pads.
+The ends of the wires are soldered to pads on the edge or wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor the wires are glued for roughly 10 mm near the solder pads.  For example, in Fig. \ref{fig:tpc_apa_sideboardphoto}, in addition to soldering the wires upon the pads shown on the left-hand photograph, an epoxy bead will be applied on top of all wires in the area between the solder pads and the injection molded tooth strips.
 
 2216 gray epoxy by 3M was chosen for the glue.  It is strong, widely used (therefore much data is available), and it retains good properties at cryogenic temperatures.  A 62$\%$ tin, 36$\%$ lead and 2$\%$ silver solder was chosen.  A eutectic mix (63/37) is the best of the straight tin/lead solders but the 2$\%$ added silver gives better creep resistance.
 
