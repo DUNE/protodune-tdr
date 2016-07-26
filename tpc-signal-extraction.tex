@@ -1,12 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{TPC Charge Extraction}
 \label{sec:tpc-signal-calibration}
+
 In Sec.~\ref{sec:tpc_signal_formation}, the signal formation in TPC
 is described. In this section, we describe the procedure of the TPC 
 charge extraction. As shown in Fig.~\ref{fig:signal_formation}, the 
 goal of TPC charge extraction is to recover the number of ionized 
 electrons from the digitized TPC signal. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deconvolution Technique}\label{sec:decon}
+
 Deconvolution is a mathematical technique to extract a \textit{real signal}
 $S(t)$ from a \textit{measured signal} $M(t_0)$. The deconvolution technique 
 was introduced to LArTPC signal processing in LarSoft by Bruce Baller in the 
@@ -67,7 +71,9 @@ field response function is replaced by a regular uni-polar response function thr
 the inclusion of the software filter. 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Importance of 2D Deconvolution for Induction Planes}
+
 The 1D deconvolution procedure described in the previous section 
 works well in dealing with signal in the collection wire plane, but is not 
 optimal when applied to signals in the induction wire planes. 
@@ -148,16 +154,15 @@ resolve the ionization electron distributions within a wire boundary.
 This technique can in principle be improved to include the position dependent
 response once the local ionization charge distribution is roughly reconstructed. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Additional Challenges in Deconvolution}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{induction_field_response.png}
-\caption{(left) Simulated field response functions for induction (black and red) and 
+\begin{cdrfigure}[Simulated field response functions in the time and frequency domains]{induction_field}{(left) Simulated field response functions for induction (black and red) and 
 collection (blue) wires are shown in the time domain. (right) The same are shown in 
 the frequency domain.}
-\label{fig:induction_field}
-\end{figure}
+\includegraphics[width=0.95\textwidth]{induction_field_response.png}
+\end{cdrfigure}
+
 
 The 1D and 2D deconvolution procedures provide a robust method to extract the ionization
 electrons for the collection and induction planes, respectively. 
@@ -194,15 +199,12 @@ low frequency. This can be seen clearly in Fig.~\ref{fig:decon_example}, where t
 is significant. The large low frequency noise would lead to large uncertainty 
 in the charge estimation and needs to be dealt with.  
 
-\begin{figure}[htb]
-\centering
+\begin{cdrfigure}[Example of deconvoluted spectrum for the induction plane (simulation)]{decon_example}{Example of deconvoluted spectrum for the induction plane (simulation).}
 \includegraphics[width=0.8\textwidth]{decon_example.png}
-\caption{An example deconvoluted spectrum for the induction plane (simulation).}
-\label{fig:decon_example}
-\end{figure}
+\end{cdrfigure}
 
 
-In Eq.~\eqref{eq:decon_filt}, a frequency-domain  filter function is introduced 
+In Equation~\eqref{eq:decon_filt}, a frequency-domain  filter function is introduced 
 to suppress the numerical instability caused by the presence of noise. One can imagine to use this
 software filter to suppress the electronic noise at low frequency. This is also 
 not acceptable due to large distortion introduced on the signal. To understand this 
@@ -212,14 +214,11 @@ with a low-frequency filter (middle), and the low-frequency filter itself (right
 It is obvious that the signal is strongly distorted due to the application of the 
 low-frequency software filter. 
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{low_freq.png}
-\caption{The impact of the low-frequency filter (right). The unit of the X-axis 
+\begin{cdrfigure}[Impact of the low-frequency filter]{low_f_filter}{The impact of the low-frequency filter (right). The unit of the $x$-axis 
 is MHz.  The real signal and the convoluted signal are shown in the left and
 middle panel, respectively. A time tick is 0.5 $\mu s$.}
-\label{fig:low_f_filter}
-\end{figure}
+\includegraphics[width=0.95\textwidth]{low_freq.png}
+\end{cdrfigure}
 
 In order to deal with this problem, we turn to using two techniques in the time domain: 
 region of interest and adaptive baseline. The region of interest (ROI) technique
@@ -243,6 +242,7 @@ to remove bias in the baseline.
 
 In the following, we describe various parts used in the charge extraction.
 
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Calculation of Field Response Function}
 
 The field response is calculated by Garfield~\cite{garfield} in a 22 cm (along the 
@@ -269,18 +269,6 @@ V plane responses functions are shown in the middle and right panel of
 Fig.~\ref{figs:overall_response}, respectively.  For induction wire planes, these response 
 functions are reasonably balanced as expected.
 
-%\begin{figure}[htb]
-%\centering
-%\includegraphics[width=0.95\textwidth]{Garfield_simu.png}
-%\caption{Description of the Garfield 2D simulation of field response functions.}
-%\label{fig:garfield_2d}
-%\end{figure}
-
-%\fixme{please use cdrfigure standard as below; label doesn't include ``fig:'' and no path to filename}
-%\begin{cdrfigure}[short caption for table of figures]{label}{long caption that appears below picture}
-%  \includegraphics[width=0.8\textwidth]{figurefile}
-%\end{cdrfigure}
-
 
 \begin{cdrfigure}[Description of the Garfield 2D simulation of field response 
 functions]{garfield_2d}{Description of the Garfield 2D simulation of field response functions}
@@ -288,16 +276,15 @@ functions]{garfield_2d}{Description of the Garfield 2D simulation of field respo
 \end{cdrfigure}
 
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{dune_field_res.pdf}
-\caption{The overall response functions, which is the convolution of the
+\begin{cdrfigure}[Overall response functions]{overall_response}{The overall response functions, which is the convolution of the
 electronics response function (14 mV/fC gain and 2 $\mu$s shaping time) 
-and the field response, are shown. }
-\label{fig:overall_response}
-\end{figure}
+and the field response, are shown.}
+\includegraphics[width=0.95\textwidth]{dune_field_res.pdf}
+\end{cdrfigure}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Choice of Software Filter}
 
 We select and implement two types of filters.  The first inspired by the Wiener filter.  
@@ -347,14 +334,12 @@ extra factor in the overall normalization. The free parameter $a$ and $b$ in the
 form is determined by matching the tail of Wiener filter at its high frequency side. 
 An example of software filter is shown in Fig.~\ref{fig:soft_filter_1}. 
 
-\begin{figure}[!h!tbp]
-\includegraphics[width=0.8\textwidth]{filter_1.png}
-\caption{The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution. 
+\begin{cdrfigure}[Wiener-inspired filter and Gaussian filter used in the 2D deconvolution]{soft_filter_1}{The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution. 
 The time and frequency domain content are shown on the left and right panel, respectively.
 The x-axis's unit for the time domain is $\mu$s. For the frequency domain, the number 2000
 corresponds to $\sim$0.42 MHz.}
-\label{fig:soft_filter_1}
-\end{figure}
+\includegraphics[width=0.8\textwidth]{filter_1.png}
+\end{cdrfigure}
 
 Beside the high-frequency software filter described above, there is also a low-frequency 
 software filter which is used to select ROIs (discussed in the next section). 
@@ -363,7 +348,9 @@ The functional form of the low-frequency software filter is chosen to be
 F(\omega) = 1- e^{-\frac{1}{2}\cdot \left( \frac{\omega}{c} \right)^2}.
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{ROI Selection}
+
 The region of interest (ROI) is an important technique to limit the contribution of low-frequency 
 electronic noise. The ROI selection was based on the deconvoluted results. Essentially, we perform
 two rounds of deconvolution:
@@ -374,7 +361,9 @@ two rounds of deconvolution:
 The first one are used to select ROIs, and the results from the second deconvolution are then 
 used to obtain the final deconvoluted results. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Metrics in Evaluating TPC Signal Processing}
+
 In order to evaluate the TPC signal processing, which include both the noise filtering and 
 the charge extraction, there are two robust metrics that can be used for evaluation 
 purpose. They are:
@@ -398,13 +387,11 @@ Understanding the ENC and DNC for the current-generation experiments and the exp
 performance for the future experiments are important steps to achieve automated event 
 reconstruction for LArTPCs.
 
-\begin{figure}[!h!tbp]
-\includegraphics[width=0.75\textwidth]{RMSvsLength_after.pdf}
-\caption[Residual noise vs wire length]{The noise level in terms of the RMS value and ENC 
+\begin{cdrfigure}[Residual noise vs wire length]{rms3}{The noise level in terms of the RMS value and ENC 
 is plotted with respect to the wire length observed in MicroBooNE. 
-This plot is taken from Ref.~\cite{noise_filter}.}
-\label{rms3} 
-\end{figure}  
+This plot is taken from~\cite{noise_filter}.}
+\includegraphics[width=0.75\textwidth]{RMSvsLength_after.pdf}
+\end{cdrfigure}
 
 The ENC in MicroBooNE has been reported at Ref.~\cite{noise_filter} and plotted 
 in Fig.~\ref{rms3}. As illustrate above, the calculation of DNC depends on the 
@@ -414,13 +401,11 @@ Fig.~\ref{DNC} shows the calculated DNC as a function of the time window length
 for the second induction (V) plane, which is expected to have the smallest field 
 response function (thus the largest DNC). 
 
-\begin{figure}[!h!tbp]
-\includegraphics[width=0.75\textwidth]{DNC.png}
-\caption{Calculation of DNC with respect to the time window length for second induction (V) plane. 
+\begin{cdrfigure}[Calculation of DNC vs time window length for second induction (V) plane]{DNC}{Calculation of DNC with respect to the time window length for second induction (V) plane. 
 The ENC used in this simulation is 500 electrons given the induction wire length in protoDUNE. 
 The red line shows the expected signal size for a minimal ionizing particle (MIP) 
 traveling 3.2 mm.}
-\label{DNC} 
-\end{figure}  
+\includegraphics[width=0.75\textwidth]{DNC.png}
+\end{cdrfigure}
 
 
