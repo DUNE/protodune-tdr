@@ -23,17 +23,17 @@
 \subsection{Introduction}
 \label{subsec:ce_intro}
 
-\begin{cdrfigure}[The front-end electronics mounted on an APA]{tpcce_CMBonAPA}{The 
+\begin{cdrfigure}[The front-end electronics mounted on an APA]{tpcce_FEMBonAPA}{The 
 front-end electronics as mounted on an APA.
   {\bf Top:} The front-end electronics is shown in the red circle.
   {\bf Bottom:} Cross section view. Mounting hardware between the front-end electronics 
 and the APA fin is not shown.}
-\includegraphics[width=1.00\linewidth]{tpcce_CMBonAPA_1.pdf}
-\includegraphics[width=1.00\linewidth]{tpcce_CMBonAPA_2.pdf}
+\includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_1.pdf}
+\includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_2.pdf}
 \end{cdrfigure}
 
 The TPC read-out electronics are referred to as the ``Cold Electronics'' (CE) because they will reside in LAr,
-mounted directly on the APA front-end (Figure~\ref{fig:tpcce_CMBonAPA}).
+mounted directly on the APA front-end (Figure~\ref{fig:tpcce_FEMBonAPA}).
 This will minimize channel capacitance and noise by keeping the length of the connection between an anode wire
 and its corresponding electronics input to an absolute minimum.
 The CE will be implemented as ASIC chips using CMOS technology,
@@ -53,7 +53,7 @@ from the CE flange to the APA wire-bias boards.
 
 \begin{cdrfigure}[Connections between CE flange and APA]{tpcce_apa_flange}{Connections between
 the CE flange and APA.}
-\includegraphics[width=0.5\linewidth]{tpcce_apa_flange.pdf}
+\includegraphics[width=0.4\linewidth]{tpcce_apa_flange.pdf}
 \end{cdrfigure}
 
 The scope of the CE subsystem includes the design, procurement, fabrication, testing,
@@ -762,6 +762,8 @@ were used to characterize the performance of prototype ASICs at both 300~K and 7
 and taking them through multiple thermal cycles.
 An automated test board was built for the FE ASIC to evaluate large numbers of FE ASICs at room temperature,
 and another such board is currently being designed for the ADC ASIC.
+
+\fixme{Get images of the current testboards here.}
 
 The development of the FE and ADC ASICs has proceeded through a series of prototype designs.
 A 128-channel prototype analog mother board has been developed and tested in the lab.
