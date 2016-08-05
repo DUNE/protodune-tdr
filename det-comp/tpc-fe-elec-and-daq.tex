@@ -53,7 +53,7 @@ from the CE flange to the APA wire-bias boards.
 
 \begin{cdrfigure}[Connections between CE flange and APA]{tpcce_apa_flange}{Connections between
 the CE flange and APA.}
-\includegraphics[width=1.0\linewidth]{tpcce_apa_flange.pdf}
+\includegraphics[width=0.5\linewidth]{tpcce_apa_flange.pdf}
 \end{cdrfigure}
 
 The scope of the CE subsystem includes the design, procurement, fabrication, testing,
@@ -112,7 +112,7 @@ that create an electrical connection.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Architecture}
+\subsection{Front-End Mother Board}
 \label{subsec:fe_arch}
 
 The CE architecture is manifested in the Front End Mother Board assembly (FEMB),
@@ -127,8 +127,8 @@ and an 8(analog):1(digital) Mux stage with two pairs of serial readout lines in 
 The FEMB have already been prototyped and tested,
 using a commercial FPGA to perform the role of the digital ASIC (Figure~\ref{fig:tpcce_CMBpix}).
 
-\begin{cdrfigure}[The CE Architecture]{tpcce_schem}{The CE Architecture. The basic unit is the 128-channel FEMB}
-\includegraphics[width=\linewidth]{tpcce_schem.pdf}
+\begin{cdrfigure}[The CE Architecture]{tpcce_schem}{The CE Architecture. The basic unit is the 128-channel FEMB.}
+\includegraphics[width=0.9\linewidth]{tpcce_schem.pdf}
 \end{cdrfigure}
 
 \begin{cdrfigure}[The Front End Mother Board (FEMB), as used in an early set of tests]{tpcce_CMBpix}
@@ -399,7 +399,7 @@ It is anticipated that the digital ASIC will make use of a 65-nm CMOS technology
 digital library with accurate cold timing models allowing for high-level language design and
 automated place-and-route for design blocks using extensive digital logic.
 
-\begin{cdrfigure}[Functional Block Diagram of the Cold Digital Data (COLDATA) ASIC]{tpcce_COLDATA}{Functional Block Diagram of the Cold Digital Data (COLDATA) ASIC}
+\begin{cdrfigure}[Functional Block Diagram of the Cold Digital Data (COLDATA) ASIC]{tpcce_COLDATA}{Functional Block Diagram of the Cold Digital Data (COLDATA) ASIC.}
 \includegraphics[width=6in]{tpcce_COLDATA.pdf}
 \end{cdrfigure}
 
@@ -423,15 +423,30 @@ A line driver will be designed that is capable of driving a copper link for the 
 to exit the LAr in the 10~kT DUNE far detectors.
 
 For the ProtoDUNE detector, the COLDATA mezzanine boards, which are still being developed, will be
-replaced by an FPGA mezzanine (Figure~\ref{tpcce_CMBpix}) 
+replaced by an FPGA mezzanine (Figure~\ref{fig:tpcce_CMBpix}) 
 which will reproduce the clock/control IO, data multiplexing, and 1.28~Gbps serial drivers.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Signal Feedthroughs, Cabling, and Power}
+\subsubsection{Faraday Box and Interface to APA}
+\label{subsubsec:faraday_box}
+
+Each FEMB will be enclosed in a Faraday box to provide shielding from noise, and to mount the FEMB 
+to the APA. The current concept for Faraday box mounting is shown in Figure~\ref{fig:tpcce_box}.
+
+\begin{cdrfigure}[Faraday box for the FEMB]{tpcce_box}{Faraday box for the FEMB.}
+\includegraphics[width=3in]{tpcce_box_1.pdf}
+\includegraphics[width=3in]{tpcce_box_2.pdf}
+\end{cdrfigure}
+
+\fixme{need more details. Ask Manhong.}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Signal Feedthroughs and Cold Cable}
 \label{subsec:ce_feedthrough}
 
-A signal feedthrough, will pass the signals, supply voltages, and control lines from the warm to the cold.
+A signal feedthrough will pass the signals, supply voltages, and control lines from the warm to the cold.
 The TPC data rate per APA, using the full event-buffer scheme described earlier,
 is sufficiently low that it is within the capability of a single LVDS channel on copper,
 with an overall 32:1 Mux and 80 LVDS channels per APA.
@@ -466,9 +481,10 @@ connectors machined directly into the flange, so there will be no electrical con
 the LV and data connectors and bias voltage.
 The other ends of the data and LV cables will be connected to the matching connectors on the FEMBs in the cryostat.
 Based on a standard 14-in conflat flange,
-each of these feedthroughs will serve the bias/power/digital IO needs of one APA, as shown in Figure~\ref{tpcce_cable_routing}.  
+each of these feedthroughs will serve the bias/power/digital IO needs of one APA, as shown 
+in Figure~\ref{fig:tpcce_cable_routing}.  
 
-\begin{cdrfigure}[TPC]{tpcce_cable_routing}{TPC cable routing scheme.}
+\begin{cdrfigure}[TPC cable routing scheme]{tpcce_cable_routing}{TPC cable routing scheme for three APA section.}
 \includegraphics[width=0.9\linewidth]{tpcce_cable_routing.pdf}
 \end{cdrfigure}
 
@@ -492,17 +508,19 @@ This indicates the importance of minimizing the amount of material in the ullage
 
 %
 %%%%%%%%%%%%%%%%  
-\subsubsection{Cabling for the Cold Electronics}
+\subsubsection{Cold Cable}
 \label{subsubsec:ce_feedthrough_cable}
 
-Five basic types of cables will be required to penetrate the cryostat and service the Cold Electronics.
-We will require low-voltage cables to power the FE boards,
-wire bias cables to provide the reference voltages for the wire planes,
-moderate-speed cables for a communication downlink to the FE boards,
-high-speed cables to carry the data out of the cryostat and signal cables to carry the photon detection out.
-All of these cables will pass through the feedthrough port provided for each pair of stacked APAs.
+Five basic types of cables will be required to penetrate the cryostat and service the Cold Electronics:
+\begin{itemize}
+\item Low-voltage cables to power the FE boards,
+\item wire-bias cables to provide the reference voltages for the wire planes,
+\item moderate-speed cables for a communication downlink to the FE boards,
+\item high-speed cables to carry the data out of the cryostat.
+\end{itemize}
+All of these cables will pass through the CE flange.
 
-\fixme{Have the connectors been selected?}
+\fixme{This section should be rewritten to only describe the cold cable.}
 The cables --- and connectors --- will be selected to have a low outgas and provide minimal contamination to the LAr environment.
 %The same is true of connectors.
 Connectors will also need to be tested for usage in LAr to make sure that a low ohmic contact is maintained
@@ -532,32 +550,7 @@ It will be important that all cables and connectors be somewhat rugged,
 locking and able to withstand a minimum of several tens of mating cycles.
 This is in addition to concerns about material compatibility and the fact they must work in the cryogenic environment.
 
-%
-%%%%%%%%%%%%%%%%
-\subsubsection{Power for the Cold Electronics}
-\label{subsubsec:ce_feedthrough_power}
-
-\fixme{Haven't we made some changes here, regarding DC/DC converters?}
-The power-per-channel for the FE electronics is designed be about 25~mW and the total low-voltage
-power requirement for each APA is expected to be about 64~W.
-Power will be supplied to the electronics on each APA separately by low-noise
-power supplies outside the cryostat, either directly by
-low-voltage (1.8~V), high-current (36 A) conductors or by high-voltage (48~V)
-low-current (2~A) conductors to DC-DC converters placed locally in the LAr.
-The use of DC-DC converters requires conductors with smaller cross section,
-minimizing heat input to the cryostat (and ice formation on the feedthroughs).
-However, the power dissipated by the (somewhat inefficient) converters in
-the LAr will create boiling which may introduce contamination directly into the 
-high-purity LAr, and if enough LAr is vaporized, may also produce strong mixing of the
-ullage gas, driving more impurities into the liquid.
-These effects of boiling LAr, unless they can be demonstrated to be harmless,
-will drive a preference for eliminating DC-DC converters, and directly powering the front-end readout boards.
-
-Heat conduction through the high-current feedthroughs and the self-heating ($I\cdot R$) of the wires are the factors
-contributing to additional heat load on the cryogenic system.
-The sum of the these two factors as a function of the wire gauge, however, has a minimum 
-due to the two opposing dependencies on the copper-wire cross section.
-An optimum wire gauge can be chosen to minimize heat input to the cryostat.
+\fixme{Need to add the new design for the cable support in the feedthrough. Ask Manhong.}
 
 \subsection{Warm Interface Electronics}
 \label{subsec:warm_interface_elec}
@@ -704,11 +697,43 @@ is a small change in signal assignments required, with one pair of
 JTAG signals reassigned to the ``I2C-Like'' COLDATA slow control
 interface, which uses three LVDS pairs.
 
+%
+%%%%%%%%%%%%%%%%
+\subsection{External Power and Cables}
+\label{subsec:ce_feedthrough_power}
 
 %
 %%%%%%%%%%%%%%%%
-\subsection{Wire-Bias Voltages}
-\label{subsec:ce_feedthrough_wirebias}
+\subsubsection{Low Voltage}
+\label{subsubsec:ce_feedthrough_wirebias}
+
+\fixme{rewrite this section to be about the LV power and warm cables. See uboone slides for cables/supplies.}
+
+The power-per-channel for the FE electronics is designed be about 25~mW and the total low-voltage
+power requirement for each APA is expected to be about 64~W.
+Power will be supplied to the electronics on each APA separately by low-noise
+power supplies outside the cryostat, either directly by
+low-voltage (1.8~V), high-current (36 A) conductors or by high-voltage (48~V)
+low-current (2~A) conductors to DC-DC converters placed locally in the LAr.
+The use of DC-DC converters requires conductors with smaller cross section,
+minimizing heat input to the cryostat (and ice formation on the feedthroughs).
+However, the power dissipated by the (somewhat inefficient) converters in
+the LAr will create boiling which may introduce contamination directly into the 
+high-purity LAr, and if enough LAr is vaporized, may also produce strong mixing of the
+ullage gas, driving more impurities into the liquid.
+These effects of boiling LAr, unless they can be demonstrated to be harmless,
+will drive a preference for eliminating DC-DC converters, and directly powering the front-end readout boards.
+
+Heat conduction through the high-current feedthroughs and the self-heating ($I\cdot R$) of the wires are the factors
+contributing to additional heat load on the cryogenic system.
+The sum of the these two factors as a function of the wire gauge, however, has a minimum 
+due to the two opposing dependencies on the copper-wire cross section.
+An optimum wire gauge can be chosen to minimize heat input to the cryostat.
+
+%
+%%%%%%%%%%%%%%%%
+\subsubsection{Wire-Bias Voltages}
+\label{subsubsec:ce_feedthrough_wirebias}
 
 Each anode plane assembly requires three bias voltage connections 
 at $+$820V, $-$370V, and $-$665V.
@@ -725,10 +750,12 @@ However,  other, higher-density multi-channel
 feedthroughs capable of withstanding the maximum voltage are under investigation.  
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{QC Procedures}
+
 %%%%%%%%%%%%%%%%
-\subsection{Prototype Testing}
-\label{subsec:ce_install_proto}
-\fixme{Do we want to keep some or all of this here?  Or, should this migrate to the QA/QC section?}
+\subsubsection{Prototype Testing}
+\label{subsubsec:ce_install_proto}
 
 Dedicated test boards for the FE ASIC and ADC ASIC,
 were used to characterize the performance of prototype ASICs at both 300~K and 77~K,
@@ -759,8 +786,8 @@ It is an important step to identify potential issues, check out system integrati
 before the installation into the cryostat.
 
 %%%%%%%%%%%%%%%%
-\subsection{Assembly Testing}
-\label{subsec:ce_install_assembly}
+\subsubsection{Assembly Testing}
+\label{subsubsec:ce_install_assembly}
 
 The front-end readout boards will be thoroughly tested. A testing program has been identified:
 \begin{itemize}
@@ -801,6 +828,5 @@ the detector performance prior to data taking.
 \fixme{Space-permitting, it seems to me that more details on commissioning would be in order.}
 %
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{QC Procedures}
+
 
