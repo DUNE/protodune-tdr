@@ -41,8 +41,8 @@ Because it is not possible to form a trigger for some important measurements,
 such as proton decay and supernova bursts, the CE will be continuously read out,
 with a digitized ADC sample from each APA channel (wire) every 500~ns.
 For each of the six APAs in the protoDUNE cryostat, one cable bundle will connect to the outside of the cryostat through
-a feedthrough, with one feedthrough servicing two APAs.
-\fixme{Or is this two feedthroughs for three APAs?}
+a feedthrough, with one feedthrough servicing one APA.
+
 Each of these cable bundles consists of wires for low-voltage power, TPC wire-bias voltages, data-out, clock-in and
 digital-control IOs.
 % The 2,560 channels from an APA are read out in 20 groups of 128 channels.
@@ -158,7 +158,6 @@ and data is transmitted via optical fiber to front-end computers.
 % 2015-02-27 chc: remove reference to the outdated block diagram
 %Figure~\ref{fig:elec_asic_layout} shows a block diagram of the proposed 16-channel front-end ASIC.
 The analog FE ASIC has 16 channels.
-\fixme{Are these gains and time constants still correct?}
 Each channel includes a charge amplifier with a gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
 (full scale charge of 55, 100, 180 and 300~fC),
 a high-order anti-aliasing filter with adjustable time
@@ -289,8 +288,7 @@ The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
 \includegraphics[width=\linewidth]{tpcce_FE_ASIC.pdf} % New one.
 \end{cdrfigure}
 
-\fixme{Is "five cycles" correct?  Or is it six?}
-This ASIC has now been through five design/fabrication/testing revision cycles.
+This ASIC has now been through six design/fabrication/testing revision cycles; the latest data sheet is DUNE-doc-1484.
 Prototypes from each cycle have been evaluated and characterized at room (300~K) and liquid nitrogen (77~K) temperatures.
 During these tests the circuits have been cycled multiple times
 between the two temperatures and operated without any change in performance.
@@ -313,7 +311,7 @@ which are in close agreement with the simulations as well.
 \includegraphics[width=4in]{tpcce_enc.pdf}
 \end{cdrfigure}
 
-\fixme{Are these noise values the latest?  Should we include anything from the 35t test?}
+\fixme{We should include the noise and gain measurements from the latest FEMB tests at the last collab meeting.}
 Figure~\ref{fig:tpcce_enc} shows the measured ENC versus filter-time constant (peaking time).
 At 1~$\mu$s about 650 e$^{-}$ was measured, to be compared to the simulated value of 500 e$^{-}$.
 The difference is mainly due to the thermal noise from a $\sim$11-ohm parasitic resistance of the input
@@ -363,8 +361,8 @@ The ADC along with the input buffers are biased internally using a bias generato
 The bandgap voltage (VBGR) can be monitored and/or controlled externally.
 It can be put in the low-power sleep mode, and woken up in less than 1~$\mu$s.
 
-\fixme{Is "five cycles" correct?  Or is it six?}
-The ADC ASIC has now been through five design/fabrication/testing revision cycles.
+The ADC ASIC has now been through seven design/fabrication/testing revision cycles, 
+the latest data sheet is DUNE-doc-1485.
 Prototypes from each cycle have been evaluated and characterized at room (300~K) and liquid nitrogen (77~K) temperatures.
 During these tests the circuits have been cycled multiple times.
 The effective resolution with reference to the input referred noise is $\sim$11.6~bits at both 300~K and 77~K.
@@ -455,7 +453,7 @@ these cables will be strain-relieved on the mounting rails above the APAs.
 % contain the support rods for the TPC planes.
 
 \begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{The signal/power feedthrough}
-\includegraphics[width=2.75in]{tpcce_signal_FT_1.jpg}
+\includegraphics[width=2.75]{tpcce_signal_FT_1.jpg}
 \includegraphics[width=4in]{tpcce_signal_FT_2.jpg}
 \end{cdrfigure}
 
@@ -474,7 +472,7 @@ This indicates the importance of minimizing the amount of material in the ullage
 
 %
 %%%%%%%%%%%%%%%%  
-\subsubsection{Cabling for the Cold Electronics }
+\subsubsection{Cabling for the Cold Electronics}
 \label{subsubsec:ce_feedthrough_cable}
 
 Five basic types of cables will be required to penetrate the cryostat and service the Cold Electronics.
@@ -516,20 +514,7 @@ This is in addition to concerns about material compatibility and the fact they m
 
 %
 %%%%%%%%%%%%%%%%
-\subsubsection{Warm Interface Board}
-\label{subsubsec:ce_feedthrough_wib}
-\fixme{This section needs more meat, and some fact-checking (i.e., two FEMBs per WIB?).}
-The warm interface boards (WIB) reside on the warm side of the feedthroughs.
-Each WIB connects to two FEMBs, and acts as a flexible, optical interface to DAQ.
-While the FPGA on the FEMB in the cold would in principle be able to provide any required flexibility,
-all flexibility is lost once the FPGA is replaced with the COLDATA chip,
-which represents a hard compilation in permanent silicon of a particular instance of FPGA code.
-The right panel of Fig. \ref{tpcce_signal_FT} shows the WIBs installed on a feedthrough.
-The WIB is nearly identical to that for SBND; we are therefore working in tandem with SBND on this.
-
-%
-%%%%%%%%%%%%%%%%
-\subsubsection{Power for the Cold Electronics }
+\subsubsection{Power for the Cold Electronics}
 \label{subsubsec:ce_feedthrough_power}
 
 \fixme{Haven't we made some changes here, regarding DC/DC converters?}
@@ -553,10 +538,157 @@ contributing to additional heat load on the cryogenic system.
 The sum of the these two factors as a function of the wire gauge, however, has a minimum 
 due to the two opposing dependencies on the copper-wire cross section.
 An optimum wire gauge can be chosen to minimize heat input to the cryostat.
+
+\subsection{Warm Interface Electronics}
+\label{subsec:warm_interface_elec}
+
+The ProtoDUNE warm interface electronics are housed in a small crate
+attached directly to the cryostat flange.  The crate contains one
+Power and Timing Card (PTC), up to five Warm Interface Boards (WIBs) and a passive
+backplane which fans out signals and LV power from the PTC to the WIBs.
+
+\begin{cdrfigure}[Conceptual design of CE flange]{tpcce_ceflange_sbnd}{Exploded view of 
+the CE flange for SBND (ProtoDUNE has 5 WIBs).}
+\includegraphics[width=1.0\linewidth]{tpcce_ceflange_sbnd.png}
+\end{cdrfigure}
+
+The WIB is the interface between the
+DAQ system (based on either the RCE or FELIX) and up to four
+FEMBs. It receives the system clock timing and control signals from the
+timing system and provides processing and fan-out to the four
+FEMBs. The WIB also receives the high-speed data from the four 
+FEMBs and transmits it to the DAQ system over optical
+fiber.  Figure~\ref{fig:tpcce_ceflange_sbnd} shows the TPC warm electronics
+flange (SBND design). The WIBs are attached directly to the TPC
+readout electronics flange on the cryostat feed-through. The flange
+board is a PCB with connectors to the cold signal and LV cables fitted
+between the compression plate on the cryostat side, and sockets for
+the WIB on the warm side. Cable strain relief is also provided
+directly on the flange, which is mounted vertically to the cryostat
+feed-through.
+
+\subsubsection{Power and Timing Card}
+\label{subsubsec:power_timing_card}
+
+\begin{cdrfigure}[PTC and timing]{tpcce_wib_timing}{Power and Timing Card (PTC) 
+and timing distribution to the WIB and FEMBs.}
+\includegraphics[width=1.0\linewidth]{tpcce_wib_timing.jpg}
+\end{cdrfigure}
+
+In addition to the WIB, the warm interface electronics contains a
+Power and Timing Card and a Power and Timing Backplane
+(PTB). The PTC provides a bidirectional fiber interface to the
+ProtoDUNE clock system.  The received data is separated into clock and
+data using a clock/data separator.  The clock and data
+streams are separately fanned-out to five WIB via the power/timing
+backplane. Details are shown in
+Figure~\ref{fig:tpcce_wib_timing}. The PTC fans the clocks out to the WIB over the
+PTB, which is a passive backplane attached directly to the PTC and
+WIBs, shown in Figures~\ref{fig:tpcce_ceflange_sbnd} and~\ref{fig:argh}.
+
+\begin{cdrfigure}[WIB and LV power]{tpcce_wib_power}{LV power distribution 
+to the WIB and FEMBs. 200W is for a fully-loaded crate 
+with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
+\includegraphics[width=0.7\linewidth]{tpcce_wib_power.pdf}
+\end{cdrfigure}
+
+The PTC also receives the low voltage power for the entire cold
+electronics connected to that flange, approximately 200W at 12V for a
+fully-loaded flange (5~WIB + 20~FEMB). The LV power then fanned out
+on the PTB to each WIB, which provides the DC/DC conversion and fans
+the LV power out to each of the cold FEMBs supplied by that WIB, 
+as shown in Figure~\ref{fig:tpcce_wib_power}. The 
+majority of the 200W drawn by a full flange is dissipated in the LAr
+by the cold FEMB.
+
+ProtoDUNE has 6 cryostat signal feed-throughs with warm interface electronics. 
+If the system clock is received by the PTC, it will require 6 dual fiber links.
+
+\subsubsection{Warm Interface Board}
+\label{subsubsec:warm_interface_board}
+
+The WIB receives the separated clock and data from the timing system from the backplane
+as shown in Figure~\ref{fig:tpcce_dune_wib}. Each WIB in ProtoDUNE will contain a 
+unique IP address for its UDP slow control interface. The IP address for the WIB is 
+derived from a crate and slot address: the crate address is generated on the PTC 
+board via dipswitches and the slot address is generated by the PTB slot, numbered 
+from one to five, shown in Figure~\ref{fig:tpcce_dune_ptb}. Note that the WIB also has 
+connectors to receive LV power on its front panel, bypassing the PTC.
+
+The WIB is also capable of
+receiving the encoded system clock over bi-directional optical
+fibers on the front panel; in this scenario, the warm electronics would require 
+30 fiber links to the clock system. The clock will be divided by two using either
+the FPGA or an on-board clock synthesizer chip to provide the 50~MHz
+clock required by the cold electronics.  The clean clock and processed
+control stream is fanned out to up to four FEMBs.
+
+\begin{cdrfigure}[Warm Interface Board]{tpcce_dune_wib}{Warm interface board (WIB). Note 
+that front panel inputs will include a LEMO connector and alternate inputs for LV power.}
+\includegraphics[width=1.0\linewidth]{tpcce_dune_wib.jpg}
+\end{cdrfigure}
+
+The FPGA on the WIB is an Altera Arria V GT variant, which requires a
+125~MHz clock for its state machine which is provided by crystal
+oscillators onboard the WIB. The GT variant of the Arria V
+transceivers can drive the high-speed data to the DAQ up to
+10.3125~Gbps per link, which is capable of transmitting all data from
+two FEMB (2$\times$5~Gbps) on each link. However, the current design is to
+use a QSPF socket on the WIB, and deliver 5~Gbps on four optical fibers 
+(1 fiber per FEMB) to two RCEs. The FPGA also has Gbps Ethernet
+transceiver I/O, also using the 125~MHz clock, which provides
+real-time digital data readout to slow control.
+
+\begin{cdrfigure}[Power and timing backplane]{tpcce_dune_ptb}{Power and Timing Backplace (PTB).}
+\includegraphics[width=0.7\linewidth]{tpcce_dune_ptb.png}
+\end{cdrfigure}
+
+The sync/command signal protocol is currently under development, but
+one likely implementation is to send a 25-bit serial word at 50~Mb/s
+every 500~ns, with the word encoding one or more of the four commands
+described in the COLDATA ASIC specifications:
+
+\begin{enumerate}
+  \item CONVERT -- sent every 500ns
+  \item CALIBRATE -- generate a calibration pulse using
+    previously-programmed parameters
+  \item SYNC -- check/reset timestamp counter on COLDATA or cold FPGA
+  \item COLDATA\_RESET -- reset all ADCs and the COLDATA or cold FPGA
+\end{enumerate}
+
+\fixme{This contains a reference to the DAQ timing section.}
+
+The protocol for sending these commands to the COLDATA or cold FPGA is
+documented in detail in the COLDATA ASIC specification.  The WIB FPGA
+will translate the external control protocol described in Section~\ref{timingdist} to the one used by the
+COLDATA, so there is reasonable flexibility in the external protocol
+which can be accommodated.
+
+The 2~MHz CONVERT clock is distributed by the WIB on up to four differential
+links, one to each FEMB, by a zero-delay commercial fan-out chip. The
+configure and control signals to the FEMBs are transmitted over two or three
+differential I2C links. The 12 links between the WIB and each FEMB,
+which are currently differential signals transmitted over twin-axial
+cables, except where noted, are:
+
+\begin{itemize}
+    \item 4$\times$1.28~Gbps high-speed data
+    \item One 50~MHz system clock
+    \item One 2~MHz CONVERT clock
+    \item 2/3 I2C control and configure (3 for COLDATA)
+    \item 4 single-ended JTAG programming for the FPGA (not used for COLDATA)
+\end{itemize}
+
+Note that when the cold FPGA is replaced with the COLDATA ASIC, there
+is a small change in signal assignments required, with one pair of
+JTAG signals reassigned to the ``I2C-Like'' COLDATA slow control
+interface, which uses three LVDS pairs.
+
+
 %
 %%%%%%%%%%%%%%%%
-\subsubsection{Wire-Bias Voltages}
-\label{subsubsec:ce_feedthrough_wirebias}
+\subsection{Wire-Bias Voltages}
+\label{subsec:ce_feedthrough_wirebias}
 
 Each anode plane assembly requires three bias voltage connections 
 at $+$820V, $-$370V, and $-$665V.
@@ -574,8 +706,8 @@ feedthroughs capable of withstanding the maximum voltage are under investigation
 
 
 %%%%%%%%%%%%%%%%
-\subsubsection{Prototype Testing}
-\label{subsubsec:ce_install_proto}
+\subsection{Prototype Testing}
+\label{subsec:ce_install_proto}
 \fixme{Do we want to keep some or all of this here?  Or, should this migrate to the QA/QC section?}
 
 Dedicated test boards for the FE ASIC and ADC ASIC,
@@ -607,8 +739,8 @@ It is an important step to identify potential issues, check out system integrati
 before the installation into the cryostat.
 
 %%%%%%%%%%%%%%%%
-\subsubsection{Assembly Testing}
-\label{subsubsec:ce_install_assembly}
+\subsection{Assembly Testing}
+\label{subsec:ce_install_assembly}
 
 The front-end readout boards will be thoroughly tested. A testing program has been identified:
 \begin{itemize}
@@ -632,8 +764,8 @@ Significant differences in the cold and warm calibration results will be investi
 
 %
 %%%%%%%%%%%%%%%%
-\subsubsection{Commissioning } 
-\label{subsubsec:ce_install_commission}
+\subsection{Commissioning } 
+\label{subsec:ce_install_commission}
 
 During installation, the DAQ system will be running continuously.
 As soon as each stack of APAs is connected to the pre-routed cables, 
