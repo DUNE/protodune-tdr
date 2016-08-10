@@ -165,7 +165,7 @@ Figure \ref{fig:tpc_apa_wirelengthvsnoise} shows the intrinsic noise behavior in
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_wirelengthvsnoise.png} 
 \end{cdrfigure}
 
-\fixme{Anne got to here Fri 8/5}
+
 
 
 %%%%%%%%%%%%
@@ -174,7 +174,7 @@ Figure \ref{fig:tpc_apa_wirelengthvsnoise} shows the intrinsic noise behavior in
 
 \paragraph{Dimensions}
 
-The stainless steel frame of the APA (Figs. \ref{fig:tpc_apa_framedrawing} and \ref{fig:tpc_apa_framephoto}) is 6.06 m long, not counting electronics and mounting hardware, and 2.30 m wide.  It is 76.2 mm thick, made from imperial size 3 in $\times$ 4 in $\times$ 0.120 in wall rectangular tubing.  The cross pieces are 2 in $\times$ 3 in $\times$ 0.120 in wall tubing.  It will be mounted in the cryostat with its long axis vertical; multiple APAs will be mounted edge to edge to form a continuous plane. An electron deflection technique will be used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other and not lost.
+The stainless steel frame of the APA (Figures \ref{fig:tpc_apa_framedrawing} and \ref{fig:tpc_apa_framephoto}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3~in $\times$ 4 in $\times$ 0.120 in wall rectangular tubing.  The cross pieces are 2~in $\times$ 3~in $\times$ 0.120~in wall tubing.  It will be mounted in the cryostat with its long axis vertical; multiple APAs will be mounted edge-to-edge to form a continuous plane. An electron deflection technique will be used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
 \begin{cdrfigure}[APA Dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framedrawing.png} 
@@ -187,10 +187,13 @@ The stainless steel frame of the APA (Figs. \ref{fig:tpc_apa_framedrawing} and \
 \paragraph{Welded vs. modular construction}
 
 Early prototypes of the APA frame were welded.
+Switching to a modular design, however, has improved dimensional accuracy and ease of fabrication; see Figures \ref{fig:tpc_apa_boltedjointdrawing} and \ref{fig:tpc_apa_boltedjointphoto}.  
+%Welding distortion, particularly distortion that would worsen the flatness of the APA, is time consuming to avoid.  
+Techniques to avoid welding distortion, particularly that which would in turn distort the flatness of the APA, slowed down the fabrication.
+The individual tubes now have threaded pads welded to the ends; the pads are machined flat and square (after welding) %so 
+and the frame is assembled with machine screws.
 
-Switching to a modular design, however, has improved dimensional accuracy and ease of fabrication, Figs. \ref{fig:tpc_apa_boltedjointdrawing} and \ref{fig:tpc_apa_boltedjointphoto}.  Welding distortion, particularly distortion that would worsen the flatness of the APA, is time consuming to avoid.  The individual tubes now have threaded pads welded to the ends that are machined flat and square (after welding) so the frame is assembled with machine screws.
-
-Other advantages of this modular construction include easier transportation/shipping of fabricated but unassembled frames and easier and more economical replacement of a frame member if one is found to be defective.
+Other advantages of this modular construction include easier transportation/shipping of fabricated but unassembled frames, and easier and more economical replacement of a defective frame member. % if one is found to be defective.
 
 \begin{cdrfigure}[APA Bolted Joint Drawing]{tpc_apa_boltedjointdrawing}{A model of the bolted joint.  The holes on the top of the tube are for access to tighten the screws.  The heads actually tighten against the lower hole, inside the tube.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_boltedjointdrawing.png} 
@@ -202,25 +205,26 @@ Other advantages of this modular construction include easier transportation/ship
 
 \paragraph{Wire loads}
 
-The many wires strung across the frame, each with a 5 N tension ($\sim$1.1 lb), apply a large, compressive, in-plane load around the perimeter of the APA.  Finite element analysis, Figs. \ref{fig:tpc_apa_distortion} and \ref{fig:tpc_apa_maxstress} has shown that the distortions caused by these loads are small.
+The many wires strung across the frame, each with a 5-N tension ($\sim$1.1 lb), apply a large, compressive, in-plane load around the perimeter of the APA.  Finite element analysis has shown that the distortions caused by these loads are small, as shown in Figures \ref{fig:tpc_apa_distortion} and \ref{fig:tpc_apa_maxstress}.
 
-\begin{cdrfigure}[APA Distortion]{tpc_apa_distortion}{Distortion of the APA frame under wire load.  Arrows are not shown across end tubes but loading is present as an evenly distributed load.  The maximum in-plane distortion seen with this loading is under 0.2 mm.}
+\begin{cdrfigure}[APA Distortion]{tpc_apa_distortion}{Distortion of the APA frame under wire load.  Arrows are not shown across end tubes but loading is present as an evenly distributed load.  The maximum in-plane distortion seen with this loading is under 0.2~mm.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_distortion.png} 
 \end{cdrfigure}
 
-\begin{cdrfigure}[APA Maximum Stress]{tpc_apa_maxstress}{Analysis of maximum stress due to wire load.  The maximum is 52 Mpa.  The yield stress of 304SS is around 240 MPa. (The stated 351.6 MPa is optimistic!)}
+\begin{cdrfigure}[APA Maximum Stress]{tpc_apa_maxstress}{Analysis of maximum stress due to wire load.  The maximum is 52~Mpa.  The yield stress of 304SS is around 240~MPa. (The stated 351.6 MPa is optimistic!)}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_maxstress.png} 
 \end{cdrfigure}
 
-Although the compressive long direction load has raised concern about buckling, that is not an issue here:
+%Although the compressive long-direction load has raised concerns about buckling, that is not an issue here:
+Buckling from the compressive long-direction load will not be an issue:
 \begin{itemize}
-\item{The loads at opposite ends do not remain collinear as the frame deforms because the wires are constrained to stay close to the surface of the APA.}
-\item{If the frame were to start to bow, tilting of the boards that hold the wires would cause a change in wire tension strongly countering that bowing -- opposite of the increasing sort of effects that lead to buckling.}
+\item{The loads at opposite ends do not remain collinear as the frame deforms because the wires are constrained to stay close to the surface of the APA.} \fixme{I don't follow this (AH). Can you clarify? }
+\item{If the frame were to start to bow, tilting of the boards that hold the wires would cause a change in wire tension strongly countering that bowing -- opposite of the increasing sort of effects that lead to buckling.} \fixme{would cause the tension to decrease? Again, please clarify}
 \end{itemize}
 
 \paragraph{Other FEA results}
-
-Other FEA studies have been done to verify what hand calculations show -- the APA structure is stiff enough to stay well within allowable deformation and stress limits for any expected load.  A couple of these are shown in Figs. \ref{fig:tpc_apa_distortion_simplesupport}, \ref{fig:tpc_apa_stress_simplesupport}, \ref{fig:tpc_apa_distortion_topcentersupport}, and \ref{fig:tpc_apa_stress_topcentersupport}.
+\fixme{define FEA in acronym list}
+Other FEA studies have been done to verify what hand calculations show: the APA structure is stiff enough to stay well within allowable deformation and stress limits for any expected load.  A few of these are shown in Figures \ref{fig:tpc_apa_distortion_simplesupport}, \ref{fig:tpc_apa_stress_simplesupport}, \ref{fig:tpc_apa_distortion_topcentersupport}, and \ref{fig:tpc_apa_stress_topcentersupport}.
 
 \begin{cdrfigure}[APA Distortion Simply Supported]{tpc_apa_distortion_simplesupport}{Deflection of APA simply supported at ends, flat orientation.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_distortion_simplesupport.png} 
@@ -240,41 +244,61 @@ Other FEA studies have been done to verify what hand calculations show -- the AP
 
 \paragraph{Frame Handling}
 
-All handling of APAs in the factory will be with the long 6 m axis of the APAs in a horizontal plane. Most stations are oriented so that the head end is toward the south, avoiding the large floor space usage that would be required if rotating APAs end for end between one station and another. 
+All handling of APAs in the factory will be with the long 6-m axis of the APAs in a horizontal plane. Most stations are oriented so that the head end is toward the south, avoiding the large floor space usage that would be required if rotating APAs end for end between one station and another. \fixme{Refer to a figure so that we know what `south' relates to}
 
-Initially (through ProtoDUNE-SP), bare frame assembly will be in the main PSL building, while winding and other assembly will occur in the south building. A transport cart has been built and used to move bare frames to the south building. (During volume production for the full scale detectors, frame assembly is planned to occur in the south building.)
+Initially (through ProtoDUNE-SP), bare frame assembly will be in the main PSL building, while winding and other assembly will occur in the south building. \fixme{Refer to a figure} A transport cart has been built and will be used to move bare frames to the south building. (During volume production for the full-scale detectors, frame assembly is planned to occur in the south building.)
 
-Bare frames are mounted in carts used both for transport within the production building and as stands in which many fabrication processes occur, such as installing mesh, comb bases, additional combs, boards, and performing soldering and epoxying. These carts are called process carts. 
+Bare frames are mounted in carts used both for transport within the production building and as stands in which many fabrication processes occur, such as installing mesh, comb bases, additional combs, boards, and performing soldering and epoxying. These carts are called \textit{process carts}. 
 
-The mounting to the process cart is done using interface frames and trunnion kits that are also used in the wire winder. The trunnion kits provide for rotation to various angles about the APA's long 6 m axis, and holding rotation angle.
+The mounting to the process cart is done using interface frames and trunnion kits that are also used in the wire winder. The trunnion kits provide for rotation to various angles about the APA's long (6-m) axis, and for holding the rotation angle fixed. \fixme{right?}
 
-A small gantry crane and a set of jack stands are used to aid in supporting one end of an APA, while the interface frame at that end is removed and reversed to enable winding the other half of a wire layer, or to allow installing more boards at the foot, or to support the frame in a minimal-deflection state while applying and bonding mesh or boards, or to assemble and disassemble the large mesh application jig. 
+A small gantry crane and a set of jack stands are used to aid in supporting one end of an APA, while the interface frame at that end is removed and reversed to enable any of a few different operations, e.g., to wind the other half of a wire layer, %or to allow 
+to install more boards at the foot, to support the frame in a minimal-deflection state while applying and bonding mesh or boards, or to assemble and disassemble the large mesh application jig. 
 
-A large gantry crane is used to move the APA in progress, along with its attached interface frames and trunnion kits, between a process cart and the winder. The rigging equipment used for this move is the vertical rigging kit, a 2-level whiffle tree of spreaders for vertical compactness compared to slings, to make best use of limited hook height and to load the frame at 4 attachment points to manage stresses in the thin tube walls of the APA frame. 
+A large gantry crane is used to move the APA in progress, along with its attached interface frames and trunnion kits, between a process cart and the winder. The rigging equipment used for this move is the vertical rigging kit, a 2-level whiffle tree of spreaders for vertical compactness compared to slings, to make best use of limited hook height and to load the frame at four attachment points to manage stresses in the thin tube walls of the APA frame. 
 
-Another rigging kit, the ``H spreader'', enables lifts when the wire planes are horizontal, such as for loading into or removing from a cold test. Formed feet have been designed for minimal tube wall stress when supporting an APA during jack stand use or in a cold test. A storage rack designed to be stable when holding up to 4 APAs in any combination of stations has been built for temporary storage of work in progress.
+\fixme{I had trouble with  prev pgraph; here is attempted rewrite of it.}
+A large gantry crane is used to move the APA, along with its attached interface frames and trunnion kits, between a process cart and the winder. A two-level whiffletree of spreaders is the vertical rigging kit used for this move.  It affords vertical compactness compared to slings, and will make the best use of limited hook height. It also enables loading the frame at four attachment points, helping to manage stresses in the thin tube walls of the APA frame. 
 
-When the APA is mounted in the winding machine, for applying wire to its surface, it must be mounted so that its long axis is horizontal and so that it can be rotated about that axis.  Although winding will always be done with the APA in ``landscape'' position, there are other tasks that require it to be rotated to a horizontal position (APA surface parallel to ground).
+Another rigging kit, the ``H spreader',' enables lifts when the wire planes are horizontal, e.g., for loading into or removing from a cold test. Formed feet have been designed %for minimal 
+in order to minimize tube wall stress when supporting an APA during jack stand use or in a cold test. For temporary storage of work-in-progress APAs, a storage rack has been built. It is designed to remain stable while holding up to four APAs in any combination of stations. % has been built .
+\fixme{a `station' is one of the four bars, pegs, shelves or whatever, of the rack?}
 
-In order to hold it securely in both positions and allow rotation between the two positions an ``interface frame'' set (Fig. \ref{fig:tpc_apa_interfaceframes}) has been designed that connects to the head and foot of the APA.  It has trunnions at each end so the APA/interface frame assembly can be supported in bearings.  This interface frame attaches to the APA in such a way that slightly more than half of the width of each end is exposed for winding of wires.  After half a wire layer is wound the APA is switched so that the interface frame connects to the opposite side and the rest of the APA can be wound.
+When the APA is mounted in the winding machine for applying wire to its surface, it must be mounted in ``landscape'' mode, i.e., short axis vertical, long axis horizontal. % placed horizontally. % and so that it can be rotated about that axis.  
+Although winding will always be done with the APA in ``landscape'' position, it must be possible to rotate it about its long axis in this machine in order to perform other tasks that require the APA surface parallel to ground.
+
+In order to hold it securely in both positions and allow rotation between the two positions an ``interface frame'' set (Figure \ref{fig:tpc_apa_interfaceframes}) has been designed that connects to the head and foot of the APA.  It has trunnions at each end  %so the 
+to support the APA/interface frame assembly %can be supported 
+in bearings.  This interface frame attaches to the APA in such a way that slightly more than half of the width of each end is exposed for winding of wires.  After half a wire layer is wound, the APA is switched \fixme{repositioned?} so that the interface frame connects to the opposite side and the rest of the APA can be wound.
 
 \begin{cdrfigure}[APA Interface Frames]{tpc_apa_interfaceframes}{A Solidworks model of the interface frames attached to the APA. Trunnions, for mounting in the winding machine, are visible at the ends. Note that the frame is exposed for winding at the tail (top image) end and a temporary toothed board is similarly exposed at the head (bottom image) end.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_interfaceframes.png} 
 \end{cdrfigure}
 
-\paragraph{Effect on in-plane wire spacing of in-plane frame deviations.}
+\paragraph{Effect on in-plane wire spacing of in-plane frame deviations}
 
-The effect of in-plane frame deviations is straight forward.  If features that locate a wire move in a direction parallel to the wire, the wire position is unaffected. If they move perpendicular to the wire then the end of the wire is moved by the same amount -- with a diminishing effect along the wire away from that point.  
+The effect of in-plane frame deviations is straightforward.  If features that locate a wire move in a direction parallel to the wire, the wire position is unaffected. If they move perpendicular to the wire then the end of the wire is moved by the same amount -- with a diminishing effect along the wire away from that point. 
 
 Minimizing in-plane deviations hinges on accurate machining of the APA component parts.  If the mounting holes for wire guide boards on the tubes are accurately placed, and if the joining surfaces between tubes are accurately machined, and then if the wire guide boards themselves are accurately machined, these distortions will be minimized.  The deviations in wire position will be similar magnitude to the machining deviations.
 
+\fixme{rewrite of prev 2 pgraphs}
+In-plane deviations of the APA frame can arise from less-than-accurate machining of the APA component parts. The effect of in-plane frame deviations is straightforward.  If a deviation occurs in a direction parallel to the wire, the wire position along the frame is unaffected. If it occurs perpendicular to the wire, then the end of the wire is moved by the amount of the deviation -- with a diminishing effect along the wire away from that point.  In-plane distortions will be minimized if the mounting holes for wire guide boards on the tubes are accurately placed, and the joining surfaces between tubes and the wire guide boards themselves are accurately machined.
+
+
 \paragraph{Effect on layer spacing of the out-of-plane frame deviations.}
 
-In-plane distortions only affect the spacing between wires within a plane.  Out-of-plane distortions are more serious because they affect the spacing between wire planes.  If the spacing is too far from its design value, electrons will be absorbed at induction layers -- a loss of transparency.  Calculations have shown that, although a millimeter or more of layer plane spacing change can be accommodated by adjusting the wire layer voltages, our goal is to keep the layer spacing accurate to within 0.5 mm.
+In-plane distortions only affect the spacing between wires within a plane.  Out-of-plane distortions are more serious because they affect the spacing between wire planes.  If the spacing is too far from its design value, electrons will be absorbed at induction layers, resulting in a loss of transparency.  Calculations have shown that, %although a millimeter or more of layer plane spacing change can be accommodated by
+although a change of %layer 
+wire-plane spacing of a millimeter or more can be accommodated by
+ adjusting the wire layer voltages, the goal is to keep the wire-plane spacing accurate to within 0.5~mm. 
+ \fixme{seems there should be some upper limit, like ``about a millimeter'' or ``a millimeter or two'' rather than ``a millimeter or more''}
 
-Calculations have been done to show the effect on wire plane spacing of several basic distortions in the APA frame.  The distortions studied were: a twist, a bow along the length, and a fold down the middle (Figs. \ref{fig:tpc_apa_twistdistortion}, \ref{fig:tpc_apa_bowdistortion}, and \ref{fig:tpc_apa_folddistortion}).  (A fold between the top half and the bottom half is considered unlikely and a bow across the width would be similar to, but slightly less severe than, the lengthwise fold so these three should be able to approximate a general distortion.)
+Calculations have been done to show the effect on wire-plane spacing of several basic distortions in the APA frame.  The distortions studied were: a twist, a bow along the length, and a fold down the middle. These are illustrated in figures \ref{fig:tpc_apa_twistdistortion}, \ref{fig:tpc_apa_bowdistortion}, and \ref{fig:tpc_apa_folddistortion}).  (A fold between the top half and the bottom half is considered unlikely and a bow across the width would be similar to, but slightly less severe than, the lengthwise fold. These three cases should therefore be %able 
+sufficient to approximate a general distortion.)
 
-Although the APA is 6 m long, it's divided into 5 cells by the steel cross members of the frame.  There is a series of ``combs'' along each of these cross members that maintains in-plane and out-of-plane spacing.  This isolates deviations in wire spacing in one cell from deviations in the others and means that the wire spacing around the edges of these cells is as accurate as the machining of the combs and wire boards bordering the cells.  We looked at the wire plane spacing effect of the above distortions within a cell and then related that to the distortions of the entire frame.
+Although the APA is 6~m long, it is divided into five cells by the steel cross members of the frame.  A series of machined ``combs'' along each of these cross members maintains in-plane and out-of-plane spacing.  The combs isolate deviations in wire spacing in one cell from deviations in the others, and %means that the wire spacing around the edges of these cells is as accurate as 
+determines the accuracy of the wire spacing around the edges of these cells; it is equivalent to that of the combs and wire boards bordering the cells.  %We looked at the wire plane spacing effect of the above distortions within a cell and then related that to the distortions of the entire frame.
+\fixme{please check prev pgraph; I made some edits. And I don't see what the final sentence added; so I commented it out.}
 
 \begin{cdrfigure}[APA Twist Distortion]{tpc_apa_twistdistortion}{A sketch of the ``twist'' distortion of magnitude ``a''.  One of the five cells of an APA is shown here.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_twistdistortion.png} 
@@ -288,50 +312,59 @@ Although the APA is 6 m long, it's divided into 5 cells by the steel cross membe
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_folddistortion.png} 
 \end{cdrfigure}
 
-For each out-of-plane distortion considered we calculated the deformation of the wire planes and then compared adjacent planes to find the change in wire plane spacing over the entire cell.  This gave plots such as Fig. \ref{fig:tpc_apa_wirespacingchange}.  Looking for the worst effect among the sets of adjacent layers gave us the limits on frame distortion.  We scaled those distortions to give the maximum magnitude of each of these distortions for a 0.5 mm change in wire plane spacing.
-Fortunately, the three distortions considered have their largest effect on the wire layers in 3 different locations so each of the distortions can be considered separately.  This means if the distortion of a frame is considered as the sum of the three distortion modes, their effect is fairly independent.
+%orig     For each out-of-plane distortion considered we calculated the deformation of the wire planes and then compared adjacent planes to find the change in wire plane spacing over the entire cell.  This gave plots such as Figure \ref{fig:tpc_apa_wirespacingchange}.  Looking for the worst effect among the sets of adjacent layers gave us the limits on frame distortion.  We scaled those distortions to give the maximum magnitude of each of these distortions for a 0.5 mm change in wire plane spacing. Fortunately, the three distortions considered have their largest effect on the wire layers in 3 different locations so each of the distortions can be considered separately.  This means if the distortion of a frame is considered as the sum of the three distortion modes, their effect is fairly independent.
+
+For each out-of-plane distortion considered,  the deformation of the wire planes was calculated and then compared with adjacent planes to find the change in wire-plane spacing over the entire cell.  This yielded plots such as Figure \ref{fig:tpc_apa_wirespacingchange}.  The limits on frame distortion were set by the largest (worst) effect among the sets of adjacent layers.  These distortions were scaled to give the maximum magnitude for a 0.5 mm change in wire plane spacing. \fixme{And what was it?}
+The largest effects were found in three separate locations, and if the distortion of a frame is considered as the sum of the three distortion modes, they can be treated independently.
+
 
 \begin{cdrfigure}[APA Wire Plane Spacing Change]{tpc_apa_wirespacingchange}{A plot of wire plane spacing change.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_wirespacingchange.png} 
 \end{cdrfigure}
 
-Detail is shown in the technical report ``Layer Distortion Summary 6m Frame.pptx''.
-The net results are as follows.  A 0.5 mm change in wire plane spacing could come from:
+%The net results are as follows.  
+It was determined that a 0.5 mm change in wire plane spacing could come from:
 \begin{itemize}
 \item{6 mm overall out-of-flatness in the frame due to twist (1 mm/m of frame length)}
 \item{11 mm out-of-flatness due to bow}
 \item{1.2 mm out-of-flatness due to a ``fold'' down the center}
 \end{itemize}
     
-This is proportional so that 12 mm of twist, or 22 mm of bow, or 2.4 mm of fold would cause a 1.0 mm change in wire plane spacing.
+The distortions are  %proportional 
+linear, so that 12 mm of twist, or 22 mm of bow, or 2.4 mm of fold would cause a 1.0 mm change in wire plane spacing.
+Detail is shown in the technical report ``Layer Distortion Summary 6m Frame.pptx''. \fixme{add to bibliography and cite here}
+
 
 \paragraph{Measured deviation in fabricated frame geometry}
 
-The prototype frame that has been constructed to test the APA fabrication process (the ``process  prototype'') has been surveyed to measure its deviation from ``perfect'' geometry.  This was done with retroreflectors and a Leica TCRA1201+ theodolite (Fig. \ref{fig:tpc_apa_framesurveyphoto}).
+The prototype frame that has been constructed to test the APA fabrication process (the ``process  prototype'') has been surveyed to measure its deviation from ``perfect'' geometry.  This was done with retroreflectors and a Leica TCRA1201+ theodolite (Figure \ref{fig:tpc_apa_framesurveyphoto}).
 
-\begin{cdrfigure}[APA Frame Survey Photograph]{tpc_apa_framesurveyphoto}{Modular frame being surveyed after fabrication.}
+\begin{cdrfigure}[APA Frame Survey Photograph]{tpc_apa_framesurveyphoto}{Modular APA frame being surveyed after fabrication.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framesurveyphoto.png} 
 \end{cdrfigure}
 
-The two main categories of data are in-plane and out-of-plane distortions. The plot in Fig. \ref{fig:tpc_apa_framesurvey_inplane} shows the in-plane distortion measured in this frame.
+The two main categories of data are in-plane and out-of-plane distortions. The plot in Figure \ref{fig:tpc_apa_framesurvey_inplane} shows the in-plane distortion measured in this frame.
 
 \begin{cdrfigure}[APA Frame Survey In-Plane Distortions]{tpc_apa_framesurvey_inplane}{Plot of in-plane deviations.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framesurvey_inplane.png} 
 \end{cdrfigure}
 
-The blue dots in Fig. \ref{fig:tpc_apa_framesurvey_inplane} show the theoretical locations of several points on the frame; the axes give positions in meters.  The other set of dots, the orange ones, show the deviation from perfect position.  If there were no deviation the points would be on top of each other; the greater the space between the theoretical and measured points the greater the deviation from perfect.  In this plot the same scale is used on the side except that the scale now represents millimeters.  So, a point that is measured to be in error by a mm is plotted, in the correct direction, a millimeter (on the plot scale) from the perfect point.
+\fixme{More explanation needed in Figure \ref{fig:tpc_apa_framesurvey_inplane}. Are we looking end-on at a horizontally oriented plane? Vertical scale is mm and horiz is dm? Or we're looking at landscape view and both are dm but separation of blue and orange dots is mm?  But wouldn't that depend on how big the plot is on your screen or on the page?}
 
-\begin{cdrfigure}[APA Frame Survey Out-of-Plane Distortions]{tpc_apa_framesurvey_outplane}{Plot of out-of-plane deviations in the measured process prototype.  The deviations range from a low of -2.14 mm to a high 1.35 for a total out of flatness of 3.5 mm.}
+The blue dots in Figure \ref{fig:tpc_apa_framesurvey_inplane} show the theoretical locations of several points on the frame; the axes give positions in meters.  The orange dots show the deviation from perfect position, but in mm.  %If there were no deviation the points would be on top of each other; t
+The greater the space between the theoretical and measured points, the greater the deviation from perfect.  In this plot the same scale is used on the side, except that the scale now represents millimeters.  So, a point that is measured to be in error by a mm is plotted, in the correct direction, a millimeter (on the plot scale) from the perfect point.
+
+\begin{cdrfigure}[APA Frame Survey Out-of-Plane Distortions]{tpc_apa_framesurvey_outplane}{Plot of out-of-plane deviations in the measured process prototype.  The deviations range from a low of -2.14 mm to a high 1.35 for a total out-of-flatness of 3.5 mm.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framesurvey_outplane.png} 
 \end{cdrfigure}
 
-The plot in Fig. \ref{fig:tpc_apa_framesurvey_outplane} shows the measured out-of-plane deviations.  To avoid out-of-plane distortion of the frame by gravity the frame was held for survey by two points along the bottom rail and by one point near the top edge that kept it from falling over (Fig. \ref{fig:tpc_apa_framesurveyphoto}) but was not tight enough to twist or bend the member to which it attached.  All of the points on the measured surface fall between two planes 3.5 mm apart.
+The plot in Figure \ref{fig:tpc_apa_framesurvey_outplane} shows the measured out-of-plane deviations.  To avoid out-of-plane distortion of the frame by gravity the frame was held for survey by two points along the bottom rail and by one point near the top edge that kept it from falling over (Figure \ref{fig:tpc_apa_framesurveyphoto}) but was not tight enough to twist or bend the member to which it attached.  All of the points on the measured surface fall between two planes 3.5 mm apart.
 
 \begin{cdrfigure}[APA Frame Survey Locations]{tpc_apa_framesurvey_locations}{Locations along length of APA in displacement tables.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framesurvey_locations.png} 
 \end{cdrfigure}
 
-\begin{cdrtable}[APA Survey Data]{cccc}{apasurvey}{Out of plane displacements at survey points.}
+\begin{cdrtable}[APA Survey Data]{cccc}{apasurvey}{Out-of-plane displacements at survey points.}
 right & center & left &  \\ \toprowrule
 -0.71067 & 0.674997 & 1.289473 & Foot tube \\ \colhline
 -1.22419 & -0.41287 & 1.224186 & Pt. 1  \\ \colhline
@@ -347,7 +380,8 @@ right & center & left &  \\ \toprowrule
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_calculateddistortion.png} 
 \end{cdrfigure}
 
-Fig. \ref{fig:tpc_apa_framesurvey_locations} shows the points that were surveyed for out-of-plane location on the APA and table \ref{tab:apasurvey} shows the results.  This data was used to calculate the twist in each cell as shown in Fig.  \ref{fig:tpc_apa_calculateddistortion}. The measured twist in each cell is shown; the allowable twist (for a 0.5 mm wire plane spacing change) is greater than any of these.  The overall bow is shown in Fig. \ref{fig:tpc_apa_calculateddistortion}; the allowable is greater than this.  The fold at each cross bar is shown in Fig. \ref{fig:tpc_apa_calculateddistortion} and, again, the allowable is greater than any of the measured values.
+Figure \ref{fig:tpc_apa_framesurvey_locations} shows the points that were surveyed for out-of-plane location on the APA and table \ref{tab:apasurvey} lists the results.  This data was used to calculate the twist in each cell as shown in Figure  \ref{fig:tpc_apa_calculateddistortion}. The measured twist in each cell is shown; the allowable twist (for a 0.5 mm wire plane spacing change) is greater than any of these.  The overall bow is shown in Figure \ref{fig:tpc_apa_calculateddistortion}; the allowable is greater than this.  The fold at each cross bar is shown in Figure \ref{fig:tpc_apa_calculateddistortion} and, again, the allowable is greater than any of the measured values. 
+\fixme{Is the left (brighter lump) of Figure \ref{fig:tpc_apa_calculateddistortion}  the twist and the right (darker) the bow? Please clarify}
 
 
 
@@ -356,46 +390,51 @@ Fig. \ref{fig:tpc_apa_framesurvey_locations} shows the points that were surveyed
 
 \paragraph{Geometry}
 
-Each side of the APA frame is covered with four layers of wires.  Fig. \ref{fig:tpc_apa_cornerphoto} shows a corner of the APA and the four layers
+Each side of the APA frame is covered with four layers of wires.  Figure \ref{fig:tpc_apa_cornerphoto} shows a corner of the APA and the four layers.
 
 \begin{cdrfigure}[APA Corner Photograph]{tpc_apa_cornerphoto}{Corner of an APA.  The wires in the first and fourth layers on each side are parallel to the long axis of the APA.  The second and third layers are angled at 35.7$^{\circ}$ to this axis, angled in opposite directions to each other.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_cornerphoto.png} 
 \end{cdrfigure}
 
-All the wires start at the top end (right hand end in fig. \ref{fig:tpc_apa1}) of the APA and stop at the bottom. The 1st and 4th layers go straight; the 2nd and 3rd wrap around the sides.
+All the wires start at the top end (right hand end in Figure~\ref{fig:tpc_apa1}) \fixme{not top of that figure?} of the APA and stop at the bottom. The first and fourth layers go straight; the second and third wrap around the sides. 
 
-During fabrication wires are wound around the bottom and the top without break.  Wire segments at the top and bottom are snipped out after winding to create individual wires.  This continuous winding process is more efficient than stopping to solder, trim and restart each wire as it's placed.
+During fabrication, wires are wound around the bottom and the top %without break.  
+in a continuous pattern. Wire segments at the top and bottom are snipped out after winding to create individual wires.  This continuous winding process is more efficient than stopping to solder, trim and restart each wire as it is placed.
 
-There are ten stacks of wire boards across each side at the head of the APA.  The X layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48.  Each board stack, therefore, has 176 wires but only X, V and U are signal layers so there are 128 signal channels in each stack.  With a total of 20 stacks per APA there are 3520 wires starting at the top of the APA and ending at the bottom.  This is a total of $\sim$23.4 km of wire on the surfaces of each APA.
-
-The 128 signal channels in each board stack means 2560 signal channels per APA.
+There are ten stacks of wire boards across each side at the head of the APA.  
+\fixme{Define what a `stack' and a `wire board' is here. This sentence needs context and a figure.}
+The X layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48.  
+\fixme{where do we get ten from 4 layers. Or does this have to do with the mesh layer then times 2? Please clarify!}
+Each board stack, therefore, has 176 wires but only X, V and U are signal layers so there are 128 signal channels in each stack.  With a total of 20 stacks per APA, this results in 2560 signal channels per APA and a total of 3520 wires starting at the top of the APA and ending at the bottom.  There is a total of $\sim$23.4 km total of wire on the two surfaces of each APA.  
 
 \paragraph{Side and foot boards}
 
 The boards along the sides and foot of the APA have notches, pins or other location features to hold the wires in the correct position as they wrap around the edge from one side of the APA to the other.
 
-G10 circuit board material is ideal for these side and foot boards for its physical properties alone but it has an additional advantage.  There are a number of hole or slot features in the edge boards providing access to the underlying frame.  In order that these openings are not covered by wires the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces and the section of wire between the pads snipped out (Fig. \ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards.
+G10 circuit board material is ideal for these side and foot boards for its physical properties alone but it has an additional advantage.  There are a number of hole or slot features in the edge boards providing access to the underlying frame.  In order that these openings are not covered by wires the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces and the section of wire between the pads snipped out (Figure \ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards. \fixme{I would like to have the author describe this to me. I'm getting confused. (Anne)}
+
+For its physical properties alone G10 circuit board material would be ideal for these side and foot boards, but it has an additional advantage.  There are a number of hole or slot features in the edge boards providing access to the underlying frame.  In order that these openings are not covered by wires the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces and the section of wire between the pads snipped out (Figure \ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards.
 
 \begin{cdrfigure}[APA Side Board Model]{tpc_apa_sideboardmodel}{Model of board with wires showing how traces connect wires around openings in the side boards.  The wires are wound straight over the openings, then soldered to pads at the ends of the traces.  After soldering the sections between the pads are trimmed away.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_sideboardmodel.png} 
 \end{cdrfigure}
 
-Originally, notches were machined into the circuit boards but this was labor intensive.  An alternate method has been developed based on the injection molding of strips with the required notch or pin features and then bonding these strips to the edge of the circuit boards as shown in Fig. \ref{fig:tpc_apa_sideboardphoto}.
+Originally, notches were machined into the circuit boards but this was labor intensive.  An alternate method has been developed based on the injection molding of strips with the required notch or pin features and then bonding these strips to the edge of the circuit boards as shown in Figure \ref{fig:tpc_apa_sideboardphoto}.
 
 \begin{cdrfigure}[APA Side Board Photo]{tpc_apa_sideboardphoto}{Boards with injection molded tooth strips glued on.  The left shows an end board with teeth for locating the longitudinal wires.  The teeth there form small notches. The right is a side board for locating the angled wires where the wires are angled around a pin.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_sideboardphoto.png} 
 \end{cdrfigure}
 
-The angled wires are located by pins as shown in the right-hand picture of Fig. \ref{fig:tpc_apa_sideboardphoto}.  The wires make a partial wrap around the pin is they change direction from the face of the APA to the edge.  The longitudinal wires aren't pulled to the side so they can't be pulled against a pin.  They are located by teeth with slots as shown in the left-hand picture in Fig. \ref{fig:tpc_apa_sideboardphoto}. 
+The angled wires are located by pins as shown in the right-hand picture of Figure \ref{fig:tpc_apa_sideboardphoto}.  The wires make a partial wrap around the pin is they change direction from the face of the APA to the edge.  The longitudinal wires aren't pulled to the side so they can't be pulled against a pin.  They are located by teeth with slots as shown in the left-hand picture in Figure \ref{fig:tpc_apa_sideboardphoto}. 
 	
 The polymer used for the strips is Vectra e130i (a trade name for 30$\%$ glass filled liquid crystal polymer or LCP). It retains its strength at cryogenic temperature and has a CTE similar enough to G10 that differential expansion/contraction is not a problem.
 
 \paragraph{Glue and solder}
-The ends of the wires are soldered to pads on the edge or wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor the wires are glued for roughly 10 mm near the solder pads.  For example, in Fig. \ref{fig:tpc_apa_sideboardphoto}, in addition to soldering the wires upon the pads shown on the left-hand photograph, an epoxy bead will be applied on top of all wires in the area between the solder pads and the injection molded tooth strips.
+The ends of the wires are soldered to pads on the edge or wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor the wires are glued for roughly 10 mm near the solder pads.  For example, in Figure \ref{fig:tpc_apa_sideboardphoto}, in addition to soldering the wires upon the pads shown on the left-hand photograph, an epoxy bead will be applied on top of all wires in the area between the solder pads and the injection molded tooth strips.
 
 2216 gray epoxy by 3M was chosen for the glue.  It is strong, widely used (therefore much data is available), and it retains good properties at cryogenic temperatures.  A 62$\%$ tin, 36$\%$ lead and 2$\%$ silver solder was chosen.  A eutectic mix (63/37) is the best of the straight tin/lead solders but the 2$\%$ added silver gives better creep resistance.
 
-Tests showed that 3 mm long solder pads were not long enough to hold well so the pad length has been increased to 7 mm.  Increasing the cure time (and/or cure temperature) ensures that the glue develops its full strength.  With these modifications good glue and solder holding has been obtained.  Fig. \ref{fig:tpc_apa_creepdata} shows the results of long term tests performed in which wires were constrained by glue, solder or both and their tensions measured over time. (Note: The wobbly traces came from an experimental problem with measuring tension in some of the wires.)  There is some tension loss over time but the key feature to this plot is that all the wires, glue only, solder only, or glue and solder lost tension at the same rate.  If the joints were slipping it would be highly unlikely that the glue only, solder only and both together joints would all slip at the same rate.  This means that the joints are not slipping but, instead, there is stress relaxation in the wires.
+Tests showed that 3 mm long solder pads were not long enough to hold well so the pad length has been increased to 7 mm.  Increasing the cure time (and/or cure temperature) ensures that the glue develops its full strength.  With these modifications good glue and solder holding has been obtained.  Figure \ref{fig:tpc_apa_creepdata} shows the results of long term tests performed in which wires were constrained by glue, solder or both and their tensions measured over time. (Note: The wobbly traces came from an experimental problem with measuring tension in some of the wires.)  There is some tension loss over time but the key feature to this plot is that all the wires, glue only, solder only, or glue and solder lost tension at the same rate.  If the joints were slipping it would be highly unlikely that the glue only, solder only and both together joints would all slip at the same rate.  This means that the joints are not slipping but, instead, there is stress relaxation in the wires.
 
 Indeed, CuBe wire is known to exhibit some stress relaxation.  The plot in fig. \ref{fig:tpc_apa_creepdata} shows that over 430 days the wire samples (initially tensioned to 10 N, twice the DUNE APA value) lost around 5$\%$ of their tension.  This does not appear to happen quite linearly; the rate of tension loss decreases over time.  (After the last results were taken it was realized that the warm day without the AC on in the room may have lowered the tensions slightly; these tests are ongoing.)
 
@@ -413,7 +452,7 @@ The company that makes the wire, Little Falls Alloy, also makes a wire called ``
 
 The mesh layer is glued directly to the steel frame surface -- over the openings in the frame.  It creates a uniform ground layer beneath the wire planes.  In the demonstration 35 ton experiment the APA without mesh showed more noise than the ones with mesh.
 
-The mesh is clamped around the perimeter of the opening and then pulled tight (opening and closing clamps as needed during the process).  When the mesh is taut a 25 mm wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown this gives good electrical contact between the mesh and the frame, a deliberate electrical connection will also be made.  Figures \ref{fig:tpc_apa_meshphoto}, and \ref{fig:tpc_apa_meshclampphoto} show the mesh for the 35 ton experiment, while Fig. \ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
+The mesh is clamped around the perimeter of the opening and then pulled tight (opening and closing clamps as needed during the process).  When the mesh is taut a 25 mm wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown this gives good electrical contact between the mesh and the frame, a deliberate electrical connection will also be made.  Figures \ref{fig:tpc_apa_meshphoto}, and \ref{fig:tpc_apa_meshclampphoto} show the mesh for the 35 ton experiment, while Figure \ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
 
 \begin{cdrfigure}[APA Mesh Photo]{tpc_apa_meshphoto}{The mesh in place on a small frame -- with combs.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_meshphoto.png} 
@@ -429,7 +468,7 @@ The mesh is clamped around the perimeter of the opening and then pulled tight (o
 
 \paragraph{Head Electronics Boards}
 
-The head electronics boards (``wire boards'') are the anchors for the wires at the head end of the APA (Fig. \ref{fig:tpc_apa_wireboardheadphoto}).  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
+The head electronics boards (``wire boards'') are the anchors for the wires at the head end of the APA (Figure \ref{fig:tpc_apa_wireboardheadphoto}).  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
 
 \begin{cdrfigure}[APA Wire Boards at Head Photo]{tpc_apa_wireboardheadphoto}{The wire boards at the head of one of the 35T APAs.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_wireboardheadphoto.png} 
@@ -440,13 +479,13 @@ At the head end of the APA the wire plane spacing is set by the thickness of the
 Many of the capacitors and resistors that could be on these wire boards are moved to an auxiliary board (the ``CR board'') to improve their accessibility in case of component failure.  This board rests beneath the wire boards at the top of the frame and links the wire boards to the cold electronics.  The connections between the wire boards and the CR board is made with rows of Mill-Max pins embedded in the wire and CR boards
 
 \paragraph{Modular Electronics}
-In the current design (Fig. \ref{fig:tpc_apa_electronicsmountingphoto}), which was used for the 35 ton demo APAs, the cold electronics boards are mounted on a ``fin'' -- a steel plate extending across the width of the APA at the top tube.
+In the current design (Figure \ref{fig:tpc_apa_electronicsmountingphoto}), which was used for the 35 ton demo APAs, the cold electronics boards are mounted on a ``fin'' -- a steel plate extending across the width of the APA at the top tube.
 
 \begin{cdrfigure}[APA Electronics Mounting Photo]{tpc_apa_electronicsmountingphoto}{A mockup of the current cold electronics mounting where the cold electronics is mounted on the fin at the head of the APA.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_electronicsmountingphoto.png} 
 \end{cdrfigure}
 
-A modified design (Fig. \ref{fig:tpc_apa_electronicsmountingdiagram}) is being developed for the ProtoDUNE-SP APAs that consists of small boxes, one near each board stack, that hold the cold electronics for that board stack.  Putting the electronics in small modules simplifies installation and replacement and also helps with the collection of argon gas generated by the warm electronic components.  These modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
+A modified design (Figure \ref{fig:tpc_apa_electronicsmountingdiagram}) is being developed for the ProtoDUNE-SP APAs that consists of small boxes, one near each board stack, that hold the cold electronics for that board stack.  Putting the electronics in small modules simplifies installation and replacement and also helps with the collection of argon gas generated by the warm electronic components.  These modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
 
 \begin{cdrfigure}[APA Electronics Mounting Design]{tpc_apa_electronicsmountingdiagram}{Solid model of revised, modular, cold electronics boxes.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_electronicsmountingdiagram.png} 
@@ -463,7 +502,7 @@ The nominal wire tension is 5 N but even the 1.6 m long wires could fall to 3 N 
 
 \paragraph{Geometry}
 
-The combs are made from 0.5 mm thick G10 with slots cut into it.  The comb for the lowest layer is glued to a base strip that's glued to the frame.  After each layer is wound another comb strip is glued to the tips of the teeth of the previous one to locate the wires in the next layer.  Each successive comb holds the previous layer of wires in the bottom of their slots (Fig. \ref{fig:tpc_apa_supportcombmodel}).
+The combs are made from 0.5 mm thick G10 with slots cut into it.  The comb for the lowest layer is glued to a base strip that's glued to the frame.  After each layer is wound another comb strip is glued to the tips of the teeth of the previous one to locate the wires in the next layer.  Each successive comb holds the previous layer of wires in the bottom of their slots (Figure \ref{fig:tpc_apa_supportcombmodel}).
 
 \begin{cdrfigure}[APA Support Comb Model]{tpc_apa_supportcombmodel}{A model of the combs showing how they stack.  After winding a layer the comb for the next layer is put in place.  Each comb hold the wires from the previous layer in their slots.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_supportcombmodel.png} 
@@ -471,7 +510,7 @@ The combs are made from 0.5 mm thick G10 with slots cut into it.  The comb for t
 
 Periodic holes along the length of the strip allow the use of pins to accurately locate each successive strip with the previous one.  A series of jigs are used to create and install these combs.  One jig aligns the first strip to the base strip during gluing.  Another jig locates this assembly on the frame as it is glued in place. A third jig locates each successive comb using the previously mentioned registration holes.
 
-The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs.  They are not, however, deliberately glued at the combs.  This raises the question of whether motion or vibration could cause the somewhat abrasive fiberglass comb to ``saw'' through a wire.  To address this concern we ran a test where wires were mounted on a long tube going through combs (Fig. \ref{fig:tpc_apa_wireweartestphoto}).  The tube was then mounted on a device that rotated it on its long axis.  After many more rotations than the wires will ever see, the wires were removed and examined.  No cases were found of significant erosion of the wire.  The only handling that could, possibly, yield this number of cycles would be vibration during travel.  A shipping suspension with low transmissibility at these higher frequencies will be used to prevent this kind of vibration from moving the wires against the combs
+The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs.  They are not, however, deliberately glued at the combs.  This raises the question of whether motion or vibration could cause the somewhat abrasive fiberglass comb to ``saw'' through a wire.  To address this concern we ran a test where wires were mounted on a long tube going through combs (Figure \ref{fig:tpc_apa_wireweartestphoto}).  The tube was then mounted on a device that rotated it on its long axis.  After many more rotations than the wires will ever see, the wires were removed and examined.  No cases were found of significant erosion of the wire.  The only handling that could, possibly, yield this number of cycles would be vibration during travel.  A shipping suspension with low transmissibility at these higher frequencies will be used to prevent this kind of vibration from moving the wires against the combs
 
 \begin{cdrfigure}[APA Wire Wear Test Photo]{tpc_apa_wireweartestphoto}{The wire wear test fixture.  The wires are confined, but not glued, in the combs mounted on this long tube.  The tube was rotated to test for wire wear from the combs.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_wireweartestphoto.png} 
@@ -481,7 +520,7 @@ The wire openings in the comb stack are small enough that the wires are accurate
 %%%%%%%%%%%%
 \subsubsection{APA Interconnect Features}
 
-Some sort of constraint is needed between adjacent APAs to keep them in plane with each other.  It is also important that this constraint not apply a vertical load to adjacent APAs.  The constraint therefore takes the form of a pair of pins protruding from one edge of the APA (one high and one low on the APA) and a pair of matching slots on the other edge to engage the pins (Fig. \ref{fig:tpc_apa_pinslotdrawing}).
+Some sort of constraint is needed between adjacent APAs to keep them in plane with each other.  It is also important that this constraint not apply a vertical load to adjacent APAs.  The constraint therefore takes the form of a pair of pins protruding from one edge of the APA (one high and one low on the APA) and a pair of matching slots on the other edge to engage the pins (Figure \ref{fig:tpc_apa_pinslotdrawing}).
 
 \begin{cdrfigure}[APA Interconnect Drawing]{tpc_apa_pinslotdrawing}{The pin/slot constraint.  The pin screws into an insert in the outside frame member of one APA and engages a slot in the outside frame member of the adjacent APA.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_pinslotdrawing.png} 
