@@ -222,8 +222,7 @@ with LAr the far detector must operate for about 15~years without any access to 
 electronics for repair or replacement.
 Concerning the availability of realistic models, 
 our preliminary results from the cryogenic characterization (down to 40 K) of a complete 
-\fixme{This contains an old reference to CMOS-Compton, which is no longer in the bibliography.} 
-mixed-signal ASIC \cite{CMOS-Compton} in a commercial CMOS 0.25~$\mu$m technology, 
+mixed-signal ASIC in a commercial CMOS 0.25~$\mu$m technology, 
 originally developed for room-temperature applications, indicates that the models 
 are useful to first order.
 To refine these models, several 
@@ -233,16 +232,14 @@ have been used to refine the device models at 89~K.
 
 The lifetime of CMOS circuits is limited by several mechanisms which degrade 
 the performance over time, eventually causing the circuit to fail to perform as specified. 
-\fixme{This contains old references to CMOS-lifetime and PMOS-model, which are no longer in the bibliography.} 
 The rates of most degradation mechanisms in CMOS, such as electro-migration (EM), 
 stress migration (SM), time-dependent dielectric breakdown (TDDB), thermal cycling (TC), 
 and negative bias-temperature instability (NBTI), all scale with temperature such that 
-cryogenic operation is favored \cite{CMOS-lifetime}\cite{PMOS-model}. The only mechanism 
+cryogenic operation is favored. The only mechanism 
 that could affect the lifetime at cryogenic temperature is the degradation due to 
 impact ionization, which causes charge trapping in the MOSFET gate oxide at 
 large drain-current densities (the ``Hot Carrier'' effect).
-\fixme{This contains an old reference to CMOS-reliability, which is no longer in the bibliography.} 
-Results from a CMOS reliability study~\cite{CMOS-reliability} 
+Results from a CMOS reliability study
 provide general design guidelines (for device geometry, bias and current density) 
 that should guarantee a lifetime well in excess of 15~years for continuous cryogenic operation. 
 These design guidelines also provide information for designing test conditions to observe the 
@@ -252,9 +249,8 @@ measured under stressed conditions within practical times, to the ultimate lifet
 A monitor of the impact ionization is the bulk current, which reaches a maximum at $V_{DS} = V_{DD}$ and at $V_{GS} = 0.5 V_{DD}$.
 When operating constantly in this condition at room temperature, a properly designed device 
 will typically have a lifetime (defined as a 10\% degradation in $g_m$) of about 10~years. 
-\fixme{This contains an old reference to CMOS-reliability (the 2nd one), which is no longer in the bibliography.} 
 The bulk current (i.e., the impact ionization) increases by roughly a factor of four from 300~K to 77~K 
-\cite{CMOS-reliability} and a circuit designed for operation at room temperature would have 
+and a circuit designed for operation at room temperature would have 
 a proportionately shorter useful life at cryogenic temperature. As stated above, in order to guarantee 
 the required lifetime at cryogenic temperatures, design guidelines must be modified for both analog 
 and digital circuits. For analog circuits, this is done by operating the devices at moderate-to-low 
@@ -282,9 +278,8 @@ The charge amplifier input MOSFET is a p-channel biased at 2~mA with a L/W (chan
 of 0.27~$\mu$m / 10~$\mu$m, followed by dual cascade stages.
 The charge amplification and shaping filter have digitally programmable gain and peaking time
 (as listed in Section~\ref{subsec:fe_arch}).
-\fixme{This contains an old reference to microboone-url, which is no longer in the bibliography.} 
 Each channel also implements a high-performance output driver,
-which is used to drive a long cable when it is used in a standalone mode, as it is in MicroBooNE.\cite{microboone-url}
+which is used to drive a long cable when it is used in a standalone mode, as it is in MicroBooNE.\cite{noise_filter}
 The buffer can be disabled when it is interfaced to an ADC ASIC to reduce the power consumption.
 The ASIC integrates a band-gap reference (BGR) to generate all the internal bias voltages and currents.
 This guarantees a high stability of the operating point over a wide range of
@@ -375,8 +370,7 @@ The effective resolution with reference to the input referred noise is $\sim$11.
 The differential non-linearity (DNL) is less than 4 LSBs for 99\% of ADC bins at both 300~K and 77~K.
 The performance of the ADC meets the far detector requirements.
 
-\fixme{This contains an old reference to microboone-url (the 2nd one), which is no longer in the bibliography.} 
-An analog front-end ASIC was adopted by the MicroBooNE experiment in 2010.\cite{microboone-url}
+An analog front-end ASIC was adopted by the MicroBooNE experiment in 2010.\cite{noise_filter}
 The fabrication and installation was successfully completed in early 2014, and now 
 a total of 8,256 channels (516 FE ASICs in the LAr) instrument the MicroBooNE TPC. 
 A total of 2,048 channels (128 FE ASICs and 128 ADC ASICs on 16 FEMBs in the LAr) instrument the 35-ton 
