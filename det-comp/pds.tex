@@ -92,29 +92,61 @@ this problem.
 
 %%%%%%%%%%%%%
 \subsubsection{Rel Light yield of alternatives}
-      -IU Tallbo -- Denver/Stuart
-     Results of testing
-     Fit to Determine Light Yield
-     Fit/Ratio vs. Distance to determine atten length     
+     % -IU Tallbo -- Denver/Stuart
+     %Results of testing
+     %Fit to Determine Light Yield
+     %Fit/Ratio vs. Distance to determine atten length     
+A systematic investigation of promising technologies has been performed on 
+many different versions of light collection techniques and guides at the 
+TallBo facility at Fermilab.
+A test in the summer of 2015 was conducted on the very technologies that 
+were chosen for protoDUNE. Make Ref (DUNE DocDB 138, JINST 11 C05019)
+ 
 
 %%%%%%%%%%%%%
 \subsubsection{Absolute light yield}
-     Connection to Absolute -- Tallbo-35T  -- Denver Tallbo, Celio,Jonathan,Alex --35T
-     (This could get dropped, or altered depending on status of 35T)
-     Light yield by paddle
-     Comparison to Simulation
-     pe's / MeV 
+     %Connection to Absolute -- Tallbo-35T  -- Denver Tallbo, Celio,Jonathan,Alex --35T
+     %(This could get dropped, or altered depending on status of 35T)
+     %Light yield by paddle
+     %Comparison to Simulation
+     %pe's / MeV 
+The testing at TallBo has also been used to connect the relative detector
+efficiencies to an absolute light yield that can be used to tune the simulation
+yields.  
+A Monte-Carlo simulation of incident muons in the TallBo dewar, along with ray tracing
+of the VUV photons was used to normalize the incident flux of photons impinging on the
+light collection paddles.  
+The light yield in the measurements are then used to determine the average detection 
+probability for a given detector under test.
+Light yield data for the two protoDUNE paddle types were very similar, justifying
+a larger test with additional paddles to detemine the most efficient detector 
+technology and allow for further refinements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Radiator/guide lifetime}
-     IU Tallbo and SDSM and T  -- IU design SDSM and T testing  CSU QA/QC
-     Design/Mfr Radiator and guide
-     Design/Mfr dipped guide -- Toups
-     Testing - cryogenic cycling 
-          rad
-          guide
-          dipped guide
-     QA/QC tracking and testing plan  
+     %IU Tallbo and SDSM and T  -- IU design SDSM and T testing  CSU QA/QC
+     %Design/Mfr Radiator and guide
+     %Design/Mfr dipped guide -- Toups
+     %Testing - cryogenic cycling 
+     %     rad
+     %     guide
+     %     dipped guide
+     %QA/QC tracking and testing plan  
+Several tests have been performed on the light guide paddles, and testing will 
+continue through DUNE to make sure the paddles are sufficiently robust for the
+required lifetime.
+Light guides based on cast polystyrene and acrylic have been tested 
+extensively in LN2 and LAr at Indiana University and in LAr at Fermilab.
+No crazing or degradation even after multiple thermal cycles has been seen.
+Degradation of the TPB coating has been demonstrated due to UV light.
+This was seen in exposure to fluorescent lights and direct sunlight.
+Testing with light that has been filtered has been shown to prevent damage
+to the TPB coating and will be deployed everywhere the photon detectors
+could be exposed.
+Additional testing for environmental degradation due to humidity and 
+temperature conditions that the components could experience in transit and 
+after installation, but before detector filling will continue throughout this
+period to determine the required environmental conditions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sensors}
@@ -139,19 +171,25 @@ any thermal cycling in LAr and long-term operation at LAr temperature.
 
 All photodetectors for protoDUNE will be subjected to testing to determine:
 \begin{itemize}
-\item Photodetector Gain Curve
-\item Noise rate
-\item Crosstalk estimation
+\item Forward and reverse bias I-V curves
 \item Breakdown Voltage
+\item Dark current and dark count rate
+\item Photodetector Gain 
+\item Crosstalk estimation
+\item Response
+\item Bias dependence of parameters
 \end{itemize}
-All items will be tested both warm and cold (cyrogenic temperature) to 
-determine the operating characteristics when they will be installed at
-the protoDUNE detector, and during QA/QC tests on the PD modules.
+All SiPMs will be tested before mounting on the readout boards to determine
+if the part meets the specifications in a warm test.  After mounting to
+the readout board all items will be tested both warm and cold (cyrogenic 
+temperature) to determine the operating characteristics when they will be 
+installed at the protoDUNE detector, and during QA/QC tests on the PD modules.
 
 In addition to these tests, the photodetectors will be tested for their
 response to light signals from an LED with appropriate wavelength.
 These tests will be sensitive enough to determine if one of the 3 SiPM
 elements in parallel is not functioning.
+
 
 %%%%%%%%%%%%%
 \subsubsection{SiPM Lifetime}
@@ -175,6 +213,14 @@ slope. So far, the measurements show that there
 have been no significant changes in these properties during the
 duration of the test.
 Detailed test results can be found in DUNE-doc-905. (make a reference)
+
+In addition to these tests, the C series SiPMs have been used for the
+readout of modules that were built to test the relative light yield of
+different light guide technologies in the TallBo tests.  In this testing 
+an additional 80 SiPMs have been used successfully in testing that 
+required their deployment at cryogenic temperatures in a vessel with 
+similar conditions to what they will be exposed to in the experiment.
+None of the SiPMs deployed in this way have failed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mechanical design and installation}
@@ -248,10 +294,16 @@ after the PD has been installed into the slot.
 \includegraphics[width=0.50\linewidth]{PD_cable_intube.PNG}
 \end{cdrfigure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{PD Calibration}
+\input{det-comp/Photon-detector-calibration-protoDUNE-TDR}
+QC procedures and tracking are being developed in a separate document.
+  %   QA/QC tracking for components
+% This could be a whole document of its own.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
-
+QC procedures and tracking are being developed in a separate document.
   %   QA/QC tracking for components
 % This could be a whole document of its own.
 
