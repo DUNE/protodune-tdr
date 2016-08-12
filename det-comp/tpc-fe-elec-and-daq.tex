@@ -76,7 +76,7 @@ low-voltage power, and APA wire-bias voltage between warm and cold
 \subsection{Design Considerations} 
 \label{subsec:ce_reqs_n_specs}
 
-The requirements for the CE can be found in the requirements documentation \cite{sec:detector_requirements}
+The requirements for the CE can be found in the requirements documentation in section~\ref{sec:detector_requirements}
 The most significant ones are listed here. The CE shall:
 
 \begin{itemize}	
@@ -162,9 +162,7 @@ including risk of failure-to-implement (within a fixed schedule and budget)
 and risk of device failure during long-term operation.
 Data will be driven to the CE flange through copper cable utilizing low-voltage differential signaling (LVDS).
 At the CE flange, the data will be further multiplexed by 4:1 and transmitted over optical
-fiber to the DAQ (RCE or FELIX) described in Section~\ref{daq-stuff}.
-
-\fixme{Reference to DAQ section needed.}
+fiber to the DAQ (RCE or FELIX) described in section~\ref{sec:DAQ_online_interface}.
 
 The analog FE ASIC has 16 channels.
 Each channel includes a charge amplifier with a gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
