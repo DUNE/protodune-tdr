@@ -491,8 +491,7 @@ Also the planned method of reducing contamination from the cable plant in the ul
 (the warmer gas phase at the top of the cryostat) 
 continues to be carefully studied.
 
-\fixme{This contains an old section reference to "sec:mts", formerly defined in lbne-fd-closeout/chapter-r-and-d.tex:}
-Measurements in the Materials Test Stand at Fermilab (described in Section~\ref{sec:mts})
+Measurements in the Materials Test Stand at Fermilab (described in Section 7.2 of the LBNE Closeout document).
 have shown that impurities (principally O$_2$ and H$_2$O) embedded in objects submerged in the liquid argon do not result
 in a decrease in electron-drift lifetime, whereas impurities in objects located in the ullage do.
 This indicates the importance of minimizing the amount of material in the ullage.
@@ -511,9 +510,7 @@ Five basic types of cables will be required to penetrate the cryostat and servic
 \end{itemize}
 All of these cables will pass through the CE flange.
 
-\fixme{This section should be rewritten to only describe the cold cable.}
 The cables --- and connectors --- will be selected to have a low outgas and provide minimal contamination to the LAr environment.
-%The same is true of connectors.
 Connectors will also need to be tested for usage in LAr to make sure that a low ohmic contact is maintained
 in the cryogenic environment.
 
@@ -536,12 +533,13 @@ We have prototyped such a cable and found that we can drive data at 2~Gbps for a
 Finally, the photon detector cables currently make use of shielded twisted pair cables which carry both
 the DC bias voltage as well as the signals.
 
-\fixme{Should we add a requirement about the connectors being keyed?}
 It will be important that all cables and connectors be somewhat rugged,
 locking and able to withstand a minimum of several tens of mating cycles.
+Unfortunately, because of size and space limitations, the type of connectors we need are not keyed,
+so a labeling scheme and caution when connecting cables are the only options available.
 This is in addition to concerns about material compatibility and the fact they must work in the cryogenic environment.
 
-\fixme{Need to add the new design for the cable support in the feedthrough. Ask Manhong.}
+As of this writing, the cable support system is in the process of being designed.
 
 \subsection{Warm Interface Electronics}
 \label{subsec:warm_interface_elec}
@@ -660,11 +658,9 @@ described in the COLDATA ASIC specifications:
   \item COLDATA\_RESET -- reset all ADCs and the COLDATA or cold FPGA
 \end{enumerate}
 
-\fixme{This contains a reference to the DAQ timing section.}
-
 The protocol for sending these commands to the COLDATA or cold FPGA is
 documented in detail in the COLDATA ASIC specification.  The WIB FPGA
-will translate the external control protocol described in Section~\ref{timingdist} to the one used by the
+will translate the external control protocol described in Section~\ref{sec:daq_time} to the one used by the
 COLDATA, so there is reasonable flexibility in the external protocol
 which can be accommodated.
 
