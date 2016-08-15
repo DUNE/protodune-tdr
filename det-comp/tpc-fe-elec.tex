@@ -287,7 +287,7 @@ temperatures, including cryogenic.
 The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
 
 \begin{cdrfigure}[The layout of the 16-channel analog FE ASIC]{tpcce_FE_ASIC}{The layout of the 16-channel analog FE ASIC}
-\includegraphics[width=\linewidth]{tpcce_FE_ASIC.pdf} % New one.
+\includegraphics[width=\linewidth]{tpcce_FE_ASIC_pinout.jpg}
 \end{cdrfigure}
 
 This ASIC has now been through six design/fabrication/testing revision cycles; the latest data sheet is DUNE-doc-1484.
@@ -304,15 +304,17 @@ Also reported in Figure~\ref{fig:tpcce_shaper_out} are the outputs of the BGR an
 which are in close agreement with the simulations as well.
 
 \begin{cdrfigure}[Measured pulse response with details]{tpcce_shaper_out}{Measured pulse response with details on gain, peaking time and baseline adjustments}
-\includegraphics[width=\linewidth]{P1_FE_ASIC_pinout.jpg}
+\includegraphics[width=\linewidth]{tpcce_shaper_out.pdf}
 \end{cdrfigure}
 
-\begin{cdrfigure}[Measured ENC vs filter time constant]{tpcce_enc}{Measured ENC vs filter time constant from the first two versions of the analog front end ASICs}
-\includegraphics[width=4in]{tpcce_enc.pdf}
+\begin{cdrfigure}[Measured ENC vs filter time constant]{tpcce_enc}{
+Measured ENC vs filter time constant from the latest version of the analog front end ASIC
+for two different gains, 14~mV/fC and 25~mV/fC.}
+\includegraphics[width=4in]{tpcce_enc_14mV.jpg}
+\includegraphics[width=4in]{tpcce_enc_25mV.jpg}
 \end{cdrfigure}
 
-\fixme{We should include the noise and gain measurements from the latest FEMB tests at the last collab meeting.}
-Figure~\ref{fig:tpcce_enc} shows the measured ENC versus filter-time constant (peaking time).
+Figure~\ref{fig:tpcce_enc} shows the measured ENC versus filter-time constant (peaking time) for two different gains.
 At 1~$\mu$s about 650 e$^{-}$ was measured, to be compared to the simulated value of 500 e$^{-}$.
 The difference is mainly due to the thermal noise from a $\sim$11-ohm parasitic resistance of the input
 line (shown in the detail of Figure~\ref{fig:tpcce_enc}), which contributes about 350 electrons at 77~K.
@@ -344,7 +346,7 @@ The ADC is a complex design, which has 320,000 transistors, while the FE has 16,
 All of the transistor design has been done following the rules for long cryo-lifetime.
 
 \begin{cdrfigure}[The layout of the 16-channel ADC ASIC]{tpcce_ADC_ASIC}{The layout of the 16-channel ADC ASIC}
-\includegraphics[width=\linewidth]{P1_ADC_ASIC_pinout.jpg} % New one
+\includegraphics[width=\linewidth]{tpcce_ADC_ASIC_pinout.jpg} % New one
 \end{cdrfigure}
 
 The ADC ASIC has an input buffer with offset compensation to match the output of the FE ASIC.
