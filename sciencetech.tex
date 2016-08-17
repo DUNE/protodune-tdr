@@ -130,9 +130,8 @@ In the latter case %where the photon Compton-scatters, the two particles
 the two MIPs cannot easily be distinguished
 from the energy deposition pattern.
 
-\begin{cdrfigure}[Photon background rejection versus electron identification efficiency for various energies]{egam}{Photon background rejection versus electron identification efficiency for various energies, calculated for and normalized to samples which pass the reconstruction. 
-The simulation was performed in APA design configuration (4.67-mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).}
-\includegraphics[width=0.8\textwidth,height=6.0cm]{eff-bgdrej-diffen}
+\begin{cdrfigure}[Photon background rejection versus electron identification efficiency for various energies]{egam}{Photon background rejection versus electron identification efficiency for various energies( 100 MeV - 5 GeV for photons and 100 MeV - 2 GeV for electrons), calculated for and normalized to samples which pass the reconstruction.  The simulation was performed in APA design configuration (4.67-mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).}
+\includegraphics[width=0.8\textwidth,height=10.0cm]{egammaeffbkg}
 \end{cdrfigure}
 
 
@@ -143,7 +142,7 @@ simulated isotropic electron and photon event samples  with the DUNE APA geometr
 
 The results are found to be mildly dependent on incoming particle energy in the range of interest. 
 %
-Our \fixme{avoid first person; whose studies?} studies indicate that rejection and efficiency depend 
+Studies by Stefan\& Sulej indicate that rejection and efficiency depend 
 on particular features of the geometry, including wire pitch and plane 
 orientation, that affect the reconstruction. 
 For example, a preliminary comparison of signal efficiencies for a simulated 
@@ -157,8 +156,8 @@ required to tune the separation algorithms and to measure
 detector-dependent electron-photon separation efficiency and purity. 
 
 
-%\item [Measure field distortion effect (space-charge, LAr flow, beam window effect, etc).]
-\item [Measure event reconstruction efficiencies as a function of energy and particle type]
+\item [Measure field distortion effect (space-charge, LAr flow, beam window effect, etc).] 
+\item [Measure event reconstruction efficiencies as a function of energy and particle type] 
 \item [Measure performance of particle identification algorithms as function of energy]
 \item [Validate accuracy of MC simulations] The accuracy of MC simulations will be validated for relevant energy ranges as well as for 
 directions with respect to the wire-plane geometry.
@@ -299,14 +298,14 @@ substantially to the total visible energy in the interaction.
 These particles can re-interact either in the nuclear medium or after emerging from the target nucleus
 and substantially change the visible energy deposited in the event. 
 The importance of modeling final-state pion interactions on reconstructed neutrino energy has 
-been recently demonstrated in the NuMI and Booster beam energy ranges~\cite{miniboonefsi, minervafsi}. \fixme{The `importance' or the modeling has been demonstrated? }
+been recently demonstrated in the NuMI and Booster beam energy ranges~\cite{miniboonefsi, minervafsi}. The results from Minerva and MiniBoone are in tension and even more sophisticated final state interaction models cannot resolve the disagreement.  \fixme{The `importance' or the modeling has been demonstrated?  DONE?}
 
 Detailed knowledge of pion-nucleus cross sections in the sub-GeV energy range is required in order
 to tune generators~\cite{genie} to accurately model event visible energy. 
 Existing data used to tune the models cover limited energies ($<$200~MeV) and are primarily on lighter target nuclei~\cite{fsirev}.
 % need to check this reference from R. Ransom talk.
 The requested $\pi^+$ and $\pi^-$ samples will allow new data samples for measuring
-exclusive final state processes over the full relevant energy range and specifically on argon nuclei. \fixme{previous sentence unclear; is it about the `required' $\pi^+$ and $\pi^-$ samples?}
+exclusive final state processes  of $\pi^+$ and $\pi^-$ over the full relevant energy range and specifically on argon nuclei. Since the main dataset that will be collected from H4 beamline will have $\pi^+$ and $\pi^-$ with momenta above\, GeV/c the synergy with the LArIAT experiment will be useful to investigate agreement within the overlapping region.   \fixme{previous sentence unclear; is it about the `required' $\pi^+$ and $\pi^-$ samples? DONE}
 A high-statistics sample of charged particles will allow precise measurements of their interaction cross sections.
 
 \begin{itemize}
@@ -319,36 +318,17 @@ The DUNE experiment in the deep underground location will seek to detect several
 This first-ever LAr detector of this scale underground will primarily improve sensitivity to 
 proton decays with final state kaons such as  ${p \rightarrow K^+ \overline{\nu}}$. 
 Sensitivity to this process is studied in~\cite{bueno}. $K^+$ detection efficiency is estimated to be $>$97\% in the
-appropriate momentum range (500-800 MeV/c). The kaon samples requested in Table~\ref{tab:runsum} are needed in order to directly measure 
-$K^+$ PID and detection efficiency. 
+appropriate momentum range (500-800 MeV/c). The kaon samples needed for this study might not be available in the H4 beamline, as most of the kaons will decay before reaching the protoDUNE detector. 
 
-Obtaining low-energy kaons will likely be difficult in this beamline.
-A sample of 13k beam kaons with 1~GeV/c momentum are requested \fixme{required?}  in order to provide 2k stopping $K^+$ track samples for PID studies.
-(Only 15\% of $K^+$ stop at 1~GeV/c.)
-A sizable sample of protons ($\sim 10^6$)
-are requested \fixme{required} to study the possible background contributions to  $p \rightarrow K^+ \overline{\nu}$.
-This sample of  protons are needed to quantify the possibility that an interacting proton 
-is  misidentified as stopping kaon. A proton interaction which produces neutrals and one charged pion 
-(which is misidentified or subsequently decays to $\mu$) can fake the final state kaon signal.
-
-\fixme{attempted rewrite of above pgraph:}
-In order to provide the needed 2000 stopping $K^+$ track samples for the PID studies, a sample of 13k beam kaons with 1~GeV/c momentum must be obtained, which will likely be difficult in this beamline. (Only 15\% of $K^+$ stop at 1~GeV/c.)
+In order to provide the needed 2000 stopping $K^+$ track samples for the PID studies, a sample of 13k beam kaons with 1~GeV/c momentum must be obtained (Only 15\% of $K^+$ stop at 1~GeV/c.), which will likely be difficult in this beamline. 
 A sizable sample of protons ($\sim 10^6$)
 is also needed. This will allow study of the possible background contributions to $p \rightarrow K^+ \overline{\nu}$ in order to quantify the probability of an interacting proton 
 being misidentified as stopping kaon. A proton interaction that produces neutrals and one charged pion 
 (that is misidentified or subsequently decays to $\mu$) can fake the final-state kaon signal.
 
 \item muon capture for charge identification
-
-It is not possible to determine the charge of the particle on an event-by-event basis with non-magnetized LArTPC detectors. A statistical separation will be studied which will make use of differences in muon versus anti-muon capture cross sections and lifetime.
-%However, the statistical analyst will be possible. We will fit the muon's half time which is different for muons and antimony due to different muon capture cross sections. 
-For the $\mu^-$ we expect about 99.9\% to be captured on argon whereas essentially all $\mu^+$ decay \cite{stopmu}.
-Charge-sign tagged $\nu_\mu$ samples may be useful to constrain exotic possibilities such as
-non-standard neutrino interactions which predict differences in the particle and anti-particle survival probabilities. 
-
-\fixme{attempted rewrite of above pgraph:}
 With non-magnetized LArTPC detectors it is not possible to determine particle charge on an event-by-event basis. Therefore, a statistical separation that makes use of differences in muon versus antimuon capture cross sections and lifetime will be investigated.
-About 99.9\% of $\mu^-$'s are expected to be captured on argon, compared to essentially all $\mu^+$ decays~\cite{stopmu}.
+About 99.9\% of $\mu^-$'s are expected to be captured on argon, compared to essentially all $\mu^+$ to decay ~\cite{stopmu}.
 Charge-sign tagged $\nu_\mu$ samples, which predict differences in the particle and antiparticle survival probabilities, may be useful for constraining exotic possibilities, such as non-standard neutrino interactions. 
 
 
@@ -359,7 +339,7 @@ The DUNE Far Detector is expected to have unique sensitivity to the $\nu_e$'s fr
 %
 The test beam cannot offer a sample of  such low-energy electrons, but Michel electrons  produced by 
 decaying stopped muons are ideal for calibrating electron response in the appropriate 10-50~MeV energy range. 
-The requested \fixme{required}  sample of low-energy muons will supply the 1400 Michel electrons required for a 1\% 
+The required  sample of low-energy muons will supply the 1400 Michel electrons required for a 1\% 
 calibration of electrons in this energy range. This sample can be compared to a similar Michel electron sample
 stemming from stopping cosmic muons.
 
