@@ -102,6 +102,61 @@ readout schemes to be incorporated and tested with ProtoDUNE and
 that these will be discussed, in particular the FELIX system, in
 subsection~\ref{ssec:daqfelix} }
 
+The readout of the ProtoDUNE TPC wires, prior to being received by PCs in
+the backend DAQ, consists of the electronics directly attached the APAs,
+inside the cryostat (the cold electronics) and the electronics outside
+the cryostat, either directly on the cryostat flange or in a rack (the
+warm electronics).  This proposal addresses the warm part of the TPC
+readout and how it receives data from the cold electronics (the Front-End
+Boards), manipulates the data, and delivers it to the backend DAQ.
+
+From an electronics point-of-view, the protoDUNE flange will consist of
+5-slot ‘crate’, where the connectors on the warm side of the feed
+through form the ‘backplane’ into which the boards plug when inserted
+into the ‘crate’ assembly.  These connectors and the boards that plug
+into them (the WIBs, or warm interface boards) serve to send the power,
+timing, and configuration down to the FEBs and receive the high-speed
+signals from the FEBs. From a data standpoint, each WIB recieves the
+data from 4 FEBs, over 16 1.25-Gbps data lines, and multiplexes this
+data to 4 5-Gbps lines which are sent over optical fiber the DAQ.
+
+The data from the WIB are received by processing units called RCEs
+(Reconfigurable Computing Elements), which are housed in industry-standard
+ATCA shelves on COB (cluster-on-board) motherboards that are designed
+at SLAC for a wide range of applications.   The RCE is a SoC from the
+Xilinx Zynq family and contain a full Linux processor system on the chip
+accompanied by 1 GByte of DRAM.   The primary processing function of the
+RCEs for ProtoDUNE are compression (or zero-suppression) and buffering
+of the raw data and then sending data to the backend upon the receipt of
+an external trigger.  Each COB carries 8 RCEs, each connected to each
+other via an onboard 10 Gbps ethernet switch which also sends data out
+of the COB the backend DAQ PCs.
+
+The interface with the WIB is provided via the ATCA compliant rear-board
+(the RTM=Rear Transition Module).  This is an application-specific board
+that is custom made depending on the physical characteristics of the
+connections to-and-from the FE (e.g. fiber or electrical connections,
+number and types of transceivers, timing \& trigger connections, etc).
+For ProtoDUNE, the RTM will use a set of QSFP transceivers to receive
+the data from the WIB and an SFP+ optical interface for communication
+with the timing and trigger distribution system.
+
+As the multiplexed data from the WIB comes into the RCE FPGA fabric
+it will be de-multiplexed and buffered into per-channel, fixed-time
+length chunks (for instance 512- or 1024-ticks).  These chunks will be
+compressed and written to the DRAM where the RCE processor will wait
+for a trigger (also handled by the FPGA) to arrive.  Upon a trigger, the
+processor will sends a fixed number of pre- and post-trigger time chunks,
+for all channels, to the backend PCs.  Apart from the compression step,
+this design is very similar to that used on the 35ton prototype DAQ.
+
+For ProtoDUNE, we will send 256-wires worth of data (2 FEBs) to each RCE.
+Given that there are 120 FEBs in protoDUNE, we will use 60 RCEs in total.
+These will fits into 8 COBs which in turn will reside in a single 14-slot
+ATCA shelf.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{PDS data reduction and collection}
 
