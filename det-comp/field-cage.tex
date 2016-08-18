@@ -110,57 +110,56 @@ voltage insulation between profile ends of the order of 180~kV.  UHMW PE caps of
 The center-to-center distance between the profiles is set to 6~cm, and the inner surface of all profiles on a field cage module is placed 5~cm beyond the nearest surface of the TPC active volume (defined by the APA active aperture over the drift distance). The E field uniformity at the edge of the active volume is expected to be within $\pm$2\% of the nominal value.
 
 
-%%%%%%%%%%%%  Anne has reviewed to here so far 8/17
+%%%%%%%%%%%%  
 \subsubsection{Surge suppressor on field cage}
 
-The resistors along the divider provide a linear DC voltage gradient. However, at shorter time scale (<<1s), the electrical behavior of the divider is determined by the various capacitances on and between each electrode.  This divider is no longer linear at this time scale. 
+The resistors along the divider provide a linear DC voltage gradient. However, at shorter time scale ($\ll$1~s), the electrical behavior of the divider is determined by the various capacitances on and between each electrode, and %.  This divider
+ is no longer linear at this time scale. 
 
-A perfect capacitive divider requires the capacitance of each node to ground to be zero.  In reality, there is always a finite capacitance from each node to ground.  These capacitances resist change in the voltages on the nodes. In the event of a HV breakdown between the cathode to ground (cryostat), the cathode voltage quickly collapses to ground, but the first field cage electrode to ground capacitance keeps its voltage from changing instantaneously to follow the cathode voltage, resulting in a momentary larger voltage differential between the cathode and the first field cage electrode. This voltage differential can be a significant fraction of the cathode operating voltage, large enough to cause HV breakdown between the two electrodes, or worse yet, destroy the divider resistors between the two electrodes.
+A perfect capacitive divider requires the capacitance of each node to ground to be zero.  In reality, there is always a finite capacitance from each node to ground, and these capacitances resist change in the voltages on the nodes. In the event of a HV breakdown between the cathode %to 
+and ground (cryostat), the cathode voltage quickly collapses to ground, but the first FC electrode-to-ground capacitance keeps its voltage from changing instantaneously to follow the cathode voltage, resulting in a momentarily larger voltage differential between the cathode and the first FC electrode. This voltage differential can be a significant fraction of the cathode operating voltage, large enough to cause HV breakdown between the two electrodes, or worse yet, to destroy the divider resistors between the two electrodes.
 
-A natural solution to this problem is to significantly increase the capacitance between the nodes of this divider. This was the approach adopted in the 35ton field cage through the use of double sided printed circuit boards.  However, the cost of the PCB version of the field cage at DUNE scale is very high. Adding discrete HV capactitors between divider taps is also expensitive.
+A natural solution to this problem is to significantly increase the capacitance between the nodes of this divider. This was the approach adopted in the 35-ton prototype's field cage through the use of double-sided printed circuit boards (PCB).  However, the cost of the PCB version of the field cage at DUNE scale is very high, and adding discrete HV capactitors between divider taps is also expensitive.
 
-An alternative is to use surge surpressors in parallel with the divider resistors to divert the transient current from the resistors. Extensive tests have been done by MicroBooNE (docdb 3242, arXiv:1406.5216v2) on the use of metal oxide varistors (MOV) and GDTs (gas discharge tubes) as a mean of limiting the over voltage condition in the event of a HV discharge in the TPC.
+An alternative is to use surge surpressors in parallel with the divider resistors to divert the transient current from the resistors. Extensive tests have been done by MicroBooNE (docdb 3242, arXiv:1406.5216v2) \fixme{add in bib and cite here} on the use of metal oxide varistors (MOVs) and gas discharge tubes (GDTs) as a means of limiting the over-voltage condition in the event of a HV discharge in the TPC. 
 
-Both types will work for the purpose of restricting the voltage differential between field cage rings in LAr temperature: 
-A GDT quickly shorts the terminals when the voltage differential exceeds a threshold; while
+Both types will work for the purpose of restricting the voltage differential between field cage rings in LAr temperature. 
+A GDT quickly shorts the terminals when the voltage differential exceeds a threshold, while
 a varistor changes its resistance to keep the voltage differential near the threshold voltage.
 The smooth transition and well defined clamping voltage of the varistors are preferred to the abrupt switching of the GDTs.
-The varistors could also function as redundant ``resistors'' in a divider chain in case a resistor is open circuit.
+The varistors could also function as redundant ``resistors'' in a divider chain in case a resistor is open circuit. \fixme{open circuited?}
 
-One readily available MOV famility with high threshold voltage is the Panasonic ERZ-VXXD182.  They have a threshold voltage around 1600V.  Two of these in series could work with the current 3kV differential between divider taps.  However, we would not be able to raise the E field much above the nominal 500~V/cm with this configuration.  To allow some headroom in operating field, 3 such MOVs in series is needed.
-
-
-
+One readily available MOV famility \fixme{family?} with high threshold voltage is the Panasonic ERZ-VXXD182.  These have a threshold voltage around 1600~V.  Two of these in series could work with the current 3-kV differential between divider taps.  However, this configuration would not allow raising the E field much above the nominal 500~V/cm.  To allow some headroom in operating field, three such MOVs in series would be needed.
 
 
 %%%%%%%%%%%%
-\subsubsection{Resister tolerance and spec}
+\subsubsection{Resister tolerance and specification}
 
 \begin{cdrfigure}[The resistive divider]{fc-divider-view}{A view of a resistive divider}
 \includegraphics[width=0.8\linewidth]{tpc_fc_r_divider.png}
 \end{cdrfigure}
 
 %%%%%%%%%%%%
-\subsubsection{Electrical Schematic}
+\subsubsection{Electrical schematic}
  
 \begin{cdrfigure}[Field cage schematic diagram]{fc-schematic}{A schematic diagram of the CPA and a top/bottom field cage module pair}
 \includegraphics[width=0.8\linewidth]{tpc_fc_schematic.png}
 \end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Validation tests of roll formed FC design}
+\subsection{Validation tests of roll-formed FC design}
 
 A dedicated test setup has been designed and constructed to validate the field cage concept  in purified LAr.
-It consists of a field cage (Figure~\ref{fig:fc-test}), fitting into the ICARUS 50 liter cryostat (1.1 m hight, 0.6 m diameter) available at CERN, and  including:
+It consists of a field cage (Figure~\ref{fig:fc-test}), fitting into the ICARUS 50-liter cryostat (1.1~m hight, 0.6~m diameter) available at CERN, and  includes:
 
 \begin{itemize}	
-\item Roll-formed metal profiles with UHMW PE caps.
-\item Pultruded fiberglass I-beams form 4 mini panels.
-\item HV cable feed-through (equipped with corona monitor) allowing to apply up to 150 kV on FC profiles.
-\item All profiles are at same potential to simplify HV connection
-\item ICARUS-like stainless steel ground planes placed  66mm away from FC profiles (~1/3 of FD bias voltage to reach
-same E field)
-\item Video cameras in Gas phase to monitor bubbles and sparks.
+\item roll-formed metal profiles with UHMW PE caps,
+\item pultruded fiberglass I-beams form four mini panels,
+\item HV cable feed-through (equipped with corona monitor) allowing application of up to 150~kV on FC profiles,
+\item all profiles at same potential to simplify HV connection,
+\item ICARUS-like stainless steel ground planes placed  66~mm away from FC profiles ($\sim$1/3 of FD bias voltage to reach
+same E field), and
+\item video cameras in gas phase to monitor bubbles and sparks.
 \end{itemize}
 
 \begin{cdrfigure}[The field cage test setup]{fc-test}{The field cage test setup. 
@@ -170,37 +169,43 @@ same E field)
 \includegraphics[width=0.45\linewidth]{tpc_fc-test-2.png}
 \end{cdrfigure}
 
-Two choices of material (Aluminum, Stainless Steel) for the metal profiles have been tested. In the Aluminum case, the surface finish has also been tested with scratches up to 100 um deep. 
+Two choices of material (aluminum, stainless steel) for the metal profiles have been tested. In the aluminum case, the surface finish has also been tested with scratches up to 100 microns deep. 
 
-The cage was operated both in commercial LAr and, connected to the ICARUS 50 liter recirculation system, in LAr  with purity  better that 0.1 ppb O2 equivalent. HV above 80 kV (corresponding to an electric field about 20\% higher than nominal) could be applied for several days, without recording any discharge. Two additional regimes have been studied:
+The cage was operated both in commercial LAr and, connected to the ICARUS 50-liter recirculation system, in LAr with purity  better that 0.1 ppb O$_2$ equivalent. HV above 80~kV (corresponding to an electric field about 20\% higher than nominal) could be 
+\fixme{was?} applied for several days, without recording any discharge. Two additional regimes have been studied:
 \begin{itemize}	
-\item  with the 50 liter vessel fully thermalized (no visible bubble formation along the detector) no sparks ever recorded up to 100 kV.
-\item  HV instabilities arise in the 80-100 kV range if the LAr is not perfectly thermalized allowing bubble formation from heat sources (HV feedthrough, ground connections): few random sparks recorded, developing however around the HV cable and not between the field cage and the ground plates
+\item  With the 50 liter vessel fully thermalized (no visible bubble formation along the detector) no sparks ever recorded up to 100~kV.
+\item  HV instabilities arise in the 80$-$100 kV range if the LAr is not perfectly thermalized, allowing bubble formation from heat sources (HV feedthrough, ground connections): a few random sparks were recorded, developing however around the HV cable and not between the field cage and the ground plates.
 \end{itemize}
 
-All tested materials exhibited the same behaviour in the applied HV range. 
+All tested materials exhibited the same behavior in the applied HV range. 
 
-Nickel coating (up to 20 um) of aluminum profiles was also proposed  to avoid oxidation of the surface which could possibly be a source of HV instability. Its stability against  thermal gradients was positively tested. However HV tests showed no difference with respect to the uncoated version.
+Nickel coating (up to 20 microns) of aluminum profiles was also proposed as a way to avoid oxidation of the surface, which % could possibly be 
+is a potential source of HV instability. Its stability against  thermal gradients was positively tested. \fixme{tested and found to be positive, i.e, stable? Pls clarify} However HV tests showed no difference with respect to the uncoated version.
 
-A specific Breakdown Test has been performed to check dielectric rigidity of the UHMW PE end caps in LAr, exposing few metal profiles equipped with PE end caps and connected the HV, to a ground plane (Figure~\ref{fig:endcap-test}).
-
-Results demonstrated that the proposed end cap geometry and thickness can safely hold 150 kV.
+A specific Breakdown Test has been performed to check dielectric rigidity of the UHMW PE end caps in LAr. %exposing a few metal profiles equipped with PE end caps and connected the HV, to a ground plane (Figure~\ref{fig:endcap-test}).
+A few metal profiles equipped with PE end caps and connected the HV were exposed to a ground plane (Figure~\ref{fig:endcap-test}).
+Results demonstrated that the proposed end cap geometry and thickness can safely hold 150~kV.
 
 \begin{cdrfigure}[Setup to test dielectric rigidity]{endcap-test}{Setup to test dielectric rigidity of the UHMW PE end caps}
 \includegraphics[width=0.65\linewidth]{tpc_fc_endcap-test.png}
 \end{cdrfigure}
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ground Plane Design}
 %% by A. Zani
 
-In order to confine the electric field in the liquid argon region, it is foreseen to install a metallic plane, put to ground, between the upper field cage module and the liquid-gas interface. The design of such Ground Plane (GP) is inspired by the one from the ICARUS T600 detector, and it is meant to limit the residual electric field in the liquid below the usual 30 kV/cm. value. The design details of the planes were verified to comply with the requests on residual electric field with FEA. It is noted that a similar GP could be added in front of all the other Field Cage (FC) modules, in order to smooth the field in the LAr dead volume. However, so far it is foreseen to add an actual GP only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling are running. The distance between the cryostat walls and the end-wall field cage does not require to insert a GP, instead.
+In order to confine the electric field in the liquid argon region, it is foreseen to install a metallic plane, put to ground, 
+\fixme{``a grounded metallic plane''?}
+between the upper field cage module and the liquid-gas interface. The design of such a Ground Plane (GP) is inspired by the one from the ICARUS T600 detector, and it is meant to limit the residual electric field in the liquid below the usual 30~kV/cm value. 
+\fixme{Is it to keep the E field from going outside the LAr volume or is it to keep the residual field that's already in the LAr volume very small?}
+%The design details of the planes were verified to comply with the requests on residual electric field with FEA.  It is noted that a similar GP could be added in front of all the other Field Cage (FC) modules, in order to smooth the field in the LAr dead volume. However, so far it is foreseen to add an actual GP only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling are running. The distance between the cryostat walls and the end-wall field cage does not require to insert a GP, instead.
+The design details of the planes were verified for compliance with the requests on residual electric field with FEA. \fixme{I cannot parse prev sentence} It is noted that a similar GP could be added in front of each of the other Field Cage (FC) modules in order to smooth the field in the LAr dead volume. However, so far it is planned to add one only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling  run. The distance between the cryostat walls and the end-wall field cage does not require insertion of a GP.
 
 As mentioned, the GP design is inspired by the ICARUS T600 detector: in that case, 1 mm thick Stainless Steel (SS) plates, punched with $10$ mm holes, 15 mm pitch ($\sim 50\%$ transparency), could stand a potential differential of $-150$ kV over $100$ mm. In order to smooth the field, the edges of the planes were rounded to $\sim 10$ mm. The fraction of punched structure was selected to ensure light-weight even with SS, and to allow fluid circulation above the planes.
+
+\fixme{Does this mean: This GP is similar to the one in the ICARUS detector, (the listed features are the same for both). The ICARUS GP can withstand a potential differential of $-150$ kV over $100$ mm, therefore ours can, too.  In  ICARUS, the edges of the GPs were rounded to $\sim 10$ mm, so we plan to do the same?  Is our punched fraction different than ICARUS's because we want it to be lighter-weight or allow more fluid flow? }
+\fixme {Anne got to here 8/17}
 
 In the ProtoDUNE configuration, the GP will be put at a distance of 200 mm from the FC profile, with a structure of $6$ mm holes, $10$ mm pitch ($\sim 25\%$ transparency): the lower fraction of pierced surface is verified by simulations to maintain the field within the required values. The edges of the plates, $20$ mm high, are rounded at $5$ mm, while the holes rounding radius, at production is around $0.5$ mm. The liquid level is expected to be at 40 mm above the GP bottom, i.e. 20 mm above the edges. The radius of curvature for the holes is not a strict requirement. It depends on the punching technique, and usually is at around $0.5$ mm. The actual requirement is to have the hole curvature on the inside (of the TPC) looking out.
 
