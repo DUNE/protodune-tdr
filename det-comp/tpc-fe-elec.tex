@@ -14,7 +14,7 @@
 %\section{HV components}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{TPC front-end electronics}
+\section{TPC Front-end Electronics}
 %\chapter{Cold Electronics}
 \label{ch:ce}
 
@@ -43,12 +43,14 @@ Because it is not possible to form a trigger for some important measurements,
 such as proton decay and supernova bursts, the CE will be continuously read out,
 with a digitized ADC sample from each APA channel (wire) every 500~ns.
 
-The 2,560 channels from each APA are read out in 20 groups of 128 channels.
-For each of the six APAs in the protoDUNE cryostat, twenty cable bundles will 
-connect to the outside of the cryostat via a feedthrough to a CE flange, with one 
-feedthrough/flange servicing one APA as shown in Figure~\ref{fig:tpcce_apa_flange}. 
+The 2,560 channels from each APA are read out by 20 Front-End Motherboards (FEMBs), each providing 
+digitized wire read-out of 128 channels. A single front-end board is shown in Figure~\ref{fig:tpcce_FEMBonAPA}.
+For each of the six APAs in the protoDUNE cryostat, one cable bundle will 
+connect from each FEMB to the outside of the cryostat via a feedthrough to a CE flange, with one 
+feedthrough/flange servicing one APA as shown in Figure~\ref{fig:tpcce_apa_flange}, for a total 
+of 20 cold cable bundles per APA. 
 Each of these cable bundles consists of wires for low-voltage power, links for high-speed 
-data out, and clock/digital-control IOs. Six other cables carry the TPC wire-bias voltage 
+data out, and clock/digital-control IOs. Eight other cables carry the TPC wire-bias voltage 
 from the CE flange to the APA wire-bias boards.
 
 \begin{cdrfigure}[Connections between CE flange and APA]{tpcce_apa_flange}{Connections between
@@ -64,7 +66,8 @@ delivery, and installation of the CE, the components of which are:
 between the APA and the CE flanges (cold cable)
 \item Signal feedthroughs and CE flanges which pass the data, clock/control IO, 
 low-voltage power, and APA wire-bias voltage between warm and cold
-\item Warm electronics crates (WECs) mounted on the CE flanges, containg the Warm Interface Boards (WIBs)
+\item Warm electronics crates (WECs) mounted on the CE flanges, which act as Faraday cages with
+only optical fibers to slow control and the DAQ, and which contain the Warm Interface Boards (WIBs)
 \item Data and clock/control IO fiber cable between the WEC and the data aquisition 
 (DAQ) and slow control systems
 \item LV and wire-bias power cables between the CE flange and external power supplies
@@ -76,7 +79,8 @@ low-voltage power, and APA wire-bias voltage between warm and cold
 \subsection{Design Considerations} 
 \label{subsec:ce_reqs_n_specs}
 
-The requirements for the CE can be found in the requirements documentation in section~\ref{sec:detector_requirements}
+The requirements for the CE can be found in the requirements documentation 
+in section~\ref{sec:detector_requirements}
 The most significant ones are listed here. The CE shall:
 
 \begin{itemize}	
@@ -101,21 +105,119 @@ The most significant ones are listed here. The CE shall:
 with a maximum specified leakage current in 1-atm argon gas.
 \end{itemize}
 
-The responsibility and authority for the design, installation 
-and use of the detector quiet-power distribution and 
-detector-grounding system is held by the subproject electrical engineer. 
-This engineer has oversight responsibility for all electrical and electronics 
-design and installation tasks, including all attachments to the detector 
-that create an electrical connection. 
+%The responsibility and authority for the design, installation 
+%and use of the detector quiet-power distribution and 
+%detector-grounding system is held by the subproject electrical engineer. 
+%This engineer has oversight responsibility for all electrical and electronics 
+%design and installation tasks, including all attachments to the detector 
+%that create an electrical connection. 
+
+By ensuring that the electrical cables for each APA enter the cryostat through single 
+independent feed-through penetrations, the TPC APA, cold electronics read-out, CE flange, 
+and Faraday cage Warm Electronics Crate for each independent APA are an integrated whole
+read-out unit. Each unit will provide local diagnostics for noise and validation testing,
+and follow the grounding and shielding guidelines in the next section.
+
+\subsubsection{Electrical Design Guidelines}
+\label{subsec:ele_design}
+
+To avoid structural ground loops, the APA frames described in Section~\ref{subsec:apa_frame} 
+are insulated from each other. Each frame is electrically connected to the cryostat at a single 
+point, where cold cables exit the cryostat signal feed-through. Mechanical suspension of the APAs 
+is accomplished using insulated supports. 
+
+The FEMB include an analog motherboard with eight Front-End (FE) ASICS configured as 16-channel 
+digitizing charge amplifiers. Input amplifiers on the ASICs have their Common terminals connected 
+to the APA frame. These connections are made through the CE enclosure described in 
+Section~\ref{blahblah} and its mounting brackets. All power-return leads and all cable shields 
+involving the CE modules are connected to the Common plane of the FEMB, as well as to the CE flange.
+
+Bias filters are locally referenced to the Common plane of the FEMBs through low-impedance 
+electrical connections. This approach keeps the ground-return path in close proximity to the 
+bias-voltage and signal paths. Close proximity for the current paths minimizes loop areas to 
+suppress noise pickup.
+
+Photon Detector signals, described in Section~\ref{sec:pd_system}, are carried on shielded 
+twisted pairs to a photon detector flange in the cryostat. The shields are connected to the 
+cryostat at the PD flange, and to the PCB shield layer on the photon detectors. There is no 
+electrical connection between the cable shields and the APA frame except at the PD flange.
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{APA Wire Bias}
+\label{subsec:ce_wire_bias}
+
+Each side of an APA includes four wire layers as described in Section~\ref{subsec:apa_phys_desc}. 
+The inner-most X-plane layer of wires is nominally biased at +820 Volts, with each wire coupled 
+to a charge amplifier in an FEMB. The V-plane layer of wires is effectively biased at zero volts, 
+with each wire directly connected to a FE charge amplifier. The U-plane wire layer is nominally 
+biased at -370 Volts with each wire coupled to a FE charge amplifier. The outer-most G-plane layer,
+which is not connected to the FE charge amplifiers, is biased at -665 Volts.
+
+Electrons passing through the wire grid must drift unimpeded until they reach the X-plane 
+collection layer. The nominal bias voltages are predicted to result in an electrically 
+transparent structure.
+
+\subsubsection{Bias Components}
+\label{subsec:ce_bias_comp}
+
+The bias voltages are applied to the X, V, and G wire layers, three field cage terminations, 
+and an electron diverter, as shown in Figure~\ref{tpcce_cr_board}. The voltages are supplied 
+through eight SHV connectors mounted on 
+the CE flange. RG-316 coaxial cables carry the voltages to a patch panel 
+mounted on the top end of the APA. From there, bias voltages are carried by single wires to 
+various points on the APA frame.
+
+Field cage noise filters are located on a small PC board mounted on or near the patch panel. 
+Bias voltage filters are also mounted on or near the electron diverter.
+
+For the wire layers, bias resistors and filter capacitors are mounted on CR boards that plug 
+into the APA wire-board stacks, as described in Section~\ref{apa_wire_wrap}. The CR boards 
+also plug directly into the FEMBs and make the electrical input to the FE amplifiers.
+
+Each CR board includes two R-C filters for the X and U bias voltages, as shown 
+in Figure~\ref{tpcce_cr_board}. Additionally there are 48 
+pairs of bias resistors and coupling capacitors for X-plane wires, and 40 resistor and 
+capacitor pairs for the U-plane wires. The coupling capacitors block DC while passing AC 
+signals to the CE motherboards.
+
+\begin{cdrfigure}[APA wire bias schematic diagram]{tpcce_cr_board}{APA wire bias 
+schematic diagram, including the Capacitance-Resistance (CR) board.}
+\includegraphics[width=0.4\linewidth]{tpcce_cr_board.pdf}
+\end{cdrfigure}
+
+A separate grid-plane CR board includes a bias voltage noise filter and twelve pairs of 
+bias resistors and filter capacitors. Groups of four wires are tied together to share a 
+bias resistor and filter capacitor. 
+
+Input amplifiers are referenced to the Common plane of the FEMB, which is locally connected 
+to the APA frame through the CE Faraday box described in Section~\ref{blahblah}. The amplifiers 
+have input impedance of 50 Ohms with 22-nF coupling capacitors, as shown in Figure~\ref{tpcce_cr_board}. 
+Clamping diodes limit the amplifier input voltage to between zero and +1.8 Volts.
+
+\subsubsection{Bias Component Values}
+\label{subsec:bias_comp_values}
+
+Coupling capacitors for the X-plane and U-plane wires are required to block DC bias voltages. However they also impact the efficiency of the detector circuits. The sense wires are expected to have 200 pF of capacitance to the APA frame. Induced or collected charges are effectively divided between the wire capacitance and the coupling capacitor. To achieve a charge-calibration accuracy of 0.5 percent or better, the coupling capacitors must be 4.7 nF at ten percent tolerance, or 2.2 nF at five percent tolerance. Voltage ratings should be at least 1.5 times the expected operating voltages.
+
+Bias resistance values should be at least 20 Meg-ohms to maintain negligible noise contributions. A target value of 50 Meg-ohms is desired. The higher value helps to achieve a longer time constant for the high-pass coupling networks. Time constants should be at least 25 times the electron drift time so that undershoot in the digitized waveform is small and easily correctable. However, leakage currents can develop on PC boards that are exposed to high voltages over extended periods. If the bias resistors are much greater than 50 Meg-ohms, leakage currents may affect the bias voltages applied to the wires.
+
+The bias-voltage filters are R-C low-pass networks. Resistance values should be much smaller than the bias resistances to control crosstalk between wires and limit the voltage drop if any of the wires becomes shorted to the APA frame.  A value around 2.2 Meg-ohms is desired. Smaller values may be considered although a larger filter capacitor would be required to maintain a given level of noise reduction. A target value of 47 nF has been established for the filter capacitors.
+
+For the grid-plane bias filters, component values are less critical. If possible they will be identical to those used for the bias resistors and coupling capacitors (50 Meg-ohms and 2.2 to 4.7 nF, respectively.
+
+Voltage ratings for the bias resistors and coupling capacitors, as well as their resistance and capacitance values, are limited by available space on the CR boards. The board area is limited by the width of the wire boards and the distance between the APA frame and the CE enclosures.  Initial layouts have determined that the maximum possible size for the 88 bias resistors that must fit on each CR board is 0.12 x 0.25 inches (3.0 x 6.0 mm). Resistors with this footprint are readily available with a voltage rating of 2.0 kV. The maximum size for the 88 coupling capacitors on each CR board is 0.22 x 0.25 inches (5.6 x 6.0 mm). Capacitors with a voltage rating of 2.0 kV are available with capacitance of 3.9 nF at five percent tolerance.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Front-End Mother Board}
 \label{subsec:fe_arch}
 
-The CE architecture is manifested in the Front End Mother Board assembly (FEMB),
+The CE architecture is manifested in the Front End Mother Board (FEMB) assembly,
 which consists of an analog mother board with a digital ASIC mezzanine (Figure~\ref{fig:tpcce_schem}).
-Each APA is instrumented with 20 FEMBs, for a total of 2,560 channels per APA.
+Each APA is instrumented with 20 FEMBs, for a total of 2,560 channels per APA. The FEMB plug
+directly into the APA CR boards, making the connection from the U and V induction wires and 
+Z collection wires to the FE charge amplifiers as short as possible.
 
 The analog mother board is instrumented as a 128-channel board which uses eight 16-channel FE ASICs,
 eight 16-channel ADC ASICs, low-voltage regulators, and input-signal protection.
