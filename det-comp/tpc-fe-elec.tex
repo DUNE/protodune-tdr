@@ -128,9 +128,9 @@ is accomplished using insulated supports.
 
 The FEMB include an analog motherboard with eight Front-End (FE) ASICS configured as 16-channel 
 digitizing charge amplifiers. Input amplifiers on the ASICs have their Common terminals connected 
-to the APA frame. These connections are made through the CE enclosure described in 
-Section~\ref{blahblah} and its mounting brackets. All power-return leads and all cable shields 
-involving the CE modules are connected to the Common plane of the FEMB, as well as to the CE flange.
+to the APA frame. These connections are made through the CE Faraday box described in 
+Section~\ref{subsubsec:ce_faraday_box} and its mounting brackets. All power-return leads and all cable shields 
+involving the CE are connected to the Common plane of the FEMB, as well as to the CE flange.
 
 Bias filters are locally referenced to the Common plane of the FEMBs through low-impedance 
 electrical connections. This approach keeps the ground-return path in close proximity to the 
@@ -161,29 +161,19 @@ transparent structure.
 \subsubsection{Bias Components}
 \label{subsec:ce_bias_comp}
 
-The bias voltages are applied to the X, V, and G wire layers, three field cage terminations, 
-and an electron diverter, as shown in Figure~\ref{tpcce_cr_board}. The voltages are supplied 
-through eight SHV connectors mounted on 
-the CE flange. RG-316 coaxial cables carry the voltages to a patch panel 
-mounted on the top end of the APA. From there, bias voltages are carried by single wires to 
-various points on the APA frame.
-
-Field cage noise filters are located on a small PC board mounted on or near the patch panel. 
-Bias voltage filters are also mounted on or near the electron diverter.
-
 For the wire layers, bias resistors and filter capacitors are mounted on CR boards that plug 
-into the APA wire-board stacks, as described in Section~\ref{apa_wire_wrap}. The CR boards 
+into the APA wire-board stacks, as described in Section~\ref{subsubsec:apa_wire_wrap}. The CR boards 
 also plug directly into the FEMBs and make the electrical input to the FE amplifiers.
 
 Each CR board includes two R-C filters for the X and U bias voltages, as shown 
-in Figure~\ref{tpcce_cr_board}. Additionally there are 48 
+in Figure~\ref{fig:tpcce_cr_board}. Additionally there are 48 
 pairs of bias resistors and coupling capacitors for X-plane wires, and 40 resistor and 
 capacitor pairs for the U-plane wires. The coupling capacitors block DC while passing AC 
 signals to the CE motherboards.
 
 \begin{cdrfigure}[APA wire bias schematic diagram]{tpcce_cr_board}{APA wire bias 
 schematic diagram, including the Capacitance-Resistance (CR) board.}
-\includegraphics[width=0.4\linewidth]{tpcce_cr_board.pdf}
+\includegraphics[width=1.0\linewidth]{tpcce_cr_board.pdf}
 \end{cdrfigure}
 
 A separate grid-plane CR board includes a bias voltage noise filter and twelve pairs of 
@@ -191,8 +181,8 @@ bias resistors and filter capacitors. Groups of four wires are tied together to 
 bias resistor and filter capacitor. 
 
 Input amplifiers are referenced to the Common plane of the FEMB, which is locally connected 
-to the APA frame through the CE Faraday box described in Section~\ref{blahblah}. The amplifiers 
-have input impedance of 50 Ohms with 22-nF coupling capacitors, as shown in Figure~\ref{tpcce_cr_board}. 
+to the APA frame through the CE Faraday box described in Section~\ref{subsubsec:ce_faraday_box}. The amplifiers 
+have input impedance of 50 Ohms with 22-nF coupling capacitors, as shown in Figure~\ref{fig:tpcce_cr_board}. 
 Clamping diodes limit the amplifier input voltage to between zero and +1.8 Volts.
 
 \subsubsection{Bias Component Values}
@@ -206,7 +196,7 @@ The bias-voltage filters are R-C low-pass networks. Resistance values should be 
 
 For the grid-plane bias filters, component values are less critical. If possible they will be identical to those used for the bias resistors and coupling capacitors (50 Meg-ohms and 2.2 to 4.7 nF, respectively.
 
-Voltage ratings for the bias resistors and coupling capacitors, as well as their resistance and capacitance values, are limited by available space on the CR boards. The board area is limited by the width of the wire boards and the distance between the APA frame and the CE enclosures.  Initial layouts have determined that the maximum possible size for the 88 bias resistors that must fit on each CR board is 0.12 x 0.25 inches (3.0 x 6.0 mm). Resistors with this footprint are readily available with a voltage rating of 2.0 kV. The maximum size for the 88 coupling capacitors on each CR board is 0.22 x 0.25 inches (5.6 x 6.0 mm). Capacitors with a voltage rating of 2.0 kV are available with capacitance of 3.9 nF at five percent tolerance.
+Voltage ratings for the bias resistors and coupling capacitors, as well as their resistance and capacitance values, are limited by available space on the CR boards. The board area is limited by the width of the wire boards and the distance between the APA frame and the CE Faraday box.  Initial layouts have determined that the maximum possible size for the 88 bias resistors that must fit on each CR board is 0.12 x 0.25 inches (3.0 x 6.0 mm). Resistors with this footprint are readily available with a voltage rating of 2.0 kV. The maximum size for the 88 coupling capacitors on each CR board is 0.22 x 0.25 inches (5.6 x 6.0 mm). Capacitors with a voltage rating of 2.0 kV are available with capacitance of 3.9 nF at five percent tolerance.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -522,7 +512,7 @@ which will reproduce the clock/control IO, data multiplexing, and 1.28~Gbps seri
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Faraday Box and Interface to APA}
-\label{subsubsec:faraday_box}
+\label{subsubsec:ce_faraday_box}
 
 Each FEMB will be enclosed in a Faraday box to provide shielding from noise, and to mount the FEMB 
 to the APA. The current concept for Faraday box mounting is shown in Figure~\ref{fig:tpcce_box}.
@@ -531,6 +521,7 @@ to the APA. The current concept for Faraday box mounting is shown in Figure~\ref
 \includegraphics[width=3in]{tpcce_box_1.pdf}
 \includegraphics[width=3in]{tpcce_box_2.pdf}
 \end{cdrfigure}
+
 
 \fixme{need more details. Ask Manhong.}
 
@@ -600,48 +591,89 @@ This indicates the importance of minimizing the amount of material in the ullage
 
 %
 %%%%%%%%%%%%%%%%  
-\subsubsection{Cold Cable}
-\label{subsubsec:ce_feedthrough_cable}
+\subsubsection{Data/Control Cable Bundles}
+\label{subsubsec:ce_data_cable}
 
-Five basic types of cables will be required to penetrate the cryostat and service the Cold Electronics:
+Data/Control cable bundles will be used to send system clock and control signals in the LAr from the 
+CE flange to the FEMB, stream the 1~Gbps high-speed data from the FEMB to the CE flange, and 
+provide backup JTAG programming to the cold FPGA, in case the power-up programming fails to 
+load from the onboard EEPROM. As described in Section~\ref{subsec:ce_intro}, each FEMB will 
+connect to a CE flange via one data cable bundle, for 20 bundles between one APA and one flange.
+Each data bundle will contain 12 low-skew Copper twin-axial cables with a drain wire, 
+to transmit the following differential signals:
+
 \begin{itemize}
-\item Low-voltage cables to power the FE boards,
-\item wire-bias cables to provide the reference voltages for the wire planes,
-\item moderate-speed cables for a communication downlink to the FE boards,
-\item high-speed cables to carry the data out of the cryostat.
+    \item 4$\times$1.28~Gbps high-speed data
+    \item One 50~MHz system clock
+    \item One 2~MHz CONVERT clock
+    \item 2 I2C control and configure (3 for COLDATA)
+    \item 4 single-ended JTAG programming for the FPGA (not used for COLDATA)
 \end{itemize}
-All of these cables will pass through the CE flange.
 
-The cables --- and connectors --- will be selected to have a low outgas and provide minimal contamination to the LAr environment.
-Connectors will also need to be tested for usage in LAr to make sure that a low ohmic contact is maintained
-in the cryogenic environment.
+Note that when the cold FPGA is replaced with the COLDATA ASIC, there
+is a small change in signal assignments required, with one pair of
+JTAG signals reassigned to the ``I2C-Like'' COLDATA slow control
+interface, which uses three LVDS pairs, so that COLDATA will only
+require 9 differential signals.
 
-We are looking into several types of cables and connectors.
-The low-voltage cabling will be %defined by 
-chosen based on power needs and whether we decide to go with a higher-voltage/lower-current
-feed using DC/DC convertors or a low-voltage/higher-current feed used by low-voltage regulators.
-Studies will take place to decide the most efficient and practical usage.
+\begin{cdrfigure}[Samtec LV and data cable]{tpcce_samtec_cable}{Samtec data (left) and LV power (right) cable.}
+\includegraphics[width=3in]{tpcce_samtec_data.pdf}
+\includegraphics[width=3in]{tpcce_samtev_lv.pdf}
+\end{cdrfigure}
 
-The wire-bias cables must deliver voltages up to %a couple  
-two or three thousand volts with less than a couple of milliamps.
-We anticipate using a coaxial cable and connectors which have been tested and found sufficient to provide this load.
+ProtoDUNE will use Samtec 26~AWG twin-axial cable bundles with Samtec HSEC08 connectors to both
+the FEMB mezzanine board and the CE flange, shown in Figure~\ref{fig:tpcce_samtec_cable}. The HSEC08
+connectors lock into place with tabs on each side of the connector. A sample of the Samtec cable with
+THV outer jacket has passed the LAr Materials Test Stand at Fermilab.
 
-The cables for the moderate speed downlink could utilize LVDS signaling and low-skew pairs.
-Again, testing will be required to select the final cable and connectors.
+The Samtec 26~AWG cable has been
+tested and demonstrated to have low enough dispersion that both the LVDS 50~MHz system clock and
+1~Gbps high-speed data can be recovered over 25~meters of room temperature (RT) cable, making this
+a candidate cable choice for the DUNE far detector. However, for ProtoDUNE only the top APA
+layer will be installed, so the cable length between the FEMB and CE flange will be approximately 7~meters.
 
-For the high-speed data links, we anticipate using a low-skew copper twinax cable.
-We have prototyped such a cable and found that we can drive data at 2~Gbps for a 20~m length.
+\begin{cdrfigure}[Results from cable validation testing]{tpcce_samtec_results}{Eye diagrams 
+from cable validation testing. {\bf Top Left} 50~MHz system clock over 25~m room temperature 
+(RT) Samtec 26AWG cable. For comparison, {\bf Bottom Left} shows the same clock over 
+the heavier, more expensive Gore 24AWG cable. {\bf Top Right} 1~Gbps data over 
+7~m (ProtoDUNE length) RT Samtec 26AWG cable without active recovery. {\bf Bottom Right} 1~Gbps
+data over 25~m (DUNE length) RT Samtec 26AWG cable with active recovery.}
+\includegraphics[width=0.9\linewidth]{tpcce_samtec_results.pdf}
+\end{cdrfigure}
 
-Finally, the photon detector cables currently make use of shielded twisted pair cables which carry both
-the DC bias voltage as well as the signals.
+Figure~\ref{fig:tpcce_samtec_results} shows preliminary results from the DUNE cable 
+validation testing. The eye diagrams show the edges of the differential signals after 
+LVDS transmission over the specified cable types and lengths. The height of eye diagram shows the size 
+of the recovered signal in mV and the slope of the rising and falling edges are jitter in picoseconds (ps). 
+An eye diagram is sufficient to show that the edges of the differential signals can
+be recovered, but not enough to demonstate the bit error rate (BER). The Samtec 26AWG cable has 
+also passed a BER test: transmitting $10^{13}$ bits without error.
+
+\subsubsection{LV Power Cable Bundles}
+\label{subsubsec:ce_lvpower_cable}
+
+The LV power will be provided in the LAr from the CE flange to the FEMB by bundles of 16 Samtec 20~AWG 
+cable bundles, as shown in Figure~\ref{fig:tpcce_samtec_cable}.
+
+\subsubsection{Wire Bias Cables}
+\label{subsubsec:ce_bias_cable}
+
+The wire-bias cables must deliver voltages up to two or three thousand volts with less than a 
+couple of milliamps.
+
+The bias voltages are applied to the X, V, and G wire layers, three field cage terminations, 
+and an electron diverter, as shown in Figure~\ref{fig:tpcce_cr_board}. The voltages are supplied 
+through eight SHV connectors mounted on the CE flange. RG-316 coaxial cables carry the voltages to a patch panel 
+mounted on the top end of the APA. From there, bias voltages are carried by single wires to 
+various points on the APA frame.
+
+Field cage noise filters are located on a small PC board mounted on or near the patch panel. 
+Bias voltage filters are also mounted on or near the electron diverter.
 
 It will be important that all cables and connectors be somewhat rugged,
 locking and able to withstand a minimum of several tens of mating cycles.
 Unfortunately, because of size and space limitations, the type of connectors we need are not keyed,
 so a labeling scheme and caution when connecting cables are the only options available.
-This is in addition to concerns about material compatibility and the fact they must work in the cryogenic environment.
-
-As of this writing, the cable support system is in the process of being designed.
 
 \subsection{Warm Interface Electronics}
 \label{subsec:warm_interface_elec}
@@ -769,22 +801,7 @@ which can be accommodated.
 The 2~MHz CONVERT clock is distributed by the WIB on up to four differential
 links, one to each FEMB, by a zero-delay commercial fan-out chip. The
 configure and control signals to the FEMBs are transmitted over two or three
-differential I2C links. The 12 links between the WIB and each FEMB,
-which are currently differential signals transmitted over twin-axial
-cables, except where noted, are:
-
-\begin{itemize}
-    \item 4$\times$1.28~Gbps high-speed data
-    \item One 50~MHz system clock
-    \item One 2~MHz CONVERT clock
-    \item 2/3 I2C control and configure (3 for COLDATA)
-    \item 4 single-ended JTAG programming for the FPGA (not used for COLDATA)
-\end{itemize}
-
-Note that when the cold FPGA is replaced with the COLDATA ASIC, there
-is a small change in signal assignments required, with one pair of
-JTAG signals reassigned to the ``I2C-Like'' COLDATA slow control
-interface, which uses three LVDS pairs.
+differential I2C links, as described in Section~\ref{subsubsec:ce_data_cable}.
 
 %
 %%%%%%%%%%%%%%%%
