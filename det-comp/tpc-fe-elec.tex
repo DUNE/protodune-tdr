@@ -618,7 +618,7 @@ require 9 differential signals.
 
 \begin{cdrfigure}[Samtec LV and data cable]{tpcce_samtec_cable}{Samtec data (left) and LV power (right) cable.}
 \includegraphics[width=3in]{tpcce_samtec_data.pdf}
-\includegraphics[width=3in]{tpcce_samtev_lv.pdf}
+\includegraphics[width=3in]{tpcce_samtec_lv.pdf}
 \end{cdrfigure}
 
 ProtoDUNE will use Samtec 26~AWG twin-axial cable bundles with Samtec HSEC08 connectors to both
@@ -652,14 +652,28 @@ also passed a BER test: transmitting $10^{13}$ bits without error.
 \subsubsection{LV Power Cable Bundles}
 \label{subsubsec:ce_lvpower_cable}
 
-The LV power will be provided in the LAr from the CE flange to the FEMB by bundles of 16 Samtec 20~AWG 
-cable bundles, as shown in Figure~\ref{fig:tpcce_samtec_cable}.
+The LV power will be provided in the LAr from the CE flange to the FEMB by bundles of 16 Samtec 
+20~AWG twisted-pair wires, as shown in Figure~\ref{fig:tpcce_samtec_cable}. 1 IPD1 connector will
+attach all 16 wires at the CE flange, and 2 IPD1 connectors will be attached to the FEMB (one to the
+analog motherboard and one to the FPGA mezzanine. Like the data/control bundles, 20 LV wire bundles 
+will bring power from one CE flange to one APA worth of FEMBs, and will be approximately 7~m long.
+
+8 of the 16 wire will be power feeds, as described in Figure~\ref{fig:tpcce_lv_req}. The other 8 wires
+will be attached to the common of the FEMB, as described in Section~\ref{subsec:ele_design}. For
+a single FEMB, the resistance is $<~30$~mOhm at RT or $<~10$~mOhm at LAr temperature. For
+all 20 FEMBs, each APA will have a copper cross-section of approximately $80~\mathrm{mm}^2$, with
+a resistance $<~1.5$~mOhm at RT or $<~0.5$~mOhm at LAr temperature.
+
+\begin{cdrfigure}[LV power feed wire specifications]{tpcce_lv_req}{Samtec LV power feed wire 
+specifications.}
+\includegraphics[width=4in]{tpcce_lv_req.pdf}
+\end{cdrfigure}
 
 \subsubsection{Wire Bias Cables}
 \label{subsubsec:ce_bias_cable}
 
-The wire-bias cables must deliver voltages up to two or three thousand volts with less than a 
-couple of milliamps.
+The wire-bias cables must deliver voltages up to two or three thousand Volts with less than a 
+couple of milliAmps.
 
 The bias voltages are applied to the X, V, and G wire layers, three field cage terminations, 
 and an electron diverter, as shown in Figure~\ref{fig:tpcce_cr_board}. The voltages are supplied 
@@ -730,7 +744,7 @@ with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
 
 The PTC also receives the low voltage power for the entire cold
 electronics connected to that flange, approximately 200W at 12V for a
-fully-loaded flange (5~WIB + 20~FEMB). The LV power then fanned out
+fully-loaded flange (5~WIB + 20~FEMB). The LV power is then fanned out
 on the PTB to each WIB, which provides the DC/DC conversion and fans
 the LV power out to each of the cold FEMBs supplied by that WIB, 
 as shown in Figure~\ref{fig:tpcce_wib_power}. The 
@@ -808,14 +822,16 @@ differential I2C links, as described in Section~\ref{subsubsec:ce_data_cable}.
 \subsection{External Power and Cables}
 \label{subsec:ce_feedthrough_power}
 
+
+
 %
 %%%%%%%%%%%%%%%%
 \subsubsection{Low Voltage}
 \label{subsubsec:ce_feedthrough_wirebias}
 
-\fixme{rewrite this section to be about the LV power and warm cables. See uboone slides for cables/supplies.}
+The power-per-channel for the FE electronics is designed be about 25~mW in the LAr.
 
-The power-per-channel for the FE electronics is designed be about 25~mW and the total low-voltage
+and the total low-voltage
 power requirement for each APA is expected to be about 64~W.
 Power will be supplied to the electronics on each APA separately by low-noise
 power supplies outside the cryostat, either directly by
