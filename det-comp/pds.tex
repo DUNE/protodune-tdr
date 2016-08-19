@@ -3,7 +3,9 @@
 \section{Photon detection system}
 \label{sec:pd_system}
 
-The scope of the photon detector (PD) system for the DUNE far detector
+\fixme{This section still needs work (Anne 8/18}
+
+The scope of the photon detector system (PDS) for the DUNE far detector
 reference design includes design, procurement, fabrication,
 testing, delivery and installation of the following components:
 \begin{itemize}
@@ -13,6 +15,12 @@ testing, delivery and installation of the following components:
 \item calibration system, and
 \item related infrastructure (frames, mounting boards, etc.).
 \end{itemize}
+
+\fixme{I suggest adding purpose and requirements here, i.e., some info from what was put in the calibration section:
+
+The current DUNE far detector designs are anticipated to have sufficient sensitivity to provide event timing information for atmospheric neutrino and proton decay channels, but sufficient efficiency down to the 5 MeV neutrino energy level desired by the supernova program has to be demonstrated in future designs.
+In the absence of precise physics requirements for the PDS and in order to support R\&D activities on the PD development it was decided that the PDS should provide a time stamp to determine the time of occurrence of an event (so called \textit{time zero}) with an accuracy much better than 30~ns.
+}
 
 LAr is an excellent scintillating medium and the photon detection
 system will exploit this property in the far detector.  With an
@@ -26,7 +34,7 @@ lifetime of about 6~ns while the rest have a lifetime of
   precisely the same way by the photon detection system. LAr is
 highly transparent to the 128-nm VUV photons with a Rayleigh
 scattering length of (66~$\pm$~3)~cm~\cite{Rayleigh} and absorption
-length of $>$200~cm; this attenuation length requires a LN2
+length of $>$200~cm; this attenuation length requires a LN$_2$
   content of less than 20~ppm. The relatively large light yield makes
 the scintillation process an excellent candidate for determination of
 $t_0$ for non-beam related events. Detection of the scintillation
@@ -41,37 +49,38 @@ enable 3D spatial localization of candidate events. The TPC will
 provide supernova neutrino detection. 
 The photon system will provide the $t_0$ timing of
 events relative to TPC timing with a resolution better than 1~$\mu$s
-(providing position resolution along drift direction of a couple of mm). 
+(providing position resolution along the drift direction of a couple of mm). 
 
 Figure~\ref{fig:PD_overview} shows the layout for the photon detector
-system, which will be described in the following sections.
-\begin{cdrfigure}[Photon detection system overview]{PD_overview}{Overview of the PD
-    system showing a cartoon schematic (a) of a single PD module
+system described in this section. %, which will be described in the following sections.
+\begin{cdrfigure}[Photon detection system overview]{PD_overview}{Overview of the PDS
+    system showing a cartoon schematic (a) of a single PDS module
     in the LAr and the channel ganging scheme used to reduce the
-    number of readout channels. Panel (b) shows how each PD module
-    will be inserted into an APA frame. There will be 10 PDs instered
+    number of readout channels. Panel (b) shows how each PDS module
+    will be inserted into an APA frame. There will be 10 photon detectors (PDs) inserted
     into an APA frame.}
 \includegraphics[width=1.0\linewidth]{pd_schem.png}
 \end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Photon Detector Modules}
+\subsection{Photon detector modules}
 
-There are two styles of photon detector (PD) modules being produced for protoDUNE.  
+Two styles of PDS %photon detector (PD) 
+modules are being produced for ProtoDUNE-SP.  
 The concepts are very similar, but differ in the number of times the LAr scintillation 
 light is shifted.  
 
-The reference design shown schematically in figure~\ref{fig:PD_RadiatorBar}
-has wavelength shifting radiator plates mounted on a wavelength shifting light guide.
+The reference design shown schematically in Figure~\ref{fig:PD_RadiatorBar}
+has wavelength-shifting radiator plates mounted on a wavelength-shifting light guide.
 The plates are coated 
 with tetraphenyl-butadiene (TPB) to produce blue ($430nm$) light from the $128nm$ VUV 
 scintillation light.  
 This blue light is absorbed by a commercially produced wavelength shifting (WLS)
 polystyrene bar with Y-11 fluor.  
 The bar serves as a light guide to transmit the green light to the photodetector 
-mounted at the end.
+mounted at its end.
 The radiator plates are captive in mounting blocks that are glued to the WLS bar
-at regular intervals as shown in figure~\ref{fig:PD_radiator_mount}.
+at regular intervals as shown in Figure~\ref{fig:PD_radiator_mount}.
 \begin{cdrfigure}[Radiator Plate Mounting Blocks]{PD_radiator_mount}
   {Mounting of the radiator plates to the WLS bar for the reference design scheme}
 \includegraphics[width=1.0\linewidth]{PD_radiator_mount.PNG}
@@ -83,16 +92,19 @@ Instead, the bar is made by dip-coating an acrylic light guide with a solution
 of TPB, solvents, and a surfactant to produce a bar with the wavelength shifter coated
 on the outside.  
 This has advantages in that the expensive fluor is only on the outside where it is
-needed, instead of a dopant added during the casting process.  
-It also only has one wavelength shifting step, and should be more efficient because
+needed, instead of being used as a dopant added during the casting process.  
+It also has only one wavelength shifting step, and should be more efficient because
 of this.  
 Previous work for DUNE with this technique showed that the attenuation length, and
-therefore light yield would suffer from the coating process, but bars produced with
-the latest technique as shown in~\cite{conrad_jinst} have been shown to have avoided
+therefore the light yield, would suffer from the coating process, but bars produced with
+the latest technique as shown in~\cite{conrad_jinst} have %been shown to have 
+avoided
 this problem.
 
 %%%%%%%%%%%%%
 \subsubsection{Rel Light yield of alternatives}
+
+\fixme{Is this ``Relative'' light yield?}
      % -IU Tallbo -- Denver/Stuart
      %Results of testing
      %Fit to Determine Light Yield
@@ -101,7 +113,7 @@ A systematic investigation of promising technologies has been performed on
 many different versions of light collection techniques and guides at the 
 TallBo facility at Fermilab.
 A test in the summer of 2015 was conducted on the very technologies that 
-were chosen for protoDUNE. Make Ref (DUNE DocDB 138, JINST 11 C05019)
+were chosen for ProtoDUNE-SP. \fixme{Make Ref (DUNE DocDB 138, JINST 11 C05019)}
  
 
 %%%%%%%%%%%%%
@@ -114,12 +126,12 @@ were chosen for protoDUNE. Make Ref (DUNE DocDB 138, JINST 11 C05019)
 The testing at TallBo has also been used to connect the relative detector
 efficiencies to an absolute light yield that can be used to tune the simulation
 yields.  
-A Monte-Carlo simulation of incident muons in the TallBo dewar, along with ray tracing
+A Monte Carlo simulation of incident muons in the TallBo dewar, along with ray tracing
 of the VUV photons was used to normalize the incident flux of photons impinging on the
 light collection paddles.  
-The light yield in the measurements are then used to determine the average detection 
+The light yield in the measurements were then used to determine the average detection 
 probability for a given detector under test.
-Light yield data for the two protoDUNE paddle types were very similar, justifying
+Light yield data for the two ProtoDUNE-SP paddle types were very similar, justifying
 a larger test with additional paddles to detemine the most efficient detector 
 technology and allow for further refinements.
 
@@ -133,15 +145,16 @@ technology and allow for further refinements.
      %     guide
      %     dipped guide
      %QA/QC tracking and testing plan  
-Several tests have been performed on the light guide paddles, and testing will 
+Several tests have been performed on the light-guide paddles, and testing will 
 continue through DUNE to make sure the paddles are sufficiently robust for the
 required lifetime.
 Light guides based on cast polystyrene and acrylic have been tested 
-extensively in LN2 and LAr at Indiana University and in LAr at Fermilab.
+extensively in LN$_2$ and LAr at Indiana University and in LAr at Fermilab.
 No crazing or degradation even after multiple thermal cycles has been seen.
 Degradation of the TPB coating has been demonstrated due to UV light.
 This was seen in exposure to fluorescent lights and direct sunlight.
-Testing with light that has been filtered has been shown to prevent damage
+Testing with filtered light %that has been filtered 
+has been shown to prevent damage
 to the TPB coating and will be deployed everywhere the photon detectors
 could be exposed.
 Additional testing for environmental degradation due to humidity and 
@@ -152,15 +165,15 @@ period to determine the required environmental conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sensors}
 The planned photodetector is a SiPM.  
-The model planned for protoDUNE is the SensL C-Series 6~mm$^2$
-(MicroFB-60035-SMT) devices. These SiPMs have detection efficiency of
+The model planned for ProtoDUNE-SP is the SensL C-Series 6~mm$^2$
+(MicroFB-60035-SMT) device. These SiPMs have detection efficiency of
 41\%; the detection efficiency combines QE and effective area
   coverage accounting for dead space between pixels. While the
 C-Series SensL SiPMs are not rated for operation below
 $-$40$^{\circ}$~C their performance has been excellent for this
 application. 
 They have been used in several tests at Fermilab test facilities,
-TallBo and Blanche, and were used for the 35T prototype detector
+TallBo and Blanche, and were used for the 35-ton prototype detector
 as well.  At LAr temperature (89~K) the dark rate is of order 10~Hz
 (0.5 p.e. threshold) while after-pulsing has not been an
 issue. Extensive testing is underway and will continue, to ensure 
@@ -170,32 +183,33 @@ any thermal cycling in LAr and long-term operation at LAr temperature.
 %%%%%%%%%%%%%
 \subsubsection{SiPM performance and testing}
 
-All photodetectors for protoDUNE will be subjected to testing to determine:
+All photodetectors for ProtoDUNE-SP will be subjected to testing to determine
 \begin{itemize}
-\item Forward and reverse bias I-V curves
-\item Breakdown Voltage
-\item Dark current and dark count rate
-\item Photodetector Gain 
-\item Crosstalk estimation
-\item Response
-\item Bias dependence of parameters
+\item forward and reverse bias I-V curves,
+\item breakdown Voltage,
+\item dark current and dark count rate,
+\item photodetector gain,
+\item crosstalk estimation,
+\item response, and
+\item bias dependence of parameters.
 \end{itemize}
-All SiPMs will be tested before mounting on the readout boards to determine
+%All SiPMs 
+Each SiPM will be tested before mounting on the readout boards to determine
 if the part meets the specifications in a warm test.  After mounting to
 the readout board all items will be tested both warm and cold (cyrogenic 
-temperature) to determine the operating characteristics when they will be 
-installed at the protoDUNE detector, and during QA/QC tests on the PD modules.
+temperature) to determine the operating characteristics as when %they will be 
+installed at the ProtoDUNE-SP detector, and during QA/QC tests on the PDS modules.
 
 In addition to these tests, the photodetectors will be tested for their
 response to light signals from an LED with appropriate wavelength.
-These tests will be sensitive enough to determine if one of the 3 SiPM
+These tests will be sensitive enough to determine if one of the three SiPM
 elements in parallel is not functioning.
 
 
 %%%%%%%%%%%%%
 \subsubsection{SiPM Lifetime}
-Aging studies have been performed to investigate the aging of the devices at 
-cryogenic temperatures as a result of exposure to light over time.
+Studies have been performed to investigate the ageing of the SiPM devices over time at 
+cryogenic temperatures as a result of exposure to light.
 Currently, a set of 63 devices have been tested for degradation.
 The SensL Series C SiPMs showed no evidence for degradation in their 
 performance in the equivalent of 250 years of exposure underground at DUNE. 
@@ -208,20 +222,29 @@ now.
 A passive aging test was initiated in March 2015 to follow the
 behavior of six SensL series C SiPMs in a simulation of the benign
 DUNE environment. These SiPMs have been continuously in the
-dark in LN2 for over 425 days. Four properties have been monitored:
+dark in LN$_2$ for over 425 days. Four properties have been monitored:
 dark noise rate, cross talk probability, breakdown voltage, and gain
 slope. So far, the measurements show that there
 have been no significant changes in these properties during the
 duration of the test.
 Detailed test results can be found in DUNE-doc-905. (make a reference)
 
-In addition to these tests, the C series SiPMs have been used for the
+%In addition to these tests, the C series SiPMs have been used for the
+%readout of modules that were built to test the relative light yield of
+%different light guide technologies in the TallBo tests.  In this testing 
+%An additional 80 SiPMs have been used successfully in this testing that 
+%required their deployment at cryogenic temperatures in a vessel with 
+%similar conditions to what they will be exposed to in the experiment.
+%None of the SiPMs deployed in this way have failed.
+
+
+In addition to these tests, an additional 80 of the C series SiPMs have been used for the
 readout of modules that were built to test the relative light yield of
-different light guide technologies in the TallBo tests.  In this testing 
-an additional 80 SiPMs have been used successfully in testing that 
-required their deployment at cryogenic temperatures in a vessel with 
-similar conditions to what they will be exposed to in the experiment.
-None of the SiPMs deployed in this way have failed.
+different light guide technologies in the TallBo tests.  %In this testing 
+This testing 
+required the SiPMs' deployment at cryogenic temperatures in a vessel with 
+similar conditions to those expect to be present during experiment operations. 
+This testing has been successful; none of the SiPMs deployed in this way have failed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mechanical design and installation}
@@ -229,17 +252,18 @@ None of the SiPMs deployed in this way have failed.
 
    %  Mechanical Design Mounting 
 
-The PD system is mounted as modules on the APA frames.  A PD module is
-the combination of one light-guide (also called a ``bar'' due to its
-shape) and 12 SiPMs, as shown in Figure~\ref{fig:PD_overview}~(a).  To
-enable this, the the reference design for mounting the PDs onto the
-APA frames calls for ten PD modules per APA, approximately 2.2-m long,
+
+The PDS system is configured as a set of \textit{modules} that are mounted on the APA frames.  A PDS module is
+the combination of one light guide (also called a ``bar'' due to its
+shape) and 12 SiPMs, as shown in Figure~\ref{fig:PD_overview}~(a).  %To enable this, the the reference design for mounting the PDs onto the
+The reference design for the APA frames calls for ten PDS modules per APA, approximately 2.2-m long,
 86-mm wide and 6-mm thick, equally spaced along the full length of the
 APA frame, as shown in Figure~\ref{fig:PD_overview}~(b). 
 The light guides are inserted into the APA frame on rails gliding on their radiator
-plate mounting blocks as shown in figure~\ref{fig:PD_mounting_inslide.PNG}.
-\begin{cdrfigure}[Diagram of PD installation into APA frame]
-  {PD_mounting_inslide}{Rendering of the installation of a PD module
+plate mounting blocks, as shown in Figure~\ref{fig:PD_mounting_inslide.PNG}.
+
+\begin{cdrfigure}[Diagram of PDS installation into APA frame]
+  {PD_mounting_inslide}{Rendering of the installation of a PDS module
     into an APA frame, shown just before it comes to rest on the inside face
     of the APA tube.}
 \includegraphics[width=0.50\linewidth]{PD_mounting_inslide.PNG}
@@ -249,48 +273,48 @@ The system has been prototyped and test fitted with a module at CSU
 as shown in Figure~\ref{fig:PD_flat_installtest}.
 \begin{cdrfigure}[Photo of PD mock installation]
   {PD_flat_installtest}{Photograph of the installation
-    test of a mock PD module in a 1/5 section of an APA frame.}
+    test of a mock PDS module in a 1/5 section of an APA frame.}
 \includegraphics[width=0.50\linewidth]{pd_flat_installtest.jpg}
 \end{cdrfigure}
 
   %   Mechanical Design SiPM mounting board
 
-Each PD has a single SiPM mounting board with 12 surface mount SiPMs 
-mounted on the face as in figure~\ref{fig:PD_SiPM_PCB_front}.
-There will be four groups of $3$ SiPM elements going to a single 
-channel of readout electronics in order to reduce cost of the readout.
+Each photon detector has a single SiPM mounting board with 12 surface-mount SiPMs 
+mounted on the face as in Figure~\ref{fig:PD_SiPM_PCB_front}.
+Four groups of $3$ SiPM elements will go to a single 
+channel of readout electronics in order to reduce the cost of the readout.
 The board is held close to the bar, without touching, by four screws that go into 
-tapped holes on the end  mounting block that is glued to the bar.  
-The mounting block assembly is shown in figure~\ref{fig:PD_endblock_mnt}.
+tapped holes on the end mounting block that is glued to the bar.  
+The mounting block assembly is shown in Figure~\ref{fig:PD_endblock_mnt}.
 The circuit board also has holes at each end for mounting to the APA frame.  
-\begin{cdrfigure}[SiPM Mounting Board with 12 SiPMs mounted]
+\begin{cdrfigure}[SiPM mounting board with 12 SiPMs mounted]
   {PD_SiPM_PCB_front.PNG}{Photograph of a SiPM mounting board
     with the full complement of 12 SiPMs installed on the board.}
 \includegraphics[width=0.50\linewidth]{PD_SiPMMountPCB_front.PNG}
 \end{cdrfigure}
-\begin{cdrfigure}[SiPM Mounting Board attached to Module]
+\begin{cdrfigure}[SiPM mounting board attached to PDS module]
   {PD_endblock_mnt.PNG}{Rendering of the the SiPM mounting board
-    installed on the end of the PD module before insertion.}
+    installed on the end of the PDS module before insertion.}
 \includegraphics[width=0.50\linewidth]{PD_endblock_mnt.PNG}
 \end{cdrfigure}
 
   %   Mechanical Design Cabling
 
-The cabling plan for the system has one cable with 4 shielded twisted pairs 
+The cabling plan for the system has one cable with four shielded twisted pairs 
 connected to each SiPM mounting board via the surface mount RJ-45 connector
 shown mounted on the back of the readout PCB in 
-figure~\ref{fig:PD_SiPMMountPCB_back.PNG}.  
+Figure~\ref{fig:PD_SiPMMountPCB_back.PNG}.  
 \begin{cdrfigure}[Readout board with RJ-45 connector]
   {PD_SiPMMountPCB_back}{Photograph of the SiPM readout PCB with the 
     RJ-45 connector for the cable.}
 \includegraphics[width=0.50\linewidth]{PD_SiPMMountPCB_back.PNG}
 \end{cdrfigure}
 The cables run through the APA tubing to the top of the APA frame as seen
-in figure~\ref{fig:PD_cable_intube}.
+in Figure~\ref{fig:PD_cable_intube}.
 The cable bundles are installed and connected to each PD 
 after the PD has been installed into the slot.
 \begin{cdrfigure}[Cables in APA frame]
-  {PD_cable_intube}{Diagram showing the routing of the PD cables
+  {PD_cable_intube}{Diagram showing the routing of the PDS cables
     through the APA frame.}
 \includegraphics[width=0.50\linewidth]{PD_cable_intube.PNG}
 \end{cdrfigure}
