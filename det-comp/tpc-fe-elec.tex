@@ -855,7 +855,7 @@ will provide the 12V/3.3A to each WIB via the PTC, and 1 channel will provide LV
 to the PTC itself, with 2 of the 8 channels unused.
 
 \begin{cdrfigure}[MPOD DSUB37 top connector]{tpcce_mpod_top}{MPOD DSUB37 top connector.}
-\includegraphics[width=0.7\linewidth]{tpcce_mpod_top.png}
+\includegraphics[width=1.0\linewidth]{tpcce_mpod_top.png}
 \end{cdrfigure}
 
 The same MPOD will supply the wire bias voltage to 8 SHV connectors at the CE flange.
@@ -873,7 +873,7 @@ each channel will be fused at 3A at the MPOD end of the cable. The 3 pins will b
 going to one wire large enough to carry the full supply voltage. The fusing is
 the final protection: the main protection with be the Over Current protection
 on the MPOD, which will be set above the 3.3A required by each WIB, but below the
-combined fuse value. The bottom of the fuse PCB is shown in Figure~\ref{tpcce_fused_cable}.
+combined fuse value. The bottom of the fuse PCB is shown in Figure~\ref{fig:tpcce_fused_cable}.
 
 \begin{cdrfigure}[Bottom of the fuse PCB]{tpcce_fused_cable}{Bottom of the fuse PCB at the MPOD end of the cable.}
 \includegraphics[width=0.7\linewidth]{tpcce_fused_cable.png}
@@ -911,7 +911,7 @@ to the CE flanges is estimated to be 18~meters.
 
 Optical fiber will be the only connection out of the Faraday box provided by the WEC to either 
 the DAQ or slow control. Each WIB will use QSFP sockets, so each WIB/RCE connection will require 
-4 pairs of fiber, as described in Section~\ref{subsubsec:Warm_interface_board}.  ProtoDUNE has 
+4 pairs of fiber, as described in Section~\ref{subsubsec:warm_interface_board}.  ProtoDUNE has 
 30 WIB, so it will require 120 pairs of optical data fiber. MPO multimode fiber cable assemblies 
 are being considered; however the final choice has not been made. The optical fibers from
 the CE flanges to the DAQ room are an estimated 30-40m in length.
@@ -933,7 +933,8 @@ and taking them through multiple thermal cycles.
 An automated test board was built for the FE ASIC (Fig.~\ref{tpcce_FE_TestBoard})
 to evaluate large numbers of FE ASICs at room temperature,
 and another such board is currently being designed for the ADC ASIC.
-\begin{cdrfigure}[Power and timing backplane]{tpcce_FE_TestBoard}{Power and Timing Backplace (PTB).}
+
+\begin{cdrfigure}[FE ASIC testboard]{tpcce_FE_TestBoard}{FE ASIC testboard.}
 \includegraphics[width=0.7\linewidth]{tpcce_FE_TestBoard.pdf}
 \end{cdrfigure}
 
@@ -982,26 +983,26 @@ to a simple DAQ system to ensure reliable operation.
 an initial calibration of all electronic channels will be performed.
 The electronic gains and noise levels of all channels will be recorded in a database.
 \item Electronic calibration on all channels will be performed while the APA is cold and again after it is warmed up.
-Significant differences in the cold and warm calibration results will be investigated and remediated.  
+%Significant differences in the cold and warm calibration results will be investigated and remediated.  
 \end{itemize}
 
 %
 %%%%%%%%%%%%%%%%
-\subsection{Commissioning } 
-\label{subsec:ce_install_commission}
+%\subsection{Commissioning } 
+%\label{subsec:ce_install_commission}
 
-During installation, the DAQ system will be running continuously.
-As soon as each stack of APAs is connected to the pre-routed cables, 
-a suite of calibration runs will be performed to validate that all connections have been made properly.
-Repair or replacement at this stage will still be straightforward.
+%During installation, the DAQ system will be running continuously.
+%As soon as each stack of APAs is connected to the pre-routed cables, 
+%a suite of calibration runs will be performed to validate that all connections have been made properly.
+%Repair or replacement at this stage will still be straightforward.
 
-Following the installation of the APAs and the sealing of the cryostat,
-another complete test will be performed to verify the integrity of the cold electronics before the filling with argon.
-After the cryostat is filled with LAr and the detector is cooled down,
-an electronics calibration test will be performed to evaluate
-the detector performance prior to data taking.
+%Following the installation of the APAs and the sealing of the cryostat,
+%another complete test will be performed to verify the integrity of the cold electronics before the filling with argon.
+%After the cryostat is filled with LAr and the detector is cooled down,
+%an electronics calibration test will be performed to evaluate
+%the detector performance prior to data taking.
 
-\fixme{Space-permitting, it seems to me that more details on commissioning would be in order.}
+%\fixme{Space-permitting, it seems to me that more details on commissioning would be in order.}
 %
 
 
