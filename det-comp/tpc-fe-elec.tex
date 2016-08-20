@@ -407,6 +407,8 @@ for two different gains, 14~mV/fC and 25~mV/fC.}
 \includegraphics[width=4in]{tpcce_enc_25mV.jpg}
 \end{cdrfigure}
 
+\fixme{Outdated text in the following pp? - Matt}
+
 Figure~\ref{fig:tpcce_enc} shows the measured ENC versus filter-time constant (peaking time) for two different gains.
 At 1~$\mu$s about 650 e$^{-}$ was measured, to be compared to the simulated value of 500 e$^{-}$.
 The difference is mainly due to the thermal noise from a $\sim$11-ohm parasitic resistance of the input
@@ -880,7 +882,7 @@ combined fuse value. The bottom of the fuse PCB is shown in Figure~\ref{fig:tpcc
 \end{cdrfigure}
 
 The 5 separate 12V/3.3A channels to the WIBs will be delivered to the WEC at the PTC described
-in Section~\ref{subsubsec:pouer_timing_card}. The PTC will have two normal DSUB37 connectors to
+in Section~\ref{subsubsec:power_timing_card}. The PTC will have two normal DSUB37 connectors to
 attach the LV power cable. The fusing for the sense wires will be implemented on the PTC.
 
 The PTC will fan the LV out to the WIB over the backplane. Each WIB will do the DC-to-DC conversion
@@ -930,7 +932,7 @@ current draw for each WIB can be monitored by slow control at the MPOD.
 Dedicated test boards for the FE ASIC and ADC ASIC,
 were used to characterize the performance of prototype ASICs at both 300~K and 77~K,
 and taking them through multiple thermal cycles.
-An automated test board was built for the FE ASIC (Fig.~\ref{tpcce_FE_TestBoard})
+An automated test board was built for the FE ASIC (Fig.~\ref{fig:tpcce_FE_TestBoard})
 to evaluate large numbers of FE ASICs at room temperature,
 and another such board is currently being designed for the ADC ASIC.
 
