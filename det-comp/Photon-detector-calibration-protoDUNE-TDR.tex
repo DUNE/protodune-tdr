@@ -1,5 +1,5 @@
 
-\subsection{Photon Detector UV-Light Calibration Monitoring System}
+\subsection{Photon Detector UV-Light Monitoring System}
 \label{sec_pd_calib}
 
 \fixme{Anne removed all commented text from previous version; it is still available in the repository if needed. 8/18}
@@ -45,25 +45,18 @@ wavelength starting from the wavelength-shifter conversion, light guide propagat
 Figure~\ref{fig:fig-c-1} illustrates the system design schematically. The system consists of a 1U rack mount Light Calibration Module (LCM) sitting outside the cryostat. The LCM generates light pulses that propagate through a quartz fiber-optic cable to diffusers at the CPA to distribute the light uniformly across the photon detectors mounted within the APA.  ProtoDUNE-SP will have five light 
 diffusers on the CPA plane: one in the center and four diffusers close to the CPA corners, as illustrated in Figure~\ref{fig:fig-c-2}. 
 %
- \begin{figure}[h]
-  \centering
+ \begin{cdrfigure}[UV-light monitoring system]{fig:fig-c-1}{Concept of the UV-light monitoring system for the photon detector in liquid argon.}
 \includegraphics[angle=0,width=10cm,height=7cm]{calPD_concept-from-35ton.pdf}
-\caption{Concept of the UV-light calibration system for the photon detector in liquid argon.}
-\label{fig:fig-c-1}
-\end{figure}
+\end{cdrfigure}
 %
 %
- \begin{figure}[h]
-  \centering
-  %[angle=0,width=6cm,height=7cm] 2nd is 8 and 8
+\begin{cdrfigure}[Deployment of PDS UV-light monitoring system]{fig-c-2}{The diffuse light is emitted from diffusers (top and bottom left figure) mounted at five CPA locations, indicated by arrows (right figure). 
+The UV light from the light calibration system to diffusers is transported through quartz fiber.}
 \includegraphics[angle=0,width=0.4\textwidth]{calPD_Calibration_diffuser_system_protoDUNE_slide_left_half.pdf}
 \includegraphics[angle=0,width=0.55\textwidth]{calPD_Calib_diffuser_locations_protoDUNE.pdf}
-\caption{The diffuse light is emitted from diffusers (top and bottom left figure) mounted at five CPA locations, indicated by arrows (right figure). 
-The UV light from the light calibration system to diffusers is transported through quartz fiber.}
-\label{fig:fig-c-2}
-\end{figure}
+\end{cdrfigure}
 
-\fixme{Please use cdrfigure environment; and left hand figure's text is way too small}
+\fixme{left hand figure's text is way too small}
 %
 %
 For the 280-nm light \fixme{is this what you're calling VUV? Or just UV? Please use consistent terminology throughout} a simulation of the designed diffuse light calibration system has been performed using TracePro, a generalized 3D light ray-tracing program with the ability 
@@ -72,14 +65,11 @@ As an example, Figure~\ref{fig:fig-c-4} shows simulated light distributions at a
 or by the outer four diffusers simultaneously (right figure). 
 
 %
- \begin{figure}[h]
-  \centering
+ \begin{cdrfigure}[UV-light monitoring illumination calculation]{fig:fig-c-4}{Simulated light distributions of at the APA location for the cases of the VUV light emitted by either the central diffuser only (left figure), or by outer four diffusers simultaneously (right figure).
+The simulation estimate has been obtained for 35-ton detector and scaled by to 3.6 m CPA - APA distance at ProtoDUNE-SP.}
 \includegraphics[angle=0,width=6.5cm,height=6cm]{calPD_4mx4m-area-3point6m-away-quantified.png}
 \includegraphics[angle=0,width=6.5cm,height=6cm]{calPD_figR.pdf}
-\caption{Simulated light distributions of at the APA location for the cases of the VUV light emitted by either the central diffuser only (left figure), or by outer four diffusers simultaneously (right figure).
-The simulation estimate has been obtained for 35-ton detector and scaled by to 3.6 m CPA - APA distance at ProtoDUNE-SP.}
-\label{fig:fig-c-4}
-\end{figure}
+\end{cdrfigure}
 %
 
 The LCM as well as the full prototype of the light calibration system system has been built, tested and successfully operated with 35-ton LArTPC at Fermilab. The LCM is shown in Figure~\ref{fig:fig-c-3}. 
@@ -93,12 +83,9 @@ The adjacent odd channels are used to read out a reference photodiode used for p
 the response of the SiPMs in the detector to the calibration pulse.
 
 %
- \begin{figure}[h]
-  \centering
+ \begin{cdrfigure}[]{fig:fig-c-3}{Photon detector light calibration module (LCM) front (left) and back (right) ends.}
 \includegraphics[angle=0,width=7cm,height=4.5cm]{calPD_LCM_front.png}\includegraphics[angle=0,width=7cm,height=4.5cm]{calPD_LCM_back.png}
-\caption{Photon detector light calibration module (LCM) front (left) and back (right) ends.}
-\label{fig:fig-c-3}
-\end{figure}
+\end{cdrfigure}
 
 
 %A prototype of this light calibration monitoring system has been designed, tested, installed, integrated, and operated with the 35-ton DUNE prototype detector.
@@ -111,13 +98,9 @@ The length of optical fiber cables used %with the 35-ton detector
 was $\sim$22 m total, including external fibers (7 m), and fiber feed-through and internal fibers (15 m).
 
 %
- \begin{figure}[hhh!!!]
-  \centering
-
+ \begin{cdrfigure}[Detected UV-light monitoring system light pulses]{fig:fig-wf}{Photon detector light calibration pulses detected by readout electronics. Recorded waveforms have range from few photo-electrons (left figure), to tens of photo-electrons (middle figure), to hundreds of photo-electrons (right figure).}
 \includegraphics[angle=0,width=5cm,height=4cm]{calPD_example_ch21_run18573.pdf}\includegraphics[angle=0,width=5cm,height=4cm]{calPD_example_ch21_run18574.pdf}\includegraphics[angle=0,width=5cm,height=4cm]{calPD_example_ch21_run18572.pdf}
-\caption{Photon detector light calibration pulses detected by readout electronics. Recorded waveforms have range from few photo-electrons (left figure), to tens of photo-electrons (middle figure), to hundreds of photo-electrons (right figure).}
-\label{fig:fig-wf}
-\end{figure}
+\end{cdrfigure}
 %
 In the DUNE prototypes (e.g., the ProtoDUNE-SP) and in future DUNE far detector modules it will be important to %check if 
 verify the proper functioning of photon-detector components %are functioning properly 

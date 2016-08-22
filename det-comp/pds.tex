@@ -162,6 +162,59 @@ temperature conditions that the components could experience in transit and
 after installation, but before detector filling will continue throughout this
 period to determine the required environmental conditions.
 
+\subsection{Experimental Detectors}
+While a sufficient number of the two standard arrays are being produced to
+fully outfit protoDUNE-SP, it is possible that some will bays will have 
+experimental detectors installed in place of the standard arrays.  
+One type of detector that is being developed in an attempt to increase the
+light detection eficiency is called an ARAPUCA.
+
+The ARAPUCA is a device based on a new technology that should allow to collect photons with a large area window with detection efficiencies at the level of several percent 
+while using active photon detectors with much smaller area.
+The fundamental idea of the ARAPUCA is to trap photons inside a box with highly reflective internal surfaces, so that the detection efficiency of trapped photons is high even with a 
+limited active coverage of its internal surface \cite{arapuca_jinst}.\\
+
+Photon trapping is achieved by using a clever wavelength-shifting technique coupled with the technology of dichroic shortpass optical filters. The latter are multilayer acrylic films that are
+highly transparent to photons with a wavelength below a tunable cut-off while being almost perfectly reflective to photons with wavelength above the cut-off. 
+A dichroic shortpass filter deposited with two different wavelength shifters (one on each side) will be the core of the device. In particular, it will be the acceptance window of the 
+ARAPUCA.\\
+The rest of the device will be a flattened box with highly reflective internal surfaces (PTFE, 3M-VIKUITI ESR, \dots), covered by the 
+dichroic filter deposited with the two shifters. In principle the box can be filled with any kind of transparent material, since it is inessential to its operation. In our case the material in the 
+box is LAr that is known to be perfectly transparent to light.
+A fraction of the internal surface of the box is occupied by the active photo-sensors (Silicon Photomultipliers - SiPM) that detect trapped photons.\\
+
+%*****************************FIGURE 1*****************************%
+\begin{cdrfigure}[ARAPUCA operating principle]{operating_principle}{Schematic of the operating principle of the ARAPUCA. VUV photons are converted, on the external side of the dichroic filter, to a wavelength L$_1$ below the cut-off. Half of 
+them crosses the filter and are converted to a wavelength L$_2$, above the cut-off, by the internal shifter. Since the filter is reflective for wavelengths above the cut-off, the photons are 
+trapped inside the box and after few reflections are detected by the SiPM.}
+\includegraphics*[width=10.cm]{operating_principle}
+\end{cdrfigure}
+%***********************************************************************%
+
+The shifters deposited on the two faces of the dichroic filter, S$_1$ and S$_2$ respectively, must have their emission wavelengths, L$_1$ and L$_2$, such that:  
+L$_1$ $<$ L$_{cut-off}$$ <$ L$_2$, where L$_{cut-off}$ is the cut-off wavelength of the filter, that is the limit between the region of full transparency (typically $>$ 95\%) and that of full
+ reflectivity (typically $>$ 98\%). The side of the filter deposited with S$_2$ is on the internal part of the box.\\
+ The operating principle is schematically illustrated in figure \ref{operating_principle}.\\
+ 
+ Two prototypes of the ARAPUCA device have been realized and tested at room and cryogenic temperature (in a LAr evironment) and the effectiveness of the trapping process has been 
+ proven in both cases.\\
+
+Two arrays of small ARAPUCAs are planned to be installed inside protoDUNE to test the devices in a real experimental situation and to directly compare their performances with those of the standard guiding bars and other eventual alternative photon detection schemes.\
+
+While the final mechanical design is still under development the arrays will be compatible with the mechanical solutions foreseen for the guiding bars and will have no impact on the construction of the detector. Each of the arrays will replace one bar and will be composed of 8 ARAPUCAs/bar (for a total of 16 devices)  as shown in figure \ref{arapuca_array}.
+%*****************************FIGURE 2*****************************%
+\begin{cdrfigure}[ARAPUCA array configuration]{arapuca_array}{One ARAPUCA array of 8 devices installed in a APA frame in place of a scintillating bar.}
+\includegraphics*[width=8.cm]{APA_ARAPUCA}
+\end{cdrfigure}
+%***********************************************************************%
+
+Each ARAPUCA will be a teflon box with dimensions of 5$\times$5$\times$1 cm$^3$ with an acceptance window of 5$\times$5 
+cm$^2$, will use a filter with cut-off at 400 nm deposited with p-terphenyl and tetraphenyl-butadiene. The trapped light will be detected by 2 SiPM of the same type as the light guide bars.(SensL 60035 - 6$\times$6 mm$^2$ 
+active area each).
+
+The readout scheme is expected to gang the SiPMs from two ARAPUCAs (4 sensors) so that each array will require 4 read-out channels. 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sensors}
 The planned photodetector is a SiPM.  
@@ -248,10 +301,8 @@ This testing has been successful; none of the SiPMs deployed in this way have fa
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mechanical design and installation}
-     % -- CSU  -- Dave
-
-   %  Mechanical Design Mounting 
-
+  % -- CSU  -- Dave
+  %  Mechanical Design Mounting 
 
 The PDS system is configured as a set of \textit{modules} that are mounted on the APA frames.  A PDS module is
 the combination of one light guide (also called a ``bar'' due to its
@@ -322,9 +373,6 @@ after the PD has been installed into the slot.
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{PD Calibration}
 \input{det-comp/Photon-detector-calibration-protoDUNE-TDR}
-QC procedures and tracking are being developed in a separate document.
-  %   QA/QC tracking for components
-% This could be a whole document of its own.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
