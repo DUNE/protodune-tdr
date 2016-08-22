@@ -1,0 +1,14 @@
+This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
+Scanning style file /usr/local/texlive/2015/texmf-dist/makeindex/nomencl/nomencl.ist.......
+** Input style error (file = /usr/local/texlive/2015/texmf-dist/makeindex/nomencl/nomencl.ist, line = 70):
+   -- Unknown specifier lethead_prefix.
+** Input style error (file = /usr/local/texlive/2015/texmf-dist/makeindex/nomencl/nomencl.ist, line = 71):
+   -- Unknown specifier lethead_suffix.
+** Input style error (file = /usr/local/texlive/2015/texmf-dist/makeindex/nomencl/nomencl.ist, line = 72):
+   -- Unknown specifier lethead_flag.
+...done (10 attributes redefined, 3 ignored).
+Scanning input file /Users/phdmn/Work/DUNE/protodune-tdr/.texpadtmp/protodune-tdr.nlo....done (76 entries accepted, 0 rejected).
+Sorting entries....done (486 comparisons).
+Generating output file /Users/phdmn/Work/DUNE/protodune-tdr/.texpadtmp/protodune-tdr.nls....done (145 lines written, 0 warnings).
+Output written in /Users/phdmn/Work/DUNE/protodune-tdr/.texpadtmp/protodune-tdr.nls.
+Transcript written in /Users/phdmn/Work/DUNE/protodune-tdr/.texpadtmp/protodune-tdr.nlg.
