@@ -1,12 +1,11 @@
 %\chapter{det-comp}
 
-\fixme{NOTE FOR APA Reviewers:  This document is an excerpt from the forthcoming ProtoDUNE-SP TDR, to be submitted to CERN later in 2016.  The draft is still in development. }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Anode Plane Assemblies}
 
 Anode Plane Assemblies (APAs) are the detector elements utilized to sense ionization created by charged particles traversing the liquid argon volume inside the single-phase TPC.  ProtoDUNE-SP will feature six APAs, arranged in two rows of three, flanking either side of a central cathode plane.  This section describes the initial physics requirements that drive the APA design parameters, and provides a complete description of APA construction and testing procedures.
 
-\fixme{testing prior to installation?}
+\fixme{testing prior to installation? -  I assume this goes somewhere else - MPS}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope, requirements, design parameters}
@@ -37,31 +36,31 @@ Electron Angular Resolution & $<$1$^{\circ}$ \\
 Electron Energy Scale Uncertainty & $<$5$\%$\\
 \end{cdrtable}
 
-The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including: argon purity, drift distance, diffusion, wire pitch, and ENC.  ProtoDUNE-SP requires that MIPs originating anywhere inside the active volume of the detector be reconstructed with 100$\%$ efficiency.   The choice of wire pitch (i.e., $\sim$5 mm), combined with the design values of the other parameters just mentioned (and described in their respective sections of the TDR), should enable this 100$\%$ efficiency to be achieved for MIPs.
-\fixme{added ENC to acronyms-vol2; need to define it}
+\fixme{The physics requirement table was added mostly for the APA review.  I would happily delete this and refer to some better table, if one is added to the Physics section. - MPS}
 
-\fixme{I had trouble getting the gist of this next pgraph; please see rewrite below it}
-Precisely identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay) has direct impact on reconstruction efficiency.  The fine granularity of the LArTPC enables excellent performance in this task.  ProtoDUNE-SP requires a vertex resolution such that the fiducial volume, which among other factors determines the number of target nucleons that is a component in cross section measurements, in an analysis can be determined to $<$1$\%$.  This translates into a vertex resolution of $\sim$1.5 cm along each coordinate direction.  In practice, the resolution on the drift-coordinate ($x$) of a vertex/hit will be better than the resolution on its location in the $y-z$ plane, originating from the combination of drift-velocity and electronics sampling-rate.
+The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including: argon purity, drift distance, diffusion, wire pitch, and Equivalent Noise Charge (ENC).  ProtoDUNE-SP requires that MIPs originating anywhere inside the active volume of the detector be reconstructed with 100$\%$ efficiency.   The choice of wire pitch (i.e., $\sim$5 mm), combined with the design values of the other parameters just mentioned (and described in their respective sections of the TDR), should enable this 100$\%$ efficiency to be achieved for MIPs.
+
+
+%\fixme{I had trouble getting the gist of this next pgraph; please see rewrite below it}
+%Precisely identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay) has direct impact on reconstruction efficiency.  The fine granularity of the LArTPC enables excellent performance in this task.  ProtoDUNE-SP requires a vertex resolution such that the fiducial volume, which among other factors determines the number of target nucleons that is a component in cross section measurements, in an analysis can be determined to $<$1$\%$.  This translates into a vertex resolution of $\sim$1.5 cm along each coordinate direction.  In practice, the resolution on the drift-coordinate ($x$) of a vertex/hit will be better than the resolution on its location in the $y-z$ plane, originating from the combination of drift-velocity and electronics sampling-rate.
 %\fixme{double-check these vertex numbers, which are very likely incorrect at the moment.}
 
-\fixme{rewrite of above pgraph; if ok please delete previous paragraph} 
-The fine granularity of the LArTPC enables excellent precision in identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay), which has a direct impact on reconstruction efficiency. ProtoDUNE-SP requires that it be possible to determine the fiducial volume (via analysis) to $<$1$\%$ in order to reach a vertex resolution of $\sim$1.5 cm along each coordinate direction. (The fiducial volume, among other factors, determines the number of target nucleons, which is a component in cross section measurements.) In practice, the resolution on the drift-coordinate ($x$) of a vertex or hit will be better than that on its location in the $y-z$ plane, due to the combination of drift-velocity and electronics sampling-rate.
+%\fixme{rewrite of above pgraph; if ok please delete previous paragraph} 
+The fine granularity of the LArTPC enables excellent precision in identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay), which has a direct impact on reconstruction efficiency. ProtoDUNE-SP requires that it be possible to determine the fiducial volume (via analysis) to $<$1$\%$, which requires reaching a vertex resolution of $\sim$1.5 cm along each coordinate direction. (The fiducial volume, among other factors, determines the number of target nucleons, which is a component in cross section measurements.) In practice, the resolution on the drift-coordinate ($x$) of a vertex or hit will be better than that on its location in the $y-z$ plane, due to the combination of drift-velocity and electronics sampling-rate.
 
 
 %%%%%%%%%%%%
 \subsubsection{Overall physical description - connection to requirements.}
 \label{subsec:apa_phys_desc}
 
-Figure \ref{fig:tpc_apa1} depicts a diagram of a ProtoDUNE-SP APA.  Each side of an APA consists of three layers of sense wires, plus additional grid and mesh layers.  Collection plane wires (labeled ``X'') span vertically from the bottom of the APA to the top.  There are two planes of induction wires (labeled ``U'' and ``V'') that wrap in a helical fashion, around the long edge of the APA, from the bottom of the APA to the top.  A grid layer (labeled ``G'') also spans from the bottom of the APA to the top, and is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The arrangement of all layers, from the outside-in, is G-U-V-X-M. 
+%Figure \ref{fig:tpc_apa1} depicts a diagram of a ProtoDUNE-SP APA.  Each side of an APA consists of three layers of sense wires, plus additional grid and mesh layers.  Collection plane wires (labeled ``X'') span vertically from the bottom of the APA to the top.  There are two planes of induction wires (labeled ``U'' and ``V'') that wrap in a helical fashion, around the long edge of the APA, from the bottom of the APA to the top.  A grid layer (labeled ``G'') also spans from the bottom of the APA to the top, and is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The arrangement of all layers, from the outside-in, is G-U-V-X-M. 
+%
+%\fixme{rewrite above pgraph}
+Figure \ref{fig:tpc_apa1} depicts a ProtoDUNE-SP APA, each  side of which consists of three layers of sense wires, plus additional grid and mesh layers.  All wire layers span the entire height of the APA frame. Collection plane wires (labeled ``X'') run vertically.  Two planes of induction wires (labeled ``U'' and ``V'') wrap in a helical fashion around the long edge of the APA.  A grid layer (labeled ``G'') also spans the APA's height, but is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The ordering of the layers, from the outside-in, is G-U-V-X-M. 
 
-\fixme{rewrite above pgraph}
-Figure \ref{fig:tpc_apa1} depicts ProtoDUNE-SP APA, each  side of which consists of three layers of sense wires, plus additional grid and mesh layers.  All wire layers span the entire area of the APA frame. Collection plane wires (labeled ``X'') run vertically.  Two planes of induction wires (labeled ``U'' and ``V'') wrap in a helical fashion around the long edge of the APA.  A grid layer (labeled ``G'') also spans the APA's length, but is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The ordering of the layers, from the outside-in, is G-U-V-X-M. 
-
-\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. The frame with portions of three wire layers: X is dark blue, V is magenta and U is green.  All layers fill the entire frame area.  There is fourth layer, the G or grid layer, in which the wires run parallel to the X layer.}
+\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta) and X (blue), to accentuate their angular relationships to the frame and to each other.  All layers span the entire APA frame height. The induction layers (U and V) are connected electrically across both sides of the APA.  The wires in the grid layer, G (not shown), run vertically, parallel to the X layer wires.  A mesh layer is attached directly to the APA frame.}
 \includegraphics[width=0.8\textwidth, angle=90]{figures/tpc_apa1.png} 
 \end{cdrfigure}
-
-\fixme{Rewrite of fig caption: Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta) and X (blue), to accentuate their angular relationships to the frame and to each other.  All layers actually span the entire APA frame area on both sides of the APA structure. The induction layers (U and V) are connected electrically across both sides.  The wires in the grid layer, G (not shown), run vertically, parallel to the X layer wires. (What about M?)}
 
 Table \ref{tab:apaparameters} lists some of the high-level parameters of the APA design.
 
@@ -88,8 +87,7 @@ Photon Detector Slots & 10 \\
 \end{cdrtable}
 
 
-The APA layers are listed in Table \ref{tab:bias}, along with their operating voltages.  When operated at these voltages, the drifting ionization follows trajectories around the grid and induction wires, ultimately terminating on a collection plane wire; i.e., the grid and induction layers are completely transparent to drifting ionization, and the collection plane is completely opaque.  The grid layer is present for pulse-shaping purposes, effectively shielding the first induction plane from the drifting charge and removing the long leading edge from the signals on that layer; again, it is not connected to the electronics readout. The mesh layer serves to shield the sense planes from pickup from the Photon Detection System and  from ``ghost'' tracks that would otherwise be created when ionizing particles have a trajectory that passes through the planes.  \fixme{the M layer prevents creation of ghost tracks? or they exist but M shields the sense plates from them?}
-
+The APA layers are listed in Table \ref{tab:bias}, along with their operating voltages.  When operated at these voltages, the drifting ionization follows trajectories around the grid and induction wires, ultimately terminating on a collection plane wire; i.e., the grid and induction layers are completely transparent to drifting ionization, and the collection plane is completely opaque.  The grid layer is present for pulse-shaping purposes, effectively shielding the first induction plane from the drifting charge and removing the long leading edge from the signals on that layer; again, it is not connected to the electronics readout. The mesh layer serves to shield the sense planes from pickup from the Photon Detection System and from ``ghost'' tracks that would otherwise be visible when ionizing particles have a trajectory that passes through the collection plane. 
 
 \begin{cdrtable}[Baseline bias voltages for APA wire layers]{lr}{bias}{Baseline bias voltages for APA wire layers}   
 Anode Plane & Bias Voltage  \\ \toprowrule
@@ -107,7 +105,7 @@ In the current design of the single-phase DUNE detector module, a central row of
 Reconstruction of events recorded by the APAs will need to address ambiguities inherent to the wrapped wire design. This can occur when multiple isochronic hits are recorded, potentially leading to reconstructed hits that cannot be traced to unique wire-crossing positions in the detector.  The angle of the induction planes in the APA ($\pm$35.7$^{\circ}$) is chosen such that each induction wire only crosses a given collection wire one time, reducing the ambiguities that the reconstruction must address.  The design angle of the induction wires, coupled with their pitch, was also chosen such that an integer multiple of electronics boards reads out one APA.
 
 
-The choices of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and to provide the precision necessary for reconstruction.  The tension of 5~N, when combined with the intermediate support combs that will be described in the next section, \fixme{specify sec} ensure that the wires are held taught in place with no sag.  Wire sag can impact the precision of reconstruction, as well as the transparency of the TPC.  The tension of 5~N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in the following section. \fixme{specify sec}  To further mitigate wire breakage and its impact on detector performance, each wire in the APA is anchored twice on both ends, with both solder and epoxy.  Details of this arrangement are provided in the following sections. \fixme{specify sec} 
+The choices of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and to provide the precision necessary for reconstruction.  The tension of 5~N, when combined with the intermediate support combs that will be described in section \ref{subsec:apa_combs}, ensure that the wires are held taught in place with no sag.  Wire sag can impact the precision of reconstruction, as well as the transparency of the TPC.  The tension of 5~N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in section \ref{subsec:apa_wires}.  To further mitigate wire breakage and its impact on detector performance, each wire in the APA is anchored twice on both ends, with both solder and epoxy.  Details of this arrangement are provided in section \ref{subsubsec:apa_wire_wrap}. 
 
 
 %\begin{itemize}
@@ -134,10 +132,10 @@ The choices of wire tension and wire placement accuracy are made to ensure prope
 
 
 %%%%%%%%%%%%%%%%
-\subsection{APA physical description, Meeting requirements, Fabrication}
-\fixme{title needs fixing}
+\subsection{APA Physical Description and Fabrication}
 %%%%%%%%%%%%
 \subsubsection{Wires}
+\label{subsec:apa_wires}
 
 Beryllium copper (CuBe) wire is known for its high durability and yield strength. It is composed of $\sim$98$\%$ copper, approximately 1.9$\%$ beryllium, and a negligible amount of other elements. The DUNE APA wire has a diameter of 150$\mu$m (.006~in), and is strung in varying lengths across the apparatus. Three key properties for usage in the APA are: low resistivity, high tensile or yield strength, and coefficient of thermal expansion suitable for use with the APA's stainless steel frame.
 
@@ -206,7 +204,7 @@ Other advantages of this modular construction include easier transportation/ship
 
 \paragraph{Wire loads}
 
-The many wires strung across the frame, each with a 5-N tension ($\sim$1.1 lb), apply a large, compressive, in-plane load around the perimeter of the APA.  Finite element analysis has shown that the distortions caused by these loads are small, as shown in Figures \ref{fig:tpc_apa_distortion} and \ref{fig:tpc_apa_maxstress}.
+The many wires strung across the frame, each with a 5-N tension ($\sim$1.1 lb), apply a large, compressive, in-plane load around the perimeter of the APA.  Finite Element Analysis  (FEA) has shown that the distortions caused by these loads are small, as shown in Figures \ref{fig:tpc_apa_distortion} and \ref{fig:tpc_apa_maxstress}.
 
 \begin{cdrfigure}[APA Distortion]{tpc_apa_distortion}{Distortion of the APA frame under wire load.  Arrows are not shown across end tubes but loading is present as an evenly distributed load.  The maximum in-plane distortion seen with this loading is under 0.2~mm.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_distortion.png} 
@@ -224,7 +222,6 @@ Buckling from the compressive long-direction load will not be an issue:
 \end{itemize}
 
 \paragraph{Other FEA results}
-\fixme{define FEA in acronym list - finite element analysis?}
 Other FEA studies have been done to verify what hand calculations show: the APA structure is stiff enough to stay well within allowable deformation and stress limits for any expected load.  A few of these are shown in Figures \ref{fig:tpc_apa_distortion_simplesupport}, \ref{fig:tpc_apa_stress_simplesupport}, \ref{fig:tpc_apa_distortion_topcentersupport}, and \ref{fig:tpc_apa_stress_topcentersupport}.
 
 \begin{cdrfigure}[APA Distortion Simply Supported]{tpc_apa_distortion_simplesupport}{Deflection of APA simply supported at ends, flat orientation.}
@@ -251,26 +248,25 @@ Initially (through ProtoDUNE-SP), bare frame assembly will be in the main PSL bu
 
 Bare frames are mounted in carts used both for transport within the production building and as stands in which many fabrication processes occur, such as installing mesh, comb bases, additional combs, boards, and performing soldering and epoxying. These carts are called \textit{process carts}. 
 
-The mounting to the process cart is done using interface frames and trunnion kits that are also used in the wire winder. The trunnion kits provide for rotation to various angles about the APA's long (6-m) axis, and for holding the rotation angle fixed. \fixme{right?}
+The mounting to the process cart is done using interface frames and trunnion kits that are also used in the wire winder. The trunnion kits provide for rotation to various angles about the APA's long (6-m) axis, and for holding the rotation angle fixed.
 
 A small gantry crane and a set of jack stands are used to aid in supporting one end of an APA, while the interface frame at that end is removed and reversed to enable any of a few different operations, e.g., to wind the other half of a wire layer, %or to allow 
 to install more boards at the foot, to support the frame in a minimal-deflection state while applying and bonding mesh or boards, or to assemble and disassemble the large mesh application jig. 
 
-A large gantry crane is used to move the APA in progress, along with its attached interface frames and trunnion kits, between a process cart and the winder. The rigging equipment used for this move is the vertical rigging kit, a 2-level whiffle tree of spreaders for vertical compactness compared to slings, to make best use of limited hook height and to load the frame at four attachment points to manage stresses in the thin tube walls of the APA frame. 
-
-\fixme{I had trouble with  prev pgraph; here is attempted rewrite of it.}
+%A large gantry crane is used to move the APA in progress, along with its attached interface frames and trunnion kits, between a process cart and the winder. The rigging equipment used for this move is the vertical rigging kit, a 2-level whiffle tree of spreaders for vertical compactness compared to slings, to make best use of limited hook height and to load the frame at four attachment points to manage stresses in the thin tube walls of the APA frame. 
+%
+%\fixme{I had trouble with  prev pgraph; here is attempted rewrite of it.}
 A large gantry crane is used to move the APA, along with its attached interface frames and trunnion kits, between a process cart and the winder. A two-level whiffletree of spreaders is the vertical rigging kit used for this move.  It affords vertical compactness compared to slings, and will make the best use of limited hook height. It also enables loading the frame at four attachment points, helping to manage stresses in the thin tube walls of the APA frame. 
 
-Another rigging kit, the ``H spreader',' enables lifts when the wire planes are horizontal, e.g., for loading into or removing from a cold test. Formed feet have been designed %for minimal 
-in order to minimize tube wall stress when supporting an APA during jack stand use or in a cold test. For temporary storage of work-in-progress APAs, a storage rack has been built. It is designed to remain stable while holding up to four APAs in any combination of stations. % has been built .
-\fixme{a `station' is one of the four bars, pegs, shelves or whatever, of the rack?}
+Another rigging kit, the ``H spreader'', enables lifts when the wire planes are horizontal, e.g., for loading into or removing from a cold test. Formed feet have been designed %for minimal 
+in order to minimize tube wall stress when supporting an APA during jack stand use or in a cold test. For temporary storage of work-in-progress APAs, a storage rack has been built with four stations that APAs can be loaded upon. It is designed to remain stable while holding up to four APAs in any combination of stations. % has been built .
 
 When the APA is mounted in the winding machine for applying wire to its surface, it must be mounted in ``landscape'' mode, i.e., short axis vertical, long axis horizontal. % placed horizontally. % and so that it can be rotated about that axis.  
 Although winding will always be done with the APA in ``landscape'' position, it must be possible to rotate it about its long axis in this machine in order to perform other tasks that require the APA surface parallel to ground.
 
 In order to hold it securely in both positions and allow rotation between the two positions an ``interface frame'' set (Figure \ref{fig:tpc_apa_interfaceframes}) has been designed that connects to the head and foot of the APA.  It has trunnions at each end  %so the 
 to support the APA/interface frame assembly %can be supported 
-in bearings.  This interface frame attaches to the APA in such a way that slightly more than half of the width of each end is exposed for winding of wires.  After half a wire layer is wound, the APA is switched \fixme{repositioned?} so that the interface frame connects to the opposite side and the rest of the APA can be wound.
+in bearings.  This interface frame attaches to the APA in such a way that slightly more than half of the width of each end is exposed for winding of wires.  After half a wire layer is wound, the APA is repositioned so that the interface frame connects to the opposite side and the rest of the APA can be wound.
 
 \begin{cdrfigure}[APA Interface Frames]{tpc_apa_interfaceframes}{A Solidworks model of the interface frames attached to the APA. Trunnions, for mounting in the winding machine, are visible at the ends. Note that the frame is exposed for winding at the tail (top image) end and a temporary toothed board is similarly exposed at the head (bottom image) end.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_interfaceframes.png} 
@@ -495,6 +491,7 @@ A modified design (Figure \ref{fig:tpc_apa_electronicsmountingdiagram}) is being
 
 %%%%%%%%%%%%
 \subsubsection{Wire supports on inner frame members - combs}
+\label{subsec:apa_combs}
 
 \paragraph{Purpose}
 
