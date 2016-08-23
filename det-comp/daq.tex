@@ -256,6 +256,80 @@ foreseen for final DUNE, throughput tests already made and planned.
 Control of artDAQ processes (DAQIFACE), error handling, debugging
 emulation mode.  }
 
+Developed within the Fermilab Scientific Computing Division and
+already used for the LBNE-35ton prototype, artdaq provides data
+transfer, event building, and event analysis functionality. This
+latter feature includes built-in support for the art event analysis
+framework, allowing experiments to run art modules for real-time
+filtering, compression, disk writing and online monitoring; as art,
+also developed at Fermilab, is also used for offline analysis, a major
+advantage of artdaq is that it allows developers to easily switch
+between developing online and offline software.
+
+There are three types of process provided by artdaq, each of which
+fulfills a specific role; in order of upstream-to-downstream, these
+are boardreader processes, eventbuilder processes, and aggregator
+processes. A given boardreader process is intended to be associated
+with a particular geographical region of the detector, and provides
+hooks (in the form of C++ base classes) for an experiment's developers
+to embed experiment-specific code (called "fragment generators")
+designed both to upload configuration values to hardware and to read
+out the hardware. In the case of 35ton, the full DAQ consisted of 24
+boardreaders, in charge of the 16 RCEs, 7 SSPs, and Penn board. For
+protoDUNE, this number will increase to ???. For testing purposes when
+no hardware is available, fragment generators are available which
+don't actually interface to true hardware, but instead perform useful
+functions such as read in existing output files, extract their
+fragments and send them downstream (serving as a "playback" mechanism,
+essentially) as well as model pathological behavior such as sudden,
+precipitous increases in data rate or unexpected dropoffs in upstream
+data flow.
+
+Downstream of the boardreader processes are the eventbuilder
+processes. An eventbuilder receives data from every boardreader (a
+chunk of data from one boardreader corresponding to an event is
+referred to as a "fragment"), and assembles the fragments for a given
+event into a raw, complete data event. Optionally, filtering via art
+modules can be performed at this stage.
+
+The most downstream process type is the aggregator. Traditionally in
+artdaq-based DAQ systems, there are two aggregators, one in charge of
+writing data to disk and reporting aggregate statistics (MB/sec,
+e.g.), and one in which experiments can run art analysis modules for
+real-time online monitoring. For protoDUNE this model may change as
+artdaq is being made more flexible; current versions of artdaq support
+multiple diskwriting aggregators which may increase throughput
+capability as well as support for multiple monitoring processes which
+are decoupled from artdaq. It's possible for much of the functionality
+of aggregators to be replicated in eventbuilders; while this reduces
+the number of interprocess connections in the DAQ software, a
+disadvantage of an eventbuilder-only system is that the number of
+processes assembling raw events is the same as the number of processes
+writing to disk.
+
+artdaq processes are controlled by a program called
+DAQInterface. DAQInterface can be thought of as an intermediary
+between Run Control and the individual artdaq processes; it's in
+charge of launching the artdaq processes and sending them
+configuration code on initialization, and repeatedly querying the
+processes to see whether or not they return an "Error" state; if this
+is the case DAQInterface will automatically stop datataking and shut
+down the processes in an orderly fashion, so that unexpected behavior
+from upstream (e.g., hardware suddenly sending an unmanageably high
+rate of data) will not result in improperly closed output files,
+zombie processes, etc.
+
+On 35ton, artdaq was capable of taking data smoothly for several hours
+without error conditions occurring. Improvements have been made to
+artdaq since that time which should increase its robustness even
+further, and a computer cluster will be set up at Fermilab in the
+coming months to allow for new tests. Without upstream hardware
+available, the emulation fragment generators described above will
+prove invaluable for this type of testing.
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Software filtering and data transfer to permanent storage}
 
