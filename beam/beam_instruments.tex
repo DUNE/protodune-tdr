@@ -43,16 +43,16 @@ In the following, two (possibly complementary) ToF systems are described.
 \includegraphics[width=0.95\textwidth]{toftaulow.pdf}
 \end{cdrfigure}
 
-\subsubsection{LAPPD Time-of-flight system}
+\subsubsection{pLAPPD Time-of-flight system}
 FermiLab is testing a ToF system that would utilize ANL 6 x 6 cm2
-large-area picosecond photodetectors (LAPPDs) (see figure \ref{fig:LAPPD}).
+large-area picosecond photodetectors (pLAPPDs) (see figure \ref{fig:pLAPPD}).
  The MCP-based devices
 are capable of $< 50$~ps resolution with gains of $10^6-10^7$,
 mm-position resolution along one axis and slightly worse resolution
 along the other axis.  The photodetector is mounted on a readout
 board, so the relevant exterior dimensions are 165.1mm x 109.3mm and a
-thickness of 16mm. The active area is defined by the 4 squares visible in figure \ref{fig:LAPPD}, and amounts to about 8~cm$^2$.
-\begin{cdrfigure}[LAPPD]{LAPPD}{Photo of one LAPPD device as proposed for the H2 and H4 beamlines}
+thickness of 16mm. The active area is defined by the 4 squares visible in figure \ref{fig:pLAPPD}, and amounts to about 8~cm$^2$.
+\begin{cdrfigure}[pLAPPD]{pLAPPD}{Photo of one pLAPPD device as proposed for the H2 and H4 beamlines}
 \includegraphics[width=0.95\textwidth]{LAPPD.pdf}
 \end{cdrfigure}
 
@@ -61,15 +61,15 @@ Investigation is ongoing on the possibility  to use the  scintillating fibres mo
 \subsection{Material Budget and discussion}
 Summing up all the required instrumentaton, the ``full'' beam line should include 5 beam monitors (2 for tracking and 3 for spectrometry), two ToF devices, two 2~m long Cerenkovs at high density or pressure. The material budget would be much to high for operation at low mmenta, and in general for operation with electron beams.  
 A full FLUKA simulation of materials in the beamline and of the ProtoDUNE detector, including the beam window details, has been used to evaluate the effect of materials. Since the final layout of the beamline optics was delivered only recently, the simulations presented here assume a straigt line with an initially parallel beam, deflected only by scattering. Particles are assumeed to be ``lost'' when scattered outside of the beam pipe. Imlementation of the magnetic elements is underway.
- Figure~\ref{fig:matblfull} shows the evolution of the material budget with a full instrumentation, assuming LAPPD for ToF. The total, including the beam window, would arrive to $0.6X_0$, 0.15 interaction lengths, and an energy loss for a mip particle of 28~MeV.
+ Figure~\ref{fig:matblfull} shows the evolution of the material budget with a full instrumentation, assuming pLAPPD for ToF. The total, including the beam window, would arrive to $0.6X_0$, 0.15 interaction lengths, and an energy loss for a mip particle of 28~MeV.
 The largest contribution comes from Cerenkov detectors and from the  ToF system. Cerenkovs are useless for low energies (except a low-pressure one for electron discrimination) and can be easily removed from the beamline and substituted with a section of vacuum pipe.  
-In a situation without cerenkovs, the LAPPD devices plus monitors would still account for almost  $0.2X_0$. Besides energy degradation, scattering of low energy particles would  further degrade the pion and proton content of the beam.  Figure~\ref{1GeVtof} show examples of the beam degradation due to materials at 1~GeV/c: The rate of pions arriving at the detector is reduced by a factor 2.5, and the energy spread rises to 1.2\% of The rate of protons stopping in the detector is reduced by a factor 4, and the energy is spread by 2\% rms. This calculation is done in optimistic conditions, that is neglecting the efficiency loss due to the small active area of the LAPPD devices.
+In a situation without cerenkovs, the pLAPPD devices plus monitors would still account for almost  $0.2X_0$. Besides energy degradation, scattering of low energy particles would  further degrade the pion and proton content of the beam.  Figure~\ref{1GeVtof} show examples of the beam degradation due to materials at 1~GeV/c: The rate of pions arriving at the detector is reduced by a factor 2.5, and the energy spread rises to 1.2\% of The rate of protons stopping in the detector is reduced by a factor 4, and the energy is spread by 2\% rms. This calculation is done in optimistic conditions, that is neglecting the efficiency loss due to the small active area of the pLAPPD devices.
 
 A possible way out would be the use of scintillating fibres as ToF devices for the lowes energy beams ($< 2 GeV$).  The feasibility of a fully plug-and-play beamline, with detectors going in and out, including those that need vacuum segmentation, is under discussion. It has also to be noted that a good performance of the ( combined) ToF system could avoid the use of non-standard CerenkoV counters.
  \begin{cdrfigure}[Material budget]{matblfull}{Material budget in the beam line, as a function of the distance from the centre of the detector (in cm). The red line describes the amount of $X-0$, the black line the amount of interaction length, both read on the left axis. The bleck dotted line is the average energy lost by a mip particle, and is read on the right axis (in MeV). Vertical lines show the positions of the various equipments (in between the two blue lines are the 3 devices for spectrometry, ``bm'' is the last beam monitor, ``bw'' is the starting point of the beam window)}  
 \includegraphics[width=0.95\textwidth]{blfuhcnwrayplo.pdf}
 \end{cdrfigure}
- \begin{cdrfigure}[Effect of materials at  1GeV]{1GeVtof}{Effect of materials at  1GeV/c. Left: $\pi$ beam, energy of the particle entering in the detector, in three conditions: with  beam monitors, with beam monitors and LAPPD for ToF, with the whole beamline filled with air (and no instrumentation). Right: proton beam, energy deposited by protons stopping in the LAr active volume, in three conditions: without instrumentation (the beam window is always present), with the scintillators only, and with scintillators plus LAPPD for ToF.  }
+ \begin{cdrfigure}[Effect of materials at  1GeV]{1GeVtof}{Effect of materials at  1GeV/c. Left: $\pi$ beam, energy of the particle entering in the detector, in three conditions: with  beam monitors, with beam monitors and pLAPPD for ToF, with the whole beamline filled with air (and no instrumentation). Right: proton beam, energy deposited by protons stopping in the LAr active volume, in three conditions: without instrumentation (the beam window is always present), with the scintillators only, and with scintillators plus pLAPPD for ToF.  }
 \includegraphics[width=0.48\textwidth]{pi1p0gev_innw.pdf}
 \includegraphics[width=0.48\textwidth]{p1gevstopnoqnw.pdf}
 \end{cdrfigure}
