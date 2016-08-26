@@ -307,7 +307,7 @@ disadvantage of an eventbuilder-only system is that the number of
 processes assembling raw events is the same as the number of processes
 writing to disk.
 
-artdaq processes are controlled by a program called
+For the 35ton prototype, artdaq processes were controlled by a program called
 DAQInterface. DAQInterface can be thought of as an intermediary
 between Run Control and the individual artdaq processes; it's in
 charge of launching the artdaq processes and sending them
@@ -317,7 +317,7 @@ is the case DAQInterface will automatically stop datataking and shut
 down the processes in an orderly fashion, so that unexpected behavior
 from upstream (e.g., hardware suddenly sending an unmanageably high
 rate of data) will not result in improperly closed output files,
-zombie processes, etc.
+zombie processes, etc. For ProtoDUNE, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP; where appropriate/possible, DAQInterface code will be reused so as to minimize unnecessary duplication of effort. 
 
 On 35ton, artdaq was capable of taking data smoothly for several hours
 without error conditions occurring. Improvements have been made to
