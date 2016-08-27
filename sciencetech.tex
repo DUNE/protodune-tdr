@@ -18,7 +18,7 @@ dimensions and features as those for the first 10-kt DUNE far detector
 module.
 
 Besides validating the performance of the detector components,
-planning and constructing the CERN prototype will establish and
+planning and constructing the protoDUNE-SP prototype will establish and
 commission production sites and test the installation procedure.
 Further, before the beam test, many basic detector-performance
 parameters can be established with cosmic-ray muons.  These data will
@@ -41,13 +41,13 @@ configurations. These beams will be composed mainly of muon neutrinos (antineutr
 neutrino interactions from simulated beam fluxes, including oscillation effects, are shown.  The particle rates are normalized  to the number of neutrino interactions in 
 the DUNE far detector and the neutrino beam flux.  Although significant fraction of the final state particles produced in neutrino interactions  will have low momenta, due to constrains of the H4 beam and operation time main part of the measurement program will focus on particles with momenta above 1\,GeV/c. There will be an overlap between data and results from protoDUNE-SP and the low momenta LArIAT experiment that will help with the extrapolation to the most interesting low momenta region.  The H4 beam can produce low momenta particles, however it is at the cost of lower rate of the particles and longer operation time. If the beam is available the second run with a focus on  low momenta particles will be performed. 
 
- \fixme{Need a sentence that connects this DUNE info with ProtoDUNE charged particle beam test better. DONE!}
 
-\begin{cdrfigure} [Momentum distributions]{fig::particlemomenta}{Left: Momentum distributions of particles produced by the neutrinos from the neutrino beam in DUNE. Right(Placeholder:): the predicted rate of particles as a function of their momentum for the charged particle beamline (at CERN???).} 
+\begin{cdrfigure} [Momentum distributions]{fig::particlemomenta}{Left: Momentum distributions of particles produced by the neutrinos from the neutrino beam in DUNE. } 
   \includegraphics[width=0.8\textwidth]{True_Momenta_per_Particle_9_2_1_0_logy_logx}
 \end{cdrfigure}
 
-Below  we provide a list of the main ProtoDUNE-SP studies that will be performed using charged particles from the beam and particles created by cosmic muons.
+Below  we provide a list of the main ProtoDUNE-SP studies that will be performed using charged particles from the beam and particles created by cosmic muons. The studies will inform us about the detector response to particles/tracks/showers that will be observed in the neutrino induced events in the DUNE detectors. 
+
 \fixme{Each of the point below will be described in details in the next draft.}
 \begin{description}
 \item [Characterization of hadronic showers (high $p$) and topologies of hadronic interactions (low $p$).]
@@ -98,6 +98,7 @@ for interacting $\pi^+$ versus $\pi^-$ ranging from 0.2~GeV/c up to 5~GeV/c. }
 
 
 \item [Characterization of electromagnetic showers]
+
 \fixme{need more text}
 
 Electromagnetic showers are fairly well-understood and can be used to better understand the detector response. The beam of $e,\  \pi^0$ and $\gamma$ will be studied at various energies to characterize the E-M showers induced by those particles. Electromagnetic showers are also components of the hardonic showers and it is still difficult to tell them apart. 
@@ -116,13 +117,10 @@ e$^+$ e$^-$ pair production.
 For this process e/$\gamma$ discrimination
  can be achieved using the beginning of the electromagnetic shower, where 
 a single MIP is characteristic of electron energy deposition, while two MIPs would be consistent 
-with Compton scattering. %a photon hypothesis.
-In the latter case %where the photon Compton-scatters, the two particles 
-the two MIPs cannot easily be distinguished
-from the energy deposition pattern.
+with e$^+$ e$^-$ pair production. %a photon hypothesis.
 
 \begin{cdrfigure}[Photon background rejection versus electron identification efficiency for various energies]{egam}{Photon background rejection versus electron identification efficiency for various energies( 100 MeV - 5 GeV for photons and 100 MeV - 2 GeV for electrons), calculated for and normalized to samples which pass the reconstruction.  The simulation was performed in APA design configuration (4.67-mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).}
-\includegraphics[width=0.8\textwidth,height=10.0cm]{egammaeffbkg}
+\includegraphics[width=0.5\textwidth,height=6.0cm]{egammaeffbkg}
 \end{cdrfigure}
 
 
@@ -132,24 +130,27 @@ Fig.~\ref{fig:egam}  shows estimated photon background rejection versus electron
 simulated isotropic electron and photon event samples  with the DUNE APA geometry configuration (4.67-mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).~\cite{dunecdr}. \fixme{Sentence feels unclear; the ``DUNE'' APA configuration? DONE!}
 
 The results are found to be mildly dependent on incoming particle energy in the range of interest. 
-%
-Studies by Stefan\& Sulej indicate that rejection and efficiency depend 
-on particular features of the geometry, including wire pitch and plane 
-orientation, that affect the reconstruction. 
-For example, a preliminary comparison of signal efficiencies for a simulated 
-DUNE APA configuration with the ICARUS T600 geometry
-and averaged over the energy range 0.2-1.0 GeV shows 
-a 10\% higher efficiency for the 3-mm wire spacing used in ICARUS.
-The study does not yet include electron diffusion.
-%
+%%
+%Studies by Stefan\& Sulej indicate that rejection and efficiency depend 
+%on particular features of the geometry, including wire pitch and plane 
+%orientation, that affect the reconstruction. 
+%For example, a preliminary comparison of signal efficiencies for a simulated 
+%DUNE APA configuration with the protoDUNE-SP geometry
+%and averaged over the energy range 0.2-1.0 GeV shows 
+%a 10\% higher efficiency for the 3-mm wire spacing used in ICARUS.
+%The study does not yet include electron diffusion.
+%%
 Pure samples of electrons and photons in the sub-GeV energy range would be
 required to tune the separation algorithms and to measure 
 detector-dependent electron-photon separation efficiency and purity. 
 
 
 \item [Measure field distortion effect (space-charge, LAr flow, beam window effect, etc).] 
-\item [Measure event reconstruction efficiencies as a function of energy and particle type] 
+
+The protoDUNE-SP detector will be place on surface and effects coming from the space-charge modification of the electric field or the effect of the choice of the location and design of the beam window will need to be included. The effects and strategies how to approach them are described in sections 3.5 and 7.1.
+
 \item [Measure performance of particle identification algorithms as function of energy]
+
 \item [Validate accuracy of MC simulations] The accuracy of MC simulations will be validated for relevant energy ranges as well as for 
 directions with respect to the wire-plane geometry.
 \end{description}
