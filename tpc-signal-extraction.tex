@@ -157,6 +157,8 @@ This technique can in principle be improved to include the position-dependent
 response once the local ionization charge distribution is roughly reconstructed. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
+
+\fixme{sections 3.4.3 - 3.4.7 would benefit from a more focused description; as written it is a bit of a laundry list}
 \subsection{Additional Challenges in Deconvolution}
 
 
@@ -242,8 +244,8 @@ local baseline calculated in a given a ROI. However, instead of a simple average
 the baseline at the start and end points of a ROI, a linear interpolation is used to 
 correct the baseline. Given the two constraints (start and end points of the ROI), 
 the linear interpolation with two degrees of freedom is the best that one can achieve 
-to remove bias in the baseline. 
-
+to remove bias in the baseline. \\
+%
 In Section~\ref{sec:decon-frf-calc} %the following, 
 we describe various techniques 
 used in the charge extraction.
@@ -258,37 +260,35 @@ In the drift direction, the grid plane is labeled as G, the two induction %plane
 wire 
 planes are labeled U and V, and the collection plane is W.  The spacing between the wire 
 planes is 4.76~mm. The bias voltages of-665 V, -370 V, 0 V, and +820 V for the G, U, V, and 
-W planes, respectively, are configured according the operating conditions that ensure 100\%
+W planes, respectively, are configured according the operating conditions that ensure near 100\%
     transmission of ionization electrons through the first two induction planes.  
-    101 wires of diameter 150 $\mu$m are set on each wire plane with a pitch of 4.667 (4.79 for collection) mm.  A ground plane is placed 1~cm behind the W plane.  The drift
-    field is uniform with 500~V/cm. The electron drift velocity as a function of
+    A total of 101 wires of 150 $\mu$m diameter and with a pitch of 4.667 (4.79 for collection) mm make up each wire plane. 
+    A ground plane is placed 1~cm behind the W plane.  The nominal drift
+    field is uniform and has a magnitude of 500~V/cm. The electron drift velocity as a function of
     electric field is taken from measurements~\cite{Li:2015rqa,lar_property}
     instead of using the default velocity table contained in~\cite{garfield}. % Garfield. 
-    The electron
-    diffusion is turned off in the simulation. The field response function then can
-    be calculated for each individual wire in the form of induction current 
-    (U and V planes) and collection current on (W planes) as a function of time for
-    an electron drift which starts from arbitrary position within the region of calculation. 
-    \fixme{please clarify previous sentence. Here is my attempt to make it less of a mouthful: For an 
-    electron drift that starts from an arbitrary position within the ROI, the field response then can
-    be calculated for each individual wire in the form of induction current 
-    (U and V planes) or collection current (W plane) as a function of time.}
-    
-    
-    Figure~\ref{fig:garfield_2d} shows the configuration used in Garfield 2D simulation.
-The Garfield-simulated response functions are shown in Figure~\ref{figs:overall_response}.
- The average response function for single electrons within a wire region 
-is calculated for the closest wire $R_0$, next adjacent wire $R_1$, and so on. The U and 
-V plane response functions are shown in the middle and right panel of 
-Figure~\ref{figs:overall_response}, respectively.  For induction wire planes, these response 
-functions are reasonably balanced, as expected.
-
+    The electron diffusion is turned off in the simulation. 
+    For an 
+    electron drift that starts from an arbitrary position within the ROI, the field response can
+    be calculated for each individual wire in the form of induction currents 
+    (U and V planes) or collection currents (W plane) as a function of time.
 
 \begin{cdrfigure}[Description of the Garfield 2D simulation of field response 
 functions]{garfield_2d}{Description of the Garfield 2D simulation of field response functions}
   \includegraphics[width=0.95\textwidth]{Garfield_simu.png}
 \end{cdrfigure}
 \fixme{Figure~\ref{fig:garfield_2d} needs a more descriptive caption}
+    
+    
+    Figure~\ref{fig:garfield_2d} shows the configuration used in the Garfield 2D simulation.
+The Garfield-simulated response functions are shown in Figure~\ref{fig:overall_response}.
+ The average response function for single electrons within a wire region 
+is calculated for the closest wire $R_0$, next adjacent wire $R_1$, and so on. The U and 
+V plane response functions are shown in the middle and right panel of 
+Figure~\ref{fig:overall_response}, respectively.  For induction wire planes, these response 
+functions are reasonably balanced, as expected.
+
+
 
 
 \begin{cdrfigure}[Overall response functions]{overall_response}{The overall response functions, i.e., %which is 
@@ -297,7 +297,7 @@ electronics response function (14 mV/fC gain and 2 $\mu$s shaping time)
 and the field response.}
 \includegraphics[width=0.95\textwidth]{dune_field_res.pdf}
 \end{cdrfigure}
-\fixme{This could use more description, but I guess it's clear what each panel is}
+\fixme{This needs more description in the caption.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Choice of Software Filter}
@@ -312,7 +312,7 @@ and is critical for proper application of the Wire-Cell imaging technique~\cite{
 In this section, we describe the selection process that resulted in %choice on 
 these software filters.
 
-The standard Wiener noise filter~\cite{wiener} is constructed using the expected 
+The standard Wiener noise filter~\cite{wiener} is constructed from the expected 
 signal $S(\omega)$ and noise $N(\omega)$ frequency spectra:
 \begin{equation}
 F(\omega) = \frac{S^2(\omega)}{S^2(\omega) + N^2(\omega)}.
@@ -325,7 +325,7 @@ Second, the electronic noise spectrum is a function of the time window
 over which it is observed. A longer time window allows for observation
 of more low-frequency noise components.
 Third, the induction wire signal spectrum is small at low frequency
-and so would be its \fixme{own?} Wiener filter.  However, as discussed previously, 
+and so would be its Wiener filter output.  As discussed previously, 
 a software filter with low-frequency suppression leads to large distortions 
 of the signal and is thus not ideal.  
 
@@ -347,7 +347,7 @@ lim_{\omega \rightarrow 0} F(\omega) = 1.
 \end{equation}
 which means the integral of the smearing function is unity, which does not introduce any
 extra factor in the overall normalization. The free parameters $a$ and $b$ in the above 
-form are determined by matching the tail of Wiener filter at its high-frequency side. 
+form are determined by matching the tail of the Wiener filter at its high-frequency side. 
 An example of a software filter is shown in Figure~\ref{fig:soft_filter_1}. 
 
 \begin{cdrfigure}[Wiener-inspired filter and Gaussian filter used in the 2D deconvolution]{soft_filter_1}{The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution. 
@@ -356,6 +356,7 @@ The x-axis's unit for the time domain is $\mu$s. For the frequency domain, the n
 corresponds to $\sim$0.42 MHz.}
 \includegraphics[width=0.8\textwidth]{filter_1.png}
 \end{cdrfigure}
+\fixme{axes of \ref{fig:soft_filter_1}  need to be labeled - description in caption is not enough.}
 
 Beside the high-frequency software filter described above, there is also a low-frequency 
 software filter which is used to select ROIs (discussed in Section~\ref{sec:decon-roi-selection}.) %the next section). 
@@ -369,8 +370,8 @@ F(\omega) = 1- e^{-\frac{1}{2}\cdot \left( \frac{\omega}{c} \right)^2}.
 \label{sec:decon-roi-selection}
 
 The region of interest (ROI) is an important technique for limiting the contribution of low-frequency 
-electronic noise. The ROI selection was based on the deconvoluted results. Essentially, we perform
-two rounds of deconvolution:
+electronic noise. The ROI selection was based on the deconvoluted results. 
+Two rounds of deconvolution are performed:
 \begin{itemize}
 \item 2D deconvolution with the balanced Garfield-simulated field response function with a low-frequency filter (``2D deconvolution with low-frequency filter'').
 \item 2D deconvolution with the balanced Garfield-simulated field response function without a low-frequency filter (``2D deconvolution'').
@@ -403,9 +404,9 @@ why the induction plane DNC is much higher than the collection plane DNC. Furthe
 we have to rely on ROI and AB techniques to reduce the noise level for the induction plane, the
 DNC also depends on the time-window length of the ROI. 
 \end{itemize}
-Understanding the ENC and DNC for the current-generation experiments and the expected 
-performance for the future experiments are important steps to achieve automated event 
-reconstruction for LArTPCs.
+Understanding the ENC and DNC for the current-generation of experiments and for the expected 
+performance of future experiments is relevant for automated event reconstruction in LArTPCs.
+
 
 \begin{cdrfigure}[Residual noise vs wire length]{rms3}{The noise level in terms of the RMS value and ENC 
 is plotted with respect to the wire length observed in MicroBooNE. 
@@ -413,13 +414,13 @@ This plot is taken from~\cite{noise_filter}.}
 \includegraphics[width=0.75\textwidth]{RMSvsLength_after.pdf}
 \end{cdrfigure}
 
-The ENC in MicroBooNE has been reported at~\cite{noise_filter} and plotted 
-in Figure~\ref{rms3}. As illustrate above \fixme{reference section or figure}, the calculation of the DNC depends on the 
+The ENC in MicroBooNE has been reported in~\cite{noise_filter} and plotted 
+in Figure~\ref{rms3}. As illustrated above \fixme{reference section or figure}, the calculation of the DNC depends on the 
 drifted-charge extraction procedure. More specifically, it depends on the field 
 response, the noise level (ENC and the frequency content), and the length of the ROI. 
-Figure~\ref{DNC} shows the calculated DNC as a function of the time-window length 
+Figure~\ref{fig:DNC} shows the calculated DNC as a function of the time-window length 
 for the second induction (V) plane, which is expected to have the smallest field 
-response function (thus the largest DNC). 
+response function  and thus the largest DNC. 
 
 \begin{cdrfigure}[Calculation of DNC vs time window length for second induction (V) plane]{DNC}{Calculation of DNC with respect to the time window length for second induction (V) plane. 
 The ENC used in this simulation is 500 electrons given the induction wire length in protoDUNE. 
