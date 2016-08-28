@@ -42,9 +42,30 @@ neutrino interactions from simulated beam fluxes, including oscillation effects,
 the DUNE far detector and the neutrino beam flux.  Although significant fraction of the final state particles produced in neutrino interactions  will have low momenta, due to constrains of the H4 beam and operation time main part of the measurement program will focus on particles with momenta above 1\,GeV/c. There will be an overlap between data and results from protoDUNE-SP and the low momenta LArIAT experiment that will help with the extrapolation to the most interesting low momenta region.  The H4 beam can produce low momenta particles, however it is at the cost of lower rate of the particles and longer operation time. If the beam is available the second run with a focus on  low momenta particles will be performed. 
 
 
-\begin{cdrfigure} [Momentum distributions]{fig::particlemomenta}{Left: Momentum distributions of particles produced by the neutrinos from the neutrino beam in DUNE. } 
+\begin{cdrfigure} [Momentum distributions]{fig::particlemomenta}{Momentum distributions of particles produced by the neutrinos from the neutrino beam in DUNE.  Each of the particles leaving the nucleus is show here separately. } 
   \includegraphics[width=0.8\textwidth]{True_Momenta_per_Particle_9_2_1_0_logy_logx}
 \end{cdrfigure}
+
+The DUNE sensitivity assumes a significant advance in reduction of various sources of uncertainties. In table \ref{DUNEsen} the list of collated sources of uncertainties compared with the lists for MINOS and T2K $\nu_e$ appearance analyses are presented. 
+
+\begin{table}[]
+\centering
+\caption{DUNE goals are for the total normalization uncertainty on the ?e appearance sample. The DUNE analysis will be a 3-flavor oscillation fit such that uncertainties correlated among the four FD samples will largely cancel \cite{cdr}.}
+\label{DUNEsen}
+\begin{tabular}{lllll}
+ Source of Uncertainty &  MINOS $\nu_e$ & T2K $\nu_e$ & Goal for DUNE $\nu_e$  \\ \hline
+ Beam Flux                        &  0.3\% & 3.2\%  &  2\%&  \\ \hline 
+Interaction Model               & 2.7 \%  & 5.3\% & ~2\%  \\ \hline
+Energy Scale ($\nu_\mu$) &  3.5\% & included above  &  (2\%) included in 5\% $\nu_\mu$ uncertainty  \\ \hline 
+Energy Scale ($\nu_e$)     & 2.7\% & 2.5\% includes all FD effects &  2\% \\ \hline
+Fiducial Volume                 & 2.4\% & 1 \% & 1\%  \\ \hline
+Total Uncertainty                & 5.7\% & 6.8\% &  3.6\%  \\ \hline
+\end{tabular}
+\end{table}
+
+
+To achieve this reduction of uncertainties a program of measurements is necessary. ProtoDUNE-SP will be particularly useful to measure detector effect with a full scale APAs and a long drift volume. For lepton energy resolution and energy scale uncertainty we would need to measure differences between particles and antiparticles and any nonlinear effects.  For hadronic energy resolution and energy scale uncertainty there will be different contributions from different particles types (protons, neutrons, charged pions, neutral pions) in different portions of the neutrino spectrum. One of the most important measurements  will be determination of the missing/undetected energy. 
+
 
 Below  we provide a list of the main ProtoDUNE-SP studies that will be performed using charged particles from the beam and particles created by cosmic muons. The studies will inform us about the detector response to particles/tracks/showers that will be observed in the neutrino induced events in the DUNE detectors. 
 
@@ -149,18 +170,10 @@ detector-dependent electron-photon separation efficiency and purity.
 
 The protoDUNE-SP detector will be place on surface and effects coming from the space-charge modification of the electric field or the effect of the choice of the location and design of the beam window will need to be included. The effects and strategies how to approach them are described in sections 3.5 and 7.1.
 
-\item [Measure performance of particle identification algorithms as function of energy]
 
-\item [Validate accuracy of MC simulations] The accuracy of MC simulations will be validated for relevant energy ranges as well as for 
-directions with respect to the wire-plane geometry.
+\item [Validate accuracy of MC simulations] The accuracy of MC simulations will be validated for relevant energy ranges. Models of pion, kaon interactions as well as for other hadrons will be checked and measured in the energy range and for argon for the first time allowing reduction of the systematic uncertainties. For the simulation of the charged particles interactions the LArSoft framework with GEANT MC will be used in a similar   manner as it will be done for the DUNE simulations. All chains of the simulations and analysis will be prototyped, developed and validated with the protoDUNE-SP simulations and data. 
 \end{description}
 
-\fixme{Additional items to be described in this section}
-\begin{itemize}
-\item Requirements for the beamline. Description of  each of the main measurements will contain  information about the necessary size of data sample as well as the requirements  for the momentum uncertainty from the beamline instrumentation. 
-\item The initial feasibility or sensitivity  for each of the measurements will be presented with indication of constrains from the quality of the beamline, reconstruction and PIDs. 
-\item Additional information about constrains for the measurements due to high noise or dead channels should be investigated. Use experience from 35-ton data analysis. 
-\end{itemize}
 
 \fixme{Plots to be generated for  sections 2.1-2.3. Not necessary all of them need to be included in the final version of the TDR.}
 \begin{itemize}
@@ -179,9 +192,6 @@ radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied
   \end{tabular}
 \end{cdrfigure}
 
-
-\item $e/\gamma$ separation for reconstruction algorithms already incorporated into ProtoDUNE.
-\item Reconstruction efficiency for primary and secondary particles (from beam and cosmics).
 \item $dQ/dx$ and $dQ/dx$ vs. range for charge particles (protons, pion, muon, kaon)
 
 Information on range and charge deposition for stopping charged-particles can be used to 
@@ -221,9 +231,7 @@ Measurements of the response to charged particles and
 photons with the protoDUNE-SP will extend and be complementary to
 measurements made with other smaller detectors, such as LArIAT \cite{lariat}
 and CAPTAIN~\cite{captain}.
-
-\item Differences in mean energy deposited and width of visible energy  for interacting particles.
-\item $\Delta X, \Delta Y$ and $\Delta Z$ due to  field distortion effects. 
+ LAr TPC enable the use different energy reconstruction methods. In particular, in LAr TPC we can infer $E_\nu$ from what we observe in the final state. ArgoNeuT neutrino energy reconstruction method included estimates of missing/invisible energy and important part of  the improved neutrino energy reconstruction included the measurement of neutrons. Precise and unbiased neutrino energy reconstruction is especially important for reducing systematics in precision neutrino oscillation experiments. Systematic uncertainty which create a bias in neutrino energy definition could affect ability to measure oscillation parameters.  The inclusion of neutrons in the estimation of neutrino energy improves energy resolution from 14\% to 3\%.  This can be confirmed by protoDUNE-SP measuring protons that are created via the neutron-proton charge exchange process.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
