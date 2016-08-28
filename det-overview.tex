@@ -13,25 +13,26 @@ insert detector overview here \fixme{The whole chapter is `overview'; insert det
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{TPC Signal Formation}\label{sec:tpc_signal_formation}
 
-\fixme{Do we want to avoid first person ``we''? It occurs several times}
 
-The principle of the large single-phase LArTPC with wire readouts is shown in 
-Figure~\ref{fig:signal}. When charged particles traverse through the LAr medium,
+The principle of a large single-phase LArTPC with wire readout is shown in 
+Figure~\ref{fig:signal}. When charged particles traverse the LAr,
 ionization electrons are generated. They %would 
 travel at a constant speed 
-($\sim$1.6 km/s at 500~V/cm electric field) along the external electric field 
-toward the multiple anode wire planes. The first two wire planes encountered collect 
-an induction signal as the drifting charge passes through.  The charge is collected 
-on the wires in the third (final) plane. This transparency of the induction planes is assured by 
-applying an appropriate bias voltage to these wire planes. During this process, \fixme{During what `process'?}
-current is produced on the wire planes. Since the locations of wires are 
+($\sim$1.6 km/s at 500~V/cm electric field) along the electric field 
+toward the anode plane assembly (APA) which consists of multiple anode wire planes. 
+The first two wire planes encountered collect 
+an induction signal as the drifting charges pass through.  The charge is collected 
+on the wires of the third plane. The transparency of the induction planes is assured by 
+applying appropriate bias voltages to all three wire planes. As charges drift pass the induction 
+plane wires and are collected on the anode wires
+a current is produced on the wires. Since the locations of all wires are 
 accurately known, the position of the ionization charge in the direction 
 transverse to the drift can be determined in three independent views. The time 
 of the initial interaction can be determined by collecting scintillation light 
-in a fast optical detector system. By measuring the time from this prompt activity 
-to signals on the wires, it is possible to determine the longitudinal position 
+in a fast optical detector system. By measuring the time from the light signal 
+to electrical signals on the wires, it is possible to determine the longitudinal position 
 along the drift direction, leading to %. Therefore, one can achieve 
-a 3D imaging of the trajectories 
+a 3D image of the trajectories 
 of the charged particles in the LAr. The amount of ionization electrons depends on 
 the energy and type of the initial particles, and can be used to deduce their properties.
 
@@ -59,7 +60,7 @@ charge $q$:
 i = q \cdot \vec{E}_{w} \cdot \vec{v}_q.
 \end{equation}
 The proportionality factor is product of the weighting field vector $\vec{E}_{w}$ 
-at the location of the charge and its drifting velocity vector $\vec{v}_q$. 
+at the location of the charge and its drift velocity vector $\vec{v}_q$. 
 The weighting field vector $\vec{E}_{w}$, which depends on the geometry of the electrodes, 
 can be calculated by removing the charge,  placing the potential of the targeted 
 electrode to the unity potential, and setting all other conductors to ground. 
@@ -67,8 +68,8 @@ Figure~\ref{fig:signal_formation} shows a calculated weighting potential
 \fixme{the `weighting potential' is E dot v? If so, please state that here}
 for one 
 induction plane wire using a 2D simulation based on Garfield~\cite{garfield}. 
-In this setup, the wire pitch is assumed to be 3~mm. There are three wire planes 
-with the first two being induction and last one being collection plane.  \fixme{Sorry, figure is for one induction plane, but of the three, two are induction? Please clarify}
+In this calculation, the wire pitch is assumed to be 3~mm. There are three wire planes 
+with the first two being induction and the last one being collection plane.  
 
 The induced current on the wire is received, amplified, and shaped by
 a pre-amplifier. This part is described by the electronics response
@@ -82,10 +83,11 @@ information regarding the number, location (in the directions transverse
 to and in the plane of the wires) and sample time of ionization
 electrons are then used as input to the event reconstruction chain.
 
-\begin{cdrfigure}[The process of TPC signal formation.]{signal_formation}{The process of TPC signal formation.}
+\begin{cdrfigure}[The process of TPC signal formation.]{signal_formation}{The process of TPC signal formation (left). The panel on the 
+right shows a cross sectional view of the three wire planes (red dots) along with the electric field (orange lines) and the weighting potential 
+(green lines) for a single induction wire of the first induction wire plane.}
 \includegraphics[width=0.8\textwidth]{Signal_Extraction.png}
 \end{cdrfigure}
-\fixme{Figure could use more explanation of orange (E field?) and green (weighting field?) lines. Also indicate `boundaries'; make sure vocabulary squares with that in the text.}
 
 \begin{cdrfigure}[Simulated electronics response function in the time 
 domain at 4.7 mV/fC gain]{ele_res}{The simulated electronics response function in the time 
@@ -94,7 +96,7 @@ programmable with 4 different gain settings (4.7, 7.8, 14, and 25 mV/fC) and
 4 shaping time settings (0.5, 1, 2, and 3 us). The shaping time is defined as the time 
 between peak and 5\% of the peak at the falling edge. For a fixed gain setting, 
 the peak is always at the same height independent of the shaping time. }
-\includegraphics[width=0.8\textwidth]{electronics_res.pdf}
+\includegraphics[width=0.6\textwidth]{electronics_res.pdf}
 \end{cdrfigure}
 
 
@@ -105,10 +107,10 @@ at locations further away from the wire of interest.
 The weighting field also extends beyond the ``boundary'' of the wire.
 Wire boundaries are defined by imaginary planes parallel to a wire,
 perpendicular to the wire's plane and halfway between two neighboring
-wires; i.e.,  in an ideal case, all charge produced within a boundary
-will drift nearest to its associated wire. \fixme{drift to its nearest associated wire?}
+wires; i.e.,  in an ideal case, all charge produced within a wire's boundary
+will drift to its nearest associated wire. 
 %Due to the extent of 
-Since a weighting field extends beyond the given wire's boundary, electrons drifting inside
+Since a weighting field extends beyond a given wire's boundary, electrons drifting inside
 this boundary can induce current in other wires.  
 The induced currents therefore strongly depend on the local ionization
 charge distribution near the wire of interest, which in turn depends
@@ -116,43 +118,47 @@ on the event topology of the initial energetic, charged particles.
 %This fact makes the induced currents strongly depend on the local ionization charge distribution near the wire of interest, 
 
 
-To illustrate the complication of the induction plane signal, we show 
+To illustrate the complication of the induction plane signal,  
 an ideal track with a uniform charge distribution along it %the track 
-as 
-an example in Figure~\ref{fig:ideal_track_1}. On the left panel, the 
-two black lines represent the boundary of one wire region. In this case,  
+is shown as 
+an example in Figure~\ref{fig:ideal_track_1}. In the left panel, the 
+two black lines represent the boundaries of one wire's region. In this case,  
 %if one just counts 
-counting only the ionization charge distribution within the wire region,
-\fixme{within the wire's boundary? Please use same term for same thing each time.} the expected 
-distribution is shown in the panel (a) at top right.  However, the induced current on the wire of 
+counting only the ionization charge distribution within the wire's boundaries,
+the expected 
+distribution is shown in panel a) at top right.  However, the induced current on the wire of 
 interest depends on the weighting field, which is smaller when the ionization electron is 
 further away from the wire itself. Therefore, the effective charge distribution seen by 
-the wire would be similar to the panel (b) on the right side of 
-Figure~\ref{fig:ideal_track_1}. However, this is not the end of story. The wire of interest will experience a 
-further induced current from ionization electrons 
-drifting by in the boundaries of nearby wires. Since these ionization electrons are further away, 
+the wire would be similar to what is shown in panel b) on the right side of 
+Figure~\ref{fig:ideal_track_1}. 
+\fixme{Why is signal in b) symmetric, when weighting potential for shown track is not ? - TK}
+However, the wire of interest will experience an 
+additional induced current from ionization electrons 
+drifting outside its boundaries and in the regions of nearby wires. 
+Since these ionization electrons are further away, 
 the weighting field is even smaller and thus the induction from them is 
-also smaller. The realistic effective charge distribution will be similar to the panel (c) on 
-the bottom right side of Figure~\ref{fig:ideal_track_2}. 
-\fixme{I think you mean Figure~\ref{fig:ideal_track_1}}
+also smaller. A realistic effective charge distribution will be similar to the one shown in panel c) on 
+the bottom right side of Figure~\ref{fig:ideal_track_1}. 
 
-We can then see what happens to the raw digits when we take into account the bipolar induction 
-field response function. In the left panel of Figure~\ref{fig:ideal_track_2}, the top half shows 
+
+When the bipolar induction field response function is taken into account the 
+charge transients change shape.
+In the left panel of Figure~\ref{fig:ideal_track_2}, the top half shows 
 the real charge distribution going through the targeted wire region. The convolution of this 
 distribution with a bipolar response function will lead to results shown at the bottom. In this 
-case, we can see the signal height is still large at least for the start and the end of the 
+case, it can be seen that the signal height is still large at least for the start and the end of the 
 signal. In the right panel of Figure~\ref{fig:ideal_track_2}, the top half shows the more 
 realistic effective charge distribution seen by the targeted wire. The convolution of this 
 distribution with a bipolar response function will lead to results shown at the bottom. In 
-this case, we can see that the signal height is much smaller though the length of signal is 
-long. This effect leads to complications in designing the data compression algorithm.
+this case, it is apparent that the signal height is much smaller though the length of the signal is 
+longer. This effect leads to complications in designing the data compression algorithm.
 
 \begin{cdrfigure}[Induction plane field response for an ideal track (1)]{ideal_track_1}{Illustration of the induction plane field response for an ideal track (red arrow).}
-  \includegraphics[width=0.8\textwidth]{ideal_track.png}
+  \includegraphics[width=0.7\textwidth]{ideal_track.png}
 \end{cdrfigure}
 
 \begin{cdrfigure}[Induction plane field response for an ideal track (2)]{ideal_track_2}{Illustration of the induction plane field response for an ideal track.}
-\includegraphics[width=0.95\textwidth]{ideal_track_2.png}
+\includegraphics[width=0.75\textwidth]{ideal_track_2.png}
 \end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
