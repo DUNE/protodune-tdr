@@ -2,7 +2,7 @@
 \section{TPC Charge Extraction}
 \label{sec:tpc-signal-calibration}
 
-In Section~\ref{sec:tpc_signal_formation}, the signal formation in TPC
+In Section~\ref{sec:tpc_signal_formation}, the signal formation in a single-phase LAr TPC
 is described. This section describes the procedure of the TPC 
 charge extraction. As shown in Figure~\ref{fig:signal_formation}, the 
 goal of TPC charge extraction is to recover the number of ionized 
@@ -11,22 +11,20 @@ electrons from the digitized TPC signal.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deconvolution Technique}\label{sec:decon}
 \label{sec:decon-tech}
-Deconvolution is a mathematical technique to extract a \textit{real signal}
+Deconvolution is a mathematical technique to extract the \textit{underlying true signal}
 $S(t)$ from a \textit{measured signal} $M(t_0)$. The deconvolution technique 
-was introduced to LArTPC signal processing in LarSoft by Bruce Baller in the 
-context ArgoNEUT data analysis~\cite{bruce}. 
-\fixme{include names in content?}
+was introduced to LArTPC signal processing in LarSoft in the context of ArgoNEUT data analysis~\cite{bruce}. 
 The goal of the deconvolution is 
 to ``remove'' the field and electronics response functions from the measured 
-signal to recover the number of ionized electrons.~\footnote{Strictly speaking,
+signal to recover the underlying true number of ionizing electrons.~\footnote{Strictly speaking,
 the deconvolution replaces the bipolar response function with a unipolar smearing
-function.} This technique has the advantages of being robust and fast and is an 
+function.} This technique has the advantage of being robust and fast and is an 
 essential step in the overall charge extraction process. 
 
-The measured signal is modeled as a convolution integral over the real 
+The measured signal is modeled as a convolution integral over the true 
 signal $S(t)$ and a given detector \textit{response function} $R(t,t_0)$ which gives the
 instantaneous portion of the measured signal at some time $t_0$ due to
-an element of real signal at time $t$.
+an element of the true signal at time $t$.
 \begin{equation}\label{eq:decon_1}
 M(t_0) = \int_{-\infty}^{\infty}  R(t,t_0) \cdot S(t) \cdot dt.
 \end{equation}
@@ -37,12 +35,12 @@ doing a Fourier transformation on both sides of the equation:
 M(\omega) = R(\omega) \cdot S(\omega), 
 \end{equation}
 where $\omega$ is the frequency. In this case, we can derive the signal in the 
-frequency domain by taking the ratio of measured signal and the given
+frequency domain by taking the ratio of the measured signal and the assumed
 response function:
 \begin{equation}\label{eq:decon_2}
 S(\omega) = \frac{M(\omega)}{R(\omega)}.
 \end{equation}
-The real signal in the time domain can then be obtained by applying the 
+The true underlying signal in the time domain can then be obtained by applying the 
 inverse Fourier transformation from the frequency domain. 
 
 The Shockley-Ramo response function $R(\omega)$ does not address
@@ -93,16 +91,16 @@ M_i(t_0) = \int_{-\infty}^{\infty} \left( R_0 \cdot (t-t_0) \cdot S_i(t) +
 R_1 \cdot (t-t_0) \cdot S_{i+1} (t) + ...\right) \cdot dt,
 \end{equation}
 where $M_i$ represents the measured signal from wire $i$.  $S_i$ and
-$S_{i+1}$ represents the real signal in the boundaries of wire $i$ and
+$S_{i+1}$ represents the true signal in the boundaries of wire $i$ and
 its next neighbor, respectively.
-The $R_0$ represents the average response function for an ionization
-charge passing through the wire boundary of interest.
-Similarly, the $R_1$ represents the average response function for an
-ionization charge drifting past in the next adjacent wire boundary. One can
+$R_0$ represents the average response function for an ionization
+charge passing through the region for the wire of interest.
+Similarly, $R_1$ represents the average response function for an
+ionization charge drifting through the next adjacent wire region. One can
 easily expand this definition to some number of neighbors by introducing terms up 
 to $R_{n-1}$.
 
-If we then apply a Fourier transformation on both sides of Equation~\ref{eq:decon_2d_1},
+If one applies a Fourier transformation on both sides of Equation~\ref{eq:decon_2d_1},
 we have:
 \begin{equation}\label{eq:decon_2d_2}
 M_i(\omega) = R_0(\omega) \cdot S_i(\omega) + R_1(\omega) \cdot S_{i+1} (\omega) + ...,
@@ -134,16 +132,16 @@ R_1(\omega) & R_0(\omega) & \ldots & R_{n-3}(\omega) & R_{n-2}(\omega) \\
 \end{pmatrix}
 \label{eq:matrix_expansion}
 \end{equation}
-Now, if we assume that we know response functions (i.e., the matrix $R$), the 
+Assuming the response functions (i.e., the matrix $R$) are known, the 
 problem converts into deducing the vector of $S$ with the measured signal $M$. 
 %
 This can be achieved by inverting the matrix $R$. In practice and away
 from plane edges the matrix $R$ is taken to be symmetric and its
-inversion can again be achieved by the FFT.
+inversion can again be achieved by FFT.
 %
 As this expands the 1D deconvolution (with respect to the time axis)
 into a 2D deconvolution (with respect to both the time and wire
-axes), similarly we must also expand the filter function to cover
+axes), the filter function must be expanded in a similar fashion to cover
 both time and wire dimensions.
 
 A comment on the limitation (or approximation) 
@@ -152,7 +150,7 @@ average response functions are used in describing the measured signal. These
 ignore the detailed position dependence of the response function. 
 This approximation ignores the fine-grained but clear position
 dependence in the calculated weighting fields.
-However, since we can only measured the signal from any given wire as
+However, since the signal from any given wire can only be measured as
 a function of time, there is no additional information to be used to
 resolve the ionization electron distributions within a wire boundary.
 This technique can in principle be improved to include the position-dependent
@@ -161,22 +159,22 @@ response once the local ionization charge distribution is roughly reconstructed.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Additional Challenges in Deconvolution}
 
-\begin{cdrfigure}[Simulated field response functions in the time and frequency domains]{induction_field}{(left) Simulated field response functions for induction (black and red) and 
-collection (blue) wires are shown in the time domain. (right) The same are shown in 
-the frequency domain.}
-\includegraphics[width=0.95\textwidth]{induction_field_response.png}
-\end{cdrfigure}
-
 
 The 1D and 2D deconvolution procedures provide a robust method to extract the ionization
 electrons for the collection and induction planes, respectively. 
 %
 While working well for the collection plane, the procedure is still not optimal 
 for the induction plane due to the nature of the induction plane signal. 
-Figure~\ref{fig:induction_field} shows the field response as simulated by Garfield \fixme{citation?}
+Figure~\ref{fig:induction_field} shows the field response as simulated with Garfield~\cite{garfield}
 for induction and collection wire planes and point ionization
 electrons. While the field response for the collection wire plane is unipolar, the field 
 response for the induction wire plane is bipolar. 
+%
+\begin{cdrfigure}[Simulated field response functions in the time and frequency domains]{induction_field}{(left) Simulated field response functions for induction (black and red) and 
+collection (blue) wires are shown in the time domain. (right) The same are shown in 
+the frequency domain.}
+\includegraphics[width=0.95\textwidth]{induction_field_response.png}
+\end{cdrfigure}
 %
 The early, negative half corresponds to the ionization electron moving
 towards the wire plane and the late, positive half corresponds
@@ -204,33 +202,32 @@ is significant. The large low-frequency noise would lead to large uncertainty
 in the charge estimation, and needs to be dealt with.  
 
 \begin{cdrfigure}[Example of deconvoluted spectrum for the induction plane (simulation)]{decon_example}{Example of deconvoluted spectrum for the induction plane (simulation).}
-\includegraphics[width=0.8\textwidth]{decon_example.png}
+\includegraphics[width=0.6\textwidth]{decon_example.png}
 \end{cdrfigure}
 
 
 In Equation~\eqref{eq:decon_filt}, a frequency-domain  filter function is introduced 
 to suppress the numerical instability caused by the presence of noise. One can imagine using % to use 
-this
-software filter to suppress the electronic noise at low frequency. This is also 
-not acceptable due to large distortion introduced on the signal. \fixme{previous sentence unclear (``also not acceptable'' relative to what?)} To understand this 
-point, we recall that the software filter is effectively a smearing function. 
-Figure~\ref{fig:low_f_filter} shows an illustrative real signal (left), its convolution 
+this software filter to suppress the electronic noise at low frequency. 
+However, such a filter is not acceptable due to the large distortion which it introduces to the signal.
+To illustrate this point, recall that the software filter is effectively a smearing function. 
+Figure~\ref{fig:low_f_filter} shows an illustrative true signal (left), its convolution 
 with a low-frequency filter (middle), and the low-frequency filter itself (right). 
 It is obvious that the signal is strongly distorted due to the application of the 
 low-frequency software filter. 
 
 \begin{cdrfigure}[Impact of the low-frequency filter]{low_f_filter}{The impact of the low-frequency filter (right). The unit of the $x$-axis 
-is MHz.  The real signal and the convoluted signal are shown in the left and
-middle panels, respectively. A time tick is 0.5 $\mu s$.}
+is MHz.  The true signal and the convoluted signal are shown in the left and
+middle panels, respectively. A time tick corresponds to 0.5 $\mu s$.}
 \includegraphics[width=0.95\textwidth]{low_freq.png}
 \end{cdrfigure}
 
 In order to deal with this problem, we turn to using two techniques in the time domain: 
-\textit{region of interest (ROI)} and \textit{adaptive baseline (AB)}. The ROI technique
-was proposed by Bruce Baller \fixme{name again} in the context of reducing data size and speeding up the 
+\textit{region of interest (ROI)} and \textit{adaptive baseline (AB)}. The ROI technique~\cite{roi}
+was proposed in the context of reducing data size and speeding up the 
 deconvolution process. At the same time, the ROI technique can %also 
 be used to 
-suppress the low-frequency noise. In order to recognize this point, we consider
+suppress the low-frequency noise. In order to recognize this point, consider
 a time window with $N$ time ticks.  For ProtoDUNE-SP, this would be a window of 
 $N\times0.5\mu\mbox{s}$. The highest frequency that can be resolved with such 
 sampling would be 1~MHz. The first discrete frequency above zero would be $2/N$ MHz, 
@@ -238,7 +235,7 @@ and no result within the ROI can be sensitive to any noise components below this
 frequency.  Therefore, if we can identify the signal region and create a ROI to 
 cover the signal, we can naturally suppress the low-frequency noises. 
 
-The adaptive baseline (AB) technique was introduced by Mike Mooney  \fixme{name again} 
+The adaptive baseline (AB) technique~\cite{ab} was introduced  
 in the context of 
 dealing with the ASIC saturation observed in MicroBooNE. The AB is essentially a 
 local baseline calculated in a given a ROI. However, instead of a simple average of 
@@ -248,13 +245,14 @@ the linear interpolation with two degrees of freedom is the best that one can ac
 to remove bias in the baseline. 
 
 In Section~\ref{sec:decon-frf-calc} %the following, 
-we describe various parts \fixme{better word than `parts'? maybe `techniques'?} used in the charge extraction.
+we describe various techniques 
+used in the charge extraction.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Calculation of Field Response Function}
 \label{sec:decon-frf-calc}
 
-The field response is calculated by Garfield~\cite{garfield} \fixme{name again}  in a 22-cm (along the 
+The field response is calculated with Garfield~\cite{garfield} in a 22-cm (along the 
 field direction) $\times$ 30-cm (along the wire plane direction) region in 2D.  
 In the drift direction, the grid plane is labeled as G, the two induction %planes 
 wire 
