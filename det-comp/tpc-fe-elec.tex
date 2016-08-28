@@ -213,14 +213,14 @@ A target value of 47 nF has been established for the filter capacitors.
 
 For the grid-plane bias filters, component values are less critical.
 If possible they will be identical to those used for the bias resistors and coupling capacitors
-(50 Meg-ohms and 2.2 to 4.7 nF, respectively.
+(50 Meg-ohms and 2.2 to 4.7 nF).
 
 Voltage ratings for the bias resistors and coupling capacitors, as well as their resistance and capacitance values,
 are limited by available space on the CR boards.
 The board area is limited by the width of the wire boards and the distance between the APA frame and the CE Faraday box.
 Initial layouts have determined that the maximum possible size for the 88 bias resistors that must fit on each CR board
 is 0.12 x 0.25 inches (3.0 x 6.0 mm).
-Resistors with this footprint are readily available with a voltage rating of 2.0 kV.
+Fortunately, resistors with this footprint are readily available with a voltage rating of 2.0 kV.
 The maximum size for the 88 coupling capacitors on each CR board is 0.22 x 0.25 inches (5.6 x 6.0 mm).
 Capacitors with a voltage rating of 2.0 kV are available with capacitance of 3.9 nF at five percent tolerance.
 
@@ -240,7 +240,7 @@ eight 16-channel ADC ASICs, low-voltage regulators, and input-signal protection.
 The 16-channel FE ASIC provides amplification and pulse shaping.
 The 16-channel ADC ASIC comprises a 12-bit digitizer at 0.5, 1, or 2 MS/s, local buffering,
 and an 8(analog):1(digital) Mux stage with two pairs of serial readout lines in parallel.
-The FEMB have already been prototyped and tested,
+The FEMB has already been prototyped and tested,
 using a commercial FPGA to perform the role of the digital ASIC (Figure~\ref{fig:tpcce_CMBpix}).
 
 \begin{cdrfigure}[The CE Architecture]{tpcce_schem}{The CE Architecture. The basic unit is the 128-channel FEMB.}
@@ -294,7 +294,7 @@ Shared among the 16 channels in the FE ASIC are the bias circuits, programming r
 a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
 The estimated power dissipation of FE ASIC is about 6~mW per channel at 1.8~V supply.
 Shared among the 16 channels in the ADC ASIC are the bias circuits, programming registers,
-an 8:1 Mux, and the digital interface
+an 8:1 Mux, and the digital interface.
 The estimated power dissipation of FE ASIC is below 5~mW per channel at 1.8~V supply.
 
 
@@ -315,7 +315,7 @@ The former is of major consequence as it limits the effective lifetime of the de
 Thus, an MOS transistor has equal lifetime due to impact ionization at 89~K and at 300~K,
 but at different drain-source voltages $V_{DS}$,
 as illustrated in Figure~\ref{fig:tpcce_LifetimetestVR}.  
-This property can be exploited to stress the transistor with both increased current
+For the purpose of accelerated aging studies, this property can be exploited to stress the transistor with both increased current
 and increased voltage while monitoring the substrate current and the change in $g_{m}$ due to impact ionization.
 Under these conditions, the lifetime can be reduced arbitrarily by many orders of magnitude,
 and the limiting operating conditions for a lifetime in excess of $\sim$20 years can be determined.
