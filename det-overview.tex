@@ -172,7 +172,8 @@ longer. This effect leads to complications in designing the data compression alg
 \section{Space charge effect}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Introduction} \label{sec:SCEintro}
+%%%\subsection{Introduction} 
+\label{sec:SCEintro}
 
 In order to correctly reconstruct the trajectories of particles that travel through the active volume of the TPC as well as precisely determine calorimetric information for these particles, it is essential to know very well the magnitude and direction of the drift electric field throughout the TPC bulk.  Nominally the electric field should be uniform throughout the TPC volume.  However, field effects such as the space charge effect (SCE) may cause distortions in the electric field that result in distortions in the reconstructed position of ionization electron clusters detected by the TPC wire planes as well as variation in the relative level of electron-ion recombination in different parts of the TPC~\cite{KirkSCE}.  The space charge effect is the build-up of slow-moving positive ions in a detector due to, for instance, ionization from cosmic muons.  As ProtoDUNE-SP is a detector on the surface with little overburden, the cosmic muon flux is expected to create a significant amount of space charge (positive argon ions) that could modestly impact the drift electric field within the TPC active volume.
 
@@ -208,7 +209,6 @@ Some of the simulation results are shown in Figure~\ref{fig:simexample_Evals} an
 \includegraphics[width=.41\textwidth]{Ez_end_ProtoDUNE_E500.pdf}
 \end{cdrfigure}
 
-
 \begin{cdrfigure}[Simulated effects of space charge on distortions in recon ionization e- cluster position]{simexample_Dvals}{Illustration of the simulated effects of space charge on the distortions in reconstructed ionization electron cluster position in the ProtoDUNE-SP TPC.  Results are shown for the effect in $x$ (top row), $y$ (middle row), and $z$ (bottom row).  The distortions in reconstructed ionization electron cluster position are shown in units of cm and are plotted as a function of the true position in the TPC.  Simulation results are shown both for a central slice in $z$ (left column) and for a slice in $z$ closer to the end of the TPC, $z$ = 19 cm (right column).}
 \includegraphics[width=.41\textwidth]{Dx_center_ProtoDUNE_E500.pdf}
 \includegraphics[width=.41\textwidth]{Dx_end_ProtoDUNE_E500.pdf}
@@ -226,6 +226,7 @@ While the simulation provides a useful order-of-magnitude estimation of the dist
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Calibration} \label{sec:SCEcalib}
+\fixme{consider moving this section to overall detector calibration section; minimize reference to laser system}
 
 In order to correct SCE distortions (both electric field and reconstructed ionization electron cluster position) in data, a robust calibration scheme is necessary.  With information about the true position of ionization within the TPC in hand, as well as the reconstructed position of the ionization, spatial distortions of ionization deposition position can be extracted throughout the TPC active volume.  These spatial distortions can then be used to calculate the amount of electric field distortion throughout the TPC active volume.  Together, these two distortion maps can be used to correct track angles and calibrate out the variation in recombination and scintillation light yield throughout the TPC.
 
