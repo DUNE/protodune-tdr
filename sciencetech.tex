@@ -194,28 +194,15 @@ radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied
 
 \item $dQ/dx$ and $dQ/dx$ vs. range for charge particles (protons, pion, muon, kaon)
 
-Information on range and charge deposition for stopping charged-particles can be used to 
-accurately identify particle type as well as measure kinetic energy. 
-Fig.~\ref{fig:resrange}  (left) shows track energy loss per unit length \footnote{Signal attenuation due to recombination effect is not corrected for the PID purpose since it is a deterministic transformation which does not add measurement information.}
-($dQ/dx$) as a function of residual 
-track range for simulated muon, pion, proton and kaon particle tracks. 
-A neural-net-based algorithm~\cite{nn_pid,rd_pid}
-was used to determine PID functions for each particle hypothesis.
+\fixme{I did not remove kaon words, but are they still on the (realistic) list? Please, remove if not.}
 
-Fig.~\ref{fig:resrange} (right) 
-shows the distribution of reconstructed $dQ/dx$ in a narrow bin of residual range 6($\pm$1)cm to illustrate the scale of difference between particle types. Proton and kaon bands are well separated from each other and from pion and muon bands, while pion and muon bands are almost overlapping which is challenging for the efficient separation. 
-Simulation is performed with
-FLUKA~\cite{fluka05} and ICARUS geometry (3-mm wire pitch) and reconstruction code~\cite{icarus_reco}.
+Information on range and charge deposition for stopping charged-particles can be used to accurately identify particle type as well as measure kinetic energy. Fig.~\ref{fig:resrange}  (left) shows track energy loss per unit length \footnote{Signal attenuation due to recombination effect is not corrected for the PID purpose since it is a deterministic transformation which does not add measurement information.} $dQ/dx$ as a function of residual track range for simulated muon, pion, and proton particle tracks. The sequence of $dQ/dx$ versus residual range reconstructed for a particle track is used as input to PID algoritms ~\cite{nn_pid,rd_pid} to evaluate each particle hypothesis.
 
+Fig.~\ref{fig:resrange} (right) shows the distribution of reconstructed $dQ/dx$ in a narrow bin at residual range of 6($\pm$1)cm to illustrate the scale of difference between particle types. Proton band is well separated from pion and muon bands, while pion and muon bands are almost overlapping which is challenging for the efficient separation via ionization density differences. 
+Simulation is performed with LArSoft framework using ProtoDUNE-SP geometry including the beam orientation and GEANT4 based simulation of particle transport through LAr. Parameterization of the detector response is implemented according to the scheme existing in the LArSoft framework, with dedicated setup for ProtoDUNE-SP conditions. Pattern recognition and 3D reconstruction is performed with Line Cluster and Projection Matching algorithms (one of standard reconstruction schemes currently used for ProtoDUNE).
 
-The PID efficiency and purity will  depend on the detector configuration, geometry and 
-reconstruction algorithm. The DUNE APA configuration and reconstruction algorithms
-may give significantly different results, especially for pion/muon separation. 
-It is therefore important to test PID in a realistic prototype detector
-data in the presence of all detector effects.
-Event samples that include an adequate number of stopping particles for each species
-(muon, pions, protons and kaons) are included in the particle summary request in order to 
-perform tests of PID algorithms and Bethe-Bloch calibration measurements.
+The PID efficiency and purity depend on a number of factors, such as the detector configuration, geometry and reconstruction algorithms. PID results on data, especially for pion/muon separation, may be significantly differnt if e.g. electronics noise assumed in the detector response simulation is not reproducing features of the DUNE readout chain or if signal processing and reconstruction algorithms are updated. It is therefore important to test enire PID scheme in a prototype detector data, using the presence of all detector effects to improve models used in both simulation and reconstruction. Event samples that include an adequate number of stopping particles for each species
+(muon, pions, protons and kaons) are included in the particle summary request in order to perform tests of PID algorithms and Bethe-Bloch calibration measurements.
 
 \begin{cdrfigure}[ProtoDUNE-SP simulated track $dQ/dx$]{resrange}{ProtoDUNE-SP Simulated track $dQ/dx$ as a function of residual range for muons, pions, protons and kaons, used as training data in a neutral-net-based PID algorithm (left). Distribution of $dQ/dx$ for each particle type for a bin with residual range 
 6($\pm$1)~cm (right). The small difference between muon and pion PID is illustrated.}
