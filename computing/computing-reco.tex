@@ -148,14 +148,45 @@ Figure~\ref{fig:pandoraresolution}.
 \fixme{Include figure of PANDORA performance for muons.  Efficiency and
 completeness (purity too if we can get the plot).}
 
-A very successful approach to reconstruction is called the Projection
-Matching Algorithm (PMA)~\cite{pma_algorithm}.  Instead of building up
-a 3D hypothesis from 2D clusters, it instead starts with the 3D
-hypothesis and compares the predicted data with the observed data.
-PMA can take as input the output from different pattern recognition
-algorithms, from BlurredCluster to WireCell (described below).  PMA
-has successfully been used to reconstruct simulated beam particles in
-ProtoDUNE-SP.  The spatial resolution of the particle entry point is
+An alternative approach to 3D reconstruction is called Projection Matching Algorithm
+(PMA) ~\cite{pma_algorithm}. PMA was primarily developed as a technique of 3D reconstruction
+of individual particle trajectories (trajectory fit) ~\cite{icarus3dreco}. Instead of
+building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
+the 2D projection of predicted trajectory with the observed data. With such an approach
+the associations between 2D planes on the level of individual hits can be avoided.
+In consequence, the algorithm may deal with problematic cases, such as isochron tracks,
+or short, few-hit tracks.
+
+PMA can take as input the output from different pattern recognition algorithms, from
+LineCluster ~\cite{linecluster} to WireCell (described below). As a result of 2D pattern
+recognition, particles may be broken in 2D projections into several clusters, fractions
+of particles may be missing in individual projections and clusters obtained from complementary
+projections are not guaranteed to cover corresponding sections of trajectories. Such behavior
+is expected since ambiguous configurations of trajectories can be resolved only if the information
+from multiple 2D projections is used. Searching for the best matching combinations of clusters from
+all 2D projections was introduced to PMA implementation in the LArSoft framework. The algorithm
+attempts also to correct hit to cluster assignments using properties of 3D reconstructed objects.
+In this sense PMA includes also a pattern recognition features.
+
+%The following paragrph may be cut if shorter text is needed, but I keep it here to show what
+%is the advantage of having more than two planes.
+The 3D trajectory can be reconstructed using clusters from two projections while the distance of
+the trajectory projection to data in the third plane is used to validate correct association of clusters.
+This method is used to score 3D track candidates in the three-plane TPC configurations, like single-phase
+DUNE and MicroBooNE detectors and prototypes. Clusters from all planes are used in this scenario in the
+fine tuning of the selected candidates. In the two-plane configurations (dual-phase TPC detectors, single-phase
+LArIAT and ArgoNeut detectors) the track candidates are scored by the value of fit goodness, which is
+significantly decreased if the trajectory is being optimized to spuriously associated clusters.
+
+PMA allows to build and optimize complex structures of 3D objects, i.e. multiple particle trajectories
+interconnected with interaction vertices, relying on the same principle as for the single trajectory fit.
+In this scenario the vertex position reconstruction employs the local information from several tracks
+simultaneously, leading also to an improved fit of each individual trajectory. The track-vertex structure
+is constructed after the individual trajectories are found and stitched across TPC's. The recontructed
+structure is described as a particle hierarchy using data products available in LArSoft.
+
+PMA has successfully been used to reconstruct simulated beam particles in
+ProtoDUNE-SP. The spatial resolution of the particle entry point is
 shown in Figure~\ref{PMAentryresolution}, the direction resolution in
 Figure~\ref{fig:PMAdirection}, and the spatial resolution of the the
 inelastic interaction point of charged pions in ProtoDUNE-SP is shown
@@ -187,6 +218,14 @@ particles See Robert's talk from the April collab meeting}
   ProtoDUNE-SP, using the PMA algorithm.}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
+\end{cdrfigure}
+
+\begin{cdrfigure}[Example of reconstructed event of simulated proton with initial momentum 2 GeV/c]{PMAproton2gevc}{Example of reconstructed event of simulated proton with initial momentum 2 GeV/c (reconstruction algorithms: gaushit, linecluster and PMA).}
+\includegraphics[width=0.45\textwidth]{figures/evdtwqproj117703.png}
+\includegraphics[width=0.45\textwidth]{figures/evdlarortho3d117703.png}
+\end{cdrfigure}
+\begin{cdrfigure}[Example of reconstructed cosmic muons in protoDUNE]{PMAcosmics}{Example of reconstructed cosmic muons using gaushit, linecluster and PMA.}
+\includegraphics[width=0.45\textwidth]{figures/evdlarortho3d11302.png}
 \end{cdrfigure}
 
 
