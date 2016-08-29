@@ -567,8 +567,8 @@ is not required.
 \subsection{Signal Feedthroughs and Cold Cable}
 \label{subsec:ce_feedthrough}
 
-All LV and data cables inside the cryostat connect to the warm outside via flange PCB boards installed in feedthroughs,
-distributed along the cryostat roof (Fig.~\ref{fig:tpcce_FT_InternalCableRoute}).
+All LV and data cables inside the cryostat connect to the warm outside via flange PCB boards installed in feedthroughs
+which are distributed along the cryostat roof (Fig.~\ref{fig:tpcce_FT_InternalCableRoute}).
 The TPC data rate per APA, using the full event-buffer scheme described earlier,
 is sufficiently low that it is within the capability of a single LVDS channel on copper,
 with an overall 32:1 Mux and 80 1~Gbps LVDS data channels per APA.
@@ -621,14 +621,13 @@ the design for the signal feedthroughs is complete.
 For the protoDUNE detector APA there will be 20 electronics boards.
 While the electrical connection requirements are straightforward,
 the reliable gas tightness of the flange with an embedded circuit board has been fully verified.
-Also the planned method of reducing contamination from the cable plant in the ullage
+The program for reducing contamination from the cable plant in the ullage
 (the warmer gas phase at the top of the cryostat) 
-continues to be carefully studied.
-
+is being carefully followed.
 Measurements in the Materials Test Stand at Fermilab (described in Section 7.2 of the LBNE Closeout document).
 have shown that impurities (principally O$_2$ and H$_2$O) embedded in objects submerged in the liquid argon do not result
-in a decrease in electron-drift lifetime, whereas impurities in objects located in the ullage do.
-This indicates the importance of minimizing the amount of material in the ullage.
+in a decrease in electron-drift lifetime, whereas impurities in objects located in the ullage do, thus
+the importance of minimizing the amount of material in the ullage.
 
 %
 %%%%%%%%%%%%%%%%  
@@ -658,8 +657,8 @@ interface, which uses three LVDS pairs, so that COLDATA will only
 require 9 differential signals.
 
 \begin{cdrfigure}[Samtec LV and data cable]{tpcce_samtec_cable}{Samtec data (left) and LV power (right) cable.}
-\includegraphics[width=3in]{tpcce_samtec_data.pdf}
-\includegraphics[width=3in]{tpcce_samtec_lv.pdf}
+\includegraphics[width=6in]{tpcce_samtec_data.pdf}
+\includegraphics[width=6in]{tpcce_samtec_lv.pdf}
 \end{cdrfigure}
 
 ProtoDUNE will use Samtec 26~AWG twin-axial cable bundles with Samtec HSEC08 connectors to both
@@ -961,13 +960,14 @@ were used to characterize the performance of prototype ASICs at both 300~K and 7
 and taking them through multiple thermal cycles.
 An automated test board was built for the FE ASIC (Fig.~\ref{fig:tpcce_FE_TestBoard})
 to evaluate large numbers of FE ASICs at room temperature,
-and another such board is currently being designed for the ADC ASIC.
+and another such board is currently being designed for the ADC ASIC (Fig.~\ref{fig:tpcce_ADC_TestBoard}).
 
 \begin{cdrfigure}[FE ASIC testboard]{tpcce_FE_TestBoard}{FE ASIC testboard.}
-\includegraphics[width=0.7\linewidth]{tpcce_FE_TestBoard.pdf}
+\includegraphics[width=0.6\linewidth]{tpcce_FE_TestBoard.pdf}
 \end{cdrfigure}
-
-%\fixme{Get images of the current testboards here.}
+\begin{cdrfigure}[ADC ASIC testboard]{tpcce_ADC_TestBoard}{ADC ASIC testboard.}
+\includegraphics[width=0.6\linewidth]{tpcce_ADC_TestBoard.pdf}
+\end{cdrfigure}
 
 The development of the FE and ADC ASICs has proceeded through a series of prototype designs.
 A 128-channel prototype analog mother board has been developed and tested in the lab.
