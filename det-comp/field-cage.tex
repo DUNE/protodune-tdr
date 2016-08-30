@@ -31,9 +31,9 @@ of the cryostat walls and other nearby conductive structures.
 \fixme{One field cage with many assemblies or modules? Clarify assembly vs module} 
 
 The ProtoDUNE-SP TPC will have six top and six bottom field cage assemblies, arranged three across each horizontal edge of the two drift regions. It will have 
-four endwall panels, one at each vertical edge of the two drift regions.
+four endwall panels, one at each vertical edge of the two drift regions, see Figure~\ref{fig:fc-overview}.
 Each endwall panel consists of four assemblies in ``landscape'' orientation, stacked vertically.
-FC assemblies are constructed from pultruded G10 I-beams and box beams that support extruded field-shaping aluminum profiles. The support structure for each of the top and bottom FC assemblies consists of two main I-beams that are 3.6~m long, and four cross I-beams \fixme{length?} that connect the main I-beams for structural stability.
+FC assemblies are constructed from pultruded G10 I-beams and box beams that support extruded field-shaping aluminum profiles. The support structure for each of the top and bottom FC assemblies consists of two main I-beams that are 3.6~m long, and three cross I-beams that brace the main I-beams for structural stability.
 
 
 The main I-beams have cutouts to hold the field-shaping profiles. Main I-beams are spliced at 2.5~m to facilitate drift distance %change of the TPC from 3.6 m to 
@@ -43,15 +43,14 @@ Aside from the profiles themselves, the nuts and bolts holding them, and the gro
 
 \fixme{from docdb 1504 sec 6.3 I can't tell if there's ONE ground plane at the TOP, ONE at the BOTTOM or two. In this section it appears plural. 1504 needs clarification. }
 
-The bottom face \fixme{on the bottom, isn't it the top face? Should we say inward-facing face?} of the ground planes will be approximately 20~cm away from the top of the field-shaping profiles. The ground planes are mounted at a fixed distance from the field shaping profiles by using standoffs, as shown in Figure 6.2 \fixme{reference properly}, which shows ground planes over I-beams and cross beams.
+The inward-facing face of the ground planes will be approximately 20~cm away from the top of the field-shaping profiles. The ground planes are mounted at a fixed distance from the field shaping profiles by standoffs, as shown in Figure 6.2 \fixme{reference properly}, which shows ground planes over I-beams and cross beams.
 
 %The ProtoDUNE-SP field cages are constructed from tiled field cage modules.  
 %Each FC module is built with a number of 
-The parallel metal profiles in a FC module 
-\fixme{assembly?} are interconnected by a resistive divider chain, and supported by the FRP beams that span the drift volume between the CPA and one of the APAs. 
-The metal profiles between modules are neither mechanically nor electrically connected. The electrical isolation between the field cage modules minimizes the peak energy dump in case of a HV discharge.
+The parallel metal profiles in each FC assembly 
+ are interconnected by a resistive divider chain, and supported by the FRP beams that span the drift distance.  Between adjacent field cage assemblies, however,  
+the metal profiles are neither mechanically nor electrically connected. Gaps between assemblies range from a few millimeters to a few centimeters are designed into the TPC assembly to ensure sufficient clearance for the installation.  The electrical isolation between the field cage modules minimizes the peak energy dump in case of a HV discharge.
 
-\fixme{The above needs work!}
 
 \begin{cdrfigure}[The field cages]{fc-overview}{A view of the TPC field cage}
 \includegraphics[width=0.8\linewidth]{tpc_fc_overview.png}
@@ -101,10 +100,10 @@ The Dahlstrom Roll Form \#1071 was found to have the lowest surface E field, whi
 In order to maintain a modular design of the field cage while minimizing peak energy transfer in a discharge,% we chose to construct 
 the field cage will be constructed with electrical isolation between neighboring modules. %such that 
 If a discharge occurs on one field cage, the %nearby 
-electrodes from the neighboring modules will not arc over and cause a domino effect.  This requires a %high (I found `high voltage' here confusing)
-voltage insulation between profile ends of the order of 180~kV.  UHMW PE caps of 5-mm thickness are placed over both ends of each profile to serve this purpose. This technique also limits the exposed electric field in LAr at the corner of the field cage, see Figure~\ref{fig:fc_corner}. \fixme{What's the deal with ``exposed'' E field in LAr? The E field exists in the LAr; I don't understand what ``exposure'' refers to here}
+electrodes from the neighboring modules will not arc over and cause a domino effect.  This requires a 
+electrical insulation between profile ends of the order of 180~kV.  UHMW PE caps of 5-mm thickness are placed over both ends of each profile to serve this purpose. This technique also limits the exposed electric field in LAr at the corner of the field cage, see Figure~\ref{fig:fc_corner}. 
 
-\begin{cdrfigure}[3D FEA of field cage corner]{fc_profile_corner}{A 3D FEA of a field cage corner.  The PE caps (in outline form) limit the exposed E field to}
+\begin{cdrfigure}[3D FEA of field cage corner]{fc_profile_corner}{A 3D FEA of a field cage corner.  The PE caps (in outline form) limit the exposed E field below the 30kV/cm threshold.}
 \includegraphics[width=0.6\linewidth]{tpc_fc_profile_corner.png}
 \end{cdrfigure}
 
@@ -197,9 +196,7 @@ Results demonstrated that the proposed end-cap geometry and thickness can safely
 \subsection{Ground Plane Design}
 %% by A. Zani
 
-In order to confine the electric field in the liquid argon region, it is foreseen to install a metallic plane, put to ground, 
-\fixme{``a grounded metallic plane''?}
-between the upper field cage module and the liquid-gas interface. The design of such a Ground Plane (GP) \fixme{need to define acronym above and just use it} is inspired by the one from the ICARUS T600 detector, and it is meant to limit the residual electric field in the liquid below the usual 30~kV/cm value. 
+In order to confine the electric field in the liquid argon region, it is foreseen to install a grounded metallic plane,  between the upper field cage module and the liquid-gas interface. The design of such a Ground Plane (GP) \fixme{need to define acronym above and just use it} is inspired by the one from the ICARUS T600 detector, and it is meant to limit the residual electric field in the liquid below the usual 30~kV/cm value. 
 \fixme{Is it to keep the E field from going outside the LAr volume or is it to keep the residual field that's already in the LAr volume very small?}
 %The design details of the planes were verified to comply with the requests on residual electric field with FEA.  It is noted that a similar GP could be added in front of all the other Field Cage (FC) modules, in order to smooth the field in the LAr dead volume. However, so far it is foreseen to add an actual GP only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling are running. The distance between the cryostat walls and the end-wall field cage does not require to insert a GP, instead.
 The design details of the planes were verified for compliance with the requests on residual electric field with FEA. \fixme{I cannot parse prev sentence} It is noted that a similar GP could be added in front of each of the other Field Cage (FC) modules in order to smooth the field in the LAr dead volume. However, so far it is planned to add one only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling  run. The distance between the cryostat walls and the end-wall field cage does not require insertion of a GP.
@@ -326,8 +323,6 @@ In addition to the mechanical connection, the ground side of the divider chain m
 %%%%%%%%%%%%
 \subsubsection{Field cage to beam plug}
 
-\fixme{Needs to update the text when the FC to beam plug interface is finalized}
-\label{subsec:fc-beamplug}
 The design of the beam plug is described in Section~\ref{sec:beamplug}. In this section we describe the interface between the beam plug and the field cage. The beam plug is installed between the field cage and primary membrane where the charged particle beam enters the cryostat. Its main function is to displace about 45 cm of passive LAr layer in that region to allow the particle beam to enter the active TPC region with minimal upstream material interactions. The beam plug is mounted onto one of the field cage support structures as shown in Figure~\ref{fig:fc-beamplug}.
 \begin{cdrfigure}[Beam plug to CPA connection]{fc-beamplug}{Beam plug to CPA connection}
 \includegraphics[width=0.5\linewidth]{fc-beamplug.jpg}
@@ -335,15 +330,30 @@ The design of the beam plug is described in Section~\ref{sec:beamplug}. In this 
 
 
 %%%%%%%%%%%%
-\subsubsection{Field cage to calibration lasers}
+%% this feature has been removed from ProtoDUNE design
+%\subsubsection{Field cage to calibration lasers}
 
-Four calibration laser windows need to be implemented on the downstream end-wall field cage modules.  The windows are planned to be at the mid-height of the TPC, i.e., at the boundary of two %end-wall field cage 
-modules.  The opening for each laser beam is about 15~cm square.  The plan is to shorten three profiles by 7.5~cm from the each edge of the field cage modules.
+%Four calibration laser windows need to be implemented on the downstream end-wall field cage modules.  The windows are planned to be at the mid-height of the TPC, i.e., at the boundary of two %end-wall field cage 
+%modules.  The opening for each laser beam is about 15~cm square.  The plan is to shorten three profiles by 7.5~cm from the each edge of the field cage modules.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
+
+The following activities are/will be performed to assure the field cage meets all design criteria as defined in the fabrication drawings and description in the sections above:
+\begin{itemize}
+\item	Fabricate prototype FCs to test the design and fabrication and assembly methods.
+\item	Installation test at Ash River:
+\begin{itemize}
+\item	Test the lifting and handling of the prototype FCs.
+\item	Mount the prototype FCs to the CPA modules and test and evaluate their installation.
+\end{itemize}
+\item	Develop a QC plan for inspecting every fabricated part of the FC frame to make sure they meet the dimensions and tolerances on the fabrication drawings.
+\item	Develop a QC plan for inspecting and measuring each FC module and completed FC plane to insure they meet the dimensions and tolerances on the drawings.
+\item	Perform tests of each joint in the FC frame (see Section XX) to insure that their design and strength meets the load requirements.
+\item	Create an integrated model of the entire TPC to evaluate interfaces and installation methods.  
+\end{itemize}
 
  
 

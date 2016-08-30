@@ -8,14 +8,12 @@
 \section{Cathode Plane Assemblies}
 
 
-\subsection{Scope, Requirements and Design Parameters}
+\subsection{Scope, Requirements and Design Considerations}
 
-The cathode plane is constructed from 6$\times$3 cathode plane assemblies (CPAs) to form the 16-m $\times$ 6-m area.  It has a HV cup at the %beam 
-downstream (from beam) side to interface with the HV feedthrough. The top and bottom field cage modules are mechanically and electrically connected to the top and bottom edges of the cathode plane.  The cathode plane is suspended %through 
-by insulating bars %to 
-from the CPA installation rail.
+The cathode plane is located in the middle of the TPC, dividing it into two equal distance drift volumes.  It is connected to the high voltage feedthrough through a receptacle, aka the HV cup, at the east end, and biased at -180\,kV.  The cathode plane is constructed from 6$\times$3 cathode plane assemblies (CPAs) to form the 7\,m $\times$ 6\,m area.  It provides the bias voltage and current to all the field cage modules (top, bottom and end wall) through electrical interconnects.  It also mechanically supports 6 pairs of top/bottom field cage modules.
+The cathode plane is suspended by insulating bars from the CPA installation rail.
 
-\fixme{What is an HV cup?}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Requirements}
@@ -26,10 +24,10 @@ The CPA is required to:
 \item maintain a flatness better than 1~cm when submerged in the liquid argon,
 \item be constructed of materials with comparable CTEs to that of stainless steel, 
 \fixme{CTE coeff of therm expansion -- add to acronym list}
-\item limit the electric field exposed to LAr to under 30~kV/cm \fixme{the E field in the LAr volume? ``Exposed to'' seems funny}
+\item limit the electric field exposed to LAr to under 30~kV/cm 
 \item prevent damage to the TPC, including its readout electronics, in case of a HV discharge anywhere on the cathode,
 \item provide constant bias voltage and current to all attached field cage (FC) resistor divider chains,
-\item support the full weight of the four connected top/bottom field cage modules plus a person on the bottom CPA during installation,
+\item support the full weight of the 4 connected top/bottom field cage modules plus a person on the bottom CPA during installation,
 \item accommodate cryostat roof movement between warm and LAr-filled states,
 \item be constructed in a modular form that can be easily installed in the cryostat,
 \item accommodate PD calibration features, and
@@ -37,16 +35,20 @@ The CPA is required to:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Design Parameters}
+\subsection{Design Considerations}
 
-Width, height, sheet thickness, frame thickness, module width...
-\fixme{More text to come}
+In each single phase DUNE far detector, the cathode planes are 12m tall by nearly 60m long.  When biased to the nominal voltage of -180kV, each cathode plane stores more than 100\,J of energy. It is of great concern on the integrity of the detector elements, including the sensitive front end electronics, if this energy is suddenly and completely released in a high voltage discharge event.  Study has shown (DUNE docdb 1320) that if the entire cathode plane is made of interconnected metallic electrodes, there is significant risk of damage to the front end ASICs simply due to the charge injection through the capacitive coupling between the cathode and the anode wires when the cathode voltage is force to ground by a high voltage discharge.  
 
-\subsection{The need for highly resistive cathode planes}
-Stored energy, charge injection to FEE, dominant ionization current density
-\fixme{Could this be retitled to ``Design Considerations''?}
+Since  a large fraction of the stored energy on the cathode plane is determined by the operating voltage and the drift distance, reducing the drift distance and therefore the cathode voltage is an option.  However, doing so while maintaining a constant detector fiducial volume would require additional detector elements and increase cost and complexity of the system.  And this will not reduce the amount of charge injection since the voltage-capacitance product remains nearly constant between the anode and cathode planes.
 
-Summarize key points in DUNE docdb 1320. \fixme{Then reference it in the bib}
+Subdividing the cathode into electrically isolated partitions also reduces the total energy from a single cathode partition. However the capacitive coupling between wires and cathode will not change substantially until the partition size is comparable to the drift distance. Multiple HV feedthroughs and ports per cathode also increases the system complexity. Complete HV isolation of the cathode segments is a difficult task to achieve, if we also want the cathode plane to have little distortion in the drift field during normal operation of the detector. 
+
+The solution adopted in the single phase TPC design is to make the entire cathode plane out of highly resistive material such that the entire cathode has a very long discharge time constant compared to an all metal construction.  In an event of high voltage breakdown at any given location on the cathode, the sudden change in voltage only occurs in a relatively localized area.  The rest of the cathode surface maintains its original bias voltage, and gradually discharge to ground through the large resistivity of the cathode material.  This greatly reduces the instantaneous charge injection to the front end electronics.
+
+In the single phase DUNE FD, two cathode planes are positioned roughly at 1/4 and 3/4 of the width of the TPC.  Since the cathode planes are not at the geometrical center of the cryostat, the thermal convection flow of the liquid argon will exert an unbalanced force on each cathode plane. Computerized Fluid Dynamic (CFD) study (E. Voirin FD CFD) shows that a pressure differential on the cathode plane of the order of $\sim$1 pascal is to be expected.  The cathode plane must be designed to withstand such pressure without exceeding the 1cm flatness requirement.
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Design of the Cathode}
@@ -54,10 +56,19 @@ Summarize key points in DUNE docdb 1320. \fixme{Then reference it in the bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Overview}
 
-\fixme{Introduce the design concept: strong frame with thin resistive cathode surface; field shaping strips cover the frame; HV bus hidden behind the field shaping strips; outer edges of the CPA frame surrounded by the metal profiles used by the field cage.}
+The cathode design has evolved through several iterations over the years.  The design chosen for the ProtoDUNE TPC is an array of moderately sized modules constructed from strong G10 frames holding thin G10 sheets laminated with a commercial resistive Kapton film on both sides.   Compared with the size of an APA, the CPA modules are 1/2 in width (1.16m) and 1/3 in height (2m).   Each module has four G10 bars holding a 3mm thick G10 sheet with resistive coating.  The thickness of the G10 bars is 6cm.  The surfaces of the bars facing the APAs are covered by another set of resistive G10 strip with a different bias voltage such that these G10 bars does not cause any distortion in the drift field beyond the resistive surfaces.
+
+The 3 modules forming a single column are rigidly bolted together.  Each column is suspended to the CPA support rail by a single insulating G10 bar.  On the top and bottom edges of this CPA column, there are two hinges supporting the partial weight of the top and bottom field cage modules.   Adjacent columns are aligned through pin and slot connections to maintain co-planarity while allowing minor relative vertical shift due to cryostat roof movement.
+
+The electrical connectivity of the resistive panels along each vertical column is maintained by several tabs through the edge frames.  Across the columns, there is no direction electrical connection between the panels.  Instead, they are interconnected by the "high voltage bus". 
+
+The high voltage bus is a loop of a high voltage cable placed along the outer edges of the entire CPA plane, hidden between the field shaping strip overhang and the main cathode resistive sheet.  This cable must be capable of withstanding the full cathode bias voltage to prevent direct arching to (and as a result, recharging) a cathode panel having a discharge to ground. The HV bus makes redundant connections to the resistive panels across columns.  It also provide a low resistance path for the field cage resistive divider chains around the cathode edges.
+
+The outer edges of the cathode plane facing the cryostat wall are populated with the same metal profiles with insulating polyethylene caps used in the field cage.  This eliminated the need for a special design of the most crucial edges of the cathode plane: the edges of the CPA now look just like the continuation of the field cage.  Since these profiles are the only objects facing grounded surfaces, they are the most likely candidates to have HV discharges to ground.   To limit peak current flow, these edge profiles are resistively connected to the main cathode panels through their laminated resistive surfaces.  
+
 
 \begin{cdrfigure}[Resistive surface CPA Concept]{cpa-concept}{The resistive surface CPA concept. 
- {\bf Left:} A 3D model of a corner of the cathode showing major components {\bf Right:} E field simulation of a portion of the cathode.} 
+ Left: A 3D model of a corner of the cathode showing major components;  Right: E field simulation of a portion of the cathode.} 
 \includegraphics[width=\linewidth]{tpc_cpa_concept.png}
 \end{cdrfigure}
 
@@ -89,25 +100,19 @@ Also considered at earlier stage were
 \item ESD surface conducting G10 from Current Composite.
 \end{itemize}
 
-%Radiological tests performed at the LNGS low counting rate facility that G10/FR4 are preferable since MiCarta is more active by orders of magnitude for most relevant radioactive chains.
  Radiological tests performed at the LNGS low-counting-rate facility indicate that G10/FR4 is preferable; for most relevant radioactive chains, MiCarta is more active by orders of magnitude.
 
-%Screen printed ink and Kapton lamination on G10/FR4 are well established fabrication techniques available on panels as large as to 2.1x 1.2 m$^2$ (well matching the CPA panel required size). The screen print technique allows to choose precisely the average surface resistivity value, while Kapton exhibits a more uniform surface and resistivity. 
-Screen-printed resistive ink and Kapton lamination on G10/FR4 are both well established fabrication techniques available on panels as large as to 2.1$\times$1.2 m$^2$ (well matched to the CPA panel's required size). The resistive ink technique allows to choose precisely the average surface resistivity value, while Kapton exhibits a more uniform surface and resistivity. \fixme{distinction not clear. With both, resistivity is uniform across surface, but with ink you can specify the resistivity precisely whereas with Kapton you can't?  Or does the ink let you specify resistivity as a function of position on the surface?}
+Screen-printed resistive ink and Kapton lamination on G10/FR4 are both well established fabrication techniques available on panels as large as to 2.1$\times$1.2 m$^2$ (well matched to the CPA panel's required size). The resistive ink technique allows to choose precisely the average surface resistivity value by tailoring the printed line width and pattern, while Kapton exhibits an uniform surface coverage. 
 
-%Tests on large-size panels have demonstrated that both options survive without deformation or delamination to repeated immersions in LAr. The resistivity increase at LAr temperature is bounded to less than a factor two for both cases. Electrical contacts are performed with  specific  silver paint paste  highly stable at LAr temperature and resistant to mechanical scratches.
 
-Tests on large-size panels have demonstrated that both options can withstand repeated immersions in LAr without deformation or delamination. The increase in resistivity that occurs at LAr temperature is limited to less than a factor two for both. Electrical contacts are made with a silver paint paste \fixme{for both?} that is highly stable at LAr temperature and resistant to mechanical scratches.
+Tests on large-size panels have demonstrated that both options can withstand repeated immersions in LAr without deformation or delamination. The increase in resistivity that occurs at LAr temperature is limited to less than a factor two for both. Electrical contacts for both surfaces are made with a silver paint paste that is highly stable at LAr temperature and resistant to mechanical scratches.
 %
 However, results of tests for surface ageing when exposed to HV sparks indicate that Kapton is the preferred solution:
 \begin{itemize}	
-%\item in the resistive ink case, sparks tend to develop along direction of less resistivity, perpendicular to strip direction inducing a visible degradation of the material surface with some consistent ink evaporation and local measurable change in resistivity (Figure~\ref{fig:cpa-resink}).
-%\item in the Kapton case instead, sparks are point-like inducing tiny localized carbonization on material surface, at the spark position, but no change in average resistivity is recorded (Figure~\ref{fig:cpa-kapton}). 
 
-\item For the resistive ink, sparks tend to propagate along the direction of less resistivity, perpendicular to strip direction. This induces a visible degradation of the material surface with some consistent \fixme{consistent in what way?} ink evaporation and measurable local changes in resistivity (Figure~\ref{fig:cpa-resink}).
-\item For the Kapton, %sparks are point-like inducing tiny localized carbonization on material surface, at the spark position, 
-sparks induce tiny points of carbonization on the material surface, but %no change in average resistivity is recorded
-do not appear to change the average resistivity (Figure~\ref{fig:cpa-kapton}). 
+
+\item For the resistive ink, sparks tend to propagate along the direction of less resistivity, perpendicular to strip direction. This induces a visible degradation of the material surface with some  ink evaporation and measurable local changes in resistivity (Figure~\ref{fig:cpa-resink}).
+\item For the Kapton, sparks induce tiny points of carbonization on the material surface, but do not appear to change the average resistivity (Figure~\ref{fig:cpa-kapton}). 
 \end{itemize}
 
 
@@ -124,7 +129,7 @@ do not appear to change the average resistivity (Figure~\ref{fig:cpa-kapton}).
 %%%%%%%%%%%%
 \subsubsection{Support frame material properties}
 
-The main materials for the detector are stainless steel and what is called generically G10 material.  G10 is a thermosetting industrial fiber glass composite laminate consisting of a continuous filament glass cloth material with an epoxy resin binder. This product, first introduced in the 1950's, has characteristics of high strength, low moisture absorption, excellent electrical properties \fixme{insulating, I assume?} and chemical resistance. These properties are maintained not only at room temperature but also under humid or moist conditions. 
+The main materials for the detector are stainless steel and what is called generically G10 material.  G10 is a thermosetting industrial fiber glass composite laminate consisting of a continuous filament glass cloth material with an epoxy resin binder. This product, first introduced in the 1950's, has characteristics of high strength, low moisture absorption, excellent electrical properties  and chemical resistance. These properties are maintained not only at room temperature but also under humid or moist conditions. 
 \fixme{room temp vs humid/moist are orthogonal.  Is it ``at room temp AND under humid conditions'' or ``in wide temp range AND under humid conditions'' or what?}
 NEMA G10 was the designation given to Glass Epoxy sheet composite by the National Electrical Manufacture Association (NEMA) to specify a consistent product between manufacturers. 
 
@@ -250,10 +255,6 @@ When the CPA modules are cooled, their width will shrink by 0.9~mm.  The support
 The steel beam between the CPA and APA will cool and shrink by 5.2~mm.  The joint between the FC and the CPA must be able to accommodate this shrinkage.
 
 
-%%%%%%%%%%%%
-\subsubsection{The HV distribution bus and HV feedthrough receptacle }
-
-\fixme{Should this be moved to the HV section?}
 
 %%%%%%%%%%%%
 \subsubsection{The mechanical and electrical interconnect features between modules}
@@ -264,6 +265,23 @@ Three modules are stacked vertically to form the 6-m height of the ProtoDUNE-SP 
 There are six columns of the 6-m tall CPA modules in  ProtoDUNE-SP.  Each column is suspended from the CPA rail using a central lifting bar.  Due to the  roof movement between the warm and cold phases of the cryostat, each column is expected to move $\sim$2~mm relative to its neighbors.  Several pin-and-slot connections are implemented at the long edges of the CPA columns to ensure the co-planarity of the modules and yet allow small vertical displacement.  The HV bus interconnects the resistive cathode surfaces across the columns to maintain a uniform voltage across the cathode surface.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{QC Procedures}
+\subsection{QA and QC}
 
-\fixme{needed}
+The following activities are planned to assure the CPA meets all design requirements as defined in the fabrication drawings and description in the sections above:
+\begin{itemize}
+\item Fabricate four prototype CPAs to test the design and fabrication and assembly methods.
+\item Installation test at Ash River:
+\begin{itemize}
+\item Test the lifting and handling of the four prototype CPA’s.
+\item  Load the 4 prototype CPA’s with FC modules and test and evaluate their installation.
+\end{itemize}
+\item Develop a QC plan for inspecting every fabricated part of the CPA frame to make sure they meet the dimensions and tolerances on the fabrication drawings.
+\item Develop a QC plan for inspecting and measuring each CPA module and completed CPA plane to ensure they meet the dimensions and tolerances on the drawings.
+\item Perform tests of each joint in the CPA frame (see Section 3) to ensure that their design and strength meets the load requirements.
+\item Create an integrated model of the entire TPC to evaluate interfaces and installation methods.  
+\item Develop a QC for receiving the resistive panels.  Measure the dimensions to confirm they meet the drawings and setup a plan and acceptance criteria to insure that panel resistance is acceptable.
+\item Develop a QC  HV test at CERN for evaluating side to side and top to bottom resistance for each completed CPA but after final assembly and after hanging during installation.  
+\item Performed 35 ton HV test at FNAL.
+\end{itemize}
+
+
