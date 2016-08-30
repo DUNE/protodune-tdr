@@ -21,13 +21,38 @@ The charged particles from the H4 beamline will first need to go through the cry
 %  \includegraphics[width=0.90\textwidth]{beamwindow_system1zoom.pdf}
 %\end{cdrfigure}
 
-The beam plug is designed to displace the passive LAr layer between the TPC field cage and the inner crystat membrane. As illustrated in Figure~\ref{fig:beamwindow_fig2}, it is a cylidrical glass-fiber composite pressure vessel about 50cm in length and  22cm in diameter. It is filled with dry nitrogen gas via a stainless steel line that extends to the top of the cryostat. The pressure inside the beam plug is maintained externally to about 25 psi from room to LAr temperatures. The beam plug is secured to the field cage support structure (see Figure~\ref{fig:beamwindow_fig3}). The front portion of the beam plug extends about 5~cm inside the field cage through an opening on the field cage. The field cage support is designed with sufficient strength to withstand the weight of the beam plug while it is suspended in air. When the cryostat is filled with LAr, the beam plug is roughly neutrally buoyant. 
+The beam plug is designed to displace the passive LAr layer between the TPC field cage and the inner crystat membrane. As illustrated in Figure~\ref{fig:beamwindow_fig2}, it is a cylidrical glass-fiber composite pressure vessel about 50cm in length and  22cm in diameter. It is filled with dry nitrogen gas via a stainless steel line that extends to the top of the cryostat. The pressure inside the beam plug is maintained externally to about 25 psi from room to LAr temperatures. The beam plug is secured to the field cage support structure (see Section~\ref{subsec:fc-beamplug}). The front portion of the beam plug extends about 5~cm inside the field cage through an opening on the field cage. The field cage support is designed with sufficient strength to withstand the weight of the beam plug while it is suspended in air. When the cryostat is filled with LAr, the beam plug is roughly neutrally buoyant. 
 
 At nominal operation, the voltage difference across the beam plug could be as high as 165kV. To minimize electrical discharges, the beam plug is divided into sections and each section is bonded to a stainless-steel conductive grading rings. The grading rings are conected in series with two parallel path of resistor chains. There are 7 grading rings. The ring that is closest to the field cage is electrically connected to one of the aluminum field cage profiles. The last ring near the cryostat wall is grounded to the stainless steel membrane. The type and value of the resistor is still under evaluation. A likely candidate is the high voltage Super Mox 15G$\Omega$ resistor by OHMITE. The maximum total power dissipated by the resistor chain is about 0.6W.
 
 \begin{cdrfigure}[Beam plug]{beamwindow_fig2}{Beam plug. It is a  composite pressure vessel filled with dry nitrogen gas. The vessel is about 50cm in length and about 22cm in diameter. The pressure vessel is divided into sections with each section bonded to a stainless-steel grading ring. The grading rings are connected by two parallel paths of resistor chain.}
   \includegraphics[width=0.7\textwidth]{beamwindow_system2.jpg}
 \end{cdrfigure}
+
+\subsection{Adhesive shear testing of ring joints}
+The stainless steel electrodes and the composite shells will be bonded using a cryogenically rated epoxy system (Hysol 9309.2 NA). The vendor has fabricated prototype pieces to measure the adhesive shear strength for the proposed joints. The measurements were done at cryogenic temperature and also as a function of bond length. Testing results indicate that the default design has at least a safety factor of 6 for axial adhesive shear failure. The test samples and setup are shown in Figure~\ref{fig:beamplug_sheartest}.
+
+\begin{cdrfigure}[Beam plug Shear Test]{beamplug_sheartest}{Photo on the left shows the bonded test samples. The measurements were performed for different bond lengths and componsite shell thicknesses. Photo on the right shows the test setup. The tests were done at LN temperature.}
+  \includegraphics[width=0.85\textwidth]{beamplug_sheartest.pdf}
+\end{cdrfigure}
+
+
+\subsection{Dielectric strength of composite shell}
+
+
+\subsection{Electrode ring design}
+The metal electrode rings are spaced at regular intervals and interspersed with composite tube sections. The shape of the rings has been designed to minimize high electric field corners. The results of the field calculations are shown in Figures~\ref{fig:beamplug_ring1} and~\ref{fig:beamplug_ring2}. The average field in the vicinity of the beam plug is about 4.4 kV/cm. The maximum field of 15.7 kV/cm is on the electrode ring surface. The field at all region is well below the 30 kV/cm limit.
+
+\begin{cdrfigure}[Beam plug electrodes]{beamplug_ring1}{Electric field calculation of the electrode ring design. The average field in the beam plug region is about 4.4 kV/cm. The maximum field of 15.7 kV/cm is on the electrode ring surface. }
+  \includegraphics[width=0.85\textwidth]{beamplug_ring1.pdf}
+\end{cdrfigure}
+
+\begin{cdrfigure}[Beam plug electrode]{beamplug_ring2}{Electric field calculation near the vicinity of the electrode. The shape of the ring minimizes the high field region near the joints between the electrode, LAr, and composite shell. The field at all region is well below the 30 kV/cm limit.}
+  \includegraphics[width=0.65\textwidth]{beamplug_ring2.pdf}
+\end{cdrfigure}
+
+
+
 
 \begin{cdrtable}[Beam plug requirements]{lll}{bprequirements}{Beam plug requirements and parameters list}
 Parameter & Value & Notes \\ \toprowrule
@@ -46,6 +71,7 @@ Tolerances  & ASME Y14.5 2009 & Where useful to convey design intent \\
             &                 & and function \\ 
 Materials used   & & Electrically insulating; selected from or\\
                  & & approved per FNAL LAr purity list \\ 
+Epoxy system & Hysol 9309.2 NA & Rated for cryogenic use\\
 Electrode Rings & 304 Stainless steel & \\ \colhline 
 Resistor Type & OHMITE Super-Mox 930 Series & \\
 Resistor Value & 15~G$\Omega$ & \\
@@ -79,9 +105,9 @@ High Voltage Tests & (180 kV equivalent) & \\
 \end{cdrtable}
 
 
-\begin{cdrfigure}[System 2 beam window mounting scheme]{beamwindow_fig3}{System 2 beam window mounting scheme (preliminary). The beam plug is mounted to the field cage support structure.}
-  \includegraphics[width=0.7\textwidth,height=0.3\textheight]{beamwindow_system2_mount.pdf}
-\end{cdrfigure}
+%\begin{cdrfigure}[System 2 beam window mounting scheme]{beamwindow_fig3}{System 2 beam window mounting scheme (preliminary). The beam plug is mounted to the field cage support structure.}
+%  \includegraphics[width=0.7\textwidth,height=0.3\textheight]{beamwindow_system2_mount.pdf}
+%\end{cdrfigure}
 
 
 
