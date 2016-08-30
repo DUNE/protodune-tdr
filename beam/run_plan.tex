@@ -2,12 +2,14 @@
 \section{Run Plan}
 \label{sec:runplan}
 
-\fixme{Need to update the run plan when Nikos's H4 simulation results are available}
+\fixme{Need to update the run plan when Nikos's H4 simulation results which are now are available}
 
-At present the H4 beamline simulation results are not available. To estimate the beam rates, we use inputs from a generic target simulation based on 100k 80 GeV $\pi^+$ beam on 15 cm copper target. This $\pi^+$ rate is roughly equivalent to 10\% of a typical SPS spill. The distributions of the tertiary particles from the copper target are shown in Figure~\ref{fig:beamline_target}. The figure on the left is for postively charged and the figure on the right is for negatively charged tertiary particles. 
+%%% At present the H4 beamline simulation results are not available. --- see earlier section 
+To estimate the beam rates, we use inputs from a generic target simulation based on 100k 80 GeV $\pi^+$ beam on 15 cm copper target. This $\pi^+$ rate is roughly equivalent to 10\% of a typical SPS spill. The distributions of the tertiary particles from the copper target are shown in Figure~\ref{fig:beamline_target}. The figure on the left is for postively charged and the figure on the right is for negatively charged tertiary particles. 
 \begin{cdrfigure}[Target simulation]{beamline_target}{Simulated flux of charged secondary particles resulting from 100k $\pi^+$ each with an energy of 80~GeV impinging on a 15 cm copper target. The figure on the left is for positively charged and the figure on the right is for negatively charged secondary particles.}
 \includegraphics[width=0.8\textwidth]{beamline_CuTarget.jpg}
 \end{cdrfigure}
+\fixme{Urgently need to remake these plots !}
 
 To formulate a preliminary beam time request, we assume the hadron beam rates and spectrum as given in Figure~\ref{fig:beamline_target}. For the beam rate estimates, we account for particle decays assuming the distance from the secondary target to the cryostat to be 30 m. A significant fraction of pions and kaons below 1 GeV/c decay before reaching the liquid argon cryostat. In addition, we also assume the data taking efficiency to be about 50\%. For the electron sample, we expect a different optimized beamline setup to produce a pure electron beam with a flux of about 200 Hz. A preliminary run plan for one configuration is shown in Table~\ref{tab:RunPlan}. 
 %
@@ -63,6 +65,7 @@ Total  &1600&22&\multicolumn{2}{|c|}{350k}&\multicolumn{2}{|c|}{180k}\\
 \caption{A preliminary run plan for one beam angle and position. The number of spills needed for a given momentum bin is driven by the samples highlighted in red or by the requirement of at least 150 spills per momentum bin.}
 \label{tab:RunPlan}
 \end{table}
+\fixme{Also need to remake this table based on H4 files!  also: P >= 0.5 GeV}
 The number of spills needed for each momentum bin is driven by the samples highlighted in red. The minimum beam time requirement is 150 spills ($\approx$ 2 hours of beam time) per momentum bin to ensure we have sufficient data taken with stable beam running.  This proposed plan satisfies the requested samples from the physics groups, except for kaons less than 1 GeV. \fixme{Need the physics sample requirement table from the Measurement group}. Most low momentum kaons produced from the secondary target decay before reaching the liquid argon cryostat. To obtain those samples, we will need to carry out extended runs and trigger exclusively on particles tagged as kaons by either the time-of-flight or the threshold Cherenkov counters.
 
 In addition to the above samples with beam at the nominal position, we expect to take some additional data with the beam entering the TPC at different position and angles. Without a detail beamline simulation, there are still some uncertainties on the actual beam rates.  Based on the current information available, the total estimated beam time needed to carry out the physics program in this proposal is in the range of 4 to 6 weeks.
