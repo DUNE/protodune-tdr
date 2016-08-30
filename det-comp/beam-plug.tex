@@ -29,7 +29,7 @@ At nominal operation, the voltage difference across the beam plug could be as hi
 \end{cdrfigure}
 
 \begin{cdrfigure}[Beam plug component-level view]{beamplug_components}{Component-level view of the beam plug showing alternating electrode and composite ring structure.}
-  \includegraphics[width=0.90\textwidth]{beamplug_components.pdf}
+  \includegraphics[width=0.95\textwidth]{beamplug_components.pdf}
 \end{cdrfigure}
 
 The metal electrode rings are spaced at regular intervals and interspersed with composite tube sections. The shape of the rings has been designed to minimize high electric field corners. The results of the field calculations are shown in Figures~\ref{fig:beamplug_ring1} and~\ref{fig:beamplug_ring2}. The average field in the vicinity of the beam plug is about 4.4 kV/cm. The maximum field of 15.7 kV/cm is on the electrode ring surface. The field at all region is well below the 30 kV/cm limit.
@@ -56,6 +56,7 @@ The stainless steel electrodes and the composite shells will be bonded using a c
 \end{cdrfigure}
 
 \subsection{Dielectric strength of composite shell}
+The pressure vessel material is composed of electrically insulative glass fiber composite. Samples of the materials were obtained from the vendor and tested at LBNL for dielectric breakdown along the composite surface. The test setup are shown in Figure~\ref{fig:beamplug_dielectric}. The test samples and electrodes were fabricated to match the beam plug geometry. The material samples were successfully tested at room temperture in air up to about 50 kV, which is the limit of the test in air. This is about a factor of 1.7 higher than our nominal voltage between electrodes.
 
 \begin{cdrfigure}[Dielectric strength test]{beamplug_dielectric}{Test setup to measure the dielectric breakdown of the composite material. The sample tested is shown in the photo on the left. The composite plate is attached to the electrodes that have been machined to match the geometry of the beam plug. The photo on the right shows the HV connection.}
   \includegraphics[width=0.85\textwidth]{beamplug_dielectric.pdf}
@@ -123,7 +124,7 @@ High Voltage Tests & (180 kV equivalent) & \\
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
 
-As a part of the QC process for the beam plug, the vendor will conduct the following acceptance tests for all the production units before shipping:
+As a part of the QC process for the beam plug, the vendor will conduct the following acceptance tests for the production units before shipping:
 \begin{itemize}
 \item {Initial helium leak check}
 \item {Internal pressure check at cryogenic temperature (at about 2x operating pressure)}
@@ -132,11 +133,13 @@ As a part of the QC process for the beam plug, the vendor will conduct the follo
 \item {Final helium leak check to ensure no damage has been incurred}
 \end{itemize}
 
-\subsubsubsection{BLANCHE Test-stand}
-Discuss HV test of beam plug in BLANCHE teststand
+The acceptance tests performed by the vendor are primarily related to pressure safety and leak rates. Some of those tests will be repeated by LBNL upon receiving the units to verify vendor's results. In addition, LBNL will conduct tests to verify other aspects of the beam plug, in particular, the HV characteristics. The HV tests will be conducted using various facilities as described in the following sections.
+
+\subsubsubsection{BLANCHE Test Stand}
+The BLANCHE test stand at Fermilab is a LAr cryostat dedicated to study high voltage related issues. It is 152 cm tall with a 76 cm inner diameter. The test stand is connected to a LAr purification system to remove oxygen and water contamination. The test stand is capable of delivery HV to the test article up to 150 kV. The cryostat is large enough to test the full size beam plug. The plan is to test the beam plug in BLANCHE to verify that the beam plug can withstand HV in LAr enviroment.
 
 \subsubsubsection{Test in Charged Particle Beam}
-Discuss beam test at Fermilab.
+During ProtoDUNE-SP physics runs, charged particle beam will go through the beam plug at about 100 Hz during a beam spill. The current induced from the ionization of the nitrogen gas by the charged beam particles is expected to be small; less than 1 nA during the spill. Given the low ionization rate and long pause between spills, we do not expect the charged beam to introduce electrical breakdown inside the beam plug. However, we plan to verify the design by putting the beam plug in a test beam with the beam plug at nominal HV. We will study the current flow inside the beam plug as a function of beam rate and nitrogen gas pressure. To minimize possible HV breakdown on the outter surface of the beam plug, which may complicate the interpretation of the test results, the beam plug will be immersed in dielectric oil. The test apparatus with the beam plug installed inside the setup is shown in Figure~\ref{fig:beamwindow_SLAC}.
 \begin{cdrfigure}[SLAC beam test]{beamwindow_SLAC}{Beam test setup.}
   \includegraphics[width=0.8\textwidth]{beamwindow_SLACtest.pdf}
 \end{cdrfigure}
