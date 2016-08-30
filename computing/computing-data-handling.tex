@@ -39,8 +39,8 @@ is similar to or better than that achieved by MicroBooNE.
     \# of APAs to be read out & 6 \\
     \hline
     Single readout size (per trigger) & \SI{230.4}{\mega\byte} \\
-    Compression factor & 5 \\
-    Instantaneous data rate & \SI{1440}{\mega\byte\per\second} \\
+    Lossless compression factor & 4 \\
+    Instantaneous data rate (in-spill) & \SI{1440}{\mega\byte\per\second} \\
     Average data rate & \SI{576}{\mega\byte\per\second} \\
     \hline
     3-Day buffer depth & \SI{150}{\tera\byte} \\
@@ -57,9 +57,9 @@ the current assumption is that for every beam trigger, one non-beam
 trigger be acquired between spills.  The average data rate and the buffer depth include a factor of two due to this,
 while the instantaneous data rate remains unchanged.
 
-The current run plan calls for about 5\,M analyzable beam events to be collected in the first run of \pd. Triggers (such as PID) will be
+The current run plan calls for about 25\,M analyzable beam events to be collected in the first run of \pd. Triggers (such as PID) will be
 actuated using beam instrumentation which is being developed at the time of writing. Its efficiency will certainly be less
-than 100\,\% and for estimation purposes is assumed to be 50\,\%. This leads to the requested total statistics of 10\,M
+than 100\% and for estimation purposes is assumed to be 50\%. This leads to the requested total statistics of 10\,M
 events. Combined with readout size quoted in Table\,\ref{tab:goldi} it results in the anticipated volume of raw data of
 about 0.5\,PB to be taken during the SPS run. To account for commissioning of the detector this estimate should be roughly doubled,
 resulting in an estimated 3\,PB of raw data.
@@ -128,26 +128,32 @@ checks, ensuring that all data that are expected for an event have
 arrived and have not been corrupted, before writing records out.
 
 The disk storage layer will consist of 350\,TB of high-speed
-disks, which may be connected directly or network-attached.  As of this writing, the filesystem and
-interface software layer is not yet defined, but may be one of the
-following --
-% an instance of EOS~\cite{eos},
-a XRootD cluster~\cite{xrootd}, a SAN installation, or
-simply disks locally attached to the EventBuilder computers.  A
-alternative to this design that allows for more flexibility but at a
-cost of network latency and CPU, is to add a layer of Aggregator CPU
-processes between the EventBuilders and the disk writing.  These
-processes may be needed if the events are to be sorted, analyzed,
-reformatted, or otherwise handled before writing out.  In order to
-maximize throughput and minimize cost, the number of steps in the data
-handling system is to be minimized.
+disks, which may be connected directly or network-attached.  As of this writing,
+two approaches are being considered:
+\begin{itemize}
+\item a XRootD cluster~\cite{xrootd} taking data directly from the Event Builders over the network.
+\item high-speed storage devices (SSD) attached to the Event Builders, forming a moderate-capacity buffer;
+an external storage cluster will still be needed in order to satisfy the nominal 3-day buffer capacity requirement.
+\end{itemize}
+
+
+\noindent Each version has its advantages and disadvantages. Technology choice will be made after
+additional R\&D and testing.
+
+%A alternative to this design that allows for more flexibility but at a
+%cost of network latency and CPU, is to add a layer of Aggregator CPU
+%processes between the EventBuilders and the disk writing.  These
+%processes may be needed if the events are to be sorted, analyzed,
+%reformatted, or otherwise handled before writing out.  In order to
+%maximize throughput and minimize cost, the number of steps in the data
+%handling system is to be minimized.
 
 After the data are written to disk by {\it artdaq}, the data handling
-system creates metadata files, runs near-line monitoring jobs, and
+system creates metadata files,optionally  runs near-line monitoring jobs, and
 transfers the data from EHN1 to the CERN Computing Centre, as
 described in DUNE DocDB~1212~\cite{docdb1212}. According to the current plan,
-the ``F-FTS'' software developed and maintained at FNAL will be the centerpiece
-of managing the data flow at this level.
+the ``F-FTS'' software developed and maintained at FNAL will be the central element
+of the data flow management at this level.
 
 
 \subsection{Raw Data Flow in \pd}
