@@ -68,7 +68,7 @@ between the APA and the CE flanges (cold cable)
 low-voltage power, and APA wire-bias voltage between warm and cold
 \item Warm electronics crates (WECs) mounted on the CE flanges, which act as Faraday cages with
 only optical fibers to slow control and the DAQ, and which contain the Warm Interface Boards (WIBs)
-\item Data and clock/control IO fiber cable between the WEC and the data aquisition 
+\item Data and clock/control IO fiber cable between the WEC and the data acquisition 
 (DAQ) and slow control systems
 \item LV and wire-bias power cables between the CE flange and external power supplies
 \item Low-voltage supplies for the CE and bias-voltage supplies for the APAs
@@ -112,7 +112,7 @@ with a maximum specified leakage current in 1-atm argon gas.
 %that create an electrical connection. 
 
 By ensuring that the electrical cables for each APA enter the cryostat through single 
-independent feed-through penetrations, the TPC APA, cold electronics read-out, CE flange, 
+independent feedthrough penetrations, the TPC APA, cold electronics read-out, CE flange, 
 and Faraday cage Warm Electronics Crate for each independent APA are an integrated whole
 read-out unit. Each unit will provide local diagnostics for noise and validation testing,
 and follow the grounding and shielding guidelines in the next section.
@@ -122,7 +122,7 @@ and follow the grounding and shielding guidelines in the next section.
 
 To avoid structural ground loops, the APA frames described in Section~\ref{subsec:apa_frame} 
 are insulated from each other. Each frame is electrically connected to the cryostat at a single 
-point, where cold cables exit the cryostat signal feed-through. Mechanical suspension of the APAs 
+point, where cold cables exit the cryostat signal feedthrough. Mechanical suspension of the APAs 
 is accomplished using insulated supports. 
 
 The FEMB include an analog motherboard with eight Front-End (FE) ASICS configured as 16-channel 
@@ -324,7 +324,7 @@ can be derived and applied in the ASIC design.
 With this accelerated testing the expected lifetimes can be verified for the several
 widely available CMOS technologies under consideration (TSMC, IBM, AMS).
 It should be noted that this is a standard test method used by the semiconductor industry;
-it is used to qualify electronics for deep space NASA missions as well as commerical PCs.
+it is used to qualify electronics for deep space NASA missions as well as commercial PCs.
  
 \begin{cdrfigure}[Lifetime at different temperatures vs V$_{DS}$]{tpcce_LifetimetestVR}{Lifetime at different temperatures vs V$_{DS}$}
 \includegraphics[width=0.9\textwidth]{tpcce_LifetimetestVR.pdf}
@@ -567,7 +567,8 @@ is not required.
 \subsection{Signal Feedthroughs and Cold Cable}
 \label{subsec:ce_feedthrough}
 
-A signal feedthrough will pass the signals, supply voltages, and control lines from the warm to the cold.
+All LV and data cables inside the cryostat connect to the warm outside via flange PCB boards installed in feedthroughs
+which are distributed along the cryostat roof (Fig.~\ref{fig:tpcce_FT_InternalCableRoute}).
 The TPC data rate per APA, using the full event-buffer scheme described earlier,
 is sufficiently low that it is within the capability of a single LVDS channel on copper,
 with an overall 32:1 Mux and 80 1~Gbps LVDS data channels per APA.
@@ -580,30 +581,33 @@ LVDS connections will be made to each APA to distribute a clock signal and contr
 These data can be transmitted at a lower bit rate.
 Optical fiber will be employed externally from the CE flange to the DAQ systems and slow control.
 
+\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_FT_InternalCableRoute}{
+The feedthrough configuration and internal cable routing. The left panel shows a cutaway view of the cryostat.
+The right panel shows more detail at the Faraday boxes.}
+\includegraphics[width=7in]{tpcce_FT_InternalCableRoute.pdf}
+\end{cdrfigure}
+
 %
 %%%%%%%%%%%%%%%%
 \subsubsection{Signal Feedthroughs}
 \label{subsubsec:ce_feedthroughs}
 
-\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{TPC signal/power feedthrough.}
-\includegraphics[width=2.75in]{tpcce_signal_FT_1.jpg}
-\includegraphics[width=4in]{tpcce_signal_FT_2.jpg}
+\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{
+TPC signal/power feedthrough. The WIBs are seen edge-on in the left panel,
+and in an oblique side-view in the right panel, which also shows the warm crate in a cutaway view.}
+\includegraphics[width=7in]{tpcce_signal_FT.pdf}
 \end{cdrfigure}
 
-The design for the signal feedthroughs is complete except for some small adjustments,
-which are expected to be complete by October 2016.
-ProtoDUNE has been developing in tandem with the SBND experiment because of the very similar feedthrough needs.
+The ProtoDUNE feedthroughs are being developed in tandem with the SBND experiment because of their very similar needs.
 The current ProtoDUNE design of the signal feedthrough includes a T-shaped pipe, CE flange, and warm electronics crate, as shown in Fig.~\ref{fig:tpcce_signal_FT}.
-
-All LV and data cables inside the cryostat will be attached to their corresponding feedthroughs 
-distributed throughout the cryostat roof via flange PCB boards that make the electrical connection
-between the cable and warm electronics. The wire-bias voltage cables will connect to the standard SHV
-connectors machined directly into the flange, so there will be no electrical connection between 
-the LV and data connectors and bias voltage.
+The wire-bias voltage cables will connect to standard SHV connectors machined directly into the flange,
+so there will be no electrical connection between the LV and data connectors and bias voltage.
 The other ends of the data and LV cables will be connected to the matching connectors on the FEMBs in the cryostat.
 Based on a standard 14-in conflat flange,
 each of these feedthroughs will serve the bias/power/digital IO needs of one APA, as shown 
 in Figure~\ref{fig:tpcce_cable_routing}.  
+Except for some small adjustments as required for integration with the cryostat, expected to be complete by October 2016,
+the design for the signal feedthroughs is complete.
 
 \begin{cdrfigure}[TPC cable routing scheme]{tpcce_cable_routing}{TPC cable routing scheme for three APA section.}
 \includegraphics[width=0.9\linewidth]{tpcce_cable_routing.pdf}
@@ -617,14 +621,13 @@ in Figure~\ref{fig:tpcce_cable_routing}.
 For the protoDUNE detector APA there will be 20 electronics boards.
 While the electrical connection requirements are straightforward,
 the reliable gas tightness of the flange with an embedded circuit board has been fully verified.
-Also the planned method of reducing contamination from the cable plant in the ullage
+The program for reducing contamination from the cable plant in the ullage
 (the warmer gas phase at the top of the cryostat) 
-continues to be carefully studied.
-
+is being carefully followed.
 Measurements in the Materials Test Stand at Fermilab (described in Section 7.2 of the LBNE Closeout document).
 have shown that impurities (principally O$_2$ and H$_2$O) embedded in objects submerged in the liquid argon do not result
-in a decrease in electron-drift lifetime, whereas impurities in objects located in the ullage do.
-This indicates the importance of minimizing the amount of material in the ullage.
+in a decrease in electron-drift lifetime, whereas impurities in objects located in the ullage do, thus
+the importance of minimizing the amount of material in the ullage.
 
 %
 %%%%%%%%%%%%%%%%  
@@ -654,8 +657,8 @@ interface, which uses three LVDS pairs, so that COLDATA will only
 require 9 differential signals.
 
 \begin{cdrfigure}[Samtec LV and data cable]{tpcce_samtec_cable}{Samtec data (left) and LV power (right) cable.}
-\includegraphics[width=3in]{tpcce_samtec_data.pdf}
-\includegraphics[width=3in]{tpcce_samtec_lv.pdf}
+\includegraphics[width=6in]{tpcce_samtec_data.pdf}
+\includegraphics[width=6in]{tpcce_samtec_lv.pdf}
 \end{cdrfigure}
 
 ProtoDUNE will use Samtec 26~AWG twin-axial cable bundles with Samtec HSEC08 connectors to both
@@ -683,7 +686,7 @@ validation testing. The eye diagrams show the edges of the differential signals 
 LVDS transmission over the specified cable types and lengths. The height of eye diagram shows the size 
 of the recovered signal in mV and the slope of the rising and falling edges are jitter in picoseconds (ps). 
 An eye diagram is sufficient to show that the edges of the differential signals can
-be recovered, but not enough to demonstate the bit error rate (BER).
+be recovered, but not enough to demonstrate the bit error rate (BER).
 
 The top left and bottom right eye diagrams in Figure~\ref{fig:tpcce_samtec_results} show 
 that the Samtec 26~AWG cable allows recovery of both 50~MHz system clock and 1~Gbps digitized waveform 
@@ -754,12 +757,12 @@ FEMBs. The WIB also receives the high-speed data from the four
 FEMBs and transmits it to the DAQ system over optical
 fiber.  Figure~\ref{fig:tpcce_ceflange_sbnd} shows the TPC warm electronics
 flange (SBND design). The WIBs are attached directly to the TPC
-readout electronics flange on the cryostat feed-through. The flange
+readout electronics flange on the cryostat feedthrough. The flange
 board is a PCB with connectors to the cold signal and LV cables fitted
 between the compression plate on the cryostat side, and sockets for
 the WIB on the warm side. Cable strain relief is also provided
 directly on the flange, which is mounted vertically to the cryostat
-feed-through.
+feedthrough.
 
 \subsubsection{Power and Timing Card}
 \label{subsubsec:power_timing_card}
@@ -795,7 +798,7 @@ as shown in Figure~\ref{fig:tpcce_wib_power}. The
 majority of the 200W drawn by a full flange is dissipated in the LAr
 by the cold FEMB.
 
-ProtoDUNE has 6 cryostat signal feed-throughs with warm interface electronics. 
+ProtoDUNE has 6 cryostat signal feedthroughs with warm interface electronics. 
 If the system clock is received by the PTC, it will require 6 dual fiber links.
 
 \subsubsection{Warm Interface Board}
@@ -869,7 +872,7 @@ differential I2C links, as described in Section~\ref{subsubsec:ce_data_cable}.
 The LV power to the FEMB and WIB will be supplied by Weiner MPOD power supplies. 
 The power-per-channel for the FE electronics is designed be about 25~mW in the LAr.
 Including power for the WIB, a fully loaded WIB (1 WIB plus 4 FEMBs) will require
-12V and draw approxmiately 3.3~Amps. Therefore, a full WEC (5 WIBs + 20 FEMBs) will
+12V and draw approximately 3.3~Amps. Therefore, a full WEC (5 WIBs + 20 FEMBs) will
 require 12V and draw approximately 16~Amps, for a total power of almost 200~W, as 
 described in Section~\ref{subsubsec:power_timing_card}.
 
@@ -957,13 +960,14 @@ were used to characterize the performance of prototype ASICs at both 300~K and 7
 and taking them through multiple thermal cycles.
 An automated test board was built for the FE ASIC (Fig.~\ref{fig:tpcce_FE_TestBoard})
 to evaluate large numbers of FE ASICs at room temperature,
-and another such board is currently being designed for the ADC ASIC.
+and another such board is currently being designed for the ADC ASIC (Fig.~\ref{fig:tpcce_ADC_TestBoard}).
 
 \begin{cdrfigure}[FE ASIC testboard]{tpcce_FE_TestBoard}{FE ASIC testboard.}
-\includegraphics[width=0.7\linewidth]{tpcce_FE_TestBoard.pdf}
+\includegraphics[width=0.6\linewidth]{tpcce_FE_TestBoard.pdf}
 \end{cdrfigure}
-
-%\fixme{Get images of the current testboards here.}
+\begin{cdrfigure}[ADC ASIC testboard]{tpcce_ADC_TestBoard}{ADC ASIC testboard.}
+\includegraphics[width=0.6\linewidth]{tpcce_ADC_TestBoard.pdf}
+\end{cdrfigure}
 
 The development of the FE and ADC ASICs has proceeded through a series of prototype designs.
 A 128-channel prototype analog mother board has been developed and tested in the lab.
