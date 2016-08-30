@@ -64,9 +64,8 @@ at the location of the charge and its drift velocity vector $\vec{v}_q$.
 The weighting field vector $\vec{E}_{w}$, which depends on the geometry of the electrodes, 
 can be calculated by removing the charge,  placing the potential of the targeted 
 electrode to the unity potential, and setting all other conductors to ground. 
-Figure~\ref{fig:signal_formation} shows a calculated weighting potential 
-\fixme{the `weighting potential' is E dot v? If so, please state that here}
-for one 
+Figure~\ref{fig:signal_formation} shows a calculated weighting potential $V_{w}$ that 
+is linked to weighting field $\vec{E}_{w}$ as $\frac{dV_{w}}{d\vec{r}} = \vec{E}_{w}$ for one 
 induction plane wire using a 2D simulation based on Garfield~\cite{garfield}. 
 In this calculation, the wire pitch is assumed to be 3~mm. There are three wire planes 
 with the first two being induction and the last one being collection plane.  
@@ -88,7 +87,7 @@ right shows a cross sectional view of the three wire planes (red dots) along wit
 (green lines) for a single induction wire of the first induction wire plane.}
 \includegraphics[width=0.8\textwidth]{Signal_Extraction.png}
 \end{cdrfigure}
-\fixme{Left panel of figure should have difference in terminology shown in top most and bottom most box, e.g. "true no. of ionized elec" and "reconstructed ..." -TK }
+%\fixme{Left panel of figure should have difference in terminology shown in top most and bottom most box, e.g. "true no. of ionized elec" and "reconstructed ..." -TK }
 
 \begin{cdrfigure}[Simulated electronics response function in the time 
 domain at 4.7 mV/fC gain]{ele_res}{The simulated electronics response function in the time 
@@ -130,9 +129,10 @@ the expected
 distribution is shown in panel a) at top right.  However, the induced current on the wire of 
 interest depends on the weighting field, which is smaller when the ionization electron is 
 further away from the wire itself. Therefore, the effective charge distribution seen by 
-the wire would be similar to what is shown in panel b) on the right side of 
+the wire after considering the strength of weighting potential 
+ would be similar to what is shown in panel b) on the right side of 
 Figure~\ref{fig:ideal_track_1}. 
-\fixme{Why is signal in b) symmetric, when weighting potential for shown track is not ? - TK}
+%\fixme{Why is signal in b) symmetric, when weighting potential for shown track is not ? - TK}
 However, the wire of interest will experience an 
 additional induced current from ionization electrons 
 drifting outside its boundaries and in the regions of nearby wires. 

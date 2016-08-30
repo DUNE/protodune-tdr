@@ -158,7 +158,7 @@ response once the local ionization charge distribution is roughly reconstructed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-\fixme{sections 3.4.3 - 3.4.7 would benefit from a more focused description; as written it is a bit of a laundry list}
+%\fixme{sections 3.4.3 - 3.4.7 would benefit from a more focused description; as written it is a bit of a laundry list}
 \subsection{Additional Challenges in Deconvolution}
 
 
@@ -257,12 +257,12 @@ used in the charge extraction.
 The field response is calculated with Garfield~\cite{garfield} in a 22-cm (along the 
 field direction) $\times$ 30-cm (along the wire plane direction) region in 2D.  
 In the drift direction, the grid plane is labeled as G, the two induction %planes 
-wire 
-planes are labeled U and V, and the collection plane is W.  The spacing between the wire 
+wire planes are labeled U and V, and the collection plane is W.  The spacing between the wire 
 planes is 4.76~mm. The bias voltages of-665 V, -370 V, 0 V, and +820 V for the G, U, V, and 
 W planes, respectively, are configured according the operating conditions that ensure near 100\%
-    transmission of ionization electrons through the first two induction planes.  
-    A total of 101 wires of 150 $\mu$m diameter and with a pitch of 4.667 (4.79 for collection) mm make up each wire plane. 
+transmission of ionization electrons through the first two induction planes.  
+A total of 101 wires of 150 $\mu$m diameter and with a pitch of 4.667 (4.79 for collection) mm make up
+ each wire plane. 
     A ground plane is placed 1~cm behind the W plane.  The nominal drift
     field is uniform and has a magnitude of 500~V/cm. The electron drift velocity as a function of
     electric field is taken from measurements~\cite{Li:2015rqa,lar_property}
@@ -274,10 +274,13 @@ W planes, respectively, are configured according the operating conditions that e
     (U and V planes) or collection currents (W plane) as a function of time.
 
 \begin{cdrfigure}[Description of the Garfield 2D simulation of field response 
-functions]{garfield_2d}{Description of the Garfield 2D simulation of field response functions}
+functions]{garfield_2d}{Illustration of calculation of field response funciton with Garfield 2D simulation.
+Top left panel shows the simulation for a track traveling parallel to the wire plane. Top right panel
+shows the simulation for a single electron. The orange lines represent the track trajectory of ionization
+electrons. See text for detailed description.}
   \includegraphics[width=0.95\textwidth]{Garfield_simu.png}
 \end{cdrfigure}
-\fixme{Figure~\ref{fig:garfield_2d} needs a more descriptive caption}
+%\fixme{Figure~\ref{fig:garfield_2d} needs a more descriptive caption}
     
     
     Figure~\ref{fig:garfield_2d} shows the configuration used in the Garfield 2D simulation.
@@ -294,17 +297,19 @@ functions are reasonably balanced, as expected.
 \begin{cdrfigure}[Overall response functions]{overall_response}{The overall response functions, i.e., %which is 
 the convolution of the
 electronics response function (14 mV/fC gain and 2 $\mu$s shaping time) 
-and the field response.}
+and the field response. The response functions for the closest wire $R_0$ as defined in 
+Eq.~\eqref{eq:matrix_expansion}, the next adajacent wire $R_1$, and so on, are plotted.
+}
 \includegraphics[width=0.95\textwidth]{dune_field_res.pdf}
 \end{cdrfigure}
-\fixme{This needs more description in the caption.}
+%\fixme{This needs more description in the caption.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Choice of Software Filter}
 
 Two types of filters are selected and implemented.  The first, inspired by the Wiener filter,  
  is modified to not suppress low-frequency components.  The second is the 
-Gaussian filter. While the first one is optimized \fixme{independently?} for each wire plane to produce a 
+Gaussian filter. While the first one is optimized independently for each wire plane to produce a 
 high signal-to-noise ratio, the second one is optimized for the three planes as a group % and same to all the planes 
 to correctly estimate the charge which is independently measured on each  plane. %of the three planes.  
 This latter is important if all three planes are used for energy measurement 
@@ -350,13 +355,12 @@ extra factor in the overall normalization. The free parameters $a$ and $b$ in th
 form are determined by matching the tail of the Wiener filter at its high-frequency side. 
 An example of a software filter is shown in Figure~\ref{fig:soft_filter_1}. 
 
-\begin{cdrfigure}[Wiener-inspired filter and Gaussian filter used in the 2D deconvolution]{soft_filter_1}{The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution. 
-The time and frequency domain content are shown on the left and right panel, respectively.
-The x-axis's unit for the time domain is $\mu$s. For the frequency domain, the number 2000
-corresponds to $\sim$0.42 MHz.}
+\begin{cdrfigure}[Wiener-inspired filter and Gaussian filter used in the 2D deconvolution]{soft_filter_1}{
+The Wiener-inspired filter and Gaussian filter used in the 2D deconvolution are shown on 
+the left (right) panel for the time (frequency) domain. A bin in the time domain plot represents 0.5 $\mu s$.}
 \includegraphics[width=0.8\textwidth]{filter_1.png}
 \end{cdrfigure}
-\fixme{axes of \ref{fig:soft_filter_1}  need to be labeled - description in caption is not enough.}
+%\fixme{axes of \ref{fig:soft_filter_1}  need to be labeled - description in caption is not enough.}
 
 Beside the high-frequency software filter described above, there is also a low-frequency 
 software filter which is used to select ROIs (discussed in Section~\ref{sec:decon-roi-selection}.) %the next section). 
@@ -413,10 +417,10 @@ is plotted with respect to the wire length observed in MicroBooNE.
 This plot is taken from~\cite{noise_filter}.}
 \includegraphics[width=0.75\textwidth]{RMSvsLength_after.pdf}
 \end{cdrfigure}
-\fixme{incorrect figure ?!}
+%\fixme{incorrect figure ?!}
 
 The ENC in MicroBooNE has been reported in~\cite{noise_filter} and plotted 
-in Figure~\ref{rms3}. As illustrated above \fixme{reference section or figure}, the calculation of the DNC depends on the 
+in Figure~\ref{fig:rms3}. The calculation of the DNC depends on the 
 drifted-charge extraction procedure. More specifically, it depends on the field 
 response, the noise level (ENC and the frequency content), and the length of the ROI. 
 Figure~\ref{fig:DNC} shows the calculated DNC as a function of the time-window length 
