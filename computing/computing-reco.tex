@@ -186,31 +186,23 @@ is constructed after the individual trajectories are found and stitched across T
 structure is described as a particle hierarchy using data products available in LArSoft.
 
 PMA has successfully been used to reconstruct simulated beam particles in
-ProtoDUNE-SP. The spatial resolution of the particle entry point is
-shown in Figure~\ref{PMAentryresolution}, the direction resolution in
-Figure~\ref{fig:PMAdirection}, and the spatial resolution of the the
-inelastic interaction point of charged pions in ProtoDUNE-SP is shown
-in Figure~\ref{fig:PMApioninteraction}.
+ProtoDUNE-SP. The spatial resolution of the positive pion interaction with neutral pion
+production is shown in Figure~\ref{PMApioninteraction} in order to illustrate the performance
+of the entire reconstruction chain. Study of the reconstruction performance for particles
+oriented w.r.t. the readout planes nearly in the test beam direction was carried out to ensure
+that it is not introducing major difficulties to the analysis. Example results are shown in
+Figure~\ref{fig:PMAdirection}, showing the minimal resolution deterioration for the isochronous
+tracks (and a larger dependence on the length of the reconstructed track). Figures ~ref{PMAproton2gevc}
+and ~ref{PMAcosmics} show examples of reconstruction of a 2 GeV/c proton in the test beam and
+cosmic muons respectively.
 
-\begin{cdrfigure}[Spatial resolution on 3D entry position of primary
-  charged particle]{PMAentryresolution}{Spatial resolution on the 3D entry position of the primary
-  charged particle from the beam in ProtoDUNE-SP, using the PMA
-  reconstruction algorithm.}
-%\includegraphics[width=0.95\textwidth]{PMAentryresolution.png}
-\end{cdrfigure}
 \fixme{Include figure of PMA's resolution on the entry point for charged
-particles See Robert's talk from the April collab meeting}
+particles See Robert's talk from the April collab meeting - DONE (plots are for the pi+ interactions
+where pi0 was produced, entry point is almost trivial and simulation does not include complications
+on the tpc edges, interactions inside tpc are at bit more realistically simulated)}
 
-\begin{cdrfigure}[Angular resolution of momentum vector of the primary
-  charged particle]{PMAdirection}{Angular resolution of the momentum vector of the primary
-  charged particle from the beam in ProtoDUNE-SP, using the PMA
-  reconstruction algorithm.}
-%\includegraphics[width=0.95\textwidth]{PMAdirection.png}
-\end{cdrfigure}
 \fixme{Include figure of PMA's direction on the direction for charged
-particles See Robert's talk from the April collab meeting}
-
-
+particles See Robert's talk from the April collab meeting - DONE}
 
 \begin{cdrfigure}[Vertex resolution for
   inelastic interaction of charged $\pi$'s on Ar nuclei where a $\pi^0$ is produced]{PMApioninteraction}{Vertex position resolution in cm in $x$, $y$, and $z$ and 3D for the
@@ -220,7 +212,7 @@ particles See Robert's talk from the April collab meeting}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
 \end{cdrfigure}
 
-\begin{cdrfigure}[Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane, ZY plane and as a function of the track length (trajectories reconstructed using gaushit, Line Cluster and PMA).]{PMAdirection}{Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane, ZY plane and as a function of the track length (trajectories reconstructed using gaushit, Line Cluster and PMA).}
+\begin{cdrfigure}[Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane (isochronous tracks are at 0 degree), ZY plane (horizontal tracks are at 0 degree) and as a function of the track length; trajectories reconstructed using gaushit, Line Cluster and PMA.]{PMAdirection}{Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane (isochronous tracks are at 0 degree), ZY plane (horizontal tracks are at 0 degree) and as a function of the track length; trajectories reconstructed using gaushit, Line Cluster and PMA.}
 \includegraphics[width=0.3\textwidth]{figures/dFi-vs-beamXZ_primary_ptoton.png}
 \includegraphics[width=0.3\textwidth]{figures/dFi-vs-beamYZ_primary_proton.png}
 \includegraphics[width=0.3\textwidth]{figures/dFi-vs-TrkLen_primary_proton.png}
