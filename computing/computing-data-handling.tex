@@ -1,9 +1,7 @@
 \section{Data storage and management system}
 
 \subsection{The \pd Data Characteristics}
-The characteristics of the desired \pd data guide the scale and design
-choices for its computing infrastructure.
-These characteristics are in a large part defined by a few fundamental
+Characteristics of the \pd data are in a large part defined by a few fundamental
 properties of the \pd Liquid Argon TPC:
 \begin{itemize}
 \item The high spatial granularity of the detector (e.g. the pitch of the wires, etc), and the resulting high channel count
@@ -23,7 +21,7 @@ describes three possible running conditions and estimates for their
 resulting data volumes and rates and interpretations in terms of
 network and disk bandwidth.  It also includes estimates for non-beam
 data in order to constrain the contributions of cosmic rays to the beam-on data.  Some highlights
-of these estimates for the ``central'' scenario
+of these estimates for the ``most likely'' scenario
 are listed in Table~\ref{tab:goldi}. The lossless compression factor cited
 in the table is based on the assumption that the signal-to-noise level 
 is similar to or better than that achieved by MicroBooNE.
@@ -43,10 +41,10 @@ is similar to or better than that achieved by MicroBooNE.
     Instantaneous data rate (in-spill) & \SI{1440}{\mega\byte\per\second} \\
     Average data rate & \SI{576}{\mega\byte\per\second} \\
     \hline
-    3-Day buffer depth & \SI{150}{\tera\byte} \\
+    3-Day buffer depth & \SI{300}{\tera\byte} \\
     \hline
   \end{tabular}
-  \caption{Parameters defining data rate and volume in the ``central'' scenario v5\,\cite{data_spreadsheet}, including both
+  \caption{Parameters defining data rate and volume in the ``most likely'' scenario v5\,\cite{data_spreadsheet}. The buffer depth includes both
   the in-spill and out-of-spill data.}
   \label{tab:goldi}
 \end{table}
@@ -58,11 +56,9 @@ trigger be acquired between spills.  The average data rate and the buffer depth 
 while the instantaneous data rate remains unchanged.
 
 The current run plan calls for about 25\,M analyzable beam events to be collected in the first run of \pd. Triggers (such as PID) will be
-actuated using beam instrumentation which is being developed at the time of writing. Its efficiency will certainly be less
-than 100\% and for estimation purposes is assumed to be 50\%. This leads to the requested total statistics of 10\,M
+actuated using beam instrumentation which is being developed at the time of writing. This leads to the requested total statistics of 50\,M
 events. Combined with readout size quoted in Table\,\ref{tab:goldi} it results in the anticipated volume of raw data of
-about 0.5\,PB to be taken during the SPS run. To account for commissioning of the detector this estimate should be roughly doubled,
-resulting in an estimated 3\,PB of raw data.
+about 11.5\,PB to be taken during the planned SPS run.
 
 
 %%%%%%%%%%%%%%% Tom's stuff

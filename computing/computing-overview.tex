@@ -10,14 +10,12 @@ protoDUNE Experiment}
 
 \end{itemize}
 
-\noindent This chapter defines the technical design of the online and offline systems.
-The data rate and the total data volume will be the defining factors influencing the design choices and scale of \pd
-online and offline computing systems.   At the time of writing, the measurement program, the beam characteristics, the beamline
-instrumentation, and many other parameters are being better defined, and thus precise estimates of the data rate and the total
-data volume are not yet available.  In the interim, ranges of estimates are given and this chapter presents a small number of
-realistic scenarios for the system configuration, scale and performance.
+\noindent This chapter outlines  the technical design of the online and offline systems.
+The data rate and the total data volume will be the main factors influencing the design choices and scale of \pd
+online and offline computing systems.   At the time of writing, a few estimates are available based on
+realistic data-taking scenarios.
 
-The following components comprise the computing system:
+The following components comprise the overall \pd computing:
 \begin{itemize}
 
 \item The online data storage and management system which interfaces the DAQ and which is tasked with buffering
@@ -32,8 +30,5 @@ with a short turnaround time (see\,\ref{sec:prompt_processing}).
 \item  A Metadata and file catalog system.
 \end{itemize}
 
-
-% Section\,\ref{sec:tpc-signal-calibration} describes the current approach to noise filtering and signal calibration that is being
-% developed for DUNE and which will find its application in \pd.
 
 
