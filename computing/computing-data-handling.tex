@@ -113,25 +113,27 @@ processes will read out six RCE's each.  These computers should be
 provisioned with at least 8 cores and 16 GBytes of RAM each, along
 with a 10\,Gbit/sec network connection.  The BoardReader processes will
 transmit data to a set of computers running EventBuilder processes.
-Sixteen EventBuilder computers, each with 8 cores and 16\,GB of RAM
+A number of Event Builder computers (netween 10 and 20), each with 8 cores and 16\,GB of RAM
 and a 10\,Gbit/sec NIC will provide the CPU and networking needed to
-build events, perform basic online monitoring, and send the data to
-disk storage.  The EventBuilders assemble data fragments sent by the
+build events, collectbasic metadata, optionally perform basic online monitoring,
+and send the data to storage.  The Event Builders assemble data fragments sent by the
 BoardReaders into self-consistent events consisting of readout data
 from each contributing RCE, SSP, and beam instrumentation information
 for the same time period.  They will also perform basic data integrity
 checks, ensuring that all data that are expected for an event have
 arrived and have not been corrupted, before writing records out.
 
-The disk storage layer will consist of 350\,TB of high-speed
-disks, which may be connected directly or network-attached.  As of this writing,
-two approaches are being considered:
+The online buffer layer will consist of $\sim$300\,TB of high-speed disks, which may be connected directly to the Event Builders
+or accessbile via the network.  As of this writing, three approaches are being considered:
 \begin{itemize}
 \item a XRootD cluster~\cite{xrootd} taking data directly from the Event Builders over the network.
+
 \item high-speed storage devices (SSD) attached to the Event Builders, forming a moderate-capacity buffer;
 an external storage cluster will still be needed in order to satisfy the nominal 3-day buffer capacity requirement.
-\end{itemize}
 
+\item a commercial-grade NAS with adequate capacity and network bandwidth.
+
+\end{itemize}
 
 \noindent Each version has its advantages and disadvantages. Technology choice will be made after
 additional R\&D and testing.
