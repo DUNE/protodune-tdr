@@ -30,6 +30,7 @@
 \subsection{Overview, Overall planning and ES\&H}
 
 The scope of the ProtoDUNE Cryogenics includes the design, procurement, fabrication, testing, delivery, installation oversight and acceptance tests of a comprehensive cryogenic system that meets the performance requirements for purging, cooling down and filling the cryostat, acquiring and maintaining the LAr temperature within $\pm$1 K around nominal temperature (88.3 K), purifying the Liquid Argon (LAr) outside the cryostats, and re-condensing and purifying the boil-off Gaseous Argon (GAr).
+
 The reference-design for the ProtoDUNE cryogenics infrastructure includes the External, Proximity and Internal Cryogenics.
 
 The External Cryogenics includes the systems used for the storage and eventual production of the cryogens needed for the operation of the cryogenic system (LN2 for cooling, LAr for the cryostat) and GAr generated from the cryogenic storage tanks. In particular, it encompasses:
@@ -66,9 +67,9 @@ The development of the ProtoDUNE cryogenics is part of a common effort between C
 
 The cryogenic systems for all four projects are developed jointly with a standard approach to minimize the duplication of work, benefit of existing knowledge (at Fermilab and CERN), and also prototype for the Long Baseline Neutrino Facility (LBNF)/Deep Underground Neutrino Experiment (DUNE) project. The systems build on the successful experience of the Liquid Argon Purity Demonstrator (LAPD), 35 ton prototype, and MicroBooNE at Fermilab, and the development of the WA105 1x1x3 Dual Phase prototype at CERN.
 
-The conceptual design for these cryogenic systems has been completed and a tender has recently been issued for the completion of the design, the fabrication, the delivery, the installation and the testing of all four systems, including the ProtoDUNE Single Phase detector. Replies to the tender are expected at the beginning of July, with the goal to award a potential contract after the CERN Finance Committee scheduled in September. \fixme{DM question: is this part ok in this document??]}
+The conceptual design for these cryogenic systems has been completed and an Invitation to Tender has been issued for the completion of the design, the fabrication, the delivery, the installation and the testing of all four systems, including the ProtoDUNE Single Phase detector. The replies to the tender have been received and CERN is negotiating with the potential suppliers, with the goal to award a potential contract after the CERN Finance Committee scheduled in September. 
 
-During all phases, CERN codes and standards will guide the design, procurement and installation phases of the ProtoDUNE Single Phase cryogenics. The planned work process will provide for reviews throughout all phases of the project to guarantee stringent adherence to the safety requirements.
+During all phases, CERN codes and standards will guide the design, procurement and installation phases of the ProtoDUNE Single Phase cryogenics. The planned work process will provide for reviews throughout all phases of the project to guarantee stringent adherence to the safety and scientific requirements.
 
 %%%%%%%%%%
 
@@ -79,17 +80,19 @@ During all phases, CERN codes and standards will guide the design, procurement a
 The project requirements for the ProtoDUNE cryogenic system are identical to those of the DUNE Far Detector cryogenics. The current list is available on DocDB n. 112 \fixme{Add citation}.
 
 A selection of relevant ones is presented here:
+\fixme{requirement IDs are changing; will need to fix}
 
 \begin{itemize}
 \item Cryo-se-4: The system shall allow recirculation and purification of the liquid argon inventory to achieve the needed LAr purity to meet the scientific requirement (less than 10 day/volume change based on ICARUS experience.
 \item  Cryo-se-6: The purification system shall be capable of removing contaminants form the LAr prior to filling and shall maintain purity during operation.
 \item  LArFD-L2-se-44: Electron lifetime greater than 3 ms.
 \item  Cryo-se-5: The system shall provide an argon gas boil off and reliquefaction system.
+\item Cryo-se-16: The cryogenics system shall not allow sources of argon gas reliquefaction inside the cryostat, e.g. uninsulated pipes carrying liquid argon.
 \item  Cryo-se-16: There shall be no sources of argon gas reliquefaction inside the cryostat, e.g. uninsulated pipes carrying liquid argon.
 \item  Cryo-se-25: The cryostat and cryogenic systems shall be designed for using the piston-purge technique (introducing heavy gas at the bottom and taking out exhaust from the top) for removing initial electronegative impurities.
-\item  Cryo-se-8: The cryogenics system shall be designed so as not to introduce unwanted noise into the electronics.
-\item  Cryo-se-10: The detector cryostat shall provide a stable liquid argon environment for the detector.
-\item  Cryo-se-28: The cryostat and cryogenic system shall be designed to maintain a single phase in the entire liquid argon volume at as table temperature. The chose temperature is 88.3 K +/- 1 K.
+\item  Cryo-se-8: The cryogenics system shall not introduce unwanted noise into the electronics.
+\item  Cryo-se-10: The cryogenics system shall provide a stable environment in the cryostat for the detector.
+\item  Cryo-se-28:The cryogenics system shall be designed in accordance with the cryostat to maintain a single phase in the entire liquid argon volume at a stable temperature. The chose temperature is 88.3 K $\pm$ 1 K.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -157,7 +160,7 @@ After the cryostat construction and following the installation of all scientific
 %%%%%%%%%%%%
 \subsubsubsection{Purge in open loop}
 
-Argon piping will be isolated, evacuated to less than 0.1 mBar \fixme{(lower??)} absolute pressure and backfilled with high-purity argon gas. This cycle will be repeated several times to reduce contamination levels in the piping to the ppm level. The reference-design choice for removing air from the membrane cryostat will be to flow/piston-purge argon, introducing the heavy argon gas at the bottom of the tank and removing the exhaust at the top. The exhaust will be taken from the main GAr outlet, but also from all the side ports located on each penetration through the roof to ensure that all volumes are properly purged.
+Argon piping will be isolated, evacuated to less than 0.1 mBar \fixme{(lower??)} absolute pressure and backfilled with high-purity argon gas. This cycle will be repeated several times to reduce contamination levels in the piping to the ppm level. The reference-design choice for removing air from the membrane cryostat will be to flow/piston-purge argon, introducing the heavy argon gas at the bottom of the tank and removing the exhaust at the top. The exhaust will be taken from the main GAr outlet, but also from all the side ports located on each penetration through the roof to ensure that all volumes (especially trapped volumes) are properly purged.
 
 The flow velocity of the advancing GAr will be set to 1.2 m/hour. This is twice the diffusion rate of the air downward into the advancing argon so that the advancing pure argon-gas wave front will displace the air rather than just dilute it. A 2D ANSYS model of the purge process shows that after about 13 hours of purge time and 2 volume changes, the air concentration will be reduced to less than 1\%. At 44 hours of elapsed time and seven volume changes, the purge process is complete with residual air reduced to a few ppm. This simulation includes a representation of the perforated field cage at the top and bottom of the detector and heat sources due to the readout electronics. The cathode planes are modeled as non-porous plates although they will actually be constructed of stainless-steel mesh. Figure~\ref{fig:2d-sim-purge} shows a view of the 2D simulated model at the end of the purge in open loop phase.
 
@@ -203,7 +206,7 @@ At the end of the operations (or if/when maintenance on the tank is needed) the 
 %%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Parameters}
 
-Table~\ref{tab:cryogen-install-params} presents a list of the relevant parameters for this installation. Note that the the filling flow rate of 18 l/min (0.42 kg/s) is an estimate. The actual value might be limited by the pressure inside the LAr storage dewar. We are also assuming that we are able to receive 2 trucks/day of LAr, which will need to be confirmed by the suppliers.
+Table~\ref{tab:cryogen-install-params} presents a list of the relevant parameters for this installation. The filling flow rate of 18~l/min (0.42 kg/s) is an estimate. Note that the the filling flow rate of 18 l/min (0.42 kg/s) is an estimate. The actual value might be limited by the pressure inside the LAr storage dewar. We are also assuming that we are able to receive 2 trucks/day of LAr, which will need to be confirmed by the suppliers.
 
 \begin{cdrtable}[List of engineering parameters for cryogenics installation]{llll}{cryogen-install-params}{List of engineering parameters for cryogenics installation}
 Mode & Parameter  & Value & Notes \\ \toprowrule
@@ -329,7 +332,7 @@ In addition to the normal-operation pressure-control system, it is planned to pr
 
 The key active components of the planned system are Pressure Safety Valves (PSVs) located on the roof of the cryostat that will monitor the differential pressure between the inside and the outside of the cryostat and open rapidly when the differential pressure exceeds a preset value. A pressure-sensing line is used to trigger a pilot valve which in turn opens the PSV. The PSVs are self-contained devices provided specially for tank protection; they are not normally part of the control system. 
 
-The installation of the PSVs will ensure that each valve can periodically be isolated and tested for correct operation. The valves must be removable from service for maintenance or replacement without impacting the overall containment envelope of the cryostat or the integrity of the over-pressure protection system. This normally requires the inclusion of isolation valves upstream and downstream of the pressure-relief valves and at least one spare installed relief valve (n + 1 provision). 
+The installation of the PSVs will ensure that each valve can periodically be isolated and tested for correct operation. The valves must be removable from service for maintenance or replacement without impacting the overall containment envelope of the cryostat or the integrity of the over-pressure protection system. This normally requires the inclusion of isolation valves upstream and downstream of the pressure-relief valves and at least one spare installed relief valve ($n + 1$ provision) or the use of a diverter valve that allows one valve to be always connected to the cryostat. 
 
 When the valves open, argon is released, the pressure within the cryostat falls and argon gas discharges into the argon vent riser. The valves are designed to close when the pressure returns below the preset level.
 
@@ -344,3 +347,84 @@ The key active components of this additional protection system are Vacuum Safety
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
+
+The project follows CERN QA/QC plan. Additionally, specific Neutrino Platform Cryogenics documentation control policies have been developed to ensure that the documentation is circulated and archived properly. A design plan is also being developed to ensure that the design is performed according to the specifications.
+
+External companies will be contracted for the design, fabrication, delivery, installation and testing of the cryogenic system, one for the proximity and external cryogenics and one (could be the same) for the internal cryogenics.
+
+The following sections are taken from the \textit{Quality Assurance} section of the Invitation to Tender for the proximity and external cryogenics and the Price Enquiry for the internal cryogenics. \fixme{insert as citation instead}
+
+%%%%%%%%%%%%%
+\subsubsection{General}
+
+The contractor shall have a shall guarantee that its sub-contractors (when applicable) have a valid ISO 9001:2008 (or later) certifications issued by a recognized certification body in the scope of the supply for “design, engineering, production, installation, sales of vacuum systems, cryogenic equipment and transfer lines”.
+
+%%%%%%%%%%%%%
+\subsubsection{Scope}
+A dedicated quality plan must be prepared by the contractor as per requirements.
+
+%%%%%%%
+\subsubsubsection{Definition}
+A quality plan describes the operational quality system to ensure that:
+\begin{itemize}
+\item Contract requirements will be met.
+\item Evidence of such compliance is maintained.
+\end{itemize}
+It covers the whole scope of the contract.
+
+%%%%%%%
+\subsubsubsection{Content of the quality plan}
+\begin{itemize}
+\item The specific allocation of resources, duties, responsibilities and authority.
+\item Details of all sub-contractors and how interfaces will be managed if any.
+\item The specific procedures, methods and work instructions to be applied.
+\item The specific procedures for inspection and testing.
+\item The specific methods of communication and testing
+\item The design and performance margins.
+\end{itemize}
+
+
+%%%%%%%
+\subsubsubsection{Quality management}
+
+The plan shall:
+\begin{itemize}
+\item Identify the key individuals responsible for ensuring the activities performed during the contract.
+\item Show an organization flow chart to facilitate understanding.
+\end{itemize}
+
+%%%%%%%
+\subsubsubsection{Deviations and non-conformities}
+
+The plan should \fixme{shall?} indicate how, when and by whom deviations and non-conformities will be processed including those originating from subcontractors, if any.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Inspection and controls}
+
+Specific control points apart from the ones required by the chosen applicable standards and PED Essential Safety Requirements will be performed during the fabrication and installation phases. Every specific inspection or control will be covered by a dedicated procedure developed by the manufacturer and approved by CERN. In case of non-conformities (i.e., non-compliance with specified requirements), a corresponding non-conformity report will be issued by the manufacturer.
+
+The contractor will ensure a close oversight of the manufacturing. This monitoring will include Notification Points (NP) and Hold Points (HP).
+
+A Notification Point (NP) is a milestone where the contractor is required to notify CERN that it has completed a specific task or a specific deliverable and is proceeding to the next task or to the next action on the specific deliverable. A NP is meant to enable CERN personnel to follow the progress of the contract and possibly to witness a critical manufacturing step at the contractor’s premises. A NP will not affect the production flow of the contractor that will continue the work even without a reply from CERN. 
+
+A Hold Point (HP) is a milestone where contractor is required to notify CERN that it has completed a specific task or a specific deliverable and must stop the associated processes until a HP Clearance is issued. The HP Clearance will be issued on the basis of clearly identified Quality Control, data and acceptance test results to be provided to CERN at the time of the request. In case of clearance, the contractor will resume its activity. In case of rejection, the contractor will develop a recovery plan that will be submitted and reviewed by CERN.
+
+The list of NP and HP to be implemented during the various phases of the execution will be mutually agreed between CERN and the contractor. The minimum inspection and controls that will be performed during fabrication and installation are:
+
+\begin{itemize}
+\item Non-destructive test of welds.
+\item Helium leak tightness test.
+\item Cold test (during acceptance).
+\item Pressure test.
+\item Cleanliness control.
+\item Dimensional control.
+\item Transport acceleration.
+\item Factory outlet inspection.
+\item CERN incoming inspection.
+\item Final position inspection.
+\item Positioning and layout control.
+\item Interfaces control.
+\item Hydraulic continuity control.
+\item Control of external supports.
+\end{itemize}
+
