@@ -3,25 +3,6 @@
 \section{Photon detection system}
 \label{sec:pd_system}
 
-\fixme{This section still needs work (Anne 8/18}
-
-The scope of the photon detector system (PDS) for the DUNE far detector
-reference design includes design, procurement, fabrication,
-testing, delivery and installation of the following components:
-\begin{itemize}
-\item light collection system including wavelength shifter and light guides,
-\item silicon photo-multipliers (SiPMs),
-\item readout electronics,
-\item calibration system, and
-\item related infrastructure (frames, mounting boards, etc.).
-\end{itemize}
-
-\fixme{I suggest adding purpose and requirements here, i.e., some info from what was put in the calibration section:
-
-The current DUNE far detector designs are anticipated to have sufficient sensitivity to provide event timing information for atmospheric neutrino and proton decay channels, but sufficient efficiency down to the 5 MeV neutrino energy level desired by the supernova program has to be demonstrated in future designs.
-In the absence of precise physics requirements for the PDS and in order to support R\&D activities on the PD development it was decided that the PDS should provide a time stamp to determine the time of occurrence of an event (so called \textit{time zero}) with an accuracy much better than 30~ns.
-}
-
 LAr is an excellent scintillating medium and the photon detection
 system will exploit this property in the far detector.  With an
 average energy of 19.5~eV needed to produce a photon (at zero field),
@@ -41,15 +22,37 @@ $t_0$ for non-beam related events. Detection of the scintillation
 light may also be helpful in background rejection and triggering on
 non-beam events.
 
+\subsection{Scope and Requirements}
+
+The scope of the photon detector system (PDS) for the protoDUNE-SP detector
+includes design, procurement, fabrication,
+testing, delivery and installation of the following components:
+\begin{itemize}
+\item Light collection system including wavelength shifter and light guides
+\item Silicon photo-multipliers (SiPMs)
+\item Readout electronics
+\item Monitoring system
+\item Related infrastructure (frames, mounting boards, etc.).
+\end{itemize}
+
 The photon detection system reference design described in this section
-meets the required performance for light collection for the DUNE far
-detector. This includes detection of light from proton decay
+will determine if the detector meets the required performance for 
+light collection for the DUNE far detector. 
+The primary requirement is the detection of light from proton decay
 candidates (as well as beam neutrino events) with high efficiency to
-enable 3D spatial localization of candidate events. The TPC will
-provide supernova neutrino detection. 
+enable 3D spatial localization of candidate events. The light yield that
+has been required for this is $0.1pe/MEV$ at the cathode plane.
+The TPC will provide supernova neutrino detection, while the detection of light
+from supernova neutrino interactions will localize the events and disentangle
+them from background noise in the TPC detection.
 The photon system will provide the $t_0$ timing of
 events relative to TPC timing with a resolution better than 1~$\mu$s
 (providing position resolution along the drift direction of a couple of mm). 
+Measurements from the protoDUNE-SP detector will determine the absolute
+light yield by measuring light from beam particles and cosmic ray muons
+tracked in the TPC or identified by external muon trigger counters.
+Informed by this light yield measurement the determination of whether the 
+light yield is sufficient for the required science goals can be made.
 
 Figure~\ref{fig:PD_overview} shows the layout for the photon detector
 system described in this section. %, which will be described in the following sections.
@@ -70,7 +73,7 @@ modules are being produced for ProtoDUNE-SP.
 The concepts are very similar, but differ in the number of times the LAr scintillation 
 light is shifted.  
 
-The reference design shown schematically in Figure~\ref{fig:PD_RadiatorBar}
+The reference design shown schematically in Figure~\ref{fig:PD_overview}
 has wavelength-shifting radiator plates mounted on a wavelength-shifting light guide.
 The plates are coated 
 with tetraphenyl-butadiene (TPB) to produce blue ($430nm$) light from the $128nm$ VUV 
@@ -98,13 +101,12 @@ of this.
 Previous work for DUNE with this technique showed that the attenuation length, and
 therefore the light yield, would suffer from the coating process, but bars produced with
 the latest technique as shown in~\cite{conrad_jinst} have %been shown to have 
-avoided
-this problem.
+avoided this problem.
 
 %%%%%%%%%%%%%
 \subsubsection{Rel Light yield of alternatives}
 
-\fixme{Is this ``Relative'' light yield?}
+%\fixme{Is this ``Relative'' light yield? Yes it is, absolute is light/energy  }
      % -IU Tallbo -- Denver/Stuart
      %Results of testing
      %Fit to Determine Light Yield
@@ -114,7 +116,9 @@ many different versions of light collection techniques and guides at the
 TallBo facility at Fermilab.
 A test in the summer of 2015 was conducted on the very technologies that 
 were chosen for ProtoDUNE-SP. \fixme{Make Ref (DUNE DocDB 138, JINST 11 C05019)}
- 
+The light yield measured indicated that the performance near the phtodetector
+was very similar in the small number of devices, and the attenuation length
+was much longer for the dip-coated bars than had been seen before. 
 
 %%%%%%%%%%%%%
 \subsubsection{Absolute light yield}
@@ -306,7 +310,8 @@ This testing has been successful; none of the SiPMs deployed in this way have fa
 
 The PDS system is configured as a set of \textit{modules} that are mounted on the APA frames.  A PDS module is
 the combination of one light guide (also called a ``bar'' due to its
-shape) and 12 SiPMs, as shown in Figure~\ref{fig:PD_overview}~(a).  %To enable this, the the reference design for mounting the PDs onto the
+shape) and 12 SiPMs, as shown in Figure~\ref{fig:PD_overview}~(a). 
+ %To enable this, the the reference design for mounting the PDs onto the
 The reference design for the APA frames calls for ten PDS modules per APA, approximately 2.2-m long,
 86-mm wide and 6-mm thick, equally spaced along the full length of the
 APA frame, as shown in Figure~\ref{fig:PD_overview}~(b). 
