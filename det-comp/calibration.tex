@@ -1,8 +1,8 @@
 
-\section{Calibration Systems}
-\fixme{from Josh K}
+\section{Calibration Strategy and Systems}
+%\fixme{from Josh K}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Motivation}
+%\subsection{Motivation}
 
 
 	The scientific program of protoDUNE is critical to the ultimate success
@@ -26,11 +26,12 @@ physical hadron response.  Misinterpreting, for example, longitudinal diffusion
 as a fundamental part of shower development of $\pi^+$s means our understanding
 of $\pi$s will be wrong in DUNE---and there will be no test of that response in
 the DUNE FD, independent of neutrino events themselves.  By building protoDUNE
-in a way that mimics the DUNE far detector, we anticipate that such errors will
-`cancel out'; in practice we cannot rely on such a cancellation without knowing
+in a way that mimics the DUNE far detector, one would still have to assume that such errors will
+`cancel out';
+ in practice one cannot rely on such a cancellation without knowing
 how different the parameters governing the response may be.
 
-	Ultimately, what this means is that we must calibrate a model of the
+	Ultimately, what this means is that one must calibrate a model of the
 detector---likely a LArSoft model---and use it to predict the response to
 hadrons.  If the detector model is accurate, differences between the predicted
 response to various hadrons and measurements allows a correction to the hadron
@@ -45,6 +46,7 @@ function (and of course the response to various particle species which is what
 is being measured by protoDUNE).  
 
 	Figure~\ref{fig:35t} shows the variations in electron lifetime within
+\fixme{where is figure in this doc ?}
 the 35 tonne prototype as a function of position, as measured by {\it in-situ}
 purity monitors. The clear differences top and bottom indicate that we cannot
 assume that measurements in just a few places represent the detector as a
@@ -77,48 +79,54 @@ $\rho_E$ & Field response & Calculation & Through-going cosmics & None \\ \hline
 \end{center}
 \end{table}
 %
-parameters that need to be measured, and what we have available in protoDUNE
+parameters that need to be measured, and what will be available in protoDUNE
 for both measurements of the parameters and tests of the resulting calibrated
 model.  Unfortunately, time and budget constraints will prevent us from
 building and deploying a laser system like that used in other surface
-single-phase LAr-TPCs.  We will rely solely on cosmic rays---those triggered by
-going through a set of external tracking scintillation panels.  ProtoDUNE will
-be the first large-scale, surface single-phase LAr-TPC to make physics
-measurements using only calibrations from cosmic rays, and will therefore
-represent a triumph of the DUNE ``no LAr-TPC calibration device needed''
-philosophy.
+single-phase LAr-TPCs.  ProtoDUNE calibrations will rely solely on cosmic rays---those triggered by
+going through a set of external tracking scintillation panels.  
+%ProtoDUNE will
+%be the first large-scale, surface single-phase LAr-TPC to make physics
+%measurements using only calibrations from cosmic rays, and will therefore
+%represent a triumph of the DUNE ``no LAr-TPC calibration device needed''
+%philosophy.
+%%% --- I like this sentence but it may be better not to trigger those kinds of discussions with the SPSC reviewers - TK ---
 
-We assume in this note that there will be
+It is assumed that there will be
 several auxiliary systems that already provide measurements or estimates of
 some of these parameters:
 \begin{itemize}
-\item Monitors of HV and current to the APAs
-\item Survey of wire positions
+\item Monitors of HV and current to the APAs \fixme{verify whether this is the case}
+\item Survey of wire positions \fixme{verify whether this is planned}
 \item Temperature sensors {\it in situ} at several places in the volume
 \item Purity monitors at several positions within the volume
 \item Front-end electronics response calibration pulsers.
 \end{itemize}
         These systems provide the initial input to the model for electric
 field, and for calculations of average drift velocity, electron lifetime, and
-electron diffusion.  The goal of the calibration system we describe in this
-note is first to measure the response parameters with granularity in time and
+electron diffusion.  The goal of the calibration system described here 
+is first to measure the response parameters with granularity in time and
 position that cannot be accomplished by the above systems, and to test the
 resultant model with tracks of known positions, trajectories, and energy
 deposits.
 
-\section{Cosmic Tracker}
+\subsection{Cosmic Tracker}
 
-        While there may be motivations from a reconstruction standpoint for
-cosmic veto, from a calibration standpoint what we are interested in a tracking
-system to provide known cosmic trajectories.  The tracker may also be used for
+        While there may be motivations from a reconstruction standpoint for a
+cosmic veto, from a calibration standpoint a tracking system to provide known 
+cosmic trajectories is of interest. The tracker may also be used for
 off-beam triggering on stopped muons, as well as detector triggering during
 times when there is no beam.
 
         Counters for a cosmic tracker are available from spares made for the
-Double CHOOZ experiment by the Universit of Chicago. Light created in the
-counters is transmitted via fibers to a 64-anode PMT and readout via
-electronics that use a USB interface.  The counter size is roughly 2.5~cm, but
+Double CHOOZ experiment \cite{mucounters}. Light created in the
+counters is transmitted via fibers to a 64-anode PMT and read out via
+electronics that use a USB interface.  The counter granularity is roughly 2.5~cm, but
 multiple layers of the counters could be used for finer granularity.
+
+\fixme{This is a VERY sparse description of a muon tagger system for a TDR. A picture of a 3D model,
+amount of area covered, readout and data stream issues would be good to address at least at some level.
+Assume some baseline option and mention that changes/"optimizations" are still being considered.}
 
         Although there are many possible configurations for deployment of the
 counters, a particularly interesting deployment would be fore-and-aft,
@@ -127,21 +135,21 @@ this configuration, the counters could also serve as a tagger for beam halo
 events.  By tagging such events, only those whose energy and position are
 reasonably well constrained will be part of the beam calibration.
 
-        To fully measure the field map using cosmic rays, we need crossing
-tracks to resolve ambiguities in the field direction.  Our studies have shown
-that even with counters just fore-and-aft, we can illuminate the cosmic rays
+        To fully measure the field map using cosmic rays, crossing
+tracks to resolve ambiguities in the field direction are needed.  Our studies have shown
+that even with counters just fore-and-aft, we can illuminate the detector
 using halo muons that pass through both counters (i.e., roughly horizontally)
-that cross cosmic tracks that cross just one counter. In this case, the
+that cross cosmic tracks going through just one counter. In this case, the
 trajectory of the cosmic ray inside the TPC is determined by the TPC itself.
 While this argument appears problematic since it is the TPC we are attempting
 to calibrate in the first place, we anticipate that the longitudinal field is
 known well enough, even in the presence of large space charge effects, that
 uncertainties in the drift velocity will be small.  While this has not yet been
-quantitatively demonstrated in a real large-scale detector, for ProtoDUNE we
-can use cosmics that go through both sets of counters to determine the drift
+quantitatively demonstrated in a real large-scale detector, for ProtoDUNE the plan 
+is to use cosmics that go through both sets of counters to determine the drift
 velocity field map (independently of determination of the electric field map)
-and use that map (rather than the electric field map) to reconstruct the
-crossing tracks.  We have not yet explored whether the correlation between
+and to use that map (rather than the electric field map) to reconstruct the
+crossing tracks.  The collaboration has not yet explored whether the correlation between
 these two approaches will lead to an unacceptably large uncertainty on the
 field.
 
@@ -149,7 +157,7 @@ field.
 it provides little help on tagging cosmics that could cause difficulty for
 reconstruction algorithms, since the vast majority of those will be
 downward-going.  Reconstruction, however, has progressed significantly and
-there is no expectation that our algorithms will have problems identifying
+there is no expectation that existing algorithms will have problems identifying
 beam-related tracks and showers beneath the rain of cosmics. There is therefore
 no need for counters above and below the detector.
 
@@ -157,25 +165,26 @@ no need for counters above and below the detector.
 drift velocity map, and the crossing halo muons with high-angle cosmics to
 determine the transverse field components, we will also use stopped cosmics to
 provide a measure of the detector's energy scale. Stopped cosmics have the
-advantage that a meter or so upstream of the track endpoint the muon is a MIP
+advantage that about a meter upstream of the track endpoint the muon is a MIP
 and dE/dx is very well known. The techniques of using these has been
 demonstrated very successfully in both MINOS and NOvA, and MicroBooNE has made
-excellent progress in using these as a calibration as well. Once we have used
-these as a calibration, we can test the calibration by looking at the Michel
+excellent progress in using these as a calibration as well. Once stopped cosmics have been 
+used as a calibration source, the quality of the calibration can be tested by looking at the Michel
 spectrum (using the same stopped events) and ultimately the mass peak of
-reconstructed $\pi^0$s from charged pion beam events.
+reconstructed $\pi^0$s produced from charged pion beam events.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{PDS Calibration} -- ANL -- Zelimir
-     Mechanical design -- Zelimir interface with Bob Sands?
+%%---\subsection{PDS Calibration} -- ANL -- Zelimir
+%%---     Mechanical design -- Zelimir interface with Bob Sands?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{PDS Calibration Run Plan}
-     Run/Measurement plan  -- Toups ?
-     Light yield vs. field
-     timing studies,
-     beam off trigger
+%%\subsubsection{PDS Calibration Run Plan}
+ %%    Run/Measurement plan  -- Toups ?
+  %%   Light yield vs. field
+   %%  timing studies,
+   %%  beam off trigger
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
 
+\fixme{Any QC procedures for the cosmic tagger ??}
