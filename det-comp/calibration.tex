@@ -6,7 +6,7 @@
 
 
 	The scientific program of protoDUNE is critical to the ultimate success
-of DUNE.  protoDUNE will be the DUNE Collaboration's only opportunity to
+of DUNE.  ProtoDUNE will be the DUNE Collaboration's only opportunity to
 measure the response of a DUNE-style LAr-TPC to hadrons (as well as $\gamma$s,
 $\mu$s, and electrons), and to compare those measurements to a model of the
 detector response. That model can then be used to predict the response for DUNE
@@ -47,7 +47,7 @@ is being measured by protoDUNE).
 	Figure~\ref{fig:35t} shows the variations in electron lifetime within
 the 35 tonne prototype as a function of position, as measured by {\it in-situ}
 purity monitors. The clear differences top and bottom indicate that we cannot
-assume that measurements in just a few places represent the detector at a
+assume that measurements in just a few places represent the detector as a
 whole. In addition to these variations, changes with the ambient environment
 were also seen, indicating that measurements must be made with reasonable
 frequency as well.  An idealized view of how an operating detector will behave
@@ -56,28 +56,29 @@ would miss such variations.
 	        The calibration program for DUNE has as its goal both the
 measurement of the parameters governing detector response and {\it tests} of
 the predicted response.  Table~\ref{tbl:params} lists many of the critical
+%
 \begin{table}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|} \hline \hline
+\begin{tabular}{|l| l| l| l| l| } \hline \hline
 {\bf Parameter} & {\bf Name} & {\bf Ex-situ Calibration} & {\bf Calibration} & {\bf Test} \\ \hline
 $W$ & Ionization Energy  & Benchtop & None & Cosmics \\
 $C$ & ADC/Charge Map & Benchtop Pulsers & Front-End Pulsers & Stopped cosmics \\
-$f$ & Energy Scale & Calculation & Stopped cosmics & Through-going cosmics \\
+$f$ & Energy Scale & Calculation & Stopped cosmics & Through-going cos. \\
 $R$ & Electron recombination & Calculation & Through-going cosmics & Michels\\
 $\tau$ & Electron lifetime & Purity Monitors & Through-going cosmics & Stopped
 cosmics\\
-$\vec{E}(x,y,z)$ & Electric Field map & Calculation & Crossing cosmics/halo &
+$\vec{E}(\vec{r})$ & Electric Field map & Calculation & Crossing cosmics/halo &
 Michels \\
 $v_d$ & Drift Speed & Purity+temp+Calc.& triggered cosmics & None \\
 $d$ & Electron Diffusion & Calculation & triggered cosmics & None \\
-$\rho_E$ & Field response & Calculation & Through-going cosmics & None \\
+$\rho_E$ & Field response & Calculation & Through-going cosmics & None \\ \hline \hline
 \end{tabular}
 \caption{Parameters to be calibrated for ProtoDUNE model\label{tbl:params}}
 \end{center}
 \end{table}
-
+%
 parameters that need to be measured, and what we have available in protoDUNE
-for both measurements of the parameters and tests of the resulting calibrted
+for both measurements of the parameters and tests of the resulting calibrated
 model.  Unfortunately, time and budget constraints will prevent us from
 building and deploying a laser system like that used in other surface
 single-phase LAr-TPCs.  We will rely solely on cosmic rays---those triggered by
