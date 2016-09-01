@@ -377,11 +377,91 @@ will be modeled and configured using the JCOP paradigm (data points).
 
 
 \subsection{Data quality monitoring}
+\fixme{Mike Wallbank (9/1/16) -- I will add something here.  Feel free
+  to offer critisism (m.wallbank@sheffield.ac.uk).}
+
 In addition to the monitoring of the operations of the DAQ system, the
 quality of the data taken by the detectors has to be constantly monitored.
+This assurance is provided by the online and nearline monitoring systems.
 
-\fixme{Here describe the online and nearline monitoring frameworks and
-a non-exhaustive list of what is being monitored.  Who will write this?}
+\subsubsection{Online Monitoring}
+The Online Monitoring framework will run as a DAQ process and therefore be
+able to provide data quality assurance in real-time. In the 35ton monitoring
+framework, data were read out of shared memory as part of the second
+aggregator process; it is likely this method will also be used in ProtoDUNE.
+The software framework used for online monitoring in the 35ton experiment is
+shown in Figure~\ref{fig:OnlineMonitoringFramework}.  It consists of an
+\texttt{art::Analyzer} module which interfaces with the artdaq framework and
+owns instances of further classes, each designed to handle different aspects
+of the monitoring.  The system to be used in ProtoDUNE is still being
+finalised but it is likely to be very similar to what is described here.
+
+\begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
+    Class diagram showing the online monitoring framework used in the 35ton
+    experiment.}
+  \includegraphics[width=0.8\textwidth]{online_monitoring_software.png}
+\end{cdrfigure}
+
+The DataReformatters restructure the data to allow for efficient subsequent
+analysis and provide a standard interface to the methods which look through
+the events.  These reformatted objects are passed to MonitoringData, which
+owns all of the data products (\texttt{TTree}s, \texttt{TH1}s, \texttt{TGraph}s
+etc.) output from the monitoring software and provides methods for filling
+them when required.  Finally, in the 35ton the online event displays were
+written as part of the monitoring framework, so the EventDisplay class was
+responsible for this.  This particular functionality will possibly be handled
+differently in ProtoDUNE.
+
+The output is then saved in a common area for offline access and for syncing
+with a web server. This will likely be hosted at CERN and will allow for remote
+monitoring of the experiment.
+
+\subsubsection{Nearline Monitoring}
+The Nearline Monitoring is designed to provide complimentary information to
+that given by the online system. It runs separately as a series of automated
+shell scripts and provides feedback on a slower timescale than the online
+monitoring, thus allowing for a broader view of the quality of data over time.
+It also utilises offline software (LArSoft) to provide, for example,
+reconstruction, facilitating a more complete monitoring of much more complex
+information.
+
+Once an output data file has been closed by the DAQ, it is processed by the
+nearline system.  A LArSoft job is initially run over the events to perform
+reconstruction and extract information from the data.  The output of this,
+along with the output of other runs, is then analysed by a separate automated
+job, to form the high-level view of the data for monitoring.
+
+Similar to the online framework, there will be an interface for this system
+with the web to allow for remote access of the information.
+
+\subsubsection{Monitored Data}
+
+What is being monitored?
+\fixme{Need to add things that can be monitored. I can add what we monitored
+  on the 35ton but ProtoDUNE will likely be very different!}
+
+General:
+\begin{itemize}
+\item{Number of subdetectors successfully recording data in the run;}
+\item{Timing synchronisation between detector components;}
+\item{Size of recent data files written by the DAQ;}
+\end{itemize}
+  TPC:
+\begin{itemize}
+\item{Mean and RMS of ADC counts across different channels;}
+\item{FFTs of waveforms on certain RCEs;}
+\item{Bipolar pulse symmetry check on induction pulses;}
+\item{Total ADC recorded; ADC distributions per channel;}
+\end{itemize}
+Photon:
+\begin{itemize}
+\item{Mean and RMS of ADC counts across readout channels;}
+\item{Peak height of the waveforms;}
+\item{Waveform pedestals;}
+\item{Waveform integrals;}
+\item{SSP trigger rate;}
+\item{Number of triggers;}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %\subsubsection{Alternative readouts - FELIX} \label{ssec:daqfelix}
