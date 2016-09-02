@@ -24,28 +24,24 @@ a $\approx$45~cm thick passive LAr layer and the field cage.
 %  \includegraphics[width=0.90\textwidth]{beamwindow_system1zoom.pdf}
 %\end{cdrfigure}
 
-The beam plug is designed to displace the passive LAr layer between the TPC field cage and the inner cryostat membrane. As illustrated in Figure~\ref{fig:beamwindow_fig2}, it is a cylidrical glass-fiber composite pressure vessel about 50cm in length and  22cm in diameter. It is filled with dry nitrogen gas via a stainless steel line that extends to the top of the cryostat. The pressure inside the beam plug is maintained externally up to 25 psi from room to LAr temperatures. A pressure relief valve (or burst disk) will be installed on the nitrogen fill line on the top of the cryostat (externally) to ensure the pressure inside the beam plug does not exceed the safety level. The component-level view of the beam plug is shown in Figure~\ref{fig:beamplug_components}.  The beam plug is secured to the field cage support structure as described in Section~\ref{subsec:fc-beamplug}. The front portion of the beam plug extends about 5~cm inside the field cage through an opening in the field cage. The field cage support is designed with sufficient strength to withstand the weight of the beam plug while it is suspended in air. 
-\fixme{what about a torque on the FC ?}
+The beam plug is designed to displace the passive LAr layer between the TPC field cage and the inner cryostat membrane. As illustrated in Figure~\ref{fig:beamplug}, it is a cylidrical glass-fiber composite pressure vessel about 50cm in length and  22cm in diameter. It is filled with dry nitrogen gas via a stainless steel line that extends to the top of the cryostat. The pressure inside the beam plug is maintained externally up to 25 psi from room to LAr temperatures. A pressure relief valve (or burst disk) will be installed on the nitrogen fill line on the top of the cryostat (externally) to ensure the pressure inside the beam plug does not exceed the safety level. The component-level view of the beam plug is shown in Figure~\ref{fig:beamplug_components}.  The beam plug is secured to the field cage support structure as described in Section~\ref{subsec:fc-beamplug}. The front portion of the beam plug extends about 5~cm inside the field cage through an opening in the field cage. The field cage support is designed with sufficient strength to withstand the weight of the beam plug and also the torque exerted on the field cage panel. 
 When the cryostat is filled with LAr, the beam plug is roughly neutrally buoyant.  The total internal volume of the beam plug is about 16 liters. 
 
-The requirements on the acceptable leak rate is between $7.8\times 10^{-5}$ scc/s to $15.6\times 10^{-5}$ scc/s. This is a very conservative leak rate and is roughly equivalent to 15\% of the nitrogen in the vessel leaked over a period of a year.
-\fixme{which nitrogen in the vessel ? Clarify whether these are material impurities or something else ? How do we know what the N is inside the cryostat ?}
+The requirements on the acceptable leak rate is between $7.8\times 10^{-5}$ scc/s to $15.6\times 10^{-5}$ scc/s. This is a very conservative leak rate and is roughly equivalent to 15\% of the nitrogen in the beam plug leaked over a period of a year.
   In a worst case scenario with all the nitrogen in the beam plug leaking into the LAr cryostat, the increase in concentration is about 0.1 ppm, which is still a factor of 10 below the acceptable level as specified by light detection requirements.
   \fixme{need some reference with details for this requirement}
-  At nominal operation, the voltage difference across the beam plug could be as high as 165kV. 
-  \fixme{add a one sentence explanation where "as high as 165kV" comes from - not constant at nominal operation ? }
+  At nominal operation, the voltage difference across the beam plug (between the first and the last grading ring) is 165kV. 
   To minimize risk of electrical discharges, the beam plug is divided into sections and each section is bonded to stainless steel conductive grading rings. The grading rings are connected in series with two parallel path of resistor chains. There are 7 grading rings. The ring that is closest to the field cage is electrically connected to one of the field cage profiles. 
-  The last ring near the cryostat wall is grounded to the stainless steel membrane. 
-  \fixme{how is the connection to the membrane made without risking damage to the membrane ?}
+  The last ring near the cryostat wall is grounded to the stainless steel membrane via a short grounding cable. 
   The type and value of the resistor is still under evaluation. A likely candidate is the high voltage Super Mox 15G$\Omega$ resistor by OHMITE. The maximum total power dissipated by the resistor chain is about 0.6W.
 
 
-\begin{cdrfigure}[Beam plug]{beamwindow_fig2}{The beam plug is a  composite pressure vessel filled with dry nitrogen gas. The vessel is about 50cm in length and about 22cm in diameter. The pressure vessel is divided into sections with each section bonded to a stainless steel grading ring. The grading rings are connected by two parallel paths of resistor chain.}
-  \includegraphics[width=0.5\textwidth]{beamwindow_system2.jpg}
+\begin{cdrfigure}[Beam plug]{beamplug}{The beam plug is a  composite pressure vessel filled with dry nitrogen gas. The vessel is about 50cm in length and about 22cm in diameter. The pressure vessel is divided into sections with each section bonded to a stainless steel grading ring. The grading rings are connected by two parallel paths of resistor chain.}
+  \includegraphics[width=0.75\textwidth]{beamplug.png}
 \end{cdrfigure}
 
 \begin{cdrfigure}[Beam plug component-level view]{beamplug_components}{Component-level view of the beam plug showing alternating electrode and composite ring structure.}
-  \includegraphics[width=0.85\textwidth]{beamplug_components.pdf}
+  \includegraphics[width=0.85\textwidth]{beamplug_components.png}
 \end{cdrfigure}
 
 The metal electrode rings are spaced at regular intervals and interspersed with composite tube sections. The shape of the rings has been designed to minimize high electric field corners. The results of the field calculations are shown in Figures~\ref{fig:beamplug_ring1} and~\ref{fig:beamplug_ring2}. The average field in the vicinity of the beam plug is about 4.4 kV/cm. The maximum field of 15.7 kV/cm is on the electrode ring surface. In all regions the field is well below the 30 kV/cm limit.
@@ -117,7 +113,6 @@ The resistor divider chain of the beam plug is tied to the main field cage profi
 \begin{cdrfigure}[Beam plug resistor divider chain]{beamplug_resistordivider}{The resistor divider circuit for the end-wall field cage panel with the beam plug. The proposed resistor values for the main, parallel divider boards, and the beam plug are given in the tables.}
   \includegraphics[width=0.85\textwidth]{beamplug_resistordivider.pdf}
 \end{cdrfigure}
-\fixme{why is there a labeling of R2 and R3 as well as R5 and R6 when these are the same ?? please simplify}
 
 \subsection{Component performance tests}
 
