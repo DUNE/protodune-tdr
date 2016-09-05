@@ -46,6 +46,7 @@ front-end electronics and assumed bandwidth and storage requirements
 from the online and offline computing systems.  The baseline trigger
 rate during the SPS spill is taken to be 25 Hz.  Cosmic data will also
 be acquired at a rate of approximately one third of the beam rate.
+\fixme{Why 1/3 of rate for cosmics ?}
 
 The data rate from the electronics is assumed to be dominated by the
 TPC data.  However, the photon detection system may be a significant
@@ -75,7 +76,7 @@ fabric as the clock and calibration signals.  Each of the systems will
 be described separately, along with a brief section on the interface to
 the beam instrumentation.
 
-\subsubsection{Timing}
+\paragraph{Timing}
 
 
 The timing system is required to: provide a stable and phase-aligned
@@ -116,12 +117,16 @@ allows automatic phase-adjustment of all local clocks at system start-up,
 through precise measurement of the returned clock phase at the master unit.
 
 Endpoints decode the timing signal into separate clock and data
-signals using a commercial clock-data recovery ASIC, which in turn
+signals using a commercial clock-data recovery ASIC
+\fixme{reference to paper or data sheet would be good}
+, which in turn
 feeds a low-bandwidth PLL in order to remove any remaining jitter in
 the clock and provide phase adjustment. The data stream employs 8b/10b
 encoding, ensuring sufficient transitions in the timing signal for clock
 recovery and correct operation of optical links, and uses scrambling
-of idle patterns to minimise EMI. A common firmware block is used to
+of idle patterns to minimise EMI.
+\fixme{first time use of EMI, spell out acronym first time}
+ A common firmware block is used to
 decode the timing protocol, which is incorporated into the overall
 firmware design for the receiving FPGA in each DAQ component. This
 block provides a cycle counter, several independent trigger, calibration and 
@@ -129,13 +134,14 @@ synchronisation signals, and a general-purpose packet data output to each endpoi
 The cycle counter may be used further to generate low-frequency timing signals for
 further propagation, e.g. the 2MHz sampling signal for the cold ADCs.
 
-\subsubsection{Trigger}
+\paragraph{Trigger}
 
 \fixme{Need to finalise group on this soon - possibly UPenn and others}
 
 \subsubsection{Beam Interface}
 
 The Beam Instrumention is described in section \ref{sec:beaminstruments}.
+\fixme{some details how data streams will be merged would be desirable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{TPC data readout}
@@ -154,7 +160,9 @@ The readout of the ProtoDUNE TPC wires, prior to being received by PCs in
 the back-end DAQ, consists of the electronics directly attached the APAs,
 inside the cryostat (the cold electronics) and the electronics outside
 the cryostat, either directly on the cryostat flange or in a rack (the
-warm electronics).  This proposal addresses the warm part of the TPC
+warm electronics).  This proposal 
+\fixme{seems to be a copy and paste block - this is a TDR not a proposal}
+addresses the warm part of the TPC
 readout and how it receives data from the cold electronics (the Front-End
 Boards), manipulates the data, and delivers it to the back-end DAQ.
 
@@ -168,23 +176,26 @@ timing, and configuration down to the FEBs and receive the high-speed
 signals from the FEBs. From a data standpoint, each WIB receives the
 data from 4 FEBs, over sixteen 1.25-Gbps data lines, and multiplexes
 this data to four 5-Gbps (or two 10 Gbps) lines which are sent over
-optical fiber the DAQ.
+optical fiber to the DAQ.
 
 Two systems will be used to receive data from the WIBs.  The baseline
 solution is based on Reconfigurable Computing Elements (RCE) and will
 readout data from 5 APAs.  An alternative exploratory prototype based on
 the Front-End-Link-EXchange (FELIX) system will be used to readout 1 APA.
 
-\subsubsection{RCE based readout}
-The data from the WIB are received by processing units called RCEs
-(Reconfigurable Computing Elements), which are housed in industry-standard
+\paragraph{RCE based readout}
+The data from the WIB are received by processing units called RCEs, 
+\fixme{reference to tech. details would be good}
+which are housed in industry-standard
 ATCA shelves on COB (cluster-on-board) motherboards that are designed
-at SLAC for a wide range of applications.   The RCE is a SoC from the
+at SLAC for a wide range of applications.   The RCE is a SoC 
+\fixme{spell out acronym for first time use}
+from the
 Xilinx Zynq family and contain a full Linux processor system on the chip
 accompanied by 1 GByte of DRAM.   The primary processing function of the
 RCEs for ProtoDUNE are compression (or zero-suppression) and buffering
 of the raw data and then sending data to the back-end upon the receipt of
-an external trigger.  Each COB carries 8 RCEs, each connected to each
+an external trigger.  Each COB carries 8 RCEs, all connected to each
 other via an on-board 10 Gbps Ethernet switch which also sends data out
 of the COB the back-end DAQ PCs.
 
@@ -194,7 +205,9 @@ that is custom made depending on the physical characteristics of the
 connections to-and-from the FE (e.g. fiber or electrical connections,
 number and types of transceivers, timing \& trigger connections, etc).
 For ProtoDUNE, the RTM will use a set of QSFP transceivers to receive
-the data from the WIB and an SFP+ optical interface for communication
+the data from the WIB and an SFP+ 
+\fixme{spell out SFP for first time use; maybe ok if QSFP had been spelled out on p.170}
+ optical interface for communication
 with the timing and trigger distribution system.
 
 As the multiplexed data from the WIB comes into the RCE FPGA fabric
@@ -211,7 +224,7 @@ Given that there are 120 FEBs in ProtoDUNE, 60 RCEs will be needed to
 readout the full detector.  These will fits into 8 COBs which in turn
 will reside in a single 14-slot ATCA shelf.
 
-\subsubsection{FELIX based readout}
+\paragraph{FELIX based readout}
 The FELIX is a PCIe card receiving data on point-to-point links from
 the detector electronics and routing those through a switched network
 to computers.  The aim is to reduce to a minimum any specific hardware
@@ -228,6 +241,7 @@ generate artDAQ fragments to be sent to the event builder.
 
 \fixme{The photon people like consider the SSPs as
 electronics, not DAQ, so that may all be in the photon section - KH}
+\fixme{need final agreement on this issue}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsubsection{Beam instrumentation readout}
@@ -266,7 +280,7 @@ also developed at Fermilab, is also used for offline analysis, a major
 advantage of artdaq is that it allows developers to easily switch
 between developing online and offline software.
 
-There are three types of process provided by artdaq, each of which
+There are three types of processes provided by artdaq, each of which
 fulfills a specific role; in order of upstream-to-downstream, these
 are boardreader processes, eventbuilder processes, and aggregator
 processes. A given boardreader process is intended to be associated
@@ -276,7 +290,9 @@ to embed experiment-specific code (called "fragment generators")
 designed both to upload configuration values to hardware and to read
 out the hardware. In the case of 35ton, the full DAQ consisted of 24
 boardreaders, in charge of the 16 RCEs, 7 SSPs, and Penn board. For
-protoDUNE, this number will increase to ???. For testing purposes when
+protoDUNE, this number will increase to ???. 
+\fixme{should have this no. by now}
+For testing purposes when
 no hardware is available, fragment generators are available which
 don't actually interface to true hardware, but instead perform useful
 functions such as read in existing output files, extract their
@@ -317,10 +333,14 @@ is the case DAQInterface will automatically stop datataking and shut
 down the processes in an orderly fashion, so that unexpected behavior
 from upstream (e.g., hardware suddenly sending an unmanageably high
 rate of data) will not result in improperly closed output files,
-zombie processes, etc. For ProtoDUNE, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP; where appropriate/possible, DAQInterface code will be reused so as to minimize unnecessary duplication of effort. 
+zombie processes, etc. For ProtoDUNE, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP;
+\fixme{introduce JCOP acronym for first time use}
+ where appropriate/possible, DAQInterface code will be reused so as to minimize unnecessary duplication of effort. 
 
 On 35ton, artdaq was capable of taking data smoothly for several hours
-without error conditions occurring. Improvements have been made to
+without error conditions occurring. 
+\fixme{probably shouldn't mention the somewhat poor performance of the 35t - we need days w/o error conditions}
+Improvements have been made to
 artdaq since that time which should increase its robustness even
 further, and a computer cluster will be set up at Fermilab in the
 coming months to allow for new tests. Without upstream hardware
@@ -360,7 +380,9 @@ the already supported XML-RPC protocol.  Monitoring data will be pushed
 into the JCOP framework by implementing the appropriate artDAQ monitoring
 plugin.  Log and error messages will be most probably collected and
 processed using an implementation of the ELK (elastic search, logstash,
-kibana) stack.  The internal configuration of DAQ applications will be
+kibana) stack. 
+\fixme{what is kibana ? need reference}
+ The internal configuration of DAQ applications will be
 carried out using the mechanisms provided by artDAQ. The overall system
 will be modeled and configured using the JCOP paradigm (data points).
 
@@ -384,21 +406,23 @@ In addition to the monitoring of the operations of the DAQ system, the
 quality of the data taken by the detectors has to be constantly monitored.
 This assurance is provided by the online and nearline monitoring systems.
 
-\subsubsection{Online Monitoring}
+\paragraph{Online Monitoring}
 The Online Monitoring framework will run as a DAQ process and therefore be
 able to provide data quality assurance in real-time. In the 35ton monitoring
 framework, data were read out of shared memory as part of the second
 aggregator process; it is likely this method will also be used in ProtoDUNE.
+\fixme{This is a protoDUNE TDR; can't say "likely we'll use ..." instead need to describe protoDUNE baseline design and where appropriate reference or describe similar components of 35t detector DAQ}
 The software framework used for online monitoring in the 35ton experiment is
 shown in Figure~\ref{fig:OnlineMonitoringFramework}.  It consists of an
 \texttt{art::Analyzer} module which interfaces with the artdaq framework and
 owns instances of further classes, each designed to handle different aspects
 of the monitoring.  The system to be used in ProtoDUNE is still being
 finalised but it is likely to be very similar to what is described here.
+\fixme{whatever the current baseline is should be described as the protoDUNE default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for protoDUNE which is not good. }
 
 \begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
     Class diagram showing the online monitoring framework used in the 35ton
-    experiment.}
+    experiment. \fixme{This figure may be too detailed and specific when the text seems to suggest that we don't quite know yet what things will look like. Consider to make less technical and show idea and fewer details }}
   \includegraphics[width=0.8\textwidth]{online_monitoring_software.png}
 \end{cdrfigure}
 
@@ -411,12 +435,13 @@ them when required.  Finally, in the 35ton the online event displays were
 written as part of the monitoring framework, so the EventDisplay class was
 responsible for this.  This particular functionality will possibly be handled
 differently in ProtoDUNE.
+\fixme{same comment as above - this is not a 35t detector TDR}
 
 The output is then saved in a common area for offline access and for syncing
 with a web server. This will likely be hosted at CERN and will allow for remote
 monitoring of the experiment.
 
-\subsubsection{Nearline Monitoring}
+\paragraph{Nearline Monitoring}
 The Nearline Monitoring is designed to provide complimentary information to
 that given by the online system. It runs separately as a series of automated
 shell scripts and provides feedback on a slower timescale than the online
@@ -434,7 +459,7 @@ job, to form the high-level view of the data for monitoring.
 Similar to the online framework, there will be an interface for this system
 with the web to allow for remote access of the information.
 
-\subsubsection{Monitored Data}
+\paragraph{Monitored Data}
 
 What is being monitored?
 \fixme{Need to add things that can be monitored. I can add what we monitored
