@@ -45,8 +45,8 @@ by the physics requirements of the experiment, with constraints from the
 front-end electronics and assumed bandwidth and storage requirements
 from the online and offline computing systems.  The baseline trigger
 rate during the SPS spill is taken to be 25 Hz.  Cosmic data will also
-be acquired at a rate of approximately one third of the beam rate.
-\fixme{Why 1/3 of rate for cosmics ?}
+be acquired at an appropiate rate such that bandwidth and processing priority are given 
+to beam data.
 
 The data rate from the electronics is assumed to be dominated by the
 TPC data.  However, the photon detection system may be a significant
@@ -92,7 +92,8 @@ external GPS reference is not required, nor is the partitioning of the
 experiment into independent timing zones.
 
 An FPGA-based master unit receives a high-quality clock (provided in
-ProtoDUNE by a quartz crystal oscillator) and external signals from the
+ProtoDUNE by a quartz crystal oscillator or external source) 
+and external signals from the
 trigger system and SPS accelerator. It interfaces to the ProtoDUNE control
 and DAQ via a gigabit Ethernet interface. The master unit multiplexes
 synchronization and trigger commands, along with arbitrary command
@@ -117,15 +118,12 @@ allows automatic phase-adjustment of all local clocks at system start-up,
 through precise measurement of the returned clock phase at the master unit.
 
 Endpoints decode the timing signal into separate clock and data
-signals using a commercial clock-data recovery ASIC
-\fixme{reference to paper or data sheet would be good}
-, which in turn
+signals using a commercial clock-data recovery ASIC \cite{siliconlabs:Si5344}, which in turn
 feeds a low-bandwidth PLL in order to remove any remaining jitter in
 the clock and provide phase adjustment. The data stream employs 8b/10b
 encoding, ensuring sufficient transitions in the timing signal for clock
 recovery and correct operation of optical links, and uses scrambling
-of idle patterns to minimise EMI.
-\fixme{first time use of EMI, spell out acronym first time}
+of idle patterns to minimise ElectroMagnetic Interference (EMI).
  A common firmware block is used to
 decode the timing protocol, which is incorporated into the overall
 firmware design for the receiving FPGA in each DAQ component. This
@@ -136,7 +134,35 @@ further propagation, e.g. the 2MHz sampling signal for the cold ADCs.
 
 \paragraph{Trigger}
 
-\fixme{Need to finalise group on this soon - possibly UPenn and others}
+The baseline trigger solution for ProtoDUNE is the Penn Trigger Board
+(PTB).  Thi is designed to receive triggers from various sub-systems
+(Photon Detection System, Beam Instrumentation, SPS spill signal, veto
+signals, etc.).  Up to 100 input channels are provided.  It combines
+these into a global trigger based on a configurable input mask (or
+more sophisticated algorithm if desired).  It provides functionality
+to globally timestamp triggers, keep event counts, and provide artDAQ
+compatible header information with trigger type and error conditions.
+Internally generated triggers and calibration pulses allow for testing
+the board itself and the end-points receiving the trigger signals.
+
+The PTB is based on the MicroZed development board \cite{avnet:microzed}, which comprises a
+Xilinx Zynq-7000 System-on-Chip (SoC), 1 GB DDR3 RAM, Gigabit Ethernet,
+and 115 I/O ports.  The Programmable Logic of the Zynq-7000 is used to
+perform fast triggering operations, whilst the Processing System is used
+to interface to the readout and controls systems.
+
+Configuration and operation is performed using an XML file which is sent
+to the PTB.  This allows for fast reconfiguration of the PTB without
+the need for new firmares.  The file is used to both configure the board
+and send start/stop/reset/etc. commands from the run control.
+
+The trigger output format for ProtoDUNE has not yet been finalised.  
+However, it is expected to consist of a trigger type (physics/calibration/random),
+a timestamp, the trigger word, counter information and the values 
+of the inputs causing the triggers.  
+
+The trigger system will use the timing system clock and global triggers will be
+distributed via the timing system.  
 
 \subsubsection{Beam Interface}
 
@@ -146,15 +172,15 @@ The Beam Instrumention is described in section \ref{sec:beaminstruments}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{TPC data readout}
 
-\fixme{ 
-        %\emph{GB:} 
-        Present the RCE system - just the main data flow, merging,
-compression etc.  State that the way the data are collected together,
-timing system, control etc., will be handled in section~\ref{sec:daq},
-sentence at the end to say that the architecture allows future
-readout schemes to be incorporated and tested with ProtoDUNE and
-that these will be discussed, in particular the FELIX system, in
-subsection~\ref{ssec:daqfelix} }
+%\fixme{ 
+        %%\emph{GB:} 
+        %Present the RCE system - just the main data flow, merging,
+%compression etc.  State that the way the data are collected together,
+%timing system, control etc., will be handled in section~\ref{sec:daq},
+%sentence at the end to say that the architecture allows future
+%readout schemes to be incorporated and tested with ProtoDUNE and
+%that these will be discussed, in particular the FELIX system, in
+%subsection~\ref{ssec:daqfelix} }
 
 The readout of the ProtoDUNE TPC wires, prior to being received by PCs in
 the back-end DAQ, consists of the electronics directly attached the APAs,
