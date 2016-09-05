@@ -30,41 +30,43 @@ withstand the hydrostatic pressure of the liquid argon, the pressure of the gas 
 satisfies the external constraints. %The steel warm structure for NP04 is shown in Figure~\ref{fig:warm-vessel-layout}.
 In particular, this structure is to be constructed in EHN1 without any mechanical attachment to the floor or the building side walls.  \fixme{what are the ext constraints? Also, the text on the figure is too small; is it intended to indicate what each color is? Can you clarify and make sure each part/color is labeled?}
 %
-\begin{cdrfigure}[Warm vessel layout]{warm-vessel-layout}{lWarm vessel layout showing the various major components}
-  \includegraphics[width=0.9\textwidth]{warm-vessel-layout}
+\begin{cdrfigure}[Warm vessel layout]{warm-vessel-layout}{Warm vessel layout showing the various major components}
+  \includegraphics[width=1.\textwidth]{warm-vessel-layout}
 \end{cdrfigure}
 %
 %The main requirement is that this mechanical structure is constructed in EHN1 without any mechanical attachment to the floor or the building side walls.  Inside the steel structure, a 10 mm skin of stainless steel plates are welded to provide a gas barrier to the outside.
 Inside the steel structure, a 10-mm thick skin of stainless steel plates will be welded to provide a gas barrier to the outside.
 The top of the cryostat will be accessible for installation of the detector elements, the electrical/signal feedthrough, the detector supports and other cryogenics services.  Figure~\ref{fig:cryo-structure-2d} is a mechanical drawing of the structure. The dimensions %requirements 
 are dictated by the required %need to provide a sufficient 
-active volume of LAr:  % to the detector. This means a transversal internal dimension of the liquid volume of 
-width = 8.548~m, length = 8.548~mm and height = 7.900~m. The dimensions \fixme{of the active volume or total volume (which would equal the entire volume inside the membrane)?} %have been adapted in order to 
-ensure that all crossing penetrations are arranged as requested and that there is enough space for maintenance. \fixme{Does this mean: the dimensions of the active LAr volume take into account the volume taken up by penetrations in the roof? Are pipes and cables and such allowed to penetrate the active volume? I assume not the fiducial volume...?} 
+active volume of LAr, constraints on the distances from the active volume to the cryostat inner walls and cryostat material thicknesses.  % to the detector. This means a transversal internal dimension of the liquid volume of 
+The inner cryostat dimensions are: width = 8.548~m, length = 8.548~mm and height = 7.900~m. The dimensions 
+%\fixme{of the active volume or total volume (which would equal the entire volume inside the membrane)?} %have been adapted in order to 
+ensure that all crossing penetrations are arranged as requested and that there is enough space for maintenance. 
+%\fixme{Does this mean: the dimensions of the active LAr volume take into account the volume taken up by penetrations in the roof? Are pipes and cables and such allowed to penetrate the active volume? I assume not the fiducial volume...?} 
 
 \begin{cdrfigure}[2D mechanical drawing of the cryostat outer structure]{cryo-structure-2d}{2D mechanical drawing of the cryostat outer structure}
   \includegraphics[width=0.95\textwidth]{cryo-structure-2d}
 \end{cdrfigure}
 \fixme{The elements in this figure are pretty small; I would individually add in only the portions you call attention to, and allow them to be larger.}
 
-Section view B in Figure~\ref{fig:cryo-structure-2d} shows a detail of the warm structure on the outside, 10 mm SS skin, 800 mm of insulation and the inner cold vessel. 
-\fixme{I would argue that it doesn't show it very clearly}
-A secondary membrane that is located within the insulation layer is not shown in this view.  The cold vessel is based on the GTT membrane technology.  \fixme{add ref} The initial thermal requirements 
-\fixme{why initial?} call for %an insulation thickness of 800 mm, including the primary and secondary membrane. 
+Section view B in Figure~\ref{fig:cryo-structure-2d} shows a detail of the warm structure on the outside, the 10 mm SS skin, 800 mm of insulation and the inner cold vessel. 
+%\fixme{I would argue that it doesn't show it very clearly}
+A secondary membrane that is located within the insulation layer is not shown in this view.  The cold vessel is based on the GTT membrane technology \cite{gtt}.   Thermal requirements 
+call for %an insulation thickness of 800 mm, including the primary and secondary membrane. 
 a thickness of 800\,mm, including the insulation, and the primary and secondary membranes. These two membranes provide a first and second level of containment. There is no requirement at this point for additional containment at the level of the warm steel structure. The SS skin of 10-mm thickness between the warm structure and the insulation will provide an effective gas enclosure, which will allow control of the argon atmosphere inside the insulation volume.
-All necessary information can be found in \url{https://edms.cern.ch/document/1531438/3} \fixme{make it a citation}
-The 3D detailed cad model is visible in \url{https://edms.cern.ch/document/1531439/3} \fixme{make it a citation}
+All necessary information can be found in \cite{edms1}. 
+The 3D detailed CAD model is visible in \cite{edms2}. 
 
 Prior to installation of the GTT insulation and %cold liquid 
-inner membranes, the gas tightness of the SS 10-mm membrane will be qualified \fixme{verified?} by CERN using dye penetrant analysis, local vacuum-bag techniques, and He leak %leaks sniffing 
-detection at the level of the natural He present in the atmosphere ($\sim2-3 \times 10_{-6}6 mbar/l/sec$). A report will be presented to GTT.
+inner membranes, the gas tightness of the SS 10-mm membrane will be measured and verified by CERN using dye penetrant analysis, local vacuum-bag techniques, and He leak %leaks sniffing 
+detection at the level of the natural He present in the atmosphere ($\sim2-3 \times 10^{-6} mbar/l/sec$). A report will be presented to GTT.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storage characteristics}
 
 
 %The expected function of the cryostat is to store LAr in liquid form at atmospheric pressure or just above. 
-The cryostat will be placed in an existing CERN experimental hall at CERN (EHN1 building). The 
+The cryostat will be placed in an experimental hall at CERN (EHN1 building). The 
 cryostat is required to store LAr at a temperature between 86.7\,K and 87.7\,K with a pressure inside the 
 tank of 950 < P < 1100\,mbar. %A special emphasis has been made on the thermal fluxes. 
 The thermal fluxes must be tightly controlled, i.e., %They must be controlled and 
@@ -72,19 +74,19 @@ they will be kept under 5\,W/m2 on %the walls/floor
 the inner membrane that is in contact with liquid, in order to prevent boiling of the LAr.
 
 The storage parameters of the cryostat are as follows:
-\fixme{I changed this from enumerate to itemize; this isn't really an ordered list.}
+%\fixme{I changed this from enumerate to itemize; this isn't really an ordered list.}
 \begin{itemize} % Need  \usepackage{enumerate} to append this: [(a)]
 \item The inner dimensions are 7900\,mm high $\times$ 8548\,mm length $\times$ 8548\,mm wide.  This corresponds to a total volume of $\sim$580 m$^3$. 
 \item Tank liquid capacity (assuming a $\sim$4\% ullage): $\sim$ 557 m$^3$
 \item Residual Heat Input (RHI): 5-6\,W/m$^2$
 \item Insulation weight: 90 kg/m$^3$  
 \item Insulation thickness (all included): 0.8\,m 
-\item Design pressure: Max 1350 mBar / Min 950 mBar.  The 1350 mBar is for an accidental condition during the cryogenics operation.
+\item Design pressure: Max 1350 mBar / Min 950 mBar.  The 1350 mBar is for an accident condition during the cryogenics operation.
 \item Operating temperature: 86K-89\,K
 \end{itemize}
 
-Figure~\ref{fig:cryo-overall-dim} shows the inner dimensions of the cryostat, dimensions of the \SI{10}{mm} SS skin and the overall outer dimensions of the warm structure.
-\fixme{It only shows in 2D}
+Figure~\ref{fig:cryo-overall-dim} shows a cross section of the cryostat with the inner dimensions of the cryostat, dimensions of the \SI{10}{mm} SS skin and the overall outer dimensions of the warm structure.
+%\fixme{It only shows in 2D}
 
 \begin{cdrfigure}[Cryostat overall dimensions]{cryo-overall-dim}{Cryostat overall dimensions}
   \includegraphics[width=0.8\textwidth]{cryo-overall-dim}
@@ -97,27 +99,24 @@ Figure~\ref{fig:cryo-overall-dim} shows the inner dimensions of the cryostat, di
 \fixme{Why does title say Fe for iron if it's stainless steel?}
 
 The design and structural analysis of the warm support structure including the 10-mm SS gas containment membrane is not a part of this study and is %has to be 
-treated as a CERN deliverable. \fixme{What is its status?}
+treated as a CERN deliverable. \\
+%%%\fixme{What is its status?}
+%%%\fixme{Anne stopped here 8/19}
+%
+The structural beams (see Fig. \ref{fig:struct-beam-detail} left panel) are the main elements of the floor, roof and side walls of the warm structure and the corner structural elements (see Fig. \ref{fig:struct-beam-detail} right panel) can be found only at the corners where the side wall is connected with the other side wall. The structural beams are the principal load bearing elements of the structure. Their purpose is to withstand the hydrostatic pressure from the LAr, as well as to support the roof load. They consist of IPE V 600 standard profile. 
+%%%\fixme{add and reference figures   Figure~\ref{fig:struct-beam-detail} and Figure~\ref{fig:corner-struct-element-detail} }
 
-\fixme{Anne stopped here 8/19}
-
-The structural beams are the main elements of the floor, roof and side walls of the warm structure and the corner structural elements can be found only at the corners where the side wall is connected with the other side wall. The structural beams are the principal load bearing elements of the structure. Their purpose is to withstand the hydrostatic pressure from the LAr, as well as to support the roof load. They consist of IPE V 600 standard profile. 
-\fixme{add and reference figures   Figure~\ref{fig:struct-beam-detail} and Figure~\ref{fig:corner-struct-element-detail} }
-
-\begin{cdrfigure}[Structural beam detail]{struct-beam-detail}{Structural beam detail}
-  \includegraphics[width=0.4\textwidth]{struct-beam-detail}
-\end{cdrfigure}
-
-\begin{cdrfigure}[Corner structural element detail]{corner-struct-element-detail}{Corner structural element detail}
-  \includegraphics[width=0.4\textwidth]{corner-struct-element-detail}
+\begin{cdrfigure}[Structural beam detail]{struct-beam-detail}{Structural beam detail (left panel) and corner structural element detail (right panel).}
+  \includegraphics[width=0.45\textwidth]{struct-beam-detail}
+  \includegraphics[width=0.45\textwidth]{corner-struct-element-detail}
 \end{cdrfigure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The web interlink structure}
 
-The web interlink structure purpose is to provide an adequate support of the polyurethane insulation of the membrane. They consist of IPE O 270 profiles. \fixme{Reference Figure~\ref{fig:web-interlinks-detail}}
-
+The purpose of the web interlink structure (see Fig. \ref{fig:web-interlinks-detail}) is to provide an adequate support of the polyurethane insulation of the membrane. They consist of IPE O 270 profiles. 
+%
 \begin{cdrfigure}[Web interlinks detail]{web-interlinks-detail}{Web interlinks detail}
   \includegraphics[width=0.4\textwidth]{web-interlinks-detail}
 \end{cdrfigure}
@@ -126,7 +125,7 @@ The web interlink structure purpose is to provide an adequate support of the pol
 Additional \SI{10}{mm} stainless steel plates are welded to the web interlink structure to create a gas containment barrier to the inside, as well as to ensure even better support for the membrane insulation. 
 The web interlink structure is also used for the floor, in-between the corner beams, as well as for the roof structure.
 
-A very detailed technical report is available at \url{https://edms.cern.ch/document/1531442/1} \fixme{make it a citation}.
+A very detailed technical report is available in \cite{edms3}.
 In this report the following items are discussed:
 \begin{itemize}
 \item all of the various load conditions including boundary conditions and the safety factors,
