@@ -8,11 +8,10 @@ computing systems.
 
 \begin{cdrfigure}[DAQ Overview]{daq-overview}{Detailed overview of the
 DAQ system, its interconnections, data flow, timing and control signals,
-and the interfaces to the electronics and online computing systems
-\fixme{simplify diagram for TDR}}
+and the interfaces to the electronics and online computing systems}
         \includegraphics[angle=90,width=0.70\textwidth]{daq-overview-dia.pdf}
 \end{cdrfigure}
-
+%\fixme{simplify diagram for TDR}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Introduction}
 
 %\emph{GB:}
@@ -374,18 +373,30 @@ prove invaluable for this type of testing.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Software filtering and data transfer to permanent storage}
+\subsection{Data transfer to permanent storage}
 
-\fixme{
-        \emph{KH:} Compare this to the computing section and find where
-        best to implement. \emph{GB:} Point out that compression and/or
-        further event sorting can
-be done in either the artDAQ trigger farm, or the online computing farm
-(run by the S\&C group).  Describe where we are on this (i.e. what
-compression algorithms, etc.  experience from other experiments).
-Describe how the hand-off to the S\&C processes writing to permanent
-storage work. Address the question of disk writing speeds.
-}
+%\fixme{
+        %\emph{KH:} Compare this to the computing section and find where
+        %best to implement. \emph{GB:} Point out that compression and/or
+        %further event sorting can
+%be done in either the artDAQ trigger farm, or the online computing farm
+%(run by the S\&C group).  Describe where we are on this (i.e. what
+%compression algorithms, etc.  experience from other experiments).
+%Describe how the hand-off to the S\&C processes writing to permanent
+%storage work. Address the question of disk writing speeds.
+%}
+\fixme{Implementation not finalised, expected after collaboration week}
+
+The dimensioning of the readout computing has not been finalised.  Studies 
+are being performed to strike a balance between eliability, performance, cost, and 
+effort needed.  The following describes the overall strategy, though
+details are subject to change.
+Data will be sent from the artDAQ EventBuilders or Aggregators to 
+a storage buffer.  This may be local to the nodes themselves, distributed
+over a computing farm, or high performance network attached storage (NAS).
+The baseline I/O requirement is 20 Gb/s.  Metadata information will then
+be generated for the raw data files, and both raw data and metadata will
+be transferred offline to CERN EOS.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
