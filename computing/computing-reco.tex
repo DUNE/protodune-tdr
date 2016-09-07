@@ -23,7 +23,7 @@ choice is made to represent the data in the offline format.
 %descriptions. But the reco steps really do diverge in the alternate methods}
 
 For current large LArTPC detectors, noise filtering is then applied to remove
-electronic noises beyond the intrinsic ones from cold preamplifier.
+electronic noises beyond the intrinsic ones from cold preamplifiers.
 In particular, existing LArTPC experiments have a
 large component of their noise from coherent sources -- sources that
 affect many neighboring wires and/or neighboring readout channels
@@ -37,14 +37,18 @@ well as the noise, in a manner that depends on the angle of a track or
 shower with respect to the drift field.  Procedures that first
 identify signal hits and protect them from distortion~\cite{microboone_noise} 
 are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
-has achieved excellent noise level as expected by the design specification
-of cold electronics (Fig.~\ref{rms3} in Sec.~\ref{sec:tpc-signal-cabliration}).
+has achieved excellent noise levels consistent with expectations based on 
+the design specification of cold electronics (Fig.~\ref{fig:rms3} in Sec.~\ref{sec:tpc-signal-calibration}).
 For protoDUNE, the goal is to achieve such a performance without 
 software noise filtering. 
+\fixme{That's a bold statement: is there enough info about the MicroBoone noise that allows us to 
+realistically achieve this goal ? If so, a sentence or two with additional info would be useful to 
+convince the reader.}
 
-The raw signals are then processed to recover the ionization charge
-as described in Sec.~\ref{sec:tpc-signal-calibration} in details. 
-
+The %%% raw
+ signals are then processed to recover the ionization charge
+as described in Sec.~\ref{sec:tpc-signal-calibration} in detail. 
+%
 %through a signal deconvolution and
 %noise filtering step.  This step is done using a discrete Fourier
 %transform, the application of the deconvolution kernel and filter
@@ -66,12 +70,12 @@ as described in Sec.~\ref{sec:tpc-signal-calibration} in details.
 %\begin{cdrfigure}[The noise filter function applied to 35-ton data]{wienerfilter}{The noise filter function applied to 35-ton data.  A similar procedure will produce a noise filter function for ProtoDUNE-SP}
 %  \includegraphics[width=0.8\textwidth]{wienerfilter}
 %\end{cdrfigure}
-
-Hits are then identified by seeking deconvoluted signals exceeding
+%
+Hits are identified by seeking deconvoluted signals exceeding
 thresholds that are adjusted to minimize the creation of false noise
 hits while preserving the true signal hits.  The standard LArSoft hit
 finder fits Gaussians to the deconvoluted signals, and saves the
-times, widths, and amplitudes of the Gaussians, as well as the sum of
+times, widths, and amplitudes of the Gaussians.  In addition, it saves the sum of
 the ADC readings in the time windows corresponding to the hits, as a
 Gaussian function is not always representative of the charge arrival
 distribution and the resolution of the calorimetry is improved by
@@ -83,7 +87,10 @@ is chosen so that each induction wire intersects each collection-plane
 wire at most one time, only two views are needed in order to identify
 hits and resolve ambiguities.  A separate LArSoft module compares the
 hits in the collection and induction views and assigns choices to
-remove ambiguity, allowing reconstruction algorithms developed for
+remove ambiguity, 
+\fixme{Do we still need to run the disambiguation in protoDUNE even though one side of the 
+APAs will effectively not be used ??}
+allowing reconstruction algorithms developed for
 detectors without wrapped wires to be run with minimal modification.
 
 Several approaches are then possible once hits are identified on wire
@@ -107,8 +114,10 @@ in Figure~\ref{fig:pizeromass}.
   Monte Carlo using the BlurredCluster and EMShower algorithms.}
 %  \includegraphics[width=0.8\textwidth]{pizeromass}
 \end{cdrfigure}
-\fixme{add figure}
+\fixme{add figure; establish reference to calibration section; figure could also be at home in calibration section instead.}
 
+
+\paragraph{PANDORA}
 The reconstruction framework PANDORA~\cite{pandora} also works by
 building up a three-dimensional picture from two-dimensional
 reconstructed objects.  PANDORA is a flexible framework developed for
@@ -117,7 +126,7 @@ algorithms for reconstructing particles.  In all, more than 80
 algorithms, each targeting a specific topology, have been incorporated
 into PANDORA to date.  Multiple passes through reconstructing the data
 are possible.  Different criteria for clustering hits into tracks and
-showers may be applied when seeking cosmic rays for removal than for
+showers may be applied when seeking cosmic rays for removal rather than for
 identifying signal events.  PANDORA proceeds by clustering hits in 2D,
 reconstructing vertices in 3D, reconstructing tracks in 3D,
 reconstructing showers in 3D, a mop-up step in 2D and 3D, followed by
@@ -133,11 +142,11 @@ matched particle divided by the total number of hits (or charge)
 included in the reconstructed cluster.  The completeness is defined as
 the number of true hits that are found in a cluster or track or shower
 expressed as a fraction of total true hits in that object.  Plots of
-the efficiency and completeness for muons in charged-current $\nu_mu$
+the efficiency and completeness for muons in charged-current $\nu_{\mu}$
 events in MicroBooNE are shown in Figure~\ref{fig:muonpandoraperf}.
 The resolution of vertex-finding is shown in
 Figure~\ref{fig:pandoraresolution}.
-
+\fixme{Don't we have such a figure specifically for  protoDUNE ? If not, it should be a high priority task.}
 
 \begin{cdrfigure}[Performance of PANDORA for muons in CC
   $\nu_mu$ events in MicroBooNE. ]{muonpandoraperf}{The performance of PANDORA for muons in charged-current
@@ -148,14 +157,15 @@ Figure~\ref{fig:pandoraresolution}.
 \fixme{Include figure of PANDORA performance for muons.  Efficiency and
 completeness (purity too if we can get the plot).}
 
+\paragraph{PMA}
 An alternative approach to 3D reconstruction is called Projection Matching Algorithm
 (PMA) ~\cite{pma_algorithm}. PMA was primarily developed as a technique of 3D reconstruction
-of individual particle trajectories (trajectory fit) ~\cite{icarus3dreco}. Instead of
+of individual particle trajectories (trajectory fits) ~\cite{icarus3dreco}. Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
 the 2D projection of predicted trajectory with the observed data. With such an approach
 the associations between 2D planes on the level of individual hits can be avoided.
 In consequence, the algorithm may deal with problematic cases, such as isochron tracks,
-or short, few-hit tracks.
+e.g. tracks with few-hits.
 
 PMA can take as input the output from different pattern recognition algorithms, from
 LineCluster ~\cite{linecluster} to WireCell (described below). As a result of 2D pattern
@@ -164,55 +174,64 @@ of particles may be missing in individual projections and clusters obtained from
 projections are not guaranteed to cover corresponding sections of trajectories. Such behavior
 is expected since ambiguous configurations of trajectories can be resolved only if the information
 from multiple 2D projections is used. Searching for the best matching combinations of clusters from
-all 2D projections was introduced to PMA implementation in the LArSoft framework. The algorithm
-attempts also to correct hit to cluster assignments using properties of 3D reconstructed objects.
-In this sense PMA includes also a pattern recognition features.
+all 2D projections was introduced to the PMA implementation in the LArSoft framework. The algorithm
+also attempts to correct hit to cluster assignments using properties of 3D reconstructed objects.
+In this sense PMA includes also pattern recognition features.
+\fixme{Last sentence is not clear - try to reword.}
 
-%The following paragrph may be cut if shorter text is needed, but I keep it here to show what
+%The following paragraph may be cut if shorter text is needed, but I keep it here to show what
 %is the advantage of having more than two planes.
 The 3D trajectory can be reconstructed using clusters from two projections while the distance of
 the trajectory projection to data in the third plane is used to validate correct association of clusters.
 This method is used to score 3D track candidates in the three-plane TPC configurations, like single-phase
 DUNE and MicroBooNE detectors and prototypes. Clusters from all planes are used in this scenario in the
 fine tuning of the selected candidates. In the two-plane configurations (dual-phase TPC detectors, single-phase
-LArIAT and ArgoNeut detectors) the track candidates are scored by the value of fit goodness, which is
+LArIAT and ArgoNeut detectors) the track candidates are scored by the value of its goodness of fit, which is
 significantly decreased if the trajectory is being optimized to spuriously associated clusters.
 
 PMA allows to build and optimize complex structures of 3D objects, i.e. multiple particle trajectories
 interconnected with interaction vertices, relying on the same principle as for the single trajectory fit.
 In this scenario the vertex position reconstruction employs the local information from several tracks
-simultaneously, leading also to an improved fit of each individual trajectory. The track-vertex structure
-is constructed after the individual trajectories are found and stitched across TPC's. The recontructed
+simultaneously, leading to an improved fit of each individual trajectory. The track-vertex structure
+is constructed after the individual trajectories are found and stitched across TPC's.
+\fixme{"stitched across TPC's" is technical lingo and needs a better half sentence explanation.}
+ The reconstructed
 structure is described as a particle hierarchy using data products available in LArSoft.
+\fixme{what are data products ??}
 
-PMA has successfully been used to reconstruct simulated beam particles in
+PMA has been used successfully to reconstruct simulated beam particles in
 ProtoDUNE-SP. The spatial resolution of the positive pion interaction with neutral pion
-production is shown in Figure ~\ref{PMApioninteraction} in order to illustrate the performance
-of the entire reconstruction chain. Study of the reconstruction performance for particles
-oriented w.r.t. the readout planes nearly in the test beam direction was carried out to ensure
-that it is not introducing major difficulties to the analysis. Example results are shown in
+production is shown in Figure ~\ref{fig:PMApioninteraction} in order to illustrate the performance
+of the entire reconstruction chain.
+\fixme{add energy of pions to sentence}
+\fixme{Add sentence to state result: e.g. spatial resolution of 0.6cm was found.}
+ A study of the reconstruction performance specifically for particles with orientations
+as those expected for beam particles was carried out as a check.
+\fixme{A sentence on some known problems with specific directions would be useful to provide more background info for non-expert readers.}
+% that it is not introducing major difficulties to the analysis. 
+Example results are shown in
 Figure~\ref{fig:PMAdirection}, showing the minimal resolution deterioration for the isochronous
-tracks (and a larger dependence on the length of the reconstructed track). Figures ~\ref{PMAproton2gevc}
-and ~\ref{PMAcosmics} show examples of reconstruction of a 2 GeV/c proton in the test beam and
-cosmic muons respectively.
+tracks (and a larger dependence on the length of the reconstructed track). Figures ~\ref{fig:PMAproton2gevc}
+and ~\ref{fig:PMAcosmics} show examples of reconstruction of a 2 GeV/c proton in the test beam and
+cosmic muons, respectively.
 
-\fixme{Include figure of PMA's resolution on the entry point for charged
-particles See Robert's talk from the April collab meeting - DONE (plots are for the pi+ interactions
-where pi0 was produced, entry point is almost trivial and simulation does not include complications
-on the tpc edges, interactions inside tpc are at bit more realistically simulated)}
+%\fixme{Include figure of PMA's resolution on the entry point for charged
+%particles See Robert's talk from the April collab meeting - DONE (plots are for the pi+ interactions
+%where pi0 was produced, entry point is almost trivial and simulation does not include complications
+%on the tpc edges, interactions inside tpc are at bit more realistically simulated)}
 
-\fixme{Include figure of PMA's direction on the direction for charged
-particles See Robert's talk from the April collab meeting - DONE}
+%\fixme{Include figure of PMA's direction on the direction for charged particles See Robert's talk from the April collab meeting - DONE}
+
 
 \begin{cdrfigure}[Vertex resolution for
   inelastic interaction of charged $\pi$'s on Ar nuclei where a $\pi^0$ is produced]{PMApioninteraction}{Vertex position resolution in cm in $x$, $y$, and $z$ and 3D for the
   inelastic interaction of charged pions on liquid argon nuclei in events in which a $\pi^0$ is produced, in
-  ProtoDUNE-SP, using the PMA algorithm.}
+  ProtoDUNE-SP, using the PMA algorithm.\fixme{increase size of stat box entries; if possible remove "temp" header}}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
 \end{cdrfigure}
 
-\begin{cdrfigure}[Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane (isochronous tracks are at 0 degree), ZY plane (horizontal tracks are at 0 degree) and as a function of the track length; trajectories reconstructed using gaushit, Line Cluster and PMA.]{PMAdirection}{Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane (isochronous tracks are at 0 degree), ZY plane (horizontal tracks are at 0 degree) and as a function of the track length; trajectories reconstructed using gaushit, Line Cluster and PMA.}
+\begin{cdrfigure}[Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane (isochronous tracks are at 0 degree), ZY plane (horizontal tracks are at 0 degree) and as a function of the track length; trajectories reconstructed using gaushit, Line Cluster and PMA.]{PMAdirection}{Primary beam particle direction resolution for protons 2GeV/c, as a function of true trajectory orientation in ZX plane (isochronous tracks are at 0 degree), ZY plane (horizontal tracks are at 0 degree) and as a function of the track length; trajectories reconstructed using gaushit, Line Cluster and PMA. \fixme{need to increase axes label size; maybe draw equi-density lines in figures to help get the message across. }}
 \includegraphics[width=0.3\textwidth]{figures/dFi-vs-beamXZ_primary_ptoton.png}
 \includegraphics[width=0.3\textwidth]{figures/dFi-vs-beamYZ_primary_proton.png}
 \includegraphics[width=0.3\textwidth]{figures/dFi-vs-TrkLen_primary_proton.png}
@@ -229,47 +248,54 @@ particles See Robert's talk from the April collab meeting - DONE}
 
 
 %% Wire-Cell ... 
-WireCell~\cite{wire-cell}, which adopts a very different approach from the 
-fore-mentioned algorithms, is a new reconstruction method under development.
+\paragraph{WireCell}
+WireCell~\cite{wire-cell} adopts a very different approach from the 
+fore-mentioned algorithms and is a new reconstruction method under development.
 Instead of directly doing pattern recognition on each of the 2D views (drift 
 time vs. wire number), the first step of the WireCell reconstruction is to 
 perform 3D imaging with time, geometry, and charge information. The definition
 of "Hit" is based on signal strength after charge extraction (described in 
-Sec.~\ref{sec:tpc-signal-cabliration}) in a 2 $\mu$s time slice. The usage of 
+Sec.~\ref{sec:tpc-signal-calibration}) in a 2 $\mu$s time slice. The usage of 
 time information means that hits from different wire planes at different time 
-slice cannot be associated. The usage of geometry information means that hits
-from wires that are not crossing each other cannot be associated together. 
-The usage of charge information means that the hits from different wire plane
-with different signal strength are unlikely to be associated together. The 
-usage of the charge information is quite unique for LArTPC, as each of the 
-wire plane in principle detect the same amount of the ionization electrons. 
-Figure~\ref{fig:quality} shows the performance of the WireCell 3D imaging. 
+slices cannot be associated. The usage of geometry information means that hits
+from wires that are not crossing each other cannot be associated with each other. 
+The usage of charge information means that hits from different wire planes
+with different signal strengths are unlikely to be associated with each other. The 
+usage of the charge information is quite unique for a LArTPC, as each of the 
+wire planes in principle detects the same amount of the ionization electrons. 
+Figure~\ref{fig:quality} shows an example of the performance of the WireCell 3D imaging. 
 The large blue blob reflects the ambiguities due to wire readout for a track
-traveling parallel to the wire plane. (The 3D web-based 
-display can be found at 
-\url{http://www.phy.bnl.gov/wire-cell/bee/set/6/event/20/}.) In this case, a group of wires from each 
-wire plane is fired simultaneously. Therefore, the time and geometry 
-information will provide rather limited constraints on the hit associations. 
+traveling parallel to the wire plane. A 3D web-based 
+display can be found at \cite{ref:wirecell-3D}. 
+For these types of events a group of wires from each 
+wire plane fires simultaneously. Therefore, the time and geometry 
+information will provide rather limited constraints on the hit associations.
+\fixme{Parallel to a wire in one of the planes implies that for the other two planes multiple wires should be crossed - so, why does geometry still provide limited information ??} 
 The advantage of the WireCell approach is that it utilizes full TPC 
-information. The strong requirement of the time/geometry/charge information
-provides a natural way to suppress electronic noise at the cost of more
-sensitive to the hit inefficiency. Since the track and shower hypotheses
+information. The strong requirement 
+\fixme{which requirements exactly ? spell out what these requirements are.}
+on the time/geometry/charge information
+provides a natural way to suppress electronic noise at the cost of being more
+sensitive to hit inefficiencies.
+\fixme{What type of hit inefficiencies ??}
+ Since the track and shower hypotheses
 are not used, the 3D imaging works for any event topology. Once the 3D
 images are reconstructed, 3D pattern recognition is needed to identify 
 the content inside the image. Figure~\ref{fig:tracking2} shows the 
-performance of the current available 3D pattern recognition inside
-WireCell. More developments on the WireCell pattern recognition 
-are needed before the calculating of physics quantities. 
-
-
+performance of the currently available 3D pattern recognition inside
+WireCell. 
+\fixme{maybe add a comment why the straight track was missed.}
+Further developments of the WireCell pattern recognition 
+are needed before meaningful physics quantities can be calculated.
+%
 %% Wire-Cell Imaging
 \begin{cdrfigure}[Comparison of imaging recon
 qualities with and without charge information]{quality}{Comparison of imaging reconstruction 
 qualities with and without the charge information. }
 \includegraphics[width=0.5\textwidth]{quality.png}
 \end{cdrfigure}
-
-
+%
+%
 %% Wire-Cell 3D pattern recognition
 \begin{cdrfigure}[Reconstructed image for one neutrino interaction event; comparison to MC]{tracking2}{The reconstructed image is shown 
 on the left panel for one neutrino interaction event. The image 
@@ -278,3 +304,6 @@ identified (middle panel). The identified pattern is compared
 with Monte-Carlo truth (right panel).}
  \includegraphics[width=0.9\textwidth]{Tracking_2.png}
 \end{cdrfigure}
+
+
+\fixme{A summary sentence or two describing the plans and goals for the reconstruction would be a nice round-out of this section. As is, the section ends rather abruptly.}
