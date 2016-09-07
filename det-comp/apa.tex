@@ -399,11 +399,39 @@ All the wires start at the top end (right hand end in Figure~\ref{fig:tpc_apa1})
 During fabrication, wires are wound around the bottom and the top %without break.  
 in a continuous pattern. Wire segments at the top and bottom are snipped out after winding to create individual wires.  This continuous winding process is more efficient than stopping to solder, trim and restart each wire as it is placed.
 
-There are ten stacks of wire boards across each side at the head of the APA.  
-\fixme{Define what a `stack' and a `wire board' is here. This sentence needs context and a figure.}
-The X layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48.  
-\fixme{where do we get ten from 4 layers. Or does this have to do with the mesh layer then times 2? Please clarify!}
-Each board stack, therefore, has 176 wires but only X, V and U are signal layers so there are 128 signal channels in each stack.  With a total of 20 stacks per APA, this results in 2560 signal channels per APA and a total of 3520 wires starting at the top of the APA and ending at the bottom.  There is a total of $\sim$23.4 km total of wire on the two surfaces of each APA.  
+\paragraph{Head Electronics Boards}
+
+The head electronics boards (referred to as ``wire boards'') are the anchors for the wires at the head end of the APA (Figure \ref{fig:tpc_apa_wireboardheadphoto}).  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
+
+\begin{cdrfigure}[APA Wire Boards at Head Photo]{tpc_apa_wireboardheadphoto}{The wire boards at the head of one of the 35T APAs.}
+\includegraphics[width=0.9\textwidth]{figures/tpc_apa_wireboardheadphoto.png} 
+\end{cdrfigure}
+
+All APA wires are terminated on the wire boards. The wire boards are stacked along the Electronics end of the APA frame. Attachment of the wire boards begins with the X plane. After the X-plane wires are wound around the frame, they are soldered and epoxied to the wire boards and trimmed. The remaining wire board layers are attached as each layer is wound.  The CR boards, which provide DC bias and AC coupling to the wires, are attached to the bottom of the wire board ``stack" of all layers.
+
+\begin{cdrfigure}[APA Board Stack]{tpc_apa_boardstack}{View of the APA wire board stack, as seen from the top (left) and bottom (right).  The G-plane filter board and CR board are also both visible.}
+\includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_top.png}
+\includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_bottom.png}
+\end{cdrfigure}
+The outer-most G-plane wire boards connect adjacent groups of four wires together, and biases each group through an R-C filter. The filter components are located on daughter boards that are attached after the wire plane is wound. The remaining three layers of wires are connected to the Cold Electronics modules either directly or through DC-blocking capacitors. The X and U planes have wires individually biased through 50-Megohm resistors. Electronic components for the X- and U-plane wires are located on a common CR board.
+
+Mill-Max pins and sockets provide electrical connections between circuit boards within a stack. They are pressed into the circuit boards and are not repairable if damaged. To minimize the possibility of damaged pins, the boards are designed so that the first wire board attached to the frame has only sockets. All boards attached afterward contain pins that plug into previously mounted boards. This process does not leave any pins exposed to possible damage during winding, soldering, or trimming processes.
+
+There are ten stacks of wire boards installed across the width of each side at the head of the APA.  The X layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48.  Each board stack, therefore, has 176 wires but only X, V and U are signal layers so there are 128 signal channels in each stack.  With a total of 20 stacks per APA, this results in 2560 signal channels per APA and a total of 3520 wires starting at the top of the APA and ending at the bottom.  There is a total of $\sim$23.4 km total of wire on the two surfaces of each APA.  
+
+At the head end of the APA the wire plane spacing is set by the thickness of these wire boards.  The first layer wires solder to the surface of the first board, the second layer wires to the surface of the second board, etc.  Temporary toothed edge boards beyond these wire boards align and hold the wires until they are soldered to pads on the wire boards.  After soldering the sections going up over the temporary boards are snipped away.
+
+Many of the capacitors and resistors that could be on these wire boards are moved to an auxiliary board (the ``CR board'') to improve their accessibility in case of component failure.  This board rests beneath the wire boards at the top of the frame and links the wire boards to the cold electronics.  Figure \ref{fig:tpc_apa_electronics_connectiondiagram} depicts the connection between the elements of the APA electrical circuit.
+
+\begin{cdrfigure}[APA Wire Board Connection to Electronics]{tpc_apa_electronics_connectiondiagram}{Diagram of the connection between the APA wires, the various wire boards within a stack, the CR board, and the cold electronics}.
+\includegraphics[width=0.55\textwidth]{figures/tpc_apa_electronics_connectiondiagram.png}
+\end{cdrfigure}
+
+\paragraph{CR Boards}
+
+The CR boards carry a bias resistor and a DC-blocking capacitor for each wire in the X and U planes. They are attached to the board stacks after fabrication of all wire planes.  Electrical connections to the board stack are made though Mil-Max pins that plug into the X-plane wire boards. Connections to the Cold Electronics (CE) modules are made through a pair of 96-pin Samtec connectors.Surface-mount bias resistors on the CR boards have resistance of 50 Megaohms are constructed with a thick film on a ceramic substrate. Rated for 2.0 kV operation, the resistors measure 0.12 x 0.24 inches. Other ratings include operation from -55 to +155 C, 5-percent tolerance, and 100 ppm/C temperature coefficient.The selected DC-blocking capacitors have capacitance of 3.9 nF and are rated for 2.0 kV operation. Measuring 0.22 x 0.25 inches across and 0.10 inches high, the capacitors feature flexible terminals to comply with PC board expansion and contraction. They are designed to withstand 1000 thermal cycles between -55 and +125 C. Tolerance is 5 percent.
+
+In addition to the bias and DC-blocking capacitors, the CR board includes two R-C filters for the bias voltage. The resistors are of the same type used for biasing except with a resistance of 2 Meg-ohms. Capacitors are 47 nF at 2 kV. Very few choices exist for surface-mount capacitors of this type and they are exceptionally large. Currently the plan is to use Polyester or Polypropylene film capacitors that are known to perform well at cryogenic temperatures.All circuit boards on the APA frame utilize halogen-free FR-4 substrates with lead-free metal finishes. Conformal coatings are being considered but it is not clear conformal coatings will be used. If they are not, requirements for cleaning and handling the circuit boards are likely to be stringent due to the very low leakage currents allowed, less than 0.5 nA at full bias voltage.
 
 \paragraph{Side and foot boards}
 
@@ -464,17 +492,23 @@ The mesh is clamped around the perimeter of the opening and then pulled tight (o
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_fullsizemeshdrawing.png} 
 \end{cdrfigure}
 
-\paragraph{Head Electronics Boards}
-
-The head electronics boards (``wire boards'') are the anchors for the wires at the head end of the APA (Figure \ref{fig:tpc_apa_wireboardheadphoto}).  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
-
-\begin{cdrfigure}[APA Wire Boards at Head Photo]{tpc_apa_wireboardheadphoto}{The wire boards at the head of one of the 35T APAs.}
-\includegraphics[width=0.9\textwidth]{figures/tpc_apa_wireboardheadphoto.png} 
-\end{cdrfigure}
-
-At the head end of the APA the wire plane spacing is set by the thickness of these wire boards.  The first layer wires solder to the surface of the first board, the second layer wires to the surface of the second board, etc.  Temporary toothed edge boards beyond these wire boards align and hold the wires until they are soldered to pads on the wire boards.  After soldering the sections going up over the temporary boards are snipped away.
-
-Many of the capacitors and resistors that could be on these wire boards are moved to an auxiliary board (the ``CR board'') to improve their accessibility in case of component failure.  This board rests beneath the wire boards at the top of the frame and links the wire boards to the cold electronics.  The connections between the wire boards and the CR board is made with rows of Mill-Max pins embedded in the wire and CR boards
+%\paragraph{Head Electronics Boards}
+%
+%The head electronics boards (``wire boards'') are the anchors for the wires at the head end of the APA (Figure \ref{fig:tpc_apa_wireboardheadphoto}).  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
+%
+%\begin{cdrfigure}[APA Wire Boards at Head Photo]{tpc_apa_wireboardheadphoto}{The wire boards at the head of one of the 35T APAs.}
+%\includegraphics[width=0.9\textwidth]{figures/tpc_apa_wireboardheadphoto.png} 
+%\end{cdrfigure}
+%
+%At the head end of the APA the wire plane spacing is set by the thickness of these wire boards.  The first layer wires solder to the surface of the first board, the second layer wires to the surface of the second board, etc.  Temporary toothed edge boards beyond these wire boards align and hold the wires until they are soldered to pads on the wire boards.  After soldering the sections going up over the temporary boards are snipped away.
+%
+%Many of the capacitors and resistors that could be on these wire boards are moved to an auxiliary board (the ``CR board'') to improve their accessibility in case of component failure.  This board rests beneath the wire boards at the top of the frame and links the wire boards to the cold electronics.  The connections between the wire boards and the CR board is made with rows of Mill-Max pins embedded in the wire and CR boards
+%
+%\paragraph{CR Boards}
+%
+%The CR boards carry a bias resistor and a DC-blocking capacitor for each wire in the X and U planes. They are attached to the board stacks after fabrication of all wire planes.  Electrical connections to the board stack are made though Mil-Max pins that plug into the X-plane wire boards. Connections to the Cold Electronics (CE) modules are made through a pair of 96-pin Samtec connectors.%%Surface-mount bias resistors on the CR boards have resistance of 50 Megaohms are constructed with a thick film on a ceramic substrate. Rated for 2.0 kV operation, the resistors measure 0.12 x 0.24 inches. Other ratings include operation from -55 to +155 C, 5-percent tolerance, and 100 ppm/C temperature coefficient.%%The selected DC-blocking capacitors have capacitance of 3.9 nF and are rated for 2.0 kV operation. Measuring 0.22 x 0.25 inches across and 0.10 inches high, the capacitors feature flexible terminals to comply with PC board expansion and contraction. They are designed to withstand 1000 thermal cycles between -55 and +125 C. Tolerance is 5 percent.
+%
+%In addition to the bias and DC-blocking capacitors, the CR board includes two R-C filters for the bias voltage. The resistors are of the same type used for biasing except with a resistance of 2 Meg-ohms. Capacitors are 47 nF at 2 kV. Very few choices exist for surface-mount capacitors of this type and they are exceptionally large. Currently the plan is to use Polyester or Polypropylene film capacitors that are known to perform well at cryogenic temperatures.%%All circuit boards on the APA frame utilize halogen-free FR-4 substrates with lead-free metal finishes. Conformal coatings are being considered but it is not clear conformal coatings will be used. If they are not, requirements for cleaning and handling the circuit boards are likely to be stringent due to the very low leakage currents allowed, less than 0.5 nA at full bias voltage.
 
 \paragraph{Modular Electronics}
 In the current design (Figure \ref{fig:tpc_apa_electronicsmountingphoto}), which was used for the 35 ton demo APAs, the cold electronics boards are mounted on a ``fin'' -- a steel plate extending across the width of the APA at the top tube.
@@ -564,7 +598,58 @@ Electronic noise concerns have made it desirable to isolate APAs from each other
 %\item{Assembly travelers}
 %\end{itemize}
 %
-%\subsubsection{Test plan}
+\subsection{QC Procedures}
+
+Each ProtoDUNE-SP APA will be subject to a testing program during production that will demonstrate their compliance with the design and manufacturing requirements for the experiment.  Given the large size of the APAs, and the highly specialized cryogenic and electronic infrastructure necessary for their designed operation, the testing plan followed during production is necessarily targeted at those features of the APAs which can be addressed prior to final installation in the cryostat.  A separate suite of testing, in a cryogenic environment, is planned to be conducted at CERN, as described in ???? \fixme{is there a section in the TDR for this cold-box test?}.
+
+The tests described in this section will be conducted on APAs during construction, as well as on completed APAs.  Subcomponents ($e.g.$ - wire boards, BeCu wire, etc..) are verified or tested by the appropriate vendor or subsystem manager prior to their use in APA construction.  Each APA will be subject to the testing listed in Table \ref{tab:apatesting}.   Many of the tests (e.g. - tension, continuity, isolation, position survey, bias voltage) are repeated as each successive wire layer of the APA is added, testing the newly installed wires as well as spot-checking wires from previously installed layers. The summary of the tests on each APA, and the associated data collecting during the tests, are recorded in a traveler.
+
+\begin{cdrtable}[APA Testing]{ccc}{apatesting}{Tests to be conducted on APAs during production.}
+Label & Requirement & Test Method  \\ \toprowrule
+Tension      & All wires must be tensioned to 5$\pm$1 N & Laser Survey \\ \colhline
+Cryo       &  All APA must operate at 87 K  & Cryotest \\ \colhline
+Electrical       & All wires electrically connected at top/bottom of APA  & Continuity \\ \colhline
+Isolation & Neighboring APA wires have $\geq$1 M$\Omega$ resistance & Multimeter\\ \colhline
+Voltage & Anode planes must hold $\geq$100$\%$ bias & Bias \\ \colhline
+Position & All wires must be within 500 $\mu$m of design location & Survey\\ \colhline
+Frame & APA frame satisfies all bow/twist/fold criteria & Survey\\ \colhline
+\end{cdrtable}
+
+ 
+\subsubsection{Tension Survey}
+
+Wire tension is a critical parameter in the performance of the APA, and needs to be strictly controlled to ensure the detector will be robust to operation in a cryogenic environment.  As each wireplane layer is added to the APA, and before the next layer is added and restricts access, the tension of every newly added wire will be measured.  Any wire that is more than 1.0 N out of tolerance from the design value of 5.0 N will be removed and, if possible, replaced.  The tension measurement is performed using a laser-photodiode system, developed at PSL and integrated into the wire-winding apparatus, which will record the resonant frequency of a plucked wire.  Visible checks will also be made during production to identify any noticeably sagging wires.  Spot checks of tension will also be made after cryogenic testing at the production site, as well as at CERN prior to insertion of an APA into the protoDUNE cryostat.  
+
+
+\subsubsection{Electrical Continuity Test}
+
+The electrical connection of each APA wire to the cold readout electronics must be verified to ensure a minimum ($<$0.5$\%$) of un-reachable channels in the completed detector.  Un-reachable wires (e.g. originating from cold solder joints or wires that are broken but held in place by epoxy bead) are distinct from clearly broken wires (e.g. obvious strands of wires hanging loose from the APA) which will be removed/replaced during production.   In addition to providing a pathway to record detector signals, wires receive their bias voltage via their connection to the readout electronics, which shapes the electric field in the anode region.  As such, disconnected wires impact the signals that surrounding channels will collect.  As each wireplane layer is added to the APA, and before the next layer is added and restricts access, the electrical connection of every newly added wire to the corresponding wire-bonding board will be verified.  Using a multimeter, or other equivalent methods, the continuity will be verified by directly probing between the ``bottom" end (i.e. - the end that terminates on the non electronics-plate end of the APA) of the wire and the signal trace on the wire-bonding board at the ``top" end (i.e. - the end that terminates on the electronic-plate end of the APA).  Any wire that fails this continuity test, by producing a resistance $>$ 500 $\Omega$ (using 4.4 $\Omega$/m resistance for BeCu wire that is 7.5 m long, and allowing margin for additional parasitic resistance), will be removed and, if possible, replaced.  Spot checks of continuity will also be made after cryogenic testing at the production site, as well as at CERN prior to insertion of an APA into the protoDUNE cryostat.
+
+\subsubsection{Electrical Isolation Test}
+
+Each wire of the APA should be electrically isolated from every other wire, in order to avoid shorting out channels and potentially damaging the readout electronics.  Shorted-out wires will also impact the electric-field uniformity in the anode region, and can impact signals in surrounding channels.  Using a multimeter, or other equivalent methods, the isolation between each APA wire and adjacent wires will be measured and verified to have resistance $>$ 1 M$\Omega$.  Since a given wire has many adjacent wires, a dedicated circuit designed to expedite this test will be desirable.  Any wire failing this test will be removed and, if possible, replaced.  Visible checks will also be made during production to identify any touching wires.  Spot checks of isolation will also be made after cryogenic testing at the production site, as well as at CERN prior to insertion of an APA into the protoDUNE cryostat.
+
+
+\subsubsection{Wire Position Survey}
+
+Knowledge of the position of every wire in the APA is required in order for physics analysis of data to be successful.  This information is utilized to create a description of the detector geometry inside the simulation software, and is the basis on which reconstruction algorithms are built. The preliminary description of the geometry assumes a perfect detector built according to the APA design drawings.  Any deviations from this design in the final as-built APAs needs to be incorporated into the software geometry.  All wires should be surveyed during production to verify they are within 500 $\mu$m of the design location.  This survey is partially accomplished by verifying the APA flame flatness is within specifications, and that the wire-bonding boards and support combs are located upon the frame in the desired position.  The APA will be surveyed using a Cognex camera integrated into the winding machine.  The camera employs machine vision to identify each pin/tooth on the installed wire-bonding boards, and from this data a map of wire location will be generated.  This survey should be performed as each wireplane layer is added to the APA, and before the next layer is added and restricts access.  Any wire that is more than 500 $\mu$m from the nominal location, according to survey data, should be inspected and if found to have problems, removed and replaced.  Visual checks throughout the wire-winding process will also be performed to identify any wires that appear out of place.
+
+\subsubsection{Bias Voltage Test}
+
+All wires on the APA must be able to reach their design bias voltage in order to achieve the desired electric-field uniformity and transparency conditions required for successful LArTPC operation.  Inability to reach the desired voltage could be an indication of component failure on the CR boards, or of wires in the APA being shorted out.  The CR boards should be tested prior to their installation on the APA to verify they can be biased to 100$\%$ of the largest operating voltage of any anode layer (e.g. the Collection layer's 820 V).  The components selected for the CR boards are chosen with margin about this operating point, to allow for bias voltages in the as-built detector to be adjusted, either for signal-shaping studies or for systematic studies of detector performance at various drift-field values.  As each wireplane layer is added to the APA, and before the next layer is added and restricts access, each newly added wire-bonding board should be connected to a CR board and biased to 100$\%$ of the largest operating voltage of any anode layer.  Any unexpected current draws observed will be traced to the originating wire(s), and if necessary, the offending wire(s) will be replaced.  Visual checks should also be performed during this test to verify that wires being biased do not deflect or move in any unexpected manner.  This test may be augmented when multiple wireplane layers are available, to verify that wires in adjacent layers do not develop unexpected cross-talk when biased.
+
+\subsubsection{Cryo Test}
+
+The completed APAs must be robust to operation in a cryogenic environment.  Wires must be able to withstand the cooldown to liquid argon temperatures.  In order to verify the workmanship of each APA, a cryogenic test will be performed as each APA is completed and before shipment to CERN.  The APAs will be placed in a custom-built cold box, where they will be gradually cooled (at a rate consistent with requirements on keeping wire tension increases below a safe level) to $\sim$100 K (exact value to be determined).  The default plan is to use cold gas from a LN supply for this test, and flush gas through the cold box until it reaches the desired temperature.  The APA will be arranged in a horizontal orientation, as this simplifies the engineering of the cold box.  It is not anticipated that loading on the APA/wires due to gravity (e.g. from horizontal vs. vertical orientation) will lead to any significant changes in wire tension, and the frame will be supported appropriately.  The APA will be inspected after this cold test to verify that no wires have broken.  Spot-check tests of tension/continuity/isolation/bias will be performed to verify if any channels have changed relative to their pre cold-test values.  Criteria for acceptance after this test (e.g. number of problematic wires identified by this test) are under development.
+
+
+\subsubsection{Testing at CERN}
+
+Upon arrival at CERN, and prior to integration with interfacing subsystems (e.g. - light collection and electronics), each APA will be subjected to visual inspection, and spot-check ($\sim$10$\%$ of total channels) tests for wire tension, continuity, isolation, and bias voltage will be performed and compared to the equivalent pre-shipping values.
+
+
+
+
 %
 %\begin{itemize}
 %\item{Wire tension}
