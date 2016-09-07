@@ -66,7 +66,7 @@ data compression and triggering.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Timing and Trigger}
+\subsection{Timing, Trigger and Beam Interface}
 \label{sec:daq_time}
 
 The timing and the trigger are two distinct subsystems.  The timing
@@ -166,12 +166,12 @@ however, the firmware design and development will be, to a large degree, hardwar
 agnostic, as the requirement to accept input data and provide a global trigger 
 does not change.  
 
-\subsubsection{Beam Interface}
+\paragraph{Beam Interface}
 
-The Beam Instrumention is described in detail in section \ref{sec:beaminstruments}.
+The Beam Instrumentation is described in detail in section \ref{sec:beaminstruments}.
 The beam instrumentation data acquisition and the data acquisition for ProtoDUNE
-will have separate timing systems.  A common GPS clock will used to keep both
-systems synchronised relative to each other.  A common endpoint will receive time-stamps 
+will have separate timing systems.  A common GPS clock will be used to keep both
+systems synchronized relative to each other.  A common endpoint will receive time-stamps 
 from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE timing system
 will be used to create a matching table from the two systems.  Data from the beam
 instrumentation will be acquired continuously via a separate DAQ path.  Triggered
@@ -267,15 +267,17 @@ generate artDAQ fragments to be sent to the event builder.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{PDS data readout}
+\subsection{PDS and beam instrumentation data readout}
 
+\paragraph{PDS readout} 
 The PDS electronics and DAQ are described in section \ref{sec:pds-elec-daq}.
 \fixme{KH:The photon people like consider the SSPs as electronics, not DAQ, so that may all be in the photon section}
 \fixme{TK:need final agreement on this issue}
 \fixme{KH: OK for description of SSPs in PDS section, but rates are missing.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsubsection{Beam instrumentation readout}
+
+\paragraph{Beam instrumentation readout}
 
 Beam instrumentation data will be read out with artDAQ BoardReaders as with 
 the rest of the sub-detectors and will be merged in the artDAQ EventBuilders.
@@ -493,22 +495,22 @@ Once an output data file has been closed by the DAQ, it can be processed by the
 nearline system.  A LArSoft job is initially run over the events to perform
 reconstruction and extract information from the data.  The output of this,
 along with the output of other runs, is then analysed by a separate automated
-job, to form the high-level view of the data for monitoring.
-
+job, to form the high-level view of the data for monitoring.\\
+%
 Similar to the online framework, there will be an interface for this system
 with the web to allow for remote access of the information.
 
 \paragraph{Monitored Data}
 
-What is being monitored?  The following is an incomplete list of data to be 
-monitored.  This list is expected to grow substantially.
+The following is an preliminary list of data to be 
+monitored.  The list is expected to grow substantially.
 %\fixme{Need to add things that can be monitored. I can add what we monitored
   %on the 35ton but ProtoDUNE will likely be very different!}
 
 General:
 \begin{itemize}
 \item{Number of subdetectors successfully recording data in the run;}
-\item{Timing synchronisation between detector components;}
+\item{Timing synchronization between detector components;}
 \item{Size of recent data files written by the DAQ;}
 \end{itemize}
   TPC:
@@ -518,21 +520,17 @@ General:
 \item{Bipolar pulse symmetry check on induction pulses;}
 \item{Total ADC recorded; ADC distributions per channel;}
 \end{itemize}
-  Photon:
+  PDS:
 \begin{itemize}
 \item{Mean and RMS of ADC counts across readout channels;}
-\item{Peak height of the waveforms;}
-\item{Waveform pedestals;}
-\item{Waveform integrals;}
-\item{SSP trigger rate;}
-\item{Number of triggers;}
+\item{Peak height of the waveforms; waveform pedestals and integrals;}
+\item{SSP trigger rate and number of triggers;}
 \end{itemize}
   Trigger:
 \begin{itemize}
 \item{Number and type of triggers;}
-\item{Number of vetos;}
-\item{Triggers per SPS spill;}
-\item{Trigger rate;}
+\item{Number of vetoes;}
+\item{Triggers per SPS spill and trigger rate;}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Slow control}
@@ -555,6 +553,7 @@ The UK will provide effort for developing and improving
 the BoardReader software for ProtoDUNE.  This includes the RCEs, SSPs, timing and
 trigger systems.  As the timing system is being developed in the UK, this 
 will be the first site to test this new hardware.
+\fixme{This section needs to focus more on the tasks and technical aspects and less on who is doing it (we don't do this for any of the other components in this document). e.g. first test stand to integrate timing, ... - consider renaming paragraph headers with something more descriptive than UK, Fermilab and CERN}
 \paragraph{Fermilab}
 Testing at Fermilab will be predominantly software based.  Manpower has been
 directed to improving artDAQ throughput and performance.  Stress tests of artDAQ
@@ -585,7 +584,7 @@ Operational monitoring             & \multicolumn{2}{c}{(35t)}           &      
 Trigger logic                      & \multicolumn{2}{c}{(simple pulser)} & 1/18    \\
 Trigger distribution               & 1/17             & 4/17             & 1/18    \\ 
 \end{cdrtable}
-
+\fixme{table needs to be referenced in text}
 
 
 \subsection{Quality Control}
@@ -603,4 +602,4 @@ boards, they will need to be individually tested with control samples.  Data gen
 will be used in place of the front-end electronics where applicable.  Full data rate 
 testing will be performed when the first full detector slice is in place at EHN1 (expected
 Q2 2017).
-
+\fixme{Any plans to stress test the DAQ software and data transfers ? e.g. it may be working fine at low rates but start breaking down at higher rates and data volumes or ...}
