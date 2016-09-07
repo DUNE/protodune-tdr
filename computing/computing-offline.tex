@@ -30,18 +30,19 @@ It is thus assumed that the size of the processed data will likely be smaller th
 Given the considerations for the anticipated raw data volume presented above,
 the current plan is to provision $\sim$10\,PB of tape storage to keep the processed data. 
 For efficient processing, disk storage will be necessary
-to stage a considerable portion of both raw data (inputs) and one or a few steps in processing (outputs).
+to stage a considerable portion of both raw data (inputs) and a few instances of processed data (outputs).
 
-Extrapolating from our previous experience running Monte Carlo for the previous DUNE MC campaigns of comparable scale,
-it is estimated that  a few hundred TB of continuously available disk space will be needed. It is expected that protoDUNE will require
+Extrapolating from our experience running Monte Carlo for previous DUNE MC campaigns,
+it is estimated that  a few hundred TB of continuously available disk space will be needed. Overall it is expected that protoDUNE will require
 a few~PB of storage at Fermilab to ensure optimal data availability and  processing efficiency. 
+\fixme{Need better justification of these estimates, e.g. add quantitative estimates for components in above bullet list - these should add up to the claimed few PB.}
 
 \subsection{Prompt Processing}
 \label{sec:prompt_processing}
 In the present context, \textit{Prompt Processing} means a number of fast signal processing and reconstruction processes
 (also called ``express stream'' sometimes) which process a fraction of raw data. Its main purpose is to aid in QA of the data
 and produce quick calibrations which may be necessary for high quality monitoring of the detector. As one example,
-calculating frequency spectra of noise and watching its level, evolution and other characteristincs is an important aspect of ensuring
+calculating frequency spectra of noise and watching its level, evolution and other characteristics is an important aspect of ensuring
 the stability of the readout chain.
 
 It is understood
@@ -58,10 +59,11 @@ The following parameters of prompt processing need to considered:
 \noindent As to the latter item, it is estimated that processing roughly 1\% of the data stream collected by the detector will
 be enough to meet most important goals of prompt processing. 
 The general strategy is to locate some of the prompt processing capability at CERN, at a scale adequate for the mid-range
-data taking scenario such as presented in Table\, \ref{tab:goldi}. A very preliminary estimate indicated that about 300 cores
+data taking scenario such as presented in Table\, \ref{tab:goldi}. A preliminary estimate indicated that about 300 cores
 will be needed to cope with processing at that rate.
+\fixme{why is this estimate still preliminary ? can't we used past experience again and the previously mentioned input assumptions ?}
 
-If the need materializes to scale up from this capacity due to necessity to increase the trigger rate,
+If the need materializes to scale up from this capacity, 
 the plan is to take advantage of the high bandwidth of the network connection between
 CERN and a few significant sites in the US (such as FNAL, BNL and others) and do additional processing there.
 
@@ -70,9 +72,13 @@ CERN and a few significant sites in the US (such as FNAL, BNL and others) and do
 \subsection{Workload Management}
 \label{sec:dune-wms}
 % For DUNE requirements to its Workload Management System please see the Computing Model document\,\cite{dune_computing_model}.
+
+\fixme{This entire section needs to be rewritten: We can't have a laundry list of potential options in a TDR. Instead we need to clearly state
+what the requirements are. Then pick a baseline design/system that meets the requirements from the list of options and describe it. If there are alternates describe them as such. As written it gives the impression that we are just starting to think about possible ways to implement this which is not appropriate for a TDR.  }
 At the time of writing, formal requirements are being formulated for the protoDUNE Workload Management System based on
-discussions among FNAL and other National Labs, CERN, universities and other stakeholders. There are a few systems currently used by
-HEP and IF experiments which somewhat differ in the following aspects:
+discussions among FNAL and other National Labs, CERN, universities and other stakeholders. 
+
+There are a few systems currently used by HEP and IF experiments which somewhat differ in the following aspects:
 \begin{itemize}
 
 \item Degree of integration with their corresponding data management system.
