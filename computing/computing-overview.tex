@@ -1,8 +1,6 @@
 \section{Overview}
 
 
-\cite{comp_model}
-\cite{data_managm_sys}
 
 %\noindent 
 This chapter outlines  the technical design of the online and offline computing systems.
@@ -14,9 +12,10 @@ The \pd computing comprises the following components:
 \begin{itemize}
 
 \item The online data storage and management system which interfaces to the DAQ. It is responsible for buffering
-and transporting the data to mass storage at CERN and beyond.
+and transporting the data to mass storage at CERN and beyond \cite{comp_model}.
 
-\item The offline system for data distribution, processing, and analysis on the Grid.  The steps envisaged for data processing are: 
+\item The offline system for data distribution, processing, and analysis on the Grid \cite{data_managm_sys}.  
+The steps envisaged for data processing are: 
 calibration, reconstruction, ntuplizing and user analysis.  Multiple passes through this chain will be required for final results as
 calibrations, algorithms, and ntuple definitions are expected to evolve.
 A fraction of the data will be subject to \textit{prompt processing}, which performs partial reconstruction of the data for QA/QC purposes
@@ -24,6 +23,7 @@ with a short turnaround time (see\,\ref{sec:prompt_processing}).
 
 \item  A Metadata and file catalog system.
 \end{itemize}
+
 
 
 
