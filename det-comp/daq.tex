@@ -8,11 +8,10 @@ computing systems.
 
 \begin{cdrfigure}[DAQ Overview]{daq-overview}{Detailed overview of the
 DAQ system, its interconnections, data flow, timing and control signals,
-and the interfaces to the electronics and online computing systems
-\fixme{simplify diagram for TDR}}
+and the interfaces to the electronics and online computing systems}
         \includegraphics[angle=90,width=0.70\textwidth]{daq-overview-dia.pdf}
 \end{cdrfigure}
-
+%\fixme{simplify diagram for TDR}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Introduction}
 
 %\emph{GB:}
@@ -169,8 +168,15 @@ does not change.
 
 \subsubsection{Beam Interface}
 
-The Beam Instrumention is described in section \ref{sec:beaminstruments}.
-\fixme{some details how data streams will be merged would be desirable}
+The Beam Instrumention is described in detail in section \ref{sec:beaminstruments}.
+The beam instrumentation data acquisition and the data acquisition for ProtoDUNE
+will have separate timing systems.  A common GPS clock will used to keep both
+systems synchronised relative to each other.  A common endpoint will receive time-stamps 
+from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE timing system
+will be used to create a matching table from the two systems.  Data from the beam
+instrumentation will be acquired continuously via a separate DAQ path.  Triggered
+data for ProtoDUNE will have both the TPC, PDS, and beam instrumentation data and 
+the timestamps and trigger information of both.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{TPC data readout}
@@ -189,8 +195,7 @@ The readout of the ProtoDUNE TPC wires, prior to being received by PCs in
 the back-end DAQ, consists of the electronics directly attached the APAs,
 inside the cryostat (the cold electronics) and the electronics outside
 the cryostat, either directly on the cryostat flange or in a rack (the
-warm electronics).  This proposal 
-\fixme{seems to be a copy and paste block - this is a TDR not a proposal}
+warm electronics).  This subsection
 addresses the warm part of the TPC
 readout and how it receives data from the cold electronics (the Front-End
 Boards), manipulates the data, and delivers it to the back-end DAQ.
@@ -198,7 +203,6 @@ Boards), manipulates the data, and delivers it to the back-end DAQ.
 From an electronics point-of-view, the ProtoDUNE flange will consist of
 5-slot ``crate'', where the connectors on the warm side of the feed
 through form the ``back-plane'' into which the boards plug when inserted
-into the ``crate'' assembly.  These connectors and the boards that plug
 into the ``crate'' assembly.  These connectors and the boards that plug
 into them (the WIBs, or warm interface boards) serve to send the power,
 timing, and configuration down to the FEBs and receive the high-speed
@@ -213,29 +217,27 @@ readout data from 5 APAs.  An alternative exploratory prototype based on
 the Front-End-Link-EXchange (FELIX) system will be used to readout 1 APA.
 
 \paragraph{RCE based readout}
-The data from the WIB are received by processing units called RCEs, 
-\fixme{reference to tech. details would be good}
+The data from the WIB are received by processing units called RCEs (Reconfigurable Cluster Element), 
+\cite{slac:rce}
 which are housed in industry-standard
 ATCA shelves on COB (cluster-on-board) motherboards that are designed
 at SLAC for a wide range of applications.   The RCE is a SoC 
-\fixme{spell out acronym for first time use}
 from the
 Xilinx Zynq family and contain a full Linux processor system on the chip
 accompanied by 1 GByte of DRAM.   The primary processing function of the
-RCEs for ProtoDUNE are compression (or zero-suppression) and buffering
+RCEs for ProtoDUNE are compression (and/or zero-suppression) and buffering
 of the raw data and then sending data to the back-end upon the receipt of
 an external trigger.  Each COB carries 8 RCEs, all connected to each
 other via an on-board 10 Gbps Ethernet switch which also sends data out
 of the COB the back-end DAQ PCs.
 
-The interface with the WIB is provided via the ATCA compliant rear-board
-(the RTM=Rear Transition Module).  This is an application-specific board
+The interface with the WIB is provided via the ATCA compliant rear-board, the RTM (Rear Transition Module).  
+This is an application-specific board
 that is custom made depending on the physical characteristics of the
-connections to-and-from the FE (e.g. fiber or electrical connections,
+connections to-and-from the FE (e.g., fiber or electrical connections,
 number and types of transceivers, timing \& trigger connections, etc).
 For ProtoDUNE, the RTM will use a set of QSFP transceivers to receive
-the data from the WIB and an SFP+ 
-\fixme{spell out SFP for first time use; maybe ok if QSFP had been spelled out on p.170}
+the data from the WIB and an SFP+ (small form-factor pluggable)
  optical interface for communication
 with the timing and trigger distribution system.
 
@@ -245,8 +247,7 @@ length chunks (for instance 512- or 1024-ticks).  These chunks will be
 compressed and written to the DRAM where the RCE processor will wait
 for a trigger (also handled by the FPGA) to arrive.  Upon a trigger, the
 processor will sends a fixed number of pre- and post-trigger time chunks,
-for all channels, to the back-end PCs.  Apart from the compression step,
-this design is very similar to that used on the 35ton prototype DAQ.
+for all channels, to the back-end PCs.  
 
 For ProtoDUNE, 256-wires worth of data (2 FEBs) will be sent to each RCE.
 Given that there are 120 FEBs in ProtoDUNE, 60 RCEs will be needed to
@@ -268,42 +269,37 @@ generate artDAQ fragments to be sent to the event builder.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{PDS data readout}
 
-\fixme{The photon people like consider the SSPs as
-electronics, not DAQ, so that may all be in the photon section - KH}
-\fixme{need final agreement on this issue}
+The PDS electronics and DAQ are described in section \ref{sec:pds-elec-daq}.
+\fixme{KH:The photon people like consider the SSPs as electronics, not DAQ, so that may all be in the photon section}
+\fixme{TK:need final agreement on this issue}
+\fixme{KH: OK for description of SSPs in PDS section, but rates are missing.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsubsection{Beam instrumentation readout}
 
-\fixme{
-When groups are known, describe how integration of beam counter
-monitoring, beam position monitors (wire chambers of fibre detectors in
-the beam to measure position and improve momentum resolution) will be
-done. also cosmic veto or halo veto around beam.   For the beam counter
-monitoring, it may be that the 35t Penn trigger board could be used.
-}
-
+Beam instrumentation data will be read out with artDAQ BoardReaders as with 
+the rest of the sub-detectors and will be merged in the artDAQ EventBuilders.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Event building software }
 
-\fixme{ %\emph{KH:}
-        artDAQ is briefly described in section~\ref{sec:DAQ_online_interface}
-but I think we need it in more detail here.  By contrast the online
-computing infrastructure should be left for the computing section.
+%\fixme{ %\emph{KH:}
+        %artDAQ is briefly described in section~\ref{sec:DAQ_online_interface}
+%but I think we need it in more detail here.  By contrast the online
+%computing infrastructure should be left for the computing section.
 
-%\emph{GB:}
+%%\emph{GB:}
 
-Describe artDAQ, data handling capabilities, current plans, extensions
-foreseen for final DUNE, throughput tests already made and planned.
-Control of artDAQ processes (DAQIFACE), error handling, debugging
-emulation mode.  }
+%Describe artDAQ, data handling capabilities, current plans, extensions
+%foreseen for final DUNE, throughput tests already made and planned.
+%Control of artDAQ processes (DAQIFACE), error handling, debugging
+%emulation mode.  }
 
 Developed within the Fermilab Scientific Computing Division and
 already used for the LBNE-35ton prototype, artdaq provides data
 transfer, event building, and event analysis functionality. This
 latter feature includes built-in support for the art event analysis
-framework, allowing experiments to run art modules for real-time
+framework \cite{fnal:art}, allowing experiments to run art modules for real-time
 filtering, compression, disk writing and online monitoring; as art,
 also developed at Fermilab, is also used for offline analysis, a major
 advantage of artdaq is that it allows developers to easily switch
@@ -317,10 +313,9 @@ with a particular geographical region of the detector, and provides
 hooks (in the form of C++ base classes) for an experiment's developers
 to embed experiment-specific code (called "fragment generators")
 designed both to upload configuration values to hardware and to read
-out the hardware. In the case of 35ton, the full DAQ consisted of 24
-boardreaders, in charge of the 16 RCEs, 7 SSPs, and Penn board. For
-protoDUNE, this number will increase to ???. 
-\fixme{should have this no. by now}
+out the hardware. For ProtoDUNE, the full DAQ will consist of 87+ 
+boardreaders, in charge of the 60 RCEs, 24 SSPs, the timing system, 
+the Penn Trigger Board, and at least one for the beam instrumentation.
 For testing purposes when
 no hardware is available, fragment generators are available which
 don't actually interface to true hardware, but instead perform useful
@@ -341,7 +336,7 @@ The most downstream process type is the aggregator. Traditionally in
 artdaq-based DAQ systems, there are two aggregators, one in charge of
 writing data to disk and reporting aggregate statistics (MB/sec,
 e.g.), and one in which experiments can run art analysis modules for
-real-time online monitoring. For protoDUNE this model may change as
+real-time online monitoring. For ProtoDUNE this model may change as
 artdaq is being made more flexible; current versions of artdaq support
 multiple diskwriting aggregators which may increase throughput
 capability as well as support for multiple monitoring processes which
@@ -362,16 +357,14 @@ is the case DAQInterface will automatically stop datataking and shut
 down the processes in an orderly fashion, so that unexpected behavior
 from upstream (e.g., hardware suddenly sending an unmanageably high
 rate of data) will not result in improperly closed output files,
-zombie processes, etc. For ProtoDUNE, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP;
-\fixme{introduce JCOP acronym for first time use}
+zombie processes, etc. For ProtoDUNE, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP (Joint Controls Project);
  where appropriate/possible, DAQInterface code will be reused so as to minimize unnecessary duplication of effort. 
 
-On 35ton, artdaq was capable of taking data smoothly for several hours
-without error conditions occurring. 
-\fixme{probably shouldn't mention the somewhat poor performance of the 35t - we need days w/o error conditions}
-Improvements have been made to
-artdaq since that time which should increase its robustness even
-further, and a computer cluster will be set up at Fermilab in the
+%On 35ton, artdaq was capable of taking data smoothly for several hours
+%without error conditions occurring. 
+%\fixme{probably shouldn't mention the somewhat poor performance of the 35t - we need days w/o error conditions}
+Reliability improvements have been made to
+artdaq which should increase its robustness, and a computer cluster will be set up at Fermilab in the
 coming months to allow for new tests. Without upstream hardware
 available, the emulation fragment generators described above will
 prove invaluable for this type of testing.
@@ -380,22 +373,35 @@ prove invaluable for this type of testing.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Software filtering and data transfer to permanent storage}
+\subsection{Data transfer to permanent storage}
 
-\fixme{
-        \emph{KH:} Compare this to the computing section and find where
-        best to implement. \emph{GB:} Point out that compression and/or
-        further event sorting can
-be done in either the artDAQ trigger farm, or the online computing farm
-(run by the S\&C group).  Describe where we are on this (i.e. what
-compression algorithms, etc.  experience from other experiments).
-Describe how the hand-off to the S\&C processes writing to permanent
-storage work. Address the question of disk writing speeds.
-}
+%\fixme{
+        %\emph{KH:} Compare this to the computing section and find where
+        %best to implement. \emph{GB:} Point out that compression and/or
+        %further event sorting can
+%be done in either the artDAQ trigger farm, or the online computing farm
+%(run by the S\&C group).  Describe where we are on this (i.e. what
+%compression algorithms, etc.  experience from other experiments).
+%Describe how the hand-off to the S\&C processes writing to permanent
+%storage work. Address the question of disk writing speeds.
+%}
+\fixme{Implementation not finalised, expected after collaboration week}
+
+The dimensioning of the readout computing has not been finalised.  Studies 
+are being performed to strike a balance between eliability, performance, cost, and 
+effort needed.  The following describes the overall strategy, though
+details are subject to change.
+Data will be sent from the artDAQ EventBuilders or Aggregators to 
+a storage buffer.  This may be local to the nodes themselves, distributed
+over a computing farm, or high performance network attached storage (NAS).
+The baseline I/O requirement is 20 Gb/s.  Metadata information will then
+be generated for the raw data files, and both raw data and metadata will
+be transferred offline to CERN EOS.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Control, configuration and operational monitoring}
+
 The artDAQ software used for all applications dealing with the movement,
 processing and storage of data will be interfaced with software of the
 Joint Controls Project (JCOP) for the purpose of control, configuration
@@ -409,8 +415,7 @@ the already supported XML-RPC protocol.  Monitoring data will be pushed
 into the JCOP framework by implementing the appropriate artDAQ monitoring
 plugin.  Log and error messages will be most probably collected and
 processed using an implementation of the ELK (elastic search, logstash,
-kibana) stack. 
-\fixme{what is kibana ? need reference}
+kibana \cite{elastic:kibana}) stack. 
  The internal configuration of DAQ applications will be
 carried out using the mechanisms provided by artDAQ. The overall system
 will be modeled and configured using the JCOP paradigm (data points).
@@ -434,24 +439,27 @@ will be modeled and configured using the JCOP paradigm (data points).
 In addition to the monitoring of the operations of the DAQ system, the
 quality of the data taken by the detectors has to be constantly monitored.
 This assurance is provided by the online and nearline monitoring systems.
+This subsection describes the baseline monitoring frameworks for ProtoDUNE.  
+The final implementation is subject to change, but will likely be similarly
+linked to artDAQ and LarSoft as described here.
 
 \paragraph{Online Monitoring}
 The Online Monitoring framework will run as a DAQ process and therefore be
-able to provide data quality assurance in real-time. In the 35ton monitoring
-framework, data were read out of shared memory as part of the second
-aggregator process; it is likely this method will also be used in ProtoDUNE.
-\fixme{This is a protoDUNE TDR; can't say "likely we'll use ..." instead need to describe protoDUNE baseline design and where appropriate reference or describe similar components of 35t detector DAQ}
-The software framework used for online monitoring in the 35ton experiment is
+able to provide data quality assurance in real-time. artDAQ will split the  
+data into distinct physics and monitoring streams via its aggregator processes.  
+The data rate to the monitoring will be tunable such that the monitoring 
+can digest the data in a timely fashion.
+The software framework used for online monitoring is
 shown in Figure~\ref{fig:OnlineMonitoringFramework}.  It consists of an
 \texttt{art::Analyzer} module which interfaces with the artdaq framework and
 owns instances of further classes, each designed to handle different aspects
-of the monitoring.  The system to be used in ProtoDUNE is still being
-finalised but it is likely to be very similar to what is described here.
-\fixme{whatever the current baseline is should be described as the protoDUNE default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for protoDUNE which is not good. }
+of the monitoring.  
+%\fixme{whatever the current baseline is should be described as the protoDUNE default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for protoDUNE which is not good. }
 
 \begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
-    Class diagram showing the online monitoring framework used in the 35ton
-    experiment. \fixme{This figure may be too detailed and specific when the text seems to suggest that we don't quite know yet what things will look like. Consider to make less technical and show idea and fewer details }}
+    Class diagram showing the baseline online monitoring framework. 
+    \fixme{This figure may be too detailed and specific when the text seems to suggest that we don't quite know yet what things will look like. Consider to make less technical and show idea and fewer details }
+    }
   \includegraphics[width=0.8\textwidth]{online_monitoring_software.png}
 \end{cdrfigure}
 
@@ -460,17 +468,19 @@ analysis and provide a standard interface to the methods which look through
 the events.  These reformatted objects are passed to MonitoringData, which
 owns all of the data products (\texttt{TTree}s, \texttt{TH1}s, \texttt{TGraph}s
 etc.) output from the monitoring software and provides methods for filling
-them when required.  Finally, in the 35ton the online event displays were
+them when required.  Finally, the online event displays are
 written as part of the monitoring framework, so the EventDisplay class was
-responsible for this.  This particular functionality will possibly be handled
-differently in ProtoDUNE.
-\fixme{same comment as above - this is not a 35t detector TDR}
+responsible for this.  
+%This particular functionality will possibly be handled
+%differently in ProtoDUNE.
+%\fixme{same comment as above - this is not a 35t detector TDR}
 
 The output is then saved in a common area for offline access and for syncing
-with a web server. This will likely be hosted at CERN and will allow for remote
+with a web server. This will be hosted at CERN and will allow for remote
 monitoring of the experiment.
 
 \paragraph{Nearline Monitoring}
+
 The Nearline Monitoring is designed to provide complimentary information to
 that given by the online system. It runs separately as a series of automated
 shell scripts and provides feedback on a slower timescale than the online
@@ -479,7 +489,7 @@ It also utilises offline software (LArSoft) to provide, for example,
 reconstruction, facilitating a more complete monitoring of much more complex
 information.
 
-Once an output data file has been closed by the DAQ, it is processed by the
+Once an output data file has been closed by the DAQ, it can be processed by the
 nearline system.  A LArSoft job is initially run over the events to perform
 reconstruction and extract information from the data.  The output of this,
 along with the output of other runs, is then analysed by a separate automated
@@ -490,9 +500,10 @@ with the web to allow for remote access of the information.
 
 \paragraph{Monitored Data}
 
-What is being monitored?
-\fixme{Need to add things that can be monitored. I can add what we monitored
-  on the 35ton but ProtoDUNE will likely be very different!}
+What is being monitored?  The following is an incomplete list of data to be 
+monitored.  This list is expected to grow substantially.
+%\fixme{Need to add things that can be monitored. I can add what we monitored
+  %on the 35ton but ProtoDUNE will likely be very different!}
 
 General:
 \begin{itemize}
@@ -507,7 +518,7 @@ General:
 \item{Bipolar pulse symmetry check on induction pulses;}
 \item{Total ADC recorded; ADC distributions per channel;}
 \end{itemize}
-Photon:
+  Photon:
 \begin{itemize}
 \item{Mean and RMS of ADC counts across readout channels;}
 \item{Peak height of the waveforms;}
@@ -516,31 +527,80 @@ Photon:
 \item{SSP trigger rate;}
 \item{Number of triggers;}
 \end{itemize}
+  Trigger:
+\begin{itemize}
+\item{Number and type of triggers;}
+\item{Number of vetos;}
+\item{Triggers per SPS spill;}
+\item{Trigger rate;}
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%\subsubsection{Alternative readouts - FELIX} \label{ssec:daqfelix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Slow control}
 
-%\fixme{
-%Short paragraph saying that alternative readouts can be tested by
-%replacing or adapting the WIBs to feed new systems.  A particular
-%development which we want to persue vigerously is the FELIX system
-%developed by a consortium incluing CERN, BNL, NIKHEF for ATLAS and for
-%which all of these groups and PNNL are persuing for DUNE.   However, it
-%is not a requirement that this readout is operating on day 1 of ProtoDUNE.
-%}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Slow control}
-
-\fixme{Maybe just a reference to the slow control section
-\ref{sec:slowcontrol}.} 
+%\fixme{Maybe just a reference to the slow control section
+%\ref{sec:slowcontrol}.} 
 
 \subsection{Integration/Installation}
 
-\fixme{small section on the test centres, plan for integration.
-Explain each stage}
+%\fixme{small section on the test centres, plan for integration.
+%Explain each stage}
+Three test centres have been set up to facilitate hardware component and 
+software testing in advance of the final integration at CERN.  
+\paragraph{UK}
+The test stand is based in Oxford but includes effort from many institutes 
+in the UK.  The UK focuses on setting up the readout boards for the TPC and the 
+PDS.  An ATCA crate houses a COB, and an SSP, and are being read out with
+artDAQ BoardReaders.  Further components will be added as they become available.
+The UK will provide effort for developing and improving
+the BoardReader software for ProtoDUNE.  This includes the RCEs, SSPs, timing and
+trigger systems.  As the timing system is being developed in the UK, this 
+will be the first site to test this new hardware.
+\paragraph{Fermilab}
+Testing at Fermilab will be predominantly software based.  Manpower has been
+directed to improving artDAQ throughput and performance.  Stress tests of artDAQ
+BoardReaders, EventBuilders, and Aggregators are being performed to determine
+potential bottlenecks and provide expectation values for performance that can be
+achieved by the processes themselves and over the network.  This provides essential
+input into the number of compute nodes and bandwidth that will needed for ProtoDUNE.
+\paragraph{CERN}
+CERN will become the final installation site.  As such, much preparatory work
+is being done such that hardware components can be tested upon arrival.  Work is
+also being done on integrating the artDAQ event building software with the JCOP
+Run Control.  Much of the DAQ software is being tested under CentOS 7 which 
+will be the CERN-supported operating system upon which most of the software will run.
+
+
+\begin{cdrtable}[DAQ Integration Timeline]{lccc}{tab:daq-integration}{DAQ Integration Timeline}
+Deliverable                        & \multicolumn{3}{c}{Dates needed}              \\ \toprowrule
+                                   & VSlice           & APAtest          & Full    \\
+RCEs COBs aTCA crates WIB cables   & 1/17             & 4/17             & 9/17    \\
+Event building infrastructure      & 1/17             & 4/17             & 9/17    \\
+Timing distribution board + cables & 1/17             & 4/17             & 9/17    \\
+RCE board firmware                 & 1/17             & 4/17             & 9/17    \\
+Event building and board read s/w  & 1/17             & 4/17             & 9/17    \\
+Run control software               & \multicolumn{2}{c}{(35t)}           & 9/17    \\
+Configuration control software     & \multicolumn{2}{c}{(35t)}           &         \\
+Data quality monitoring (DQM)      & 1/17             & 4/17             & 9/17    \\
+Operational monitoring             & \multicolumn{2}{c}{(35t)}           &         \\
+Trigger logic                      & \multicolumn{2}{c}{(simple pulser)} & 1/18    \\
+Trigger distribution               & 1/17             & 4/17             & 1/18    \\ 
+\end{cdrtable}
+
+
 
 \subsection{Quality Control}
 
-\fixme{largely undefined - need a strategy for this soon.  Perhaps
-calibration goes here?}
+The DAQ for ProtoDUNE does not require large numbers of custom hardware components to 
+be built and tested.  There will be 8 COBs with 8 RCEs each, 2 FELIX cards, 24 SSPs, the timing 
+and trigger systems and off-the-shelf hardware (computers, network switches, storage, etc.).
+As such, a significant amount of automation is not needed to test and qualify the 
+components.  
+
+Qualification tests of the RCEs, FELIX boards, SSPs, timing and trigger systems will
+be driven by the host institutes producing those systems.  Reception tests will be 
+performed to identify any failures due to transport.  In order to fully qualify the 
+boards, they will need to be individually tested with control samples.  Data generators
+will be used in place of the front-end electronics where applicable.  Full data rate 
+testing will be performed when the first full detector slice is in place at EHN1 (expected
+Q2 2017).
 
