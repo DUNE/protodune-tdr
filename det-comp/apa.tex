@@ -598,7 +598,7 @@ Electronic noise concerns have made it desirable to isolate APAs from each other
 %\item{Assembly travelers}
 %\end{itemize}
 %
-\subsubsection{Test plan during production}
+\subsection{QC Procedures}
 
 Each ProtoDUNE-SP APA will be subject to a testing program during production that will demonstrate their compliance with the design and manufacturing requirements for the experiment.  Given the large size of the APAs, and the highly specialized cryogenic and electronic infrastructure necessary for their designed operation, the testing plan followed during production is necessarily targeted at those features of the APAs which can be addressed prior to final installation in the cryostat.  A separate suite of testing, in a cryogenic environment, is planned to be conducted at CERN, as described in ???? \fixme{is there a section in the TDR for this cold-box test?}.
 
@@ -616,34 +616,34 @@ Frame & APA frame satisfies all bow/twist/fold criteria & Survey\\ \colhline
 \end{cdrtable}
 
  
-\paragraph{Tension Survey}
+\subsubsection{Tension Survey}
 
 Wire tension is a critical parameter in the performance of the APA, and needs to be strictly controlled to ensure the detector will be robust to operation in a cryogenic environment.  As each wireplane layer is added to the APA, and before the next layer is added and restricts access, the tension of every newly added wire will be measured.  Any wire that is more than 1.0 N out of tolerance from the design value of 5.0 N will be removed and, if possible, replaced.  The tension measurement is performed using a laser-photodiode system, developed at PSL and integrated into the wire-winding apparatus, which will record the resonant frequency of a plucked wire.  Visible checks will also be made during production to identify any noticeably sagging wires.  Spot checks of tension will also be made after cryogenic testing at the production site, as well as at CERN prior to insertion of an APA into the protoDUNE cryostat.  
 
 
-\paragraph{Electrical Continuity Test}
+\subsubsection{Electrical Continuity Test}
 
 The electrical connection of each APA wire to the cold readout electronics must be verified to ensure a minimum ($<$0.5$\%$) of un-reachable channels in the completed detector.  Un-reachable wires (e.g. originating from cold solder joints or wires that are broken but held in place by epoxy bead) are distinct from clearly broken wires (e.g. obvious strands of wires hanging loose from the APA) which will be removed/replaced during production.   In addition to providing a pathway to record detector signals, wires receive their bias voltage via their connection to the readout electronics, which shapes the electric field in the anode region.  As such, disconnected wires impact the signals that surrounding channels will collect.  As each wireplane layer is added to the APA, and before the next layer is added and restricts access, the electrical connection of every newly added wire to the corresponding wire-bonding board will be verified.  Using a multimeter, or other equivalent methods, the continuity will be verified by directly probing between the ``bottom" end (i.e. - the end that terminates on the non electronics-plate end of the APA) of the wire and the signal trace on the wire-bonding board at the ``top" end (i.e. - the end that terminates on the electronic-plate end of the APA).  Any wire that fails this continuity test, by producing a resistance $>$ 500 $\Omega$ (using 4.4 $\Omega$/m resistance for BeCu wire that is 7.5 m long, and allowing margin for additional parasitic resistance), will be removed and, if possible, replaced.  Spot checks of continuity will also be made after cryogenic testing at the production site, as well as at CERN prior to insertion of an APA into the protoDUNE cryostat.
 
-\paragraph{Electrical Isolation Test}
+\subsubsection{Electrical Isolation Test}
 
 Each wire of the APA should be electrically isolated from every other wire, in order to avoid shorting out channels and potentially damaging the readout electronics.  Shorted-out wires will also impact the electric-field uniformity in the anode region, and can impact signals in surrounding channels.  Using a multimeter, or other equivalent methods, the isolation between each APA wire and adjacent wires will be measured and verified to have resistance $>$ 1 M$\Omega$.  Since a given wire has many adjacent wires, a dedicated circuit designed to expedite this test will be desirable.  Any wire failing this test will be removed and, if possible, replaced.  Visible checks will also be made during production to identify any touching wires.  Spot checks of isolation will also be made after cryogenic testing at the production site, as well as at CERN prior to insertion of an APA into the protoDUNE cryostat.
 
 
-\paragraph{Wire Position Survey}
+\subsubsection{Wire Position Survey}
 
 Knowledge of the position of every wire in the APA is required in order for physics analysis of data to be successful.  This information is utilized to create a description of the detector geometry inside the simulation software, and is the basis on which reconstruction algorithms are built. The preliminary description of the geometry assumes a perfect detector built according to the APA design drawings.  Any deviations from this design in the final as-built APAs needs to be incorporated into the software geometry.  All wires should be surveyed during production to verify they are within 500 $\mu$m of the design location.  This survey is partially accomplished by verifying the APA flame flatness is within specifications, and that the wire-bonding boards and support combs are located upon the frame in the desired position.  The APA will be surveyed using a Cognex camera integrated into the winding machine.  The camera employs machine vision to identify each pin/tooth on the installed wire-bonding boards, and from this data a map of wire location will be generated.  This survey should be performed as each wireplane layer is added to the APA, and before the next layer is added and restricts access.  Any wire that is more than 500 $\mu$m from the nominal location, according to survey data, should be inspected and if found to have problems, removed and replaced.  Visual checks throughout the wire-winding process will also be performed to identify any wires that appear out of place.
 
-\paragraph{Bias Voltage Test}
+\subsubsection{Bias Voltage Test}
 
 All wires on the APA must be able to reach their design bias voltage in order to achieve the desired electric-field uniformity and transparency conditions required for successful LArTPC operation.  Inability to reach the desired voltage could be an indication of component failure on the CR boards, or of wires in the APA being shorted out.  The CR boards should be tested prior to their installation on the APA to verify they can be biased to 100$\%$ of the largest operating voltage of any anode layer (e.g. the Collection layer's 820 V).  The components selected for the CR boards are chosen with margin about this operating point, to allow for bias voltages in the as-built detector to be adjusted, either for signal-shaping studies or for systematic studies of detector performance at various drift-field values.  As each wireplane layer is added to the APA, and before the next layer is added and restricts access, each newly added wire-bonding board should be connected to a CR board and biased to 100$\%$ of the largest operating voltage of any anode layer.  Any unexpected current draws observed will be traced to the originating wire(s), and if necessary, the offending wire(s) will be replaced.  Visual checks should also be performed during this test to verify that wires being biased do not deflect or move in any unexpected manner.  This test may be augmented when multiple wireplane layers are available, to verify that wires in adjacent layers do not develop unexpected cross-talk when biased.
 
-\paragraph{Cryo Test}
+\subsubsection{Cryo Test}
 
 The completed APAs must be robust to operation in a cryogenic environment.  Wires must be able to withstand the cooldown to liquid argon temperatures.  In order to verify the workmanship of each APA, a cryogenic test will be performed as each APA is completed and before shipment to CERN.  The APAs will be placed in a custom-built cold box, where they will be gradually cooled (at a rate consistent with requirements on keeping wire tension increases below a safe level) to $\sim$100 K (exact value to be determined).  The default plan is to use cold gas from a LN supply for this test, and flush gas through the cold box until it reaches the desired temperature.  The APA will be arranged in a horizontal orientation, as this simplifies the engineering of the cold box.  It is not anticipated that loading on the APA/wires due to gravity (e.g. from horizontal vs. vertical orientation) will lead to any significant changes in wire tension, and the frame will be supported appropriately.  The APA will be inspected after this cold test to verify that no wires have broken.  Spot-check tests of tension/continuity/isolation/bias will be performed to verify if any channels have changed relative to their pre cold-test values.  Criteria for acceptance after this test (e.g. number of problematic wires identified by this test) are under development.
 
 
-\paragraph{Testing at CERN}
+\subsubsection{Testing at CERN}
 
 Upon arrival at CERN, and prior to integration with interfacing subsystems (e.g. - light collection and electronics), each APA will be subjected to visual inspection, and spot-check ($\sim$10$\%$ of total channels) tests for wire tension, continuity, isolation, and bias voltage will be performed and compared to the equivalent pre-shipping values.
 
