@@ -389,16 +389,17 @@ prove invaluable for this type of testing.
 %}
 \fixme{Implementation not finalised, expected after collaboration week}
 
-The dimensioning of the readout computing has not been finalised.  Studies 
-are being performed to strike a balance between eliability, performance, cost, and 
-effort needed.  The following describes the overall strategy, though
-details are subject to change.
-Data will be sent from the artDAQ EventBuilders or Aggregators to 
-a storage buffer.  This may be local to the nodes themselves, distributed
-over a computing farm, or high performance network attached storage (NAS).
-The baseline I/O requirement is 20 Gb/s.  Metadata information will then
-be generated for the raw data files, and both raw data and metadata will
-be transferred offline to CERN EOS.
+The dimensioning of the readout computing has not been finalised.  The 
+baseline description is given in section \ref{sec:DAQ_online_interface}.
+%Studies are being performed to strike a balance between eliability,
+%performance, cost, and effort needed.  The following describes the
+%overall strategy, though details are subject to change.  Data will be
+%sent from the artDAQ EventBuilders or Aggregators to a storage buffer.
+%This may be local to the nodes themselves, distributed over a computing
+%farm, or high performance network attached storage (NAS).  The baseline
+%I/O requirement is 20 Gb/s.  Metadata information will then be generated
+%for the raw data files, and both raw data and metadata will be transferred
+%offline to CERN EOS.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
