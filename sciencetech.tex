@@ -9,7 +9,7 @@ intended to validate the construction of the components planned for the
 first DUNE \ktadj{10} detector module at scale and thereby mitigate
 risks associated with extrapolating small-scale versions of the
 single-phase LArTPC technology to a full 10-kt detector module.  It is
-intended to benchmark the operation of full-scale detector
+intended to benchmark the operation of the full-scale detector
 elements and perform measurements in a well characterized
 charged-particle beam --- an essential step.
 
@@ -20,38 +20,31 @@ module.
 Besides validating the performance of the detector components,
 planning and constructing the protoDUNE-SP prototype will establish and
 commission production sites and test the installation procedure.
-Further, before the beam test, many basic detector-performance
-parameters can be established with cosmic-ray muons.  These data will
-aid in identification of potentially problematic components, leading
-to future improvements and optimizations of the detector design.  Once
+Further, before the beam test, many primary detector-performance parameters can be established with cosmic-ray muons.  These data will aid in the identification of potentially problematic components, leading to future improvements and optimizations of the detector design.  Once
 it is exposed to a test beam of charged particles of different types
-and energies it will collect data that can be combined with results
-from LArIAT and the short-baseline program at Fermilab.  Together
+and energies it will collect data that can be combined with results from LArIAT and the short-baseline program at Fermilab.  Together
 these measurements will be used to validate MC simulations, reduce several detector and cross section and reconstruction uncertainties, and they
 will serve as data input to DUNE sensitivity studies and allow
 validation and tuning of tools for event reconstruction and particle
 identification.
 
-The current plan is to take high-momentum, above 1GeV/c  data with the protoDUNE-SP detector during the first  period of data-taking. The total number of trigger that we should be able to collect is about 25 milions and will take about 6 weeks. This will allow to collect enough data to perform all high statistics measurements described below.  If time allow it would be also beneficial to collect data with lower momenta particles. The switch to low momenta run would require modifications of the beam-line instrumentation, removal of several detectors and retune of the magnets. However, the low momenta beam has significantly lower intensity and it might be difficult to collect datasets necessary for some of the studies (e.g. Kaons for proton decay background studies).
-
+The current plan is to take high-momentum, above 1GeV/c  data with the protoDUNE-SP detector during the first period of data-taking. The total number of trigger that we should be able to collect is about 25 million and will take about six weeks. This will allow collecting enough data to perform all high statistics measurements described below.  If time allows it would also be beneficial to collect data with lower momenta particles. The switch to low momenta run would require modifications of the beam-line instrumentation, removal of several detectors and retune of the magnets. However, the low momenta beam has a significantly lower intensity, and it might be difficult to collect datasets necessary for some of the studies (e.g. Kaons for proton decay background studies).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Charged particle beam studies}
 \fixme{Science description?}
 
 The DUNE experiment will run in both neutrino and antineutrino 
-configurations. These beams will be composed mainly of muon neutrinos (antineutrinos) as well as electron neutrinos (antineutrinos). With a neutrino beam with a wide neutrino energy range various types of particles can be produced due to neutrino interactions and re-interactions in the nucleus.  In Figure~\ref{fig:particlemomenta} the momentum distributions particles created in 
-neutrino interactions from simulated beam fluxes, including oscillation effects, are shown.  The particle rates are normalized  to the number of neutrino interactions in 
-the DUNE far detector and the neutrino beam flux.  Although significant fraction of the final state particles produced in neutrino interactions  will have low momenta, due to constrains of the H4 beam and operation time main part of the measurement program will focus on particles with momenta above 1\,GeV/c. There will be an overlap between data and results from protoDUNE-SP and the low momenta LArIAT experiment that will help with the extrapolation to the most interesting low momenta region.  The H4 beam can produce low momenta particles, however it is at the cost of lower rate of the particles and longer operation time. If the beam is available the second run with a focus on  low momenta particles will be performed. 
+configurations. These beams will be composed mainly of muon neutrinos (antineutrinos) as well as electron neutrinos (antineutrinos). With a neutrino beam with a wide neutrino energy range, various types of particles can be produced due to neutrino interactions and re-interactions in the nucleus.  In Figure~\ref{fig:particlemomenta} the momentum distributions particles created in neutrino interactions from simulated beam fluxes, including oscillation effects, are shown.  The particle rates are normalized  to the number of neutrino interactions in the DUNE far detector and the neutrino beam flux.  Although a significant fraction of the final state particles produced in neutrino interactions will have low momenta, due to constrains of the H4 beam and operation time main part of the measurement program will focus on particles with momenta above 1\,GeV/c. There will be an overlap between data and results from protoDUNE-SP and the low momenta LArIAT experiment that will help with the extrapolation to the most interesting low momenta region.  Although the H4 beam can produce low momenta particles, it is at the cost of lower rate of the particles and longer operation time. If the beam is available, the second run with a focus on low momenta particles will be performed. 
 
 
 \begin{cdrfigure} [Momentum distributions]{particlemomenta}{Momentum distributions of particles produced by the neutrinos from the neutrino beam in DUNE.  Each of the particles leaving the nucleus is show here separately. } 
   \includegraphics[width=0.8\textwidth]{True_Momenta_per_Particle_9_2_1_0_logy_logx}
 \end{cdrfigure}
 
-The DUNE sensitivity assumes a significant advance in reduction of various sources of uncertainties. In table \ref{DUNEsen} the list of collated sources of uncertainties compared with the lists for MINOS and T2K $\nu_e$ appearance analyses are presented. 
+The DUNE sensitivity assumes a significant advance in a reduction of various sources of uncertainties. In table \ref{tab:DUNEsen} the list of collated sources of uncertainties compared with the lists for MINOS and T2K $\nu_e$ appearance analyses are presented. 
 
-\begin{cdrtable}[DUNE goals are for the total normalization uncertainty on the $\nu_e$ appearance sample.] {ccccc} {DUNEsen} {DUNE goals are for the total normalization uncertainty on the $\nu_e$ appearance sample. The DUNE analysis will be a 3-flavor oscillation fit such that uncertainties correlated among the four FD samples will largely cancel \cite{cdr}.}
+\begin{cdrtable}[DUNE goals are for the total normalization uncertainty on the $\nu_e$ appearance sample.] {ccccc} {DUNEsen} {DUNE goals are for the total normalization uncertainty on the $\nu_e$ appearance sample. The DUNE analysis will be a 3-flavor oscillation fit such that uncertainties correlated among the four FD samples will largely cancel \cite{cdr-vol-2}.}
 Source of Uncertainty &  MINOS $\nu_e$ & T2K $\nu_e$ & Goal for DUNE $\nu_e$  \\ \toprowrule
  Beam Flux                        &  0.3\% & 3.2\%  &  2\%&  \\ \colhline
 Interaction Model               & 2.7 \%  & 5.3\% & ~2\%  \\ \colhline
@@ -61,35 +54,28 @@ Fiducial Volume                 & 2.4\% & 1 \% & 1\%  \\ \colhline
 Total Uncertainty                & 5.7\% & 6.8\% &  3.6\%  \\ \colhline
 \end{cdrtable}
 
-To achieve this reduction of uncertainties a program of measurements is necessary. ProtoDUNE-SP will be particularly useful to measure detector effect with a full scale APAs and a long drift volume. For lepton energy resolution and energy scale uncertainty we would need to measure differences between particles and antiparticles and any nonlinear effects.  For hadronic energy resolution and energy scale uncertainty there will be different contributions from different particles types (protons, neutrons, charged pions, neutral pions) in different portions of the neutrino spectrum. One of the most important measurements  will be determination of the missing/undetected energy. 
+To achieve this reduction of uncertainties, a program of measurements is needed using various detectors. ProtoDUNE-SP will be particularly useful to measure detector effect with a full-scale APAs and a long drift volume. For lepton energy resolution and energy scale uncertainty we would need to measure differences between particles and antiparticles and any nonlinear effects.  For hadronic energy resolution and energy scale uncertainty, there will be different contributions from different particles types (protons, neutrons, charged pions, neutral pions) in different portions of the neutrino spectrum. One of the most important measurements will be a determination of the missing/undetected energy. 
 
 
-Below  we provide a list of the main ProtoDUNE-SP studies that will be performed using charged particles from the beam and particles created by cosmic muons. The studies will inform us about the detector response to particles/tracks/showers that will be observed in the neutrino induced events in the DUNE detectors. 
+Below we provide a list of the main ProtoDUNE-SP studies that will be performed using charged particles from the beam and particles created by cosmic muons. The studies will inform us about the detector response to particles/tracks/showers that will be observed in the neutrino-induced events in the DUNE detectors. 
 
-\fixme{Each of the point below will be described in details in the next draft.}
 \begin{description}
 \item [Characterization of hadronic showers (high $p$) and topologies of hadronic interactions (low $p$).]
 
 
-Accurate measurement of neutrino energy will require reconstruction of both electromagnetic and hadronic showers. Reconstruction of hadron energy 
-in these energy ranges will require knowledge of the fate (interact, decay, or stop) of the initiating hadron ($\pi^{+/-}$, $p$, or $K^{+/-}$).
-For the case of  interacting hadrons, the composition of secondaries
-will need to be determined to characterize the response. 
-These will include neutrals and particles that 
-deposit energy electromagnetically ($\pi^o$, $\gamma$), as well as
+Accurate measurement of neutrino energy will require characterisation of both electromagnetic and hadronic showers. Reconstruction of hadron energy in these energy ranges will require knowledge of the fate (interact, decay, or stop) of the initiating hadron ($\pi^{+/-}$, $p$, or $K^{+/-}$).
+For the case of interacting hadrons, the composition of secondaries
+will need to be determined to characterise the response. 
+These will include neutrals and particles that deposit energy electromagnetically ($\pi^o$, $\gamma$), as well as
 secondary hadrons. The test beam with known incoming particle type and momentum will be used
-to characterize interacting hadrons in this energy range.
+to characterise interacting hadrons in this energy range.
 
 
 Figure~\ref{fig:hadronshwr} shows the fraction of true energy deposited by interacting protons with 1~GeV/c (left) and
 3~GeV/c (right) incident momenta simulated using FLUKA particle transport code~\cite{fluka05}. 
 Interacting protons (65\% of the 1~GeV/c sample) are selected.
-For this study, visible energy is summed using hit information with corrections applied for the lifetime of 
-the drift electrons (No attempt is made to correct for recombination effects or electromagnetic shower fractions). 
-The resulting energy deposition in the two cases cannot be 
-accurately characterized by an average shower calibration factor. MC simulations of 
-outgoing particles, especially at low energies, must be checked and bench-marked against calibration data to avoid
-large uncertainties from shower modeling. 
+For this study, visible energy is summed using hit information with corrections applied for the lifetime of the drift electrons (No attempt is made to correct for recombination effects or electromagnetic shower fractions). 
+The resulting energy deposition in the two cases cannot be accurately characterised by an average shower calibration factor. MC simulations of outgoing particles, especially at low energies, must be checked and benchmarked against calibration data to avoid significant uncertainties from shower modelling. 
 
 \begin{cdrfigure}[Fraction of true energy deposited by interacting protons of 1~GeV/c and
 3~GeV/c]{hadronshwr}{Fraction of true energy deposited by interacting protons of 1~GeV/c (left) and
@@ -99,13 +85,8 @@ large uncertainties from shower modeling.
 \end{cdrfigure}
 
 
-Pion showers at low energies will also be important both for determining the interacted neutrino energy and for modeling neutral current backgrounds resulting from $\pi^o$ content in showers. Significant
- differences in energy deposited in interactions initiated by $\pi^+$ versus $\pi^-$  are present up to momenta on the order of 1~GeV/c due to different
-final-state particles and interaction cross sections. This is illustrated in 
-Figure~\ref{fig:pionshwr}, which shows the differences in mean energy deposited (left) and width (right) 
-for interacting pions with momenta ranging from 0.2~GeV/c up to 5~GeV/c.
-Resulting shower calibrations and reconstruction will differ; therefore each charge must be 
-studied separately. This study will be performed if a low momenta run will take place.  
+Pion showers at low energies will also be important both for determining the interacted neutrino energy and for modelling neutral current backgrounds resulting from $\pi^o$ content in showers. Significant differences in energy deposited in interactions initiated by $\pi^+$ versus $\pi^-$  are present up to momenta of an order of 1~GeV/c due to different final-state particles and interaction cross sections. This is illustrated in  Figure~\ref{fig:pionshwr}, which shows the differences in mean energy deposited (left) and width (right)  for interacting pions with momenta ranging from 0.2~GeV/c up to 5~GeV/c.
+Resulting shower calibrations and reconstruction will differ; therefore each charge must be studied separately. This study will be performed if a low momenta run will take place.  
 
 \begin{cdrfigure}[Differences in mean energy deposited and width of visible energy, 
  $\pi^+$ versus $\pi^-$]{pionshwr}{Differences in mean energy deposited (left) and width of visible energy (right) 
@@ -119,15 +100,14 @@ for interacting $\pi^+$ versus $\pi^-$ ranging from 0.2~GeV/c up to 5~GeV/c. }
 
 \fixme{need more text - RS: adding few more lines on purposes of pi0s, please add more on electrons}
 
-Electromagnetic showers are fairly well-understood and can be used to better understand the detector
-response. The beam of electrons will be studied at various energies to characterize the induced showers.
+Electromagnetic showers are relatively well-understood and can be used to understand the detector response better. The beam of electrons will be studied at various energies to characterize the induced showers.
 
 Decays of neutral pions induced in the interactions of hadrons in the beam at one to few GeV/c momentum
 will be used as a source of photons producing electromagnetic showers at a broad range of angular orientations.
 This sample will be used to validate techniques for electromagnetic showers separation from the hadronic
-component of the event. Such techniques are prerequisite for use of the generic EM shower reconstruction
+component of the event. Such techniques are a prerequisite for the use of the generic EM shower reconstruction
 algorithms (see section ~\ref{sec:larsoftreco}), and in particular for studies of energy scale calibration
-based on neutral pion invariant mass reconstruction. Also hadronic shower energy estimation, as mentioned
+based on neutral pion invariant mass reconstruction. Also, hadronic shower energy estimation, as mentioned
 in the previous section, requires splitting between electromagnetic showers and hadronic tracks. Finally,
 test beam event topologies with $\pi^0$ production are similar to those expected in neutrino events, and
 will be studied as described in the following section.
@@ -136,59 +116,47 @@ will be studied as described in the following section.
 
 The search for a CP violation phase using $\nu_e$ appearance 
 in a $\nu_\mu$ beam requires good electron/photon separation.
-Backgrounds originating from photons produced primarily from 
-final state $\pi^0$'s must be identified and removed from the signal
+Backgrounds originating from photons produced primarily from final state $\pi^0$'s must be identified and removed from the signal
 electron sample. 
 
 High-energy photons can undergo two processes: pair production and Compton scattering. 
 The dominant process for photons with energies of several hundred MeV or more is 
 e$^+$ e$^-$ pair production.
-For this process e/$\gamma$ discrimination
- can be achieved using the beginning of the electromagnetic shower, where 
-a single MIP is characteristic of electron energy deposition, while two MIPs would be consistent 
-with e$^+$ e$^-$ pair production. %a photon hypothesis.
+For this process e/$\gamma$ discrimination can be achieved using the beginning of the electromagnetic shower, where a single MIP is characteristic of electron energy deposition, while two MIPs would be consistent with e$^+$ e$^-$ pair production. 
+
 
 \begin{cdrfigure}[Photon background rejection versus electron identification efficiency for various energies]{egam}{Photon background rejection versus electron identification efficiency for various energies( 100 MeV - 5 GeV for photons and 100 MeV - 2 GeV for electrons), calculated for and normalized to samples which pass the reconstruction.  The simulation was performed in APA design configuration (4.67-mm wire pitch, induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).}
 \includegraphics[width=0.5\textwidth,height=6.0cm]{egammaeffbkg}
 \end{cdrfigure}
 
 
-Electron-photon separation has been studied in LArTPCs (ICARUS~\cite{icarus_eg} and ArgoNeuT~\cite{argoneut_eg}).
+Electron-photon separation has been studied in LArTPCs  detectors that collected data in recent years (ICARUS~\cite{icarus_eg} and ArgoNeuT~\cite{argoneut_eg}).
 
-Figure~\ref{fig:egam} shows estimated photon background rejection versus electron identification efficiency using 
-simulated isotropic electron and photon event samples with the DUNE APA geometry configuration (4.67-mm wire pitch,
+Figure~\ref{fig:egam} shows estimated photon background rejection versus electron identification efficiency using simulated isotropic electron and photon event samples with the DUNE APA geometry configuration (4.67-mm wire pitch,
 induction wires at $\pm$35.7$^{\circ}$ w.r.t. collection wires).~\cite{dunecdr}. The study was performed on the
-simulation of isolated particles in order to separate from the present state of art of pattern recognition algorithms
-and their inefficiencies. Instead, the unavoidable features, such as overlay of signals from multiple tracks in the
+simulation of isolated particles to separate from the present state of the art of pattern recognition algorithms
+and their inefficiencies. Instead, the unavoidable features, such as an overlay of signals from multiple tracks in the
 interaction vertex region, was mimicked with the parameterized subtraction of information from the initial part of
 simulated cascades.
 \fixme{Sentence feels unclear; the ``DUNE'' APA configuration? DONE!}
 
 The results are found to be mildly dependent on incoming particle energy in the range of interest. 
-%%
-%Studies by Stefan\& Sulej indicate that rejection and efficiency depend 
-%on particular features of the geometry, including wire pitch and plane 
-%orientation, that affect the reconstruction. 
-%For example, a preliminary comparison of signal efficiencies for a simulated 
-%DUNE APA configuration with the protoDUNE-SP geometry
-%and averaged over the energy range 0.2-1.0 GeV shows 
-%a 10\% higher efficiency for the 3-mm wire spacing used in ICARUS.
-%The study does not yet include electron diffusion.
-%%
-Pure samples of electrons and photons in the sub-GeV energy range would be
-required to tune the separation algorithms and to measure 
-detector-dependent electron-photon separation efficiency and purity. 
-Such an idealistic conditions cannot be easily achieved with the test beam, however charged
-pion interactions may be very well studied to evaluate performance of the background rejection
+
+
+Pure samples of electrons and photons in the sub-GeV energy range would be required to tune the separation algorithms and to measure detector-dependent electron-photon separation efficiency and purity. 
+Such an idealistic conditions cannot be easily achieved with the test beam, but charged pion interactions might be very well studied to evaluate performance of the background rejection
 based on the observation of double m.i.p. and (or) photon-induced cascade displacement from
 the interaction vertex.
 
 \item [Measure field distortion effect (space-charge, LAr flow, beam window effect, etc).] 
 
-The protoDUNE-SP detector will be place on surface and effects coming from the space-charge modification of the electric field or the effect of the choice of the location and design of the beam window will need to be included. The effects and strategies how to approach them are described in sections 3.5 and 7.1.
+The protoDUNE-SP detector will be placed on surface and effects coming from the space-charge modification of the electric field, or the effect of the choice of the location and design of the beam window will need to be included. The effects and strategies how to approach them are described in sections 3.5 and 7.1.
 
 
-\item [Validate accuracy of MC simulations] The accuracy of MC simulations will be validated for relevant energy ranges. Models of pion, kaon interactions as well as for other hadrons will be checked and measured in the energy range and for argon for the first time allowing reduction of the systematic uncertainties. For the simulation of the charged particles interactions the LArSoft framework with GEANT MC will be used in a similar   manner as it will be done for the DUNE simulations. All chains of the simulations and analysis will be prototyped, developed and validated with the protoDUNE-SP simulations and data. 
+\item [Validate accuracy of MC simulations] 
+
+The accuracy of MC simulations will be validated for relevant energy ranges. Models of the pion, kaon interactions as well as for other hadrons will be checked and measured in the energy range and for argon for the first time allowing reduction of the systematic uncertainties. For the simulation of the charged particles interactions the LArSoft framework with GEANT MC will be used in a similar manner as it will be done for the DUNE simulations. All chains of the simulations and analysis will be prototyped, developed and validated with the protoDUNE-SP simulations and data. 
+
 \end{description}
 
 
@@ -198,8 +166,7 @@ The protoDUNE-SP detector will be place on surface and effects coming from the s
 
 Figure~\ref{fig:containment} shows the simulated longitudinal and transverse 
 energy containment for proton showers up to 10~GeV in energy.
-For 10-GeV showers, more than 95\% of the energy is contained in a detector of longitudinal size of 6~m and 
-radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied and similar or better containment is achieved in these cases, given the above detector dimensions.
+For 10-GeV showers, more than 95\% of the energy is contained in a detector of longitudinal size of 6~m and radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied, and similar or better containment is achieved in these cases, given the above detector dimensions.
 
 
 \begin{cdrfigure}[Simulated longitudinal and transverse containment for proton showers, 4 and 10~GeV/c]{containment}{Simulated longitudinal and transverse containment for proton showers of 4 and 10~GeV/c momenta.}
@@ -213,13 +180,13 @@ radius of 2.5~m. Showers from pions, kaons, and electrons have also been studied
 
 \fixme{I did not remove kaon words, but are they still on the (realistic) list? Please, remove if not.}
 
-Information on range and charge deposition for stopping charged-particles can be used to accurately identify particle type as well as measure kinetic energy. Figure~\ref{fig:resrange}  (left) shows track energy loss per unit length \footnote{Signal attenuation due to recombination effect is not corrected for the PID purpose since it is a deterministic transformation which does not add measurement information.} $dQ/dx$ as a function of residual track range for simulated muon, pion, and proton particle tracks. The sequence of $dQ/dx$ versus residual range reconstructed for a particle track is used as input to PID algoritms ~\cite{nn_pid,rd_pid} to evaluate each particle hypothesis.
+Information on a range and charge deposition for stopping charged-particles can be used to identify particle type as well as measure kinetic energy accurately. Figure~\ref{fig:resrange}  (left) shows track energy loss per unit length \footnote{Signal attenuation due to recombination effect is not corrected for the PID purpose since it is a deterministic transformation which does not add measurement information.} $dQ/dx$ as a function of residual track range for simulated muon, pion, and proton particle tracks. The sequence of $dQ/dx$ versus residual range reconstructed for a particle track is used as input to PID algorithms ~\cite{nn_pid,rd_pid} to evaluate each particle hypothesis.
 
-Figure~\ref{fig:resrange} (right) shows the distribution of reconstructed $dQ/dx$ in a narrow bin at residual range of 6($\pm$1)cm to illustrate the scale of difference between particle types. Proton band is well separated from pion and muon bands, while pion and muon bands are almost overlapping which is challenging for the efficient separation via ionization density differences. 
-Simulation is performed with LArSoft framework using ProtoDUNE-SP geometry including the beam orientation and GEANT4 based simulation of particle transport through LAr. Parameterization of the detector response is implemented according to the scheme existing in the LArSoft framework, with dedicated setup for ProtoDUNE-SP conditions. Pattern recognition and 3D reconstruction is performed with Line Cluster and Projection Matching algorithms (one of standard reconstruction schemes currently used for ProtoDUNE).
+Figure~\ref{fig:resrange} (right) shows the distribution of reconstructed $dQ/dx$ in a narrow bin at a residual range of 6($\pm$1)cm to illustrate the scale of difference between particle types. Proton band is well separated from pion and muon bands, while pion and muon bands are almost overlapping which is challenging for the efficient separation via ionization density differences. 
+Simulation is performed with LArSoft framework using ProtoDUNE-SP geometry including the beam orientation and GEANT4 based simulation of particle transport through LAr. Parameterization of the detector response is implemented according to the scheme existing in the LArSoft framework, with a dedicated setup for ProtoDUNE-SP conditions. Pattern recognition and 3D reconstruction are performed with Line Cluster and Projection Matching algorithms (one of standard reconstruction schemes currently used for ProtoDUNE).
 
-The PID efficiency and purity depend on a number of factors, such as the detector configuration, geometry and reconstruction algorithms. PID results on data, especially for pion/muon separation, may be significantly differnt if e.g. electronics noise assumed in the detector response simulation is not reproducing features of the DUNE readout chain or if signal processing and reconstruction algorithms are updated. It is therefore important to test enire PID scheme in a prototype detector data, using the presence of all detector effects to improve models used in both simulation and reconstruction. Event samples that include an adequate number of stopping particles for each species
-(muon, pions, protons and kaons) are included in the particle summary request in order to perform tests of PID algorithms and Bethe-Bloch calibration measurements.
+The PID efficiency and purity depend on a number of factors, such as the detector configuration, geometry and reconstruction algorithms. PID results on data, especially for pion/muon separation, may be significantly different if e.g. electronics noise assumed in the detector response simulation is not reproducing features of the DUNE readout chain or if signal processing and reconstruction algorithms are updated. It is, therefore, important to test entire PID scheme in a prototype detector data, using the presence of all detector effects to improve models used in both simulation and reconstruction. Event samples that include an adequate number of stopping particles for each species
+(muon, pions, protons and kaons) are included in the particle summary request to perform tests of PID algorithms and Bethe-Bloch calibration measurements.
 
 \begin{cdrfigure}[ProtoDUNE-SP simulated track $dQ/dx$]{resrange}{ProtoDUNE-SP Simulated track $dQ/dx$ as a function of residual range for muons, pions, protons and kaons, used as training data in a neutral-net-based PID algorithm (left). Distribution of $dQ/dx$ for each particle type for a bin with residual range 
 6($\pm$1)~cm (right). The small difference between muon and pion PID is illustrated.}
@@ -229,13 +196,15 @@ The PID efficiency and purity depend on a number of factors, such as the detecto
 
 
 \item Fraction of true energy deposited by interacting charge particles 
+
+
 The measured energy deposition for various particles and its dependence on the direction of the particle will be used to tune
-MC simulations and allow improvements to reconstruction of neutrino energy and interaction topologies. % with good particle identification.
+MC simulations and allow improvements to a reconstruction of neutrino energy and interaction topologies. % with good particle identification.
 Measurements of the response to charged particles and
 photons with the protoDUNE-SP will extend and be complementary to
 measurements made with other smaller detectors, such as LArIAT \cite{lariat}
 and CAPTAIN~\cite{captain}.
- LAr TPC enable the use different energy reconstruction methods. In particular, in LAr TPC we can infer $E_\nu$ from what we observe in the final state. ArgoNeuT neutrino energy reconstruction method included estimates of missing/invisible energy and important part of  the improved neutrino energy reconstruction included the measurement of neutrons. Precise and unbiased neutrino energy reconstruction is especially important for reducing systematics in precision neutrino oscillation experiments. Systematic uncertainty which create a bias in neutrino energy definition could affect ability to measure oscillation parameters.  The inclusion of neutrons in the estimation of neutrino energy improves energy resolution from 14\% to 3\%.  This can be confirmed by protoDUNE-SP measuring protons that are created via the neutron-proton charge exchange process.
+ LAr TPC enables the use different energy reconstruction methods. In particular, in LAr TPC we can infer $E_\nu$ from what we observe in the final state. ArgoNeuT neutrino energy reconstruction method included estimates of missing/invisible energy, and important part of the improved neutrino energy reconstruction included the measurement of neutrons. Precise and unbiased neutrino energy reconstruction is especially important for reducing systematics in precision neutrino oscillation experiments. The systematic uncertainty which creates a bias in neutrino energy definition could affect an ability to measure oscillation parameters.  The inclusion of neutrons in the estimation of neutrino energy improves energy resolution from 14\% to 3\%.  This can be confirmed by protoDUNE-SP measuring protons that are created via the neutron-proton charge exchange process.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,50 +212,44 @@ and CAPTAIN~\cite{captain}.
 
 
 %In the following, we define the goals that we aim to achieve regarding the TPC electronic noise and signal processing.
-This section describes the goals defined for the TPC electronic noise and signal processing.
-\fixme{goals or requirements? }
+This section describes the requirements for the TPC electronic noise and signal processing.
+
 \begin{itemize}
 \item The number of unusable channels is required to be smaller than 1\%: \\
-All the past large LArTPC experiments (ICARUS, MicroBooNE, and DUNE-35ton) have suffered from a sizable
-number of unusable channels ($>$ 10\%) for %due to various 
-reasons such as high noise, dead electronics, 
-and disconnected wires. At the same time, successes have been achieved for various subsystems in 
-different experiments. \fixme{successes related to dead channels?}
-For example, ICARUS has no disconnected wires. In LAriat, all 
-cold electronics channels ($\sim$ 500) are live and achieve the expected $\sim$400 electrons equivalent 
-noise charge (ENC). In the ATLAS LAr calorimeter, only about 0.1\% of the cold electronics channels are unusable. 
-In MicroBooNE, the ENC after software noise filtering is about 400 electrons, which is consistent with 
-the design specification of the cold electronics. In addition, all the major sources of electronic noise
-have been identified and hardware solutions are in order. Therefore, with careful and systematic 
-quality assurance and controls, it is definitely possible to reduce the total number of unusable channels
-by at least one oder of magnitude. This is one of the primary goal of ProtoDUNE.
+
+All the past or current large LArTPC experiments (ICARUS, MicroBooNE, and DUNE-35ton) have suffered from a sizable
+number of unusable channels ($>$ 10\%) for %due to various reasons such as high noise, dead electronics, and disconnected wires. At the same time, each of the experiment achieved successes in reductions of the problems that cause some of the wires to be unusable. 
+For example, ICARUS has no disconnected wires. In LAriat, all cold electronics channels ($\sim$ 500) are live and achieve the expected $\sim$400 electrons equivalent noise charge (ENC). In the ATLAS LAr calorimeter, only about 0.1\% of the cold electronics channels are unusable. 
+In MicroBooNE, the ENC after software noise filtering is about 400 electrons, which is consistent with the design specification of the cold electronics. Also, all the major sources of electronic noise
+have been identified, and hardware solutions are in order. Therefore, with careful and systematic quality assurance and controls, it is possible to reduce the total number of unusable channels
+by at least one order of magnitude. This is one of the primary goals of ProtoDUNE.
 
 \fixme{the above is not clear. 
-
 It needs a progression something like this:
-`All these detectors have had channel problems. Problems have been identified and are fixed. From this we know we can reduce unusable channels by order of magnitude.' The sentence about successes is confusing: success after fixing? Or success in other areas?
+`All these detectors have had channel problems. Problems have been identified and are fixed. From this we know we can reduce unusable channels by order of magnitude.' The sentence about successes is confusing: success after fixing? Or success in other areas? DONE(?)
 }
 
-\item The ENC generated beyond the cold preamplifier is required to negligible ($<$ 50\%~\footnote{Since the 
-noises are added in quadrature, an extra electronic noise with less than 50\% of intrinsic cold preamplier
+\item The ENC generated beyond the cold preamplifier is required to negligible ($<$ 50\%~\footnote{Since the noise from each source are added in quadrature, an extra electronic noise with less than 50\% of intrinsic cold preamplifier
 noise would lead to less than 10\% increase of the total noise.}) compared to the 
 expected ENC generated from the cold preamplifier in $>$ 95\% of the channels: \\
 The only irreducible electronics noise is coming from the preamplifier on the TPC wires. It is thus
 crucial to optimize the overall system to reduce the noises generating from other sub-systems. 
-LAriat acehived such a performance with about a total of 500 channels. 
-\fixme{the `noises' is awkward. Can you say `the noise from each source is added in quadrature, an extra noise source with less than...?}
+LAriat achieved such a performance with about a total of 500 channels. 
+
+
+
+
 \item A robust procedure to validate the TPC field response function is required
 be developed: \\
-Field response on the induction plane is very complicated, but holds the key to achieve a robust TPC 
-signal processing and thus the overall event reconstruction. It is therefore important to develop a 
-program to calculate, calibrate, and validate field response functions. This validation of the field response function 
-can be achieved by comparing the measured average response functions for cosmic muons with the simulated
+Field response on the induction plane is very complicated but holds the key to achieving a robust TPC  signal processing and thus the overall event reconstruction. It is, therefore, important to develop a 
+program to calculate, calibrate, and validate field response functions. This validation of the field response function can be achieved by comparing the measured average response functions for cosmic muons with the simulated
 ones. 
+
 \item The overall signal calibration process is required to be validated: \\
 The goal of the signal calibration process is to recover the number of ionized electrons based on
-the digitized TPC waveform; this is the first step in the overall event reconstruction. It is crucial to 
-validate that such a procedure is robust. This validation can be achieved by comparing the 
-images from the raw digits with the images after the deconvolution procedure.
+the digitized TPC waveform; this is the first step in the overall event reconstruction. It is crucial to validate that such a procedure is robust. 
+This validation can be achieved by comparing the images from the raw digits with the images after the deconvolution procedure.
+
 \end{itemize}
 
 
@@ -300,51 +263,46 @@ images from the raw digits with the images after the deconvolution procedure.
 Final state pions are produced copiously in neutrino interactions in the energy range for the DUNE beam  and contribute 
 substantially to the total visible energy in the interaction.
 These particles can re-interact either in the nuclear medium or after emerging from the target nucleus
-and substantially change the visible energy deposited in the event. 
-The importance of modeling final-state pion interactions on reconstructed neutrino energy has 
-been recently demonstrated in the NuMI and Booster beam energy ranges~\cite{miniboonefsi, minervafsi}. The results from Minerva and MiniBoone are in tension and even more sophisticated final state interaction models cannot resolve the disagreement.  \fixme{The `importance' or the modeling has been demonstrated?  DONE?}
+and significantly change the visible energy deposited in the event. 
+The importance of modelling final-state pion interactions on reconstructed neutrino energy has been recently demonstrated in the NuMI, and Booster beam energy ranges~\cite{miniboonefsi, minervafsi}. The results from Minerva and MiniBoone are in tension and even more sophisticated final state interaction models cannot resolve the disagreement. 
 
 
 \begin{itemize}
 \item Pion interaction kinematics and cross sections
 
-Detailed knowledge of pion-nucleus cross sections in the sub-GeV energy range is required in order
-to tune generators~\cite{genie} to accurately model event visible energy. 
+Detailed knowledge of pion-nucleus cross sections in the sub-GeV energy range is required to tune generators~\cite{genie} to model event visible energy accurately. 
 Existing data used to tune the models cover limited energies ($<$200~MeV) and are primarily on lighter target nuclei~\cite{fsirev}.
-% need to check this reference from R. Ransom talk.
 The requested $\pi^+$ and $\pi^-$ samples will allow new data samples for measuring
-exclusive final state processes  of $\pi^+$ and $\pi^-$ over the full relevant energy range and specifically on argon nuclei. Since the main dataset that will be collected from H4 beamline will have $\pi^+$ and $\pi^-$ with momenta above\, GeV/c the synergy with the LArIAT experiment will be explored to investigate agreement within the overlapping region.  A high-statistics sample of charged particles will allow precise measurements of charged mesons' interaction cross sections an particularly various exclusive channels.
+exclusive final state processes of $\pi^+$ and $\pi^-$ over the full relevant energy range and specifically on argon nuclei. Since the primary dataset that will be collected from H4 beamline will have $\pi^+$ and $\pi^-$ with momenta above\, GeV/c the synergy with the LArIAT experiment will be explored to investigate agreement within the overlapping region.  A high-statistics sample of charged particles will allow precise measurements of charged mesons' interaction cross sections and particularly various exclusive channels.
 \item kaon interaction cross section to remove proton decay backgrounds
 
 
 The DUNE experiment in the deep underground location will seek to detect several modes of proton decay.
 %In particular, a first ever LAr detector 
-This first-ever LAr detector of this scale underground will primarily improve sensitivity to 
-proton decays with final state kaons such as  ${p \rightarrow K^+ \overline{\nu}}$. 
+
+This first-ever LAr detector of this scale underground will primarily improve sensitivity to proton decays with final state kaons such as  ${p \rightarrow K^+ \overline{\nu}}$. 
 Sensitivity to this process is studied in~\cite{bueno}. $K^+$ detection efficiency is estimated to be $>$97\% in the
 appropriate momentum range (500-800 MeV/c). The kaon samples needed for this study might not be available in the H4 beamline, as most of the kaons will decay before reaching the protoDUNE detector. 
 
-In order to provide the needed 2000 stopping $K^+$ track samples for the PID studies, a sample of 13k beam kaons with 1~GeV/c momentum must be obtained (Only 15\% of $K^+$ stop at 1~GeV/c.), which will likely be difficult in this beamline. 
-A sizable sample of protons ($\sim 10^6$) is also needed. This will allow study of the possible background contributions to $p \rightarrow K^+ \overline{\nu}$ in order to quantify the probability of an interacting proton 
-being misidentified as stopping kaon. A proton interaction that produces neutrals and one charged pion 
+To provide the needed 2000 stopping $K^+$ track samples for the PID studies, a sample of 13k beam kaons with 1~GeV/c momentum must be obtained (Only 15\% of $K^+$ stop at 1~GeV/c.), which will likely be difficult in this beamline. 
+A sizable sample of protons ($\sim 10^6$) is also needed. This will allow a study of the possible background contributions to $p \rightarrow K^+ \overline{\nu}$ to quantify the probability of an interacting proton being misidentified as stopping kaon. A proton interaction that produces neutrals and one charged pion 
 (that is misidentified or subsequently decays to $\mu$) can fake the final-state kaon signal.
+
 
 \item Muon capture for charge identification
 
-With non-magnetized LArTPC detectors it is not possible to determine particle charge on an event-by-event basis. Therefore, a statistical separation that makes use of differences in muon versus antimuon capture cross sections and lifetime will be investigated.
+With non-magnetized LArTPC detectors, it is not possible to determine particle charge on an event-by-event basis. Therefore, a statistical separation that makes use of differences in muon versus antimuon capture cross sections and lifetime will be investigated.
 About 99.9\% of $\mu^-$'s are expected to be captured on argon, compared to essentially all $\mu^+$ to decay ~\cite{stopmu}.
 Charge-sign tagged $\nu_\mu$ samples, which predict differences in the particle and antiparticle survival probabilities, may be useful for constraining exotic possibilities, such as non-standard neutrino interactions. 
-A well-developed muon tagging would enhanced the MH studies for the atmospheric neutrinos. 
+A well-developed muon tagging would enhance the MH studies for the atmospheric neutrinos. 
 
 \item Supernova and Michel electrons
 
 Neutrinos produced in supernova burst (SNB) explosions are calculated to be in the few-to-30-MeV range.
-The DUNE Far Detector is expected to have unique sensitivity to the $\nu_e$'s from a SNB in our galaxy.
+The DUNE Far Detector is expected to have a unique sensitivity to the $\nu_e$'s from an SNB in our galaxy.
 %
-The test beam cannot offer a sample of  such low-energy electrons, but Michel electrons  produced by 
-decaying stopped muons are ideal for calibrating electron response in the appropriate 10-50~MeV energy range. 
-The required  sample of low-energy muons will supply the 1400 Michel electrons required for a 1\% 
-calibration of electrons in this energy range. This sample can be compared to a similar Michel electron sample
+The test beam cannot offer a sample of such low-energy electrons, but Michel electrons produced by decaying stopped muons are ideal for calibrating electron response in the appropriate 10-50~MeV energy range. 
+The required  sample of low-energy muons will supply the 1400 Michel electrons needed for a 1\%  calibration of electrons in this energy range. This sample can be compared to a similar Michel electron sample
 stemming from stopping cosmic muons.
 
 \end{itemize}
