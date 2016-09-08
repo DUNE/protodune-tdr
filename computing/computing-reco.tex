@@ -102,8 +102,9 @@ Several approaches are then possible once hits are identified on wire
 segments.  Two-dimensional reconstruction identifies tracks and
 clusters in each view separately, and three-dimensional hypotheses for
 the event are constructed by comparing the two-dimensional clusters'
-images in the separate planes.  The clustering algorithm currently in
-use is the Blurred Clustering Algorithm~\cite{blurredclustering}.  The
+images in the separate planes.  The clustering algorithms currently in
+use are the Blurred Clustering Algorithm~\cite{blurredclustering} and
+LineCluster ~\cite{linecluster} and TrajCluster ~\cite{trajcluster}.  The
 EMShower package~\cite{emshowerpackage} takes blurred clusters and
 produces energies, angles, and start positions for the showers, as
 well as the $dE/dx$ in the initial part of the shower.  Identifying
@@ -163,7 +164,7 @@ Figure~\ref{fig:pandoraresolution}.
 completeness (purity too if we can get the plot).}
 
 \paragraph{PMA}
-An alternative approach to 3D reconstruction is called Projection Matching Algorithm
+Another approach to 3D reconstruction in LArTPC detectors is called Projection Matching Algorithm
 (PMA) ~\cite{pma_algorithm}. PMA was primarily developed as a technique of 3D reconstruction
 of individual particle trajectories (trajectory fits) ~\cite{icarus3dreco}. Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
@@ -174,18 +175,15 @@ e.g. tracks with few-hits.
 
 PMA can take as input the output from different pattern recognition algorithms, from
 LineCluster ~\cite{linecluster} to WireCell (described below). As a result of 2D pattern
-recognition, particles may be broken in 2D projections into several clusters, fractions
-of particles may be missing in individual projections and clusters obtained from complementary
-projections are not guaranteed to cover corresponding sections of trajectories. Such behavior
-is expected since ambiguous configurations of trajectories can be resolved only if the information
-from multiple 2D projections is used. Searching for the best matching combinations of clusters from
-all 2D projections was introduced to the PMA implementation in the LArSoft framework. The algorithm
+recognition performed independently in each 2D projection, particles may be broken
+into several clusters, fractions of particles may be missing in individual projections
+and clusters obtained from complementary projections are not guaranteed to cover corresponding
+sections of trajectories. Such behavior is expected since ambiguous configurations of
+trajectories can be resolved only if the information from multiple 2D projections is used.
+PMA performs higher level pattern recognition using as input clustering information from all
+projections in order to search for the best matching combinations of clusters. The algorithm
 also attempts to correct hit to cluster assignments using properties of 3D reconstructed objects.
-In this sense PMA includes also pattern recognition features.
-\fixme{Last sentence is not clear - try to reword.}
 
-%The following paragraph may be cut if shorter text is needed, but I keep it here to show what
-%is the advantage of having more than two planes.
 The 3D trajectory can be reconstructed using clusters from two projections while the distance of
 the trajectory projection to data in the third plane is used to validate correct association of clusters.
 This method is used to score 3D track candidates in the three-plane TPC configurations, like single-phase
@@ -198,20 +196,18 @@ PMA allows to build and optimize complex structures of 3D objects, i.e. multiple
 interconnected with interaction vertices, relying on the same principle as for the single trajectory fit.
 In this scenario the vertex position reconstruction employs the local information from several tracks
 simultaneously, leading to an improved fit of each individual trajectory. The track-vertex structure
-is constructed after the individual trajectories are found and stitched across TPC's.
-\fixme{"stitched across TPC's" is technical lingo and needs a better half sentence explanation.}
- The reconstructed
-structure is described as a particle hierarchy using data products available in LArSoft.
-\fixme{what are data products ??}
+is constructed after the individual particle trajectories are reconstructed and their parts recorded
+in different TPC volumes are associated and merged into single objects.
+The reconstructed structure is described as a particle hierarchy using the LArSoft data structures
+designed to save in the output file reconstructed objects and relations between these objects.
 
 PMA has been used successfully to reconstruct simulated beam particles in
-ProtoDUNE-SP. The spatial resolution of the positive pion interaction with neutral pion
-production is shown in Figure ~\ref{fig:PMApioninteraction} in order to illustrate the performance
-of the entire reconstruction chain.
-\fixme{add energy of pions to sentence}
-\fixme{Add sentence to state result: e.g. spatial resolution of 0.6cm was found.}
- A study of the reconstruction performance specifically for particles with orientations
-as those expected for beam particles was carried out as a check.
+ProtoDUNE-SP. The spatial resolution of the interaction vertex with neutral pion
+production, appearing in the positive pion 2 GeV/c sample, is shown in Figure ~\ref{fig:PMApioninteraction}
+in order to illustrate the performance of the entire reconstruction chain. The spatial resolution
+of 0.6 cm was found in this study. Similar resolution was obtained also for the reconstruction
+of inelastic interaction vertices in the proton 2 GeV/c sample. A study of the reconstruction performance
+specifically for particles with orientations as those expected for beam particles was carried out as a check.
 \fixme{A sentence on some known problems with specific directions would be useful to provide more background info for non-expert readers.}
 % that it is not introducing major difficulties to the analysis. 
 Example results are shown in
