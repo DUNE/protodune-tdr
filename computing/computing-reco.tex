@@ -79,19 +79,21 @@ times, widths, and amplitudes of the Gaussians.  In addition, it saves the sum o
 the ADC readings in the time windows corresponding to the hits, as a
 Gaussian function is not always representative of the charge arrival
 distribution and the resolution of the calorimetry is improved by
-summing the ADC counts.  The hits are associated with DAQ channels and
-not wire segments, since, due to the wrapping of the induction-plane
-wires in the ProtoDUNE-SP APA's, there is ambiguity of where the
-charge contributing to the hit was deposited.  Because the wire angle
-is chosen so that each induction wire intersects each collection-plane
-wire at most one time, only two views are needed in order to identify
-hits and resolve ambiguities.  A separate LArSoft module compares the
-hits in the collection and induction views and assigns choices to
-remove ambiguity, 
+summing the ADC counts.
+%The hits are associated with DAQ channels and
+%not wire segments, since, due to the wrapping of the induction-plane
+%wires in the ProtoDUNE-SP APA's, there is ambiguity of where the
+%charge contributing to the hit was deposited.  Because the wire angle
+%is chosen so that each induction wire intersects each collection-plane
+%wire at most one time, only two views are needed in order to identify
+%hits and resolve ambiguities.  A separate LArSoft module compares the
+%hits in the collection and induction views and assigns choices to
+%remove ambiguity, 
 \fixme{Do we still need to run the disambiguation in protoDUNE even though one side of the 
-APAs will effectively not be used ??}
-allowing reconstruction algorithms developed for
-detectors without wrapped wires to be run with minimal modification.
+APAs will effectively not be used ?? RS.: disambiguation is not used in standard reco
+chain used for ProtoDUNE, i.e. in MCC7; commented out the part related to disambiguation}
+%allowing reconstruction algorithms developed for
+%detectors without wrapped wires to be run with minimal modification.
 
 Several approaches are then possible once hits are identified on wire
 segments.  Two-dimensional reconstruction identifies tracks and
