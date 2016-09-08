@@ -38,12 +38,15 @@ shower with respect to the drift field.  Procedures that first
 identify signal hits and protect them from distortion~\cite{microboone_noise} 
 are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
 has achieved excellent noise levels consistent with expectations based on 
-the design specification of cold electronics (Fig.~\ref{fig:rms3} in Sec.~\ref{sec:tpc-signal-calibration}).
-For protoDUNE, the goal is to achieve such a performance without 
-software noise filtering. 
-\fixme{That's a bold statement: is there enough info about the MicroBoone noise that allows us to 
-realistically achieve this goal ? If so, a sentence or two with additional info would be useful to 
-convince the reader.}
+the design specification of cold electronics (Fig.~\ref{fig:rms3} 
+in Sec.~\ref{sec:tpc-signal-calibration}).  In MicroBooNE, various 
+sources of these excess of noise have been identified and hardware upgrades 
+are on-going to eliminate the excess of noise. Therefore, it is expected
+such a performance can be achieved without the software noise filtering in
+protoDUNE.
+%\fixme{That's a bold statement: is there enough info about the MicroBoone noise% that allows us to 
+%realistically achieve this goal ? If so, a sentence or two with additional info% would be useful to 
+%convince the reader.}
 
 The %%% raw
  signals are then processed to recover the ionization charge
@@ -267,26 +270,33 @@ usage of the charge information is quite unique for a LArTPC, as each of the
 wire planes in principle detects the same amount of the ionization electrons. 
 Figure~\ref{fig:quality} shows an example of the performance of the WireCell 3D imaging. 
 The large blue blob reflects the ambiguities due to wire readout for a track
-traveling parallel to the wire plane. A 3D web-based 
+traveling parallel to the wire plane (not necessary to the wire directly). A 3D web-based 
 display can be found at \cite{ref:wirecell-3D}. 
 For these types of events a group of wires from each 
 wire plane fires simultaneously. Therefore, the time and geometry 
 information will provide rather limited constraints on the hit associations.
-\fixme{Parallel to a wire in one of the planes implies that for the other two planes multiple wires should be crossed - so, why does geometry still provide limited information ??} 
+%\fixme{Parallel to a wire in one of the planes implies that for the other two planes multiple wires should be crossed - so, why does geometry still provide limited information ??} 
 The advantage of the WireCell approach is that it utilizes full TPC 
-information. The strong requirement 
-\fixme{which requirements exactly ? spell out what these requirements are.}
-on the time/geometry/charge information
-provides a natural way to suppress electronic noise at the cost of being more
-sensitive to hit inefficiencies.
-\fixme{What type of hit inefficiencies ??}
+information. The requirement is i) hits arriving at different time slice cannot be
+matched together, ii) hits from different wire planes arriving at the same time slice
+cannot be matched together if the wires are not crossing at the same overlapping region, 
+and iii) hits from different wire planes arriving at the same time slice and crossing
+at the same overlapping region are unlikely to be matched if their charges are quite different. 
+These strong requirements 
+%\fixme{which requirements exactly ? spell out what these requirements are.}
+on the time/geometry/charge information provides a natural way to suppress electronic noise.
+The suppression of the electronic noise is at the cost of being more
+sensitive to hit inefficiencies due to for example dead channels or improper signal processing.
+%\fixme{What type of hit inefficiencies ??}
  Since the track and shower hypotheses
 are not used, the 3D imaging works for any event topology. Once the 3D
 images are reconstructed, 3D pattern recognition is needed to identify 
 the content inside the image. Figure~\ref{fig:tracking2} shows the 
 performance of the currently available 3D pattern recognition inside
-WireCell. 
-\fixme{maybe add a comment why the straight track was missed.}
+WireCell. For the long track going close to parallel to the wire plane, the reconstructed
+track shows a zig-zag behavior. This is due to the current lack of fine track fitting algorithm
+that is expected to be added in the near future. 
+%\fixme{maybe add a comment why the straight track was missed.}
 Further developments of the WireCell pattern recognition 
 are needed before meaningful physics quantities can be calculated.
 %
