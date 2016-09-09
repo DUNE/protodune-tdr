@@ -35,18 +35,18 @@ In terms of technical requirements the system needs to:
 Figure~\ref{fig:fig-c-1} illustrates the system design schematically. The system consists of a 1U rack mount Light Calibration Module (LCM) sitting outside the cryostat. The LCM generates light pulses that propagate through a quartz fiber-optic cable to diffusers at the CPA to distribute the light uniformly across the photon detectors mounted within the APA.  ProtoDUNE-SP will have five light 
 diffusers on the CPA plane: one in the center and four diffusers close to the CPA corners, as illustrated in Figure~\ref{fig:fig-c-2}. 
 %
- \begin{cdrfigure}[UV-light monitoring system]{fig:fig-c-1}{Concept of the UV-light monitoring system for the photon detector in liquid argon.}
+ \begin{cdrfigure}[UV-light monitoring system]{fig-c-1}{Concept of the UV-light monitoring system for the photon detector in liquid argon.}
 \includegraphics[angle=0,width=10cm,height=7cm]{calPD_concept-from-35ton.pdf}
 \end{cdrfigure}
 %
 %
 \begin{cdrfigure}[Deployment of PDS UV-light monitoring system]{fig-c-2}{The diffuse light is emitted from diffusers (top and bottom left figure) mounted at five CPA locations, indicated by arrows (right figure). 
 The UV light from the light Calibration Module to diffusers is transported through quartz fiber.}
-\includegraphics[angle=0,width=0.4\textwidth]{calPD_Calibration_diffuser_system_protoDUNE_slide_left_half.pdf}
-\includegraphics[angle=0,width=0.55\textwidth]{calPD_Calib_diffuser_locations_protoDUNE.pdf}
+\includegraphics[angle=0,width=0.6\textwidth]{calPD_Calibration_diffuser_system_protoDUNE_slide_left_half.pdf}
+\includegraphics[angle=0,width=0.4\textwidth]{calPD_Calib_diffuser_locations_protoDUNE.pdf}
 \end{cdrfigure}
 
-\fixme{left hand figure's text is way too small}
+%\fixme{left hand figure's text is way too small} Made figure bigger and right fig smaller.  We'll see. LMM
 %
 %
 For the 280-nm light a simulation of the designed diffuse light monitoring system has been performed using TracePro, a generalized 3D light ray-tracing program with the ability 
@@ -55,7 +55,7 @@ As an example, Figure~\ref{fig:fig-c-4} shows simulated light distributions at a
 or by the outer four diffusers simultaneously (right figure). 
 
 %
-\begin{cdrfigure}[UV-light monitoring illumination calculation]{fig:fig-c-4}{Simulated light distributions of at the APA location for the cases of the VUV light emitted by either the central diffuser only (left figure), or by outer four diffusers simultaneously (right figure).
+\begin{cdrfigure}[UV-light monitoring illumination calculation]{fig-c-4}{Simulated light distributions of at the APA location for the cases of the VUV light emitted by either the central diffuser only (left figure), or by outer four diffusers simultaneously (right figure).
 The simulation estimate has been obtained for 35-ton detector and scaled by to 3.6 m CPA - APA distance at ProtoDUNE-SP.}
 \includegraphics[angle=0,width=6.5cm,height=6cm]{calPD_4mx4m-area-3point6m-away-quantified.png}
 \includegraphics[angle=0,width=6.5cm,height=6cm]{calPD_figR.pdf}
@@ -88,7 +88,7 @@ The length of optical fiber cables used %with the 35-ton detector
 was $\sim$22 m total, including external fibers (7 m), and fiber feed-through and internal fibers (15 m).
 
 %
- \begin{cdrfigure}[Detected UV-light monitoring system light pulses]{fig:fig-wf}{Photon detector light pulses detected by readout electronics. Recorded waveforms have range from few photo-electrons (left figure), to tens of photo-electrons (middle figure), to hundreds of photo-electrons (right figure).}
+ \begin{cdrfigure}[Detected UV-light monitoring system light pulses]{fig-wf}{Photon detector light pulses detected by readout electronics. Recorded waveforms have range from few photo-electrons (left figure), to tens of photo-electrons (middle figure), to hundreds of photo-electrons (right figure).}
 \includegraphics[angle=0,width=5cm,height=4cm]{calPD_example_ch21_run18573.pdf}\includegraphics[angle=0,width=5cm,height=4cm]{calPD_example_ch21_run18574.pdf}\includegraphics[angle=0,width=5cm,height=4cm]{calPD_example_ch21_run18572.pdf}
 \end{cdrfigure}
 %
@@ -121,7 +121,7 @@ for the deep underground DUNE detectors since the cosmic ray flux may be inadequ
    \end{itemize}
 \end{enumerate}
 
-\fixme{How long do these monitoring run take ? When would they be taken (relative to beam and comics running) ? Some interference with light from comics is expected; how will this be addressed ?}
+\fixme{How long do these monitoring run take ? When would they be taken (relative to beam and comics running) ? Some interference with light from comics is expected; how will this be addressed ? Time of a flash will be known much better then 1us, so not much overlap with random cosmic events at ~1ms }
 
 The controlled source of light %described here 
 in this monitoring system will be used to perform time offset and time resolution measurements.  
