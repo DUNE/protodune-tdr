@@ -78,12 +78,11 @@ During all phases, CERN codes and standards will guide the design, procurement a
 
 %%%\fixme{ [Will this be written in another section?? If not, we can leave it here]DM}
 
-The project requirements for the ProtoDUNE cryogenic system are identical to those of the DUNE Far Detector cryogenics. The current list 
-of requirements is available at \cite{DUNE_FD_cryogenics_req}
+The project requirements for the ProtoDUNE cryogenics system are identical to those of the DUNE Far Detector cryogenics. The current list 
+of requirements is available at \cite{DUNE_FD_cryogenics_req}. Note that the requirement numbers are subject to change.
 %%% on DocDB n. 112 \fixme{Add citation}.
 
 A selection of the most relevant requirements is presented here:
-\fixme{requirement IDs are changing; will need to fix - specify version of cited doc for IDs }
 %
 \begin{itemize}
 \item Cryo-se-4: The system shall allow recirculation and purification of the liquid argon inventory to achieve the needed LAr purity to meet the scientific requirement (less than 10 day/volume change based on ICARUS experience).
@@ -126,7 +125,6 @@ Figure~\ref{fig:3d-view-cryo-installation} shows a 3D view of the cryogenic inst
 \begin{cdrfigure}[3D model of the installation ]{3d-view-cryo-installation}{3D model of the installation } 
 \includegraphics[width=\linewidth]{3d-view-cryo-installation}
 \end{cdrfigure}
-\fixme{DM: May be replaced with a more complete one with building also}
 %
 Figure~\ref{fig:int-cryogenics-detail} shows a 3D view of a detail of the internal cryogenics: the cryostat and detector cool down manifolds at the top of the cryostat.
 %
@@ -136,7 +134,7 @@ Figure~\ref{fig:int-cryogenics-detail} shows a 3D view of a detail of the intern
 
 There is a common receiving facility for NP-02 and NP-04 located outside the building, from which Argon and Nitrogen lines take LAr, GAr, and LN2 to the respective installations.
 
-A 50 m$^3$ (69 tons of LAr capacity) vertical dewar will allow for receipt of LAr deliveries for the initial filling period. This liquid argon dewar serves also as a buffer volume to accept liquid argon during the fill period. An analyzer rack with instruments to check water, nitrogen, and oxygen content of the delivered LAr batches will also be located in the vicinity. A \fixme{xxx} kW vaporizer is used to vaporize the liquid argon from the storage dewar prior to delivery to the GAr pipes.
+A 50 m$^3$ (69 tons of LAr capacity) vertical dewar will allow for receipt of LAr deliveries for the initial filling period. This liquid argon dewar serves also as a buffer volume to accept liquid argon during the fill period. An analyzer rack with instruments to check water, nitrogen, and oxygen content of the delivered LAr batches will also be located in the vicinity. A 55-kW vaporizer is used to vaporize the liquid argon from the storage dewar prior to delivery to the GAr pipes.
 
 The cryostat will have its own argon condenser (16 kW of cooling power), argon-purifying equipment and overpressure protection system. The full power of the argon condenser is used during the initial cool down phase only, which is expected to take two to three weeks. 
 
@@ -171,14 +169,14 @@ The flow velocity of the advancing GAr will be set to 1.2 m/hour. This is twice 
 \includegraphics[width=\linewidth]{2d-sim-purge}
 \end{cdrfigure}
 
-The Computational Fluid Dynamics (CFD) model of the purge process has been verified in multiple arrangements: (1) in an instrumented 1 m-diameter by 2 m-tall cylinder, (2) in LAPD, a 3 m- diameter by 3 m-tall cylindrical tank where gas-sampling measurements were at varying heights and times during the purge process, and (3) within the 35 ton membrane cryostat, a prototype vessel built for LBNE in 2013. The results of these tests are available in \cite{CFD_verification} \fixme{add reference}
+The Computational Fluid Dynamics (CFD) model of the purge process has been verified in multiple arrangements: (1) in an instrumented 1 m-diameter by 2 m-tall cylinder, (2) in LAPD, a 3 m- diameter by 3 m-tall cylindrical tank where gas-sampling measurements were at varying heights and times during the purge process, and (3) within the 35 ton membrane cryostat, a prototype vessel built for LBNE in 2013. The results of these tests are available in~\cite{lar1-nd-35-ton-talk} and~\cite{CFD_verification-lapd}. 
 %
 Once the residual air inside the tank is at the the ppm level, the process continues in the closed loop configuration. 
 
 %%%%%%%%%%%%
 \paragraph{Purge in closed loop}
 
-Water and oxygen will continue to be removed from the system for several days following the initial purge. During this step the GAr is no longer exhausted but recirculated through the GAr purifier and sent back to the bottom of the cryostat. The cryostat contains xxx \fixme{add number} tons of FR4 circuit-board material and a smaller inventory of plastic-jacketed power and signal cables. These somewhat porous materials may contain as much as 0.5\% water by weight. Water-vapor outgassing from these materials will be entrained in the gas flow exiting the top of the cryostat and will be removed from the gas stream by filters. Adsorbed water will also be removed from the metallic inner surfaces of the cryostat and piping system. Water deep within porous materials will remain; this is not a problem since the water diffusion rate in FR4 at room temperature is already quite low (0.3 ($\mu$m)$^2$/s) and the FR4 assemblies are relatively thick (1 cm).\\
+Water and oxygen will continue to be removed from the system for several days following the initial purge. During this step the GAr is no longer exhausted but recirculated through the GAr purifier and sent back to the bottom of the cryostat. The cryostat contains xxx \fixme{add number (detector people)} tons of FR4 circuit-board material and a smaller inventory of plastic-jacketed power and signal cables. These somewhat porous materials may contain as much as 0.5\% water by weight. Water-vapor outgassing from these materials will be entrained in the gas flow exiting the top of the cryostat and will be removed from the gas stream by filters. Adsorbed water will also be removed from the metallic inner surfaces of the cryostat and piping system. Water deep within porous materials will remain; this is not a problem since the water diffusion rate in FR4 at room temperature is already quite low (0.3 ($\mu$m)$^2$/s) and the FR4 assemblies are relatively thick (1 cm).\\
 %
 This process reduces the oxygen and water contamination inside the cryostat to sub-ppm levels, at which point the cool down may commence.
 
@@ -317,8 +315,7 @@ The pressure inside the cryostat is maintained within a very narrow range by a s
 The pressure-control valves are sized and set to control the internal cryostat pressure under normal operating conditions to the nominal design pressure of 0.113 MPa. Fluctuations within the range 0.105 MPa (50 mBarg) to 0.120 MPa (200 mBarg) will be allowed. Excursions 
 of a few percent (exact values to be determined) above or below these levels will set off alarms to alert the operator to intervene. Further excursion may result in automatic (executive) actions. These actions may include stopping the LAr circulation pumps (to reduce the heat ingress to the cryostat), increasing the argon flow rate through the condenser, increasing the LN2 flow through the heat exchanger inside the condenser, powering down heat sources within the cryostat (e.g., detector electronics), venting some of the GAr to reduce the pressure in a controlled way. Eventually, if the pressure continues to rise, it will trigger the Pressure Safety Valves (PSVs) to operate. 
 
-If the pressure decreases, we can introduce fresh GAr in the cryostat through the GAr make-up line, a dedicated GAr feed line that takes argon directly from the outside supply and is vaporized for a quick intervention.
-\fixme{check whether previous sentence was completed accurately.}
+If the pressure decreases, we can introduce fresh GAr in the cryostat through the GAr make-up line, a dedicated GAr feed line that takes argon directly from the outside supply.
  If the pressure continues to decline, it will trigger the Vacuum Safety Valves (VSVs) to operate.
 %
 Table \ref{tab: cryostat-norm-pressures} summarizes the cryostat pressures during normal operation.
@@ -330,14 +327,14 @@ Relief valve set pressure & 0.135 MPa (350 mBarg)\\ \colhline
 Warm structure design working pressure & 0.135 MPa (350 mBarg) \\ 
 \end{cdrtable}
 
-The ability of the control system to maintain a set pressure is dependent on the size of pressure upsets (due to changes in flow, heat load, temperature, atmospheric pressure, etc.) and the volume of gas in the system. The reference design has 0.4 m of gas at the top of the cryostat. This is 5\% of the total argon volume and is the typical vapor fraction used for cryogenic storage vessels. Reaction times to changes in the heat load are slow and are typically on the order of an hour \fixme{(OK ?! - to be confirmed).}
+The ability of the control system to maintain a set pressure is dependent on the size of pressure upsets (due to changes in flow, heat load, temperature, atmospheric pressure, etc.) and the volume of gas in the system. The reference design has 0.4 m of gas at the top of the cryostat. This is 5\% of the total argon volume and is the typical vapor fraction used for cryogenic storage vessels. Reaction times to changes in the heat load are slow and are typically on the order of an hour.
 
 %%%%%%%%%%%%%%%%%%%%%
 \paragraph{Overpressure control}
 
 In addition to the normal-operation pressure-control system, it is planned to provide a cryostat overpressure-protection system. This must be a high-integrity, automatic, failsafe system capable of preventing catastrophic structural failure of the cryostat in the case of excessive internal pressure.
 
-The key active components of the planned system are Pressure Safety Valves (PSVs) located on the roof of the cryostat that will monitor the differential pressure between the inside and the outside of the cryostat and open rapidly when the differential pressure exceeds a preset value. A pressure-sensing line is used to trigger a pilot valve which in turn opens the PSV. The PSVs are self-contained devices provided specially for tank protection; they are not normally part of the control system. \fixme{Are these the same PSVs as those mentioned in the previous paragraph under normal operations ? If so, may want to scratch earlier mention of the PSVs. If not, how are these PSVs different from the ones mentioned earlier ?}
+The key active components of the planned system are Pressure Safety Valves (PSVs) located on the roof of the cryostat that will monitor the differential pressure between the inside and the outside of the cryostat and open rapidly when the differential pressure exceeds a preset value. A pressure-sensing line is used to trigger a pilot valve which in turn opens the PSV. The PSVs are self-contained devices provided specially for tank protection; they are not normally part of the control system. 
 
 The installation of the PSVs will ensure that each valve can periodically be isolated and tested for correct operation. The valves must be removable from service for maintenance or replacement without impacting the overall containment envelope of the cryostat or the integrity of the over-pressure protection system. This normally requires the inclusion of isolation valves upstream and downstream of the pressure-relief valves and at least one spare installed relief valve ($n + 1$ provision) or the use of a diverter valve that allows one valve to be always connected to the cryostat. \\
 %
@@ -359,7 +356,7 @@ The project follows the CERN QA/QC plan. Additionally, specific Neutrino Platfor
 %
 External companies will be contracted for the design, fabrication, delivery, installation and testing of the cryogenic system, one for the proximity and external cryogenics and one (could be the same) for the internal cryogenics.
 
-The following sections are extracts from the \textit{Quality Assurance} section of the Invitation to Tender for the proximity and external cryogenics and the Price Enquiry for the internal cryogenics. \fixme{need  citation}
+The following sections are extracts from the \textit{Quality Assurance} section of the Invitation to Tender for the proximity and external cryogenics and the Price Enquiry for the internal cryogenics~\cite{invit-tender-cryo}.
 
 %%%%%%%%%%%%%
 \paragraph{General}
@@ -408,8 +405,7 @@ The plan shall indicate how, when and by whom deviations and non-conformities wi
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Inspection and controls}
 
-Specific control points apart from the ones required by the chosen applicable standards and PED Essential Safety Requirements
-\fixme{spell out acronyms, here PED when used for first time}
+Specific control points apart from the ones required by the chosen applicable standards and Pressure Equipment Directive (PED) Essential Safety Requirements
  will be performed during the fabrication and installation phases. Every specific inspection or control will be covered by a dedicated procedure developed by the manufacturer and approved by CERN. In case of non-conformities (i.e., non-compliance with specified requirements), a corresponding non-conformity report will be issued by the manufacturer.
 
 The contractor will ensure a close oversight of the manufacturing. This monitoring will include Notification Points (NP) and Hold Points (HP).
