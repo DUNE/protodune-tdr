@@ -20,7 +20,7 @@ The \textit{``\pd/SP Data Scenarios''} spreadsheet\,\cite{data_spreadsheet}  %(D
 describes a few possible running conditions and estimates for their
 resulting data volumes and rates and interpretations in terms of
 network and disk bandwidth. The set of conditions labeled as ``Central'' represents the most likely scenario
-and correlated with the current run plan (see \ref{sec:runplan}).
+and is correlated with the current run plan (see \ref{sec:runplan}).
 % maxim: fixed
 % \fixme{Should briefly describe what the 3 running conditions are}
  It also includes estimates for non-beam
@@ -35,7 +35,7 @@ is similar to or better than that achieved by MicroBooNE.
   \begin{tabular}[h]{l|r}
 \hline
     Trigger rate & \SI{25}{\Hz} \\
-    Spill duration & \SI{4.5}{\second} \fixme{should be 4.8s} \\
+    Spill duration & \SI{4.8}{\second} \\
     SPS Cycle & \SI{22.5}{\second} \\
     Readout time window & \SI{5}{\milli\second} \\
     \# of APAs to be read out & 6 \\
@@ -111,8 +111,9 @@ be provisioned in order to acquire and store the data from these
 systems.
 
 The network speed of all computers in the data acquisition
-chain is anticipated to be 10\,Gbits/sec. 
-\fixme{not consistent with 20 GBit/s mentioned in DAQ section}
+chain is anticipated to be 20\,Gbits/sec. 
+% maxim - fixed
+% \fixme{not consistent with 20 GBit/s mentioned in DAQ section}
  Computers running near-line
 processing of subsets of the data, which are generally CPU-bound, may
 be connected with 1\,GBit/sec links.  The software framework for
@@ -165,9 +166,9 @@ additional R\&D and testing.
 After the data are written to disk by {\it artdaq}, the data handling
 system creates metadata files,optionally  runs near-line monitoring jobs, and
 transfers the data from EHN1 to the CERN Computing Centre \cite{docdb1212}.
-According to the current plan,
-the ``F-FTS'' software 
-\fixme{acronym needs to be spelled on first use}
+According to the current plan, the ``Fermi File Transfer Service'' (F-FTS) software 
+% maxim: fixed 
+%\fixme{acronym needs to be spelled on first use}
 developed and maintained at FNAL will be the central element
 of the data flow management at this level.
 
