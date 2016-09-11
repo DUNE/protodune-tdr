@@ -1,0 +1,176 @@
+
+\section{Calibration Strategy}
+%\fixme{from Josh K}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Motivation}
+
+
+	The scientific program of protoDUNE is critical to the ultimate success
+of DUNE.  ProtoDUNE will be the DUNE Collaboration's only opportunity to
+measure the response of a DUNE-style LAr-TPC to hadrons (as well as $\gamma$s,
+$\mu$s, and electrons), and to compare those measurements to a model of the
+detector response. That model can then be used to predict the response for DUNE
+itself.  Precision measurements of response in testbeams are a common approach
+of long-baseline neutrino experiments. As a recent example, NO{$\nu$}A has
+found that some of their measurements are limited by the lack of knowledge of
+this response, which a testbeam would have provided.
+	
+	By itself, however, protoDUNE does {\it not} provide a response
+measurement that can simply be mapped onto DUNE.  Rather, protoDUNE provides
+measurements of the part of the response that depends on the interactions of
+various particle species in LAr.  The remainder of the detector response, which
+includes reconstruction resolutions and biases, the effects of noise, space
+charge and how it impacts reconstruction, and the conversion from observed
+charge to energy, all must be calibrated and ultimately removed from the
+physical hadron response.  Misinterpreting, for example, longitudinal diffusion
+as a fundamental part of shower development of $\pi^+$s means our understanding
+of $\pi$s will be wrong in DUNE---and there will be no test of that response in
+the DUNE FD, independent of neutrino events themselves.  By building protoDUNE
+in a way that mimics the DUNE far detector, one would still have to assume that such errors will
+`cancel out';
+ in practice one cannot rely on such a cancellation without knowing
+how different the parameters governing the response may be.
+
+	Ultimately, what this means is that one must calibrate a model of the
+detector---likely a LArSoft model---and use it to predict the response to
+hadrons.  If the detector model is accurate, differences between the predicted
+response to various hadrons and measurements allows a correction to the hadron
+response that can be used for the DUNE experiment.  
+
+	The existing option for creating a calibrated detector model for
+protoDUNE is to presume that calculations of the electric field throughout the
+detector, including space charge effects and impurities, are accurate, and that
+with this as input the detector response is uniquely calculable throughout the
+volume and for all times, up to the details of the electronics transfer
+function (and of course the response to various particle species which is what
+is being measured by protoDUNE).  
+
+	Figure~\ref{fig:35t} shows the variations in electron lifetime within
+\fixme{where is figure in this doc ?}
+the 35 tonne prototype as a function of position, as measured by {\it in-situ}
+purity monitors. The clear differences top and bottom indicate that we cannot
+assume that measurements in just a few places represent the detector as a
+whole. In addition to these variations, changes with the ambient environment
+were also seen, indicating that measurements must be made with reasonable
+frequency as well.  An idealized view of how an operating detector will behave
+would miss such variations.
+	 
+	        The calibration program for DUNE has as its goal both the
+measurement of the parameters governing detector response and {\it tests} of
+the predicted response.  Table~\ref{tbl:params} lists many of the critical
+%
+\begin{table}
+\begin{center}
+\begin{tabular}{|l| l| l| l| l| } \hline \hline
+{\bf Parameter} & {\bf Name} & {\bf Ex-situ Calibration} & {\bf Calibration} & {\bf Test} \\ \hline
+$W$ & Ionization Energy  & Benchtop & None & Cosmics \\
+$C$ & ADC/Charge Map & Benchtop Pulsers & Front-End Pulsers & Stopped cosmics \\
+$f$ & Energy Scale & Calculation & Stopped cosmics & Through-going cos. \\
+$R$ & Electron recombination & Calculation & Through-going cosmics & Michels\\
+$\tau$ & Electron lifetime & Purity Monitors & Through-going cosmics & Stopped
+cosmics\\
+$\vec{E}(\vec{r})$ & Electric Field map & Calculation & Crossing cosmics/halo &
+Michels \\
+$v_d$ & Drift Speed & Purity+temp+Calc.& triggered cosmics & None \\
+$d$ & Electron Diffusion & Calculation & triggered cosmics & None \\
+$\rho_E$ & Field response & Calculation & Through-going cosmics & None \\ \hline \hline
+\end{tabular}
+\caption{Parameters to be calibrated for ProtoDUNE model\label{tbl:params}}
+\end{center}
+\end{table}
+%
+parameters that need to be measured, and what will be available in protoDUNE
+for both measurements of the parameters and tests of the resulting calibrated
+model.  Unfortunately, time and budget constraints will prevent us from
+building and deploying a laser system like that used in other surface
+single-phase LAr-TPCs.  ProtoDUNE calibrations will rely solely on cosmic rays---those triggered by
+going through a set of external tracking scintillation panels.  
+%ProtoDUNE will
+%be the first large-scale, surface single-phase LAr-TPC to make physics
+%measurements using only calibrations from cosmic rays, and will therefore
+%represent a triumph of the DUNE ``no LAr-TPC calibration device needed''
+%philosophy.
+%%% --- I like this sentence but it may be better not to trigger those kinds of discussions with the SPSC reviewers - TK ---
+
+It is assumed that there will be
+several auxiliary systems that already provide measurements or estimates of
+some of these parameters:
+\begin{itemize}
+\item Monitors of HV and current to the APAs \fixme{verify whether this is the case}
+\item Survey of wire positions \fixme{verify whether this is planned}
+\item Temperature sensors {\it in situ} at several places in the volume
+\item Purity monitors at several positions within the volume
+\item Front-end electronics response calibration pulsers.
+\end{itemize}
+        These systems provide the initial input to the model for electric
+field, and for calculations of average drift velocity, electron lifetime, and
+electron diffusion.  The goal of the calibration system described here 
+is first to measure the response parameters with granularity in time and
+position that cannot be accomplished by the above systems, and to test the
+resultant model with tracks of known positions, trajectories, and energy
+deposits.
+
+
+\fixme{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+The planned cosmic muon tagging hardware is described in section \ref{sec:muontagger}
+
+        Although there are many possible configurations for deployment of the
+counters, a particularly interesting deployment would be fore-and-aft,
+therefore triggering on muons that had trajectories similar to beam events. In
+this configuration, the counters could also serve as a tagger for beam halo
+events.  By tagging such events, only those whose energy and position are
+reasonably well constrained will be part of the beam calibration.
+
+        To fully measure the field map using cosmic rays, crossing
+tracks to resolve ambiguities in the field direction are needed.  Our studies have shown
+that even with counters just fore-and-aft, we can illuminate the detector
+using halo muons that pass through both counters (i.e., roughly horizontally)
+that cross cosmic tracks going through just one counter. In this case, the
+trajectory of the cosmic ray inside the TPC is determined by the TPC itself.
+While this argument appears problematic since it is the TPC we are attempting
+to calibrate in the first place, we anticipate that the longitudinal field is
+known well enough, even in the presence of large space charge effects, that
+uncertainties in the drift velocity will be small.  While this has not yet been
+quantitatively demonstrated in a real large-scale detector, for ProtoDUNE the plan 
+is to use cosmics that go through both sets of counters to determine the drift
+velocity field map (independently of determination of the electric field map)
+and to use that map (rather than the electric field map) to reconstruct the
+crossing tracks.  The collaboration has not yet explored whether the correlation between
+these two approaches will lead to an unacceptably large uncertainty on the
+field.
+
+ While the fore-aft deployment scheme works well for calibration plans,
+it provides little help on tagging cosmics that could cause difficulty for
+reconstruction algorithms, since the vast majority of those will be
+downward-going.  Reconstruction, however, has progressed significantly and
+there is no expectation that existing algorithms will have problems identifying
+beam-related tracks and showers beneath the rain of cosmics. There is therefore
+no need for counters above and below the detector.
+
+        In addition to using the triggered horizontal cosmics to measure the
+drift velocity map, and the crossing halo muons with high-angle cosmics to
+determine the transverse field components, we will also use stopped cosmics to
+provide a measure of the detector's energy scale. Stopped cosmics have the
+advantage that about a meter upstream of the track endpoint the muon is a MIP
+and dE/dx is very well known. The techniques of using these has been
+demonstrated very successfully in both MINOS and NOvA, and MicroBooNE has made
+excellent progress in using these as a calibration as well. Once stopped cosmics have been 
+used as a calibration source, the quality of the calibration can be tested by looking at the Michel
+spectrum (using the same stopped events) and ultimately the mass peak of
+reconstructed $\pi^0$s produced from charged pion beam events.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%---\subsection{PDS Calibration} -- ANL -- Zelimir
+%%---     Mechanical design -- Zelimir interface with Bob Sands?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\subsubsection{PDS Calibration Run Plan}
+ %%    Run/Measurement plan  -- Toups ?
+  %%   Light yield vs. field
+   %%  timing studies,
+   %%  beam off trigger
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{QC Procedures}
+
+\fixme{Any QC procedures for the cosmic tagger ??}
