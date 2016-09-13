@@ -270,18 +270,18 @@ usage of the charge information is quite unique for a LArTPC, as each of the
 wire planes in principle detects the same amount of the ionization electrons. 
 Figure~\ref{fig:quality} shows an example of the performance of the WireCell 3D imaging. 
 The large blue blob reflects the ambiguities due to wire readout for a track
-traveling parallel to the wire plane (not necessary to the wire directly). A 3D web-based 
+traveling parallel to the wire plane (but not necessarily in the direction of a single wire). A 3D web-based 
 display can be found at \cite{ref:wirecell-3D}. 
 For these types of events a group of wires from each 
 wire plane fires simultaneously. Therefore, the time and geometry 
 information will provide rather limited constraints on the hit associations.
 %\fixme{Parallel to a wire in one of the planes implies that for the other two planes multiple wires should be crossed - so, why does geometry still provide limited information ??} 
 The advantage of the WireCell approach is that it utilizes full TPC 
-information. The requirement is i) hits arriving at different time slice cannot be
-matched together, ii) hits from different wire planes arriving at the same time slice
-cannot be matched together if the wires are not crossing at the same overlapping region, 
-and iii) hits from different wire planes arriving at the same time slice and crossing
-at the same overlapping region are unlikely to be matched if their charges are quite different. 
+information. The requirement is that i) hits arriving at different time slices cannot be
+matched together, ii) hits from different wire planes arriving within the same time slice
+cannot be matched together if the wires are not crossing in the same overlapping region, 
+and iii) hits from different wire planes arriving within the same time slice and crossing
+in the same overlapping region are unlikely to be matched if their charges are quite different. 
 These strong requirements 
 %\fixme{which requirements exactly ? spell out what these requirements are.}
 on the time/geometry/charge information provides a natural way to suppress electronic noise.
@@ -294,7 +294,7 @@ images are reconstructed, 3D pattern recognition is needed to identify
 the content inside the image. Figure~\ref{fig:tracking2} shows the 
 performance of the currently available 3D pattern recognition inside
 WireCell. For the long track going close to parallel to the wire plane, the reconstructed
-track shows a zig-zag behavior. This is due to the current lack of fine track fitting algorithm
+track shows a zig-zag behavior. This is due to the current lack of a fine track fitting algorithm
 that is expected to be added in the near future. 
 %\fixme{maybe add a comment why the straight track was missed.}
 Further developments of the WireCell pattern recognition 
