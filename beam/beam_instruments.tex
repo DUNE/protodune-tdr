@@ -3,43 +3,45 @@
 \label{sec:beaminstruments}
 
 The H4 beamline will be instrumented with a number of beamline monitors to provide information 
-%\fixme{should we add "and trigger capability" ?}
- about the beam profile, position, momentum, and particle identification, and trigger capability. 
- %A number of proposals are being evaluated NP04.  --- can't say this in a TDR ---
- In this section, the baseline design for the beam monitors are presented. 
+ about the beam profile, position, momentum, particle identification, and trigger capability. 
+This section discusses the baseline design for the beam monitors. 
+\fixme{Is `baseline design' the right term to use?}
 
+%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beam profile monitoring, particle tracking and momentum measurements}
-Operation of the beam line requires at least one beam  monitor, able to provide the beam profile in two dimensions at the end of the beamline.   The beam monitor can also be exploited for data analysis, provided that it delivers data on an event-by-event basis. Another monitor, located immediately downstream of the last bending magnet, is added in the layout  in order to determine the particle  direction and position and match it with the reconstructed track in the LAr active volume.
 
-%\subsection{Momentum measurements}
-The uncertainty in momentum resolution of the beam can be reduced by measuring the momentum particle by particle with a set of three detectors placed one before and two after one of the bending magnets. In ideal conditions, momentum resolutions of the order of 1\% could be achieved with this system, however  multiple scattering can affect the measurement
-at low energies, therefore only a full simulation of the beamline can assess the performance of the setup.  
-Preliminary results using full simulations indicate that a momentum resolution on the order of  2\% is achievable. The same devices which are used for beam monitoring can also be used for momentum measurements.
+Operation of the beamline requires at least one beam  monitor, able to provide the beam profile in two dimensions at the end of the beamline.   The beam monitor can also be exploited for data analysis, provided that it delivers data on an event-by-event basis. Another monitor, located immediately downstream of the last bending magnet, is added in the layout  in order to determine the particle  direction and position, and match it with the reconstructed track in the LAr active volume.
+
+The uncertainty in momentum resolution of the beam can be reduced by measuring the momentum particle by particle, with a set of three detectors placed one before and two after one of the bending magnets. In ideal conditions, momentum resolutions of the order of 1\% could be achieved with this system; however since multiple scattering can affect the measurement
+at low energies, only a full simulation of the beamline can assess the performance of the setup.  
+Preliminary results using full simulations indicate that a momentum resolution on the order of  2\% is achievable. The %same 
+devices that are used for beam monitoring can also be used for momentum measurements.
 %
 \paragraph{Fiber tracker}
 The CERN Beam Instrumentation (BI) group will produce
-%\fixme{This is a TDR. We can no longer write about proposal. Instead we need to describe what we are planing to build. One possibility could be to describe the primary system and then describe a potential back-up/alternate.}
- beam monitors based on scintillating fibers, which have a polystyrene core surrounded by cladding\cite{Scifi}. Fibers provide a light yield ~8000 photons/MeV deposited with fast rise and decay times of 1-3 ns. The baseline design foresees 1mm square fibers in two planes to provide X and Y coordinates. Fibers will be mirrored on one end to increase
-light collection.  Every monitor consisting of two planes of 1~mm thick fibers adds 0.47\% $X_0$ to the material budget. The tree devices needed for momentum measurement will consist of one layer only, oriented perpendicularly to the magnet deflection.
-A fiber plane is made out of 192 fibers with no space between them. It will cover an area of 192mm $\times$ 192mm and fits in the beamline.
+ beam monitors based on scintillating fibers, which have a polystyrene core surrounded by cladding\cite{Scifi}. Fibers provide a light yield of $\sim$8000 photons/MeV, deposited with fast rise and decay times of 1--3 ns. The baseline design foresees 1-mm square fibers in two planes to provide $x$ and $y$ coordinates. Fibers will be mirrored on one end to increase
+light collection.  Every monitor consisting of two planes of 1-mm thick fibers adds 0.47\% $X_0$ to the material budget. 
+\fixme{Is $X_0$ defined?} The tree devices needed for momentum measurement will consist of one layer only, oriented perpendicularly to the magnet deflection.
+A fiber plane is made out of 192 fibers with no space between them. It will cover an area of 192~mm $\times$ 192~mm and fits in the beamline.
 Scintillation light will be read out by SiPMs, which in turn will be read out by custom electronics depending on the application (see below about the use for Time of Flight).
 %
-%\fixme{Need to decide on one and describe that one.}
+\fixme{Need to decide on one and describe that one. (Anne : meaning some custom elec, which one gets used depends on what sort of application -- what you'll use it for or some s/w app? }
 These monitors are designed to work inside the vacuum chamber and can be mounted on special flanges, without need to break the vacuum.
 
 \paragraph{Multiwire Proportional Chambers}
 As a backup solution,
-Fermilab has multi-wire proportional chambers (MWPCs) with X-Y sense plane
-readout, measuring approximately 128 mm x 128 mm, readily available that can also be used as beam profile monitors. 
+Fermilab has multi-wire proportional chambers (MWPCs) with $x-y$ sense plane
+readout, measuring approximately 128 mm $\times$128 mm, readily available that can also be used as beam profile monitors.   %%% to here  Anne 10/14 %%%
 Chambers add 2\% nuclear collision lengths and 7\% radiation lengths.
 %\fixme{Should use consistent notation, e.g. all \% or fractions }
  These chambers have a long history, so installation, integration and commissioning should be straightforward. They are operated in air, thus would require to divide the beamline vacuum into sections.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Particle identification}
 The H4 beamline is capable of delivering two types of beams: electron and hadron beams. While the electron beam is relatively pure, the hadron beam consists of a mixture of electron, pion, kaon, and proton. Therefore it is essential to have an efficient particle identification system to cleanly tag particle types on a particle by particle basis. To achieve this goal, a particle identification system based on a combination of threshold Cherenkov counters and Time-of-flight system is envisaged for ProtoDUNE. 
 %\fixme{Again, "is being considered" is not appropriate for a TDR}
-Cherenkov counters can be placed in the last segment of the beam line, in between the last bending magnet and the cryostat. Space for a ToF system is available provided that the detector envelope along the beam line is limited to 10-20~cm,
+Cherenkov counters can be placed in the last segment of the beamline, in between the last bending magnet and the cryostat. Space for a ToF system is available provided that the detector envelope along the beamline is limited to 10-20~cm,
 %\fixme{quantify "compact enough"}
 and would allow a flight path of 23~m.
 
@@ -121,14 +123,15 @@ The  scintillating fiber monitors can be used also for ToF purposes with the goa
 In this configuration, the time resolution would be dominated by the fiber response. MonteCarlo simulations foresee a resolution better than 1~ns. 
 A small prototype will be built and tested in the next few months to fully validate this solution.
 
-%\fixme{Overall the beam line instrumentation section could benefit from a more clearly stated plan. The reader is left to guess what will and will not be built.}
+%\fixme{Overall the beamline instrumentation section could benefit from a more clearly stated plan. The reader is left to guess what will and will not be built.}
 %%%% done above and below
 
+%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Material Budget and discussion}
 \label{beam-material-budget}
-The choice of the ToF system, and the actual configuration of the beam line at each point in momentum depend also on the material budget. As described in the following, some of the instrumentation will have to be removed, or at least emptied, when operating below $\approx$~2 GeV. Also, the ToF system will be different for the low energy range.
+The choice of the ToF system, and the actual configuration of the beamline at each point in momentum depend also on the material budget. As described in the following, some of the instrumentation will have to be removed, or at least emptied, when operating below $\approx$~2 GeV. Also, the ToF system will be different for the low energy range.
 
-Summing up all the required instrumentation, the ``full'' beam line will  include
+Summing up all the required instrumentation, the ``full'' beamline will  include
 %\fixme{should include OR will include ?? see earlier comments about 2nd Cherenkov counter. TOF counters ...}
 %\fixme{not all the instruments are there all the time. I was not clear, try to do better}
  5 beam monitors (2 for tracking and 3 for spectrometry), two ToF devices, two 2~m long Cherenkovs at high density or pressure. The material budget would be much too high for operation at low momenta (below 2 GeV/c), 
@@ -156,7 +159,7 @@ To overcome this problem, it is foreseen to   use  scintillating fibers as ToF d
 It has also to be noted that a good performance of the (combined) ToF system could avoid the use of high pressure  Cherenkov counters. This option is not considered here, but could
 represent an important simplification  in case the pLAPPD tests will demonstrate a resolution of $\approx$20ps.
 %\fixme{What are "non-standard" Cherenkov counters ?? High pressure, Freon...}
- \begin{cdrfigure}[Material budget]{matblfull}{Material budget in the beam line, as a function of the distance from the center of the detector (in cm). The red line describes the amount of $X_0$, the black line the amount of interaction length, both read on the left axis. The black dotted line is the average energy lost by a mip particle, and is read on the right axis (in MeV). Vertical lines show the positions of the various beam monitors (in between the two blue lines are the 3 devices for spectrometry, ``bm'' is the last beam monitor, ``bw'' is the starting point of the beam window).}  
+ \begin{cdrfigure}[Material budget]{matblfull}{Material budget in the beamline, as a function of the distance from the center of the detector (in cm). The red line describes the amount of $X_0$, the black line the amount of interaction length, both read on the left axis. The black dotted line is the average energy lost by a mip particle, and is read on the right axis (in MeV). Vertical lines show the positions of the various beam monitors (in between the two blue lines are the 3 devices for spectrometry, ``bm'' is the last beam monitor, ``bw'' is the starting point of the beam window).}  
 \includegraphics[width=0.65\textwidth]{blfuhcnwrayplo.pdf}
 \end{cdrfigure}
 %\fixme{remove funny title of plot; add axes labels}
@@ -169,6 +172,7 @@ represent an important simplification  in case the pLAPPD tests will demonstrate
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%
 \subsection {Trigger and data acquisition}
 %Discussions are ongoing 
 %%%\fixme{Once more: cannot say that discussions are ongoing ...}
