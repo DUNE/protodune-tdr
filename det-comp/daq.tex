@@ -48,15 +48,15 @@ be acquired at an appropriate rate such that bandwidth and processing priority a
 to beam data.
 
 The data rate from the electronics is assumed to be dominated by the
-TPC data.  However, the photon detection system may be a significant
-bandwidth contribution, particularly when reading out calibration data
-(where full waveforms are extracted).  \fixme{need real numbers for SSPs}.
-The TPC data is sent via the Warm Interface Boards on the cryostat flanges
-for the six APAs of ProtoDUNE un-triggered at a total rate of 491.52 Gb/s
-(6 APAs $\times$ 2560 channels $\times$ 16 bit ADC $\times$ 2 MHz).
-ProtoDUNE will have 24 SSPs reading out the Photon Detection System at
-a maximum rate of 1 Gb/s each.
+TPC data.  However, the photon detection system can produce a signifcant
+amount of calibration data (where full waveforms are extracted), during
+commissioning and special runs (up to 24 Gb/s maximum).
 
+The TPC data is sent via the Warm Interface Boards on the cryostat flanges
+for the six APAs of ProtoDUNE un-triggered at a total rate of 480 Gb/s
+(6 APAs $\times$ 2560 channels $\times$ 12 bit ADC $\times$ 2 MHz +
+header + error checking).  The PDS data is estimated to send data
+at a total rate of 1.2 Gb/s from the 24 SSPs (detailed further in subsection \ref{subsec:pds-readout}).
 The maximum bandwidth from the ProtoDUNE online system to CERN IT (and
 hence, the offline world), is considered to be 20 Gb/s at a maximum.
 Therefore, the DAQ system must reduce the data by a significant fraction
@@ -133,8 +133,8 @@ further propagation, e.g. the 2MHz sampling signal for the cold ADCs.
 
 \paragraph{Trigger}
 
-The baseline trigger solution for ProtoDUNE is the Penn Trigger Board
-(PTB). The PTB is designed to receive triggers from various sub-systems
+The baseline trigger solution for ProtoDUNE is the Central Trigger Board
+(CTB). The CTB is designed to receive triggers from various sub-systems
 (Photon Detection System, Beam Instrumentation, SPS spill signal, veto
 signals, etc.).  Up to 100 input channels are provided.  It combines
 these into a global trigger based on a configurable input mask (or
@@ -144,14 +144,14 @@ compatible header information with trigger type and error conditions.
 Internally generated triggers and calibration pulses allow for testing
 the board itself and the end-points receiving the trigger signals.
 
-The PTB is based on the MicroZed development board \cite{avnet:microzed}, which comprises a
+The CTB is based on the MicroZed development board \cite{avnet:microzed}, which comprises a
 Xilinx Zynq-7000 System-on-Chip (SoC), 1 GB DDR3 RAM, Gigabit Ethernet,
 and 115 I/O ports.  The Programmable Logic of the Zynq-7000 is used to
 perform fast triggering operations, whilst the Processing System is used
 to interface to the readout and controls systems.
 
 Configuration and operation is performed using an XML file which is sent
-to the PTB.  This allows for fast reconfiguration of the PTB without
+to the CTB.  This allows for fast reconfiguration of the CTB without
 the need for new firmwares.  The file is used to both configure the board
 and send start/stop/reset/etc. commands from the run control.
 The trigger output format for ProtoDUNE has not yet been finalized.  
@@ -270,10 +270,18 @@ generate artDAQ fragments to be sent to the event builder.
 \subsection{PDS and beam instrumentation data readout}
 
 \paragraph{PDS readout} 
-The PDS electronics and DAQ are described in section \ref{sec:pds-elec-daq}.
-\fixme{KH:The photon people like consider the SSPs as electronics, not DAQ, so that may all be in the photon section}
-\fixme{TK:need final agreement on this issue}
-\fixme{KH: OK for description of SSPs in PDS section, but rates are missing.}
+The PDS data rates are described here.  The PDS electronics and DAQ are
+described in section \ref{sec:pds-elec-daq}.  The plan for PDS data
+readout is as follows.  A combination of externally triggered events
+and self-triggered events will comprise the data.  The external triggers
+will come from the beam instrumentation via the trigger system at 25 Hz.
+This amounts to 118 Mb/s ( [384b header + 1000 waveform samples of
+16b ] * 12 channels * 24 SSPs * 25 Hz ).  The self-triggered data
+will be induced by cosmic rays.  A cosmic rate of 10 kHz is assumed,
+totally 1106 Mb/s ([384b header ] * 12 channels * 24 SSPs * 10 kHz).
+The combined rate comes to $\approx$1.2 Gb/s.  An alternative scheme with
+just self-triggered header-only data is considered if implementation of
+the former proves difficult; with a resultant rate of $\approx$1.1 Gb/s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
