@@ -270,6 +270,7 @@ generate artDAQ fragments to be sent to the event builder.
 \subsection{PDS and beam instrumentation data readout}
 
 \paragraph{PDS readout} 
+\label{subsec:pds-readout}
 The PDS data rates are described here.  The PDS electronics and DAQ are
 described in section \ref{sec:pds-elec-daq}.  The plan for PDS data
 readout is as follows.  A combination of externally triggered events
@@ -395,7 +396,7 @@ prove invaluable for this type of testing.
 %Describe how the hand-off to the S\&C processes writing to permanent
 %storage work. Address the question of disk writing speeds.
 %}
-\fixme{Implementation not finalised, expected after collaboration week}
+%\fixme{Implementation not finalised, expected after collaboration week}
 
 The dimensioning of the readout computing has not been finalised.  The 
 baseline description is given in section \ref{sec:DAQ_online_interface}.
@@ -459,19 +460,20 @@ able to provide data quality assurance in real-time. artDAQ will split the
 data into distinct physics and monitoring streams via its aggregator processes.  
 The data rate to the monitoring will be tunable such that the monitoring 
 can digest the data in a timely fashion.
-The software framework used for online monitoring is
-shown in Figure~\ref{fig:OnlineMonitoringFramework}.  It consists of an
+The software framework used for online monitoring 
+%shown in Figure~\ref{fig:OnlineMonitoringFramework}.  It 
+consists of an
 \texttt{art::Analyzer} module which interfaces with the artdaq framework and
 owns instances of further classes, each designed to handle different aspects
 of the monitoring.  
 %\fixme{whatever the current baseline is should be described as the protoDUNE default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for protoDUNE which is not good. }
 
-\begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
-    Class diagram showing the baseline online monitoring framework. 
-    \fixme{This figure may be too detailed and specific when the text seems to suggest that we don't quite know yet what things will look like. Consider to make less technical and show idea and fewer details }
-    }
-  \includegraphics[width=0.8\textwidth]{online_monitoring_software.png}
-\end{cdrfigure}
+%\begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
+    %Class diagram showing the baseline online monitoring framework. 
+    %\fixme{This figure may be too detailed and specific when the text seems to suggest that we don't quite know yet what things will look like. Consider to make less technical and show idea and fewer details }
+    %}
+  %\includegraphics[width=0.8\textwidth]{online_monitoring_software.png}
+%\end{cdrfigure}
 
 The DataReformatters restructure the data to allow for efficient subsequent
 analysis and provide a standard interface to the methods which look through
@@ -551,25 +553,25 @@ General:
 %\fixme{small section on the test centres, plan for integration.
 %Explain each stage}
 Three test centres have been set up to facilitate hardware component and 
-software testing in advance of the final integration at CERN.  
-\paragraph{UK}
+software testing in advance of the final integration at CERN.  A timeline 
+of the integration is given in table \ref{tab:daq-integration}.
+\paragraph{Hardware interfaces test-stand}
 The test stand is based in Oxford but includes effort from many institutes 
-in the UK.  The UK focuses on setting up the readout boards for the TPC and the 
+in the UK.  It focuses on setting up the readout boards for the TPC and the 
 PDS.  An ATCA crate houses a COB, and an SSP, and are being read out with
 artDAQ BoardReaders.  Further components will be added as they become available.
 The UK will provide effort for developing and improving
 the BoardReader software for ProtoDUNE.  This includes the RCEs, SSPs, timing and
-trigger systems.  As the timing system is being developed in the UK, this 
-will be the first site to test this new hardware.
-\fixme{This section needs to focus more on the tasks and technical aspects and less on who is doing it (we don't do this for any of the other components in this document). e.g. first test stand to integrate timing, ... - consider renaming paragraph headers with something more descriptive than UK, Fermilab and CERN}
-\paragraph{Fermilab}
-Testing at Fermilab will be predominantly software based.  Manpower has been
+trigger systems. This  will be the first site to integrate the new timing system.
+%\fixme{This section needs to focus more on the tasks and technical aspects and less on who is doing it (we don't do this for any of the other components in this document). e.g. first test stand to integrate timing, ... - consider renaming paragraph headers with something more descriptive than UK, Fermilab and CERN}
+\paragraph{artDAQ test-stand}
+Testing based at Fermilab will be predominantly software based.  Manpower has been
 directed to improving artDAQ throughput and performance.  Stress tests of artDAQ
 BoardReaders, EventBuilders, and Aggregators are being performed to determine
 potential bottlenecks and provide expectation values for performance that can be
 achieved by the processes themselves and over the network.  This provides essential
 input into the number of compute nodes and bandwidth that will needed for ProtoDUNE.
-\paragraph{CERN}
+\paragraph{Full integration}
 CERN will become the final installation site.  As such, much preparatory work
 is being done such that hardware components can be tested upon arrival.  Work is
 also being done on integrating the artDAQ event building software with the JCOP
@@ -592,7 +594,7 @@ Operational monitoring             & \multicolumn{2}{c}{(35t)}           &      
 Trigger logic                      & \multicolumn{2}{c}{(simple pulser)} & 1/18    \\
 Trigger distribution               & 1/17             & 4/17             & 1/18    \\ 
 \end{cdrtable}
-\fixme{table needs to be referenced in text}
+%\fixme{table needs to be referenced in text}
 
 
 \subsection{Quality Control}
@@ -609,5 +611,6 @@ performed to identify any failures due to transport.  In order to fully qualify 
 boards, they will need to be individually tested with control samples.  Data generators
 will be used in place of the front-end electronics where applicable.  Full data rate 
 testing will be performed when the first full detector slice is in place at EHN1 (expected
-Q2 2017).
-\fixme{Any plans to stress test the DAQ software and data transfers ? e.g. it may be working fine at low rates but start breaking down at higher rates and data volumes or ...}
+Q2 2017).  Data challenges will take place during Q1 2017 in advance of the arrival of the 
+first APA, and again as the computing system expands to its full capacity.
+%\fixme{Any plans to stress test the DAQ software and data transfers ? e.g. it may be working fine at low rates but start breaking down at higher rates and data volumes or ...}
