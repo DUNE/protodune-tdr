@@ -41,7 +41,7 @@ which performs well at cryogenic temperatures,
 and will provide amplification, shaping, digitization, buffering, and multiplexing (Mux) of the signals.
 Because it is not possible to form a trigger for some important measurements,
 such as proton decay and supernova bursts, the CE will be continuously read out,
-with a digitized ADC sample from each APA channel (wire) every 500~ns.
+with a digitized ADC sample from each APA channel (wire) up to every 500~ns (2~MHz maximum sampling rate).
 
 The 2,560 channels from each APA are read out by 20 Front-End Motherboards (FEMBs), each providing 
 digitized wire read-out of 128 channels. A single front-end board is shown in Figure~\ref{fig:tpcce_FEMBonAPA}.
@@ -51,7 +51,8 @@ feedthrough/flange servicing one APA as shown in Figure~\ref{fig:tpcce_apa_flang
 for a total of 20 cold cable bundles per APA. 
 Each of these cable bundles consists of wires for low-voltage power, links for high-speed data out,
 and clock/digital-control IOs.
-Eight other cables carry the TPC wire-bias voltage from the CE flange to the APA wire-bias boards.
+Eight other cables carry the TPC wire-bias voltage from the CE flange to the APA wire-bias boards, as
+shown in Figure~\ref{fig:tpcce_cr_board}.
 
 \begin{cdrfigure}[Connections between CE flange and APA]{tpcce_apa_flange}{Connections between
 the CE flange and APA.}
@@ -68,9 +69,10 @@ between the APA and the CE flanges (cold cable)
 low-voltage power, and APA wire-bias voltage between warm and cold
 \item Warm electronics crates (WECs) mounted on the CE flanges, which act as Faraday cages with
 only optical fibers to slow control and the DAQ, and which contain the Warm Interface Boards (WIBs)
+and Power and Timing Cards (PTCs)
 \item Data and clock/control IO fiber cable between the WEC and the data acquisition 
 (DAQ) and slow control systems
-\item LV and wire-bias power cables between the CE flange and external power supplies
+\item LV and wire-bias power cables between the CE flange and external power supplies (warm cable)
 \item Low-voltage supplies for the CE and bias-voltage supplies for the APAs
 \end{itemize}
 
@@ -83,7 +85,7 @@ The requirements for the CE can be found in the requirements documentation in se
 The most significant ones are listed here. The CE shall:
 
 \begin{itemize}	
-\item Provide the means to read out the TPCs and transmit their data in a useful format to the DAQ.
+\item Provide the means to read out the TPC wires and transmit their data in a useful format to the DAQ.
 \item Operate for the life of the facility without significant loss of function.
 \item Record the channel waveforms continuously without dead time.
 \item Use only materials that are compatible with high-purity liquid argon.
@@ -115,7 +117,7 @@ By ensuring that the electrical cables for each APA enter the cryostat through s
 independent feedthrough penetrations, the TPC APA, cold electronics read-out, CE flange, 
 and Faraday cage Warm Electronics Crate for each independent APA are an integrated whole
 read-out unit. Each unit will provide local diagnostics for noise and validation testing,
-and follow the grounding and shielding guidelines in the next section.
+and follow the grounding guidelines in the next section.
 
 \subsubsection{Electrical Design Guidelines}
 \label{subsec:ele_design}
@@ -172,7 +174,7 @@ signals to the CE motherboards.
 
 \begin{cdrfigure}[APA wire bias schematic diagram]{tpcce_cr_board}{APA wire bias 
 schematic diagram, including the Capacitance-Resistance (CR) board.}
-\includegraphics[width=1.0\linewidth]{tpcce_cr_board.pdf}
+\includegraphics[width=0.8\linewidth]{tpcce_cr_board.pdf}
 \end{cdrfigure}
 
 A separate grid-plane CR board includes a bias voltage noise filter and twelve pairs of 
@@ -229,7 +231,7 @@ Capacitors with a voltage rating of 2.0 kV are available with capacitance of 3.9
 \subsection{Front-End Mother Board}
 \label{subsec:fe_arch}
 
-The CE architecture is manifested in the Front End Mother Board (FEMB) assembly,
+The CE architecture is manifested in the FEMB assembly,
 which consists of an analog mother board with a digital ASIC mezzanine (Figure~\ref{fig:tpcce_schem}).
 Each APA is instrumented with 20 FEMBs, for a total of 2,560 channels per APA.
 The FEMBs plug directly into the APA CR boards, making the connection from the U and V induction wires and 
@@ -238,7 +240,7 @@ Z collection wires to the FE charge amplifiers as short as possible.
 The analog mother board is instrumented as a 128-channel board which uses eight 16-channel FE ASICs,
 eight 16-channel ADC ASICs, low-voltage regulators, and input-signal protection.
 The 16-channel FE ASIC provides amplification and pulse shaping.
-The 16-channel ADC ASIC comprises a 12-bit digitizer at 0.5, 1, or 2 MS/s, local buffering,
+The 16-channel ADC ASIC comprises a 12-bit digitizer at up to 2 MS/s, local buffering,
 and an 8(analog):1(digital) Mux stage with two pairs of serial readout lines in parallel.
 The FEMB has already been prototyped and tested,
 using a commercial FPGA to perform the role of the digital ASIC (Figure~\ref{fig:tpcce_CMBpix}).
@@ -268,11 +270,11 @@ The COLDATA ASIC provides:
 \item The system clock interface
 \item Four 4:1 Muxs that combine 16 serial lines from the ADCs of eight 
 channels each into four serial lines of 32 channels each
-\item Four 1.28-Gbps serial drivers that form the data link to the DAQ via the WIB
+\item Four $\sim$1.2 Gigabit-per-second (Gbps) serial drivers that form the data link to the DAQ via the WIB
 \end{itemize}
 For the ProtoDUNE detector the COLDATA ASIC, which is still in development, will be 
 emulated by an FPGA which will reproduce the clock/control IO, data multiplexing,
-and 1.28~Gbps serial drivers.
+and $\sim$1.2~Gbps serial drivers.
 In either case, the data rate will not be high enough to require the use of optical fibers in the cold,
 nor is there a need for zero suppression or data compression.
 This greatly reduces the complexity of the COLDATA ASIC, with a corresponding decrease in overall risk,
@@ -419,28 +421,29 @@ These results are in close agreement with the simulations and indicate
 that both the analog and the digital circuits and interface operate as
 expected in a cryogenic environment.
 
-\begin{cdrfigure}[Measured pulse response with details]{tpcce_shaper_out}{Measured pulse response with details on gain, peaking time and baseline adjustments}
+\begin{cdrfigure}[Measured pulse response with details]{tpcce_shaper_out}{Measured pulse response with
+ details on gain, peaking time and baseline adjustments}
 \includegraphics[width=\linewidth]{tpcce_shaper_out.pdf}
 \end{cdrfigure}
 
 \begin{cdrfigure}[Measured ENC vs filter time constant]{tpcce_enc}{
 Measured ENC vs filter time constant from the latest prototype version of the FEMB
-for two different gains, 14~mV/fC and 25~mV/fC.}
+for two different gains, 14~mV/fC and 25~mV/fC. RT = room temperature and 
+LN2 = liquid Nitrogen}
 \includegraphics[width=4in]{tpcce_enc_14mV.jpg}
 \includegraphics[width=4in]{tpcce_enc_25mV.jpg}
 \end{cdrfigure}
 
-\fixme{Outdated text in the following pp? - Matt}
-
-Figure~\ref{fig:tpcce_enc} shows the measured ENC versus filter-time constant (peaking time) for two different gains.
-At 1~$\mu$s about 650 e$^{-}$ was measured, to be compared to the simulated value of 500 e$^{-}$.
-The difference is mainly due to the thermal noise from a $\sim$11-ohm parasitic resistance of the input
-line (shown in the detail of Figure~\ref{fig:tpcce_enc}), which contributes about 350 electrons at 77~K.
-The width of the line has been increased in a revision in order to make this contribution negligible.
-A second contribution, on the order of 100 e$^{-}$,
-was due to the dielectric loss from the capacitor (220~pF) used to simulate the wire
-(the cases of MICA and NPO ceramic were compared).
-This contribution would not be present with the input connected to a sense wire in the TPC.
+Figure~\ref{fig:tpcce_enc} shows the measured Equivalent Noise Charge (ENC) versus 
+filter-time constant (peaking time) for two different gains, where ENC is the value of charge 
+(in electrons) injected across the detector capacitance that would produce at the output of the 
+shaping amplifier a signal whose amplitude equals the output R.M.S. noise. These measurments
+were made with prototype FEMBs at both room temperature (RT) and submerged in liquid
+Nitrogen (LN2) with a wire-simulating input capacitance of $C_f~=~150$~pF.
+In LN2, for peaking times $>$1~$\mu$s less than 600~e$^{-}$ was measured. For comparison,
+a MIP travelling perpendicularly to the wire plane in the direction of wire spacing is
+expected to deposit $\sim$~10,000~e$^{-}$ on the collection wires, for a worst-case
+S:N$\sim$16:1.
 
 Each channel is equipped with an injection capacitor which can be used
 for test and calibration and can be enabled or disabled through a
@@ -454,7 +457,6 @@ variation in the calibration capacitor are typically less than 1\%. Measurements
 out on the individual test structures fabricated on this ASIC to
 confirm device models and design guidelines.
 
-% 2015-02-27 chc: ADC ASIC is below
 The development of the ADC ASIC also uses the CMOS process (0.18~$\mu$m and 1.8V).
 A 16-channel ASIC has been prototyped and tested.
 The layout of the ADC ASIC is shown in Figure~\ref{fig:tpcce_ADC_ASIC}. 
@@ -525,15 +527,15 @@ All data will be transmitted off-board to the DAQ.
 Twelve bits of ADC data per APA channel every 500~ns yields a single-channel bit rate of 0.024~Gbps.
 With 8B10B encoding, for example, this increases to 0.03~Gbps, plus some overhead for frame 
 data to indicate event blocks.
-Assuming a conservative serial-link transmission speed of 1.28~Gbps, 
+Assuming a conservative serial-link transmission speed of $\sim$1.2~Gbps, 
 a single link can therefore handle 32 channels.
-Thus, it is planned to drive four 1.28~Gbps links from each COLDATA ASIC.
+Thus, it is planned to drive four $\sim$1.2~Gbps links from each COLDATA ASIC.
 A line driver will be designed that is capable of driving a copper link for the approximate 25~m required
 to exit the LAr in the 10~kT DUNE far detectors.
 
 For the ProtoDUNE detector, the COLDATA mezzanine boards, which are still being developed, will be
 replaced by an FPGA mezzanine (Figure~\ref{fig:tpcce_CMBpix}) 
-which will reproduce the clock/control IO, data multiplexing, and 1.28~Gbps serial drivers.
+which will reproduce the clock/control IO, data multiplexing, and $\sim$1.2~Gbps serial drivers.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -571,7 +573,7 @@ All LV and data cables inside the cryostat connect to the warm outside via flang
 which are distributed along the cryostat roof (Fig.~\ref{fig:tpcce_FT_InternalCableRoute}).
 The TPC data rate per APA, using the full event-buffer scheme described earlier,
 is sufficiently low that it is within the capability of a single LVDS channel on copper,
-with an overall 32:1 Mux and 80 1~Gbps LVDS data channels per APA.
+with an overall 32:1 Mux and 80 $\sim$1~Gbps LVDS data channels per APA.
 There is, therefore, no need for high-speed optical links inside the 
 cryostat, so all cables inside the cryostat will be copper.
 This has the significant benefit of avoiding a major R\&D effort which would be required to demonstrate
@@ -635,7 +637,7 @@ the importance of minimizing the amount of material in the ullage.
 \label{subsubsec:ce_data_cable}
 
 Data/control cable bundles will be used to send system clock and control signals in the LAr from the 
-CE flange to the FEMB, stream the 1~Gbps high-speed data from the FEMB to the CE flange, and 
+CE flange to the FEMB, stream the $\sim$1~Gbps high-speed data from the FEMB to the CE flange, and 
 provide backup JTAG programming to the cold FPGA, in case the power-up programming fails to 
 load from the onboard EEPROM. As described in Section~\ref{subsec:ce_intro}, each FEMB will 
 connect to a CE flange via one data cable bundle, for 20 bundles between one APA and one flange.
@@ -643,7 +645,7 @@ Each data bundle will contain 12 low-skew Copper twin-axial cables with a drain 
 to transmit the following differential signals:
 
 \begin{itemize}
-    \item 4$\times$1.28~Gbps high-speed data
+    \item 4$\times$1.2~Gbps high-speed data
     \item One 50~MHz system clock
     \item One 2~MHz CONVERT clock
     \item 2 I2C control and configure (3 for COLDATA)
@@ -657,8 +659,8 @@ interface, which uses three LVDS pairs, so that COLDATA will only
 require 9 differential signals.
 
 \begin{cdrfigure}[Samtec LV and data cable]{tpcce_samtec_cable}{Samtec data (left) and LV power (right) cable.}
-\includegraphics[width=6in]{tpcce_samtec_data.pdf}
-\includegraphics[width=6in]{tpcce_samtec_lv.pdf}
+\includegraphics[width=5in]{tpcce_samtec_data.pdf}
+\includegraphics[width=5in]{tpcce_samtec_lv.pdf}
 \end{cdrfigure}
 
 ProtoDUNE will use Samtec 26~AWG twin-axial cable bundles with Samtec HSEC08 connectors to both
@@ -668,7 +670,7 @@ THV outer jacket has passed the LAr Materials Test Stand at Fermilab.
 
 The Samtec 26~AWG cable has been
 tested and demonstrated to have low enough dispersion that both the LVDS 50~MHz system clock and
-1~Gbps high-speed data can be recovered over 25~meters of room temperature (RT) cable, making this
+$\sim$1~Gbps high-speed data can be recovered over 25~meters of room temperature (RT) cable, making this
 a candidate cable choice for the DUNE far detector. However, for ProtoDUNE only the top APA
 layer will be installed, so the cable length between the FEMB and CE flange will be approximately 7~meters.
 
@@ -724,12 +726,13 @@ couple of milliAmps.
 
 The bias voltages are applied to the X, V, and G wire layers, three field cage terminations, 
 and an electron diverter, as shown in Figure~\ref{fig:tpcce_cr_board}. The voltages are supplied 
-through eight SHV connectors mounted on the CE flange. RG-316 coaxial cables carry the voltages to a patch panel 
-mounted on the top end of the APA. From there, bias voltages are carried by single wires to 
+through eight SHV connectors mounted on the CE flange. RG-316 coaxial cables carry the voltages 
+from the CE flange to a patch panel PCB which includes noise filtering mounted on the top 
+end of the APA. From there, bias voltages are carried by single wires to 
 various points on the APA frame.
 
-Field cage noise filters are located on a small PC board mounted on or near the patch panel. 
-Bias voltage filters are also mounted on or near the electron diverter.
+Field cage noise filters and termination are also located on a small PCB mounted on or near 
+the patch panel. Bias voltage filters are also mounted on or near the electron diverter.
 
 It will be important that all cables and connectors be somewhat rugged,
 locking and able to withstand a minimum of several tens of mating cycles.
@@ -831,7 +834,7 @@ oscillators onboard the WIB. The GT variant of the Arria V
 transceivers can drive the high-speed data to the DAQ up to
 10.3125~Gbps per link, which is capable of transmitting all data from
 two FEMB (2$\times$5~Gbps) on each link. However, the current design is to
-use a QSPF socket on the WIB, and deliver 5~Gbps on four optical fibers 
+use a QSPF socket on the WIB, and deliver $\sim$5~Gbps on four optical fibers 
 (1 fiber per FEMB) to two RCEs. The FPGA also has Gbps Ethernet
 transceiver I/O, also using the 125~MHz clock, which provides
 real-time digital data readout to slow control.
@@ -876,7 +879,7 @@ Including power for the WIB, a fully loaded WIB (1 WIB plus 4 FEMBs) will requir
 require 12V and draw approximately 16~Amps, for a total power of almost 200~W, as 
 described in Section~\ref{subsubsec:power_timing_card}.
 
-The MPOD has 2 DSUB37 connectors, each with 4 channels of LV output, including negative
+Each MPOD LV unit has 2 DSUB37 connectors, each with 4 channels of LV output, including negative
 and positive sense wires, as shown in Figure~\ref{fig:tpcce_mpod_top}. Each channel has 3 pins
 of negative output and 3 pins of positive output. 5 of the 8 channels
 will provide the 12V/3.3A to each WIB via the PTC, and 1 channel will provide LV power 
@@ -886,22 +889,26 @@ to the PTC itself, with 2 of the 8 channels unused.
 \includegraphics[width=1.0\linewidth]{tpcce_mpod_top.png}
 \end{cdrfigure}
 
-The same MPOD will supply the wire bias voltage to 8 SHV connectors at the CE flange.
-One MPOD will therefore supply all the low and wire bias power to one TPC APA cold
-electronics read-out unit, requiring a total of 6 MPODs.
+Each MPOD wire-bias voltage unit will supply the wire bias voltage to 8 SHV connectors 
+at the CE flange. One MPOD chassis contains 3 LV and 3 wire-bias units, and will therefore 
+supply all the low and wire bias power to three TPC APA cold electronics read-out units, 
+requiring a total of 2 MPODs in the detector racks.
 
 %
 %%%%%%%%%%%%%%%%
 \subsubsection{Low Voltage Cable}
 \label{subsubsec:ce_feedthrough_lv}
 
-The low voltage cable will use the fused db37 connectors used by MicroBooNE to 
-supply the power to the FE ASICs in that detector. Each of the 3 output pins on
-each channel will be fused at 3A at the MPOD end of the cable. The 3 pins will be tied together in parallel 
-going to one wire large enough to carry the full supply voltage. The fusing is
+The low voltage cable will be the fused DSUB37 connectors used by MicroBooNE to 
+supply the power to the FE ASICs in that detector. The bottom of the fuse PCB at the MPOD 
+end of the cable is shown in Figure~\ref{fig:tpcce_fused_cable}. Each of the 3 output pins on
+each channel will be tied together in parallel 
+going to one wire large enough to carry the full supply voltage. Fuses can optionally be 
+populated on each output pin as shown in Figure~\ref{fig:tpcce_fused_cable}; however, if
+fusing is not selected, the pins will be connected with 0~Ohm resistors. The fusing would be
 the final protection: the main protection with be the Over Current protection
 on the MPOD, which will be set above the 3.3A required by each WIB, but below the
-combined fuse value. The bottom of the fuse PCB is shown in Figure~\ref{fig:tpcce_fused_cable}.
+combined fuse value.
 
 \begin{cdrfigure}[Bottom of the fuse PCB]{tpcce_fused_cable}{Bottom of the fuse PCB at the MPOD end of the cable.}
 \includegraphics[width=0.7\linewidth]{tpcce_fused_cable.png}
@@ -927,7 +934,7 @@ The current on each of these supplies is expected to be zero at normal operation
 However the ripple voltage on the supply must be carefully controlled 
 to avoid noise injection into the front-end electronics.
 
-RG-316 coaxial cables will connect the wire bias voltages from the MPOD to the standard SHV
+RG-58 coaxial cables will connect the wire bias voltages from the MPOD to the standard SHV
 connectors machined directly into the flange, so there will be no electrical connection between 
 the LV and data connectors and bias voltage. The length of the cables from the Weiner MPODs
 to the CE flanges is estimated to be 18~meters.
@@ -950,6 +957,9 @@ current draw for each WIB can be monitored by slow control at the MPOD.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
+
+A full description of the testing procedures is being developed in a separate document. A 
+summary is provided here.
 
 %%%%%%%%%%%%%%%%
 \subsubsection{Prototype Testing}
