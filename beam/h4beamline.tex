@@ -2,9 +2,9 @@
 \section{Beamline}
 \label{sec:h4beamline}
 
-The H4 beamline will be extended to the NP04 cryostat in the newly constructed extension of EHN1. To produce particles in the momentum range of interest, the 80-GeV/c pion beam from the T2 primary target is sent onto a secondary target to generate a tertiary beam. Particles in the tertiary beam are momentum- and charge-selected and transported down the H4 beamline extension into the protoDUNE-SP detector. In principle, the H4 beamline can operate in parallel with the H2 beamline. % minimize interference between the two ProtoDUNE experiments.
-\fixme{H2 and H4 haven't been introduced; unless done in a different section... to check... Anne}
-
+%The H4 beamline will be extended to the NP04 cryostat in the newly constructed extension of EHN1. To produce particles in the momentum range of interest, the 80-GeV/c pion beam from the T2 primary target is sent onto a secondary target to generate a tertiary beam. Particles in the tertiary beam are momentum- and charge-selected and transported down the H4 beamline extension into the protoDUNE-SP detector. In principle, the H4 beamline can operate in parallel with the H2 beamline. % minimize interference between the two ProtoDUNE experiments.
+%\fixme{H2 and H4 haven't been introduced; unless done in a different section... to check... Anne}
+\fixme{I am moving this to the beginning of the chapter; it can serve as an introduction to it.}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{H4 beamline layout and optics}
 
@@ -24,14 +24,16 @@ The beamline optics for the horizontal and vertical planes are shown in Figure~\
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beam properties}
 %\fixme{Need simulation results from Nikos -- H4 beam files are available }
-Recently, a full GEANT4 simulation of the H4 beamline including its extension to the protoDUNE cryostat has been performed \cite{H4beamfiles}. 
-%%%Preliminary results based on the H4 beam line simulation are presented. 
+Recently, a full GEANT4 simulation of the H4 beamline including its extension to the ProtoDUNE-SP detector %cryostat 
+has been performed~\cite{H4beamfiles}. 
+%%%Preliminary results based on the H4 beamline simulation are presented. 
 The beamline model starts with the H4 secondary beamline 
 %\fixme{does it also include the primary beam line ?}
-to derive the particle properties in the tertiary beamline.  Target, magnets, collimators and a preliminary assumption
+%to derive the 
+and derives the particle properties in the tertiary beamline.  Target, magnets, collimators and a preliminary assumption
 about beam instrumentation are included. The secondary target has been
-modeled as a Tungsten cylinder (R=30mm, L=300mm) for beam particles with E$<3$~GeV and as a Copper cylinder of the same dimensions  for %bear --- was `forbear' -- made no sense
-particle energies  E$\geqslant$3~GeV. Optimization of the target dimensions and material is ongoing.
+modeled as a Tungsten cylinder (R=30~mm, L=300~mm) for beam particles with $E<3$~GeV and as a Copper cylinder of the same dimensions  for %bear --- was `forbear' -- made no sense
+particle energies  $E\geqslant3$~GeV. Optimization of the target dimensions and material is ongoing.
 
 Table \ref{tab:beampartcomp} describes the particle composition of the
 beam at the entrance of the cryostat. Two features are evident. First, the beam is dominated by positrons at low energies,
@@ -67,16 +69,16 @@ Momentum (GeV/c) & e$^+$ & $K^+$ & $\mu^+$ & p& $\pi^+$& total\\ \toprowrule
 %\fixme{what are the units for the rates in table 7.3 ?}
 
 At momenta larger than about 4 GeV/c, the particle rates are in excess of  the
-maximum acceptable rate, that is around
-25-50~Hz. 
+maximum acceptable rate of around %, that is around
+25--50~Hz. 
 %\fixme{see earlier comment about max rate that the DAQ system may be able to cope with, e.g. 25 - 50Hz}
  At lower energies, the proton and pion rates are much lower, reduced by a
 factor of 10 at 1 or 2 GeV/c, and are overwhelmed by the positron rate.
 
-The momentum spread of the beam is of the order of 5 to 7 \%. At higher energies, where
+The momentum spread of the beam is of the order of 5--7\%. At higher energies, where
 the particle rate is higher, the momentum spread  can be narrowed by
 closing the collimators, at the expense of the beam intensity.  For example, Figure \ref{fig:momcoll} shows
-that at p=4~GeV/c the momentum uncertainty can be  reduced to $\Delta p/p= 3.6\%$ with a factor 4 reduction in particle rate.  
+that at $p=4$~GeV/c the momentum uncertainty can be  reduced to $\Delta p/p= 3.6\%$ with a factor of 4 reduction in particle rate.  
 \begin{cdrfigure}[Beam momentum uncertainty]{momcoll}{Beam momentum uncertainty with different collimator openings at 4 GeV/c.}
   \includegraphics[width=0.75\textwidth]{Slits.pdf}
 \end{cdrfigure}
@@ -88,11 +90,11 @@ that at p=4~GeV/c the momentum uncertainty can be  reduced to $\Delta p/p= 3.6\%
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Muon halo}
 The secondary beam is mainly composed of 80-GeV pions. In the long path ($\approx$ 600~m) between the primary and the secondary target,
- an intense high-energy muon halo is produced by pion decay. Muons propagate approximately in the direction of the first section of the H4 beamline,  that is slightly upward  and sidewards of the H4 beam line extension which points at the protoDUNE SP detector.  
+ an intense high-energy muon halo is produced by pion decay. Muons propagate approximately in the direction of the first section of the H4 beamline,  that is slightly upward  and sidewards of the H4 beamline extension which points at the ProtoDUNE-SP detector.  
  Therefore the most intense part of the muon halo passes about one meter above the left corner of ProtoDUNE-SP cryostat. 
-Figure~\ref{fig:muonhalo_HE} shows the spatial distribution of the muon halo at the face of the cryostat. Only muons with momentum larger than 4~GeV/c have been considered. Despite the low statistics of the simulations, the up-down asymmetry is clearly visible. The origin of the coordinate system is chosen to coincide with the center of the cryostat face. The color scale shows the muon intensity in $\mu /m^2/spill$ for $10^6$ particles/spill from the primary target. The muon intensity on the cryostat face ranges from 1 to 400  $\mu /m^2/spill$.
+Figure~\ref{fig:muonhalo_HE} shows the spatial distribution of the muon halo at the face of the cryostat. Only muons with momentum larger than 4~GeV/c have been considered. Despite the low statistics of the simulations, the up-down asymmetry is clearly visible. The origin of the coordinate system is chosen to coincide with the center of the cryostat face. The color scale shows the muon intensity in $\mu /m^2/spill$ for $10^6$ particles/spill from the primary target. The muon intensity on the cryostat face ranges from 1--400~$\mu$/m$^2$/spill.
 Figure~\ref{fig:muonhalo_HE}  is very preliminary, not only because of low statistics, but also because shielding around the low-energy beamline is not included in the simulation, and the muons produced in neighboring beamlines in H1N1, including the H2 beamline that feeds ProtoDUNE-DP, are not considered here. 
-\begin{cdrfigure}[Muon halo intensity at the cryostat face]{muonhalo_HE}{Muon halo intensity at the cryostat face for muons originating from the H4 beam line and with $P_\mu  \ge 4$~Gev/c. The origin of the coordinate system is centered on the cryostat and dimensions are in mm. Color scale is in units of $\mu /m^2/spill$. The black and red rectangles represent the cryostat face and the active detector volume.}
+\begin{cdrfigure}[Muon halo intensity at the cryostat face]{muonhalo_HE}{Muon halo intensity at the cryostat face for muons originating from the H4 beamline and with $P_\mu  \ge 4$~Gev/c. The origin of the coordinate system is centered on the cryostat and dimensions are in mm. Color scale is in units of $\mu /m^2/spill$. The black and red rectangles represent the cryostat face and the active detector volume.}
 \includegraphics[width=0.50\textwidth]{muon_map_HE_square.pdf}
 \end{cdrfigure}
 
