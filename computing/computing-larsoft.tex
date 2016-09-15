@@ -2,45 +2,50 @@
 
 \fixme{cross check with description in DAQ section;  there is some tolerable (?) overlap}
 LArSoft~\cite{larsoft} is a suite of tools for simulating and
-reconstructing data collected from liquid argon TPC detectors.  It is
-built on the {\it art}~\cite{art} event-processing framework.  The
-main features of the {\it art} framework are its configurability by
+reconstructing data collected from LArTPC detectors.  It is
+built on the \textit{art}~\cite{art} event-processing framework.  The
+main features of the \textit{art} framework are its configurability by
 human-readable and editable control files which use the Fermilab
 Hierarchical Control Language (FHiCL), the scheduling of executing of
 program modules which are of five types: event sources, filters,
 data-product producers, analyzers, and output.  Common utilities that
-can be accessed by any program module at any time are called services.
-The {\it art} framework defines the input/output structure of
+can be accessed by any program module at any time are called \textit{services}.
+
+The \textit{art} framework defines the input/output structure of
 ROOT-formatted files using TTrees to store the data, metadata, and
 provenance information.  The provenance information consists of the
 contents of the FHiCL documents used to steer the processing of the
-job that created a file, and those of input files and parents.  The
-{\it art} framework's division of the simulation and reconstruction
-jobs into modular pieces allows many developers to contribute to the
+job that created a file, and those of input files and parents.  
+
+The
+\textit{ art} framework's division of the simulation and reconstruction
+jobs into modular pieces allows many developers to contribute to an
 effort, and to test their ideas in isolation before integrating them
 into a larger system.  Because the data read in from an event is
 placed in read-only memory, analyzers can program with confidence that
 upstream algorithms cannot alter the data, but must produce additional
-data products which can be later processed or written out.
+data products which can later be processed or written out.
 
 The LArSoft suite provides the interface to the event generators and
-GEANT4~\cite{geant4} for simulation of the passage of particles
+GEANT-4~\cite{geant4} for simulation of the passage of particles
 through the detector, the details of which are described in
 Section~\ref{sec:larsoftsim}, and event reconstruction, the details of
 which are presented in Section~\ref{sec:larsoftreco}.  An effort is
-underway to interface FLUKA~\cite{fluka} to LArSoft.  The {\it art}
-framework and LArSoft source code is publicly available and pre-built
+underway to interface FLUKA~\cite{fluka} to LArSoft.  
+
+The \textit{art}
+framework and LArSoft source code are publicly available and pre-built
 versions are provided for supported versions of Linux and Mac
 OS~X~\cite{scisoft}.  Tools for compiling the framework and
 applications are also provided, along with all of the required
 dependencies, including the gnu C++ compiler.  The versions of the
-software and its dependencies are managed by the UPS system
-\fixme{spell out UPS for first time use}
- which
-allows easy version selection, setup and configuration of the LArSoft
+software and its dependencies are managed by the UNIX Product Support (UPS) system,
+which allows easy version selection, setup and configuration of the LArSoft
 environment on computers with many versions already installed, such as
-those at Fermilab.  LArSoft is under rapid development by both the
+those at Fermilab.  
+
+LArSoft is under rapid development by both the
 core LArSoft team and by contributors from participating experiments:
 ArgoNeuT, LArIAT, MicroBooNE, SBND, and DUNE.  Within DUNE, the LArTPC
-near-detector option, both protoDUNE detectors, and the Far Detector
+near-detector option, both ProtoDUNE detectors, and the Far Detector
 are clients and contributors of LArSoft.
