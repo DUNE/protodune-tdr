@@ -2,42 +2,12 @@
 \section{Run Plan}
 \label{sec:runplan}
 
-To formulate a preliminary run plan, we assume the hadron beam spectrum and rates are as given in Tables~\ref{tab:beampartcomp} and~\ref{tab:beampartrates}.   For the purpose of estimating the sample composition and beam time request, the following assumptions are used:
-\begin{itemize}
-\item { Trigger/date rate = 25~Hz}
-\item { Two 4.8 sec spills per SPS Super Cycle }
-\item { SPS Super Cycle = 48 sec}
-\item { Particle ID trigger for electron is available}
-\item { Trigger rate for electron in hadron beam is prescaled to 0.5~Hz}
-\end{itemize}
-We plan to run the H4 beamline in two modes: the first configuration is optimized for the production of hadrons and the second configuration is optimized for the production of high purity electrons. Even in the hadron mode, the beam is still dominated by electrons, especially for low beam momenta. However, the electrons in the hadron beam are not particularly ``clean'' due to the amount of materials in the beamline from the particle identification (PID) instrumentations .  The proposal is to heavily prescale the electron events using PID (e.g. Threshold Cherenkov counters) trigger while running in hadron mode. The PID systems that contribute significantly to the material budget will be removed when we reconfigure the beamline for electron beam.  We are exploring various run plan scenarios. One of the scenarios is shown in Tables~\ref{tab:HadRunPlan} and ~\ref{tab:ElecRunPlan}. 
-\begin{cdrtable}[Run Plan]{ccccccccc}{HadRunPlan}{A preliminary run plan for ProtoDUNE-SP hadron beam. The expected sample (positive beam) as a function of momentum is shown. }
-P & \# of  &\# of $e^+$ & \# of $K^+$ & \# of $\mu^+$ & \# of $p$ & \# of $\pi^+$ & Total \# & Beam Time \\ 
-(GeV/c) & Spills  & &  &  &  &  & of Events & (days) \\ \toprowrule
-1 & 70K & 84K & $\approx$ 0 & 13K  & 672K & 504K & 1.3M & 19 days\\ \colhline
-2 & 20K & 24K & 8K & 21K     & 336K & 480K & 0.9M &5.6 days\\ \colhline
-3 & 12K & 14K & 14K  & 14K   & 163K & 516K  & 720K & 3.3 days\\ \colhline
-4 & 10K & 12K & 23K & 15K    & 90K  & 460K & 600K & 2.8 days\\ \colhline
-5 & 10K & 12K  & 25K  & 6K   & 81K  & 475K & 600K & 2.8 days\\ \colhline
-6 & 10K & 12K & 34K  & 5K    & 82K  & 468K & 600K & 2.8 days\\ \colhline
-7 & 10K & 12K & 34K & 7K     & 80K  & 467K & 600K & 2.8 days\\ \colhline
- & & & & & & & \\
-Total & 142K & 170K & 132K & 81K & 1.5M & 3.4M & 5.3M & 39 days\\
-\end{cdrtable}
-\begin{cdrtable}[Run Plan]{cccc}{ElecRunPlan}{A preliminary run plan for ProtoDUNE-SP electron beam. The expected sample for positive beam configuration is shown. }
-Momentum Bins (GeV/c) & \# of Spills per Bin & \# $e^+$ per Bin & Beam Time (days) per Bin \\ \toprowrule
-0.5, 06, 0.7, 0.8, 0.9, 1, 2, 3, 4, 5, 6, 7 & 5000 & 300K & 1.4 days \\
-\end{cdrtable}
-
-Tables with similar values are expected for the negative beam sample. 
-
 Preliminary beam simulations show that the hadron rates at 
 energies below 1~GeV/c are low. Moreover, low-energy beams are more
-subject to disruption and degradation by materials in the
-beamline.  Therefore, the beam program factors in both the beam composition and %also takes into account of 
-particle interaction topologies.  Full FLUKA\cite{fluka05,Fluka15}
- simulations
-of particle transport in the the ProtoDUNE-SP detector, including the
+subject to degradation by materials in the
+beamline.  Therefore, the beam program factors in both the beam composition and 
+particle interaction topologies.  Full FLUKA%\cite{fluka05,Fluka15}
+ simulations of particle transport in the the ProtoDUNE-SP detector, including the
 beam window, have been performed.
  The physics requirement \fixme{that the beam must satisfy overall? Anne} is %the possibility 
  to enable measurement of
@@ -77,6 +47,34 @@ showers requires a measurement at the lowest possible momenta.
   \includegraphics[width=0.49\textwidth]{pivarie_intene.pdf}
 \end{cdrfigure}
 %% end of   part that can go either here or in the run plan 
+
+To formulate a preliminary run plan, we assume the hadron beam spectrum and rates are as given in Tables~\ref{tab:beampartcomp} and~\ref{tab:beampartrates}.   For the purpose of estimating the sample composition and beam time request, the following assumptions are used:
+\begin{itemize}
+\item { Trigger/date rate = 25~Hz}
+\item { Two 4.8 sec spills per SPS Super Cycle }
+\item { SPS Super Cycle = 48 sec}
+\item { Particle ID trigger for electron is available}
+\item { Trigger rate for electron in hadron beam is prescaled to 0.5~Hz}
+\end{itemize}
+We plan to run the H4 beamline in two modes: the first configuration is optimized for the production of hadrons and the second configuration is optimized for the production of high purity electrons. Even in the hadron mode, the beam is still dominated by electrons, especially for low beam momenta. However, the electrons in the hadron beam are not particularly ``clean'' due to the amount of materials in the beamline from the particle identification (PID) instrumentations .  The proposal is to heavily prescale the electron events using PID (e.g. Threshold Cherenkov counters) trigger while running in hadron mode. The PID systems that contribute significantly to the material budget will be removed when we reconfigure the beamline for electron beam.  We are exploring various run plan scenarios. One of the scenarios is shown in Tables~\ref{tab:HadRunPlan} and ~\ref{tab:ElecRunPlan}. 
+\begin{cdrtable}[Run Plan]{ccccccccc}{HadRunPlan}{A preliminary run plan for ProtoDUNE-SP hadron beam. The expected sample (positive beam) as a function of momentum is shown. }
+P & \# of  &\# of $e^+$ & \# of $K^+$ & \# of $\mu^+$ & \# of $p$ & \# of $\pi^+$ & Total \# & Beam Time \\ 
+(GeV/c) & Spills  & &  &  &  &  & of Events & (days) \\ \toprowrule
+1 & 70K & 84K & $\approx$ 0 & 13K  & 672K & 504K & 1.3M & 19 days\\ \colhline
+2 & 20K & 24K & 8K & 21K     & 336K & 480K & 0.9M &5.6 days\\ \colhline
+3 & 12K & 14K & 14K  & 14K   & 163K & 516K  & 720K & 3.3 days\\ \colhline
+4 & 10K & 12K & 23K & 15K    & 90K  & 460K & 600K & 2.8 days\\ \colhline
+5 & 10K & 12K  & 25K  & 6K   & 81K  & 475K & 600K & 2.8 days\\ \colhline
+6 & 10K & 12K & 34K  & 5K    & 82K  & 468K & 600K & 2.8 days\\ \colhline
+7 & 10K & 12K & 34K & 7K     & 80K  & 467K & 600K & 2.8 days\\ \toprowrule
+Total & 142K & 170K & 132K & 81K & 1.5M & 3.4M & 5.3M & 39 days\\
+\end{cdrtable}
+\begin{cdrtable}[Run Plan]{cccc}{ElecRunPlan}{A preliminary run plan for ProtoDUNE-SP electron beam. The expected sample for positive beam configuration is shown. }
+Momentum Bins & \# of Spills per Bin & \# $e^+$ per Bin & Beam Time per Bin \\ 
+(GeV/c) & & & (days) \\ \toprowrule
+0.5, 06, 0.7, 0.8, 0.9, 1, 2, 3, 4, 5, 6, 7 & 5000 & 300K & 1.4 \\
+\end{cdrtable}
+Tables with similar values are expected for the negative beam sample. 
 
 Based on the current information available, the total estimated beam time needed to carry out the physics program in this proposal with the assumptions stated earlier is on the order of 16 weeks.
  
