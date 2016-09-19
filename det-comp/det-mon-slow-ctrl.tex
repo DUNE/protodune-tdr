@@ -26,25 +26,39 @@
 %\section{Cryostat and LAr purification system}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Detector monitoring and slow control}
 \label{sec:slowcontrol}
+
 The scope of the ProtoDUNE detector control system includes the design, procurement, fabrication, testing,
-delivery, installation oversight and acceptance tests of a comprehensive detector monitoring, control and safety system,
-fulfilling the needs of the protoDUNE detectors and experiment's infrastructure.
+delivery, installation oversight and acceptance tests of a comprehensive detector monitoring, control and safety system.
+%, fulfilling the needs of the protoDUNE detectors and experiment's infrastructure.
 
-The responsibility for the system is split into two main blocks: All the devices that will be installed and cabled inside 
-the cryostat, the sensors needed to monitor the cryostat itself as well as the specification of the system needs is a 
-responsibility of the protoDUNE collaboration; the implementation of the control system (hardware, firmware and software) outside 
-the cryostat will be taken care of by CERN. Together, these two blocks form the overall detector control system and are the 
-responsibility of the slow control group.
+The responsibility for the system is split between ProtoDUNE-SP and CERN: 
+\begin{itemize}
+\item	The ProtoDUNE-SP collaboration is responsible for all the devices that will be installed and cabled inside 
+the cryostat, the sensors needed to monitor the cryostat itself, and the specifications for the system needs.
+\item	CERN is responsible for the implementation of the control system (hardware, firmware and software) outside the cryostat.
+\end{itemize}
 
-In this section the main system requirements will be described in terms of constraints, assumptions and functional 
-requirements; the sensors, power supplies, etc. foreseen for protoDUNE will be detailed and the general structure of 
-the control system will be described.
+This section describes the main system requirements, %will be described in terms of 
+constraints and assumptions,  %and functional requirements; 
+%and the sensors, power supplies, etc. foreseen for protoDUNE will be detailed 
+and the general structure of 
+the control system and its components. %will be described.
 
+The design of the ProtoDUNE-SP safety and control system is based on the experience gained in collaboration with ETH Zurich during a pilot (WA105) project. The components of this system and their functions are as follows:
+\begin{itemize}
+\item	The Process Control System (PCS) reads temperature sensors, pressure sensors, trace analysers (O$_2$, N$_2$, H$_2$O).
+\item	The Detector Control System (DCS) monitors and controls the low voltage (LV) and high voltage (HV).
+\item	The Detector Safety System (DSS) ensures the safety of the experiment by performing the temperature surveys and monitoring interlocks.
+\end{itemize}
+The system will provide a graphical user interface to visualize the trends of monitored values, the alarms, as well as to control the experiment. A web interface will allow remote monitoring of the behavior of the experiment.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Constraints and requirements}
+
+\fixme{I'm not sure how much of this you want here. It would be better to list the half-dozen or so most important requirements then describe the system and its operation. Anne}
+
 \begin{enumerate}
 \item	The control and safety system for SP protoDUNE shall be based on the experience gained, the design developed and the 
 components chosen for the 3mx1mx1m WA105 DP protoDUNE prototype.
@@ -77,16 +91,20 @@ supervisor and user interface developments and ensure regular information exchan
 \item	The system shall provide a graphical user interface to visualize the trends of monitored values, the alarms, as well as to control the experiment.
 \item	The system should provide a web interface to be able to remotely monitor the behaviour of the experiment.
 \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Devices}
 Add here PMT \& TPC (HV, LV, current monitors?), temperature and pressure sensors, level meters?, camera vision inside tank?, trace analysers, 
 calibration system?,... 
 
+\fixme{missing}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{General layout of the detector control and safety system}
-The design of the protoDUNE SP control system is based on the experience gained in collaboration with ETH Zurich during a pilot (WA105) project 
-aimed at validating, among others, the design of the control system for such types of detectors. 
 
-Figure \ref{fig:dcsdesign} shows the general architecture of the control and safety system for protoDUNE.
-The system is subdivided into the Process Control System, the Detector Control System and the Detector Safety System. For the DP protoDUNE detector an additional element is included for the motorization of the Charge Readout Plane (CRP).
+%moved to front The design of the ProtoDUNE-SP control system is based on the experience gained in collaboration with ETH Zurich during a pilot (WA105) project aimed at validating, among others, the design of the control system for such types of detectors. 
+
+Figure \ref{fig:dcsdesign} shows the general architecture of the control and safety system for ProtoDUNE-SP.
+The system is subdivided into the Process Control System (PCS), the Detector Control System (DCS) and the Detector Safety System (DSS). \fixme{Remove the following; not needed here: For the ProtoDUNE-DP detector an additional element is included for the motorization of the Charge Readout Plane (CRP).}
 
 \begin{cdrfigure}[DCS design]{dcsdesign}{Proposed architecture and technical solution of the control and safety system.}
 %\includegraphics[width=0.8\textwidth, angle=90]{DCS_Design}
@@ -96,9 +114,9 @@ The system is subdivided into the Process Control System, the Detector Control S
 The control system for each detector will be composed of the following elements:
 \begin{enumerate}
 \item	A chassis for electrical distribution (380Vac, 220Vac, 24Vdc redundant).
-\item	Two chassis for PCS (Process Control System) composed of an FPGA, signal conditioners, interface, and cabling.
-\item	One chassis for DCS (Detector Control System) composed of an interface for LV/HV monitoring \& control.
-\item	A chassis for DSS (Detector Safety System) composed of an FPGA and relays for the safety of the experiment.
+\item	Two chassis for PCS composed of an FPGA, signal conditioners, interface, and cabling.
+\item	One chassis for DCS  composed of an interface for LV/HV monitoring \& control.
+\item	A chassis for DSS composed of an FPGA and relays for the safety of the experiment.
 \item	A chassis for a PC data acquisition \& supervision (PVSS SCADA Supervisor) composed of a computer with a display monitor, a switch and a 
 server.
 \item	Four chassis for the remote I/O to capture signal close to the detector and avoid multi-cabling structure.
@@ -114,3 +132,5 @@ The supervisory software will by based on the JCOP framework \fixme{(add ref.)},
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QC Procedures}
+
+\fixme{missing}
