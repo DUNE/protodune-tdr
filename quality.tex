@@ -1,0 +1,16 @@
+\subsection{QC Procedures -- APA}
+
+Each ProtoDUNE-SP APA will be subject to a testing program during production that will demonstrate their compliance with the design and manufacturing requirements for the experiment.  Given the large size of the APAs, and the highly specialized cryogenic and electronic infrastructure necessary for their designed operation, the testing plan followed during production is necessarily targeted at those features of the APAs which can be addressed prior to final installation in the cryostat.  A separate suite of testing, in a cryogenic environment, is planned to be conducted at CERN, as described in ???? \fixme{is there a section in the TDR for this cold-box test?}.
+
+The tests described in this section will be conducted on APAs during construction, as well as on completed APAs.  Subcomponents ($e.g.$ - wire boards, BeCu wire, etc..) are verified or tested by the appropriate vendor or subsystem manager prior to their use in APA construction.  Each APA will be subject to the testing listed in Table \ref{tab:apatesting}.   Many of the tests (e.g. - tension, continuity, isolation, position survey, bias voltage) are repeated as each successive wire layer of the APA is added, testing the newly installed wires as well as spot-checking wires from previously installed layers. The summary of the tests on each APA, and the associated data collecting during the tests, are recorded in a traveler.
+
+\begin{cdrtable}[APA Testing]{llr}{apatesting}{Tests to be conducted on APAs during production.}
+Label & Requirement & Test Method  \\ \toprowrule
+Tension      & All wires must be tensioned to 5$\pm$1 N & Laser Survey \\ \colhline
+Cryo       &  All APA must operate at 87 K  & Cryotest \\ \colhline
+Electrical       & All wires electrically connected at top/bottom of APA  & Continuity \\ \colhline
+Isolation & Neighboring APA wires have $\geq$1 M$\Omega$ resistance & Multimeter\\ \colhline
+Voltage & Anode planes must hold $\geq$100$\%$ bias & Bias \\ \colhline
+Position & All wires must be within 500 $\mu$m of design location & Survey\\ \colhline
+Frame & APA frame satisfies all bow/twist/fold criteria & Survey\\ \colhline
+\end{cdrtable}
