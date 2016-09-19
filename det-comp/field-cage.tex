@@ -147,20 +147,8 @@ One readily available MOV famility \fixme{family?} with high threshold voltage i
 \end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Validation tests of roll-formed FC design}
+%\subsection{Validation tests of roll-formed FC design}
 
-A dedicated test setup has been designed and constructed to validate the field cage concept  in purified LAr.
-It consists of a field cage (Figure~\ref{fig:fc-test}), fitting into the ICARUS 50-liter cryostat (1.1~m hight, 0.6~m diameter) available at CERN, and  includes:
-
-\begin{itemize}	
-\item roll-formed metal profiles with UHMW PE caps,
-\item pultruded fiberglass I-beams form four mini panels,
-\item HV cable feed-through (equipped with corona monitor) allowing application of up to 150~kV on FC profiles,
-\item all profiles at same potential to simplify HV connection,
-\item ICARUS-like stainless steel ground planes placed  66~mm away from FC profiles ($\sim$1/3 of FD bias voltage to reach
-same E field), and
-\item video cameras in the gas phase to monitor bubbles and sparks.
-\end{itemize}
 
 \begin{cdrfigure}[The field cage test setup]{fc-test}{The field cage test setup. 
  {\bf Left:} schematic drawings of the cage showing the main elements: metal profiles, I-beams, ground planes.
@@ -168,29 +156,8 @@ same E field), and
 \includegraphics[width=0.45\linewidth]{tpc_fc-test-1.png}
 \includegraphics[width=0.45\linewidth]{tpc_fc-test-2.png}
 \end{cdrfigure}
+\fixme{Remove Figure~\ref{fig:fc-test}? Not shown in Gina's printout}
 
-Two choices of material (aluminum, stainless steel) for the metal profiles have been tested. In the aluminum case, the surface finish has also been tested with scratches up to 100 microns deep. 
-
-The cage was operated both in commercial LAr and, connected to the ICARUS 50-liter recirculation system, in LAr with purity  better that 0.1 ppb O$_2$ equivalent. HV above 80~kV (corresponding to an electric field about 20\% higher than nominal) could be 
-\fixme{was?} applied for several days, without recording any discharge. Two additional regimes have been studied:
-\begin{itemize}	
-\item  With the 50-liter vessel fully thermalized (no visible bubble formation along the detector), no sparks appear %(were ever recorded) 
-with voltage up to 100~kV.
-\item  HV instabilities arise in the 80$-$100 kV range if the LAr is not perfectly thermalized, allowing bubble formation from heat sources (HV feedthrough, ground connections): a few random sparks were recorded, developing however around the HV cable and not between the field cage and the ground plates.
-\end{itemize}
-
-All tested materials exhibited the same behavior in the applied HV range. 
-
-Nickel coating (up to 20 microns) of aluminum profiles was also proposed as a way to avoid oxidation of the surface, which % could possibly be 
-is a potential source of HV instability. Its stability against  thermal gradients was positively tested. \fixme{tested and found to be positive, i.e, stable? Pls clarify} However HV tests showed no difference with respect to the uncoated version.
-
-A specific breakdown test has been performed to check dielectric rigidity of the UHMW PE end caps in LAr. %exposing a few metal profiles equipped with PE end caps and connected the HV, to a ground plane (Figure~\ref{fig:endcap-test}).
-A few metal profiles equipped with PE end caps and connected the HV were exposed to a ground plane (Figure~\ref{fig:endcap-test}).
-Results demonstrated that the proposed end-cap geometry and thickness can safely hold 150~kV.
-
-\begin{cdrfigure}[Setup to test dielectric rigidity]{endcap-test}{Setup to test dielectric rigidity of the UHMW PE end caps}
-\includegraphics[width=0.65\linewidth]{tpc_fc_endcap-test.png}
-\end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ground Plane Design}
@@ -199,11 +166,7 @@ Results demonstrated that the proposed end-cap geometry and thickness can safely
 In order to confine the electric field in the liquid argon region, it is foreseen to install a grounded metallic plane,  between the upper field cage module and the liquid-gas interface. The design of such a Ground Plane (GP) \fixme{need to define acronym above and just use it} is inspired by the one from the ICARUS T600 detector, and it is meant to limit the residual electric field in the liquid below the usual 30~kV/cm value. 
 \fixme{Is it to keep the E field from going outside the LAr volume or is it to keep the residual field that's already in the LAr volume very small?}
 %The design details of the planes were verified to comply with the requests on residual electric field with FEA.  It is noted that a similar GP could be added in front of all the other Field Cage (FC) modules, in order to smooth the field in the LAr dead volume. However, so far it is foreseen to add an actual GP only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling are running. The distance between the cryostat walls and the end-wall field cage does not require to insert a GP, instead.
-The design details of the planes were verified for compliance with the requests on residual electric field with FEA. \fixme{I cannot parse prev sentence} It is noted that a similar GP could be added in front of each of the other Field Cage (FC) modules in order to smooth the field in the LAr dead volume. However, so far it is planned to add one only below the bottom FC, to further smooth the field in the region where pipings for the cryostat filling  run. The distance between the cryostat walls and the end-wall field cage does not require insertion of a GP.
-
-As mentioned, the GP design is inspired by the ICARUS T600 detector: in that case, 1 mm thick Stainless Steel (SS) plates, punched with $10$ mm holes, 15 mm pitch ($\sim 50\%$ transparency), could stand a potential differential of $-150$ kV over $100$ mm. In order to smooth the field, the edges of the planes were rounded to $\sim 10$ mm. The fraction of punched structure was selected to ensure light-weight even with SS, and to allow fluid circulation above the planes.
-
-\fixme{Does this mean: This GP is similar to the one in the ICARUS detector, (the listed features are the same for both). The ICARUS GP can withstand a potential differential of $-150$ kV over $100$ mm, therefore ours can, too.  In  ICARUS, the edges of the GPs were rounded to $\sim 10$ mm, so we plan to do the same?  Is our punched fraction different than ICARUS's because we want it to be lighter-weight or allow more fluid flow? }
+The design details of the planes were verified for compliance with the requests on residual electric field with FEA. \fixme{I cannot parse prev sentence} 
 
 In the ProtoDUNE-SP configuration, the GP will be put at a distance of 200~mm from the FC profile, with a structure of $6$ mm holes, $10$ mm pitch ($\sim 25\%$ transparency): the lower fraction of pierced surface is verified by simulations to maintain the field within the required values. The edges of the plates, $20$ mm high, are rounded at $5$ mm, while the holes rounding radius, at production is around $0.5$ mm. The liquid level is expected to be at 40 mm above the GP bottom, i.e. 20 mm above the edges. The radius of curvature for the holes is not a strict requirement. It depends on the punching technique, and usually is at around $0.5$ mm. The actual requirement is to have the hole curvature on the inside (of the TPC) looking out.
 \fixme{The previous pgraph needs clarification}
@@ -211,30 +174,10 @@ In the ProtoDUNE-SP configuration, the GP will be put at a distance of 200~mm fr
 Two sets of pieces \fixme{two sets of GPs? Define ``piece''} were initially produced in Europe:
 \begin{itemize}
 \item 8 pieces of dimension $198 \times 571$ mm (weight $< 1$ kg each) to be installed in the CERN field cage prototype,
-\item 6 more pieces of  $525 \times 2318$ mm (weight around $8.5$ kg each), which represent full scale components for ProtoDUNE-SP. The drawing of this second set of pieces, sent to the U.S. for test assemblies, in shown in Figure~\ref{fig:gp_panels}.
+\item 6 more pieces of  $525 \times 2318$ mm (weight around $8.5$ kg each), which represent full scale components for ProtoDUNE-SP. %The drawing of this second set of pieces, sent to the U.S. for test assemblies, in shown in Figure~\ref{fig:gp_panels}. -- this figure was removed per Gina
 \end{itemize}
 
-\begin{cdrfigure}[ProtoDUNE GP]{gp_panels}{Top: Techincal Drawing, by Claudio Montanari, of the Ground Plane panels for ProdoDUNE-SP. Bottom: 3D model of one panel}
-\includegraphics[width=1.0\linewidth]{tpc_fc_gp525x2318piece.png}
-\end{cdrfigure}
 
-The choice of electropolished Stainless Steel \textit{AISI 304 L} over Aluminum derives from the experience of the ICARUS detector, moreover:
-\begin{itemize}
-\item SS and G10 have very similar dilatation coefficients, while Aluminum does not. Choosing SS ensures that all the $GP\,+\,G10$ structure contracts consistently, without too large stresses at the connections; 
-\item SS is more ductile than Aluminum, which makes \textit{easier} to machine the corners of the pieces. Note that anyway some imperfections are present even in the SS case, and not all corners will be perfectly identical. 
-\item Though Aluminum would guarantee a factor-of-three lighter GP, the overall weight of the SS pieces remains contained (order of 550 kg). \fixme{in other words, SS would also be light enough?}
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Field Cage prototype at CERN}
-%The main description of the Field Cage Prototype built at CERN, and the tests performed on it, is provided in section ...\fixme{fix}. In here simply the details concerning the GP are reminded. The smaller pieces of GP were installed on the field cage prototype at CERN, to test the configuration. As described elsewhere, the actual distance between the field cage profiles and the GP in this prototype is of 60 mm, therefore a voltage of 60 kV minimum must be attained to verify the ProtoDUNE field configuration. (Figure ~\ref{fig:fc_prot}) During multiple tests in LAr, both with open-air dewars and in a clean liquid configuration, the structure always stood the 60 kV voltage, and it was in general possible to reach the value of 80-100 kV, after which discharges would start. However discharges were always localized on the HV cables, not involving the GP-FC structure.
-
-The main description of the Field Cage Prototype built at CERN, and the tests performed on it, is provided in section ...\fixme{fix}. This section aims to serve as a reminder of the details.
-The smaller pieces of the GP were installed on the field cage prototype at CERN to test the configuration. As described elsewhere \fixme{where?} the actual distance between the field cage profiles and the GP in this prototype is of 60~mm, therefore a  minimum voltage of 60~kV must be attained to verify the ProtoDUNE-SP field configuration. (Figure~\ref{fig:fc_prot} \fixme{This figure needs more explanation; what's right and left? where's the 60mm separation?} During multiple tests in LAr, both with open-air dewars \fixme{how do you have LAr in an open dewar?}  and in a clean liquid configuration, the structure consistently withstood the 60 kV voltage, and in fact 80-100 kV was typically achieved, above which discharges would start. The discharges remained localized on the HV cables, and did not involve the GP-FC structure.
-
-\begin{cdrfigure}[CERN Prototype]{fc_prot}{Details of the Field Cage Prototype at CERN, showing the installed GP panels.}
-\includegraphics[width=0.8\linewidth]{tpc_fc_prototype.png}
-\end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Field Cage and Ground Plane in ProtoDUNE-SP}
@@ -245,15 +188,15 @@ The design details of the FC+GP modules for ProtoDUNE is described and shown in 
 \includegraphics[width=0.8\linewidth]{tpc_topFC.png}
 \end{cdrfigure}
 
-One module will be made of six pieces, aligned %put next to each other 
-along their long (2318-mm) dimension %direction%: this dimension is made to 
- in order to match the APA and FC module widths. The planes are connected to the FC beam with additional %further 
-G10 pieces that are used also to connect adjoining %two neighboring 
+One module will be made of six pieces, aligned 
+along their long (2318-mm) dimension 
+ in order to match the APA and FC module widths. The planes are connected to the FC beam with additional 
+G10 pieces that are used also to connect adjoining 
 GP panels. \fixme{piece vs panel?}
 
-The electrical continuity between consecutive panels can be made %performed 
-with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. Copper strips were successfully employed on the CERN FC prototype.
-As for most detector systems, the GP should be referenced to the detector ground, located % set 
+The electrical continuity between consecutive panels can be made 
+with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. 
+As for most detector systems, the GP should be referenced to the detector ground, located 
 at the cryostat top.
 
 The GP modules will be installed on the corresponding FC modules in the clean room outside the cryostat, to facilitate the connections. The description of how the top/bottom FC modules are assembled and connected to the CPA before insertion in the cryostat is provided in section ... \fixme{add reference}.
@@ -265,18 +208,9 @@ cover the CPA frame. Their dimensions are % is
 still to be defined, depending on the final design of the CPA hanging scheme. Such \fixme{the same pieces are connected, or similar ones are?} pieces should also be connected to the modules covering the opposite drift region, when in final position.
 \item An additional % further 
 set of small panels should be installed on the outer modules of the FC to extend the GP over the vertical FC walls, which will %to 
-further constrain the electric field in these regions. A FEA (Figure ~\ref{fig:fea_overhang}) shows that the optimized overhang distance is 20~cm, provided LAr is at 40~mm above the bottom of the GP. The maximal residual field in this configuration is of the order of 13~kV/cm, with less than 1~kV/cm field in the gas phase.
+further constrain the electric field in these regions. A FEA %(Figure ~\ref{fig:fea_overhang}) 
+shows that the optimized overhang distance is 20~cm, provided LAr is at 40~mm above the bottom of the GP. The maximal residual field in this configuration is of the order of 13~kV/cm, with less than 1~kV/cm field in the gas phase.
 \end{itemize}
-
-\begin{cdrfigure}[FEA overhang]{fea_overhang}{2D FEA showing the field profile in liquid with a 200-mm overhang, gas-liquid interface 40~mm above the GP bottom. Highest field in the liquid phase is of the order of 13~kV/cm.}
-\includegraphics[width=0.7\linewidth]{tpc_fc_gp_overhang.png}
-\end{cdrfigure}
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Designs of the Field Cage Modules}
@@ -284,7 +218,7 @@ further constrain the electric field in these regions. A FEA (Figure ~\ref{fig:f
 %%%%%%%%%%%%
 \subsubsection{Top and bottom modules}
 
-
+\fixme{Do we have this from Vic's document? (Gina)}
 %\begin{cdrfigure}[A top field cage module]{fc-top_module}{A view of a top field cage module}
 %\includegraphics[width=0.8\linewidth]{tpc_fc_top_module.png}
 %\end{cdrfigure}
@@ -332,32 +266,7 @@ The design of the beam plug is described in Section~\ref{sec:beamplug}. In this 
 \end{cdrfigure}
 
 
-%%%%%%%%%%%%
-%% this feature has been removed from ProtoDUNE design
-%\subsubsection{Field cage to calibration lasers}
-
-%Four calibration laser windows need to be implemented on the downstream end-wall field cage modules.  The windows are planned to be at the mid-height of the TPC, i.e., at the boundary of two %end-wall field cage 
-%modules.  The opening for each laser beam is about 15~cm square.  The plan is to shorten three profiles by 7.5~cm from the each edge of the field cage modules.
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{QC Procedures}
-
-The following activities are/will be performed to assure the field cage meets all design criteria as defined in the fabrication drawings and description in the sections above:
-\begin{itemize}
-\item	Fabricate prototype FCs to test the design and fabrication and assembly methods.
-\item	Installation test at Ash River:
-\begin{itemize}
-\item	Test the lifting and handling of the prototype FCs.
-\item	Mount the prototype FCs to the CPA modules and test and evaluate their installation.
-\end{itemize}
-\item	Develop a QC plan for inspecting every fabricated part of the FC frame to make sure they meet the dimensions and tolerances on the fabrication drawings.
-\item	Develop a QC plan for inspecting and measuring each FC module and completed FC plane to insure they meet the dimensions and tolerances on the drawings.
-\item	Perform tests of each joint in the FC frame (see Section XX) to insure that their design and strength meets the load requirements.
-\item	Create an integrated model of the entire TPC to evaluate interfaces and installation methods.  
-\end{itemize}
-
- 
 
 
