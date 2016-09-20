@@ -43,13 +43,21 @@
 %\clearpage
 
 
-%move tof, tot, acronym list and to do list to final
 
+\textsf{\listoffigures}
+%\clearpage
 
+\textsf{\listoftables}
+%\clearpage
 
+%For acronym list to appear just after TOC, TOF, TOT
+\printnomenclature
+%\clearpage
 
-
-
+\iffinal\else
+\textsf{\listoftodos}
+\clearpage
+\fi
 
 
 \renewcommand{\thepage}{\arabic{page}}
