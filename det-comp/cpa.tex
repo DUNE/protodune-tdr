@@ -8,7 +8,8 @@
 \section{Cathode Plane Assemblies}
 
 
-\subsection{Scope, Requirements and Design Considerations}
+%\subsection{Scope, requirements and design considerations}
+\subsection{Scope and requirements}
 
 The cathode plane is located in the middle of the TPC, dividing it into two equal distance drift volumes.  It is connected to the high voltage feedthrough through a receptacle, aka the HV cup, at the east end, and biased at -180\,kV.  The cathode plane is constructed from 6 cathode plane assemblies (CPAs) to form the 7\,m $\times$ 6\,m area.  It provides the bias voltage and current to all the field cage modules (top, bottom and end wall) through electrical interconnects.  It also mechanically supports 6 pairs of top/bottom field cage modules.
 The cathode plane is suspended by insulating bars from the CPA installation rail.
@@ -16,7 +17,7 @@ The cathode plane is suspended by insulating bars from the CPA installation rail
 \fixme{Gina underlined `bias' in `bias voltage' above and in first bullet point; not sure why (Anne)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Requirements}
+%\subsubsection{Requirements}
 The CPA is required to:
 \begin{itemize}
 \item provide equipotential surfaces at $-$180kV nominal bias voltage,
@@ -34,9 +35,9 @@ The CPA is required to:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Design Considerations}
+\subsection{Design considerations}
 
-In each single phase DUNE far detector, the cathode planes are 12\,m tall by nearly 60\,m long.  When biased to the nominal voltage of -180\,kV, each cathode plane stores more than 100\,J of energy. It is of great concern on the integrity of the detector elements, including the sensitive front end electronics, if this energy is suddenly and completely released in a high voltage discharge event.  Study has shown (DUNE docdb 1320) that if the entire cathode plane is made of interconnected metallic electrodes, there is significant risk of damage to the front end ASICs simply due to the charge injection through the capacitive coupling between the cathode and the anode wires when the cathode voltage is forced to ground by a high voltage discharge.  
+In each single phase DUNE far detector, the cathode planes are 12\,m tall by nearly 60\,m long.  When biased to the nominal voltage of -180\,kV, each cathode plane stores more than 100\,J of energy. It is of great concern on the integrity of the detector elements, including the sensitive front end electronics, if this energy is suddenly and completely released in a high voltage discharge event.  Study has shown (DUNE docdb 1320) \fixme{cite properly} that if the entire cathode plane is made of interconnected metallic electrodes, there is significant risk of damage to the front end ASICs simply due to the charge injection through the capacitive coupling between the cathode and the anode wires when the cathode voltage is forced to ground by a high voltage discharge.  
 
 Since  a large fraction of the stored energy on the cathode plane is determined by the operating voltage and the drift distance, reducing the drift distance and therefore the cathode voltage is an option.  However, doing so while maintaining a constant detector fiducial volume would require additional detector elements and increase cost and complexity of the system.  And this will not reduce the amount of charge injection since the voltage-capacitance product remains nearly constant between the anode and cathode planes.
 
@@ -50,7 +51,7 @@ In the single phase DUNE FD, two cathode planes are positioned roughly at 1/4 an
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The Design of the Cathode}
+\subsection{CPA design}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Overview}
@@ -140,7 +141,7 @@ Figures~\ref{fig:cpa-geometry} and \ref{fig:cpa-view2} show the basic geometry o
 \includegraphics[width=0.8\linewidth]{tpc_cpa_views2.png}
 \end{cdrfigure}
 
-\begin{cdrfigure}[CPA and FCA hinged connection]{cpa-hinge1}{The top field cage modules are hung vertically with the CPAs when moved into the cryostat, then rotated to horizontal to attach to the APA.} 
+\begin{cdrfigure}[CPA and FC module hinged connection]{cpa-hinge1}{The top field cage modules are hung vertically with the CPAs when moved into the cryostat, then rotated to horizontal to attach to the APA.} 
 \includegraphics[width=\linewidth]{tpc_cpa_fc_hinge.png}
 \end{cdrfigure}
 
@@ -158,7 +159,7 @@ The steel beam between the CPA and APA will shrink by 5.2~mm relative to the fie
 
 
 %%%%%%%%%%%%
-\subsubsection{The mechanical and electrical interconnect features between modules}
+\subsubsection{Mechanical and electrical interconnections between modules}
 
 Three modules are stacked vertically to form the 6-m height of the ProtoDUNE-SP  cathode.  The frames of these modules are bolted together using tongue-and-groove connections at the ends. The resistive cathode sheets and the field-shaping strips are connected using a few metallic buttons to ensure redundant electrical contact between vertical modules.
 

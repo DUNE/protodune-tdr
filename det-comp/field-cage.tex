@@ -11,96 +11,96 @@
 \section{Field Cage}
 \label{detcompsec-fc}
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Scope, Requirements and Design Parameters}
+%\subsection{Scope, Requirements and Design Parameters}
+\subsection{Overview and Requirements} 
 
-\fixme{I added a bit of explanation that isn't in earlier sections yet (Anne)}
-In the ProtoDUNE-SP TPC, 
-the six APAs are arranged into two APA planes, each consisting of three side-by-side APAs. Between them,  
-%, flanking either side of 
-a central cathode plane splits the TPC volume into two
-electron-drift regions, one between
-each pair of facing cathode and anode planes. %forms an electron-drift region. 
-A field cage (FC) must completely surround the four
-open sides of the entire drift %this 
-region %to provide the necessary boundary conditions
-to ensure that the %a uniform
- electric field within is uniform and unaffected by the presence
-of the cryostat walls and other nearby conductive structures.
+In the TPC, each pair of facing cathode and anode planes forms an electron-drift region. A field
+cage (FC) must completely surround the four open sides of this region to provide the necessary boundary
+conditions to ensure a uniform electric field within, unaffected by the presence of the cryostat walls.
 
-\fixme{Adding a bit from docdb 1504; would be nice to include its fig 6.1; need orig, not one copied from Word doc.  }
-\fixme{One field cage with many assemblies or modules? Clarify assembly vs module} 
-
-The ProtoDUNE-SP TPC will have six top and six bottom field cage assemblies, arranged three across each horizontal edge of the two drift regions. It will have 
-four endwall panels, one at each vertical edge of the two drift regions, see Figure~\ref{fig:fc-overview}.
-Each endwall panel consists of four assemblies in ``landscape'' orientation, stacked vertically.
-FC assemblies are constructed from pultruded G10 I-beams and box beams that support extruded field-shaping aluminum profiles. The support structure for each of the top and bottom FC assemblies consists of two main I-beams that are 3.6~m long, and three cross I-beams that brace the main I-beams for structural stability.
-
-
-The main I-beams have cutouts to hold the field-shaping profiles. Main I-beams are spliced at 2.5~m to facilitate drift distance %change of the TPC from 3.6 m to 
-of 2.5~m. Splice joints and cross I-beam joints are held together using an arrangement of shear pins and plates. 
-
-Aside from the profiles themselves, the nuts and bolts holding them, and the ground planes, all FC components are made of insulating material. The material selected for these structural components is fiberglass-reinforced plastic (FRP), which will prevent binding when the structure is at cryogenic temperatures. The ground planes are made of stainless steel. 
-
-\fixme{from docdb 1504 sec 6.3 I can't tell if there's ONE ground plane at the TOP, ONE at the BOTTOM or two. In this section it appears plural. 1504 needs clarification. }
-
-The inward-facing face of the ground planes will be approximately 20~cm away from the top of the field-shaping profiles. The ground planes are mounted at a fixed distance from the field shaping profiles by standoffs, as shown in Figure 6.2 \fixme{reference properly}, which shows ground planes over I-beams and cross beams.
-
-%The ProtoDUNE-SP field cages are constructed from tiled field cage modules.  
-%Each FC module is built with a number of 
-The parallel metal profiles in each FC assembly 
- are interconnected by a resistive divider chain, and supported by the FRP beams that span the drift distance.  Between adjacent field cage assemblies, however,  
-the metal profiles are neither mechanically nor electrically connected. Gaps between assemblies range from a few millimeters to a few centimeters are designed into the TPC assembly to ensure sufficient clearance for the installation.  The electrical isolation between the field cage modules minimizes the peak energy dump in case of a HV discharge.
-
-
-\begin{cdrfigure}[The field cages]{fc-overview}{A view of the TPC field cage}
-\includegraphics[width=0.8\linewidth]{tpc_fc_overview.png}
-\end{cdrfigure}
-\fixme{Figure~\ref{fc-overview} is not referenced. It also needs a fuller, more descriptive caption}
+The FCs are constructed using multiple copper-clad FR-4 sheets reinforced with fiber
+glass I-beams to form modules of 2.3 m $\times$ 3.6 m in size. Parallel copper strips are etched on
+the FR-4 sheets using standard printed circuit board fabrication techniques. Strips are biased at
+appropriate voltages provided by a resistive-divider network. These strips create a linear electric potential
+gradient in the LAr, ensuring a uniform drift field in the TPC active volume. Simulations
+have shown that the non-uniformity of the drift field quickly drops to about 1\%, roughly a strip
+pitch away from the field-cage surface.
+\fixme{The above taken from sec 4.3.4 of the detector volume of the CDR as an intro. May need update for protodune-sp?? Anne}
 
 The FC is required to:
 \begin{itemize}
 \item provide the nominal drift field of 500V/cm;
 \item withstand $-$180kV near the cathode;
 \item define the drift distance between the APAs and CPAs to <1~cm;
-\item limit the electric field %exposed to LAr 
-in the LAr volume to under 30~kV/cm;
+\item limit the electric field in the LAr volume to under 30~kV/cm;
 \item miminize the peak energy transfer in case of a HV discharge anywhere on the field cage or cathode;
 \item provide redundancy in the resistor divider; \fixme{this feels incomplete... ``in the resistor-divider chain?}
-\item maintain the divider current %must be >> 
-much greater than the ionization current in the TPC drift cell, yet less than the power supply current limit when all dividers are connected in parallel;
-\item %Constructed in 
-be modular in form such that they can be easily installed in the cryostat;
+\item maintain the divider current much greater than the ionization current in the TPC drift cell, yet less than the power supply current limit when all dividers are connected in parallel;
+\item be modular in form such that they can be easily installed in the cryostat;
 \item provide support for the beam plug;
 \item allow calibration laser beams to enter into the active volume; 
 \item support a 200-lb. person standing on the support beam of the bottom field cage module;
 \item be configurable to either 3.6~m or 2.5~m drift length inside the cryostat; and
-\item %No 
-prevent any trapped volume.
-
+\item prevent any trapped volume.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Electrical Design}
+\subsection{Mechanical design}
 
-Given a large standoff distance between the field cage and the grounded cryostat wall, it is relatively easy to design a field cage that meets the 30-kV/cm E field limit with 180-kV bias.  However, It becomes challenging %if we want 
-to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  %To achieve this goal, one must look for 
-This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Several commercially available roll-formed metal profiles were studied and appear to meet these requirements. \fixme{what's challenging about it then?}
+The ProtoDUNE-SP TPC will have six top and six bottom FC assemblies, arranged three across each horizontal edge of the two drift regions. It will have 
+four end-wall panels, one at each vertical edge of the two drift regions, see Figure~\ref{fig:fc-overview} and~\ref{fig:fc-endwall_module}.
+Each endwall panel consists of four assemblies in ``landscape'' orientation, stacked vertically.
+FC assemblies are constructed from pultruded G10 I-beams and box beams that support extruded field-shaping aluminum profiles. The support structure for each of the top and bottom FC assemblies consists of two main I-beams that are 3.6~m long, and three cross I-beams that brace the main I-beams for structural stability.
+\fixme{One field cage with many assemblies or modules? Clarify assembly vs module} 
 
+\begin{cdrfigure}[The field cages]{fc-overview}{A view of the TPC field cage}
+\includegraphics[width=0.8\linewidth]{tpc_fc_overview.png}
+\end{cdrfigure}
+\fixme{Figure~\ref{fig:fc-overview} needs a fuller, more descriptive caption}
+
+\begin{cdrfigure}[An end wall field cage module]{fc-endwall_module}{A view of an end wall field cage module}
+\includegraphics[width=0.8\linewidth]{tpc_fc_endwall_module.png}
+\end{cdrfigure}
+
+The main I-beams have cutouts to hold the field-shaping profiles. Main I-beams are spliced at 2.5~m to facilitate drift distance  
+of 2.5~m. Splice joints and cross I-beam joints are held together using an arrangement of shear pins and plates. 
+
+Aside from the profiles themselves, the nuts and bolts holding them, and the ground planes, all FC components are made of insulating material. The material selected for these structural components is fiberglass-reinforced plastic (FRP), which will prevent binding when the structure is at cryogenic temperatures. The ground planes are made of stainless steel. 
+
+\fixme{from docdb 1504 sec 6.3 I can't tell if there's ONE ground plane at the TOP, ONE at the BOTTOM or two. In this section it appears plural. 1504 needs clarification. }
+
+The inward-facing face of the ground planes will be approximately 20~cm away from the top of the field-shaping profiles. The ground planes are mounted at a fixed distance from the field shaping profiles by standoffs, as shown in Figure~\ref{fig:fc-with-ground-planes}, which shows ground planes over I-beams and cross beams.
+
+\begin{cdrfigure}[The field cage with ground planes]{fc-with-ground-planes}{The field cage with ground planes}
+\includegraphics[width=0.8\linewidth]{fc-with-ground-planes}
+\end{cdrfigure}
+
+The parallel metal profiles in each FC assembly 
+ are interconnected by a resistive divider chain, and supported by the FRP beams that span the drift distance.  Between adjacent field cage assemblies, however,  
+the metal profiles are neither mechanically nor electrically connected. Gaps between assemblies range from a few millimeters to a few centimeters are designed into the TPC assembly to ensure sufficient clearance for the installation.  The electrical isolation between the field cage modules minimizes the peak energy dump in case of a HV discharge.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Electrical design}
+
+Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm E field limit with 180-kV bias.  However, It becomes challenging to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Several commercially available roll-formed metal profiles were studied and appear to meet these requirements. \fixme{what's challenging about it then?}
+
+Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CPA and a top/bottom field cage module pair.
+
+\begin{cdrfigure}[Field cage schematic diagram]{fc-schematic}{A schematic diagram of the CPA and a top/bottom field cage module pair}
+\includegraphics[width=0.8\linewidth]{tpc_fc_schematic.png}
+\end{cdrfigure}
 
 %%%%%%%%%%%%
 \subsubsection{Electrostatic analysis}
 
-%One particular profile (
 The Dahlstrom Roll Form \#1071 was found to have the lowest surface E field, which was about 12~kV/cm when biased at 180~kV with only a 20-cm ground clearance (see Figure~\ref{fig:fc-profile1071}).
 
 \begin{cdrfigure}[2D FEA of roll formed profiles]{fc-profile1071}{A 2D FEA of a configuration using profile 1071, and a conceptual design of the field cage module}
 \includegraphics[width=0.8\linewidth]{tpc_fc_profile1071.png}
 \end{cdrfigure}
   
-In order to maintain a modular design of the field cage while minimizing peak energy transfer in a discharge,% we chose to construct 
-the field cage will be constructed with electrical isolation between neighboring modules. %such that 
-If a discharge occurs on one field cage, the %nearby 
-electrodes from the neighboring modules will not arc over and cause a domino effect.  This requires a 
+In order to maintain a modular design of the field cage while minimizing peak energy transfer in a discharge, the field cage will be constructed with electrical isolation between neighboring modules. If a discharge occurs on one field cage, the electrodes from the neighboring modules will not arc over and cause a domino effect.  This requires a 
 electrical insulation between profile ends of the order of 180~kV.  UHMW PE caps of 5-mm thickness are placed over both ends of each profile to serve this purpose. This technique also limits the exposed electric field in LAr at the corner of the field cage, see Figure~\ref{fig:fc_corner}. 
 
 \begin{cdrfigure}[3D FEA of field cage corner]{fc_profile_corner}{A 3D FEA of a field cage corner.  The PE caps (in outline form) limit the exposed E field below the 30kV/cm threshold.}
@@ -111,13 +111,17 @@ The center-to-center distance between the profiles is set to 6~cm, and the inner
 
 
 %%%%%%%%%%%%  
-\subsubsection{Surge suppressor on field cage}
+\subsubsection{Surge suppressor on FC}
 
-The resistors along the divider provide a linear DC voltage gradient. However, at shorter time scales ($\ll$1~s), the electrical behavior of the divider is determined by the various capacitances on and between each electrode, and %.  This divider
- is no longer linear at this time scale. 
+\fixme{Not clear what design will be used; discusses alternatives}
 
-A perfect capacitive divider requires the capacitance of each node to ground to be zero.  In reality, there is always a finite capacitance from each node to ground, and these capacitances resist change in the voltages on the nodes. In the event of a HV breakdown between the cathode %to 
-and ground (cryostat), the cathode voltage quickly collapses to ground, but the first FC electrode-to-ground capacitance keeps its voltage from changing instantaneously to follow the cathode voltage, resulting in a momentarily larger voltage differential between the cathode and the first FC electrode. This voltage differential can be a significant fraction of the cathode operating voltage, large enough to cause HV breakdown between the two electrodes, or worse yet, to destroy the divider resistors between the two electrodes.
+The resistors along the divider, Figure~\ref{fig:fc-divider-view}, provide a linear DC voltage gradient. However, at shorter time scales ($\ll$1~s), the electrical behavior of the divider is determined by the various capacitances on and between each electrode, and  is no longer linear at this time scale. 
+
+\begin{cdrfigure}[The resistive divider]{fc-divider-view}{A view of a resistive divider}
+\includegraphics[width=0.8\linewidth]{tpc_fc_r_divider.png}
+\end{cdrfigure}
+
+A perfect capacitive divider requires the capacitance of each node to ground to be zero.  In reality, there is always a finite capacitance from each node to ground, and these capacitances resist change in the voltages on the nodes. In the event of a HV breakdown between the cathode and ground (cryostat), the cathode voltage quickly collapses to ground, but the first FC electrode-to-ground capacitance keeps its voltage from changing instantaneously to follow the cathode voltage, resulting in a momentarily larger voltage differential between the cathode and the first FC electrode. This voltage differential can be a significant fraction of the cathode operating voltage, large enough to cause HV breakdown between the two electrodes, or worse yet, to destroy the divider resistors between the two electrodes.
 
 A natural solution to this problem is to significantly increase the capacitance between the nodes of this divider. This was the approach adopted in the 35-ton prototype's field cage through the use of double-sided printed circuit boards (PCB).  However, the cost of the PCB version of the field cage at DUNE scale is very high, and adding discrete HV capactitors between divider taps is also expensitive.
 
@@ -131,21 +135,6 @@ The varistors could also function as redundant ``resistors'' in a divider chain 
 
 One readily available MOV famility \fixme{family?} with high threshold voltage is the Panasonic ERZ-VXXD182.  These have a threshold voltage around 1600~V.  Two of these in series could work with the current 3-kV differential between divider taps.  However, this configuration would not allow raising the E field much above the nominal 500~V/cm.  To allow some headroom in operating field, three such MOVs in series would be needed.
 
-
-%%%%%%%%%%%%
-\subsubsection{Resister tolerance and specification}
-
-\begin{cdrfigure}[The resistive divider]{fc-divider-view}{A view of a resistive divider}
-\includegraphics[width=0.8\linewidth]{tpc_fc_r_divider.png}
-\end{cdrfigure}
-
-%%%%%%%%%%%%
-\subsubsection{Electrical schematic}
- 
-\begin{cdrfigure}[Field cage schematic diagram]{fc-schematic}{A schematic diagram of the CPA and a top/bottom field cage module pair}
-\includegraphics[width=0.8\linewidth]{tpc_fc_schematic.png}
-\end{cdrfigure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Validation tests of roll-formed FC design}
 
@@ -156,11 +145,11 @@ One readily available MOV famility \fixme{family?} with high threshold voltage i
 \includegraphics[width=0.45\linewidth]{tpc_fc-test-1.png}
 \includegraphics[width=0.45\linewidth]{tpc_fc-test-2.png}
 \end{cdrfigure}
-\fixme{Remove Figure~\ref{fig:fc-test}? Not shown in Gina's printout}
+\fixme{Remove Figure~\ref{fig:fc-test}? Not shown as ``remove it'' in Gina's printout}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ground Plane Design}
+\subsection{Ground plane design}
 %% by A. Zani
 
 In order to confine the electric field in the liquid argon region, it is foreseen to install a grounded metallic plane,  between the upper field cage module and the liquid-gas interface. The design of such a Ground Plane (GP) \fixme{need to define acronym above and just use it} is inspired by the one from the ICARUS T600 detector, and it is meant to limit the residual electric field in the liquid below the usual 30~kV/cm value. 
@@ -180,64 +169,59 @@ Two sets of pieces \fixme{two sets of GPs? Define ``piece''} were initially prod
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Field Cage and Ground Plane in ProtoDUNE-SP}
+\subsection{Field cage and ground plane modules}
 
-The design details of the FC+GP modules for ProtoDUNE is described and shown in the next section. \fixme{add proper reference} Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled module to provide an initial understanding.
+%The design details of the FC+GP modules for ProtoDUNE is described and shown in the next section. 
+One field cage and ground plane (FC+GP) module will be made of six pieces, aligned 
+along their long (2318-mm) dimension 
+ in order to match the APA and FC module widths. The planes are connected to the FC beam with additional 
+G10 pieces that are also used to connect adjoining 
+GP panels. \fixme{piece vs panel?}
+
+Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled FC+GP module.
 
 \begin{cdrfigure}[CERN Prototype]{fc_full}{3D model of one fully assembled FC+GP module, for the top of the field cage. }
 \includegraphics[width=0.8\linewidth]{tpc_topFC.png}
 \end{cdrfigure}
 
-One module will be made of six pieces, aligned 
-along their long (2318-mm) dimension 
- in order to match the APA and FC module widths. The planes are connected to the FC beam with additional 
-G10 pieces that are used also to connect adjoining 
-GP panels. \fixme{piece vs panel?}
-
 The electrical continuity between consecutive panels can be made 
 with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. 
-As for most detector systems, the GP should be referenced to the detector ground, located 
+As for most detector systems, the GP will %should 
+be referenced to the detector ground, located 
 at the cryostat top.
 
-The GP modules will be installed on the corresponding FC modules in the clean room outside the cryostat, to facilitate the connections. The description of how the top/bottom FC modules are assembled and connected to the CPA before insertion in the cryostat is provided in section ... \fixme{add reference}.
+The GP modules \fixme{modules or panels?} will be installed on their corresponding FC modules in the clean room outside the cryostat, to facilitate the connections. The description of how the top/bottom FC modules are assembled and connected to the CPA before insertion in the cryostat is provided in Section  \fixme{need to find and add reference}.
 
 Further GP panels need to be attached to the top FC module:
 \begin{itemize}
-\item Smaller panels will have to be connected on the modules on one side of the CPA so that, once in position, they %should 
-cover the CPA frame. Their dimensions are % is 
+\item Smaller panels will have to be connected on the modules on one side of the CPA so that, once in position, they 
+cover the CPA frame. Their dimensions are 
 still to be defined, depending on the final design of the CPA hanging scheme. Such \fixme{the same pieces are connected, or similar ones are?} pieces should also be connected to the modules covering the opposite drift region, when in final position.
-\item An additional % further 
-set of small panels should be installed on the outer modules of the FC to extend the GP over the vertical FC walls, which will %to 
-further constrain the electric field in these regions. A FEA %(Figure ~\ref{fig:fea_overhang}) 
+\item An additional 
+set of small panels should be installed on the outer modules of the FC to extend the GP over the vertical FC walls, which will  
+further constrain the electric field in these regions. A FEA 
 shows that the optimized overhang distance is 20~cm, provided LAr is at 40~mm above the bottom of the GP. The maximal residual field in this configuration is of the order of 13~kV/cm, with less than 1~kV/cm field in the gas phase.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Designs of the Field Cage Modules}
+%%%%%%%%%%%%%%%%%%%%%%%%%  -- these sections are not needed. I moved the little text there was up, along with the figures. Anne.
+
+%\subsection{Designs of the Field Cage Modules}
 
 %%%%%%%%%%%%
-\subsubsection{Top and bottom modules}
+%\subsubsection{Top and bottom modules}
 
-\fixme{Do we have this from Vic's document? (Gina)}
-%\begin{cdrfigure}[A top field cage module]{fc-top_module}{A view of a top field cage module}
-%\includegraphics[width=0.8\linewidth]{tpc_fc_top_module.png}
-%\end{cdrfigure}
-
+%The main structure of the top/bottom field cage, constructed of two main I-beams that are 3.6-m long, and four cross I-beams that connect main I-beams for structural stability.
 
 %%%%%%%%%%%%
-\subsubsection{End wall modules}
-
-\begin{cdrfigure}[An end wall field cage module]{fc-endwall_module}{A view of an end wall field cage module}
-\includegraphics[width=0.8\linewidth]{tpc_fc_endwall_module.png}
-\end{cdrfigure}
+%\subsubsection{End wall modules}
 
 
 %%%%%%%%%%%%
-\subsection{Interfaces to Other TPC Components}
+\subsection{Interfaces to other TPC components}
 
-\subsubsection{Field cage to CPA}
+\subsubsection{FC to CPA}
 
-On the top and bottom of the TPC, hinges connect each field cage module to two CPA columns.  This design allows the field cage modules to be pre-attached to the CPAs during installation, and prevents accidental damage to the APA wire plane when raising the field cage module to connect %link 
+On the top and bottom of the TPC, hinges connect each field cage module to two CPA columns.  This design allows the field cage modules to be pre-attached to the CPAs during installation, and prevents accidental damage to the APA wire plane when raising the field cage module to connect 
 to the APA.
 
 The end-wall field cage modules are hung from the CPA and APA support rails.  They do not have strong mechanical coupling to the CPAs and APAs, however, at least four resistive divider chains must be connected to the CPA's HV bus.
@@ -248,14 +232,14 @@ The end-wall field cage modules are hung from the CPA and APA support rails.  Th
 
 
 %%%%%%%%%%%%
-\subsubsection{Field cage to APA}
+\subsubsection{FC to APA}
 
-The I-beams of the top/bottom field cage modules are designed to be latched onto the mating brackets on the APAs.  The design details are currently being developed. % at this moment.  
-In addition to the mechanical connection, the ground side of the divider chain must be connected to the APA's frame ground. % as well.
+The I-beams of the top/bottom field cage modules are designed to be latched onto the mating brackets on the APAs.  The design details are currently being developed.   
+In addition to the mechanical connection, the ground side of the divider chain must be connected to the APA's frame ground. 
 
 
 %%%%%%%%%%%%
-\subsubsection{Field cage to beam plug}
+\subsubsection{FC to beam plug}
 \label{subsec:fc-beamplug}
 The design of the beam plug is described in Section~\ref{sec:beamplug}. In this section we describe the interface between the beam plug and the field cage. The beam plug is installed between the field cage and primary membrane where the charged particle beam enters the cryostat. Its main function is to displace about 45 cm of passive LAr layer in that region to allow the particle beam to enter the active TPC region with minimal upstream material interactions. The beam plug is mounted onto one of the field cage support structures as shown in Figures~\ref{fig:beamplug-fc} and~\ref{fig:beamplug-fc2}. The support structure is designed with sufficient  strength and stiffness to support the weight of the beam plug.
 \begin{cdrfigure}[Beam plug to CPA connection]{beamplug-fc}{Beam plug to field cage interface.}

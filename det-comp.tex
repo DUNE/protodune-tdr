@@ -1,6 +1,18 @@
 %\chapter{det-comp}
 
 %This chapter is split into individual files by section
+\fixme{I added a bit of explanation that isn't in earlier sections yet (Anne); moved it here sep 20}
+In the ProtoDUNE-SP TPC, 
+the six APAs are arranged into two APA planes, each consisting of three side-by-side APAs. Between them,  
+a central cathode plane splits the TPC volume into two electron-drift regions, one between
+each pair of facing cathode and anode planes.  A field cage (FC) must completely surround the four
+open sides of the entire drift region to ensure that the electric field within is uniform and unaffected by the presence of the cryostat walls and other nearby conductive structures.
+
+\begin{cdrfigure}[TPC geometry in cryostat]{tpc-geom-in-cryostat-no-apas}{TPC geometry in cryostat; for clarity, the APAs at the ends are not shown.}
+\includegraphics[width=0.8\linewidth]{tpc-geom-in-cryostat-no-apas}
+\end{cdrfigure}
+
+\fixme{maybe need a bit of intro for the other components here, too}
 
 \input{det-comp/apa}
 \input{det-comp/cpa}
