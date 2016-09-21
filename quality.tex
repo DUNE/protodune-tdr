@@ -39,7 +39,7 @@ The following activities are planned to assure the CPA meets all design requirem
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Field Cage}
+\section{FC}
 
 The following activities are/will be performed to assure the field cage meets all design criteria as defined in the fabrication drawings and description in the sections above:
 \begin{itemize}
@@ -56,15 +56,38 @@ The following activities are/will be performed to assure the field cage meets al
 \end{itemize}
 
  %%%%%%%%%%%%%%%%%%%%%%%%%
-\section{High Voltage}
+\section{HV}
+
+\fixme{no info contributed}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%
+\section{PDS}
 
 \fixme{no info contributed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cold electronics}
+\section{CE}
 
 A full description of the testing procedures is being developed in a separate document. A 
 summary is provided here.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{DAQ}
+
+The DAQ for ProtoDUNE-SP does not require large numbers of custom hardware components to 
+be built and tested.  There will be 8 COBs with 8 RCEs each, 2 FELIX cards, 24 SSPs, the timing 
+and trigger systems and off-the-shelf hardware (computers, network switches, storage, etc.).
+As such, a significant amount of automation is not needed to test and qualify the 
+components.  
+
+Qualification tests of the RCEs, FELIX boards, SSPs, timing and trigger systems will
+be driven by the host institutes producing those systems.  Reception tests will be 
+performed to identify any failures due to transport.  In order to fully qualify the 
+boards, they will need to be individually tested with control samples.  Data generators
+will be used in place of the front-end electronics where applicable.  Full data rate 
+testing will be performed when the first full detector slice is in place at EHN1 (expected
+Q2 2017).  Data challenges will take place during Q1 2017 in advance of the arrival of the 
+first APA, and again as the computing system expands to its full capacity.
 
 %%%%%%%%%%%%%%%%
 \subsection{Prototype testing}

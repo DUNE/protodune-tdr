@@ -1,6 +1,10 @@
-\section{DAQ} \label{sec:daq}
+\section{Data Acquisition (DAQ)} 
+\label{sec:daq}
 
-This section outlines the data acquisition system for ProtoDUNE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Scope and requirements}
+
+This section outlines the data acquisition (DAQ) for ProtoDUNE-SP.
 The DAQ system is shown in figure \ref{fig:daq-overview} along with its
 interfaces to the cold electronics, beam instrumentation, and online
 computing systems.
@@ -11,35 +15,8 @@ DAQ system, its interconnections, data flow, timing and control signals,
 and the interfaces to the electronics and online computing systems}
         \includegraphics[angle=90,width=0.70\textwidth]{daq-overview-dia.pdf}
 \end{cdrfigure}
-%\fixme{simplify diagram for TDR}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Introduction}
 
-%\emph{GB:}
-
-%Brief overview of requirements for the collection of data for the
-%primary goals.  (what subdetectors exist (TPC, PDS, trigger, beam
-%counter monitoring, is there a beam position monitor (wire chamber or
-%fiber detetor in the beam), a cosmic veto, a beam halo veto?  If so,
-%who is doing these things?), primary readout scheme, alternative readout
-%schemes including FELIX (section~\ref{ssec:daqfelix}) what the data rates
-%are for the beam, need for calibration etc.).  Description of modes of
-%operation (triggered, extended test modes for far detector).
-
-%Overview of how the DAQ will be commissioned (importance of online monitor
-%early (and therefore need early definition of data format and simulation).
-
-%Diagram: Physical connections between the main modules, showing the RCEs,
-%FELIX, SSPs, and some generic beam detector readout.  Show timing system
-%and show exiting arrows for where data are feeding the slow control.
-%Have the offline as a generic blob (i.e. details of data distribution
-%are in a different section)
-
-%Descrine the above diagram.  Give table of rates in each branch, and make
-%the comments on the data rates (i.e. anticipate questions the reviewers
-%may have about bottlenecks).
-
-
-The requirements for the DAQ system for ProtoDUNE are defined
+The requirements for the DAQ system for ProtoDUNE-SP are defined
 by the physics requirements of the experiment, with constraints from the
 front-end electronics and assumed bandwidth and storage requirements
 from the online and offline computing systems.  The baseline trigger
@@ -47,26 +24,24 @@ rate during the SPS spill is taken to be 25 Hz.  Cosmic data will also
 be acquired at an appropriate rate such that bandwidth and processing priority are given 
 to beam data.
 
-The data rate from the electronics is assumed to be dominated by the
-TPC data.  However, the photon detection system can produce a signifcant
+The data rate from the electronics will be dominated by the
+TPC data.  However, the photon detection system (PDS) can produce a signifcant
 amount of calibration data (where full waveforms are extracted), during
 commissioning and special runs (up to 24 Gb/s maximum).
 
-The TPC data is sent via the Warm Interface Boards on the cryostat flanges
-for the six APAs of ProtoDUNE un-triggered at a total rate of 480 Gb/s
-(6 APAs $\times$ 2560 channels $\times$ 12 bit ADC $\times$ 2 MHz +
-header + error checking).  The PDS data is estimated to send data
+The TPC data is sent via the Warm Interface Boards  (WIB) on the cryostat flanges
+for the six APAs of ProtoDUNE-SP, un-triggered at a total rate of 480 Gb/s
+.  The PDS data is estimated to send data
 at a total rate of 1.2 Gb/s from the 24 SSPs (detailed further in subsection \ref{subsec:pds-readout}).
-The maximum bandwidth from the ProtoDUNE online system to CERN IT (and
-hence, the offline world), is considered to be 20 Gb/s at a maximum.
+The maximum bandwidth from the ProtoDUNE-SP online system to CERN IT (and
+hence, the offline world), is 20 Gb/s at a maximum.
 Therefore, the DAQ system must reduce the data by a significant fraction
-before the data is sent offline.  This is achieved by a combination of
+before it is sent offline.  This is achieved by a combination of
 data compression and triggering.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Timing, Trigger and Beam Interface}
+\subsection{Timing, trigger and beam interface}
 \label{sec:daq_time}
 
 The timing and the trigger are two distinct subsystems.  The timing
@@ -80,26 +55,24 @@ the beam instrumentation.
 
 The timing system is required to: provide a stable and phase-aligned
 master clock to all DAQ components; synchronize external signals into the
-ProtoDUNE clock domain and time-stamp them; distribute synchronization,
+ProtoDUNE-SP clock domain and time-stamp them; distribute synchronization,
 trigger and calibration commands to the DAQ system; and conduct continuous
 checks of its own function. In addition, the timing system acts as a
 data source, providing a record of triggers received, distributed, or
 throttled. The system is designed to meet the full eventual requirements
 of the DUNE experiment, but will need only a subset of that functionality
-for ProtoDUNE. For instance, absolute time-stamping with respect to an
-external GPS reference is not required, nor is the partitioning of the
-experiment into independent timing zones.
+for ProtoDUNE-SP. For instance, absolute time-stamping with respect to an
+external GPS reference is not required.
 
-An FPGA-based master unit receives a high-quality clock (provided in
-ProtoDUNE by a quartz crystal oscillator or external source) 
+An FPGA-based master unit receives a high-quality clock (from a quartz crystal oscillator or external source) 
 and external signals from the
-trigger system and SPS accelerator. It interfaces to the ProtoDUNE control
+trigger system and SPS accelerator. It interfaces to the ProtoDUNE-SP control
 and DAQ via a gigabit Ethernet interface. The master unit multiplexes
 synchronization and trigger commands, along with arbitrary command
 sequences requested by software, into a single encoded data stream,
 which is broadcast to all timing endpoints, and decoded into separate clock
 and data signals. A uniform phase-aligned cycle counter, updating at the
-ProtoDUNE system frequency of 50MHz, is maintained at all endpoints,
+ProtoDUNE-SP system frequency of 50MHz, is maintained at all endpoints,
 allowing commands to take effect simultaneously at all endpoints
 regardless of cable lengths or other phase delays.
 
@@ -109,12 +82,7 @@ signals over twisted pair cable (for short-distance connection to RCEs,
 SSPs and FELIX modules). Optical signals are fanned out and recombined
 using commercial 32:1 passive splitters, and active optical--LVDS
 converter boards further split the signals for local distribution to
-endpoints. The system uses duplex links, allowing all endpoints to be
-regularly interrogated during system operation to ensure correct operation
-and reception of timing commands. Along with the possibility to select
-any given endpoint via a unique network address, this mechanism also
-allows automatic phase-adjustment of all local clocks at system start-up,
-through precise measurement of the returned clock phase at the master unit.
+endpoints. 
 
 Endpoints decode the timing signal into separate clock and data
 signals using a commercial clock-data recovery ASIC \cite{siliconlabs:Si5344}, which in turn
@@ -128,12 +96,12 @@ decode the timing protocol, which is incorporated into the overall
 firmware design for the receiving FPGA in each DAQ component. This
 block provides a cycle counter, several independent trigger, calibration and 
 synchronisation signals, and a general-purpose packet data output to each endpoint.
-The cycle counter may be used further to generate low-frequency timing signals for
+The cycle counter is used to generate low-frequency timing signals for
 further propagation, e.g. the 2MHz sampling signal for the cold ADCs.
 
 \paragraph{Trigger}
 
-The baseline trigger solution for ProtoDUNE is the Central Trigger Board
+The baseline trigger solution for ProtoDUNE-SP is the Central Trigger Board
 (CTB). The CTB is designed to receive triggers from various sub-systems
 (Photon Detection System, Beam Instrumentation, SPS spill signal, veto
 signals, etc.).  Up to 100 input channels are provided.  It combines
@@ -154,53 +122,38 @@ Configuration and operation is performed using an XML file which is sent
 to the CTB.  This allows for fast reconfiguration of the CTB without
 the need for new firmwares.  The file is used to both configure the board
 and send start/stop/reset/etc. commands from the run control.
-The trigger output format for ProtoDUNE has not yet been finalized.  
-However, it is expected to consist of a trigger type (physics/calibration/random),
+The trigger output format for ProtoDUNE-SP consists of a trigger type (physics/calibration/random),
 a time-stamp, the trigger word, counter information and the values 
 of the inputs causing the triggers.  
 The trigger system will use the timing system clock and global triggers will be
 distributed via the timing system.  
 
-The exact hardware to be used for ProtoDUNE is subject to change, 
-however, the firmware design and development will be, to a large degree, hardware
-agnostic, as the requirement to accept input data and provide a global trigger 
-does not change.  
 
 \paragraph{Beam Interface}
 
 The Beam Instrumentation is described in detail in section \ref{sec:beaminstruments}.
-The beam instrumentation data acquisition and the data acquisition for ProtoDUNE
+The beam instrumentation data acquisition and the data acquisition for ProtoDUNE-SP
 will have separate timing systems.  A common GPS clock will be used to keep both
 systems synchronized relative to each other.  A common endpoint will receive time-stamps 
-from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE timing system
+from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE-SP timing system
 will be used to create a matching table from the two systems.  Data from the beam
 instrumentation will be acquired continuously via a separate DAQ path.  Triggered
-data for ProtoDUNE will have both the TPC, PDS, and beam instrumentation data and 
+data for ProtoDUNE-SP will have both the TPC, PDS, and beam instrumentation data and 
 the timestamps and trigger information of both.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{TPC data readout}
 
-%\fixme{ 
-        %%\emph{GB:} 
-        %Present the RCE system - just the main data flow, merging,
-%compression etc.  State that the way the data are collected together,
-%timing system, control etc., will be handled in section~\ref{sec:daq},
-%sentence at the end to say that the architecture allows future
-%readout schemes to be incorporated and tested with ProtoDUNE and
-%that these will be discussed, in particular the FELIX system, in
-%subsection~\ref{ssec:daqfelix} }
-
-The readout of the ProtoDUNE TPC wires, prior to being received by PCs in
-the back-end DAQ, consists of the electronics directly attached the APAs,
-inside the cryostat (the cold electronics) and the electronics outside
-the cryostat, either directly on the cryostat flange or in a rack (the
+The readout of the ProtoDUNE-SP TPC wires, prior to being received by PCs in
+the back-end DAQ, consists of  electronics directly attached the APAs,
+inside the cryostat (the cold electronics, CE) and  electronics outside
+the cryostat, both directly on the cryostat flange and in a rack (the
 warm electronics).  This subsection
 addresses the warm part of the TPC
 readout and how it receives data from the cold electronics (the Front-End
 Boards), manipulates the data, and delivers it to the back-end DAQ.
 
-From an electronics point-of-view, the ProtoDUNE flange will consist of
+From an electronics point-of-view, the ProtoDUNE-SP flange will consist of
 5-slot ``crate'', where the connectors on the warm side of the feed
 through form the ``back-plane'' into which the boards plug when inserted
 into the ``crate'' assembly.  These connectors and the boards that plug
@@ -216,7 +169,7 @@ solution is based on Reconfigurable Computing Elements (RCE) and will
 readout data from 5 APAs.  An alternative exploratory prototype based on
 the Front-End-Link-EXchange (FELIX) system will be used to readout 1 APA.
 
-\paragraph{RCE based readout}
+\paragraph{RCE-based readout}
 The data from the WIB are received by processing units called RCEs (Reconfigurable Cluster Element), 
 \cite{slac:rce}
 which are housed in industry-standard
@@ -225,18 +178,14 @@ at SLAC for a wide range of applications.   The RCE is a SoC
 from the
 Xilinx Zynq family and contain a full Linux processor system on the chip
 accompanied by 1 GByte of DRAM.   The primary processing function of the
-RCEs for ProtoDUNE are compression (and/or zero-suppression) and buffering
+RCEs for ProtoDUNE-SP are compression (and/or zero-suppression) and buffering
 of the raw data and then sending data to the back-end upon the receipt of
 an external trigger.  Each COB carries 8 RCEs, all connected to each
 other via an on-board 10 Gbps Ethernet switch which also sends data out
-of the COB the back-end DAQ PCs.
+of the COB to the back-end DAQ PCs.
 
 The interface with the WIB is provided via the ATCA compliant rear-board, the RTM (Rear Transition Module).  
-This is an application-specific board
-that is custom made depending on the physical characteristics of the
-connections to-and-from the FE (e.g., fiber or electrical connections,
-number and types of transceivers, timing \& trigger connections, etc).
-For ProtoDUNE, the RTM will use a set of QSFP transceivers to receive
+For ProtoDUNE-SP, this application-specific board will use a set of QSFP transceivers to receive
 the data from the WIB and an SFP+ (small form-factor pluggable)
  optical interface for communication
 with the timing and trigger distribution system.
@@ -246,20 +195,20 @@ it will be de-multiplexed and buffered into per-channel, fixed-time
 length chunks (for instance 512- or 1024-ticks).  These chunks will be
 compressed and written to the DRAM where the RCE processor will wait
 for a trigger (also handled by the FPGA) to arrive.  Upon a trigger, the
-processor will sends a fixed number of pre- and post-trigger time chunks,
+processor will send data for a fixed window in time, including pre- and post-trigger time chunks,
 for all channels, to the back-end PCs.  
 
-For ProtoDUNE, 256-wires worth of data (2 FEBs) will be sent to each RCE.
-Given that there are 120 FEBs in ProtoDUNE, 60 RCEs will be needed to
-readout the full detector.  These will fits into 8 COBs which in turn
+For ProtoDUNE-SP, 256-wires worth of data (2 FEBs) will be sent to each RCE.
+Given that there are 120 FEBs in ProtoDUNE-SP, 60 RCEs will be needed to
+readout the full detector.  These will fit into 8 COBs which in turn
 will reside in a single 14-slot ATCA shelf.
 
-\paragraph{FELIX based readout}
+\paragraph{FELIX-based readout}
 The FELIX is a PCIe card receiving data on point-to-point links from
 the detector electronics and routing those through a switched network
 to computers.  The aim is to reduce to a minimum any specific hardware
 developments and to fully rely on commercial networks and servers to
-perform the DAQ tasks.  For ProtoDUNE data from 5 WIBs (20 FEBs) will
+perform the DAQ tasks.  For ProtoDUNE-SP, data from 5 WIBs (20 FEBs) will
 be readout over ten 9.6 Gbps links into two FELIX cards.  Grouping
 time-slices around a trigger signal, as well as data compression will be
 dealt with in software. Similar to the RCE based readout the FELIX will
@@ -276,42 +225,23 @@ described in section \ref{sec:pds-elec-daq}.  The plan for PDS data
 readout is as follows.  A combination of externally triggered events
 and self-triggered events will comprise the data.  The external triggers
 will come from the beam instrumentation via the trigger system at 25 Hz.
-This amounts to 118 Mb/s ( [384b header + 1000 waveform samples of
-16b ] * 12 channels * 24 SSPs * 25 Hz ).  The self-triggered data
+This amounts to 118 Mb/s.  The self-triggered data
 will be induced by cosmic rays.  A cosmic rate of 10 kHz is assumed,
-totally 1106 Mb/s ([384b header ] * 12 channels * 24 SSPs * 10 kHz).
+totalling 1106 Mb/s.
 The combined rate comes to $\approx$1.2 Gb/s.  An alternative scheme with
-just self-triggered header-only data is considered if implementation of
+just self-triggered header-only data is considered for implementation if
 the former proves difficult; with a resultant rate of $\approx$1.1 Gb/s.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\paragraph{Beam instrumentation readout}
-
-Beam instrumentation data will be read out with artDAQ BoardReaders as with 
-the rest of the sub-detectors and will be merged in the artDAQ EventBuilders.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Event building software }
-
-%\fixme{ %\emph{KH:}
-        %artDAQ is briefly described in section~\ref{sec:DAQ_online_interface}
-%but I think we need it in more detail here.  By contrast the online
-%computing infrastructure should be left for the computing section.
-
-%%\emph{GB:}
-
-%Describe artDAQ, data handling capabilities, current plans, extensions
-%foreseen for final DUNE, throughput tests already made and planned.
-%Control of artDAQ processes (DAQIFACE), error handling, debugging
-%emulation mode.  }
+\subsection{Event-building software }
 
 Developed within the Fermilab Scientific Computing Division and
 already used for the LBNE-35ton prototype, artdaq provides data
 transfer, event building, and event analysis functionality. This
 latter feature includes built-in support for the art event analysis
 framework \cite{fnal:art}, allowing experiments to run art modules for real-time
-filtering, compression, disk writing and online monitoring; as art,
+filtering, compression, disk writing and online monitoring. As art,
 also developed at Fermilab, is also used for offline analysis, a major
 advantage of artdaq is that it allows developers to easily switch
 between developing online and offline software.
@@ -322,19 +252,14 @@ are boardreader processes, eventbuilder processes, and aggregator
 processes. A given boardreader process is intended to be associated
 with a particular geographical region of the detector, and provides
 hooks (in the form of C++ base classes) for an experiment's developers
-to embed experiment-specific code (called "fragment generators")
+to embed experiment-specific code (called ``fragment generators'')
 designed both to upload configuration values to hardware and to read
-out the hardware. For ProtoDUNE, the full DAQ will consist of 87+ 
+out the hardware. For ProtoDUNE-SP, the full DAQ will consist of 87+ 
 boardreaders, in charge of the 60 RCEs, 24 SSPs, the timing system, 
 the Penn Trigger Board, and at least one for the beam instrumentation.
-For testing purposes when
-no hardware is available, fragment generators are available which
-don't actually interface to true hardware, but instead perform useful
-functions such as read in existing output files, extract their
-fragments and send them downstream (serving as a "playback" mechanism,
-essentially) as well as model pathological behavior such as sudden,
-precipitous increases in data rate or unexpected dropoffs in upstream
-data flow.
+%For testing purposes whenno hardware is available, fragment generators are available whichdon't actually interface to true hardware, but instead perform usefulfunctions such as read in existing output files, extract theirfragments and send them downstream (serving as a "playback" mechanism,essentially) as well as model pathological behavior such as sudden,precipitous increases in data rate or unexpected dropoffs in upstreamdata flow.  (Shorten per Eric J)
+For testing purposes, fragment generators can perform useful
+functions such as providing a ``playback" mechanism,'' and modeling sudden or unexpected data flow events.
 
 Downstream of the boardreader processes are the eventbuilder
 processes. An eventbuilder receives data from every boardreader (a
@@ -347,68 +272,29 @@ The most downstream process type is the aggregator. Traditionally in
 artdaq-based DAQ systems, there are two aggregators, one in charge of
 writing data to disk and reporting aggregate statistics (MB/sec,
 e.g.), and one in which experiments can run art analysis modules for
-real-time online monitoring. For ProtoDUNE this model may change as
-artdaq is being made more flexible; current versions of artdaq support
-multiple diskwriting aggregators which may increase throughput
-capability as well as support for multiple monitoring processes which
-are decoupled from artdaq. It's possible for much of the functionality
-of aggregators to be replicated in eventbuilders; while this reduces
-the number of interprocess connections in the DAQ software, a
-disadvantage of an eventbuilder-only system is that the number of
+real-time online monitoring. 
+%
+%For ProtoDUNE-SP this model will change asartdaq becomes more flexible; current versions of artdaq supportmultiple diskwriting aggregators which may increase throughputcapability as well as support for multiple monitoring processes whichare decoupled from artdaq. It is possible for much of the functionalityof aggregators to be replicated in eventbuilders; while this reducesthe number of interprocess connections in the DAQ software, adisadvantage of an eventbuilder-only system is that the number ofprocesses assembling raw events is the same as the number of processeswriting to disk.
+%
+For ProtoDUNE-SP this model will change as
+artdaq becomes more flexible and throughput
+capability increases. The functionality
+of aggregators may be replicated in eventbuilders. While this solution  reduces
+the number of interprocess connections in the DAQ software, the number of
 processes assembling raw events is the same as the number of processes
 writing to disk.
 
-For the 35ton prototype, artdaq processes were controlled by a program called
-DAQInterface. DAQInterface can be thought of as an intermediary
-between Run Control and the individual artdaq processes; it's in
-charge of launching the artdaq processes and sending them
-configuration code on initialization, and repeatedly querying the
-processes to see whether or not they return an "Error" state; if this
-is the case DAQInterface will automatically stop datataking and shut
-down the processes in an orderly fashion, so that unexpected behavior
-from upstream (e.g., hardware suddenly sending an unmanageably high
-rate of data) will not result in improperly closed output files,
-zombie processes, etc. For ProtoDUNE, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP (Joint Controls Project);
- where appropriate/possible, DAQInterface code will be reused so as to minimize unnecessary duplication of effort. 
 
-%On 35ton, artdaq was capable of taking data smoothly for several hours
-%without error conditions occurring. 
-%\fixme{probably shouldn't mention the somewhat poor performance of the 35t - we need days w/o error conditions}
-Reliability improvements have been made to
-artdaq which should increase its robustness, and a computer cluster will be set up at Fermilab in the
-coming months to allow for new tests. Without upstream hardware
-available, the emulation fragment generators described above will
-prove invaluable for this type of testing.
+%For the 35ton prototype, artdaq processes were controlled by a program calledDAQInterface. DAQInterface can be thought of as an intermediarybetween Run Control and the individual artdaq processes; it's incharge of launching the artdaq processes and sending themconfiguration code on initialization, and repeatedly querying theprocesses to see whether or not they return an "Error" state; if thisis the case DAQInterface will automatically stop datataking and shutdown the processes in an orderly fashion, so that unexpected behaviorfrom upstream (e.g., hardware suddenly sending an unmanageably highrate of data) will not result in improperly closed output files,zombie processes, etc. For ProtoDUNE-SP, the plan is to shift some of the functionality of DAQInterface (such as querying artdaq process status) over to JCOP (Joint Controls Project); where appropriate/possible, DAQInterface code will be reused so as to minimize unnecessary duplication of effort. 
+ 
+For the 35-t prototype, artdaq processes were controlled by a program called
+DAQInterface. DAQInterface takes 
+charge of launching the artdaq processes, checking for error states, and
+shutting down
+ processes in an orderly fashion as needed, to avoid improperly closed output files,
+zombie processes, etc. For ProtoDUNE-SP, some of the functionality of DAQInterface (e.g., querying  status) will shift to JCOP (Joint Controls Project);
+DAQInterface code will be reused as appropriate/possible, to minimize duplication of effort. 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\subsection{Data transfer to permanent storage}
-
-%\fixme{
-        %\emph{KH:} Compare this to the computing section and find where
-        %best to implement. \emph{GB:} Point out that compression and/or
-        %further event sorting can
-%be done in either the artDAQ trigger farm, or the online computing farm
-%(run by the S\&C group).  Describe where we are on this (i.e. what
-%compression algorithms, etc.  experience from other experiments).
-%Describe how the hand-off to the S\&C processes writing to permanent
-%storage work. Address the question of disk writing speeds.
-%}
-%\fixme{Implementation not finalised, expected after collaboration week}
-
-The dimensioning of the readout computing has not been finalised.  The 
-baseline description is given in section \ref{sec:DAQ_online_interface}.
-%Studies are being performed to strike a balance between eliability,
-%performance, cost, and effort needed.  The following describes the
-%overall strategy, though details are subject to change.  Data will be
-%sent from the artDAQ EventBuilders or Aggregators to a storage buffer.
-%This may be local to the nodes themselves, distributed over a computing
-%farm, or high performance network attached storage (NAS).  The baseline
-%I/O requirement is 20 Gb/s.  Metadata information will then be generated
-%for the raw data files, and both raw data and metadata will be transferred
-%offline to CERN EOS.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -432,29 +318,18 @@ kibana \cite{elastic:kibana}) stack.
 carried out using the mechanisms provided by artDAQ. The overall system
 will be modeled and configured using the JCOP paradigm (data points).
 
-%\fixme{\emph{KH:} Requires some more discussions on the run control software
-%        choices,  artDAQ, WinCC/JCOP etc.
-%\emph{GB:} (a.k.a. run control) [Before writing,
-%it would be good to clarify the relationship between the two options
-%(1) Erik Blaufuss's ICECUBE philosophy to put all run conrol into one
-%browser interface with one authentication point, which is excellent
-%and (2) either CERN WIN-xx or EPICS/CAA uBooNE system which are off
-%the shelf environments.   How to decide - want biggest team of people
-%with >30\%fTE + commitment to be at CERN for ~3months over next 2 years,
-%and then let them decide]}
 
-
-\subsection{Data quality monitoring}
-%%%\fixme{Mike Wallbank (9/1/16) -- I will add something here.  Feel free to offer critisism (m.wallbank@sheffield.ac.uk).}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Data-quality monitoring}
 
 In addition to the monitoring of the operations of the DAQ system, the
 quality of the data taken by the detectors has to be constantly monitored.
 This assurance is provided by the online and nearline monitoring systems.
-This subsection describes the baseline monitoring frameworks for ProtoDUNE.  
+This subsection describes the baseline monitoring frameworks for ProtoDUNE-SP.  
 The final implementation is subject to change, but will likely be similarly
-linked to artDAQ and LarSoft as described here.
+linked to artDAQ and LArSoft as described here.
 
-\paragraph{Online Monitoring}
+\paragraph{Online monitoring}
 The Online Monitoring framework will run as a DAQ process and therefore be
 able to provide data quality assurance in real-time. artDAQ will split the  
 data into distinct physics and monitoring streams via its aggregator processes.  
@@ -466,7 +341,7 @@ consists of an
 \texttt{art::Analyzer} module which interfaces with the artdaq framework and
 owns instances of further classes, each designed to handle different aspects
 of the monitoring.  
-%\fixme{whatever the current baseline is should be described as the protoDUNE default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for protoDUNE which is not good. }
+%\fixme{whatever the current baseline is should be described as the ProtoDUNE-SP default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for ProtoDUNE-SP which is not good. }
 
 %\begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
     %Class diagram showing the baseline online monitoring framework. 
@@ -484,14 +359,14 @@ them when required.  Finally, the online event displays are
 written as part of the monitoring framework, so the EventDisplay class was
 responsible for this.  
 %This particular functionality will possibly be handled
-%differently in ProtoDUNE.
+%differently in ProtoDUNE-SP.
 %\fixme{same comment as above - this is not a 35t detector TDR}
 
 The output is then saved in a common area for offline access and for syncing
 with a web server. This will be hosted at CERN and will allow for remote
 monitoring of the experiment.
 
-\paragraph{Nearline Monitoring}
+\paragraph{Nearline monitoring}
 
 The Nearline Monitoring is designed to provide complimentary information to
 that given by the online system. It runs separately as a series of automated
@@ -510,107 +385,4 @@ job, to form the high-level view of the data for monitoring.\\
 Similar to the online framework, there will be an interface for this system
 with the web to allow for remote access of the information.
 
-\paragraph{Monitored Data}
 
-The following is an preliminary list of data to be 
-monitored.  The list is expected to grow substantially.
-%\fixme{Need to add things that can be monitored. I can add what we monitored
-  %on the 35ton but ProtoDUNE will likely be very different!}
-
-General:
-\begin{itemize}
-\item{Number of subdetectors successfully recording data in the run;}
-\item{Timing synchronization between detector components;}
-\item{Size of recent data files written by the DAQ;}
-\end{itemize}
-  TPC:
-\begin{itemize}
-\item{Mean and RMS of ADC counts across different channels;}
-\item{FFTs of waveforms on certain RCEs;}
-\item{Bipolar pulse symmetry check on induction pulses;}
-\item{Total ADC recorded; ADC distributions per channel;}
-\end{itemize}
-  PDS:
-\begin{itemize}
-\item{Mean and RMS of ADC counts across readout channels;}
-\item{Peak height of the waveforms; waveform pedestals and integrals;}
-\item{SSP trigger rate and number of triggers;}
-\end{itemize}
-  Trigger:
-\begin{itemize}
-\item{Number and type of triggers;}
-\item{Number of vetoes;}
-\item{Triggers per SPS spill and trigger rate;}
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \subsection{Slow control}
-
-%\fixme{Maybe just a reference to the slow control section
-%\ref{sec:slowcontrol}.} 
-
-\subsection{Integration/Installation}
-
-%\fixme{small section on the test centres, plan for integration.
-%Explain each stage}
-Three test centres have been set up to facilitate hardware component and 
-software testing in advance of the final integration at CERN.  A timeline 
-of the integration is given in table \ref{tab:daq-integration}.
-\paragraph{Hardware interfaces test-stand}
-The test stand is based in Oxford but includes effort from many institutes 
-in the UK.  It focuses on setting up the readout boards for the TPC and the 
-PDS.  An ATCA crate houses a COB, and an SSP, and are being read out with
-artDAQ BoardReaders.  Further components will be added as they become available.
-The UK will provide effort for developing and improving
-the BoardReader software for ProtoDUNE.  This includes the RCEs, SSPs, timing and
-trigger systems. This  will be the first site to integrate the new timing system.
-%\fixme{This section needs to focus more on the tasks and technical aspects and less on who is doing it (we don't do this for any of the other components in this document). e.g. first test stand to integrate timing, ... - consider renaming paragraph headers with something more descriptive than UK, Fermilab and CERN}
-\paragraph{artDAQ test-stand}
-Testing based at Fermilab will be predominantly software based.  Manpower has been
-directed to improving artDAQ throughput and performance.  Stress tests of artDAQ
-BoardReaders, EventBuilders, and Aggregators are being performed to determine
-potential bottlenecks and provide expectation values for performance that can be
-achieved by the processes themselves and over the network.  This provides essential
-input into the number of compute nodes and bandwidth that will needed for ProtoDUNE.
-\paragraph{Full integration}
-CERN will become the final installation site.  As such, much preparatory work
-is being done such that hardware components can be tested upon arrival.  Work is
-also being done on integrating the artDAQ event building software with the JCOP
-Run Control.  Much of the DAQ software is being tested under CentOS 7 which 
-will be the CERN-supported operating system upon which most of the software will run.
-
-
-\begin{cdrtable}[DAQ Integration Timeline]{lccc}{tab:daq-integration}{DAQ Integration Timeline}
-Deliverable                        & \multicolumn{3}{c}{Dates needed}              \\ \toprowrule
-                                   & VSlice           & APAtest          & Full    \\
-RCEs COBs aTCA crates WIB cables   & 1/17             & 4/17             & 9/17    \\
-Event building infrastructure      & 1/17             & 4/17             & 9/17    \\
-Timing distribution board + cables & 1/17             & 4/17             & 9/17    \\
-RCE board firmware                 & 1/17             & 4/17             & 9/17    \\
-Event building and board read s/w  & 1/17             & 4/17             & 9/17    \\
-Run control software               & \multicolumn{2}{c}{(35t)}           & 9/17    \\
-Configuration control software     & \multicolumn{2}{c}{(35t)}           &         \\
-Data quality monitoring (DQM)      & 1/17             & 4/17             & 9/17    \\
-Operational monitoring             & \multicolumn{2}{c}{(35t)}           &         \\
-Trigger logic                      & \multicolumn{2}{c}{(simple pulser)} & 1/18    \\
-Trigger distribution               & 1/17             & 4/17             & 1/18    \\ 
-\end{cdrtable}
-%\fixme{table needs to be referenced in text}
-
-
-\subsection{Quality Control}
-
-The DAQ for ProtoDUNE does not require large numbers of custom hardware components to 
-be built and tested.  There will be 8 COBs with 8 RCEs each, 2 FELIX cards, 24 SSPs, the timing 
-and trigger systems and off-the-shelf hardware (computers, network switches, storage, etc.).
-As such, a significant amount of automation is not needed to test and qualify the 
-components.  
-
-Qualification tests of the RCEs, FELIX boards, SSPs, timing and trigger systems will
-be driven by the host institutes producing those systems.  Reception tests will be 
-performed to identify any failures due to transport.  In order to fully qualify the 
-boards, they will need to be individually tested with control samples.  Data generators
-will be used in place of the front-end electronics where applicable.  Full data rate 
-testing will be performed when the first full detector slice is in place at EHN1 (expected
-Q2 2017).  Data challenges will take place during Q1 2017 in advance of the arrival of the 
-first APA, and again as the computing system expands to its full capacity.
-%\fixme{Any plans to stress test the DAQ software and data transfers ? e.g. it may be working fine at low rates but start breaking down at higher rates and data volumes or ...}
