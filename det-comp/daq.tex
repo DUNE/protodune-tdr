@@ -5,7 +5,7 @@
 \subsection{Scope and requirements}
 
 This section outlines the data acquisition (DAQ) for ProtoDUNE-SP.
-The DAQ system is shown in figure \ref{fig:daq-overview} along with its
+The DAQ system is shown in Figure \ref{fig:daq-overview} along with its
 interfaces to the cold electronics, beam instrumentation, and online
 computing systems.
 
@@ -16,13 +16,47 @@ and the interfaces to the electronics and online computing systems}
         \includegraphics[angle=90,width=0.70\textwidth]{daq-overview-dia.pdf}
 \end{cdrfigure}
 
-The requirements for the DAQ system for ProtoDUNE-SP are defined
-by the physics requirements of the experiment, with constraints from the
+The requirements for the DAQ system are defined
+by the physics requirements of  ProtoDUNE-SP, with constraints from the
 front-end electronics and assumed bandwidth and storage requirements
 from the online and offline computing systems.  The baseline trigger
 rate during the SPS spill is taken to be 25 Hz.  Cosmic data will also
 be acquired at an appropriate rate such that bandwidth and processing priority are given 
 to beam data.
+
+% inserted from computing-data-handling file 9/21
+Parameters of the data collection plan are listed in Table~\ref{tab:goldi}. The lossless 
+compression factor cited
+in the table is based on the assumption that the signal-to-noise level 
+is similar to or better than that achieved by MicroBooNE. \fixme{needs citation}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[h]{l|r}
+\hline
+    Trigger rate & \SI{25}{\Hz} \\
+    Spill duration & \SI{4.8}{\second} \\
+    SPS Cycle & \SI{22.5}{\second} \\
+    Readout time window & \SI{5}{\milli\second} \\
+    \# of APAs to be read out & 6 \\
+    \hline
+    Single readout size (per trigger) & \SI{230.4}{\mega\byte} \\
+    Lossless compression factor & 4 \\
+    Instantaneous data rate (in-spill) & \SI{1440}{\mega\byte\per\second} \\
+    Average data rate & \SI{576}{\mega\byte\per\second} \\
+    \hline
+    3-Day buffer depth & \SI{300}{\tera\byte} \\
+    \hline
+  \end{tabular}
+  \caption{Parameters defining data rate and volume in the ``most likely'' scenario v5\,\cite{data_spreadsheet}. The buffer depth includes both
+  the in-spill and out-of-spill data.}
+  \label{tab:goldi}
+\end{table}
+
+The run plan (see \ref{sec:runplan}) calls for about 25\,M analyzable beam events
+to be collected in the first run of \pd. Data sets may be enhanced  in desirable particle types and energies
+with dedicated triggers (such as PID)  from the beam instrumentation. The latter is described in Section~\ref{sec:beaminstruments}.
+%end insertion from computing-data-handling file
 
 The data rate from the electronics will be dominated by the
 TPC data.  However, the photon detection system (PDS) can produce a signifcant
@@ -38,7 +72,6 @@ hence, the offline world), is 20 Gb/s at a maximum.
 Therefore, the DAQ system must reduce the data by a significant fraction
 before it is sent offline.  This is achieved by a combination of
 data compression and triggering.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Timing, trigger and beam interface}

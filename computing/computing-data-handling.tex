@@ -1,120 +1,62 @@
 \section{Data storage and management system}
 
-\subsection{The \pd Data Characteristics}
-Characteristics of the \pd data are in a large part defined by a few fundamental
-properties of the \pd Liquid Argon TPC:
+\subsection{The \pdsp Data Characteristics}
+Characteristics of the \pdsp data are in large part defined by a few fundamental
+properties of the \pdsp Liquid Argon TPC:
 \begin{itemize}
-\item The high spatial granularity of the detector (e.g. the pitch of the wires, etc), and the resulting high channel count
-\item High digitization frequency (which is essential to ensure a precise position measurement along the drift direction)
-\item Relatively slow drift velocity of electrons in Liquid Argon, which  leads to a substantial readout window (of the order of milliseconds) required to collect
-all of the ionization in the Liquid Argon volume stemming from the event of interest and overlapping cosmic rays.
+\item the high spatial granularity of the detector (e.g., the pitch of the wires, etc), and the resulting high channel count;
+\item high digitization frequency (which is essential to ensure a precise position measurement along the drift direction); and
+\item relatively slow drift velocity of electrons in LAr, which requires a substantial readout window (of the order of milliseconds)  to collect
+all of the ionization in the LAr volume stemming from the event of interest and overlapping cosmic rays.
 \end{itemize}
 
 %\noindent 
 Triggered readouts of the detector, denoted ``events'' here, 
-thus contain a significant amount of raw data, thus impacting the bandwidth and
+thus contain a significant amount of raw data, impacting the bandwidth and
 storage requirements.   The run plan, which determines the total number of required events, 
 helps define the design requirements for the data storage and management system.
 
-The \textit{``\pd/SP Data Scenarios''} spreadsheet\,\cite{data_spreadsheet}  %(DUNE DocDB 1086)
-describes a few possible running conditions and estimates for their
-resulting data volumes and rates and interpretations in terms of
+The \textit{``\pdsp Data Scenarios''} spreadsheet\,\cite{data_spreadsheet}  %(DUNE DocDB 1086)
+describes a few possible running conditions. It includes estimates for their
+resulting data volumes and rates, and interpretations of these estimates in terms of
 network and disk bandwidth. The set of conditions labeled as ``Central'' represents the most likely scenario
-and is correlated with the current run plan (see \ref{sec:runplan}).
+and is correlated with the current run plan (see Section~\ref{sec:runplan}).
 % maxim: fixed
 % \fixme{Should briefly describe what the 3 running conditions are}
  It also includes estimates for non-beam
 data in order to constrain the contributions of cosmic rays to the beam-on data.  Some highlights
 of these estimates for the ``most likely'' scenario
-are listed in Table~\ref{tab:goldi}. The lossless compression factor cited
-in the table is based on the assumption that the signal-to-noise level 
-is similar to or better than that achieved by MicroBooNE.
+can be found in Table~\ref{tab:goldi}.
 
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}[h]{l|r}
-\hline
-    Trigger rate & \SI{25}{\Hz} \\
-    Spill duration & \SI{4.8}{\second} \\
-    SPS Cycle & \SI{22.5}{\second} \\
-    Readout time window & \SI{5}{\milli\second} \\
-    \# of APAs to be read out & 6 \\
-    \hline
-    Single readout size (per trigger) & \SI{230.4}{\mega\byte} \\
-    Lossless compression factor & 4 \\
-    Instantaneous data rate (in-spill) & \SI{1440}{\mega\byte\per\second} \\
-    Average data rate & \SI{576}{\mega\byte\per\second} \\
-    \hline
-    3-Day buffer depth & \SI{300}{\tera\byte} \\
-    \hline
-  \end{tabular}
-  \caption{Parameters defining data rate and volume in the ``most likely'' scenario v5\,\cite{data_spreadsheet}. The buffer depth includes both
-  the in-spill and out-of-spill data.}
-  \label{tab:goldi}
-\end{table}
-
-% maxim - inserted a reference to the run plan
-%\fixme{Check section 7.4 for the run plan and refer to it for any discussion.}
-The run plan (see \ref{sec:runplan}) calls for about 25\,M analyzable beam events
-to be collected in the first run of \pd. Data sets may be enhanced  in desirable particle types and energies
-with dedicated triggers (such as PID)  from the beam instrumentation. The latter is described in Sec. \ref{sec:beaminstruments}.
-
-Based on a preliminary plan for calibrations which involves measuring a few types of cosmic $\mu$ tracks
-(e.g. at different angles, stopped vs not stopped etc),
-the current assumption is that for every beam trigger, one non-beam
-trigger will be acquired between spills.  Hence, the estimated average data rate and the buffer depth are a factor of two larger,
-while the instantaneous data rate remains unchanged.
-The setup leads to the requested total samples size of 50\,M events. 
-
-Based on the estimated event readout size quoted in Table\,\ref{tab:goldi}  the anticipated raw data volume 
-amounts to about 3\,PB which are to be taken during the planned SPS run.
+Based on the estimated event-readout size quoted in Table\,\ref{tab:goldi}  the anticipated raw data volume to be taken during the planned SPS run
+amounts to about 3\,PB.
 
 
 %%%%%%%%%%%%%%% Tom's stuff
 \subsection{Interface of the DAQ to the online storage}
 \label{sec:DAQ_online_interface}
-% -mxp- commenting out Tom's intro... To save page count
-%Just like in many other experiments, the \pd data rate depends on the number of
-%triggers needed in order to meet the test and measurement goals, and
-%the operating schedule.
 
-%The requirements that the data handling and processing system has to meet are
-%determined most  by the desired data rate and, to a lesser extent, the total data volume.
-%On the other hand, available funding and personnel place
-%constraints on the size and functionality of the online data handling
-%and processing system. This makes it necessary to carefully design
-%the run program and optimize the system for maximum efficiency and
-%performance.
-
-
+%Table\,\ref{tab:goldi} indicates a nominal trigger rate of 25\,Hz for the mid-range scenario. It may be necessary to provide the capability to run at  an instantaneous trigger rate of up to 100\,Hz in order to allow for commissioning and schedule delays. For that reason, scalability of the DAQ, the online buffer and the prompt processing system \ref{sec:prompt_processing} is an important design requirement. Data are assumed to be collected based on prompt trigger signals generated by the beamline instrumentation in order to purify samples of desired particles.
 Table\,\ref{tab:goldi} indicates a nominal trigger rate of 25\,Hz for
 the mid-range scenario. It may be necessary to provide the capability
 to run at  an instantaneous trigger rate of up to 100\,Hz in order to
 allow for commissioning and schedule delays. For that reason,
 scalability of the DAQ, the online buffer and the prompt processing system
 \ref{sec:prompt_processing} is an important design requirement.
-% the DAQ and online processing system is designed to handle. 
-%Up to six APA modules are to be read out on
-%each trigger.  The data are assumed to be compressed in the RCE's,
-%with a lossless compression ratio of 5.
  Data are assumed to be
 collected based on prompt trigger signals generated by the beamline
 instrumentation in order to purify samples of desired particles.
 
-%\fixme{PDS readout needs to be quantified - remember 35t surprises!}
-% KH - fixed
-% Modified this section to match recent DAQ/Computing discussions - KH
+%Current estimates put the PDS data at approximately 10\% of the TPC data rate.  Beam instrumentation data is expected to be lower still. As such, the readout of the photon detector channels and the beam instrumentation is assumed to be a relatively minor addition to the total data rate and are not anticipated to drive the design of the data handling and processing system, although adequate resources must be provisioned in order to acquire and store the data from these systems. 
 Current estimates put the PDS data at approximately 10\% 
 of the TPC data rate.  Beam instrumentation data is expected to be lower still.
-As such, the readout of the photon detector channels 
- and the beam instrumentation is assumed to be a relatively minor addition to the
-total data rate and are not anticipated to drive the design of the
-data handling and processing system, although adequate resources must
+Although adding to the
+total data rate only slightly, adequate resources must
 be provisioned in order to acquire and store the data from these
-systems.  The network speed of all computers in the data acquisition
+systems.  
+
+The network speed of all computers in the DAQ
 chain is anticipated to be 20\,Gbits/sec. 
-% maxim - fixed
-% \fixme{not consistent with 20 GBit/s mentioned in DAQ section}
  Computers running near-line
 processing of subsets of the data, which are generally CPU-bound, may
 be connected with 1\,GBit/sec links.  The software framework for
@@ -122,64 +64,47 @@ interfacing with the electronics, building events, writing data files,
 and providing an interface to online monitoring of data as it is
 acquired is {\it artdaq}~\cite{artdaq}.
 
-Assuming that each RCE reads out 256 channels of the TPC, 60 RCE's
-will need to be active.  For the PDS, 24 SSPs will be used.  A number
-of computers (minimum 2) running BoardReader processes will read out
-the RCEs.  These computers should be provisioned with 1 core per process,
-along with a 10\,Gbit/sec network connection.  The BoardReader processes
-will transmit data to a set of computers running EventBuilder processes.
-A number of Event Builder computers (minimum 4), with 10-20 cores and a
+%Assuming that each RCE reads out 256 channels of the TPC, 60 RCE's will need to be active.  For the PDS, 24 SSPs will be used.  A number of computers (minimum 2) running BoardReader processes will read out the RCEs.  These computers should be provisioned with 1 core per process, along with a 10\,Gbit/sec network connection.  The BoardReader processes will transmit data to a set of computers running EventBuilder processes. A number of Event Builder computers (minimum 4), with 10-20 cores and a pair of 10\,Gbit/sec NIC will provide the CPU and networking needed to build events, collect basic metadata, and send the data to storage and online monitoring.  The Event Builders assemble data fragments sent by the BoardReaders into self-consistent events consisting of readout data from each contributing RCE, SSP, and beam instrumentation information for the same time period.  They will also perform basic data integrity checks, ensuring that all data that are expected for an event have arrived and have not been corrupted, before writing records out.
+
+Given that each RCE reads out 256 channels of the TPC, 60 RCEs
+will need to be active.  For the PDS, 24 SSPs will be used.  At least two computers 
+running BoardReader processes will read out
+the RCEs and transmit data to a set of computers running EventBuilder processes.
+These computers and a
 pair of 10\,Gbit/sec NIC will provide the CPU and networking needed to
 build events, collect basic metadata, and send the data to storage and
-online monitoring.  The Event Builders assemble data fragments sent by the
-BoardReaders into self-consistent events consisting of readout data from
-each contributing RCE, SSP, and beam instrumentation information for the
-same time period.  They will also perform basic data integrity checks,
-ensuring that all data that are expected for an event have arrived and
-have not been corrupted, before writing records out.
+online monitoring.  
+The Event Builders assemble data fragments into self-consistent events and perform basic data integrity checks before writing records out.
 
+%do not change following pgraph
 The online buffer layer will consist of $\sim$300\,TB of storage,
 which will be connected directly to the Event Builders.  The baseline
-storage option consists of two SAS arrays NAS with $>40$Gbit/s bandwidth,
+storage option consists of two SAS arrays DAS with $>40$Gbit/s bandwidth,
 redundant paths, controllers, and power supplies.
 A backup option for storage is an XRootD cluster~\cite{xrootd} taking
 data directly from the Event Builders over the network.
 
-%\fixme{Can't enumerate options in a TDR; instead pick the most likely/preferred scenario and describe it as baseline, then can mention others options as backup or potential improvements under consideration}
-% fixed - KH
-
-
-%A alternative to this design that allows for more flexibility but at a
-%cost of network latency and CPU, is to add a layer of Aggregator CPU
-%processes between the EventBuilders and the disk writing.  These
-%processes may be needed if the events are to be sorted, analyzed,
-%reformatted, or otherwise handled before writing out.  In order to
-%maximize throughput and minimize cost, the number of steps in the data
-%handling system is to be minimized.
-
 After the data are written to disk by {\it artdaq}, the data handling
 system creates metadata files,optionally  runs near-line monitoring jobs, and
 transfers the data from EHN1 to the CERN Computing Centre \cite{docdb1212}.
-According to the current plan, the ``Fermi File Transfer Service'' (F-FTS) software 
-% maxim: fixed 
-%\fixme{acronym needs to be spelled on first use}
+The ``Fermi File Transfer Service'' (F-FTS) software 
 developed and maintained at FNAL will be the central element
 of the data flow management at this level.
 
 
-\subsection{Raw Data Flow in \pd}
+\subsection{Raw Data Flow in \pdsp}
 \label{sec:raw_concept}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[tbh]
 \centering\includegraphics[width=\linewidth]{protoDUNE_raw_data_concept.png}
-\caption{\label{fig:raw_concept}Conceptual diagram of the flow of raw data in \pd}
+\caption{\label{fig:raw_concept}Conceptual diagram of the flow of raw data in \pdsp}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 %\noindent
-A conceptual diagram of the raw data flow in \pd is presented in Fig.\ref{fig:raw_concept}. It shows the general logic
+A conceptual diagram of the raw data flow in \pdsp is presented in Fig.\ref{fig:raw_concept}. It shows the general logic
 of the data flow and does not rely on assumptions of specific technical implementations. 
-It also reflects the central role of CERN EOS in the \pd raw data management scheme which is motivated by the experience
+It also reflects the central role of CERN EOS in the \pdsp raw data management scheme which is motivated by the experience
 and architecture of the LHC experiments.
 
 EOS serves as the staging area from which the data are committed to CASTOR
