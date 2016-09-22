@@ -10,7 +10,7 @@ This section discusses the baseline design for the beam monitors.
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beam profile monitoring, particle tracking and momentum measurements}
 
-Operation of the beamline requires at least one beam  monitor, able to provide the beam profile in two dimensions at the end of the beamline.   The beam monitor can also be exploited for data analysis, provided that it delivers data on an event-by-event basis. Another monitor, located immediately downstream of the last bending magnet, is added in the layout  in order to determine the particle  direction and position, and match it with the reconstructed track in the LAr active volume.
+Operation of the beamline requires at least one beam  monitor, able to provide the beam profile in two dimensions at the entrance point to the NP04 cryostat.   The beam monitor can also be exploited for data analysis, provided that it delivers data on an event-by-event basis. Another monitor, located immediately downstream of the last bending magnet, is added in the layout  in order to determine the particle  direction and position, and match it with the reconstructed track in the LAr active volume.
 
 The uncertainty in momentum resolution of the beam can be reduced by measuring the momentum particle by particle, with a set of three detectors placed one before and two after one of the bending magnets. In ideal conditions, momentum resolutions of order 1\% could be achieved with this system; however since multiple scattering can affect the measurement
 at low energies, only a full simulation of the beamline can assess the performance of the setup.  
@@ -22,29 +22,27 @@ The CERN Beam Instrumentation (BI) group will produce
  beam monitors %based on 
  using scintillating fiber technology, where %, which 
  the fibers have a polystyrene core surrounded by cladding\cite{Scifi}. Fibers provide a light yield of $\sim$8000 photons/MeV, deposited with fast rise and decay times of 1--3 ns. The baseline design foresees 1-mm square fibers in two planes to provide $x$ and $y$ coordinates. Fibers will be mirrored on one end to increase
-light collection.  Every monitor consisting of two planes of 1-mm thick fibers adds 0.47\% $X_0$ to the material budget. 
-\fixme{$X_0$ mentioned in sec 4.9.7 but not defined anywhere; is it a radiation length or something?} The tree \fixme{three?} devices needed for momentum measurement will consist of one layer only, oriented perpendicularly to the magnet deflection.
+light collection.  Every monitor consisting of two planes of 1-mm thick fibers adds 0.47\% of radiation length ($X_0$) to the material budget. 
+The three devices needed for momentum measurement will consist of one layer only, oriented perpendicularly to the magnet deflection.
 A fiber plane is made out of 192 fibers with no space between them. It will cover an area of 192~mm $\times$ 192~mm and fits in the beamline.
-Scintillation light will be read out by SiPMs, which in turn will be read out by custom electronics depending on the application. % (see below about the use for Time of Flight).  <--- I'd leave this out
+Scintillation light will be read out using SiPMs.
 %
-\fixme{Need to decide on one and describe that one. (Anne : ambiguous sentence; clarify `read out by... depending on...'}
-These monitors are designed to work inside the vacuum chamber and can be mounted on special flanges without need to break the vacuum.
+%\fixme{Need to decide on one and describe that one. (Anne : ambiguous sentence; clarify `read out by... depending on...'}
+These monitors are designed to work inside the vacuum chamber and can be mounted on special flanges to the beam pipe without the need to break the vacuum.
 
-\paragraph{Multi-wire proportional chambers}
-As a backup solution,
-Fermilab has multi-wire proportional chambers (MWPCs) with $x-y$ sense plane
-readout, measuring approximately 128~mm $\times$ 128~mm, readily available that can also be used as beam profile monitors.  
-Chambers add 2\% nuclear collision lengths and 7\% radiation lengths.
-\fixme{2\% of a nuclear collision length etc.?}
- These chambers have a long history, so installation, integration and commissioning should be straightforward. They are operated in air, thus would require dividing the beamline vacuum into sections.
-
+%\paragraph{Multi-wire proportional chambers}
+%As a backup solution,
+%Fermilab has multi-wire proportional chambers (MWPCs) with $x-y$ sense plane
+%readout, measuring approximately 128~mm $\times$ 128~mm, readily available that can also be used as beam profile monitors.  
+%Chambers add 2\% nuclear collision lengths and 7\% radiation lengths.
+%\fixme{2\% of a nuclear collision length etc.?}
+% These chambers have a long history, so installation, integration and commissioning should be straightforward. They are operated in air, thus would require dividing the beamline vacuum into sections.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Particle identification}
 
 The H4 beamline is capable of delivering two types of beams, electron and hadron. % beams. 
-While the electron beam is relatively pure, the hadron beam consists of a mixture of electrons, pions, kaons, and protons. Therefore it is essential to have an efficient particle identification system to cleanly tag particle types on a particle-by-particle basis. To achieve this goal, a particle identification system based on a combination of threshold Cherenkov counters and time-of-flight (ToF) system is envisaged for ProtoDUNE-SP. 
-\fixme{Again, "is being considered" is not appropriate for a TDR (Anne: is `envisaged' any better? Is it actually planned at this point?)}
+While the electron beam is relatively pure, the hadron beam consists of a mixture of electrons, pions, kaons, and protons. Therefore it is essential to have an efficient particle identification system to cleanly tag particle types on a particle-by-particle basis. To achieve this goal, a particle identification system based on a combination of threshold Cherenkov counters and time-of-flight (ToF) system is planned for ProtoDUNE-SP. 
 Cherenkov counters can be placed in the last segment of the beamline, between the last bending magnet and the cryostat. Space for a ToF system is available, provided that the detector envelope along the beamline is limited to 10--20~cm,
 and would allow a flight path of 23~m.
 \fixme{Will readers know what the ``detector envelope along the beamline'' is? Could use image}
@@ -109,7 +107,7 @@ In the following, two (possibly complementary) ToF systems are described.
 Fermilab is testing a ToF system that would utilize %a 
 6 $\times$ 6-cm$^2$
 large-area picosecond photodetectors (pLAPPDs), as shown in Figure \ref{fig:pLAPPD}.
- The MCP-based devices
+ The microchannel plates based devices
 are capable of $< 50$-ps resolution with gains of $10^6-10^7$,
 mm position resolution along one axis, and slightly worse resolution
 along the other axis.  The photodetector is mounted on a readout
@@ -120,21 +118,18 @@ thickness of 16~mm. The active area is defined by the four squares visible in Fi
 \end{cdrfigure}
 
 \paragraph{Alternative Time-of-flight system}
-The  scintillating-fiber monitors can be used also for ToF purposes with the goal of a 1-ns timing resolution, suitable for low-energy (2$<$GeV/c) beams. 
-\fixme{<2~GeV/c?}
+The  scintillating-fiber monitors can be used also for ToF purposes with the goal of a 1-ns timing resolution, suitable for low momentum ($<$ 2 GeV/c) beams. 
 The idea is to read out the detectors with the STiC ASIC~\cite{STIC} for SiPM readout. \fixme{Is STiC defined?}
 %%%, developed at the  Kirchhoff Institute for Physics in Heidelberg - will be clear from reference
-In this configuration, the time resolution would be dominated by the fiber response. Monte Carlo simulations foresee 
-\fixme{predict?}  a resolution better than 1~ns. 
+In this configuration, the time resolution would be dominated by the fiber response. Monte Carlo simulations estimate a resolution better than 1~ns. 
 A small prototype will be built and tested in the next few months to fully validate this solution.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Material budget and discussion}
 \label{beam-material-budget}
 
-The choice of ToF system, and the actual configuration of the beamline at each point in momentum depend also on the material budget. 
+The choice of ToF system, and the actual configuration of the beamline at different beam momenta  depend also on the material budget. 
 \fixme{Please define `material budget'. I think it relates to how much material is in the beam's path, but not precisely sure. Anne}
-\fixme{could we rephrase to ``configuration of the beamline at different beam particle momenta''? (Anne)}
 As described in the following, some of the instrumentation will have to be removed, or at least emptied, when operating below $\approx$~2 GeV. Also, the ToF system will be different for the low-energy range.
 
 Summarizing %ing up all 
@@ -145,7 +140,7 @@ A full FLUKA\cite{fluka05,Fluka15}  simulation of materials in the beamline and 
 %\fixme{ I saw no GEANT4 simulation with the beam instrumentation, except the one, very recent, from Nikos. And I would like to keep the ``materials etc'' simulations on the Protodune side, not on the Beam group. Conversely, I saw at the workshop strange GEANT4 results with a wrong geometry of the beam window. If you refer to the old work done last year, the materials have changed.}
 Earlier material studies with FLUKA have been compared with GEANT4-based results and good agreement was found. More recent GEANT4-based studies are still in progress.
 
-Since the final layout of the beamline optics was delivered only recently, the simulations presented here assume a straight line with an initially parallel beam, deflected only by scattering. Particles are assumed to be ``lost'' when scattered outside of the beam pipe. Implementation of the magnetic elements is underway. \fixme{``implementation'' is confusing; inclusion of the beamline's magnetic elements in the simulations is underway, right?}
+Since the final layout of the beamline optics was delivered only recently, the simulations presented here assume a straight line with an initially parallel beam, deflected only by scattering. Particles are assumed to be ``lost'' when scattered outside of the beam pipe. Inclusion of the beamline's magnetic elements is underway. 
  Figure~\ref{fig:matblfull} shows the evolution of the material budget with a full instrumentation, assuming pLAPPD for ToF. The total, including the beam window, would add $0.6X_0$, 0.15 interaction lengths, and an energy loss for a mip of 28~MeV.
 
 The largest energy-loss contribution comes from the Cherenkov detectors and from the  ToF system. Cherenkovs are not particularly useful for low energies (except a low-pressure one for electron discrimination), and can be easily removed from the beamline and either substituted with a section of vacuum pipe, or emptied.  

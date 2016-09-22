@@ -16,7 +16,7 @@ and may be extended by mutual agreement.
 %ProtoDUNE-SP is a crucial part of the DUNE effort towards the construction of the first DUNE \ktadj{10} far detector module, that will have a total LAr mass of about \kt{17}. It will prototype the designs of most of the DUNE far detector components at a 1:1 scale and with an extrapolation of about 1:20 in total mass size, very similar to the scaling factor adopted in the past by ICARUS from the 10-m$^3$ prototype to the T600 detector (two half-modules of about 375 t total LAr mass each).
 
 ProtoDUNE-SP, a crucial part of the DUNE effort towards the construction of the first DUNE \ktadj{10} fiducial mass far detector module (17\,kt total LAr mass), is a significant experiment in its own right. ProtoDUNE-SP, with a total liquid argon (LAr) mass of 0.77\,kt, represents the largest monolithic single-phase LArTPC detector to be built to date. %so far. 
-It will be housed in an extension to the EHN1 hall in the North Area, where the CERN NP will provide a new dedicated charged-particle test beamline. ProtoDUNE SP aims to take its first beam data before the LHC long shutdown (LS2) at the end of 2018.
+It will be housed in an extension to the EHN1 hall in the North Area, where the CERN NP will provide a new dedicated charged-particle test beamline. ProtoDUNE-SP aims to take its first beam data before the LHC long shutdown (LS2) at the end of 2018.
 
 ProtoDUNE-SP will prototype the designs of most of the single-phase (SP) DUNE far detector components at a 1:1 scale, with an extrapolation of about 1:20 in total mass size,. \fixme{mass and size?} This is very similar to the scaling factor adopted %in the past 
 by ICARUS; its T600 detector, split into two half-modules of about 375\,t total LAr mass each, was preceded by a 10-m$^3$ prototype.
@@ -96,23 +96,98 @@ In particular, the determination of the electromagnetic  content in hadron-initi
 
 One of the primary goals of the ProtoDUNE-SP experiment is to validate the engineering design of the elements proposed for the 10 kt DUNE single-phase detector. ProtoDUNE-SP is designed so that it will provide information on the actual far detector performance in as close a possible a configuration to the actual far detector layout as possible given the practical considerations imposed by time, space, and cost. To achieve this the cold components are wherever possible identical to the components proposed for the far detector. 
 
-As an example the APA modules are full-scale pre-production modules for the far detector. The full-scale APA modules have 20 front end readout board instrumenting each and 10 integrated photon detector paddles. The ground connections between the electronics, the APA mechanical structure, the photon detectors, and the detector support structure will be as proposed for DUNE SP detector. ProtoDUNE-SP is instrumented with three APAs along each wall which will test that there is no cross talk between the middle APA and the neighboring ones. However, there are some practical limitations which required compromise in the ProtoDUNE design. The far detector is designed with a 12 m high TPC based on a two APA high layout where the bottom APA is hung from the top. Given the space available and generally the cost of the cryogenic infrastructure it is not practical to have a 12 m high test experiment. For these reasons ProtoDUNE-SP is designed with a single APA high TPC. The collaboration will test separately the mechanical process of installing the two APA detector configuration along with the related cabling.
+As an example the APA modules are full-scale pre-production modules for the far detector. The full-scale APA modules have 20 front end readout board instrumenting each and 10 integrated photon detector paddles. The ground connections between the electronics, the APA mechanical structure, the photon detectors, and the detector support structure will be as proposed for DUNE SP detector. ProtoDUNE-SP is instrumented with three APAs along each wall which will test that there is no cross talk between the middle APA and the neighboring ones. However, there are some practical limitations which required compromise in the ProtoDUNE-SP design. The far detector is designed with a 12 m high TPC based on a two APA high layout where the bottom APA is hung from the top. Given the space available and generally the cost of the cryogenic infrastructure it is not practical to have a 12 m high test experiment. For these reasons ProtoDUNE-SP is designed with a single APA high TPC. The collaboration will test separately the mechanical process of installing the two APA detector configuration along with the related cabling.
 
 The readout electronics is designed based on the far detector cryogenic front end pre-amp/shaper chip and ADC.  The dedicated ASIC for serializing the data and providing a 1GB/s link is not yet available so an FPGA emulating its functionality will be used and is mounted on a dedicated mezzanine board. It should be pointed out that all the analog components, the conversion to digital and the grounding/power distribution for the final electronics can be tested in this configuration. 
 
-ProtoDUNE-SP will be the largest experiment to take data with the cold electronics allowing high statistic detailed studies of the performance. In the event further optimization of the ASICs are required based on the ProtoDUNE-SP findings, this can be implemented before production start in 2020. As there is no charge amplification in the liquid in the Single-Phase detector, the electronics must be extremely sensitive which makes the grounding and shielding critical. The ProtDUNE-SP experiment is designed to be as close to the far detector grounding as practical. The building ground in ENH1 with all the rebar in the concrete floor interconnected and then this network connected to the building ground bus should provide a fairly good ground for ProtoDUNE. The cryostat itself is isolated from the building ground and all the mechanical/electrical connections have dielectric breaks. At the far site the detector is a mile underground in a very dry mine so one expects better isolation from the environment, but the ProtoDUNE will test the ground isolation and shielding under conservative conditions.
+ProtoDUNE-SP will be the largest experiment to take data with the cold electronics allowing high statistic detailed studies of the performance. In the event further optimization of the ASICs are required based on the ProtoDUNE-SP findings, this can be implemented before production start in 2020. As there is no charge amplification in the liquid in the Single-Phase detector, the electronics must be extremely sensitive which makes the grounding and shielding critical. The ProtDUNE-SP experiment is designed to be as close to the far detector grounding as practical. The building ground in ENH1 with all the rebar in the concrete floor interconnected and then this network connected to the building ground bus should provide a fairly good ground for ProtoDUNE-SP. The cryostat itself is isolated from the building ground and all the mechanical/electrical connections have dielectric breaks. At the far site the detector is a mile underground in a very dry mine so one expects better isolation from the environment, but the ProtoDUNE-SP will test the ground isolation and shielding under conservative conditions.
 
-The field cage and cathode planes are full-scale prototypes of the final far detector elements. As the ProtoDUNE-SP detector is designed with full-scale field cages the maximum drift distance and corresponding high voltage will be the same as planned for the far detector. This allows ProtoDUNE to use the same high voltage feed thru as DUNE-SP and the drift field configuration that is planned for the far detector. The cryostat dimensions are selected to be the same as the Dual-Phase cryostat in order to only need to design one cryostat and cryogenic system. In order to fit in the cryostat the wall to cathode plane distance is slightly smaller than in the far detector making this setup a conservative test of the HV design. The ground planes above and below the detector make the actual mechanical geometry inside the cryostat on the top and bottom irrelevant for issues related to high voltage. This preserves the freedom to tailor the far detector cryogenics system as needed to optimize the purification without compromising the validity of the ProtoDUNE test. 
+The field cage and cathode planes are full-scale prototypes of the final far detector elements. As the ProtoDUNE-SP detector is designed with full-scale field cages the maximum drift distance and corresponding high voltage will be the same as planned for the far detector. This allows ProtoDUNE-SP to use the same high voltage feed thru as DUNE-SP and the drift field configuration that is planned for the far detector. The cryostat dimensions are selected to be the same as the Dual-Phase cryostat in order to only need to design one cryostat and cryogenic system. In order to fit in the cryostat the wall to cathode plane distance is slightly smaller than in the far detector making this setup a conservative test of the HV design. The ground planes above and below the detector make the actual mechanical geometry inside the cryostat on the top and bottom irrelevant for issues related to high voltage. This preserves the freedom to tailor the far detector cryogenics system as needed to optimize the purification without compromising the validity of the ProtoDUNE-SP test. 
 
 Testing these components under nominal operating conditions is extremely important as this is the first instance of LArTPCs operating with a resistive cathode or the field cage construction with metal profiles and fiberglass I-beam support. In the event ProtoDUNE-SP wishes a second run with a shorter drift distance in order to reduce the effects of space charge the FC can be shortened to 2.5 m maximum drift distance.
 
-ProtoDUNE offers a unique platform to validate and possibly optimize the cryogenic design for DUNE. The DUNE 35t prototype was the first membrane cryostat to achieve high purity operation, but it was limited to roughly 3 ms $e^-lifetime$. This is substantially worse than the MicroBooNE experiment's  $\sim$10 ms or the lifetimes seen at ICARUS at the end of its last run. 
+ProtoDUNE-SP offers a unique platform to validate and possibly optimize the cryogenic design for DUNE. The DUNE 35-t prototype was the first membrane cryostat to achieve high purity operation, but it was limited to roughly 3 ms $e^-lifetime$. This is substantially worse than the MicroBooNE experiment's  $\sim$10 ms or the lifetimes seen at ICARUS at the end of its last run. 
 
-There are several possible causes for a shorter electron lifetime.  A third of the 35t cryostat roof is covered with a hatch that is not insulated but designed with radiation shields. As the dominant source of contamination is the transfer of impurities in the gas ullage to the liquid, the gas circulation in the ullage and the impact of the hatch are important factors in the cryostat/cryogenics design. The purity monitors inside the 35t cryostat also indicated that the liquid was not well mixed with substantially higher purity at the bottom of the cryostat indicating that the liquid feed and temperature need to be optimized.  
+There are several possible causes for a shorter electron lifetime.  A third of the 35-t cryostat roof is covered with a hatch that is not insulated but designed with radiation shields. As the dominant source of contamination is the transfer of impurities in the gas ullage to the liquid, the gas circulation in the ullage and the impact of the hatch are important factors in the cryostat/cryogenics design. The purity monitors inside the 35-t cryostat also indicated that the liquid was not well mixed with substantially higher purity at the bottom of the cryostat indicating that the liquid feed and temperature need to be optimized.  
 
 The ProtoDUNE-SP cryostat design does not have a hatch for the detector installation instead a temporary construction opening (TCO) is used (similar to the Dual-Phase cryostat). The Single-Phase detector moved to this option after the difficulties encountered in the mechanical design of the hatch for the 1x1x3 cryostat and based on the recommendations from the cryostat design team.  This will also eliminate one potential source of contamination to the liquid argon. It should be pointed out that with a 3 ms lifetime and a 2.25 ms maximum drift time roughly half the charge generated near the cathode is lost before it reaches the anode. Efforts to improve the electron lifetime will improve the detector performance.  Cryogenic design improvements are that the Proto-DUNE SP detector will not have a hatch in the ullage, all cryostat penetrations will be designed with gas purge to prevent contaminates from migrating from warm surfaces to the ullage volume, and the cryostat/cryogenic system will be modeled to understand the liquid and gas flows inside the cryostat. ProtoDUNE-SP will provide an excellent test bed to prove the cryogenic design for DUNE. 
 
 The installation process has many similarities to the far detector installation but also many differences. Both installation plans now call for inserting the equipment through a TCO. ProtoDUNE-SP will prototype the tooling and procedures for transporting an APA and transferring to to a suspended rail system. Similarly the assembly and transport of the cathode planes and top/bottom field cages will be developed. What will not be tested is the hanging of one APA from the other and the difference in moving a 12 m stack instead of one 6 m module. Likewise the CPA is only 6 m tall instead of 12 m. One major change in the installation was forced by the need to install the end walls with the TCO closure and the beam interface. Due to the tight space inside the cryostat the rail structure on which the detector is hung will most likely be different for the final detector. However the experience in installing the ProtoDUNE-SP detector will be invaluable in planning the DUNE far detector installation. 
 
-Finally one significant difference between the ProtoDUNE-SP detector and the single-phase far detector is the integration of the test beam. This requires a penetration into the cryostat and a liquid argon displacement plug bridging the gap between the membrane cryostat wall and the detector field cage. As this element bridges the high voltage careful design is required. To insure that the displacement plug does not compromise the ProtoDUNE-SP operation a dedicated HV test at FNAL is planned which will test the final beam plug in the exact field configuration planned for ProtoDUNE.
+Finally one significant difference between the ProtoDUNE-SP detector and the single-phase far detector is the integration of the test beam. This requires a penetration into the cryostat and a liquid argon displacement plug bridging the gap between the membrane cryostat wall and the detector field cage. As this element bridges the high voltage careful design is required. To insure that the displacement plug does not compromise the ProtoDUNE-SP operation a dedicated HV test at FNAL is planned which will test the final beam plug in the exact field configuration planned for ProtoDUNE-SP.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Run Plan}
+\label{sec:runplan}
+
+Preliminary beam simulations show that the hadron rates at 
+energies below 1~GeV/c are low. Moreover, low-energy beams are more
+subject to degradation by materials in the
+beamline.  The optimization of the run plan factors in the beam composition and particle rates of the H4 beamline, and 
+also particle interaction topologies in the ProtoDUNE-SP detector. Full FLUKA~%\cite{fluka05,Fluka15}
+simulations of particle transport in the ProtoDUNE-SP detector, including the
+beam window, have been performed.
+% The physics requirement \fixme{that the beam must satisfy overall? Anne} is %the possibility 
+% to enable measurement of
+% stopping particles and  interactions at both high and low energies.    
+%
+At a beam momentum of 1~GeV/c, 35\% of protons are stopped before reaching the active TPC region, while the percentage reduces to 0.5\% at 2~GeV/c.  The kinetic energy distributions of protons and pions at the entrance point of the TPC for different beam momenta are shown in Figure~\ref{fig:pandpiint}. 
+%The residual energy at the interaction point can be reconstructed by measuring the energy deposited along the proton track.
+The fraction of stopping $\pi$'s for one $\pi$
+produced at the secondary target is 3\% at $p=0.4$~GeV/c and decreases to 1.3\% at $p=0.7$~GeV/c.
+%Having a $\pi$ beam at 0.7~GeV/c still allows 
+%measurement of pion interactions down to few tens of MeV with good
+%statistics. In a 1-GeV/c beam, the low-energy interactions are %still
+%present, albeit at a %with 
+%lower rate, as shown in Figure~\ref{fig:pandpiint}.
+%
+The long distance (37~m) between the secondary target and the front of the LAr cryostat has a significant impact on the pion and kaon rates in the TPC. Given the short pion lifetime, many of the  low-energy pions produced at the secondary target decay in the beam pipe before reaching the cryostat. The situation is even more significant for kaons; most kaons below 2~Gev/c do not make it to the cryostat.
+Consequently we will not operate the H4 beamline much below 1~GeV/c in the hadron mode.
+For electrons, we would want the beam momentum to go as low as possible to study the topology of very low-energy electron-initiated 
+showers.
+\begin{cdrfigure}[Energy at interaction]{pandpiint}{Kinetic energy of
+    particles at the point of interaction in the ProtoDUNE-SP active
+    volume, for different beam momenta. Histograms are normalized to one particle injected in the
+    beamline acceptance. FLUKA simulations include the beam window
+    materials, beams are considered as monochromatic and
+    parallel. Left: protons, Right: pions.}
+  \includegraphics[width=0.49\textwidth]{pvarie_intene.pdf}
+  \includegraphics[width=0.49\textwidth]{pivarie_intene.pdf}
+\end{cdrfigure}
+%% end of   part that can go either here or in the run plan 
+
+To formulate a preliminary run plan, we assume the hadron beam spectrum and rates are as given in Tables~\ref{tab:beampartcomp} and~\ref{tab:beampartrates}.   For the purpose of estimating the sample composition and beam time request, the following assumptions are used:
+\begin{itemize}
+\item { Trigger rate = 25~Hz}
+\item { Two 4.8 sec spills per SPS Super Cycle }
+\item { SPS Super Cycle = 48 sec}
+\item { $10^6$ ($10^4$) secondary particles on target per spill for hadron (electron) beam}
+\item { Particle ID trigger for electrons from 0.5 to 7 GeV/c}
+\item { Trigger rate for electron in hadron beam is prescaled to 0.5~Hz}
+\item { Data collection efficiency = 50\%}
+\end{itemize}
+We plan to run the H4 beamline in two modes: the first configuration is optimized for the production of hadrons and the second configuration is optimized for the production of high purity electrons. Even in the hadron mode, the beam is still dominated by electrons, especially for low beam momenta. However, the electrons in the hadron beam are not particularly ``clean'' due to the amount of materials in the beamline from the particle identification (PID) instrumentations .  The proposal is to heavily prescale the electron events using PID (e.g. Threshold Cherenkov counters) trigger while running in hadron mode. The PID systems that contribute significantly to the material budget will be removed when we reconfigure the beamline for electron beam.  We are exploring various run plan scenarios. One of the preferred scenarios is shown in Tables~\ref{tab:HadRunPlan} and ~\ref{tab:ElecRunPlan}. Tables with similar values are expected for the negative beam sample. 
+\begin{cdrtable}[Run Plan]{ccccccccc}{HadRunPlan}{A preliminary run plan for ProtoDUNE-SP hadron beam. The expected sample (positive beam) as a function of momentum is shown. }
+P & \# of  &\# of $e^+$ & \# of $K^+$ & \# of $\mu^+$ & \# of $p$ & \# of $\pi^+$ & Total \# & Beam Time \\ 
+(GeV/c) & Spills  & &  &  &  &  & of Events & (days) \\ \toprowrule
+1 & 70K & 84K & $\approx$ 0 & 13K  & 672K & 504K & 1.3M & 19 days\\ \colhline
+2 & 20K & 24K & 8K & 21K     & 336K & 480K & 0.9M &5.6 days\\ \colhline
+3 & 12K & 14K & 14K  & 14K   & 163K & 516K  & 720K & 3.3 days\\ \colhline
+4 & 10K & 12K & 23K & 15K    & 90K  & 460K & 600K & 2.8 days\\ \colhline
+5 & 10K & 12K  & 25K  & 6K   & 81K  & 475K & 600K & 2.8 days\\ \colhline
+6 & 10K & 12K & 34K  & 5K    & 82K  & 468K & 600K & 2.8 days\\ \colhline
+7 & 10K & 12K & 34K & 7K     & 80K  & 467K & 600K & 2.8 days\\ \toprowrule
+Total & 142K & 170K & 132K & 81K & 1.5M & 3.4M & 5.3M & 39 days\\
+\end{cdrtable}
+\begin{cdrtable}[Run Plan]{cccc}{ElecRunPlan}{A preliminary run plan for ProtoDUNE-SP electron beam. The expected sample for positive beam configuration is shown. }
+Momentum Bins & \# of Spills per Bin & \# $e^+$ per Bin & Beam Time per Bin \\ 
+(GeV/c) & & & (days) \\ \toprowrule
+0.5, 06, 0.7, 0.8, 0.9, 1, 2, 3, 4, 5, 6, 7 & 5000 & 300K & 1.4 \\
+\end{cdrtable}
+
+Based on the current information available, the total estimated beam time needed to carry out the physics program in this proposal with the assumptions stated earlier is on the order of 16 weeks.
+ 
+ 
+
+
 

@@ -12,7 +12,7 @@
 \label{detcompsec-fc}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Scope, Requirements and Design Parameters}
-\subsection{Overview and Requirements} 
+\subsection{Overview and requirements} 
 
 In the TPC, each pair of facing cathode and anode planes forms an electron-drift region. A field
 cage (FC) must completely surround the four open sides of this region to provide the necessary boundary
@@ -119,7 +119,7 @@ The resistors along the divider, Figure~\ref{fig:fc-divider-view}, provide a lin
 
 A perfect capacitive divider requires the capacitance of each node to ground to be zero.  In reality, there is always a finite capacitance from each node to ground, and these capacitances resist change in the voltages on the nodes. In the event of a HV breakdown between the cathode and ground (cryostat), the cathode voltage quickly collapses to ground, but the first FC electrode-to-ground capacitance keeps its voltage from changing instantaneously to follow the cathode voltage, resulting in a momentarily larger voltage differential between the cathode and the first FC electrode. This voltage differential can be a significant fraction of the cathode operating voltage, large enough to cause HV breakdown between the two electrodes, or worse yet, to destroy the divider resistors between the two electrodes.
 
-A natural solution to this problem is to significantly increase the capacitance between the nodes of this divider. This was the approach adopted in the 35-ton prototype's field cage through the use of double-sided printed circuit boards (PCB).  However, the cost of the PCB version of the field cage at DUNE scale is very high, and adding discrete HV capactitors between divider taps is also expensitive.
+A natural solution to this problem is to significantly increase the capacitance between the nodes of this divider. This was the approach adopted in the 35-t prototype's field cage through the use of double-sided printed circuit boards (PCB).  However, the cost of the PCB version of the field cage at DUNE scale is very high, and adding discrete HV capactitors between divider taps is also expensitive.
 
 An alternative is to use surge surpressors in parallel with the divider resistors to divert the transient current from the resistors. Extensive tests have been done by MicroBooNE (docdb 3242, arXiv:1406.5216v2) \fixme{add in bib and cite here} on the use of metal oxide varistors (MOVs) and gas discharge tubes (GDTs) as a means of limiting the over-voltage condition in the event of a HV discharge in the TPC. 
 
@@ -237,7 +237,7 @@ In addition to the mechanical connection, the ground side of the divider chain m
 %%%%%%%%%%%%
 \subsubsection{FC to beam plug}
 \label{subsec:fc-beamplug}
-The design of the beam plug is described in Section~\ref{sec:beamplug}. In this section we describe the interface between the beam plug and the field cage. The beam plug is installed between the field cage and primary membrane where the charged particle beam enters the cryostat. Its main function is to displace about 45 cm of passive LAr layer in that region to allow the particle beam to enter the active TPC region with minimal upstream material interactions. The beam plug is mounted onto one of the field cage support structures as shown in Figures~\ref{fig:beamplug-fc} and~\ref{fig:beamplug-fc2}. The support structure is designed with sufficient  strength and stiffness to support the weight of the beam plug.
+The design of the beam plug is described in Section~\ref{sec:beamplug}. This section describes the interface between the beam plug and the field cage. The beam plug is installed between the field cage and primary membrane where the charged particle beam enters the cryostat. Its main function is to displace about 45 cm of passive LAr layer in that region to allow the particle beam to enter the active TPC region with minimal upstream material interactions. The beam plug is mounted onto one of the field cage support structures as shown in Figures~\ref{fig:beamplug-fc} and~\ref{fig:beamplug-fc2}. The support structure is designed with sufficient  strength and stiffness to support the weight of the beam plug.
 \begin{cdrfigure}[Beam plug to CPA connection]{beamplug-fc}{Beam plug to field cage interface.}
 \includegraphics[width=0.75\linewidth]{beamplug-fc.pdf}
 \end{cdrfigure}
