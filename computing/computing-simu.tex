@@ -5,13 +5,12 @@ Two kinds of events must be simulated in the ProtoDUNE-SP detector
 geometry: beam events and cosmic-ray events.  Beam events are
 generated using a dedicated particle gun generator that has as input
 parameterizations of the flux and the beam profile parameters.
-Upstream beam instrumentation devices, such as wire chambers,
-Cherenkov counters, and time-of-flight counters are also to be
-simulated but as of this writing are not yet included. 
+Simulation of upstream beam instrumentation devices, such as wire chambers,
+Cherenkov counters, and time-of-flight counters will be incorporated in the future. 
 \fixme{see beam section: beam monitors have been simulated}
  Cosmic-ray
 events are simulated either with the CRY~\cite{cry} event generator or
-the CORSIKA~\cite{corsika}.  Neutrino scattering events are simulated
+CORSIKA~\cite{corsika}.  Neutrino scattering events are simulated
 using GENIE~\cite{genie}.  While neutrino scattering events are likely
 to be rare in protoDUNE-SP, the extrapolation of the performance of
 the detector to the FD may require simulating neutrino scattering
@@ -36,8 +35,8 @@ a side, called voxels.  GEANT4 tracks particles through the argon, and
 each step ends on a voxel, allowing precise simulation of small-scale
 physics processes such as delta-ray emission and showering at a level
 of detail smaller than the intrinsic resolution of the detector.  The
-simulation of the ionization and scintillation photon emission from
-the steps is done either with a dedicated parameterization that
+simulation of ionization and scintillation photon emission at each step
+is done either with a dedicated parameterization that
 depends on the electric field in the liquid argon and the ionization
 density~\cite{birks}, or via NEST~\cite{nest}, which is tuned to
 previous noble-liquid experimental results and introduces an
@@ -73,7 +72,7 @@ space-charge distortions in ProtoDUNE-SP may be as large as
 for protoDUNE are discussed in Sec. \ref{sec:SCEintro}.
 
 
-The photon propagation is simulated using a library which contains the
+Photon propagation is simulated using a library which contains the
 probabilities of observing a photon emitted at a particular point in
 space by a particular photon detector.  Here, the space is divided
 into voxels a few cm on a side, and the library is indexed by photon
@@ -107,11 +106,3 @@ the data in order to simulate pileup of cosmics and other beam
 interaction particles. The simulated raw digits are then written to
 compressed ROOT files for further analysis.
 
-LArSoft provides functionality for simulating non-LArTPC detectors as
-well, labeling the additional detector elements ``auxiliary
-detectors''.  These are important components for a test-beam
-experiment such as ProtoDUNE-SP, as the beamline instrumentation, as
-well as scintillator counters outside of the cryostat will need to be
-included in the detailed simulation in order to extract precision
-physics results from the experiment.  LArIAT~\cite{lariat} uses these
-features of LArSoft to simulate its auxiliary detectors.
