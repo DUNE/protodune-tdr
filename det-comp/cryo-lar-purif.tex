@@ -104,7 +104,7 @@ A selection of the most relevant requirements is presented here:
 The Process Flow Diagram (PFD) of the ProtoDUNE cryogenic system is shown in Figure~\ref{fig:cryo-process-flow}. The External Cryogenics located outside of the EHN1 building, is shared with the Dual Phase prototype, which is located in the same experimental hall, few tens of meters away.
 
 \begin{cdrfigure}[Process Flow Diagram]{cryo-process-flow}{Process Flow Diagram} 
-\includegraphics[width=\linewidth]{cryo-process-flow}
+\includegraphics[width=0.8\linewidth]{cryo-process-flow}
 \end{cdrfigure}
 
 The system has the following functions:
@@ -123,13 +123,13 @@ The system has the following functions:
 Figure~\ref{fig:3d-view-cryo-installation} shows a 3D view of the cryogenic installation as currently designed. The red and green lines entering  from the bottom of the figure are the LN2 and LAr supply lines, respectively, from the external cryogenics.
 %
 \begin{cdrfigure}[3D model of the installation ]{3d-view-cryo-installation}{3D model of the installation } 
-\includegraphics[width=\linewidth]{3d-view-cryo-installation}
+\includegraphics[width=0.85\linewidth]{3d-view-cryo-installation}
 \end{cdrfigure}
 %
 Figure~\ref{fig:int-cryogenics-detail} shows a 3D view of a detail of the internal cryogenics: the cryostat and detector cool down manifolds at the top of the cryostat.
 %
 \begin{cdrfigure}[Detail of the internal cryogenics]{int-cryogenics-detail}{Detail of the internal cryogenics} 
-\includegraphics[width=\linewidth]{int-cryogenics-detail}
+\includegraphics[width=0.9\linewidth]{int-cryogenics-detail}
 \end{cdrfigure}
 
 There is a common receiving facility for NP-02 and NP-04 located outside the building, from which Argon and Nitrogen lines take LAr, GAr, and LN2 to the respective installations.
@@ -163,11 +163,7 @@ After the cryostat construction and following the installation of all scientific
 %
 Argon piping will be isolated, evacuated to less than 0.1 mbar  absolute pressure and backfilled with high-purity argon gas. This cycle will be repeated several times to reduce contamination levels in the piping to the ppm level. The reference-design choice for removing air from the membrane cryostat will be to flow/piston-purge argon, introducing the heavy argon gas at the bottom of the tank and removing the exhaust at the top. The exhaust will be taken from the main GAr outlet, but also from all the side ports located on each penetration through the roof to ensure that all volumes (especially trapped volumes) are properly purged.
 
-The flow velocity of the advancing GAr will be set to 1.2 m/hour. This is twice the diffusion rate of the air downward into the advancing argon so that the advancing pure argon-gas wave front will displace the air rather than just dilute it. A 2D ANSYS model of the purge process shows that after about 13 hours of purge time and 2 volume changes, the air concentration will be reduced to less than 1\%. At 44 hours of elapsed time and seven volume changes, the purge process is complete with residual air reduced to a few ppm. This simulation includes a representation of the perforated field cage at the top and bottom of the detector and heat sources due to the readout electronics. The cathode planes are modeled as non-porous plates although they will actually be constructed of stainless-steel mesh. Figure~\ref{fig:2d-sim-purge} shows a view of the 2D simulated model at the end of the purge in the open loop phase.
-
-\begin{cdrfigure}[2D simulation of the purge in open loop process]{2d-sim-purge}{Final phase of a 2D simulation of the purge in an open loop process.} 
-\includegraphics[width=\linewidth]{2d-sim-purge}
-\end{cdrfigure}
+The flow velocity of the advancing GAr will be set to 1.2 m/hour. This is twice the diffusion rate of the air downward into the advancing argon so that the advancing pure argon-gas wave front will displace the air rather than just dilute it. A 2D ANSYS model of the purge process shows that after about 13 hours of purge time and 2 volume changes, the air concentration will be reduced to less than 1\%. At 44 hours of elapsed time and seven volume changes, the purge process is complete with residual air reduced to a few ppm. This simulation includes a representation of the perforated field cage at the top and bottom of the detector and heat sources due to the readout electronics. The cathode planes are modeled as non-porous plates although they will actually be constructed of stainless-steel mesh. 
 
 The Computational Fluid Dynamics (CFD) model of the purge process has been verified in multiple arrangements: (1) in an instrumented 1 m-diameter by 2 m-tall cylinder, (2) in LAPD, a 3 m- diameter by 3 m-tall cylindrical tank where gas-sampling measurements were at varying heights and times during the purge process, and (3) within the 35 ton membrane cryostat, a prototype vessel built for LBNE in 2013. The results of these tests are available in~\cite{lar1-nd-35-ton-talk} and~\cite{CFD_verification-lapd}. 
 %

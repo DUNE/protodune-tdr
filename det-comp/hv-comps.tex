@@ -34,7 +34,7 @@ required \SI{500}{V/cm} drift field.  It will be
 powered by a dedicated HV power supply through an RC filter and
 feedthrough.  The power supply for the cathode plane must be able
 to provide \SI{-200}{kV}.  The output voltage
-ripple must not introduce more than 10\%\fixme{(?) check ripple requirement}
+ripple must not introduce more than 10\% %\fixme{(?) check ripple requirement - Gina says ok} 
 of the equivalent thermal
 noise from the front-end electronics. The power supply must be
 programmable to shut down its output at a certain current
@@ -45,7 +45,7 @@ injection. The high-voltage feedthrough must be able to withstand \SI{-250}{kV}
 at their center conductors in a \SI{1}{atm} argon gas environment when
 terminated in liquid argon.
 
-\fixme{The above is excellent, IMHO, and should serve as a model intro.  (Anne)}
+%\fixme{The above is excellent, IMHO, and should serve as a model intro.  (Anne)}
 %% input from F. Pietropaolo
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,7 +61,7 @@ In the design of the HV feedthrough for ProtoDUNE-SP, the procurement of the pow
 \end{itemize}
 
 The %present 
-design of the 300-kV feedthrough is based on the very successful construction technique adopted for the ICARUS HV feedthrough, which was operated at 75~kV without interruption for more than three years without any failure. The feedthrough was also successfully operated for several days at 150~kV.  \fixme{In a context different than icarus?}
+design of the 300-kV feedthrough is based on the very successful construction technique adopted for the ICARUS HV feedthrough, which was operated at 75~kV without interruption for more than three years without any failure. The feedthrough was also successfully operated for several days as a test after the run at 150~kV.  
 %A coaxial geometry is adopted: 
 The design is based on a coaxial geometry, with an inner conductor (HV) and an outer conductor (ground) insulated by UHMW PE  as shown in Figure~\ref{fig:hv-feed-through}. The outer conductor, made of a stainless-steel tube, surrounds the insulator, extending inside the cryostat up to the LAr level. %By such a 
 In this geometry the electric field is %always 
@@ -76,54 +76,11 @@ for the DP detector will be finalized  after a series of tests on a prototype fe
 \begin{cdrfigure}[HV feedthrough]{hv-feed-through}{Preliminary design of the DP HV feedthrough.}
 \includegraphics[width=0.95\textwidth]{tpc_HVFT300kV-1.png}
 \end{cdrfigure}
-\fixme{Figure~\ref{fig:hv-feed-through} could use a bit more explanation in the caption; the text of the figure is hard to read}
+\fixme{Figure~\ref{fig:hv-feed-through} could use a bit more explanation in the caption; the text of the figure is hard to read; Gina asks if we can get a photo instead}
 %%
 
 
-Despite the ripple specification of $10^{-5}$ from the Heinzinger power supply, the ripple amplitude is still too large for the TPC.  At 2.5-m drift distance (the short drift configuration), the capacitive coupling between the cathode and the grid plane, assuming a simple parallel plate capacitor, is about 73~pF.  About 20\% of this coupling goes to the first induction plane (U).  There are 800 U wires per APA, and each wire has half its length facing the CPA, yielding a  capacitance between a U wire and the CPA of about 18~fF.  To inject 100e noise into a U channel, it only needs about 0.9~mV of ripple on the cathode, while the power supply at 180~kV will generate ripple voltage of 1.8~V. \fixme{the 1.8 is unwanted? pls clarify} Obviously for the SP TPC, further filtering of the HV output with attenuation factor of $>2000$ is needed. 
 
-%The current candidate for the high-voltage power supplies is the 
-%Heinzinger PNChp series, which has the lowest output ripple 
-%specification.
-Additional filtering of the voltage ripples is done
-through the intrinsic HV cable capacitance and series resistors
-installed inside the filter box. Established techniques and practices
-will be implemented to eliminate micro-discharges and minimize
-unwanted energy transfer in case of a HV breakdown.
-
-%We have two current candidates for the feedthrough: a feedthrough
-%designed by and under construction at UCLA, and the dual-phase
-%feedthrough design.
-
-%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{HV bus}
-
-As described in Section~\ref{sec:cpa}, the cathode planes will be
-resistive, with electrical connections at the corners, in order to
-control the energy delivered in any discharges.  A low-resistance
-``high voltage bus'' will provide the high voltage to the field cage
-circuit and cathodes with a voltage drop much less than 0.1\% of the
-cathode voltage. The location of the bus with respect to the CPA frame is shown in Figure~\ref{fig:HVbusmodel}. Field-shaping electrodes on the faces of the CPA
-frames will be part of the field cage circuit, described in Section~\ref{detcompsec-fc}. %the field cage section above. 
-Field cage electrodes on the outer edges of the
-CPA frames will be held at the cathode potential to provide field
-uniformity and to protect the HV bus from discharge.  The feedthrough
-will connect to a high voltage cup on one side of a CPA at one end of
-the cathode plane.  Interconnection of the bus between CPAs will be made
-through HV cables passed through the CPA frames.  See
-Figure~\ref{fig:HVbus} for drawings of the high voltage bus and its
-interfaces.
-
-\begin{cdrfigure}[Model of the HV bus]{HVbusmodel}{A perspective view of CPA frame showing the location of the HV bus cable and attachments to the HV cup and resistive cathode, with CPA frame electrodes omitted to make HV bus visible.}
-\includegraphics[height=0.35\textheight]{DUNE_SP_CPA_Design_Update-slide17-mod}
-\end{cdrfigure}
-
-\begin{cdrfigure}[HV bus connections and equipotential contour diagram]{HVbus}{Top: A sketch showing interconnection between two CPAs. Bottom: A transverse cross-section with equipotential lines around the HV bus and CPA frame.}
-\includegraphics[height=0.3\textheight]{HVbus-connections}
-\includegraphics[height=0.3\textheight]{HVbus-vcontour}
-\end{cdrfigure}
-
-\fixme{Do the three images in Figure~\ref{fig:HVbus} need to be together? The bottom two would be more readable if they were separate and could be bigger}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{HV monitoring}

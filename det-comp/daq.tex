@@ -34,29 +34,24 @@ compression factor cited
 in the table is based on the assumption that the signal-to-noise level 
 is similar to or better than that achieved by MicroBooNE. \fixme{needs citation}
 
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}[h]{l|r}
-\hline
-    Trigger rate & \SI{25}{\Hz} \\
-    Spill duration & \SI{4.8}{\second} \\
-    SPS Cycle & \SI{22.5}{\second} \\
-    Readout time window & \SI{5}{\milli\second} \\
-    \# of APAs to be read out & 6 \\
+
+\begin{cdrtable}[Parameters defining data rate and volume in the ``most likely'' scenario]{ll}{goldi}{Parameters defining data rate and volume in the ``most likely'' scenario v5\,\cite{data_spreadsheet}. The buffer depth includes both
+  the in-spill and out-of-spill data.}
+Parameter & Value \\ \toprowrule
+    Trigger rate & \SI{25}{\Hz} \\  \colhline
+    Spill duration & \SI{4.8}{\second} \\ \colhline
+    SPS Cycle & \SI{22.5}{\second} \\ \colhline
+    Readout time window & \SI{5}{\milli\second} \\ \colhline
+    \# of APAs to be read out & 6 \\ \colhline
     \hline
-    Single readout size (per trigger) & \SI{230.4}{\mega\byte} \\
-    Lossless compression factor & 4 \\
-    Instantaneous data rate (in-spill) & \SI{1440}{\mega\byte\per\second} \\
-    Average data rate & \SI{576}{\mega\byte\per\second} \\
+    Single readout size (per trigger) & \SI{230.4}{\mega\byte} \\ \colhline
+    Lossless compression factor & 4 \\ \colhline
+    Instantaneous data rate (in-spill) & \SI{1440}{\mega\byte\per\second} \\ \colhline
+    Average data rate & \SI{576}{\mega\byte\per\second} \\ \colhline
     \hline
     3-Day buffer depth & \SI{300}{\tera\byte} \\
-    \hline
-  \end{tabular}
-  \caption{Parameters defining data rate and volume in the ``most likely'' scenario v5\,\cite{data_spreadsheet}. The buffer depth includes both
-  the in-spill and out-of-spill data.}
-  \label{tab:goldi}
-\end{table}
 
+\end{cdrtable}
 %end insertion from computing-data-handling file
 
 The data rate from the electronics will be dominated by the

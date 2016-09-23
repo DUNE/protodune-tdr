@@ -10,15 +10,15 @@ The design of the H4 beamline extension mirrors that of the H2. In this section,
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{H4 beamline layout and optics}
 
-A sketch of the H4 beamline extension layout is shown in Figure~\ref{fig:H4layout}. The distance from the secondary target to the front of the NP04 cryostat is about 37 m. The first two dipole magnets (shown in red) after the secondary target are rotated by about 56$^\circ$ to move the beam downward towards the cryostat. The third dipole magnet (shown in green) is used for steer the beam horizontally into one of the three beam windows. \fixme{The prev diagram shows the beam windows at the top of the cryostat; this looks like it points lower. Can the beam windows be shown on this image? And how does the green one ``sweep''? Does it get set to one or another for some number of runs then switched? Pls clarify}
+The placement of the quadrupole and dipole magnets in the H4 beamline extension is illustrated in Figure~\ref{fig:H4layout}. The distance from the secondary target to the front of the NP04 cryostat is about 37 m. For the hadron beam, either a tungsten or a copper target will be used. For the electron beam, a Pb target of a few radiation lengths will be used. The first two dipole magnets (shown in red) after the secondary target are rotated by about 56$^\circ$ to steer the beam downward towards the cryostat. The third dipole magnet (shown in green) is used for steering the beam horizontally into one of the three beam windows. \fixme{The prev diagram shows the beam windows at the top of the cryostat; this looks like it points lower. Can the beam windows be shown on this image? }
 
-\begin{cdrfigure}[H4 beamline layout]{H4layout}{Sketch of the H4 beamline layout in the region near the cryostat (Courtesy of V. Clerc, CERN).}
+\begin{cdrfigure}[H4 beamline layout]{H4layout}{Layout of the quadrupole and dipole magnets in the H4 beamline extension. The secondary target (not shown) is upstream of the first quadrupole magnet on the left side of the Figure. Vacuum beam pipe and beam instrumentations are also not shown. (Courtesy of V. Clerc, CERN).}
   \includegraphics[width=0.75\textwidth]{beamline_H4layout.pdf}
 \end{cdrfigure}
 
-The beamline optics for the horizontal and vertical planes are shown in Figure~\ref{fig:beamoptics}. The series of dipole and quadropole magnets focus and direct the beam to one of the three beam windows. For the nominal configuration, the beam is focused at the front of the cryostat to ensure maximum acceptance of beam particles through the beam window penetration and the beam plug. \fixme{Can beam plug be shown in figure?}
+The beamline optics from the target to the cryostat for the horizontal and vertical planes are shown in Figure~\ref{fig:beamoptics}. The Figures show the position of the quadrupole magnets (Q17-Q22), dipole magnet (B17 - B19), collimator (C12), Time-of-Flight detectors (TOF1-2), beam profile monitors (BPROF1-4), and the Threshold Cherenkov counters (XCET1-2)  relative to the secondary target.  For the nominal configuration, the beam is focused at the front of the cryostat to ensure maximum acceptance of beam particles through the beam window penetration and the beam plug. 
 
-\begin{cdrfigure}[H4 beam optics]{beamoptics}{H4 beamline extension optics for the horizontal (top) and vertical (bottom) planes. The secondary target is located on the left side of the plots and the front of the ProtoDUNE-SP cryostat is located at the beam focus point, at about 33m from the secondary target. Q17-Q22 are the quadrapole magnets. B16 and B17 are the dipole bending magnets. BPROF1-4 are the beam profile monitors. XCET1 and XCET2 are the threshold Cherenkov counters. }
+\begin{cdrfigure}[H4 beam optics]{beamoptics}{H4 beamline extension optics for the horizontal (top) and vertical (bottom) planes. The secondary target is located on the left side of the plots and the front of the ProtoDUNE-SP cryostat is located at the beam focus point, at about 37 m from the secondary target. Q17-Q22 are the quadrapole magnets. B16 and B17 are the dipole bending magnets. TOF1-2 are the Time-of-Flight detectors, BPROF1-4 are the beam profile monitors, and XCET1-2 are the threshold Cherenkov counters. }
  \includegraphics[width=0.99\textwidth]{beamline_H4Optics.pdf}
 \end{cdrfigure}
 %\fixme{Need to update the beam optic diagram with the version that includes TOF}
@@ -27,7 +27,7 @@ The beamline optics for the horizontal and vertical planes are shown in Figure~\
 \subsection{Beam properties}
 %\fixme{Need simulation results from Nikos -- H4 beam files are available }
 Recently, a full GEANT4 simulation of the H4 beamline including its extension to the ProtoDUNE-SP detector %cryostat 
-has been performed~\cite{H4beamfiles}. 
+has been performed.%~\cite{H4beamfiles}. 
 %%%Preliminary results based on the H4 beamline simulation are presented. 
 The beamline model starts with the H4 secondary beamline 
 %\fixme{does it also include the primary beam line ?}
@@ -38,7 +38,7 @@ modeled as a Tungsten cylinder (R=30~mm, L=300~mm) for beam particles with $E<3$
 particle energies  $E\geqslant3$~GeV. Optimization of the target dimensions and material is ongoing.
 
 Table \ref{tab:beampartcomp} describes the particle composition of the
-beam at the entrance of the cryostat. Two features are evident. First, the beam is dominated by positrons at low energies,
+hadron beam at the entrance of the cryostat. Two features are evident. First, the beam is dominated by positrons at low energies,
 and secondly, the kaon content, and to a lesser extent the pion content, are depleted at lower energies due to decays of these species 
 along the beam path. 
 
@@ -70,10 +70,7 @@ Momentum (GeV/c) & e$^+$ & $K^+$ & $\mu^+$ & p& $\pi^+$& total\\ \toprowrule
 %\fixme{Caption of table 7.3 says "trigger rates" whereas text says "particle rates". Unify language, I think it should be particle rates.}
 %\fixme{what are the units for the rates in table 7.3 ?}
 
-At momenta larger than about 4 GeV/c, the particle rates are in excess of  the
-maximum acceptable rate of around %, that is around
-25--50~Hz. 
-%\fixme{see earlier comment about max rate that the DAQ system may be able to cope with, e.g. 25 - 50Hz}
+At momenta larger than about 4 GeV/c, the particle rates are at the limit of the DAQ capability.
  At lower energies, the proton and pion rates are much lower, reduced by a
 factor of 10 at 1 or 2 GeV/c, and are overwhelmed by the positron rate.
 
@@ -95,7 +92,7 @@ The secondary beam is mainly composed of 80-GeV pions. In the long path ($\appro
  an intense high-energy muon halo is produced by pion decay. Muons propagate approximately in the direction of the first section of the H4 beamline,  that is slightly upward  and sidewards of the H4 beamline extension which points at the ProtoDUNE-SP detector.  
  Therefore the most intense part of the muon halo passes about one meter above the left corner of ProtoDUNE-SP cryostat. 
 Figure~\ref{fig:muonhalo_HE} shows the spatial distribution of the muon halo at the face of the cryostat. Only muons with momentum larger than 4~GeV/c have been considered. Despite the low statistics of the simulations, the up-down asymmetry is clearly visible. The origin of the coordinate system is chosen to coincide with the center of the cryostat face. The color scale shows the muon intensity in $\mu /m^2/spill$ for $10^6$ particles/spill from the primary target. The muon intensity on the cryostat face ranges from 1--400~$\mu$/m$^2$/spill.
-Figure~\ref{fig:muonhalo_HE}  is very preliminary, not only because of low statistics, but also because shielding around the low-energy beamline is not included in the simulation, and the muons produced in neighboring beamlines in EHN1, including the H2 beamline that feeds ProtoDUNE-DP, are not considered here. 
+Figure~\ref{fig:muonhalo_HE}  is very preliminary, not only because of low statistics, but also because shielding around the low-energy beamline is not included in the simulation, and the muons produced in neighboring beamlines in EHN1, including the H2 beamline that feeds ProtoDUNE-DP, are not considered here. Based on these results, the estimated contribution to the total data volume from beam halo is negligible.
 \begin{cdrfigure}[Muon halo intensity at the cryostat face]{muonhalo_HE}{Muon halo intensity at the cryostat face for muons originating from the H4 beamline and with $P_\mu  \ge 4$~Gev/c. The origin of the coordinate system is centered on the cryostat and dimensions are in mm. Color scale is in units of $\mu /m^2/spill$. The black and red rectangles represent the cryostat face and the active detector volume.}
 \includegraphics[width=0.50\textwidth]{muon_map_HE_square.pdf}
 \end{cdrfigure}

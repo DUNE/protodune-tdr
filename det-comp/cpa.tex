@@ -165,6 +165,22 @@ The steel beam between the CPA and APA will shrink by 5.2~mm relative to the fie
 
 Three modules are stacked vertically to form the 6-m height of the ProtoDUNE-SP  cathode.  The frames of these modules are bolted together using tongue-and-groove connections at the ends. The resistive cathode sheets and the field-shaping strips are connected using a few metallic buttons to ensure redundant electrical contact between vertical modules.
 
-There are six 6\,m tall CPA modules in  ProtoDUNE-SP.  Each CPA is suspended from the cathode rail using a central lifting bar.  Due to the  roof movement between the warm and cold phases of the cryostat, each column is expected to move $\sim$2~mm relative to its neighbors.  Several pin-and-slot connections are implemented at the long edges of the CPA columns to ensure the co-planarity of the modules and yet allow small vertical displacement.  The HV bus interconnects the resistive cathode surfaces across the columns to maintain a uniform voltage across the cathode surface.
+There are six 6\,m tall CPA modules in  ProtoDUNE-SP.  Each CPA is suspended from the cathode rail using a central lifting bar.  Due to the  roof movement between the warm and cold phases of the cryostat, each column is expected to move $\sim$2~mm relative to its neighbors.  Several pin-and-slot connections are implemented at the long edges of the CPA columns to ensure the co-planarity of the modules and yet allow small vertical displacement.  A low-resistance
+``high voltage bus''  interconnects the resistive cathode surfaces across the columns to maintain a uniform voltage across the cathode surface.
+
+The HV bus will provide the high voltage to the field cage
+circuit and cathodes with a voltage drop much less than 0.1\% of the
+cathode voltage. The location of the bus with respect to the CPA frame is shown in Figure~\ref{fig:HVbusmodel}. Field-shaping electrodes on the faces of the CPA
+frames will be part of the field cage circuit, described in Section~\ref{detcompsec-fc}. 
+Field cage electrodes on the outer edges of the
+CPA frames will be held at the cathode potential to provide field
+uniformity and to protect the HV bus from discharge.  The feedthrough
+will connect to a high voltage cup on one side of a CPA at one end of
+the cathode plane.  Interconnection of the bus between CPAs will be made
+through HV cables passed through the CPA frames. 
+
+\begin{cdrfigure}[Model of the HV bus]{HVbusmodel}{A perspective view of CPA frame showing the location of the HV bus cable and attachments to the HV cup and resistive cathode, with CPA frame electrodes omitted to make HV bus visible.}
+\includegraphics[height=0.35\textheight]{DUNE_SP_CPA_Design_Update-slide17-mod}
+\end{cdrfigure}
 
 

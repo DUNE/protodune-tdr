@@ -10,18 +10,16 @@ This section discusses the baseline design for the beam monitors.
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beam profile monitoring, particle tracking and momentum measurements}
 
-Operation of the beamline requires at least one beam  monitor, able to provide the beam profile in two dimensions at the entrance point to the NP04 cryostat.   The beam monitor can also be exploited for data analysis, provided that it delivers data on an event-by-event basis. Another monitor, located immediately downstream of the last bending magnet, is added in the layout  in order to determine the particle  direction and position, and match it with the reconstructed track in the LAr active volume.
+Operation of the beamline requires at least one beam  monitor, able to provide the beam profile in two dimensions at the entrance point to the NP04 cryostat.   The beam monitor can also be exploited for data analysis, provided that it delivers data on an event-by-event basis. Another monitor, located immediately downstream of the last bending magnet, is added in the layout  in order to determine the incident particle  direction and position at the front face of the cryostat, and match it with the reconstructed track in the LAr active volume.
 
-The uncertainty in momentum resolution of the beam can be reduced by measuring the momentum particle by particle, with a set of three detectors placed one before and two after one of the bending magnets. In ideal conditions, momentum resolutions of order 1\% could be achieved with this system; however since multiple scattering can affect the measurement
-at low energies, only a full simulation of the beamline can assess the performance of the setup.  
-Preliminary results using full simulations indicate that a momentum resolution on the order of  2\% is achievable. The %same 
-devices that are used for beam monitoring can also be used for momentum measurements.
+The uncertainty in momentum resolution of the beam can be reduced by measuring the momentum particle by particle, with a set of three detectors placed one upstream and two downstream of the bending magnets B18 (see Figure~\ref{fig:beamoptics}).  
+Preliminary results using full simulations indicate that a momentum resolution on the order of  2\% is achievable. 
 %
 \paragraph{Fiber tracker}
 The CERN Beam Instrumentation (BI) group will produce
- beam monitors %based on 
+ the beam monitors %based on 
  using scintillating fiber technology, where %, which 
- the fibers have a polystyrene core surrounded by cladding\cite{Scifi}. Fibers provide a light yield of $\sim$8000 photons/MeV, deposited with fast rise and decay times of 1--3 ns. The baseline design foresees 1-mm square fibers in two planes to provide $x$ and $y$ coordinates. Fibers will be mirrored on one end to increase
+ the fibers have a polystyrene core surrounded by cladding. Fibers provide a light yield of $\sim$8000 photons/MeV, deposited with fast rise and decay times of 1--3 ns. The design foresees 1-mm square fibers in two planes to provide $x$ and $y$ coordinates. Fibers will be mirrored on one end to increase
 light collection.  Every monitor consisting of two planes of 1-mm thick fibers adds 0.47\% of radiation length ($X_0$) to the material budget. 
 The three devices needed for momentum measurement will consist of one layer only, oriented perpendicularly to the magnet deflection.
 A fiber plane is made out of 192 fibers with no space between them. It will cover an area of 192~mm $\times$ 192~mm and fits in the beamline.
@@ -42,15 +40,17 @@ These monitors are designed to work inside the vacuum chamber and can be mounted
 \subsection{Particle identification}
 
 The H4 beamline is capable of delivering two types of beams, electron and hadron. % beams. 
-While the electron beam is relatively pure, the hadron beam consists of a mixture of electrons, pions, kaons, and protons. Therefore it is essential to have an efficient particle identification system to cleanly tag particle types on a particle-by-particle basis. To achieve this goal, a particle identification system based on a combination of threshold Cherenkov counters and time-of-flight (ToF) system is planned for ProtoDUNE-SP. 
-Cherenkov counters can be placed in the last segment of the beamline, between the last bending magnet and the cryostat. Space for a ToF system is available, provided that the detector envelope along the beamline is limited to 10--20~cm,
-and would allow a flight path of 23~m.
-\fixme{Will readers know what the ``detector envelope along the beamline'' is? Could use image}
+While the electron beam is relatively pure, the hadron beam consists of a mixture of electrons, pions, kaons, and protons. Therefore, for the hadron beam, it is essential to have an efficient particle identification system to cleanly tag particle types on a particle-by-particle basis. To achieve this goal, a particle identification system based on a combination of threshold Cherenkov counters and time-of-flight (ToF) system is planned for ProtoDUNE-SP. 
+Cherenkov counters can be placed in the last segment of the beamline, between the last bending magnet and the cryostat. 
+%Space for a ToF system is available, provided that the detector envelope along the beamline is limited to 10--20~cm,
+%and would allow a flight path of 23~m.
+%\fixme{Will readers know what the ``detector envelope along the beamline'' is? Could use image}
 
 \paragraph{Threshold Cherenkov counter}
-Threshold Cherenkov counters have been used extensively in beamlines to discriminate particles. Figure~\ref{fig:ckv} shows one of the counters used in the CERN test beam area. It consists of a gas radiator that is contained in a long cylindrical tube, and a detection box in which the Cherenkov light is reflected by a 45$^\circ$ mirror and focused onto a photomultiplier tube (PMT). The diameter of the cylindrical tube is designed to allow the counter to pass through the standard CERN beam pipe of about 20~cm. A variety of gases (e.g., CO$_2$, nitrogen, argon, Freon 12, air) are available at CERN for filling the Cherenkov counter to optimize particle identification. 
+Threshold Cherenkov counters have been used extensively in beamlines to discriminate particles. Figure~\ref{fig:ckv} shows one of the counters used in the CERN test beam area. It consists of a gas radiator that is contained in a long cylindrical tube, and a detection box in which the Cherenkov light is reflected by a 45$^\circ$ mirror and focused onto a photomultiplier tube (PMT). 
+A variety of gases (e.g., CO$_2$, nitrogen, argon, Freon 12, air) are available at CERN for filling the Cherenkov counter to optimize particle identification. 
 Two threshold Cherenkov counters will be installed in the beamline, one detecting pions, the other detecting pions 
-and kaons. The combination of the two signals will allow identification of all hadron species. In order to provide signals at low beam momenta, either high-density gases or high pressures are needed.
+and kaons. The combination of the two signals will allow identification of all hadron species. In order to provide signals at low beam momenta, either heavier gases or high pressures are needed.
 Figure~\ref{fig:ckv_gases} shows the gas-pressure threshold 
 for the production of Cherenkov light for various particle types as a function of particle momentum for Freon 12 and CO$_2$ gases.
 \begin{cdrfigure}[CERN threshold Cherenkov counter]{ckv}{CERN threshold Cherenkov counter}
@@ -59,7 +59,7 @@ for the production of Cherenkov light for various particle types as a function o
 \begin{cdrfigure}[Cherenkov gases]{ckv_gases}{Gas pressure threshold for the production of Cherenkov light for various particles as a function of particle momentum for Freon 12~\footnote{N. Charitonidis, Y. Karyotakis \it{et al.}, ``Hadron identification proposal for the ProtoDUNE experiments of CENF, to be published.} and CO$_2$ gases.}
   \includegraphics[width=0.99\textwidth]{beamline_CKVgases.pdf}
 \end{cdrfigure}
-Freon 12 has been selected for its high density, however,  to avoid liquefaction it cannot be operated at pressures larger than 3~bars.  CO$_2$ can be used more easily at higher pressures.  
+Freon 12 has been selected for its heavier mass, however,  to avoid liquefaction it cannot be operated at pressures larger than 3~bars.  CO$_2$ can be used more easily at higher pressures.  
 
  Figure~\ref{fig:ckv_gases} shows that pions can be tagged with a 3-bars Freon counter for momenta larger than 2~GeV/c, and kaons can be tagged with a high-pressure  (15-bars) CO$_2$  counter above 4~GeV/c.
 
@@ -104,15 +104,15 @@ In the following, two (possibly complementary) ToF systems are described.
 \end{cdrfigure}
 
 \paragraph{pLAPPD Time-of-flight system}
-Fermilab is testing a ToF system that would utilize %a 
-6 $\times$ 6-cm$^2$
+Fermilab is testing a ToF system from Argonne National Laboratory that would utilize  
+6 $\times$ 6 cm$^2$
 large-area picosecond photodetectors (pLAPPDs), as shown in Figure \ref{fig:pLAPPD}.
  The microchannel plates based devices
-are capable of $< 50$-ps resolution with gains of $10^6-10^7$,
+are capable of $< 50$ ps resolution with gains of $10^6-10^7$,
 mm position resolution along one axis, and slightly worse resolution
 along the other axis.  The photodetector is mounted on a readout
 board, and the relevant exterior dimensions are 165.1~mm $\times$ 109.3~mm and a
-thickness of 16~mm. The active area is defined by the four squares visible in Figure \ref{fig:pLAPPD}, and amounts to about 8~cm$^2$. Tests of these devices in the LAriat beam are underway, to precisely assess the timing capabilities. \fixme{Any citation to add?}
+thickness of 16~mm. The active area is defined by the four squares visible in Figure \ref{fig:pLAPPD}, and amounts to about 31~cm$^2$. Tests of these devices in the LArIAT beam are underway, to precisely assess the efficiency and timing capabilities of such a system. Larger area pLAPPD can be made to match the H4 beam profile.
 \begin{cdrfigure}[pLAPPD]{pLAPPD}{Photo of one pLAPPD device as proposed for the H2 and H4 beamlines.}
 \includegraphics[width=0.65\textwidth]{LAPPD.pdf}
 \end{cdrfigure}

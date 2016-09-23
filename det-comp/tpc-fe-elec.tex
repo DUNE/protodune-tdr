@@ -178,7 +178,7 @@ signals to the CE motherboards.
 
 \begin{cdrfigure}[APA wire bias schematic diagram]{tpcce_cr_board}{APA wire bias 
 schematic diagram, including the Capacitance-Resistance (CR) board.}
-\includegraphics[width=0.8\linewidth]{tpcce_cr_board.pdf}
+\includegraphics[width=0.9\linewidth]{tpcce_cr_board.pdf}
 \end{cdrfigure}
 
 A separate grid-plane CR board includes a bias voltage noise filter and twelve pairs of 
@@ -325,7 +325,7 @@ temperatures, including cryogenic.
 The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
 
 \begin{cdrfigure}[The layout of the 16-channel analog FE ASIC]{tpcce_FE_ASIC}{The layout of the 16-channel analog FE ASIC}
-\includegraphics[width=\linewidth]{tpcce_FE_ASIC_pinout.jpg}
+\includegraphics[width=0.9\linewidth]{tpcce_FE_ASIC_pinout.jpg}
 \end{cdrfigure}
 
 This ASIC has now been through six design/fabrication/testing revision cycles; the latest data sheet is DUNE-doc-1484.
@@ -348,8 +348,8 @@ expected in a cryogenic environment.
 Measured ENC vs filter time constant from the latest prototype version of the FEMB
 for two different gains, 14~mV/fC and 25~mV/fC. RT = room temperature and 
 LN2 = liquid Nitrogen}
-\includegraphics[width=4in]{tpcce_enc_14mV.jpg}
-\includegraphics[width=4in]{tpcce_enc_25mV.jpg}
+\includegraphics[width=0.45\linewidth]{tpcce_enc_14mV.jpg}
+\includegraphics[width=0.45\linewidth]{tpcce_enc_25mV.jpg}
 \end{cdrfigure}
 
 Figure~\ref{fig:tpcce_enc} shows the measured Equivalent Noise Charge (ENC) versus 
@@ -476,7 +476,7 @@ The right panel shows more detail at the Faraday boxes.}
 \begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{
 TPC signal/power feedthrough. The WIBs are seen edge-on in the left panel,
 and in an oblique side-view in the right panel, which also shows the warm crate in a cutaway view.}
-\includegraphics[width=7in]{tpcce_signal_FT.pdf}
+\includegraphics[width=0.6\linewidth]{tpcce_signal_FT.pdf}
 \end{cdrfigure}
 
 The ProtoDUNE feedthroughs are being developed in tandem with the SBND experiment because of their very similar needs.
@@ -542,6 +542,8 @@ require 9 differential signals.
 \includegraphics[width=5in]{tpcce_samtec_lv.pdf}
 \end{cdrfigure}
 
+\fixme{Figure~\ref{fig:tpcce_samtec_cable} is too detailed to be helpful. Can we crop a part or parts of it?} 
+
 ProtoDUNE will use Samtec 26~AWG twin-axial cable bundles with Samtec HSEC08 connectors to both
 the FEMB mezzanine board and the CE flange, shown in Figure~\ref{fig:tpcce_samtec_cable}. The HSEC08
 connectors lock into place with tabs on each side of the connector. A sample of the Samtec cable with
@@ -559,7 +561,7 @@ from cable validation testing. {\bf Top Left:} 50~MHz system clock over 25~m roo
 the heavier, prohibitively expensive Gore 24AWG cable. {\bf Top Right:} 1~Gbps data over 
 7~m (ProtoDUNE length) RT Samtec 26AWG cable without active recovery by equalizers. {\bf Bottom Right} 1~Gbps
 data over 25~m (DUNE length) RT Samtec 26AWG cable with active recovery.}
-\includegraphics[width=1.0\linewidth]{tpcce_samtec_results.pdf}
+\includegraphics[width=0.9\linewidth]{tpcce_samtec_results.pdf}
 \end{cdrfigure}
 
 Figure~\ref{fig:tpcce_samtec_results} shows preliminary results from the DUNE cable 
@@ -668,7 +670,7 @@ WIBs, shown in Figures~\ref{fig:tpcce_ceflange_sbnd} and~\ref{fig:tpcce_dune_ptb
 \begin{cdrfigure}[WIB and LV power]{tpcce_wib_power}{LV power distribution 
 to the WIB and FEMBs. 200W is for a fully-loaded crate 
 with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
-\includegraphics[width=0.7\linewidth]{tpcce_wib_power.pdf}
+\includegraphics[width=0.6\linewidth]{tpcce_wib_power.pdf}
 \end{cdrfigure}
 
 The PTC also receives the low voltage power for the entire cold

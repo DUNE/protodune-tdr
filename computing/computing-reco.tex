@@ -53,12 +53,6 @@ wire at most one time, only two views are needed in order to identify
 hits and resolve ambiguities.  A separate LArSoft module compares the
 hits in the collection and induction views and assigns choices to
 remove ambiguity, 
-%\fixme{Do we still need to run the disambiguation in protoDUNE even though one side of the 
-%APAs will effectively not be used ?? RS.: disambiguation is not used in standard reco
-%chain used for ProtoDUNE, i.e. in MCC7; commented out the part related to disambiguation}
-%allowing reconstruction algorithms developed for
-%detectors without wrapped wires to be run with minimal modification.
-%re-instated this paragraph
 
 Physics analyses are most sensitive with a full 3D reconstruction of the
 event -- the primary vertex (if there is one), the tracks and the showers.
@@ -101,9 +95,6 @@ in Figure~\ref{fig:pizeromass}.
   Monte Carlo using the BlurredCluster and EMShower algorithms.}
 \includegraphics[width=0.8\textwidth]{pizeromass}
 \end{cdrfigure}
-\fixme{add figure; establish reference to calibration 
-section; figure could also be at home in calibration section instead.}
-
 
 \paragraph{PANDORA}
 The reconstruction framework PANDORA~\cite{pandora} also works by
@@ -124,9 +115,6 @@ Plots of the efficiency and completeness for muons in charged-current $\nu_{\mu}
 events in MicroBooNE using PANDORA are shown in Figure~\ref{fig:muonpandoraperf}.
 The resolution of vertex-finding is shown in
 Figure~\ref{fig:pandoraresolution}.
-%\fixme{Don't we have such a figure specifically for  protoDUNE ? If not, it should be a high priority task.}
-% Answer: there won't be ccnumu events in protoDUNE.  Instead, vertices will arise from interactions of beam particles
-% with the argon, and also cosmics.
 
 \begin{cdrfigure}[Performance of PANDORA for muons in CC
   $\nu_mu$ events in MicroBooNE. ]{muonpandoraperf}{The performance of PANDORA for muons in charged-current
@@ -165,10 +153,8 @@ production, appearing in the 2~GeV/$c$ $\pi^+$ sample, is shown in Figure~\ref{f
 The resolution is found to be 0.6~cm in this study.
 A similar resolution is obtained also for the reconstruction
 of inelastic interaction vertices in the 2~GeV/$c$ proton sample. 
-%A study of the reconstruction performance
-%for particles oriented in the same direction as beam particles was carried out as a check.
 
-\fixme{A sentence on some known problems with specific directions would be useful to provide more background info for non-expert readers.}
+
 Figures~\ref{fig:PMAproton2gevc}
 and~\ref{fig:PMAcosmics} show examples of reconstruction of a 2~GeV/$c$ proton in the test beam and
 cosmic-ray muons, respectively.

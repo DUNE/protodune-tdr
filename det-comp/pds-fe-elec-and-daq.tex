@@ -11,23 +11,19 @@ from both excited states. A summary of the general requirements
 for the system, including initial requirements from a 
 physics performance perspective, are given in Table~\ref{tab:fee_req}.
 %
-\begin{table*}[ht]
-\centering
-%\vspace{4mm}
-\begin{tabular}{| l | l |} \hline
- Performance Parameter       & Target   \cr   \hline
- Time Resolution                   & Better than 30 ns wrt event time zero ("t0")      \cr  \hline
- Charge Resolution               & 0.25\% photo-electron equivalent                     \cr \hline
- Dynamic Range                   & $\sim$ x10 better than detector (1000:1)          \cr \hline
- Linearity                               & Sufficient to resolve 1 photo-electron signals   \cr    \hline
- Multi-Hit Capability              & Sufficient to measure Triplet (late) Photons          \cr   \hline
- Dead Time                           & Live up to 2 drift times either side of beam spill          \cr    \hline
- Bias Control                        & 0.1 V resolution up to 30 V per channel  \cr    \hline
- Calibration                          & On-board Charge Injection  \cr    \hline
- Timing                                 & Events time-stamped using NO$\nu$A Timing or equivalent syst.  \cr    \hline
-\end{tabular}
-\caption{\label{tab:fee_req} Physics Requirements for the Photon Detector Electronics.}
-\end{table*}
+
+\begin{cdrtable}[Physics requirements for the PDS electronics]{ll}{fee_req}{Physics requirements for the PDS electronics}
+ Performance Parameter       & Target   \\ \toprowrule
+Time Resolution                   & Better than 30 ns wrt event time zero ("t0")      \\ \colhline
+ Charge Resolution               & 0.25\% photo-electron equivalent                    \\ \colhline
+ Dynamic Range                   & $\sim$ x10 better than detector (1000:1)         \\ \colhline
+ Linearity                               & Sufficient to resolve 1 photo-electron signals   \\ \colhline
+ Multi-Hit Capability              & Sufficient to measure Triplet (late) Photons          \\ \colhline
+ Dead Time                           & Live up to 2 drift times either side of beam spill         \\ \colhline
+ Bias Control                        & 0.1 V resolution up to 30 V per channel  \\ \colhline
+ Calibration                          & On-board Charge Injection  \\ \colhline
+ Timing                                 & Events time-stamped using NO$\nu$A Timing or equivalent syst.  \\    \end{cdrtable}
+
 %
 The plans for the electronics for the photon detection subsystem 
 include a baseline design with several options 
