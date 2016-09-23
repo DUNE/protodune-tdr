@@ -11,10 +11,10 @@ Cherenkov counters, and time-of-flight counters will be incorporated in the futu
  Cosmic-ray
 events are simulated either with the CRY~\cite{cry} event generator or
 CORSIKA~\cite{corsika}.  Neutrino scattering events are simulated
-using GENIE~\cite{genie}.  While neutrino scattering events are likely
-to be rare in protoDUNE-SP, the extrapolation of the performance of
-the detector to the FD may require simulating neutrino scattering
-events in protoDUNE-SP.  A dedicated generator in LArSoft simulates
+using GENIE~\cite{genie}.  While neutrino scattering events are very
+rare in protoDUNE-SP, the extrapolation of the performance of
+the detector to the FD will require simulating neutrino scattering
+events.  A dedicated generator in LArSoft simulates
 radionuclide decay products which can be overlaid on other events.
 
 The detector geometry is coded in GDML files~\cite{geant4} that are
@@ -31,18 +31,25 @@ are numbered and named in the GDML files, with conventions followed by
 the LArSoft simulation code.
 
 The active volume of the detector is divided into cubes 300~$\mu$m on
-a side, called voxels.  GEANT4 tracks particles through the argon, and
-each step ends on a voxel, allowing precise simulation of small-scale
+a side, called voxels.  GEANT4 tracks particles through the argon.
+Each step ends on a voxel boundary, allowing the simulation of small-scale
 physics processes such as delta-ray emission and showering at a level
-of detail smaller than the intrinsic resolution of the detector.  The
-simulation of ionization and scintillation photon emission at each step
-is done either with a dedicated parameterization that
+of detail smaller than the intrinsic resolution of the detector.   While GEANT4
+calculates the energy deposited by each particle for each step, the
+simulation of ionization and scintillation photon emission 
+is performed using one of two algorithms in LArSoft:  a dedicated parameterization that
 depends on the electric field in the liquid argon and the ionization
-density~\cite{birks}, or via NEST~\cite{nest}, which is tuned to
+density~\cite{birks}, or  NEST~\cite{nest}, which is tuned to
 previous noble-liquid experimental results and introduces an
 anti-correlation between the photon yield and the ionization electron
-yield for each step.  An alternate simulation based on
-FLUKA~\cite{fluka} is being interfaced into LArSoft.
+yield for each step.  
+
+An alternate simulation based on FLUKA~\cite{fluka} is being interfaced into LArSoft.
+FLUKA provides a Monte Carlo simulation of neutrino-nucleus interactions as well as
+detailed modeling of particles traversing the detector, configurably replacing the
+functionality of both GENIE and GEANT in the simulation.  The availability of alternatives
+allows for better flexibility in tuning the models to the data, as well as a basis of
+estimating systematic uncertainty.
 
 The average specific energy loss for a minimum-ionizing particle (MIP)
 is approximately 2.12~MeV/cm.  The $W$-value for ionization is 23.6~eV
@@ -75,7 +82,7 @@ for protoDUNE are discussed in Sec. \ref{sec:SCEintro}.
 Photon propagation is simulated using a library which contains the
 probabilities of observing a photon emitted at a particular point in
 space by a particular photon detector.  Here, the space is divided
-into voxels a few cm on a side, and the library is indexed by photon
+into cubical voxels 6~cm on a side, and the library is indexed by photon
 detector element. 
 % For the far detector, the lookup library model may
 %not scale appropriately, taking too much memory to store

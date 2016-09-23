@@ -1,19 +1,16 @@
-\section{Offline Processing of the Experimental and MC Data}
+\section{Offline Processing of the Experimental and Simulated Data}
 \label{sec:protodune-offline}
 
-
-
-The raw data collected by \pd will undergo offline processing. More broadly, the offline data
-can be classified as follows:
+The data to be processed by the offline system can be classified as follows:
 \begin{itemize}
 
-\item A variety of calibration data derived from experimental data (also including dedicated calibration
+\item A variety of calibration data derived from experimental data, including dedicated calibration
 runs where necessary, and/or subsamples of data collected specifically for calibration
-purposes during normal running conditions)
+purposes during normal running conditions,
 
 \item Processed experimental data, which may exist in several parallel branches corresponding to
 different reconstruction algorithms being applied, with the purpose of evaluating the performance
-of the different algorithms
+of the different algorithms,
 
 \item Monte Carlo (MC) data, which will contain multiple event samples to cover various event types
 and other conditions during the measurements with protoDUNE
@@ -28,18 +25,19 @@ in order to create a basis for the detector characterization
 \label{sec:prod-process}
 
 The production processing will likely have more than one processing step,
-thus multiplying the data volume. It is desirable that the derived data would be reduced
-in size with respect to the raw data in order to keep the data volume manageable.
-It is thus assumed that the size of the processed data will likely be smaller than the input (the raw data). 
+thus multiplying the data volume.  The volume of the derived data is assumed to be smaller than that for the raw data.
 Given the considerations for the anticipated raw data volume presented above,
-the current plan is to provision $\sim$10\,PB of tape storage to keep the processed data. 
-For efficient processing, disk storage will be necessary
-to stage a considerable portion of both raw data (inputs) and a few instances of processed data (outputs).
+the current plan is to provision $\sim$10\,PB of tape storage to keep the raw and processed data. This includes
+two copies of the raw data at 3~pb each, and two passes of derived data at 1~pb each, and 2~pb of simulation samples.
+One copy of the raw data may be included as part of the output of the reconstruction, for convenience in comparing
+raw and reconstructed data objects while also serving the purpose of providing a backup copy of the raw data.
 
+For efficient processing, disk storage will be necessary to provide access to the data stored on tape.
 Extrapolating from experience running Monte Carlo for previous DUNE MC campaigns,
-it is estimated that  a few hundred TB of continuously available disk space will be needed. Overall it is expected that \pdsp will require
-a few~PB of storage at Fermilab to ensure optimal data availability and  processing efficiency. 
-\fixme{Need better justification of these estimates, e.g. add quantitative estimates for components in above bullet list - these should add up to the claimed few PB.}
+it is estimated that  a few hundred TB of continuously available disk space will be needed for samples that are repeatedly
+accessed, as well as ntuples for user analysis.  The offline system will take advantage of the shared dCache resource
+at Fermilab in order to provide efficient access to the data stored on tape.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Prompt Processing}
@@ -47,16 +45,15 @@ a few~PB of storage at Fermilab to ensure optimal data availability and  process
 
 In the present context, \textit{Prompt Processing} means a number of fast signal processing and reconstruction processes
 (also called ``express stream'' sometimes) which process a fraction of raw data. Its main purpose is to aid in QA of the data
-and produce quick calibrations which may be necessary for high quality monitoring of the detector. As one example,
-calculating frequency spectra of noise and watching its level, evolution and other characteristics is an important aspect of ensuring
+and produce quick calibrations which may be necessary for detailed monitoring of the detector. As one example,
+calculating the frequency spectra of noise and monitoring its level, evolution and other characteristics is an important aspect of ensuring
 the stability of the readout chain.
 
-It is understood
-that a limited number of metrics will be calculated to make the proccess as quick as possible in order to enable
+A limited number of metrics will be calculated in order to make the process as quick as possible, enabling
 the operators to take action should the QA process indicate a potential problem in the detector or the data.
 
-It is estimated that processing roughly 1\% of the data stream collected by the detector will
-be enough to meet most important goals of prompt processing. 
+Processing roughly 1\% of the data stream collected by the detector is predicted to
+be enough to meet the most important goals of prompt processing. 
 The general strategy is to locate some of the prompt processing capability at CERN, at a scale adequate for the mid-range
 data taking scenario such as presented in Table\, \ref{tab:goldi}. An estimated 300 cores
 will be needed to cope with processing at that rate.
