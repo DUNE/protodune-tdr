@@ -15,7 +15,6 @@ The APAs are 2.3 m wide, 6.3 m high, and 12 cm thick. The height is chosen for f
 purposes and compatibility with underground transport limitations. The 2.3-m width is set to fit
 in a standard High Cube container for storage and transport with sufficient shock absorbers and
 clearances.
-ProtoDUNE-SP will feature six APAs, arranged in two rows of three, flanking either side of a central cathode plane.  
 
 \begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta) and X (blue), to accentuate their angular relationships to the frame and to each other.  All layers span the entire APA frame height. The induction layers (U and V) are connected electrically across both sides of the APA.  The wires in the grid layer, G (not shown), run vertically, parallel to the X layer wires.  A mesh layer is attached directly to the APA frame.}
 \includegraphics[width=0.8\textwidth, angle=90]{figures/tpc_apa1.png} 
@@ -42,7 +41,6 @@ Electron Angular Resolution & $<$1$^{\circ}$ \\
 Electron Energy Scale Uncertainty & $<$5$\%$\\
 \end{cdrtable}
 
-\fixme{The physics requirement table was added mostly for the APA review.  I would happily delete this and refer to some better table, if one is added to the Physics section. - MPS}
 
 The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including argon purity, drift distance, diffusion, wire pitch, and Equivalent Noise Charge (ENC).  ProtoDUNE-SP requires that MIPs originating anywhere inside the active volume of the detector be reconstructed with 100$\%$ efficiency.   The choice of wire pitch (i.e., $\sim$5 mm), combined with the design values of the other parameters just mentioned (and described in their respective sections of the TDR), should enable this 100$\%$ efficiency to be achieved for MIPs.
 
@@ -105,8 +103,6 @@ The wrapped style allows the APAs to tile the active area of the LArTPC, minimiz
 
 In the current design of the single-phase DUNE detector module, a central row of APAs is flanked by  drift-fields, requiring sensitivity on both sides. The wrapped APAs allow the induction plane wires to sense drifting ionization originating from either side of the APA.  This double-sided feature is not strictly necessary for the ProtoDUNE-SP arrangement, which has APAs located against the cryostat walls and a drift field on one side only, but it is compatible with this setup as the grid layer facing the wall effectively blocks any ionization outside the TPC from drifting in to the wires on that side of the APA.
 
-Reconstruction of events recorded by the APAs will need to address ambiguities inherent to the wrapped wire design. This can occur when multiple isochronic hits are recorded, potentially leading to reconstructed hits that cannot be traced to unique wire-crossing positions in the detector.  The angle of the induction planes in the APA ($\pm$35.7$^{\circ}$) is chosen such that each induction wire only crosses a given collection wire one time, reducing the ambiguities that the reconstruction must address.  The design angle of the induction wires, coupled with their pitch, was also chosen such that an integer multiple of electronics boards reads out one APA.
-
 The choices of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and to provide the precision necessary for reconstruction.  The tension of 5~N, when combined with the intermediate support combs that will be described in Section~\ref{subsec:apa_combs}, ensure that the wires are held taught in place with no sag.  Wire sag can impact the precision of reconstruction, as well as the transparency of the TPC.  The tension of 5~N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in Section~\ref{subsec:apa_wires}.  To further mitigate wire breakage and its impact on detector performance, each wire in the APA is anchored twice on both ends, with both solder and epoxy.  Details of this arrangement are provided in Section~\ref{subsubsec:apa_wire_wrap}. 
 
 
@@ -137,14 +133,6 @@ CTE of CuBe, integrated to 87 K (m/m) & 2.9e-3 \\ \colhline
 CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 \end{cdrtable}
 
-Figure~\ref{fig:tpc_apa_wirelengthvsnoise} shows the intrinsic noise behavior in (plain) stainless steel wire and stainless steel wire plated with copper and gold.  The MicroBooNE TPC uses the plated wire, for example.  CuBe wire has very similar electrical properties to the plated stainless steel wire, and the figure indicates the expected intrinsic noise levels for ProtoDUNE-SP induction and collection wires.  These very low levels of noise are an important factor in the choice of CuBe wire for the APAs.
-
-\begin{cdrfigure}[APA Wire Length vs Noise]{tpc_apa_wirelengthvsnoise}{Noise levels in wire as a function of wire length.  CuBe wire is very similar in behavior to stainless steel wire plated with copper and gold (blue line).}
-\includegraphics[width=0.7\textwidth]{figures/tpc_apa_wirelengthvsnoise.png} 
-\end{cdrfigure}
-
-
-
 
 %%%%%%%%%%%%
 \subsubsection{APA frame}
@@ -152,15 +140,12 @@ Figure~\ref{fig:tpc_apa_wirelengthvsnoise} shows the intrinsic noise behavior in
 
 %\paragraph{Dimensions}
 
-The stainless steel frame of the APA (Figures~\ref{fig:tpc_apa_framedrawing} and~\ref{fig:tpc_apa_framephoto}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3~in $\times$ 4 in $\times$ 0.120 in wall rectangular tubing.  The cross pieces are 2~in $\times$ 3~in $\times$ 0.120~in wall tubing.  It will be mounted in the cryostat with its long axis vertical; multiple APAs will be mounted edge-to-edge to form a continuous plane. An electron deflection technique will be used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
+The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3~in $\times$ 4 in $\times$ 0.120 in wall rectangular tubing.  The cross pieces are 2~in $\times$ 3~in $\times$ 0.120~in wall tubing.  It will be mounted in the cryostat with its long axis vertical; multiple APAs will be mounted edge-to-edge to form a continuous plane. An electron deflection technique will be used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
 \begin{cdrfigure}[APA Dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framedrawing.png} 
 \end{cdrfigure}
 
-\begin{cdrfigure}[APA Photograph]{tpc_apa_framephoto}{An APA frame mounted in a transport cart (for moving it from frame fabrication site to APA fabrication site).}
-\includegraphics[width=0.9\textwidth]{figures/tpc_apa_framephoto.png} 
-\end{cdrfigure}
 
 %\paragraph{Welded vs. modular construction}
 \fixme{Reference Figure~\ref{fig:tpc_apa_boltedjointdrawing}  }
@@ -171,26 +156,14 @@ The stainless steel frame of the APA (Figures~\ref{fig:tpc_apa_framedrawing} and
 
 
 %%%%%%%%%%%%
-\subsubsection{Wire and wire wrapping}
+\subsubsection{need section here?}
 \label{subsubsec:apa_wire_wrap}
-
-\paragraph{Geometry}
-
-Each side of the APA frame is covered with four layers of wires.  Figure~\ref{fig:tpc_apa_cornerphoto} shows a corner of the APA and the four layers.
-
-\begin{cdrfigure}[APA Corner Photograph]{tpc_apa_cornerphoto}{Corner of an APA.  The wires in the first and fourth layers on each side are parallel to the long axis of the APA.  The second and third layers are angled at 35.7$^{\circ}$ to this axis, angled in opposite directions to each other.}
-\includegraphics[width=0.6\textwidth]{figures/tpc_apa_cornerphoto.png} 
-\end{cdrfigure}
-
-All the wires start at the top end (right-hand end in Figure~\ref{fig:tpc_apa1}) \fixme{not top of that figure?} of the APA and stop at the bottom. The first and fourth layers go straight; the second and third wrap around the sides. 
+\fixme{??}
 
 \paragraph{Head electronics boards}
 
-The head electronics boards (referred to as ``wire boards'') are the anchors for the wires at the head end of the APA (Figure~\ref{fig:tpc_apa_wireboardheadphoto}).  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
+The head electronics boards (referred to as ``wire boards'') are the anchors for the wires at the head end of the APA.  They are also the connection between the wires and the data acquisition electronics -- usually called the cold electronics
 
-\begin{cdrfigure}[APA Wire Boards at Head Photo]{tpc_apa_wireboardheadphoto}{The wire boards at the head of one of the 35-t prototype APAs.}
-\includegraphics[width=0.7\textwidth]{figures/tpc_apa_wireboardheadphoto.png} 
-\end{cdrfigure}
 
 All APA wires are terminated on the wire boards. The wire boards are stacked along the Electronics end of the APA frame. Attachment of the wire boards begins with the X plane. After the X-plane wires are wound around the frame, they are soldered and epoxied to the wire boards and trimmed. The remaining wire board layers are attached as each layer is wound.  The CR boards, which provide DC bias and AC coupling to the wires, are attached to the bottom of the wire board ``stack" of all layers.
 
@@ -231,39 +204,30 @@ The boards along the sides and foot of the APA have notches, pins or other locat
 
 G10 circuit board material is ideal for these side and foot boards for its physical properties alone but it has an additional advantage.  There are a number of hole or slot features in the edge boards providing access to the underlying frame.  In order that these openings are not covered by wires the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces and the section of wire between the pads snipped out (Figure~\ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards. \fixme{I would like to have the author describe this to me. I'm getting confused. (Anne)}
 
-For its physical properties alone G10 circuit board material would be ideal for these side and foot boards, but it has an additional advantage.  There are a number of hole or slot features in the edge boards providing access to the underlying frame.  In order that these openings are not covered by wires the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces and the section of wire between the pads snipped out (Figure~\ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards.
-
 \begin{cdrfigure}[APA Side Board Model]{tpc_apa_sideboardmodel}{Model of board with wires showing how traces connect wires around openings in the side boards.  The wires are wound straight over the openings, then soldered to pads at the ends of the traces.  After soldering the sections between the pads are trimmed away.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_sideboardmodel.png} 
 \end{cdrfigure}
 
-Originally, notches were machined into the circuit boards but this was labor intensive.  An alternate method has been developed based on the injection molding of strips with the required notch or pin features and then bonding these strips to the edge of the circuit boards as shown in Figure~\ref{fig:tpc_apa_sideboardphoto}.
 
 \begin{cdrfigure}[APA Side Board Photo]{tpc_apa_sideboardphoto}{Boards with injection molded tooth strips glued on.  The left shows an end board with teeth for locating the longitudinal wires.  The teeth there form small notches. The right is a side board for locating the angled wires where the wires are angled around a pin.}
 \includegraphics[width=0.7\textwidth]{figures/tpc_apa_sideboardphoto.png} 
 \end{cdrfigure}
 
-The angled wires are located by pins as shown in the right-hand picture of Figure~\ref{fig:tpc_apa_sideboardphoto}.  The wires make a partial wrap around the pin is they change direction from the face of the APA to the edge.  The longitudinal wires aren't pulled to the side so they can't be pulled against a pin.  They are located by teeth with slots as shown in the left-hand picture in Figure~\ref{fig:tpc_apa_sideboardphoto}. 
+The angled wires are located by pins as shown in the right-hand picture of Figure~\ref{fig:tpc_apa_sideboardphoto}.  The wires make a partial wrap around the pin as they change direction from the face of the APA to the edge.  The longitudinal wires aren't pulled to the side so they can't be pulled against a pin.  They are located by teeth with slots as shown in the left-hand picture in Figure~\ref{fig:tpc_apa_sideboardphoto}. 
 	
 The polymer used for the strips is Vectra e130i (a trade name for 30$\%$ glass filled liquid crystal polymer or LCP). It retains its strength at cryogenic temperature and has a CTE similar enough to G10 that differential expansion/contraction is not a problem.
 
 \paragraph{Glue and solder}
 The ends of the wires are soldered to pads on the edge or wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor the wires are glued for roughly 10 mm near the solder pads.  For example, in Figure~\ref{fig:tpc_apa_sideboardphoto}, in addition to soldering the wires upon the pads shown on the left-hand photograph, an epoxy bead will be applied on top of all wires in the area between the solder pads and the injection molded tooth strips.
 
-2216 gray epoxy by 3M was chosen for the glue.  It is strong, widely used (therefore much data is available), and it retains good properties at cryogenic temperatures.  A 62$\%$ tin, 36$\%$ lead and 2$\%$ silver solder was chosen.  A eutectic mix (63/37) is the best of the straight tin/lead solders but the 2$\%$ added silver gives better creep resistance.
+Gray epoxy 2216 by 3M was chosen for the glue.  It is strong, widely used (therefore much data is available), and it retains good properties at cryogenic temperatures.  A 62$\%$ tin, 36$\%$ lead and 2$\%$ silver solder was chosen.  A eutectic mix (63/37) is the best of the straight tin/lead solders but the 2$\%$ added silver gives better creep resistance.
 
 
 \paragraph{Mesh and mesh application}
 
-The mesh layer is glued directly to the steel frame surface -- over the openings in the frame.  It creates a uniform ground layer beneath the wire planes.  In the 35-t prototype, the APA without mesh showed more noise than the ones with mesh.
+The mesh layer is glued directly to the steel frame surface -- over the openings in the frame.  It creates a uniform ground layer beneath the wire planes.  
 
-The mesh is clamped around the perimeter of the opening and then pulled tight (opening and closing clamps as needed during the process).  When the mesh is taut a 25 mm wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown this gives good electrical contact between the mesh and the frame, a deliberate electrical connection will also be made.  Figure~\ref{fig:tpc_apa_meshphoto} shows the mesh for the 35-t prototype, while Figure~\ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
-\fixme{describe Figure~\ref{fig:tpc_apa_meshphoto} in same way in ref and caption; actually I don't think the photo is that illuminating; maybe show a crop with the comb or remove entirely? Anne}
-
-\begin{cdrfigure}[APA Mesh Photo]{tpc_apa_meshphoto}{The mesh in place on a small frame -- with combs.}
-\includegraphics[width=0.9\textwidth]{figures/tpc_apa_meshphoto.png} 
-\end{cdrfigure}
-
+The mesh is clamped around the perimeter of the opening and then pulled tight (opening and closing clamps as needed during the process).  When the mesh is taut a 25 mm wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown this gives good electrical contact between the mesh and the frame, a deliberate electrical connection will also be made.  Figure~\ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
 
 \begin{cdrfigure}[APA Full-Size Mesh Drawing]{tpc_apa_fullsizemeshdrawing}{The mesh clamping jig for the full size APA.}
 \includegraphics[width=0.8\textwidth]{figures/tpc_apa_fullsizemeshdrawing.png} 
@@ -271,13 +235,10 @@ The mesh is clamped around the perimeter of the opening and then pulled tight (o
 
 
 \paragraph{Modular electronics}
-In the current design (Figure~\ref{fig:tpc_apa_electronicsmountingphoto}), which was used for the 35-t prototype APAs, the cold electronics boards are mounted on a ``fin'' -- a steel plate extending across the width of the APA at the top tube.
 
-\begin{cdrfigure}[APA Electronics Mounting Photo]{tpc_apa_electronicsmountingphoto}{A mockup of the current cold electronics mounting where the cold electronics is mounted on the fin at the head of the APA.}
-\includegraphics[width=0.6\textwidth]{figures/tpc_apa_electronicsmountingphoto.png} 
-\end{cdrfigure}
 
-A modified design (Figure~\ref{fig:tpc_apa_electronicsmountingdiagram}) is being developed for the ProtoDUNE-SP APAs that consists of small boxes, one near each board stack, that hold the cold electronics for that board stack.  Putting the electronics in small modules simplifies installation and replacement and also helps with the collection of argon gas generated by the warm electronic components.  These modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
+\fixme{need to introduce this} A modified design (Figure~\ref{fig:tpc_apa_electronicsmountingdiagram}) is 
+The design being developed for the ProtoDUNE-SP APAs consists of small boxes, one near each board stack, that hold the cold electronics for the associated board stack.  Putting the electronics in small modules simplifies installation and replacement, and also helps with the collection of argon gas generated by the warm electronic components.  These modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
 
 \begin{cdrfigure}[APA Electronics Mounting Design]{tpc_apa_electronicsmountingdiagram}{Solid model of revised, modular, cold electronics boxes.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_electronicsmountingdiagram.png} 
