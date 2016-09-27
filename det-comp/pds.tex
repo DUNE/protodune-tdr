@@ -4,7 +4,7 @@
 \label{sec:pd_system}
 
 LAr is an excellent scintillating medium and the photon detection
-system will exploit this property in the far detector.  With an
+system will exploit this property in the detector.  With an
 average energy of 19.5~eV needed to produce a photon (at zero field),
 a typical particle depositing 1~MeV in LAr will generate
 40,000~photons with wavelength of 128~nm. At higher fields this will
@@ -17,7 +17,7 @@ highly transparent to the 128-nm VUV photons with a Rayleigh
 scattering length of (66~$\pm$~3)~cm~\cite{Rayleigh} and absorption
 length of $>$200~cm; this attenuation length requires a LN$_2$
   content of less than 20~ppm. The relatively large light output makes
-the scintillation process an excellent candidate for determination of
+the scintillation process an excellent candidate for determining the
 $t_0$ for non-beam related events. Detection of the scintillation
 light may also be helpful in background rejection and triggering on
 non-beam events.
@@ -25,9 +25,9 @@ non-beam events.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope and requirements}
 
-The scope of the photon detector system (PDS) for the ProtoDUNE-SP detector
-includes design, procurement, fabrication,
-testing, delivery and installation of the following components:
+The photon detector system (PDS) 
+includes the following components:
+
 \begin{itemize}
 \item Light collection system including wavelength shifter and light guides
 \item Light sensors: Silicon photo-multipliers (SiPMs)
@@ -36,9 +36,7 @@ testing, delivery and installation of the following components:
 \item Related infrastructure (frames, mounting boards, etc.).
 \end{itemize}
 
-The photon detection system reference design described in this section
-will determine if the detector meets the required performance for 
-light collection for the DUNE far detector. 
+
 The primary requirement is the detection of light from proton decay
 candidates (as well as beam neutrino events) with high efficiency to
 enable 3D spatial localization of candidate events. The light yield that
@@ -49,7 +47,8 @@ them from background noise in the TPC detection.
 The photon system will provide the $t_0$ timing of
 events relative to TPC timing with a resolution better than 1~$\mu$s
 (providing position resolution along the drift direction of a couple of mm). 
-Measurements from the ProtoDUNE-SP detector will determine the absolute
+Measurements %from the ProtoDUNE-SP detector 
+will determine the absolute
 light yield by measuring light from beam particles and cosmic ray muons
 tracked in the TPC or identified by external muon trigger counters.
 Informed by this light yield measurement the determination of whether the 
@@ -108,9 +107,11 @@ avoided this problem.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sensors}
-The planned photodetector is a SiPM.  
-The model planned for ProtoDUNE-SP is the SensL C-Series 6~mm$^2$
-(MicroFB-60035-SMT) device. These SiPMs have detection efficiency of
+The planned photodetector is a SiPM, model 
+%The model planned for ProtoDUNE-SP is the 
+SensL C-Series 6~mm$^2$
+(MicroFB-60035-SMT). % device. 
+This model of SiPM has a detection efficiency of
 41\%; the detection efficiency combines QE and effective area
   coverage accounting for dead space between pixels.   At LAr temperature (89~K) the dark rate is of order 10~Hz
 (0.5 p.e. threshold) while after-pulsing has not been an
@@ -118,7 +119,8 @@ issue. Extensive testing is underway and will continue, to ensure
 that the SiPMs can reliably survive the stresses associated with 
 any thermal cycling in LAr and long-term operation at LAr temperature.
 
-All photodetectors for ProtoDUNE-SP will be subjected to testing to determine
+All photodetectors %for ProtoDUNE-SP 
+will be subjected to testing to determine
  forward and reverse bias I-V curves,
  breakdown voltage, dark current and dark count rate, photodetector gain, crosstalk estimation, response, and bias dependence of parameters.
  
@@ -127,7 +129,8 @@ Each SiPM will be tested before mounting on the readout boards to determine
 if the part meets the specifications in a warm test.  After mounting to
 the readout board all items will be tested both warm and cold (cyrogenic 
 temperature) to determine the operating characteristics as when %they will be 
-installed at the ProtoDUNE-SP detector, and during QA/QC tests on the PDS modules.
+installed in the %at the ProtoDUNE-SP 
+detector, and during QA/QC tests on the PDS modules.
 
 In addition to these tests, the photodetectors will be tested for their
 response to light signals from an LED with appropriate wavelength.
@@ -223,7 +226,7 @@ after the PD has been installed into the slot.
 %A.A. Machado and E. Segreto, \emph{ARAPUCA a new device for liquid argon scintillation light detection}, {JINST}  {\bf 11} (2016) C02004.
 %}
 %\section{The ARAPUCA device}
-While a sufficient number of the two standard arrays are being produced to fully outfit protoDUNE-SP, it is possible that some will bays will have experimental detectors installed in place 
+While a sufficient number of the two standard arrays are being produced to fully outfit ProtoDUNE-SP, it is possible that some will bays will have experimental detectors installed in place 
 of the 4 standard arrays. One type of detector that is being developed in an attempt to increase the light detection eficiency is called an ARAPUCA.
 
 The ARAPUCA is a device based on a new technology that should allow to collect photons with a window of big area with detection efficiencies at the level of several percent while using 
@@ -236,10 +239,11 @@ A dichroic shortpass filter deposited with two different wavelength shifters (on
 ARAPUCA. The rest of the device will be a flattened box with highly reflective internal surfaces (PTFE, 3M-VIKUITI ESR, \dots), closed on the top by the 
 dichroic  filter deposited with the two shifters. A fraction of the box internal surface is occupied by the active photo-sensors (Silicon Photomultipliers - SiPM) which will detect the trapped photons.
 
-Two arrays of small ARAPUCAs will be installed inside protoDUNE to test the devices in a real experimental situation and to directly compare their performances with those of the guiding 
+Two arrays of small ARAPUCAs will be installed in the detector %inside protoDUNE 
+to test the devices in a real experimental situation and to directly compare their performances with those of the guiding 
 bars and other eventual alternative photon detection schemes.\
 The arrays will be compatible with the mechanical solutions foreseen for the guiding bars and will have zero impact on the construction of the detector. In particular each one of the two 
-arrays will replace one bar. It will be composed by 8 ARAPUCAs/bar (for a total of 16 devices)  as shown in figure \ref{fig:arapuca_array}.
+arrays will replace one bar. It will be composed by eight ARAPUCAs/bar (for a total of 16 devices)  as shown in Figure~\ref{fig:arapuca_array}.
 %*****************************FIGURE 2*****************************%
 \begin{cdrfigure}[ARAPUCA array installed in a APA frame]
   {arapuca_array}{One ARAPUCA array of eight devices installed in a APA frame in place of a scintillating bar.}
@@ -264,7 +268,8 @@ A UV-light-based monitoring system that will serve to monitor the relative perfo
 The system will consist of a set of UV LEDs as light sources in the VUV wavelength range, coupled to quartz fibers, to transmit light from outside the detector volume to desired locations at the CPA within the TPC.
 Light diffusers located at the CPA surface will uniformly illuminate the APA area with photon-detector system (PDS) elements.
 The light sources located and fired externally, with fibers running into the cryostat to diffusers that will emit light from the CPA to the APA. 
-For the ProtoDUNE-SP cryostat at the surface at CERN, the UV light system will be complementary to cosmic ray muon 
+For the detector %ProtoDUNE-SP cryostat 
+at the surface at CERN, the UV light system will be complementary to cosmic ray muon 
 tracks and Michel electrons as means of calibration. In terms of light sources the measurements will be performed with an UV (245-280) light source.
 The UV light essentially mimics physics, although at a different wavelength starting from the wavelength-shifter conversion, 
 light guide propagation, photo-sensor detection and the front-end electronics readout.

@@ -45,14 +45,14 @@ resulting in a digitized ADC sample from each APA channel (wire) up to every 500
 
 The 2,560 channels from each APA are read out by 20 Front-End Motherboards (FEMBs), each providing 
 digitized wire read-out from 128 channels. One cable bundle 
-connects each FEMB to the outside of the cryostat via feedthroughs in CE flanges, with single flanges servicing each APA as shown in Figure~\ref{fig:tpcce_apa_flange}. 
+connects each FEMB to the outside of the cryostat via a feedthrough (CE feedthrough) in the signal cable flange at the top of the cryostat, where a single flange services each APA, as shown in Figure~\ref{fig:tpcce_apa_flange}. 
 Each cable bundle contains wires for low-voltage (LV) power, high-speed data readout,
 and clock/digital-control signal distribution.
-Eight separate cables carry the TPC wire-bias voltages from the CE flange to the APA wire-bias boards, as
+Eight separate cables carry the TPC wire-bias voltages from the signal flange to the APA wire-bias boards, as
 shown schematically in Figure~\ref{fig:tpcce_cr_board}.
 
-\begin{cdrfigure}[Connections between CE flange and APA]{tpcce_apa_flange}{Connections between
-the CE flange and APA.}
+\begin{cdrfigure}[Connections between signal flange and APA]{tpcce_apa_flange}{Connections between
+the signal flange and APA.}
 \includegraphics[width=0.4\linewidth]{tpcce_apa_flange.pdf}
 \end{cdrfigure}
 
@@ -60,19 +60,19 @@ The components of the CE system are the
 \begin{itemize}
 \item Front-end mother boards (FEMBs) which house the cold ASICs and are installed on the APAs;
 \item Cables for the data, clock/control signals, LV power, and wire-bias voltages 
-between the APA and the CE flanges (cold cables);
-\item CE flanges with feedthroughs to pass the data, clock/control signals, 
+between the APA and the signal flanges (cold cables);
+\item Signal flanges with a CE feedthrough to pass the data, clock/control signals, 
 LV power, and APA wire-bias voltages between the inside and outside of the cryostat;
-\item Warm electronics crates (WECs) that are mounted on the CE flanges and contain the Warm Interface Boards (WIBs)
+\item Warm electronics crates (WECs) that are mounted on the signal flanges and contain the Warm Interface Boards (WIBs)
 and Power and Timing Cards (PTCs) for further processing and distribution of the signals entering/exiting the cryostat;
-\item Filter cables for transmitting data and clock/control signals between the WECs and the data acquisition 
+\item Fiber cables for transmitting data and clock/control signals between the WECs and the data acquisition 
 (DAQ) and slow control systems;
-\item Cables for LV power and wire-bias voltages between the CE flange and external power supplies (warm cables);
+\item Cables for LV power and wire-bias voltages between the signal flange and external power supplies (warm cables);
 \item LV power supplies for the CE and bias-voltage power supplies for the APAs
 \end{itemize}
 
 The electrical cables for each APA enter the cryostat through a single 
-CE flange, creating an integrated unit that provides local diagnostics for noise and validation testing,
+signal flange, creating an integrated unit that provides local diagnostics for noise and validation testing,
 and follows the grounding guidelines in Section~\ref{subsec:groundshield}.
 
 %
@@ -100,7 +100,7 @@ The most significant requirements for the CE are listed here. The CE shall:
 \item Remote monitoring and control through DAQ
 \item Over-current and over-voltage protection circuits
 \end{itemize}
-\item Ensure that the signal feedthroughs are able to withstand twice their nominal operating voltages 
+\item Ensure that the CE feedthroughs are able to withstand twice their nominal operating voltages 
 with a maximum specified leakage current in 1-atm argon gas.
 \end{itemize}
 
@@ -108,18 +108,18 @@ with a maximum specified leakage current in 1-atm argon gas.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Electrical design}
 %\label{subsec:ele_design}
-\subsubsection{Grounding and shielding}
+\subsection{Grounding and shielding}
 \label{subsec:groundshield}
 
 To avoid structural ground loops, the APA frames described in Section~\ref{subsec:apa_frame} 
 are insulated from each other. Each frame is electrically connected to the cryostat at a single 
-point on the feedthrough board in the CE flange where the cables exit the cryostat. Mechanical suspension of the APAs 
+point on the CE feedthrough board in the signal flange where the cables exit the cryostat. Mechanical suspension of the APAs 
 is accomplished using insulated supports. 
 
 The analog portion of the FEMB contains eight front-end (FE) ASICS configured as 16-channel 
 digitizing charge amplifiers. Input amplifiers on the ASICs have their Common terminals connected 
 to the APA frame.  All power-return leads and cable shields 
-are connected to both the Common plane of the FEMB and to the CE flange.
+are connected to both the Common plane of the FEMB and to the signal flange.
 
 Filtering circuits for the APA wire-bias voltages are locally referenced to the Common plane of the FEMBs through low-impedance 
 electrical connections. This approach ensures a ground-return path in close proximity to the 
@@ -127,9 +127,9 @@ bias-voltage and signal paths. The close proximity of the current paths minimize
 suppress noise pickup.
 
 Photon detector signals, described in Section~\ref{sec:pd_system}, are carried directly on shielded, 
-twisted-pair cables to the CE flange. The cable shields are connected to the 
-cryostat at the PDS feedthrough, and to the PCB shield layer on the photon detectors \fixme{readout boards?}. There is no 
-electrical connection between the cable shields and the APA frame except at the CE flange.
+twisted-pair cables to the signal flange. The cable shields are connected to the 
+cryostat at a second feedthrough, the PDS feedthrough, and to the PCB shield layer on the photon detectors \fixme{readout boards?}. There is no 
+electrical connection between the cable shields and the APA frame except at the signal flange.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,10 +213,10 @@ The FEMBs plug directly into the APA CR boards, making the connections from the 
 X-plane collection wires to the charge amplifier circuits as short as possible.
 
 The analog mother board is instrumented with eight 16-channel FE ASICs,
-eight 16-channel ADC ASICs, LV regulators, and input-signal protection circuits.
+eight 16-channel ADC ASICs, LV power regulators, and input-signal protection circuits.
 The 16-channel FE ASIC provides amplification and pulse shaping.
 The 16-channel ADC ASIC comprises  12-bit digitizers performant at speeds up to 2 MS/s, local buffering,
-and an 8:1 multiplexing (MUX) stage with two pairs of serial readout lines in parallel.
+and an 8:1 MUX stage with two pairs of serial readout lines in parallel.
 
  
    (Figure~\ref{fig:tpcce_CMBpix}).
@@ -272,7 +272,7 @@ filter-time constant (peaking time) for two different gains, where ENC is the va
 (in electrons) injected across the detector capacitance that would produce at the output of the 
 shaping amplifier a signal whose amplitude equals the output R.M.S. noise. These measurments
 were made with prototype FEMBs at both RT and submerged in LN2 with a wire-simulating input capacitance of $C_f~=~150$~pF.
-In LN2, for peaking times $>$1~$\mu$s less than 600~e$^{-}$ was measured. For comparison,
+In LN2, for peaking times $>$1~$\mu$s, less than 600~e$^{-}$ was measured. For comparison,
 a MIP travelling perpendicularly to the wire plane in the direction of wire spacing is
 expected to deposit $\sim$~10,000~e$^{-}$ on the collection wires, for a worst-case
 S:N$\sim$16:1.
@@ -321,8 +321,12 @@ The differential non-linearity (DNL) is less than 4 LSBs for 99\% of ADC bins at
 
  
  
- The ACD outputs are passed to the FBGA mezzanine board for transmission to the warm electronics
- located on the outside of the CE flange.
+ The ADC outputs are passed to the FPGA mezzanine board for transmission to the warm electronics
+ located on the outside of the signal flange.
+The FPGA has four 4:1 MUX circuits that combine the 16 serial lines from the eight ADC
+channels into four serial lines of 32 channels each, and 
+four $\sim$1.2 Gigabit-per-second (Gbps) serial drivers that drive the data in each
+line over cold cables to the WIBs.
 
 \begin{cdrfigure}[The CE Architecture]{tpcce_schem}{The CE Architecture. The basic unit is the 128-channel FEMB.}
 \includegraphics[width=0.9\linewidth]{tpcce_schem.pdf}
@@ -341,21 +345,12 @@ The differential non-linearity (DNL) is less than 4 LSBs for 99\% of ADC bins at
 \includegraphics[width=0.45\linewidth]{tpcce_CMBpix_3.pdf}
 \end{cdrfigure}
 
-
-The FPGA has four 4:1 MUX circuits that combine the 16 serial lines from the eight ADC
-channels into four serial lines of 32 channels each, and 
-four $\sim$1.2 Gigabit-per-second (Gbps) serial drivers that drive the data in each
-line over the cold cables to the WIBs.
-
-
-The data is passed through the CE flange to the WIBs on copper cables utilizing LV differential signaling (LVDS).
-On the WIBs, the data is further multiplexed by 4:1 and transmitted over optical
-fiber to the DAQ system described in section~\ref{sec:DAQ_online_interface}.
-
+The data are passed through the signal flange to the WIBs on copper cables utilizing LV differential signaling (LVDS).
+On the WIBs, the data is further MUXed by 4:1 and transmitted over optical
+fibers to the DAQ system described in Section~\ref{sec:DAQ_online_interface}.
 
 The FPGA on the mezzanine card is also responsible for communicating with the
 DAQ and timing systems and providing the clock and control signals required by the FE and ADC ASICs.
-
 
 Each FEMB is enclosed in a Faraday box to provide shielding from noise. 
 As shown in Figure~\ref{fig:tpcce_box}, the Faraday box is designed to make the electrical connection 
@@ -373,35 +368,35 @@ ground at the APA frame, as shown in Figure~\ref{fig:tpcce_cr_board}.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Signal feedthroughs and cold cables}
+\subsection{CE feedthroughs and cold cables}
 \label{subsec:ce_feedthrough}
 
 All cold cables originating from inside the cryostat connect to the outside warm electronics through PCB board feedthroughs
-installed in the CE flanges that are distributed along the cryostat roof (Figure~\ref{fig:tpcce_FT_InternalCableRoute}).
+installed in the signal flanges that are distributed along the cryostat roof (Figure~\ref{fig:tpcce_FT_InternalCableRoute}).
 The TPC data rate per APA, with an overall 32:1 MUX and 80 $\sim$1~Gbps data channels per APA,
 is sufficiently low that the signals can be driven over copper LVDS tansmission lines.
 Additional LVDS transmission lines are available for the distribution of clock signals and control information,
 which are transmitted at a lower bit rate.
-Optical fiber is employed externally from the WIBs on the CE flange to the DAQ and slow control systems.
+Optical fiber is employed externally from the WIBs on the signal flange to the DAQ and slow control systems.
 
-\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_FT_InternalCableRoute}{
-The feedthrough configuration and internal cable routing. The left panel shows a cutaway view of the cryostat.
+\begin{cdrfigure}[Conceptual design of CE feedthrough]{tpcce_FT_InternalCableRoute}{
+The CE feedthrough configuration and internal cable routing. The left panel shows a cutaway view of the cryostat.
 The right panel shows more detail at the Faraday boxes.}
 \includegraphics[width=7in]{tpcce_FT_InternalCableRoute.pdf}
 \end{cdrfigure}
 
 
-\begin{cdrfigure}[Conceptual design of signal/power feedthrough]{tpcce_signal_FT}{
-TPC signal/power feedthrough. The WIBs are seen edge-on in the left panel,
+\begin{cdrfigure}[Conceptual design of CE feedthrough]{tpcce_signal_FT}{
+TPC CE feedthrough. The WIBs are seen edge-on in the left panel,
 and in an oblique side-view in the right panel, which also shows the warm crate for a DUNE module in a cutaway view (for 
 ProtoDUNE-SP, there is a crate only on one side).}
 \includegraphics[width=0.6\linewidth]{tpcce_signal_FT.pdf}
 \end{cdrfigure}
 
-The current design of the CE flange includes a T-shaped pipe, separate PCB feedthroughs for the CE and PDS cables, and
+The current design of the signal flange includes a T-shaped pipe, separate PCB feedthroughs for the CE and PDS cables, and
 an attached crate for the TPC warm electronics, as shown in Figure~\ref{fig:tpcce_signal_FT}.
 The wire-bias voltage cables connect to standard SHV connectors machined directly into the CE feedthrough,
-ensuring no electrical connection between the wire-bias voltages and other signals passing through the CE flange.
+ensuring no electrical connection between the wire-bias voltages and other signals passing through the signal flange.
 Each CE feedthrough serves the bias/power/digital IO needs of one APA, as shown 
 in Figure~\ref{fig:tpcce_cable_routing}.  
 
@@ -415,10 +410,10 @@ is being carefully followed.
 
 
 Data/control cable bundles are used to send system clock and control signals from the 
-CE flange to the FEMB, stream the $\sim$1~Gbps high-speed data from the FEMB to the CE flange, and 
+signal flange to the FEMB, stream the $\sim$1~Gbps high-speed data from the FEMB to the signal flange, and 
 provide backup JTAG programming to the cold FPGA, in case the power-up programming from the onboard 
 EEPROM fails. As described in Section~\ref{subsec:ce_intro}, each FEMB 
-connects to a CE flange via one data cable bundle, leading to 20 bundles between one APA and one flange.
+connects to a signal flange via one data cable bundle, leading to 20 bundles between one APA and one flange.
 Each data bundle contains 12 low-skew copper twin-axial cables with a drain wire, 
 to transmit the following differential signals:
 
@@ -434,7 +429,7 @@ to transmit the following differential signals:
 \fixme{Figure~\ref{fig:tpcce_samtec_cable} is too detailed to be helpful. Can we crop a part or parts of it?} 
 
 The selected cables are Samtec 26~AWG twin-axial bundles with Samtec HSEC08 connectors to both
-the FEMB mezzanine board and the CE flange. 
+the FEMB mezzanine board and the signal flange. 
 The HSEC08
 connectors lock into place with tabs on each side of the connector. A sample of the Samtec cable with
 THV outer jacket has passed outgassing tests in the LAr Materials Test Stand at Fermilab.
@@ -442,7 +437,7 @@ THV outer jacket has passed outgassing tests in the LAr Materials Test Stand at 
 The Samtec 26~AWG cable has been
 tested and demonstrated to have low enough dispersion such that both the LVDS 50~MHz system clock and
 $\sim$1~Gbps high-speed data can be recovered over 25~meters of RT cable, 
-significantly longer than the required seven meters needed to run cables between the FEMBs and CE flanges.
+significantly longer than the required seven meters needed to run cables between the FEMBs and signal flanges.
 
 \begin{cdrfigure}[Results from cable validation testing]{tpcce_samtec_results}{Eye diagrams 
 from cable validation testing. {\bf Top Left:} 50~MHz system clock over 25~m RT  
@@ -463,9 +458,9 @@ also passed a BER test, transmitting $10^{13}$ bits without error.
 
 
 
-LV power is passed from the CE flange to the FEMB by bundles of 16 Samtec 
+LV power is passed from the signal flange to the FEMB by bundles of 16 Samtec 
 20~AWG twisted-pair wires, as shown in Figure~\ref{fig:tpcce_samtec_cable}. One IPD1 connector
-attaches all 16 wires at the CE flange, and two IPD1 connectors are attached to the FEMB (one to the
+attaches all 16 wires at the signal flange, and two IPD1 connectors are attached to the FEMB (one to the
 analog motherboard and one to the FPGA mezzanine). In total, 20 wire bundles 
  bring LV power to the FEMBs associated with one APA.
 
@@ -479,15 +474,15 @@ specifications.}
 \includegraphics[width=4in]{tpcce_lv_req.pdf}
 \end{cdrfigure}
 
-\fixme{Eric questions whether figure~\ref{fig:tpcce_lv_req} is needed}
+%\fixme{Eric questions whether figure~\ref{fig:tpcce_lv_req} is needed}
 
-The wire-bias cable voltages are required to deliver voltages up to a few thousand Volts and currents up to a few
+The wire-bias voltage cables are required to deliver voltages up to a few thousand Volts and currents up to a few
 milliAmps.
 
 The bias voltages are applied to the X-, V-, and G-plane wire layers, three field cage terminations, 
 and an electron diverter, as shown in Figure~\ref{fig:tpcce_cr_board}. The voltages are supplied 
-through eight SHV connectors mounted on the CE flange. RG-316 coaxial cables carry the voltages 
-from the CE flange to a patch panel PCB which includes noise filtering mounted on the top 
+through eight SHV connectors mounted on the signal flange. RG-316 coaxial cables carry the voltages 
+from the signal flange to a patch panel PCB which includes noise filtering mounted on the top 
 end of the APA. 
 
 From there, wire-bias voltages are carried by single wires to 
@@ -500,13 +495,14 @@ a small mounted board near the electron diverter that also houses wire-bias volt
 \subsection{Warm interface electronics}
 \label{subsec:warm_interface_elec}
 
-The warm interface electronics are housed in a small crate
-attached directly to the cryostat flange.  The crate contains one
+The warm interface electronics are housed in warm electronics crates (WECs)
+attached directly to the signal flange.  The WEC shown in Figure~\ref{fig:tpcce_ceflange_sbnd} 
+contains one
 Power and Timing Card (PTC), up to five Warm Interface Boards (WIBs) and a passive
 backplane (PTB), which fans out signals and LV power from the PTC to the WIBs.
 
-\begin{cdrfigure}[Conceptual design of CE flange]{tpcce_ceflange_sbnd}{Exploded view of 
-the CE flange for SBND (ProtoDUNE has 5 WIBs).}
+\begin{cdrfigure}[Conceptual design of signal flange]{tpcce_ceflange_sbnd}{Exploded view of 
+the signal flange for SBND (ProtoDUNE-SP has five WIBs).}
 \includegraphics[width=0.9\linewidth]{tpcce_ceflange_sbnd.png}
 \end{cdrfigure}
 
@@ -516,13 +512,13 @@ FEMBs. It receives the system clock and control signals from the
 timing system and provides for processing and fan-out of those signals to the four
 FEMBs. The WIB also receives the high-speed data signals from the four 
 FEMBs and transmits them to the DAQ system over optical
-fiber.  Figure~\ref{fig:tpcce_ceflange_sbnd} shows the TPC warm electronics
-flange. The WIBs are attached directly to the TPC
-readout electronics feedthrough on the CE flange. The feedthrough
-board is a PCB with connectors to the cold signal and LV cables fitted
+fibers.  The WIBs are attached directly to the TPC
+CE feedthrough on the signal flange. The feedthrough
+board is a PCB with connectors to the cold signal and LV power cables fitted
 between the compression plate on the cold side, and sockets for
-the WIB on the warm side. Cable strain relief is also provided
-directly on the CE flange.
+the WIB on the warm side. Cable strain relief for the cold cables is 
+supported from the back end of the feedthrough.
+
 
 %%%%%%%%%%%%%%%%  
 %\subsubsection{Power and Timing Card}
@@ -539,17 +535,17 @@ data using a clock/data separator.  The clock and data
 streams are separately fanned-out to the five WIBs as shown in
 Figure~\ref{fig:tpcce_wib_timing}. The PTC fans the clocks out to the WIB over the
 PTB, which is a passive backplane attached directly to the PTC and
-WIBs. See Figures~\ref{fig:tpcce_ceflange_sbnd} and~\ref{fig:tpcce_dune_ptb}.
+WIBs.
 
 \begin{cdrfigure}[WIB and LV power]{tpcce_wib_power}{LV power distribution 
-to the WIB and FEMBs. 200W is for a fully-loaded crate 
+to the WIB and FEMBs. 200~W is for a fully-loaded crate 
 with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
 \includegraphics[width=0.6\linewidth]{tpcce_wib_power.pdf}
 \end{cdrfigure}
 
 The PTC also receives LV power for all cold
-electronics connected to that flange, approximately 200W at 12V for a
-fully-loaded flange (5~WIB + 20~FEMB). The LV power is then fanned out
+electronics connected through the signal flange, approximately 200~W at 12~V for a
+fully-loaded flange (five~WIB + 20~FEMB). The LV power is then fanned out
 on the PTB to each WIB, which provides the necessary DC/DC conversions and fans
 the LV power out to each of the cold FEMBs supplied by that WIB, 
 as shown in Figure~\ref{fig:tpcce_wib_power}. The 
@@ -565,8 +561,9 @@ Each WIB contains a
 unique IP address for its UDP slow control interface. The IP address for the WIB is 
 derived from a crate and slot address: the crate address is generated on the PTC 
 board via dipswitches and the slot address is generated by the PTB slot, numbered 
-from one to five. Note that the WIB also has front-panel
-connectors for receiving LV power, which can be used in place of the LV power inputs on the PTB generated by the PTC.
+from one to five. Note that the WIBs also have front-panel
+connectors for receiving LV power; these can be used in place of 
+the LV power inputs on the PTB generated by the PTC.
 
 The WIB is also capable of
 receiving the encoded system timing signals over bi-directional optical
@@ -587,7 +584,7 @@ transceivers can drive the high-speed data to the DAQ system up to
 two FEMB (2$\times$5~Gbps) could be transmitted on a single link. However, it is planned to
 use a QSPF socket on the WIB to deliver $\sim$5~Gbps on four optical fibers 
 (one fiber per FEMB) to two RCEs. \fixme{write out} The FPGA has an additional Gbps Ethernet
-transceiver I/O based on the 125~MHz clock, which provides real-time digital data readout to slow control.
+transceiver I/O based on the 125~MHz clock, which provides real-time digital data readout to the slow control system.
 
 
 
@@ -603,7 +600,7 @@ Including power for the WIB, a fully loaded WIB (one WIB plus four FEMBs) requir
 requires 12~V and draws approximately 16~Amps, for a total power of almost 200~W, as 
 described in Section~\ref{subsubsec:power_timing_card}.
 
-Each MPOD LV unit has two DSUB37 connectors, each with 4 channels of LV output, including negative
+Each MPOD LV power unit has two DSUB37 connectors, each with four channels of LV output, including negative
 and positive sense wires. %as shown in Figure~\ref{fig:tpcce_mpod_top}. 
 Each channel has three pins
 of negative output and three pins of positive output. Five of the eight channels
@@ -614,17 +611,13 @@ to the PTC itself, with two of the eight channels unused.
 %\includegraphics[width=1.0\linewidth]{tpcce_mpod_top.png}
 %\end{cdrfigure}
 
-Each MPOD wire-bias voltage unit supplies the wire-bias voltage to eight SHV connectors 
-at the CE flange. One MPOD chassis contains three LV and three wire-bias units, and can
+Each MPOD wire-bias voltage unit supplies the wire-bias voltages to eight SHV connectors 
+at the signal flange. One MPOD chassis contains three LV and three wire-bias units, and can
 supply all the LV and wire-bias power to three APAs worth of cold electronics. Therefore,
-a total of two MPOD chassis are required for the ProtoDUNE-SP detector.
+a total of two MPOD chassis are required for the detector.
 
-%
-%%%%%%%%%%%%%%%%
-%\subsubsection{Low-voltage cable}
-%\label{subsubsec:ce_feedthrough_lv}
 
-The LV cable uses DSUB37 connectors. The bottom of the fuse PCB at the MPOD 
+The LV power cable uses DSUB37 connectors. The bottom of the fuse PCB at the MPOD 
 end of the cable is shown in Figure~\ref{fig:tpcce_fused_cable}. Each of the three output pins on
 each channel are tied together in parallel 
 going to one wire large enough to carry the full supply voltage. Fuses can optionally be 
@@ -641,35 +634,26 @@ combined fuse value.
 The five separate 12~V/3.3~A channels to the WIBs are delivered to the PTC using two normal DSUB37 connectors to
 attach the LV power cable. The fusing for the sense wires is implemented on the PTC.
 
-%
-%%%%%%%%%%%%%%%%
-\subsubsection{Wire Bias Voltage Cable}
-\label{subsubsec:ce_feedthrough_wirebias}
-
-Each anode plane assembly requires three bias voltage connections 
+Each APA requires three wire-bias voltage connections 
 at $+$820V, $-$370V, and $-$665V, as described in Section~\ref{subsec:ce_wire_bias}.
 The current on each of these supplies is expected to be zero at normal operation.
 However the ripple voltage on the supply must be carefully controlled 
 to avoid noise injection into the front-end electronics.
 
 RG-58 coaxial cables connect the wire bias voltages from the MPOD to the standard SHV
-connectors machined directly into the flange, so there is no electrical connection between 
-the LV and data connectors and bias voltage. The length of the cables from the Weiner MPODs
-to the CE flanges is estimated to be 18~meters.
+connectors machined directly into the CE feedthrough, so there is no electrical connection between 
+the LV power and data connectors and wire-bias voltages. The length of the cables from the Weiner MPODs
+to the signal flanges is estimated to be 18~meters.
 
-%
-%%%%%%%%%%%%%%%%
-\subsubsection{Optical Fiber}
-\label{subsubsec:ce_optical_fiber}
 
-Optical fiber provides the connections between the warm electronics crate, which acts as
-a Faraday-shielded box, to the DAQ and slow control systems.
+Optical fibers provide the connections between the WECs, which act as
+Faraday-shielded boxes, to the DAQ and slow control systems.
 Each WIB uses QSFP sockets for 
 four pairs of fiber, as described in Section~\ref{subsubsec:warm_interface_board}, 
 implying a total of 120 optical data fibers for the 30 WIB boards in the system. The optical fibers from
-the CE flanges to the DAQ room are an estimated 30$-$40~m in length.
+the signal flanges to the DAQ room are estimated to be 30$-$40~m in length.
 
 Duplex LC optical fiber is under consideration for transmitting the one GIG-E connection from each
-WIB to slow control. The WIB reports the current draw from each FEMB to the slow control system, while the 
+WIB to the slow control system. The WIB reports the current draw from each FEMB to the slow control system, while the 
 current draw for each WIB is monitored at the MPOD itself.
 
