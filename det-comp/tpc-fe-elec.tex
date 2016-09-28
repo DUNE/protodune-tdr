@@ -24,6 +24,11 @@
 \subsection{Scope and requirements}
 \label{subsec:ce_intro}
 
+
+The DUNE single-phase TPC read-out electronics are referred to as the ``Cold Electronics'' (CE) because they reside in LAr,
+mounted directly on the APA, as shown in Figure~\ref{fig:tpcce_FEMBonAPA}, thus reducing channel capacitance and noise by minimizing the length of the connection between an anode wire
+and its corresponding electronics input.
+
 \begin{cdrfigure}[The front-end electronics mounted on an APA]{tpcce_FEMBonAPA}{The 
 front-end electronics as mounted on an APA.
   {\bf Top:} The front-end electronics is shown in the red circle.
@@ -33,15 +38,12 @@ and the APA fin is not shown.}
 \includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_2.pdf}
 \end{cdrfigure}
 
-The DUNE single-phase TPC read-out electronics are referred to as the ``Cold Electronics'' (CE) because they reside in LAr,
-mounted directly on the APA (Figure~\ref{fig:tpcce_FEMBonAPA}).
-This reduces channel capacitance and noise by minimizing the length of the connection between an anode wire
-and its corresponding electronics input.
+
 The CE signal processing is implemented in ASIC chips using CMOS technology,
 which has been demonstrated to perform well at cryogenic temperatures,
 and includes amplification, shaping, digitization, buffering, and multiplexing (MUX) of the signals.
 The CE is continuously read out,
-resulting in a digitized ADC sample from each APA channel (wire) up to every 500~ns (2~MHz maximum sampling rate).
+resulting in a digitized ADC sample from each APA channel (wire) up to every 500~ns (2~MHz maximum sampling rate). 
 
 The 2,560 channels from each APA are read out by 20 Front-End Motherboards (FEMBs), each providing 
 digitized wire read-out from 128 channels. One cable bundle 
@@ -73,12 +75,29 @@ and Power and Timing Cards (PTCs) for further processing and distribution of the
 
 The electrical cables for each APA enter the cryostat through a single 
 signal flange, creating an integrated unit that provides local diagnostics for noise and validation testing,
-and follows the grounding guidelines in Section~\ref{subsec:groundshield}.
+and follows the grounding guidelines in Section~\ref{subsec:groundshield}. The components, the quantity of each required for ProtoDUNE-SP, and the number of channels that each component has, are listed in Table~\ref{tab:ce-components}.
 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Design Considerations} 
-%\label{subsec:ce_reqs_n_specs}
+\begin{cdrtable}[Electronics components and quantities]{llr}{ce-components}{Electronics components and quantities}
+Element                                                             &  Quantity                                  &  Channels per element   \\  \toprowrule
+TPC                                                                   & 1                                               & 15,360    \\  \colhline
+APA                                                                   & 6                                               & 2,560     \\  \colhline
+Front-End Mother Board (FEMB)                         & 120, 20 per APA                       & 128     \\  \colhline
+%\hspace{0.02\textwidth} 
+FE ASIC chip                                & 120 $\times$ 8, 8 per FEMB      & 16          \\   \colhline
+ADC ASIC chip                             & 120 $\times$ 8, 8 per FEMB      & 16          \\   \colhline
+FEMB FPGA                                  & 120, 1 per FEMB                         & 128          \\   \colhline
+Cold cable bundles                                           & 120, 1 per FEMB                        & 128      \\   \colhline
+Signal flange                                                     & 6, 1 per APA                              & 128 $\times$ 20  (i.e., 2,560)      \\   \colhline
+CE feedthrough                            & 6, 1 per APA                             &128 $\times$ 20         \\   \colhline
+Warm interface boards (WIB)         & 30, 5 per APA                             & (128 $\times$ 20) /5 (i.e., 512)        \\   \colhline
+ Warm electronics plates (WEC)      & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
+ Power and timing cards (PTC)       & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
+Passive backplane (PTB)                & 2                                              &   ?? \\   \colhline
+MPOD  power supplies (chassis???)                     & 2, 1 per 3 APAs                        &   \SI{15360}/2   \\  
+\end{cdrtable}
+
+\fixme{check Table~\ref{tab:ce-components}  }
+
 
 The most significant requirements for the CE are listed here. The CE shall:
 
@@ -106,8 +125,6 @@ with a maximum specified leakage current in 1-atm argon gas.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Electrical design}
-%\label{subsec:ele_design}
 \subsection{Grounding and shielding}
 \label{subsec:groundshield}
 
@@ -169,9 +186,6 @@ The amplifier circuits
 have input impedance of 50~$\Omega$ using 22-nF coupling capacitors. 
 Clamping diodes limit the input voltage received at the amplifier circuits to between zero and +1.8 Volts.
 
-%%%%%%%%%%%%%%%%%
-%\subsubsection{Bias Component Values}
-%\label{subsec:bias_comp_values}
 
 Coupling capacitors for the X-plane and U-plane wires are required to block DC bias voltages.
 However they also impact the efficiency of the detector circuits.
@@ -594,6 +608,7 @@ transceiver I/O based on the 125~MHz clock, which provides real-time digital dat
 \label{subsec:ce_feedthrough_power}
 
 The LV power to the FEMB and WIB is supplied by Weiner MPOD power supplies. 
+\fixme{define MPOD}
 The CE power-per-channel is about 25~mW in the LAr.
 Including power for the WIB, a fully loaded WIB (one WIB plus four FEMBs) requires
 12V and draws approximately 3.3~Amps. Therefore, the full electronics for one APA (five WIBs + 20 FEMBs) 
