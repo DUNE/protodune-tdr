@@ -12,76 +12,66 @@ It will be housed in an extension to the EHN1 hall in the North Area, where the 
 ProtoDUNE-SP prototypes the designs of most of the single-phase (SP) DUNE far detector components at a 1:1 scale, with an extrapolation of about 1:20 in total LAr mass. This is similar to the scaling factor adopted 
 by ICARUS; its T600 detector, split into two half-modules of about 375\,t total LAr mass each, was preceded by a 14-t (10-m$^3$) prototype. \fixme{it was quoted as 10 m3, so I calculated mass to compare directly with 375 t; check if 14-t is correct}
 
-The SP detector elements, consisting of the time projection chamber (TPC), the cold electronics (CE), and the photon detection system (PDS), are housed in a cryostat that contains the LAr target material. The cryostat, a free-standing steel-framed vessel with an insulated double membrane, is based on the technology used for liquefied natural gas (LNG) storage and transport. 
-A cryogenics system maintains the LAr at a stable temperature of about 89\,K and at the required purity level \fixme{add ``of (value)''} through a closed-loop process that recovers the evaporated argon, recondenses and filters it, and returns it to the cryostat. 
+The detector elements, consisting of the time projection chamber (TPC), the cold electronics (CE), and the photon detection system (PDS), are housed in a cryostat that contains the LAr target material. The cryostat, a free-standing steel-framed vessel with an insulated double membrane, is based on the technology used for liquefied natural gas (LNG) storage and transport. 
+A cryogenics system maintains the LAr at a stable temperature of about 89\,K and at the required purity level \fixme{add ``of n ppb or ppt''} through a closed-loop process that recovers the evaporated argon, recondenses and filters it, and returns it to the cryostat. 
+
+The construction and operation of ProtoDUNE-SP will serve to validate the membrane cryostat technology and associated cryogenics, and the networking and computing infrastructure that will handle the data and simulated data sets.
+A charged-particle beam test will provide critical calibration measurements necessary for precise calorimetry. It will also enable the collection of invaluable data sets for optimizing the event reconstruction algorithms -- i.e., for finding interaction vertices and for particle identification -- and ultimately for quantifying and reducing systematic uncertainties for the DUNE far detector. These measurements are expected to significantly improve the physics reach of the DUNE experiment.
+
+Given its technical challenges, its importance to the DUNE experiment and the timeframe in which it must operate, ProtoDUNE-SP requires a strong organizational structure and a collaborative effort from most of the DUNE collaboration including U.S. National laboratories and university groups, CERN and international partners in the EU and Latin America. \fixme{Asia?}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The ProtoDUNE-SP detector}
 
-The ProtoDUNE-SP TPC, illustrated in Figure~\ref{protodune-sp-tpc-touramanis}, is 6~m high, 7~m wide and 7.2~m deep and encompasses two drift volumes. The drift volumes are defined by two anode planes, one on each end, and a central cathode plane. The anode-cathode separations, which define the maximum drift distance, are both 3.6~m. A field cage (FC) surrounds the entire active volume.
+The ProtoDUNE-SP TPC, illustrated in Figure~\ref{protodune-sp-tpc-touramanis} comprises two drift volumes, defined by  a central cathode plane that is flanked by two anode planes, both at a distance of 3.6~m, and a field cage (FC) that surrounds the entire active volume. The active volume is 6~m high, 7~m wide and 7.2~m deep (along the drift direction).
+Each anode plane is constructed of three Anode Plane Assemblies (APAs) that, in the installed position, are  6~m high by 2.3~m wide. Each APA consists of a frame that holds three parallel planes of wrapped wires; the wires of each plane are
+oriented at different angles with respect to those on the other planes to enable 3D reconstruction.  The wire pitch for all wire planes is 4.5~mm, and each APA holds a total of 2,560 wires. 
 
-%%%%%%%%%%%%%  Anne stopped here Tues eve
-
-Each anode plane is constructed of three co-planar Anode Plane Assemblies (APAs) of dimensions  6~m$\times$2.3~m. Each APA consists of a frame that holds three parallel planes of wrapped wires; the wires of each plane are
-oriented at different angles with respect to those on the other planes to provide 3D reconstruction.  The wire pitch for all wire planes is 4.5~mm, and each APA holds a total of 2,560 wires. 
-
-The cathode plane, also called the Cathode Plane Assembly (CPA) is an array of 18 (six wide and three high) CPA modules, which consist of flame-retardant G10 frames, each 1.18~m wide and 2~m high, that hold thin sheets with a resistive coating on both sides. 
-The CPA is held at $-$180\,kV providing the 500-V/cm drift field in the 3.6-m drift regions between the CPA and APAs. 
-Uniformity of the electric field is guaranteed by the FC that delimits the volumes between CPA and APA planes.
+The cathode plane, also called the Cathode Plane Assembly (CPA) is an array of 18 (six wide by three high) CPA modules, which consist of flame-retardant G10 frames, each 1.18~m wide and 2~m high, that hold thin sheets with a resistive coating on both sides. 
+The CPA is held at $-$180\,kV providing the 500-V/cm drift field in the 3.6-m-deep drift regions. 
+Uniformity of the electric field is guaranteed by the FC.
  
 \begin{cdrfigure}[The major components of the ProtoDUNE-SP TPC]{protodune-sp-tpc-touramanis}{The major components of the ProtoDUNE-SP TPC}
 \includegraphics[width=0.9\textwidth]{protodune-sp-tpc-touramanis}
 \end{cdrfigure}
 
-The CE, mounted onto the APA frame and immersed in LAr, amplifies and continuously digitizes the induced waveforms on the sense wires at several MHz, and transmits these data to the Data Acquisition system (DAQ). The data are then transmitted through the buffer to disk, then to the central CERN Tier-0 Computing Center and finally to other partner sites for processing and analysis.  
+The CE, mounted onto the APA frame, and thus immersed in LAr, amplifies and continuously digitizes the induced waveforms on the sense wires at several MHz, and transmits these data to the Data Acquisition system (DAQ). From the DAQ the data are  transmitted through the buffer to disk, then to the central CERN Tier-0 Computing Center, and finally to other partner sites for processing and analysis.  
 
-The modular PDS is integrated into the APAs. Each PDS module in the system consists of a thin, wavelength-shifting radiator plate mounted on a wavelength-shifting, bar-shaped light guide. The plates are coated with a
-layer of tetraphenyl-butadiene (TPB) that converts incoming VUV (128 nm) %Ar 
+The modular PDS is integrated into the APAs. Each PDS module (referred to as a PD) in the system consists of a thin, wavelength-shifting radiator plate mounted on a wavelength-shifting, bar-shaped light guide. The plates are coated with a
+layer of tetraphenyl-butadiene (TPB) that converts incoming VUV (128 nm) 
 scintillation photons to longer-wavelength photons, in the visible blue range. Half of the converted photons are emitted into the bar, a fraction of which are then internally reflected to the bar's end where they are detected by silicon photomultipliers (SiPMs).
-
-Each APA frame is designed with ten bays into which PDS modules are inserted after the TPC wires have been strung. This  allows final assembly at the integration area (in a clean room) at the CERN NP prior to installation inside the cryostat. 
-
-
-%After completion of the detector mounting, LAr filling and commissioning of the prototype detector, 
-Once ProtoDUNE-SP is commissioned, a charged-particle beam test will provide critical calibration measurements necessary for precise calorimetry. It will also enable the collection of invaluable data sets for optimizing the event reconstruction algorithms -- i.e., for finding interaction vertices and for particle identification -- and ultimately for quantifying and reducing systematic uncertainties for the DUNE far detector. These measurements are expected to significantly improve the physics reach of the DUNE experiment.
-
-Other important goals for ProtoDUNE-SP include validation of the membrane cryostat technology and associated cryogenics, and of the networking and computing infrastructure that will handle the data and simulated data sets.
-%ProtoDUNE-SP is thus an indispensable step to validate and benchmark the DUNE far detector engineering, to provide a well characterized charged-particle beam data set and to validate and test associated infrastructure requirements.  Given its technical challenges, its importance to the DUNE experiment and the timeframe in which it must operate, ProtoDUNE-SP requires a strong organizational structure and a collaborative effort from most of the DUNE Collaboration including US National Laboratories and University groups, CERN and international partners in the EU and Latin America. 
-The construction and operation of ProtoDUNE-SP are thus indispensable steps toward the first DUNE Far Detector module. ProtoDUNE-SP will allow the collaboration to validate and benchmark the far detector engineering, to validate and test associated infrastructure requirements, and to extend the physics reach of the experiment. 
+Each APA frame is designed with ten bays into which PDs are inserted after the TPC wires have been strung. This  allows final assembly at the integration area (in a clean room) at the CERN NP prior to installation inside the cryostat. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Goals of ProtoDUNE-SP}
+\label{intro:goals}
 
-
-%The primary goal of the ProtoDUNE-SP test program at CERN is very clearly a twofold one: First,  to benchmark and, if found fully adequate, to endorse the main technical solutions for the DUNE far detector components, and secondly, to perform the measurements needed to understand and possibly quantify the systematic uncertainties that will affect the DUNE oscillation measurements. The latter goal anticipates physics outcomes relevant on their own.
-The ProtoDUNE-SP test program at CERN has two very clear primary goals. First, it will benchmark the principal technical solutions for the DUNE SP far detector components and, if they are found to be fully adequate, to endorse them. Secondly, it will perform the measurements needed to understand, and quantify to the extent possible, the systematic uncertainties that will affect the DUNE oscillation measurements. This second goal anticipates physics outcomes that will be relevant independent of the Far Detector.
-
-%The detector operation in real experimental conditions and for an extended run period will allow for a full characterization of all the components, from the membrane cryostat and the cooling and purification circuit, to the APA design and its read-out cold electronics layout and HV system, to the photon detection system and its read-out warm electronics.
+The ProtoDUNE-SP test program at CERN has two very clear primary goals. First, it will benchmark the principal technical solutions for the DUNE SP far detector components and, if they are found to be fully adequate, to endorse them. 
 Operating the detector in real experimental conditions and for an extended period will allow for a full characterization of the components, including the membrane cryostat and the cooling and purification circuit, the APA design and the layout of its cold read-out electronics, the HV system, and the PDS and its warm read-out electronics.
+%
+Secondly, it will perform the measurements needed to understand, and quantify to the extent possible, the systematic uncertainties that will affect the DUNE oscillation measurements. This second goal anticipates physics outcomes that will be relevant independent of the Far Detector.
 
-The use of a well defined test beam of charged particles of known type and incident  energy will significantly enhance the understanding of the ultimate performance of the LArTPC technology and boost the optimization of event reconstruction, particle identification (PID) algorithms and calorimetric energy measurements.  The beam measurements will serve both as a calibration data set to tune the Monte Carlo simulations and as a reference data set for the DUNE experiment. 
+The construction and operation of ProtoDUNE-SP are thus indispensable steps toward the first DUNE Far Detector module. ProtoDUNE-SP will allow the collaboration to validate and benchmark the far detector engineering, to validate and test associated infrastructure requirements, and to extend the physics reach of the experiment. 
+
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Physics}
 
 \fixme{The separation of physics vs engr goals may not be quite right yet}
 
-%Pion and proton beams from around one to a few GeV will be used primarily to study hadronic interaction mechanisms, secondary particle production and, at higher energies, shower reconstruction and energy calibration. Electrons will be used to benchmark and tune electron/photon separation algorithms, to study electromagnetic cascade processes and to calibrate electromagnetic showers at higher energies. Charged kaons produced in the tertiary beam line are rare but are copiously produced by the pion beam interactions inside the detector. These will be extremely useful to characterize kaon identification efficiency for proton decay sensitivity studies.  Samples of stopping muons with Michel electrons from muon decay (or without, in case of negative muon capture) will be used for energy calibrations in the low energy range of the SN neutrino events and for the development of charge-sign determination methods. 
+The use of a well defined test beam of charged particles of known type and incident  energy will significantly enhance the understanding of the ultimate performance of the LArTPC technology and boost the optimization of event reconstruction, particle identification (PID) algorithms and calorimetric energy measurements.  The beam measurements will serve both as a calibration data set to tune the Monte Carlo simulations and as a reference data set for the DUNE experiment. 
+
 Pion and proton beams in an energy range from about one to a few GeV will be used primarily to study hadronic interaction mechanisms and secondary particle production.  At higher energies, these beams will be used to study shower reconstruction and energy calibration. Electrons will be used to benchmark and tune electron/photon separation algorithms, to study electromagnetic cascade processes and to calibrate electromagnetic showers at higher energies. Charged kaons produced in the tertiary beamline are rare but are copiously produced by the pion beam interactions inside the detector. These will be extremely useful for characterizing kaon identification efficiency for proton decay sensitivity studies.  Samples of stopping muons with Michel electrons from muon decay (or without them, in the case of negative muon capture) will be used for energy calibrations in the low-energy range of the SN neutrino events and for the development of charge-sign determination methods. 
 
 A cumulative ProtoDUNE-SP test-beam run period of eight weeks is assumed, but it depends on the extent of beamline sharing with other users at EHN1. The run will take place prior to the long shutdown of the LHC in late 2018 (LS2). 
 
-%During no-beam time cosmic data will be acquired. A dedicated external trigger system consisting of arrays of scintillator paddles, suitably positioned and arranged in coincidence trigger logic, will select specific classes of cosmic muon events. Dedicated runs, e.g. long muon tracks crossing the entire detector at large zenith angles allow for an overall test of the detector performance and the DAQ. Muons stopping inside the LAr volume and the accumulation of accurate Michel electron spectra may serve for energy calibration purposes in the low-energy range.
 ProtoDUNE-SP will acquire cosmic data during periods with no beam. A dedicated external trigger system consisting of arrays of scintillator paddles, suitably positioned and arranged in \textit{coincidence} trigger logic, 
 will select specific classes of cosmic muon events. Dedicated runs, e.g., runs looking for long muon tracks crossing the entire detector at large zenith angles, allow for an overall test of the detector performance and the DAQ. Runs looking for muons stopping inside the LAr volume and the accumulation of accurate Michel electron spectra may be useful for energy calibration purposes in the low-energy range.
 
-%It is important to note that, besides calibration purposes and detector performance characterization, the unprecedented event reconstruction capability of the LArTPC technology combined with the large active volume of the ProtoDUNE-SP detector exposed to the CERN charged-particle beams open the way to a truly rich program of new physics investigations on particle interaction processes. The LArTPC features simultaneously precise tracking (3D imaging detector) and accurate measurement of energy deposited (homogeneous calorimeter). The large size of the active volume in ProtoDUNE allows for good containment of the hadronic and electromagnetic interaction products in the few GeV range. No other detector ever had all these features combined in one. 
 
 It is important to note that ProtoDUNE-SP offers much beyond calibration  and detector performance characterization.  The LArTPC simultaneously features precise 3D tracking and accurate measurement of energy deposited. Its large active volume allows for good containment of the hadronic and electromagnetic interaction products in the few GeV range. These capabilities have never before been combined in one detector.  The unprecedented event reconstruction capability combined with the exposure of the detector's large active volume to the CERN charged-particle beams open the way to a truly rich program of new physics investigations into particle interaction processes. 
-
-
-% Hadroninc ($\pi$, K and $p$) interactions on an Ar target around 1 GeV produce low multiplicity final states rather than "hadron showers",  and 1 GeV-electrons  (critical energy $\simeq 30$ MeV in Ar) produce low-populated cascades, with only a few tens of secondary energetic electrons(positrons). "TPC/imaging-aided calorimetric measurements" in this energy range may allow to investigate energy deposition mechanisms and reconstruction methods where the usual hadronic and el.m. shower concepts and features are not well defined or cannot be applied.Calorimetric measurements of the energy deposited can be accomplished,  whenever possible, for each individual secondary particle/track thanks to the imaging capabilities of this type of detector.In particular, the determination of the el.m. content in hadron initiated cascades, $\pi^0$ multiplicity and the energy fraction carried as a function of primary hadron incident energy will be of interest.
 
 
  Hadroninc ($\pi$, K and $p$) interactions on an Ar target around one GeV produce low-multiplicity final states rather than ``hadron showers,'' 
@@ -93,11 +83,10 @@ Calorimetric measurements of the energy deposited can be accomplished,  whenever
 In particular, the determination of the electromagnetic  content in hadron-initiated cascades, $\pi^0$ multiplicity, and the energy fraction carried as a function of primary hadron incident energy will be of interest.
 
 \fixme{This whole last paragraph is somehow not gripping me; could it be clarified and then maybe put above the previous paragraph (which would make a better conclusion.}
-%In conclusion, test beam data will be essential for a rich physics program with ProtoDUNE at the CERN NP.
 
 
 %%%%%%%%%%%%%%%%%%%%
-\subsection{Detector engineering validation}  % was previously sec 2.4 in sciencetech file
+\subsection{Detector engineering validation}  
 
 One of the primary goals of the ProtoDUNE-SP experiment is to validate the engineering design of the elements proposed for the 10 kt DUNE single-phase detector. ProtoDUNE-SP is designed so that it will provide information on the actual far detector performance in as close a possible a configuration to the actual far detector layout as possible given the practical considerations imposed by time, space, and cost. To achieve this the cold components are wherever possible identical to the components proposed for the far detector. 
 
@@ -134,20 +123,11 @@ beamline.  The optimization of the run plan factors in the beam composition and 
 also particle interaction topologies in the ProtoDUNE-SP detector. Full FLUKA~%\cite{fluka05,Fluka15}
 simulations of particle transport in the ProtoDUNE-SP detector, including the
 beam window, have been performed.
-% The physics requirement \fixme{that the beam must satisfy overall? Anne} is %the possibility 
-% to enable measurement of
-% stopping particles and  interactions at both high and low energies.    
-%
+
+
 At a beam momentum of 1~GeV/c, 35\% of protons are stopped before reaching the active TPC region, while the percentage reduces to 0.5\% at 2~GeV/c.  The kinetic energy distributions of protons and pions at the entrance point of the TPC for different beam momenta are shown in Figure~\ref{fig:pandpiint}. 
-%The residual energy at the interaction point can be reconstructed by measuring the energy deposited along the proton track.
 The fraction of stopping $\pi$'s for one $\pi$
 produced at the secondary target is 3\% at $p=0.4$~GeV/c and decreases to 1.3\% at $p=0.7$~GeV/c.
-%Having a $\pi$ beam at 0.7~GeV/c still allows 
-%measurement of pion interactions down to few tens of MeV with good
-%statistics. In a 1-GeV/c beam, the low-energy interactions are %still
-%present, albeit at a %with 
-%lower rate, as shown in Figure~\ref{fig:pandpiint}.
-%
 The long distance (37~m) between the secondary target and the front of the LAr cryostat has a significant impact on the pion and kaon rates in the TPC. Due to pion lifetime, many of the  low-energy pions produced at the secondary target decay in the beam pipe before reaching the cryostat. The situation is even more significant for kaons; most kaons below 2~Gev/c do not make it to the cryostat.
 Consequently we will not operate the H4 beamline much below 1~GeV/c in the hadron mode.
 For electrons, we would want the beam momentum to go as low as possible to study the topology of very low-energy electron-initiated 
@@ -161,7 +141,7 @@ showers.
   \includegraphics[width=0.49\textwidth]{pvarie_intene.pdf}
   \includegraphics[width=0.49\textwidth]{pivarie_intene.pdf}
 \end{cdrfigure}
-%% end of   part that can go either here or in the run plan 
+
 
 To formulate a preliminary run plan, we assume the hadron beam spectrum and rates are as given in Tables~\ref{tab:beampartcomp} and~\ref{tab:beampartrates}.   For the purpose of estimating the sample composition and beam time request, the following assumptions are used:
 \begin{itemize}
