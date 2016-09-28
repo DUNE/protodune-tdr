@@ -5,46 +5,37 @@
 \subsection{Overview of detector components}
 
 \fixme{THIS SECTION IN PROGRESS}
-The elements composing the detector, listed in Section~\ref{intro:detector}, include the time projection chamber (TPC), the cold electronics (CE), and the photon detection system (PDS).  Each of these elements is composed of smaller pieces, and all the components must fit together to form the whole. This section outlines how the detector is constructed by listing the components with data about their dimensions, quantities, etc., and a figure showing how they fit together.  Subsequent sections describe each component in more detail.
+The elements composing the detector, listed in Section~\ref{intro:detector}, include the time projection chamber (TPC), the cold electronics (CE), and the photon detection system (PDS).  The TPC components, e.g., anode planes, a cathode plane and a field cage, are designed in a modular way.  
+The six APAs are arranged into two APA planes, each consisting of three side-by-side APAs. Between them,  
+a central cathode plane, composed of 18 CPA modules, splits the TPC volume into two electron-drift regions, one between
+each pair of facing cathode and anode planes. 
+Figure~\ref{fig:tpc-overview} \fixme{get a figure} illustrates how these components fit together. 
+Subsequent sections describe each component in more detail.
 
-\begin{cdrtable}[TPC components, dimensions and quantities]{ccccccccc}{tpc-components}{TPC components, dimensions and quantities}
-Major & Component  & Dimensions  & Quantity & Other characteristics &  \\ \colhline 
-Element &   & Dimensions  &  &  &  \\ \toprowrule
+\begin{cdrfigure}[The TPC components]{tpc-overview}{NEED A FIGURE}
+%\includegraphics[width=0.6\linewidth]{}
+\end{cdrfigure}
 
-APA &           & 5.920~m H by 2.295~m W (active) & 3 per anode plane, &  &  \\  \colhline
-& &                   & 2 anode planes       &  &  \\  \colhline
-       & frame & 6.06~m H, 2.3~m W, 76.2~mm thick & 1 per APA & 3 by 4 by 0.120-in SS wall tubing&  \\  \colhline
-& &  &  &cross pieces 2 by 3 by 0.120-in   &  \\  \colhline
-       & grid wire layer G &  full height of frame &  &  &  \\  \colhline
-       & induction wire layer U &  &  &  &  \\  \colhline
-       & induction wire layer V &  &  &  &  \\  \colhline
-       & collection wire layer X &  &  &  &  \\  \colhline
-       & mesh wire layer M &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
-& &  &  &  &  \\  \colhline
+Table~{tab:tpc-components} lists the principal detection elements of ProtoDUNE-SP along with their approximate dimensions and their quantities. 
+
+\begin{cdrtable}[TPC detection components, dimensions and quantities]{lll}{tpc-components}{TPC detection components, dimensions and quantities}
+Detection Element & Approx Dimensions  & Quantity   \\  \toprowrule
+APA          & 6~m H by 2.4~m W  & 3 per anode plane, 6 total  \\  \colhline
+CPA module  & 2~m H by 1.2~m W  & 3 per CPA column,   \\  
+  &  & 18 total in cathode plane    \\  \colhline
+ Top FC module & 2.4~m W by 3.6~m along drift & 3 per top FC assembly, 6 total   \\  \colhline
+ Bottom FC module & 2.4~m W by 3.6~m along drift & 3 per bottom FC assembly, 6 total   \\  \colhline
+End-wall FC module & 1.5~m H by 3.6~m along drift & 4 per end-wall assembly (vertical   \\  
+&  & drift volume edge), 16 total   \\  \colhline
+PD module  &  & 10 per APA, 60 total  \\ 
 \end{cdrtable}
 
-In the ProtoDUNE-SP TPC, 
-the six APAs are arranged into two APA planes, each consisting of three side-by-side APAs. Between them,  
-a central cathode plane splits the TPC volume into two electron-drift regions, one between
-each pair of facing cathode and anode planes.  A field cage (FC) must completely surround the four
-open sides of the entire drift region to ensure that the electric field within is uniform and unaffected by the presence of the cryostat walls and other nearby conductive structures.
+The field cage (FC), shown in Figure~\ref{fig:fc-overview}, completely surrounds the four
+open sides of the two drift regions to ensure that the electric field within is uniform and unaffected by the presence of the cryostat walls and other nearby conductive structures.
 
-\begin{cdrfigure}[The field cages]{fc-overview}{A view of the TPC field cage}
+\begin{cdrfigure}[The field cages]{fc-overview}{A view of the TPC field cage and the central cathode plane (CPA).}
 \includegraphics[width=0.6\linewidth]{tpc_fc_overview.png}
 \end{cdrfigure}
-\fixme{Figure~\ref{fig:fc-overview} needs a fuller, more descriptive caption}
-
-
-\fixme{maybe need a bit of intro for the other components here, too}
 
 \input{det-comp/apa}
 \input{det-comp/cpa}

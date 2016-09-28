@@ -45,7 +45,7 @@ The {\it External Cryogenics} includes the systems used for the storage and even
 The {\it Proximity Cryogenics} takes the cryogens from the External Cryogenics and delivers them to the Internal Cryogenics under the required pressure, temperature, purity and mass flow rate. It encompasses:
 %
 \begin{itemize}
-\item The condenser (with heat exchanger) to re-condenser the boil-off GAr.
+\item The condenser (with heat exchanger) to re-condense the boil-off GAr.
 \item The LAr purification system with inline purity monitor
 \item The LAr recirculation pumps
 \item The LAr Phase separator to feed the cryostat
@@ -68,7 +68,7 @@ The development of the ProtoDUNE cryogenics is part of a common effort between C
 
 The cryogenic systems for all four projects are developed jointly with a standard approach to minimize the duplication of work, benefit of existing knowledge (at Fermilab and CERN), and also prototype for the Long Baseline Neutrino Facility (LBNF)/Deep Underground Neutrino Experiment (DUNE) project. The systems build on the successful experience of the Liquid Argon Purity Demonstrator (LAPD), 35 ton prototype, and MicroBooNE at Fermilab, and the development of the WA105 1x1x3 Dual Phase prototype at CERN.
 
-The conceptual design for these cryogenic systems has been completed and an Invitation to Tender has been issued for the completion of the design, the fabrication, the delivery, the installation and the testing of all four systems, including the ProtoDUNE Single Phase detector. The replies to the tender have been received and CERN is negotiating with the potential suppliers, with the goal to award a contract after the CERN Finance Committee meeting scheduled for September. 
+%(FLC: I think not necessary here)The conceptual design for these cryogenic systems has been completed and an Invitation to Tender has been issued for the completion of the design, the fabrication, the delivery, the installation and the testing of all four systems, including the ProtoDUNE Single Phase detector. The replies to the tender have been received and CERN is negotiating with the potential suppliers, with the goal to award a contract after the CERN Finance Committee meeting scheduled for September. 
 
 During all phases, CERN codes and standards will guide the design, procurement and installation phases of the ProtoDUNE Single Phase cryogenics. The planned work process will provide for reviews throughout all phases of the project to guarantee stringent adherence to the safety and scientific requirements.
 
@@ -79,7 +79,8 @@ During all phases, CERN codes and standards will guide the design, procurement a
 %%%\fixme{ [Will this be written in another section?? If not, we can leave it here]DM}
 
 The project requirements for the ProtoDUNE cryogenics system are identical to those of the DUNE Far Detector cryogenics. The current list 
-of requirements is available at \cite{DUNE_FD_cryogenics_req}. Note that the requirement numbers are subject to change.
+of requirements is available at \cite{DUNE_FD_cryogenics_req}. 
+%Note that the requirement numbers are subject to change.
 %%% on DocDB n. 112 \fixme{Add citation}.
 
 A selection of the most relevant requirements is presented here:
@@ -151,7 +152,7 @@ Before the Ar is returned to the cryostat, the LAr flows into a phase separator:
 \subsection{Modes of operations}
 \label{sec:cryo-op-modes}
 
-The major functions of the cryogenics servicing the cryostat are to supply cryogens for cool down and fill, gas filtration, argon condensing, liquid filtration and circulation, and argon-purity analysis. The methods presented in this section are motivated by experience from the cryogenic systems of other LAr Time Projection Chamber (TPC) experiments, such as ICARUS, LAPD, the 35 ton detector and MicroBooNE.
+The major functions of the cryogenics system servicing the cryostat are to supply cryogens for cool down and fill, to provide gas argon filtration and condensing, liquid argon filtration and circulation, and to deliver argon-purity analysis. The methods presented in this section are motivated by experience from the cryogenic systems of other LAr Time Projection Chamber (TPC) experiments, such as ICARUS, LAPD, the 35 ton detector and MicroBooNE.
 
 %%%%%%%%%%%%%%%%%%%%%
 \paragraph{Cryostat piston purge}
@@ -161,18 +162,18 @@ After the cryostat construction and following the installation of all scientific
 %%%%%%%%%%%%
 \paragraph{Purge in open loop}
 %
-Argon piping will be isolated, evacuated to less than 0.1 mbar  absolute pressure and backfilled with high-purity argon gas. This cycle will be repeated several times to reduce contamination levels in the piping to the ppm level. The reference-design choice for removing air from the membrane cryostat will be to flow/piston-purge argon, introducing the heavy argon gas at the bottom of the tank and removing the exhaust at the top. The exhaust will be taken from the main GAr outlet, but also from all the side ports located on each penetration through the roof to ensure that all volumes (especially trapped volumes) are properly purged.
+Argon piping will be isolated, evacuated to less than 0.1 mbar  absolute pressure and backfilled with high-purity argon gas. This cycle will be repeated several times to reduce contamination levels in the piping to the ppm level. The reference-design choice for removing air from the membrane cryostat will be to flow/piston-purge argon, introducing the heavier argon gas at the bottom of the tank and removing the exhaust at the top. The exhaust will be taken from the main GAr outlet, but also from all the side ports located on each penetration through the roof to ensure that all volumes (especially trapped volumes) are properly purged.
 
-The flow velocity of the advancing GAr will be set to 1.2 m/hour. This is twice the diffusion rate of the air downward into the advancing argon so that the advancing pure argon-gas wave front will displace the air rather than just dilute it. A 2D ANSYS model of the purge process shows that after about 13 hours of purge time and 2 volume changes, the air concentration will be reduced to less than 1\%. At 44 hours of elapsed time and seven volume changes, the purge process is complete with residual air reduced to a few ppm. This simulation includes a representation of the perforated field cage at the top and bottom of the detector and heat sources due to the readout electronics. The cathode planes are modeled as non-porous plates although they will actually be constructed of stainless-steel mesh. 
+The flow velocity of the advancing GAr will be set to 1.2 m/hour. This is twice the diffusion rate of the air downward into the advancing argon so that the advancing pure argon-gas wave front will displace the air rather than just dilute it. A 2D ANSYS model of the purge process shows that after about 13 hours of purge time and 2 volume changes, the air concentration will be reduced to less than 1\%. At 44 hours of elapsed time and seven volume changes, the purge process is complete with residual air reduced to a few ppm. This simulation includes a representation of the perforated field cage at the top and bottom of the detector and heat sources due to the readout electronics. %The cathode planes are modeled as non-porous plates although they will actually be constructed of stainless-steel mesh. 
 
-The Computational Fluid Dynamics (CFD) model of the purge process has been verified in multiple arrangements: (1) in an instrumented 1 m-diameter by 2 m-tall cylinder, (2) in LAPD, a 3 m- diameter by 3 m-tall cylindrical tank where gas-sampling measurements were at varying heights and times during the purge process, and (3) within the 35 ton membrane cryostat, a prototype vessel built for LBNE in 2013. The results of these tests are available in~\cite{lar1-nd-35-ton-talk} and~\cite{CFD_verification-lapd}. 
+The Computational Fluid Dynamics (CFD) model of the purge process has been verified in multiple arrangements: (1) in an instrumented 1 m-diameter by 2 m-tall cylinder, (2) in LAPD, a 3 m- diameter by 3 m-tall cylindrical tank where gas-sampling measurements were at varying heights and times during the purge process, and (3) within the 35 ton membrane cryostat, the prototype vessel built at FNAL in 2013. The results of these tests are available in~\cite{lar1-nd-35-ton-talk} and~\cite{CFD_verification-lapd}. 
 %
 Once the residual air inside the tank is at the the ppm level, the process continues in the closed loop configuration. 
 
 %%%%%%%%%%%%
 \paragraph{Purge in closed loop}
 
-Water and oxygen will continue to be removed from the system for several days following the initial purge. During this step the GAr is no longer exhausted but recirculated through the GAr purifier and sent back to the bottom of the cryostat. The cryostat contains xxx \fixme{add number (detector people)} tons of FR4 circuit-board material and a smaller inventory of plastic-jacketed power and signal cables. These somewhat porous materials may contain as much as 0.5\% water by weight. Water-vapor outgassing from these materials will be entrained in the gas flow exiting the top of the cryostat and will be removed from the gas stream by filters. Adsorbed water will also be removed from the metallic inner surfaces of the cryostat and piping system. Water deep within porous materials will remain; this is not a problem since the water diffusion rate in FR4 at room temperature is already quite low (0.3 ($\mu$m)$^2$/s) and the FR4 assemblies are relatively thick (1 cm).\\
+Water and oxygen will continue to be removed from the system for several days following the initial purge. During this step the GAr is no longer exhausted but recirculated through the GAr purifier and sent back to the bottom of the cryostat. The cryostat contains a relatively large amount of FR4 circuit-board material and a smaller inventory of plastic-jacketed power and signal cables. These somewhat porous materials may contain as much as 0.5\% water by weight. Water-vapor outgassing from these materials will be entrained in the gas flow exiting the top of the cryostat and will be removed from the gas stream by filters. Adsorbed water will also be removed from the metallic inner surfaces of the cryostat and piping system. Water deep within porous materials will remain; this is not a problem since the water diffusion rate in FR4 at room temperature is already quite low (0.3 ($\mu$m)$^2$/s) and the FR4 assemblies are relatively thick (1 cm).\\
 %
 This process reduces the oxygen and water contamination inside the cryostat to sub-ppm levels, at which point the cool down may commence.
 
@@ -208,8 +209,8 @@ Table~\ref{tab:cryogen-install-params} presents a list of relevant parameters fo
 \begin{cdrtable}[List of engineering parameters for cryogenics installation]{llll}{cryogen-install-params}{List of engineering parameters for cryogenics installation}
 Mode & Parameter  & Value & Notes \\ \toprowrule
 Piston purge & GAr flow rate  & 88 m3/hr & From 1.2 m/hr\\ \colhline
-Cooldown & Maximum cool-down rate TPC  &40 K/hr 10 K/m & T sensors on the detector \\ 
-&  & 10 K/m  & responsibility of detector\\ \colhline
+Cooldown & Maximum cool-down rate TPC  &40 K/hr  & T sensors on the detector \\ 
+&  &    & responsibility of detector\\ \colhline
 Cooldown & Maximum delta T between any & 50K & T sensors on the detector \\ 
 & two points in the detector &  & responsibility of detector \\ \colhline
 Filling (*) & LAr filling flow rate  & 18 l/min (0.42 kg/s) & Assuming 2 trucks/day\\ \colhline
@@ -231,7 +232,9 @@ This section briefly describes the main features of the various parts of the cry
 
 The external cryogenics comprises the Liquid Argon and Liquid Nitrogen receiving facilities, the LAr/GAr and LN2 distribution systems, the Argon/Hydrogen mixture to regenerate the LAr/GAr purification filters and the mechanical filters on the LAr filling line.
 
-The cryostat will hold an inventory of 760 ton of liquid argon. The standard grade specification for argon is a minimum purity of 99.995\%, al1lowing a maximum concentration of 5.0 ppm for O2 and 10.5 ppm for H2O. This is designated as Grade 4.5 in the gas-supply industry. Requiring higher-purity product might increase the cost and push out the schedule. Suppliers may also decide not to quote for such an amount of a higher purity fluid. Therefore, standard product will be procured.
+The cryostat will hold an inventory of 760 ton of liquid argon. The standard grade specification for argon is a minimum purity of 99.995\%, allowing a maximum concentration of 5.0 ppm for O2 and 10.5 ppm for H2O. 
+\fixme{This implies that N2 is at the level of 30-35 ppm - way too bad for the Scintillation Light .. practically unacceptable, as it would imply a loss of ~70\% of the light due to N2 quenching.}
+This is designated as Grade 4.5 in the gas-supply industry. Requiring higher-purity product might increase the cost and push out the schedule. Suppliers may also decide not to quote for such an amount of a higher purity fluid. Therefore, standard product will be procured.
 
 Facilities are required for the offloading of LN2 and LAr road tankers. Vehicle access and hard-surfaced driving areas are being constructed adjacent to the LN2/LAr dewars and the LAr/LN2-supply pipes. A LAr storage dewar will hold the contents of a road tanker in order to minimize off-loading time. Road tankers will connect to a manifold and will use their on-board pumps to transfer the LAr to the storage dewar. Each tanker will be tested to ensure that the LAr meets the purity specification. The LAr will be stored and transported as a liquid inside the cryostat during the filling process. The filling will be slower than the offloading, because we will not use a pump but only the available head height and some overpressure as driving force. \\
 %
@@ -271,7 +274,7 @@ Total & 8.0 \\
 
 The cryostat is designed with one penetration below the liquid level for external pumps used to transfer LAr from it to the purification system. The pumps are inserted into a valve box that is an integral part of the proximity cryogenics. The pump suction must be located at a minimum distance (normally about 1.5 to 2.0 m) below the lowest liquid level at which they are to pump in order to prevent cavitation and vapor-entrapment. There are two pumps for continuous operation during maintenance, but only one is expected to be in service at any moment in time.
 
-The liquid-argon volume will turn over every 5.5 days, which corresponds to 1.63 kg/s (72 l/min) of flow rate. As a point of comparison, ICARUS T600 has a maximum turn-over rate of eight to ten days. In principle it is possible to operate both pumps at the same time and double the flow rate, should it be needed.\\
+The liquid-argon volume will turn over every 5.5 days, which corresponds to 1.67 kg/s (72 l/min) of flow rate. As a point of comparison, ICARUS T600 has a maximum turn-over rate of eight to ten days. In principle it is possible to operate both pumps at the same time and double the flow rate, should it be needed.\\
 %
 The multiple-pump arrangement provides a high level of redundancy, which will extend the maintenance-free operating period of the cryostat.
 
@@ -281,24 +284,31 @@ The gas purification system, located nearby the cryostat as well, is used to pur
 
 During the filling the LAr will flow through the liquid filtration, then the LAr phase separator and into the cryostat.
 
-After the filling is completed, the cryostat liquid argon inventory is continuously circulated through one set of liquid purification filters to achieve and maintain the required purity. It then goes back to the cryostat via the LAr phase separator. The purification filter, containing molecular sieve media to remove water and copper media to remove oxygen, will become saturated. The nearly saturated purification filter is regenerated to vent the contaminants. The liquid argon flow is switched to the other purification filter for uninterrupted filtration.
+After the filling is completed, the cryostat liquid argon inventory is continuously circulated through one set of liquid purification filters 
+for oxygen and water in order to quickly reduce and maintain the impurity concentration at the 
+ level of < 100 ppt oxygen equivalent, matching the required electron lifetime of the TPC detector. 
+A dedicated special device, originally developed by Icarus (usually indicated as ``Purity Monitor"), 
+for the measurement of the impurity concentration in liquid argon will be located immediately downstream the filtration system, 
+providing information about the quality of the liquid and correspondingly about the actual level of impurity removal efficiency of the filter. 
+After the filter the ultrapure argon is returned back to the cryostat via the LAr phase separator. 
+Purity monitors will also be resident inside the cryostat, measuring the electron lifetime at different depths of the LAr volume. 
 
-A purity monitor after the purification filter will monitor the filter effectiveness. Purity monitors measuring electron lifetime will also be in the LAr bath and resident in the cryostat. It is a requirement that purity levels reach < 100 ppt oxygen equivalent to match the required electron lifetime of the detector. 
+The filter material, composed by molecular sieve pellets to remove water and by alumina porous granules covered by highly active metallic copper for catalytic removal of O$_2$ by Cu oxidization, is subject to saturation when the trapped/reacted impurity budget exceeds the removal capacity of the filter material. When this occurs (signaled by the 
+fast drop of LAr purity level detected by the external purity monitor) the liquid argon flow is switched to the back-up, ready-for-use filter and the saturated one is regenerated in-situ.
 
-The regeneration of a filter (either liquid or gas) is done in several steps. A saturated purification filter is first warmed with heated argon gas to an elevated temperature (500 K) driving the captured water into the gas. The regen mix (1.5\% Hydrogen gas by volume with a balance of argon) is then introduced at high temperature (500 K). The Hydrogen reacts with the oxygen and makes water that is also released into the circulating argon gas. Argon gas is vented to purge water from the hot circulating gas. 
-
-The hot filter full of regenerated media is cooled by circulating chilled argon gas. The filter is now ready to be switched into service or held cold until needed. 
+The filter regeneration process is done in subsequent steps. The saturated filter is first warmed up with heated argon gas to an elevated temperature driving into the gas the water captured by the molecular sieve media. A gas mixture of 1.5\% hydrogen (reducing agent) with a balance of argon (inert carrier) at high temperature (500 K) is then used for the reduction of the copper oxide back to metallic copper. Water produced by the reduction process is vented out with the gas flow.
+The regenerated filter is finally cooled down and ready to be switched into service. 
 
 %%%%%%%%%%%%%%%%
 \paragraph{Internal Cryogenics}
 
-Internal piping is positioned within the cryostat to support the purge and cool-down processes, but also the LAr distribution during filling and normal operations. Heavy argon gas is injected at the bottom of the cryostat and distributed through a set of pipes that pushes the air up and forces it out from the roof. The flow nozzles will be directed downward or to the side so that the injection velocity will not cause local vertical gas plumes or turbulent mixing but rather will spread across the bottom of the tank and produce a stable, upwardly advancing argon wave front. The vertical velocity of 1.2 m/hr for the gas purge includes a contingency for some level of turbulent mixing. In addition to the main vent, all nozzles and dead-end (stagnant) volumes located at the top of the cryostat will have gas-exhaust lines for the initial purge and for continuous sweep-purge of those volumes during normal operations. The sweep-purge during the initial stage of purging will be vented outside of the building, whereas the sweep-purge during normal operations will be re-condensed and recirculated as liquid. 
+Internal piping is positioned inside the cryostat to support the air purge and cool-down processes, but also the LAr distribution during filling and normal operations. During air purge argon gas is injected at the bottom of the cryostat and distributed through a set of pipes that pushes the air up and forces it out from the roof. The flow nozzles will be directed downward and to the side so that the injection velocity will not cause local vertical gas plumes or turbulent mixing but rather will spread across the bottom of the tank and produce a stable, upwardly advancing argon wave front. The vertical velocity of 1.2 m/hr for the gas purge includes a contingency for some level of turbulent mixing. In addition to the main vent, all nozzles and dead-end (stagnant) volumes located at the top of the cryostat will have gas-exhaust lines for the initial purge and for continuous sweep-purge of those volumes during normal operations. The sweep-purge during the initial stage of purging will be vented outside of the building, whereas the sweep-purge during normal operations will be re-condensed and recirculated as liquid. 
 
-After all but trace amounts of air (less than 1 ppm) have been expelled, the gas returns will be routed to the condenser before being returned to the cryostat. When cool-down to 120 K is complete (and during steady state operations), the gas returns will be sent to the condenser to be liquefied by heat exchange with a liquid nitrogen stream. The re-condensed liquid will be filtered and sent back to the cryostat to complete the cool-down operation. All purge gas will be contained and either vented outside of the building (purge in open loop), circulated in closed loop, or condensed and reused (cool down and normal operations).
+%After all but trace amounts of air (less than 1 ppm) have been expelled, the gas returns will be routed to the condenser before being returned to the cryostat. When cool-down to 120 K is complete (and during steady state operations), the gas returns will be sent to the condenser to be liquefied by heat exchange with a liquid nitrogen stream. The re-condensed liquid will be filtered and sent back to the cryostat to complete the cool-down operation. All purge gas will be contained and either vented outside of the building (purge in open loop), circulated in closed loop, or condensed and reused (cool down and normal operations).
 
 The cool-down of the cryostat and detector is performed through a set of manifolds flowing LAr (one) and GAr (two). The LAr manifold and a GAr manifold are joined together and terminate with a set of sprayers that deliver a mist of LAr and GAr. This mist is circulated within the cryostat by a jet of GAr coming from the other manifold, which also terminates with sprayers. These manifolds are located on the Jura side and are off to the side of the TPC so as not to flow LAr and GAr directly over the detector itself. The chosen sprayers guarantee a flat profile of the fluid (LAr and GAr) coming out.
 
-The LAr-supply pipework distributes the LAr at the bottom of the cryostat, during filling and normal operations. The outlets are at the end of the pipes, as far away as possible from the side penetration from which the LAr is sent to the purification system.
+During filling and normal operations, the LAr-supply pipework distributes the LAr at the bottom of the cryostat. The outlets are at the end of the pipes, as far away as possible from the side penetration from which the LAr is sent to the purification system.
 
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryostat pressure control}
@@ -316,7 +326,7 @@ If the pressure decreases, we can introduce fresh GAr in the cryostat through th
 %
 Table \ref{tab: cryostat-norm-pressures} summarizes the cryostat pressures during normal operation.
 %
-\begin{cdrtable}[Cryostat pressures during normal operations]{lc}{cryostat-norm-pressures}{Cryostat pressures during normal operations}
+\begin{cdrtable}[Cryostat pressures during normal operations]{lc}{tab: cryostat-norm-pressures}{Cryostat pressures during normal operations}
 Cryostat part & Pressure\\ \toprowrule
 Vessel ullage maximum operating pressure & 0.121 MPa (200 mBarg)\\ \colhline
 Relief valve set pressure & 0.135 MPa (350 mBarg)\\ \colhline
@@ -344,4 +354,3 @@ The cryostat vacuum-relief system is a high-integrity, automatic, failsafe syste
 Potential causes of reduced pressure in the cryostat include operation of discharge pumps while the liquid-return inlet valves are shut, gaseous argon condensing in the condenser (a thermo-siphon effect) or a failure of the vent system when draining the cryostat. Vacuum-relief valves are provided on LNG storage tanks to protect the structure from these types of events.
 
 The key active components of this additional protection system are Vacuum Safety Valves (VSVs) located on the roof of the cryostat that will monitor the differential pressure between the inside and the outside of the cryostat and open when the differential pressure exceeds a preset value, allowing air to enter the cryostat to restore a safe pressure. A combo PSV-VSV may be used instead of two separate devices, one for overpressure and one for vacuum.
-
