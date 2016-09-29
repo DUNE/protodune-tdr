@@ -4,11 +4,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope and requirements}
 
-This section outlines the data acquisition (DAQ) for ProtoDUNE-SP.
-The DAQ system is shown in Figure \ref{fig:daq-overview} along with its
+%This section outlines the data acquisition (DAQ) for ProtoDUNE-SP.
+The data acquisition (DAQ) system is shown in Figure~\ref{fig:daq-overview} along with its
 interfaces to the cold electronics, beam instrumentation, and online
 computing systems.
-
+\fixme{Figure~\ref{fig:daq-overview} requires significant zooming to read.  Need a simpler 
+diagram initially to show the major pieces, and only the DAQ pieces. Also some descriptive text; relate the physical components to data rates and such.}
+\fixme{timing, trigger, throttle systems, FPGA-based master, etc.}
 
 \begin{cdrfigure}[DAQ Overview]{daq-overview}{Detailed overview of the
 DAQ system, its interconnections, data flow, timing and control signals,
@@ -16,16 +18,14 @@ and the interfaces to the electronics and online computing systems}
         \includegraphics[angle=90,width=0.70\textwidth]{daq-overview-dia.pdf}
 \end{cdrfigure}
 
-The requirements for the DAQ system are defined
-by the physics requirements of  ProtoDUNE-SP, with constraints from the
-front-end electronics and assumed bandwidth and storage requirements
-from the online and offline computing systems.  The baseline trigger
-rate during the SPS spill is taken to be 25 Hz.  Cosmic data will also
-be acquired at an appropriate rate such that bandwidth and processing priority are given 
-to beam data.
+%The requirements for the DAQ system are definedby the physics requirements of  ProtoDUNE-SP, with constraints from thefront-end electronics and assumed bandwidth and storage requirementsfrom the online and offline computing systems.  The baseline triggerrate during the SPS spill is taken to be 25 Hz.  Cosmic data will alsobe acquired at an appropriate rate such that bandwidth and processing priority are given to beam data.
+ 
+The physics requirements of  ProtoDUNE-SP are the primary drivers of the
+DAQ system requirements.
+The front-end electronics and assumed bandwidth and storage requirements
+from the online and offline computing systems impose additional constraints.  
 
-% inserted from computing-data-handling file 9/21
-The run plan (see \ref{sec:runplan}) calls for about 25\,M analyzable beam events
+The run plan (see Section~\ref{sec:runplan}) calls for about 25\,M analyzable beam events
 to be collected in the first run of \pdsp. Data sets may be enhanced  in desirable particle types and energies
 with dedicated triggers (such as PID)  from the beam instrumentation. The latter is described in Section~\ref{sec:beaminstruments}.
 
@@ -54,17 +54,24 @@ Parameter & Value \\ \toprowrule
 \end{cdrtable}
 %end insertion from computing-data-handling file
 
-The data rate from the electronics will be dominated by the
+\fixme{Data rates}
+
+ The baseline trigger
+rate during the SPS spill is taken to be 25 Hz.  Cosmic data will also
+be acquired at an appropriate rate such that bandwidth and processing priority are given 
+to beam data.\fixme{this comes out of nowhere}
+
+The data rate from the electronics is dominated by the
 TPC data.  However, the photon detection system (PDS) can produce a signifcant
 amount of calibration data (where full waveforms are extracted), during
-commissioning and special runs (up to 24 Gb/s maximum).
+commissioning and special runs (up to 24\,Gb/s maximum).
 
 The TPC data is sent via the Warm Interface Boards  (WIB) on the cryostat flanges
-for the six APAs of ProtoDUNE-SP, un-triggered at a total rate of 480 Gb/s
-.  The PDS data is estimated to send data
-at a total rate of 1.2 Gb/s from the 24 SSPs (detailed further in subsection \ref{subsec:pds-readout}).
+for the six APAs, un-triggered at a total rate of 480\,Gb/s.  
+The PDS data is estimated to send data
+at a total rate of 1.2\,Gb/s from the 24 SSPs (detailed further in Section~\ref{subsec:pds-readout}).
 The maximum bandwidth from the ProtoDUNE-SP online system to CERN IT (and
-hence, the offline world), is 20 Gb/s at a maximum.
+hence, the offline world), is 20\,Gb/s at a maximum.
 Therefore, the DAQ system must reduce the data by a significant fraction
 before it is sent offline.  This is achieved by a combination of
 data compression and triggering.
@@ -73,27 +80,29 @@ data compression and triggering.
 \subsection{Timing, trigger and beam interface}
 \label{sec:daq_time}
 
-The timing and the trigger are two distinct subsystems.  The timing
+The timing and trigger are two distinct subsystems.  The timing
 system provides the distribution for the trigger signals over the same
-fabric as the clock and calibration signals.  Each of the systems will
-be described separately, along with a brief section on the interface to
-the beam instrumentation.
+fabric as the clock and calibration signals.  %Each of the systems willbe described separately, along with a brief section on the interface to the beam instrumentation.
 
-\paragraph{Timing}
+%%%%%%%%%%%%%%%%%% 
+\subsubsection{Timing}
 
 
-The timing system is required to: provide a stable and phase-aligned
+The timing system is required to provide a stable and phase-aligned
 master clock to all DAQ components; synchronize external signals into the
 ProtoDUNE-SP clock domain and time-stamp them; distribute synchronization,
 trigger and calibration commands to the DAQ system; and conduct continuous
 checks of its own function. In addition, the timing system acts as a
 data source, providing a record of triggers received, distributed, or
 throttled. The system is designed to meet the full eventual requirements
-of the DUNE experiment, but will need only a subset of that functionality
+of the DUNE experiment, but needs only a subset of that functionality
 for ProtoDUNE-SP. For instance, absolute time-stamping with respect to an
 external GPS reference is not required.
 
-An FPGA-based master unit receives a high-quality clock (from a quartz crystal oscillator or external source) 
+An FPGA-based master unit 
+\fixme{is this part of the DAQ?}
+receives a high-quality clock signal 
+(from a quartz crystal oscillator or external source) 
 and external signals from the
 trigger system and SPS accelerator. It interfaces to the ProtoDUNE-SP control
 and DAQ via a gigabit Ethernet interface. The master unit multiplexes
@@ -101,48 +110,49 @@ synchronization and trigger commands, along with arbitrary command
 sequences requested by software, into a single encoded data stream,
 which is broadcast to all timing endpoints, and decoded into separate clock
 and data signals. A uniform phase-aligned cycle counter, updating at the
-ProtoDUNE-SP system frequency of 50MHz, is maintained at all endpoints,
+ProtoDUNE-SP system frequency of 50\,MHz, is maintained at all endpoints,
 allowing commands to take effect simultaneously at all endpoints
 regardless of cable lengths or other phase delays.
 
 The timing signal is broadcast via multi-mode optical fiber (for
 medium-distance connection to the WIB crates on the detector) and LVDS
-signals over twisted pair cable (for short-distance connection to RCEs,
+signals are sent over twisted-pair cable (for short-distance connection to RCEs,
 SSPs and FELIX modules). Optical signals are fanned out and recombined
 using commercial 32:1 passive splitters, and active optical--LVDS
 converter boards further split the signals for local distribution to
 endpoints. 
 
 Endpoints decode the timing signal into separate clock and data
-signals using a commercial clock-data recovery ASIC \cite{siliconlabs:Si5344}, which in turn
-feeds a low-bandwidth PLL in order to remove any remaining jitter in
+signals using a commercial clock-data recovery ASIC ~\cite{siliconlabs:Si5344}, which in turn
+feeds a low-bandwidth PLL \fixme{define} in order to remove any remaining jitter in
 the clock and provide phase adjustment. The data stream employs 8b/10b
 encoding, ensuring sufficient transitions in the timing signal for clock
 recovery and correct operation of optical links, and uses scrambling
-of idle patterns to minimise ElectroMagnetic Interference (EMI).
+of idle patterns to minimize electromagnetic interference (EMI).
  A common firmware block is used to
 decode the timing protocol, which is incorporated into the overall
 firmware design for the receiving FPGA in each DAQ component. This
 block provides a cycle counter, several independent trigger, calibration and 
-synchronisation signals, and a general-purpose packet data output to each endpoint.
+synchronization signals, and a general-purpose packet data output to each endpoint.
 The cycle counter is used to generate low-frequency timing signals for
-further propagation, e.g. the 2MHz sampling signal for the cold ADCs.
+further propagation, e.g., the 2-MHz sampling signal for the cold ADCs.
 
-\paragraph{Trigger}
+%%%%%%%%%%%%%%%%%% 
+\subsubsection{Trigger}
 
 The baseline trigger solution for ProtoDUNE-SP is the Central Trigger Board
-(CTB). The CTB is designed to receive triggers from various sub-systems
+(CTB). The CTB is designed to receive triggers from various subsystems
 (Photon Detection System, Beam Instrumentation, SPS spill signal, veto
 signals, etc.).  Up to 100 input channels are provided.  It combines
 these into a global trigger based on a configurable input mask (or
-more sophisticated algorithm if desired).  It provides functionality
-to globally time-stamp triggers, keep event counts, and provide artDAQ
-compatible header information with trigger type and error conditions.
+more sophisticated algorithm, if desired).  It provides functionality
+to globally time-stamp triggers, keep event counts, and provide artDAQ-compatible 
+\fixme{reference} header information with trigger type and error conditions.
 Internally generated triggers and calibration pulses allow for testing
 the board itself and the end-points receiving the trigger signals.
 
-The CTB is based on the MicroZed development board \cite{avnet:microzed}, which comprises a
-Xilinx Zynq-7000 System-on-Chip (SoC), 1 GB DDR3 RAM, Gigabit Ethernet,
+The CTB is based on the MicroZed development board~\cite{avnet:microzed}, which comprises a
+Xilinx Zynq-7000 System-on-Chip (SoC), 1-GB DDR3 RAM, Gigabit Ethernet,
 and 115 I/O ports.  The Programmable Logic of the Zynq-7000 is used to
 perform fast triggering operations, whilst the Processing System is used
 to interface to the readout and controls systems.
@@ -150,110 +160,114 @@ to interface to the readout and controls systems.
 Configuration and operation is performed using an XML file which is sent
 to the CTB.  This allows for fast reconfiguration of the CTB without
 the need for new firmwares.  The file is used to both configure the board
-and send start/stop/reset/etc. commands from the run control.
-The trigger output format for ProtoDUNE-SP consists of a trigger type (physics/calibration/random),
+and send start/stop/reset, etc., commands from the run control.
+The trigger output format consists of a trigger type (physics/calibration/random),
 a time-stamp, the trigger word, counter information and the values 
 of the inputs causing the triggers.  
-The trigger system will use the timing system clock and global triggers will be
+The trigger system uses the timing system clock and global triggers are
 distributed via the timing system.  
 
 
-\paragraph{Beam Interface}
+%%%%%%%%%%%%%%%%%% 
+\subsubsection{Beam Interface}
 
-The Beam Instrumentation is described in detail in section \ref{sec:beaminstruments}.
-The beam instrumentation data acquisition and the data acquisition for ProtoDUNE-SP
-will have separate timing systems.  A common GPS clock will be used to keep both
-systems synchronized relative to each other.  A common endpoint will receive time-stamps 
+The beam instrumentation is described in Section~\ref{sec:beaminstruments}.
+The beam instrumentation DAQ and the DAQ for ProtoDUNE-SP
+have separate timing systems.  A common GPS clock is used to keep both
+systems synchronized relative to each other.  A common endpoint receives time stamps 
 from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE-SP timing system
-will be used to create a matching table from the two systems.  Data from the beam
-instrumentation will be acquired continuously via a separate DAQ path.  Triggered
-data for ProtoDUNE-SP will have both the TPC, PDS, and beam instrumentation data and 
-the timestamps and trigger information of both.
+are used to create a matching table from the two systems.  
+\fixme{what does the `both' refer to?}
+Data from the beam
+instrumentation is acquired continuously via a separate DAQ path. \fixme{separate from the actual data?}  Triggered
+data for ProtoDUNE-SP have both the TPC, PDS, and beam instrumentation data and 
+the timestamps and trigger information of both. \fixme{here `both' seems to refer to 3 things}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{TPC data readout}
 
-The readout of the ProtoDUNE-SP TPC wires, prior to being received by PCs in
-the back-end DAQ, consists of  electronics directly attached the APAs,
-inside the cryostat (the cold electronics, CE) and  electronics outside
+The readout of the TPC wires, prior to being received by PCs in
+the back-end DAQ, consists of  CE on the APAs
+inside the cryostat and electronics outside
 the cryostat, both directly on the cryostat flange and in a rack (the
-warm electronics).  This subsection
+warm electronics).  This section
 addresses the warm part of the TPC
-readout and how it receives data from the cold electronics (the Front-End
+readout and describes how it receives data from the CE (the Front-End
 Boards), manipulates the data, and delivers it to the back-end DAQ.
 
-From an electronics point-of-view, the ProtoDUNE-SP flange will consist of
-5-slot ``crate'', where the connectors on the warm side of the feed
-through form the ``back-plane'' into which the boards plug when inserted
-into the ``crate'' assembly.  These connectors and the boards that plug
-into them (the WIBs, or warm interface boards) serve to send the power,
-timing, and configuration down to the FEBs and receive the high-speed
+From an electronics point-of-view, the flange (one per APA) consists of a
+5-slot ``crate,'' where the connectors on the warm side of the feedthrough 
+form the ``back-plane'' into which the boards plug when inserted
+into the crate assembly. 
+\fixme{crate vs crate assembly?}
+  These connectors and the boards that plug
+into them (warm interface boards, WIBs) serve to send the power,
+timing, and configuration down to the FEBs \fixme{define} and receive the high-speed
 signals from the FEBs. From a data standpoint, each WIB receives the
-data from 4 FEBs, over sixteen 1.25-Gbps data lines, and multiplexes
-this data to four 5-Gbps (or two 10 Gbps) lines which are sent over
+data from four FEBs over sixteen 1.25-Gbps data lines, and multiplexes
+this data to four 5-Gbps (or two 10 Gbps) lines that are sent over
 optical fiber to the DAQ.
 
-Two systems will be used to receive data from the WIBs.  The baseline
-solution is based on Reconfigurable Computing Elements (RCE) and will
-readout data from 5 APAs.  An alternative exploratory prototype based on
-the Front-End-Link-EXchange (FELIX) system will be used to readout 1 APA.
+Two systems are used to receive data from the WIBs.  The baseline
+solution is based on Reconfigurable Computing Elements (RCE) and 
+read out data from five APAs.  An alternative exploratory prototype based on
+the Front-End-Link-EXchange (FELIX) system is used to readout the sixth APA.
 
-\paragraph{RCE-based readout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{RCE-based readout}
 The data from the WIB are received by processing units called RCEs (Reconfigurable Cluster Element), 
 \cite{slac:rce}
 which are housed in industry-standard
 ATCA shelves on COB (cluster-on-board) motherboards that are designed
 at SLAC for a wide range of applications.   The RCE is a SoC 
 from the
-Xilinx Zynq family and contain a full Linux processor system on the chip
-accompanied by 1 GByte of DRAM.   The primary processing function of the
-RCEs for ProtoDUNE-SP are compression (and/or zero-suppression) and buffering
+Xilinx Zynq family and contains a full Linux processor system on the chip
+accompanied by 1\,GByte of DRAM.   The primary processing functions of the
+RCEs are compression (and/or zero-suppression) and buffering
 of the raw data and then sending data to the back-end upon the receipt of
-an external trigger.  Each COB carries 8 RCEs, all connected to each
-other via an on-board 10 Gbps Ethernet switch which also sends data out
+an external trigger.  Each COB carries eight RCEs, all connected to each
+other via an on-board 10-Gbps Ethernet switch, which also sends data out
 of the COB to the back-end DAQ PCs.
 
 The interface with the WIB is provided via the ATCA compliant rear-board, the RTM (Rear Transition Module).  
-For ProtoDUNE-SP, this application-specific board will use a set of QSFP transceivers to receive
+This application-specific board uses a set of QSFP transceivers to receive
 the data from the WIB and an SFP+ (small form-factor pluggable)
  optical interface for communication
 with the timing and trigger distribution system.
 
-As the multiplexed data from the WIB comes into the RCE FPGA fabric
-it will be de-multiplexed and buffered into per-channel, fixed-time
-length chunks (for instance 512- or 1024-ticks).  These chunks will be
-compressed and written to the DRAM where the RCE processor will wait
+As the multiplexed data from the WIB comes into the RCE FPGA fabric,
+it is de-multiplexed and buffered into per-channel, fixed-time-length 
+chunks (for instance 512- or 1024-ticks).  These chunks are
+compressed and written to the DRAM where the RCE processor waits
 for a trigger (also handled by the FPGA) to arrive.  Upon a trigger, the
-processor will send data for a fixed window in time, including pre- and post-trigger time chunks,
+processor sends data for a fixed window in time, including pre- and post-trigger time chunks
 for all channels, to the back-end PCs.  
 
-For ProtoDUNE-SP, 256-wires worth of data (2 FEBs) will be sent to each RCE.
-Given that there are 120 FEBs in ProtoDUNE-SP, 60 RCEs will be needed to
-readout the full detector.  These will fit into 8 COBs which in turn
-will reside in a single 14-slot ATCA shelf.
+For ProtoDUNE-SP, 256 wires worth of data (2 FEBs) are sent to each RCE.
+Given that there are 120 FEBs in ProtoDUNE-SP, 60 RCEs are needed to
+readout the full detector.  These fit into eight COBs which in turn
+reside in a single 14-slot ATCA shelf.
 
-\paragraph{FELIX-based readout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{FELIX-based readout}
 The FELIX is a PCIe card receiving data on point-to-point links from
 the detector electronics and routing those through a switched network
 to computers.  The aim is to reduce to a minimum any specific hardware
 developments and to fully rely on commercial networks and servers to
-perform the DAQ tasks.  For ProtoDUNE-SP, data from 5 WIBs (20 FEBs) will
-be readout over ten 9.6 Gbps links into two FELIX cards.  Grouping
-time-slices around a trigger signal, as well as data compression will be
-dealt with in software. Similar to the RCE based readout the FELIX will
-generate artDAQ fragments to be sent to the event builder.
+perform the DAQ tasks.  For ProtoDUNE-SP, data from five WIBs (20 FEBs) is read out over ten 9.6-Gbps links into two FELIX cards.  Grouping
+time slices around a trigger signal, as well as data compression, will be
+dealt with in software. Similar to the RCE-based readout, the FELIX 
+generates artDAQ fragments to be sent to the event builder.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{PDS and beam instrumentation data readout}
-
-\paragraph{PDS readout} 
 \label{subsec:pds-readout}
-The PDS data rates are described here.  The PDS electronics and DAQ are
-described in section \ref{sec:pds-elec-daq}.  The plan for PDS data
-readout is as follows.  A combination of externally triggered events
-and self-triggered events will comprise the data.  The external triggers
-will come from the beam instrumentation via the trigger system at 25 Hz.
+
+%The PDS data rates are described here.  The PDS electronics and DAQ are described in section \ref{sec:pds-elec-daq}.  
+A combination of externally triggered events
+and self-triggered events make up the PDS data.  The external triggers
+come from the beam instrumentation via the trigger system at 25\,Hz.
 This amounts to 118 Mb/s.  The self-triggered data
 will be induced by cosmic rays.  A cosmic rate of 10 kHz is assumed,
 totalling 1106 Mb/s.
