@@ -268,31 +268,31 @@ generates artDAQ fragments to be sent to the event builder.
 A combination of externally triggered events
 and self-triggered events make up the PDS data.  The external triggers
 come from the beam instrumentation via the trigger system at 25\,Hz.
-This amounts to 118 Mb/s.  The self-triggered data
-will be induced by cosmic rays.  A cosmic rate of 10 kHz is assumed,
+This amounts to 118\,Mb/s.  The self-triggered data
+are induced by cosmic rays.  A cosmic rate of 10\,kHz is assumed,
 totalling 1106 Mb/s.
-The combined rate comes to $\approx$1.2 Gb/s.  An alternative scheme with
-just self-triggered header-only data is considered for implementation if
-the former proves difficult; with a resultant rate of $\approx$1.1 Gb/s.
+The combined rate comes to $\approx$1.2\,Gb/s.  An alternative scheme with
+just self-triggered header-only data with a resultant rate of $\approx$1.1\,Gb/s is considered for implementation if
+the former proves difficult.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Event-building software }
 
 Developed within the Fermilab Scientific Computing Division and
-already used for the LBNE-35ton prototype, artdaq provides data
+already used for the 35-t prototype, \textit{artdaq} provides data
 transfer, event building, and event analysis functionality. This
 latter feature includes built-in support for the art event analysis
-framework \cite{fnal:art}, allowing experiments to run art modules for real-time
-filtering, compression, disk writing and online monitoring. As art,
-also developed at Fermilab, is also used for offline analysis, a major
+framework,
+also developed at Fermilab,~\cite{fnal:art}, allowing experiments to run art modules for real-time
+filtering, compression, disk-writing and online monitoring. As art is also used for offline analysis, a major
 advantage of artdaq is that it allows developers to easily switch
 between developing online and offline software.
 
-There are three types of processes provided by artdaq, each of which
-fulfills a specific role; in order of upstream-to-downstream, these
+Artdaq provides three types of processes, each of which
+fulfills a specific role. In the order of upstream-to-downstream, these
 are boardreader processes, eventbuilder processes, and aggregator
-processes. A given boardreader process is intended to be associated
+processes. A given boardreader process is intended to be associated   %%%%%%%%%%%% Anne
 with a particular geographical region of the detector, and provides
 hooks (in the form of C++ base classes) for an experiment's developers
 to embed experiment-specific code (called ``fragment generators'')

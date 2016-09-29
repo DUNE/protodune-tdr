@@ -1,5 +1,5 @@
-The ProtoDUNE-SP (NP04) experiment will be housed in the EHN1 building at CERN. The detector is situated at the end of the H4 beamline in the newly constructed extension of EHN1. The H4 beamline is designed in such a way that it can be configured to deliver either a hadron or a pure electron beam to the experiment. To produce particles in the momentum range of interest, the secondary beam from the T2 primary target is sent onto a secondary target to generate a tertiary beam. Particles in the tertiary beam are momentum- and charge-selected and transported down the H4 beamline extension to the detector. 
-In principle, the H4 beamline can operate in parallel with the H2 beamline, which will intercept the ProtoDUNE-DP (NP02) detector, installed in the same building. In this Chapter, we discuss the beam requirements, H4 beamline design and instrumentations, DAQ/trigger, and the physics run plans.  
+The ProtoDUNE-SP (NP04) experiment will be housed in the EHN1 building at CERN. The detector is situated at the end of the H4 beamline in the newly constructed extension of EHN1. The H4 beamline is also extended and configured to deliver either a hadron or a pure electron beam to the experiment. To produce particles in the momentum range of interest, the secondary beam from the T2 primary target is sent onto a secondary target to generate a tertiary beam. Particles in this tertiary beam are momentum- and charge-selected and transported down the H4 beamline extension to the ProtoDUNE-SP detector. 
+In principle, the H4 beamline can operate in parallel with the H2 beamline, which will intercept the ProtoDUNE-DP (NP02) detector, installed in the same building. In this Chapter, we discuss the beam requirements, H4 tertiary beamline design and instrumentations, DAQ/trigger, and the physics run plans.  
 %The beamline layout is described and illustrated in Section~\ref{sec:h4beamline}. % minimize interference between the two ProtoDUNE experiments.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,9 +10,9 @@ In principle, the H4 beamline can operate in parallel with the H2 beamline, whic
 
 The CERN test beam results from ProtoDUNE-SP will be used to evaluate the detector performance,  understand the various physics systematic effects, and provide data for event reconstruction studies that are representative of neutrino interactions. 
 The parameters defining the test beam are primarily driven by the requirement that these test beam results be directly applicable to DUNE's future large underground single-phase detector module(s) with minimal extrapolation.
-To match the charged-particle spectrum and topologies that are expected in the DUNE far detector, the beam must span a broad range of particle momenta, be composed of electrons, muons, and hadrons, and charge-selected. 
+To match the charged-particle spectrum and topologies that are expected in the DUNE far detector, the H4 tertiary beam must span a broad range of particle momenta, be composed of electrons, muons, and hadrons, and charge-selectable. 
 The expected momentum distributions for secondary particles from neutrino interactions in the far detector has a large spread that ranges from a few hundred MeV/c to a few GeV/c.
-The desirable range for ProtoDUNE-SP is in the low-momentum region. Based on the feedback and constraints from the CERN accelerator group, the beamline design has been developed to allow the transport of beam particles from about 0.5~GeV/c up to 7~GeV/c. 
+The desirable range for ProtoDUNE-SP is in the low-momentum region. Based on the feedback and constraints from the CERN accelerator group, the design of the beamline extension has been developed to allow the transport of beam particles from about 0.5~GeV/c up to 7~GeV/c. 
 
 The maximum electron drift time in the ProtoDUNE-SP TPC is about 2.25~ms. In order
 to keep the  pile-up in the TPC at the percent level, the planned
@@ -21,7 +21,7 @@ The ProtoDUNE-SP TPC has two drift volumes separated by a cathode plane. It is d
 that a large fraction of the lower-energy hadronic showers are %mostly
 contained in one drift volume, thus minimizing the uncertainties from
 particles lost in the inactive detector materials. 
-As shown in Figure~\ref{fig:beamwindow_loc}, multiple beam injection points have been explored. Based on inputs from the physics group, the larger angle (beam \# 3) w.r.t. the APA plane, which corresponds to about 13$^\circ$ is preferred.
+As shown in Figure~\ref{fig:beamwindow_loc}, multiple beam injection points have been explored. Based on inputs from the physics group, the larger angle (beam \# 3) w.r.t. the APA plane (Saleve side), which corresponds to about 13$^\circ$, is preferred.
 Due to engineering and safety considerations, only beam \#3 will
 be fully instrumented with the beam window system as described in
 Sections~\ref{subsec:beamwindow} and~\ref{sec:beamplug}. 
@@ -45,9 +45,6 @@ A summary of the beam requirements is shown in Table~\ref{tab:beamspecs}.
   Transverse Beam Size   & RMS(x,y) $\approx$ 1 cm  \\
   & (At the entrance face of the LAr cryostat) \\ \colhline
 %  Beam Divergence & tbd   \\ \colhline
-  Beam Entrance Position & Beam \# 3 (Figure~\ref{fig:beamwindow_loc})    \\ \colhline
+  Beam Entrance Position & Beam \# 3 (Figure~\ref{fig:beamwindow_loc}) - Saleve side TPC   \\ \colhline
   Rates & 25-$\approx$ 100 Hz     \\ \colhline
 \end{cdrtable}
-
-%\fixme{we should have beam divergence estimates from H2 and H4 simulation files Paola: again, the data from Nikos are a result,  NOT a requirement. If the physics or measurements group do have a requirement, please provide one! I took the line out, waiting for input.}
-%\fixme{rate: max of 100 Hx; nominal 25Hz with goal to achieve 50 Hz (see CERN workshop)}
