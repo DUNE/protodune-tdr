@@ -50,7 +50,7 @@ The ability to identify minimum-ionizing particles (MIPs) is a function of sever
 %\fixme{double-check these vertex numbers, which are very likely incorrect at the moment.}
 
 %\fixme{rewrite of above pgraph; if ok please delete previous paragraph} 
-The fine granularity of the LArTPC enables excellent precision in identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay), which has a direct impact on reconstruction efficiency. ProtoDUNE-SP requires that it be possible to determine the fiducial volume (via analysis) to $<$1$\%$, which requires reaching a vertex resolution of $\sim$1.5 cm along each coordinate direction. (The fiducial volume, among other factors, determines the number of target nucleons, which is a component in cross section measurements.) In practice, the resolution on the drift-coordinate ($x$) of a vertex or hit will be better than that on its location in the $y-z$ plane, due to the combination of drift-velocity and electronics sampling-rate.
+The fine granularity of the LArTPC enables excellent precision in identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay), which has a direct impact on reconstruction efficiency. ProtoDUNE-SP requires that it be possible to determine the fiducial volume (via analysis) to $<$1$\%$, which requires reaching a vertex resolution of $\sim$1.5 cm along each coordinate direction. (The fiducial volume, among other factors, determines the number of target nucleons, which is a component in cross section measurements.) In practice, the resolution on the drift-coordinate ($x$) of a vertex or hit will be better than that on its location in the $y$-$z$ plane, due to the combination of drift-velocity and electronics sampling-rate.
 
 
 %%%%%%%%%%%%
@@ -99,11 +99,11 @@ Collection (X) & 820 V\\ \colhline
 Mesh (M) & 0 V\\
 \end{cdrtable}
 
-The wrapped style allows the APAs to tile the active area of the LArTPC, minimizing the amount of dead space occupied by electronics and associated cabling.  The size of the APAs is chosen to be compatible with over-the-road shipping, and eventual transport to the 4850 level at SURF, into the membrane cryostat of a detector module.  The dimensions are also chosen such that an integral number of electronic readout channels and boards will fill in the full area of the APA. The modularity of the APAs allows them to be built and tested at off-site production facilities, decoupling their manufacturing time from the construction of the membrane cryostat.  
+The wrapped style allows the APAs to tile the active area of the LArTPC, minimizing the amount of dead space occupied by electronics and associated cabling.  The size of the APAs is chosen to be compatible with over-the-road shipping, and eventual transport to the 4850 level at SURF, into the membrane cryostat of a detector module.  The dimensions are also chosen such that an integral number of electronic readout channels and boards fill in the full area of the APA. The modularity of the APAs allows them to be built and tested at off-site production facilities, decoupling their manufacturing time from the construction of the membrane cryostat.  
 
 In the current design of the single-phase DUNE detector module, a central row of APAs is flanked by  drift-fields, requiring sensitivity on both sides. The wrapped APAs allow the induction plane wires to sense drifting ionization originating from either side of the APA.  This double-sided feature is not strictly necessary for the ProtoDUNE-SP arrangement, which has APAs located against the cryostat walls and a drift field on one side only, but it is compatible with this setup as the grid layer facing the wall effectively blocks any ionization outside the TPC from drifting in to the wires on that side of the APA.
 
-The choices of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and to provide the precision necessary for reconstruction.  The tension of 5~N, when combined with the intermediate support combs that will be described in Section~\ref{subsec:apa_combs}, ensure that the wires are held taught in place with no sag.  Wire sag can impact the precision of reconstruction, as well as the transparency of the TPC.  The tension of 5~N is low enough that when the wires are cooled, which will increase their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in Section~\ref{subsec:apa_wires}.  To further mitigate wire breakage and its impact on detector performance, each wire in the APA is anchored twice on both ends, with both solder and epoxy.  Details of this arrangement are provided in Section~\ref{subsubsec:apa_wire_wrap}. 
+The choices of wire tension and wire placement accuracy are made to ensure proper operation of the LArTPC at voltage, and to provide the precision necessary for reconstruction.  The tension of 5~N, when combined with the intermediate support combs (described in Section~\ref{subsec:apa_combs}) ensure that the wires are held taught in place with no sag.  Wire sag can impact the precision of reconstruction, as well as the transparency of the TPC.  The tension of 5~N is low enough that when the wires are cooled, which increases their tension due to thermal contraction, they will stay safely below the break load of the beryllium copper wire, as described in Section~\ref{subsec:apa_wires}.  To further mitigate wire breakage and its impact on detector performance, each wire in the APA is anchored twice on both ends, with both solder and epoxy.  Details of this arrangement are provided in Section~\ref{subsubsec:apa_wire_wrap}. 
 
 
 %%%%%%%%%%%%%%%%
@@ -114,14 +114,14 @@ The choices of wire tension and wire placement accuracy are made to ensure prope
 
 Beryllium copper (CuBe) wire is known for its high durability and yield strength. It is composed of $\sim$98$\%$ copper, approximately 1.9$\%$ beryllium, and a negligible amount of other elements. The DUNE APA wire has a diameter of 150$\mu$m (.006~in), and is strung in varying lengths across the apparatus. Three key properties for usage in the APA are: low resistivity, high tensile or yield strength, and coefficient of thermal expansion suitable for use with the APA's stainless steel frame.
 
-Tensile strength of the wire describes the wire breaking stress (see Table~\ref{tab:wire}).  The yield strength is the stress at which the wire starts to take a permanent (inelastic) deformation and is the important limit stress for our usage -- though most specifications give tensile strength.  Fortunately, for the CuBe alloys of interest, the two are fairly close to each other.  Based on the tensile strength of wire purchased from Little Falls Alloy (over 1380~MPa or 200,000~psi), the yield strength will be greater than 1100~MPa.  Given that the stress while in use is around 280~MPa, this leaves a comfortable margin.
+Tensile strength of the wire describes the wire-breaking stress (see Table~\ref{tab:wire}).  The yield strength is the stress at which the wire starts to take a permanent (inelastic) deformation, and is the important limit stress for this case, though most specifications give tensile strength.  Fortunately, for the CuBe alloys of interest, the two are fairly close to each other.  Based on the tensile strength of wire purchased from Little Falls Alloy (over 1,380~MPa or 200,000~psi), the yield strength is greater than 1,100~MPa.  Given that the stress while in use is around 280~MPa, this leaves a comfortable margin.
 
 The coefficient of thermal expansion (CTE) describes how material expands and contracts with changes in temperature.  The CTEs of CuBe alloy and 304 stainless steel are very similar.  Integrated down to 87~K, they are 2.7e-3 for stainless and 2.9e-3 for CuBe \fixme{find and add reference to bib file} (from study: ``Cryogenic Material Properties Database'' by Marquardt, Le and Radebaugh of NIST).
 
-Since the wire contracts slightly more than the frame during cool-down the wire tension will go up.  If it starts at 5~N the tension will rise to about 5.5~N when everything is cool.  
+Since the wire contracts slightly more than the frame during cool-down the wire tension increases.  If it starts at 5~N, the tension rises to about 5.5~N when everything is cool.  
 
 The change in wire tension during cool-down could also be a concern.  In the worst case, the wire
- cools quickly to 87~K before any significant cooling of the frame  -- a realistic case because of the differing thicknesses.  In the limiting case, with complete contraction of the wire and none in the frame, the tension would be expected to reach $\sim$11.7 N.  This is still well under the $\sim$20 N yield tension.
+ cools quickly to 87\,K before any significant cooling of the frame  -- a realistic case because of the differing thicknesses.  In the limiting case, with complete contraction of the wire and none in the frame, the tension would be expected to reach $\sim$11.7 N.  This is still well under the $\sim$20 N yield tension.
 In practice the cooling will be done gradually to avoid this tension spike as well as other thermal shock to the APA.
 
 \begin{cdrtable}[CuBe wire tensile strength and CTE]{lr}{wire}{Tensile strength and coefficient of thermal expansion (CTE) of beryllium copper (CuBe) wire.}
@@ -140,9 +140,9 @@ CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 
 %\paragraph{Dimensions}
 
-The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3~in $\times$ 4 in $\times$ 0.120 in wall rectangular tubing.  The cross pieces are 2~in $\times$ 3~in $\times$ 0.120~in wall tubing.  It will be mounted in the cryostat with its long axis vertical; multiple APAs will be mounted edge-to-edge to form a continuous plane. An electron deflection technique will be used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
+The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3~in $\times$ 4 in $\times$ 0.120 in wall rectangular tubing.  The cross pieces are 2~in $\times$ 3~in $\times$ 0.120~in wall tubing.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique is used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
-\begin{cdrfigure}[APA Dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components.}
+\begin{cdrfigure}[APA dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framedrawing.png} 
 \end{cdrfigure}
 
@@ -196,7 +196,7 @@ The selected DC-blocking capacitors have capacitance of 3.9 nF and are rated for
 
 In addition to the bias and DC-blocking capacitors, the CR board includes two R-C filters for the bias voltage. The resistors are of the same type used for biasing except with a resistance of 2 Meg-ohms. Capacitors are 47 nF at 2 kV. Very few choices exist for surface-mount capacitors of this type and they are exceptionally large. Currently the plan is to use Polyester or Polypropylene film capacitors that are known to perform well at cryogenic temperatures.
 
-All circuit boards on the APA frame utilize halogen-free FR-4 substrates with lead-free metal finishes. Conformal coatings are being considered but it is not clear conformal coatings will be used. If they are not, requirements for cleaning and handling the circuit boards are likely to be stringent due to the very low leakage currents allowed, less than 0.5 nA at full bias voltage.
+All circuit boards on the APA frame utilize halogen-free FR-4 substrates with lead-free metal finishes. Conformal coatings are being considered but it is not clear conformal coatings will be used. If they are not, requirements for cleaning and handling the circuit boards are likely to be stringent due to the very low leakage currents allowed, less than 0.5~nA at full bias voltage.
 
 \paragraph{Side and foot boards}
 
@@ -218,7 +218,7 @@ The angled wires are located by pins as shown in the right-hand picture of Figur
 The polymer used for the strips is Vectra e130i (a trade name for 30$\%$ glass filled liquid crystal polymer or LCP). It retains its strength at cryogenic temperature and has a CTE similar enough to G10 that differential expansion/contraction is not a problem.
 
 \paragraph{Glue and solder}
-The ends of the wires are soldered to pads on the edge or wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor the wires are glued for roughly 10 mm near the solder pads.  For example, in Figure~\ref{fig:tpc_apa_sideboardphoto}, in addition to soldering the wires upon the pads shown on the left-hand photograph, an epoxy bead will be applied on top of all wires in the area between the solder pads and the injection molded tooth strips.
+The ends of the wires are soldered to pads on the edge of the wire boards.  Solder provides both an electrical connection and a physical anchor to the wires.  As an additional physical anchor, roughly 10~mm of the wires are glued near the solder pads.  For example, in Figure~\ref{fig:tpc_apa_sideboardphoto}, in addition to soldering the wires on the pads shown in the left-hand photograph, an epoxy bead is applied on the wires in the area between the solder pads and the injection-molded tooth strips.
 
 Gray epoxy 2216 by 3M was chosen for the glue.  It is strong, widely used (therefore much data is available), and it retains good properties at cryogenic temperatures.  A 62$\%$ tin, 36$\%$ lead and 2$\%$ silver solder was chosen.  A eutectic mix (63/37) is the best of the straight tin/lead solders but the 2$\%$ added silver gives better creep resistance.
 
@@ -227,7 +227,7 @@ Gray epoxy 2216 by 3M was chosen for the glue.  It is strong, widely used (there
 
 The mesh layer is glued directly to the steel frame surface -- over the openings in the frame.  It creates a uniform ground layer beneath the wire planes.  
 
-The mesh is clamped around the perimeter of the opening and then pulled tight (opening and closing clamps as needed during the process).  When the mesh is taut a 25 mm wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown this gives good electrical contact between the mesh and the frame, a deliberate electrical connection will also be made.  Figure~\ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
+The mesh is clamped around the perimeter of the opening and then pulled tight (opening and closing clamps as needed during the process).  When the mesh is taut, a 25-mm-wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown this gives good electrical contact between the mesh and the frame, a deliberate electrical connection is also made.  Figure~\ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
 
 \begin{cdrfigure}[APA Full-Size Mesh Drawing]{tpc_apa_fullsizemeshdrawing}{The mesh clamping jig for the full size APA.}
 \includegraphics[width=0.8\textwidth]{figures/tpc_apa_fullsizemeshdrawing.png} 
@@ -269,12 +269,17 @@ The wire openings in the comb stack are small enough that the wires are accurate
 %%%%%%%%%%%%
 \subsubsection{APA interconnection features}
 
-Some sort of constraint is needed between adjacent APAs to keep them in a plane with each other.  It is also important that this constraint not apply a vertical load to adjacent APAs.  The constraint therefore takes the form of a pair of pins protruding from one edge of the APA (one high and one low on the APA) and a pair of matching slots on the other edge to engage the pins (Figure~\ref{fig:tpc_apa_pinslotdrawing}).
+Some sort of constraint is needed between adjacent APAs to keep them in co-planar.  It is also important that this constraint not apply a vertical load to adjacent APAs.  The constraint 
+\fixme{the solution?}
+therefore takes the form of 
+The solution is to insert a pair of protruding pins on one edge of the APA (one high and one low) and a pair of matching slots %on the other edge 
+on the edge of the adjacent APA
+to engage the pins (Figure~\ref{fig:tpc_apa_pinslotdrawing}). The pins have steel cores for strength.
 
 \begin{cdrfigure}[APA Interconnect Drawing]{tpc_apa_pinslotdrawing}{The pin/slot constraint.  The pin screws into an insert in the outside frame member of one APA and engages a slot in the outside frame member of the adjacent APA.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_pinslotdrawing.png} 
 \end{cdrfigure}
 
-Electronic noise concerns have made it desirable to isolate APAs from each other.  To help with that this alignment pin, although it will have a steel core for strength, will have a G10 sleeve where it contacts the frame of the adjacent APA.
+Electronics noise concerns have made it desirable to isolate APAs from each other.  Therefore, the alignment pins have G10 sleeves over their steel cores where they contact the frame of the adjacent APA.
 
 
