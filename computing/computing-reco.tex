@@ -24,15 +24,16 @@ A drawback of this procedure is that signals also arrive on neighboring
 channels at the same time, and this procedure reduces the signal as
 well as the noise, in a manner that depends on the angle of a track or
 shower with respect to the drift field.  Procedures that first
-identify signal hits and protect them from distortion~\cite{microboone_noise} 
+identify signal hits and protect them from distortion~\cite{Mooney:2015kke} 
+\fixme{check citation}
 are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
 has achieved excellent noise levels consistent with expectations based on 
-the design specification of the cold electronics (Fig.~\ref{fig:rms3} 
-in Sec.~\ref{sec:tpc-signal-calibration}).  In MicroBooNE, various 
+the design specification of the cold electronics. %(Fig.~\ref{fig:rms3} in Sec.~\ref{sec:tpc-signal-calibration}).   
+In MicroBooNE, various 
 sources of noise have been identified and hardware upgrades 
 are ongoing to eliminate them.   Once noise has been removed,
-signals are processed to recover the ionization charge
-as described in Sec.~\ref{sec:tpc-signal-calibration}. 
+signals are processed to recover the ionization charge. 
+\fixme{No longer in doc? ``as described in Section~\ref{sec:tpc-signal-calibration}.''}
 
 Hits are identified by seeking deconvoluted signals exceeding
 thresholds that are adjusted to minimize the creation of false noise
@@ -91,13 +92,15 @@ distribution of reconstructed $\pi^0$ masses in Monte Carlo is shown
 in Figure~\ref{fig:pizeromass}.
 
 \begin{cdrfigure}[The reconstructed invariant masses of $\pi^0$ candidates in
-  Monte Carlo]{muonpandoraperf}{The reconstructed invariant masses of $\pi^0$ candidates in
+  Monte Carlo]{pizeromass}{The reconstructed invariant masses of $\pi^0$ candidates in
   Monte Carlo using the BlurredCluster and EMShower algorithms.}
 \includegraphics[width=0.8\textwidth]{pizeromass}
 \end{cdrfigure}
 
 \paragraph{PANDORA}
-The reconstruction framework PANDORA~\cite{pandora} also works by
+The reconstruction framework PANDORA~\cite{Marshall:2015rfa} 
+\fixme{there was no existing citation in bib file, so I picked one from inspirehep; please check}
+also works by
 building up a three-dimensional picture from two-dimensional
 reconstructed objects.  PANDORA is a flexible framework developed for
 ILC detector simulation, and provides a convenient way to develop
@@ -127,7 +130,9 @@ completeness (purity too if we can get the plot).}
 
 \paragraph{PMA}
 Another approach to 3D reconstruction in LArTPC detectors is referred to as the Projection Matching Algorithm
-(PMA) ~\cite{pma_algorithm}. PMA was primarily developed as a technique for 3D reconstruction
+(PMA) ~\cite{pma_algorithm}. 
+\fixme{needs citation in bib file}
+PMA was primarily developed as a technique for 3D reconstruction
 of individual particle trajectories (trajectory fits) ~\cite{icarus3dreco}. Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
 the 2D projection of the predicted trajectory of a particle with the observed data. Association
@@ -135,7 +140,7 @@ of hits between the 2D planes is not needed in this approach, improving its perf
 problematic cases, such as isochronous and short tracks.
 
 PMA can take as input the output from different pattern recognition algorithms, from
-LineCluster ~\cite{linecluster} to WireCell (described below).  Because these 2D algorithms
+LineCluster~\cite{linecluster} to WireCell (described below).  Because these 2D algorithms
 are run on each 2D projection independently, and because of detector defects,
 clusters from  particles may be broken
 into several smaller pieces, fractions of 2D clusters may be missing,

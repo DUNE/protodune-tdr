@@ -96,7 +96,7 @@ Passive backplane (PTB)                & 2                                      
 MPOD  power supplies (chassis???)                     & 2, 1 per 3 APAs                        &   \SI{15360}/2   \\  
 \end{cdrtable}
 
-\fixme{check Table~\ref{tab:ce-components}  }
+\fixme{check Table~\ref{tab:ce-components} ; there are some missing numbers}
 
 
 The most significant requirements for the CE are listed here. The CE shall:
@@ -165,7 +165,9 @@ Electrons passing through the wire grid must drift unimpeded until they reach th
 collection layer. The nominal bias voltages are predicted to result in this electrically 
 transparent configuration.
 
-As described in Section~\ref{} \fixme{2.1.2} the filtering of wire-bias voltages and AC coupling of wire signals passing
+As described in Section~\ref{subsec:apa_phys_desc}
+\fixme{right section reference?}
+ the filtering of wire-bias voltages and AC coupling of wire signals passing
 onto the charge amplifier circuits is done on  CR boards that plug inbetween the APA wire-board stacks and FEMBs.
 
 Each CR board includes single R-C filters for the X- and U-plane wire-bias voltages. In addition, each board has 48 
@@ -368,7 +370,8 @@ DAQ and timing systems and providing the clock and control signals required by t
 
 Each FEMB is enclosed in a Faraday box to provide shielding from noise. 
 As shown in Figure~\ref{fig:tpcce_box}, the Faraday box is designed to make the electrical connection 
-between the FEMB and the APA frame, as defined in Section~\ref{subsec:ele_design}. Mounting 
+between the FEMB and the APA frame. %, as defined in Section~\ref{subsec:ele_design}. Not sure what section to reference.
+ Mounting 
 hardware inside the Faraday box connects the common plane of the FEMB to the box casing. The
 box casing is electrically connected to the APA frame via twisted conducting wire (not 
 shown in Figure~\ref{fig:tpcce_box}). This is the only point of contact between the FEMB and
@@ -439,9 +442,6 @@ to transmit the following differential signals:
     \item 4 single-ended JTAG programming for the FPGA
 \end{itemize}
 
-
-\fixme{Figure~\ref{fig:tpcce_samtec_cable} is too detailed to be helpful. Can we crop a part or parts of it?} 
-
 The selected cables are Samtec 26~AWG twin-axial bundles with Samtec HSEC08 connectors to both
 the FEMB mezzanine board and the signal flange. 
 The HSEC08
@@ -473,13 +473,14 @@ also passed a BER test, transmitting $10^{13}$ bits without error.
 
 
 LV power is passed from the signal flange to the FEMB by bundles of 16 Samtec 
-20~AWG twisted-pair wires, as shown in Figure~\ref{fig:tpcce_samtec_cable}. One IPD1 connector
+20~AWG twisted-pair wires, as shown in Figure~\ref{fig:tpcce_cable_routing}. One IPD1 connector
 attaches all 16 wires at the signal flange, and two IPD1 connectors are attached to the FEMB (one to the
 analog motherboard and one to the FPGA mezzanine). In total, 20 wire bundles 
  bring LV power to the FEMBs associated with one APA.
 
 Eight of the 16 wires are power feeds, as described in Figure~\ref{fig:tpcce_lv_req}. The other eight wires
-are attached to the common of the input amplifier circuits, as described in Section~\ref{subsec:ele_design}. For
+are attached to the common of the input amplifier circuits, as described in Section~\ref{subsec:ce_wire_bias}.
+For
 a single FEMB, the resistance is $<30$~m$\Omega$ at RT or $<10$~m$\Omega$ at LAr temperature. Each APA has a copper cross-section of approximately $80~\mathrm{mm}^2$, with
 a resistance $<1.5$~m$\Omega$ at RT or $<0.5$~m$\Omega$ at LAr temperature.
 
@@ -613,7 +614,7 @@ The CE power-per-channel is about 25~mW in the LAr.
 Including power for the WIB, a fully loaded WIB (one WIB plus four FEMBs) requires
 12V and draws approximately 3.3~Amps. Therefore, the full electronics for one APA (five WIBs + 20 FEMBs) 
 requires 12~V and draws approximately 16~Amps, for a total power of almost 200~W, as 
-described in Section~\ref{subsubsec:power_timing_card}.
+described in Section~\ref{subsec:warm_interface_elec}.
 
 Each MPOD LV power unit has two DSUB37 connectors, each with four channels of LV output, including negative
 and positive sense wires. %as shown in Figure~\ref{fig:tpcce_mpod_top}. 
@@ -664,7 +665,7 @@ to the signal flanges is estimated to be 18~meters.
 Optical fibers provide the connections between the WECs, which act as
 Faraday-shielded boxes, to the DAQ and slow control systems.
 Each WIB uses QSFP sockets for 
-four pairs of fiber, as described in Section~\ref{subsubsec:warm_interface_board}, 
+four pairs of fiber, %as described in Section~\ref{subsubsec:warm_interface_board}, 
 implying a total of 120 optical data fibers for the 30 WIB boards in the system. The optical fibers from
 the signal flanges to the DAQ room are estimated to be 30$-$40~m in length.
 
