@@ -9,17 +9,20 @@
 Anode Plane Assemblies (APAs) are the detector elements utilized to sense ionization created by charged particles traversing the liquid argon volume inside the single-phase TPC.  
 An APA is constructed from a framework of lightweight, rectangular stainless steel tubing, with
 four layers of wires wrapped on each side of the frame; the wrapping is illustrated in  Figure~\ref{fig:tpc_apa1}. From the outside in, the first wire layer
-is a shielding (grid) plane, next are two induction planes and the collection plane. The front-end
-electronics boards are mounted on one end of the APA frame and protected by a metal enclosure.
+is a shielding (grid) plane, next are two induction planes, and finally the collection plane. 
+A mesh layer (not counted as a wire layer) is attached directly to the APA frame to effectively define an equipotential plane over the surface area of the frame.
+The front-end
+electronics boards are mounted on one end of the APA frame and are protected by a metal enclosure.
 The APAs are 2.3 m wide, 6.3 m high, and 12 cm thick. The height is chosen for fabrication
 purposes and compatibility with underground transport limitations. The 2.3-m width is set to fit
-in a standard High Cube container for storage and transport with sufficient shock absorbers and
+in a standard High Cube container for storage and transport, with sufficient shock absorbers and
 clearances.
 
-\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta) and X (blue), to accentuate their angular relationships to the frame and to each other.  All layers span the entire APA frame height. The induction layers (U and V) are connected electrically across both sides of the APA.  The wires in the grid layer, G (not shown), run vertically, parallel to the X layer wires.  A mesh layer is attached directly to the APA frame.}
+\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta) and X (blue), to accentuate their angular relationships to the frame and to each other.  All layers span the entire APA frame height. The induction layers (U and V) are connected electrically across both sides of the APA.  The wires in the grid layer, G (not shown), run vertically, parallel to the X layer wires.  The mesh layer is not shown.}
 \includegraphics[width=0.8\textwidth, angle=90]{figures/tpc_apa1.png} 
 \end{cdrfigure}
 
+\fixme{in Figure~\ref{fig:tpc_apa1} or before, we should say what a mesh layer is for. Anne}
 
 The initial physics performance requirements that drive the design of the APA are listed in Table~\ref{tab:physicsrequirements}.  These are chosen to enable ProtoDUNE-SP to perform high-efficiency reconstruction throughout the entire active volume of the LArTPC, across the broad range of particle momenta and species present in the beam.  
 
@@ -42,7 +45,7 @@ Electron Energy Scale Uncertainty & $<$5$\%$\\
 \end{cdrtable}
 
 
-The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including argon purity, drift distance, diffusion, wire pitch, and Equivalent Noise Charge (ENC).  ProtoDUNE-SP requires that MIPs originating anywhere inside the active volume of the detector be reconstructed with 100$\%$ efficiency.   The choice of wire pitch (i.e., $\sim$5 mm), combined with the design values of the other parameters just mentioned (and described in their respective sections of the TDR), should enable this 100$\%$ efficiency to be achieved for MIPs.
+The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including argon purity, drift distance, diffusion, wire pitch, and Equivalent Noise Charge (ENC).  ProtoDUNE-SP requires that MIPs originating anywhere inside the active volume of the detector be reconstructed with 100$\%$ efficiency.   The choice of wire pitch (i.e., $\sim$5 mm), combined with the design values of the other parameters mentioned above (and described in their respective sections of this TDR), should enable realization of this 100$\%$ efficiency for MIPs.
 
 
 %\fixme{I had trouble getting the gist of this next pgraph; please see rewrite below it}
@@ -61,7 +64,7 @@ The fine granularity of the LArTPC enables excellent precision in identifying th
 %Figure~\ref{fig:tpc_apa1} depicts a diagram of a ProtoDUNE-SP APA.  Each side of an APA consists of three layers of sense wires, plus additional grid and mesh layers.  Collection plane wires (labeled ``X'') span vertically from the bottom of the APA to the top.  There are two planes of induction wires (labeled ``U'' and ``V'') that wrap in a helical fashion, around the long edge of the APA, from the bottom of the APA to the top.  A grid layer (labeled ``G'') also spans from the bottom of the APA to the top, and is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The arrangement of all layers, from the outside-in, is G-U-V-X-M. 
 %
 %\fixme{rewrite above pgraph}
-Figure~\ref{fig:tpc_apa1} depicts a ProtoDUNE-SP APA, each  side of which consists of three layers of sense wires, plus additional grid and mesh layers.  All wire layers span the entire height of the APA frame. Collection plane wires (labeled ``X'') run vertically.  Two planes of induction wires (labeled ``U'' and ``V'') wrap in a helical fashion around the long edge of the APA.  A grid layer (labeled ``G'') also spans the APA's height, but is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The ordering of the layers, from the outside-in, is G-U-V-X-M. 
+Figure~\ref{fig:tpc_apa1} depicts a ProtoDUNE-SP APA, each  side of which consists of the three layers of sense wires, plus the additional grid and mesh layers.  All wire layers span the entire height of the APA frame. Collection plane wires (labeled ``X'') run vertically.  Two planes of induction wires (labeled ``U'' and ``V'') wrap in a helical fashion around the long edge of the APA.  A grid layer (labeled ``G'') also spans the APA's height, but is not connected for electronic readout.  The mesh layer (labeled ``M'') is secured directly to the APA frame, and effectively defines an equipotential plane over the entire surface area of the frame.  The ordering of the layers, from the outside-in, is G-U-V-X-M. 
 
 Table~\ref{tab:apaparameters} lists some of the high-level parameters of the APA design.
 

@@ -28,11 +28,11 @@ identify signal hits and protect them from distortion~\cite{Mooney:2015kke}
 \fixme{check citation}
 are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
 has achieved excellent noise levels consistent with expectations based on 
-the design specification of the cold electronics. %(Fig.~\ref{fig:rms3} in Sec.~\ref{sec:tpc-signal-calibration}).   
-In MicroBooNE, various 
+the design specification of the cold electronics %(Fig.~\ref{fig:rms3} 
+in Section~\ref{sec:tpc-signal-calibration}).  In MicroBooNE, various 
 sources of noise have been identified and hardware upgrades 
 are ongoing to eliminate them.   Once noise has been removed,
-signals are processed to recover the ionization charge. 
+signals are processed to recover the ionization charge.
 \fixme{No longer in doc? ``as described in Section~\ref{sec:tpc-signal-calibration}.''}
 
 Hits are identified by seeking deconvoluted signals exceeding
@@ -98,9 +98,7 @@ in Figure~\ref{fig:pizeromass}.
 \end{cdrfigure}
 
 \paragraph{PANDORA}
-The reconstruction framework PANDORA~\cite{Marshall:2015rfa} 
-\fixme{there was no existing citation in bib file, so I picked one from inspirehep; please check}
-also works by
+The reconstruction framework PANDORA~\cite{Marshall:2015rfa} also works by
 building up a three-dimensional picture from two-dimensional
 reconstructed objects.  PANDORA is a flexible framework developed for
 ILC detector simulation, and provides a convenient way to develop
@@ -114,25 +112,40 @@ reconstructing vertices in 3D, reconstructing tracks in 3D,
 reconstructing showers in 3D, a mop-up step in 2D and 3D, followed by
 full event building in 3D.
 
-Plots of the efficiency and completeness for muons in charged-current $\nu_{\mu}$
-events in MicroBooNE using PANDORA are shown in Figure~\ref{fig:muonpandoraperf}.
-The resolution of vertex-finding is shown in
-Figure~\ref{fig:pandoraresolution}.
+%Old Text
+%Plots of the efficiency and completeness for muons in charged-current $\nu_{\mu}$
+%events in MicroBooNE using PANDORA are shown in Figure~\ref{fig:muonpandoraperf}.
+%The resolution of vertex-finding is shown in
+%Figure~\ref{fig:pandoraresolution}.
 
-\begin{cdrfigure}[Performance of PANDORA for muons in CC
-  $\nu_mu$ events in MicroBooNE. ]{muonpandoraperf}{The performance of PANDORA for muons in charged-current
-  $\nu_mu$ events in MicroBooNE. }
-%\includegraphics[width=0.95\textwidth]{muonpandoraperf.png}\end{cdrfigure}
+%\begin{cdrfigure}[Performance of PANDORA for muons in CC
+%  $\nu_mu$ events in MicroBooNE. ]{muonpandoraperf}{The performance of PANDORA for muons in charged-current
+%  $\nu_mu$ events in MicroBooNE. }
+%%\includegraphics[width=0.95\textwidth]{muonpandoraperf.png}\end{cdrfigure}
+%\end{cdrfigure}
+%\fixme{Include figure of PANDORA performance for muons.  Efficiency and
+%completeness (purity too if we can get the plot).}
+
+
+Plots of the efficiency, the completeness, and the  difference between the true and reconstructed
+track lengths for single muons with momentum between 300~MeV and 5~GeV in the~\pdsp geometry are
+shown in Figure~\ref{fig:muonpandoraperf}.  The PANDORA algorithm performs very well, although there is a small
+inefficiency in the current algorithm's ability to match track segments from one APA's drift volume to another.
+
+\begin{cdrfigure}[Performance of the PANDORA reconstruction algorithm for single muons with momentum between 300~MeV$/c$
+and 5~GeV/$c$.]{muonpandoraperf}{Performance of the PANDORA reconstruction algorithm for single muons with 
+momentum between 300~MeV$/c$ and 5~GeV/$c$.  The left-hand figure shows the tracking efficiency as a function of
+muon momentum, the middle figure shows the distribution of tracking completeness, and the right-hand figure shows the
+distribution of the difference between the reconstructed muon track length and the true track length.}
+\includegraphics[width=0.3\textwidth]{mu_eff_pandora.pdf}
+\includegraphics[width=0.3\textwidth]{trk_completeness_pandora.pdf}
+\includegraphics[width=0.3\textwidth]{mu_res_pandora.pdf}
 \end{cdrfigure}
 
-\fixme{Include figure of PANDORA performance for muons.  Efficiency and
-completeness (purity too if we can get the plot).}
 
 \paragraph{PMA}
 Another approach to 3D reconstruction in LArTPC detectors is referred to as the Projection Matching Algorithm
-(PMA) ~\cite{pma_algorithm}. 
-\fixme{needs citation in bib file}
-PMA was primarily developed as a technique for 3D reconstruction
+(PMA)~\cite{pma_algorithm}. PMA was primarily developed as a technique for 3D reconstruction
 of individual particle trajectories (trajectory fits) ~\cite{icarus3dreco}. Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
 the 2D projection of the predicted trajectory of a particle with the observed data. Association
@@ -150,6 +163,18 @@ trajectories can be resolved only if the information from multiple 2D projection
 PMA performs higher level pattern recognition using as input clustering information from all
 projections in order to search for the best matching combinations of clusters. The algorithm
 also attempts to correct hit-to-cluster assignments using properties of 3D reconstructed objects.
+
+Plots of the efficiency, the completeness, and the  difference between the true and reconstructed
+track lengths for single muons with momentum between 300~MeV and 5~GeV in the~\pdsp geometry are
+shown in Figure~\ref{fig:muonpmaperf}.  
+
+\begin{cdrfigure}[Performance of the PMA reconstruction algorithm for single muons with momentum between 300~MeV$/c$
+and 5~GeV/$c$.]{muonpmaperf}{Performance of the PMA reconstruction algorithm for single muons with 
+momentum between 300~MeV$/c$ and 5~GeV/$c$.  The left-hand figure shows the tracking efficiency as a function of
+muon momentum, the middle figure shows the distribution of tracking completeness, and the right-hand figure shows the
+distribution of the difference between the reconstructed muon track length and the true track length.}
+\includegraphics[width=0.3\textwidth]{mu_eff_pmtrack.pdf}\includegraphics[width=0.3\textwidth]{trk_completeness_pmtrack.pdf}\includegraphics[width=0.3\textwidth]{mu_res_pmtrack.pdf}
+\end{cdrfigure}
 
 PMA has been used successfully to reconstruct simulated beam particles in
 \pdsp. In order to illustrate the performance of the entire reconstruction chain,
@@ -180,6 +205,7 @@ cosmic-ray muons, respectively.
 \begin{cdrfigure}[Example of reconstructed cosmic muons in \pdsp]{PMAcosmics}{Example of reconstructed cosmic muons using gaushit, Line Cluster and PMA.}
 \includegraphics[width=0.45\textwidth]{figures/evdlarortho3d11302.png}
 \end{cdrfigure}
+
 
 
 %% Wire-Cell ... 
