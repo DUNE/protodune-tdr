@@ -34,27 +34,29 @@ The scope of the ProtoDUNE Cryogenics includes the design, procurement, fabricat
 The reference-design for the ProtoDUNE cryogenics infrastructure includes the External, Proximity and Internal Cryogenics.
 
 %
-The {\it External Cryogenics} includes the systems used for the storage and eventual production of the cryogens needed for the operation of the cryogenic system (LN2 for cooling, LAr for the cryostat) and GAr generated from the cryogenic storage tanks. In particular, it encompasses:
+The \textit{External Cryogenics} includes the systems used for the storage and eventual production of the cryogens needed for the operation of the cryogenic system (LN2 for cooling, LAr for the cryostat) and GAr generated from the cryogenic storage tanks. In particular, it encompasses:
 %
 \begin{itemize}
-\item The receiving facilities for LAr and Liquid Nitrogen (LN2) tanker trucks
-\item The cryogenics transfer lines to deliver LAr and LN2 to the Proximity Cryogenics (in the vicinity of the cryostat)
-\item The ambient vaporizer and transfer lines to deliver GAr to the cryostat for the piston purge and the GAr make-up
+\item The receiving facilities for LAr and liquid ntrogen (LN2) tanker trucks;
+\item The cryogenics transfer lines to deliver LAr and LN2 to the Proximity Cryogenics (in the vicinity of the cryostat);
+\item The ambient vaporizer and transfer lines to deliver GAr to the cryostat for the piston purge and the GAr make-up; and
+\item The regeneration system for the LAr purification (with GAr and GAr/H2 cylinders).
 \end{itemize}
 %
-The {\it Proximity Cryogenics} takes the cryogens from the External Cryogenics and delivers them to the Internal Cryogenics under the required pressure, temperature, purity and mass flow rate. It encompasses:
+The \textit{Proximity Cryogenics} takes the cryogens from the External Cryogenics and delivers them to the Internal Cryogenics under the required pressure, temperature, purity and mass flow rate. It encompasses:
 %
 \begin{itemize}
-\item The condenser (with heat exchanger) to re-condense the boil-off GAr.
-\item The LAr purification system with inline purity monitor
-\item The LAr recirculation pumps
-\item The LAr Phase separator to feed the cryostat
-\item The LN2 Phase separator to feed the condenser
-\item The GAr purification system
-\item The cryostat-purge equipment
+\item The condenser (with heat exchanger) to re-condense the boil-off GAr;
+\item The LAr purification system with inline purity monitor;
+\item The LAr recirculation pumps;
+\item The LAr Phase separator to feed the cryostat;
+\item The LN2 Phase separator to feed the condenser;
+\item The GAr purification system;
+\item The cryostat-purge equipment; and
+\item The condenser LAr pump.
 \end{itemize}
 %
-The {\it Internal Cryogenics} includes all the cryogenic equipment located inside the cryostat. It encompasses:
+The \textit{Internal Cryogenics} includes all the cryogenic equipment located inside the cryostat. It encompasses:
 %
 \begin{itemize}
 \item The cryostat/detector cool down manifolds
@@ -149,7 +151,7 @@ Before the Ar is returned to the cryostat, the LAr flows into a phase separator:
 
 
 %%%%%%%%%%%%%%%%%%%%%
-\subsection{Modes of operations}
+\subsection{Modes of operation}
 \label{sec:cryo-op-modes}
 
 The major functions of the cryogenics system servicing the cryostat are to supply cryogens for cool down and fill, to provide gas argon filtration and condensing, liquid argon filtration and circulation, and to deliver argon-purity analysis. The methods presented in this section are motivated by experience from the cryogenic systems of other LAr Time Projection Chamber (TPC) experiments, such as ICARUS, LAPD, the 35 ton detector and MicroBooNE.
@@ -178,14 +180,16 @@ Water and oxygen will continue to be removed from the system for several days fo
 This process reduces the oxygen and water contamination inside the cryostat to sub-ppm levels, at which point the cool down may commence.
 
 %%%%%%%%%%%%%%%%%%%%%
-\paragraph{Cool-Down}
+\paragraph{Cool-down}
 
-Purified LAr will be mixed with GAr and distributed by a set of dedicated sprayers near the top of the cryostat and on the side of the TPC to cool down the cryostat and the detector in a controlled way. The sprayers deliver a mix of LAr and GAr in atomized form that is moved inside the cryostat by another set of sprayers flowing GAr only. The boil-off gas is re-condensed inside the condenser and it then flows back as liquid to feed the LAr sprayers. Simulations have shown that this cool-down method can maintain the cool down requirements of the detector, as listed in Table~\ref{tab:cryogen-install-params} , and those of the cryostat, which are less stringent. The required cooling rate is determined by the maximum stress that detector components can tolerate. For example, the 150 $\mu$m APA wires will cool much more rapidly than the APA frames. A temperature-monitoring system will be used to control the temperature difference across the cryostat and the detector.
+Purified LAr will be mixed with GAr and distributed by a set of dedicated sprayers near the top of the cryostat and on the side of the TPC to cool down the cryostat and the detector in a controlled way. The sprayers deliver a mix of LAr and GAr in atomized form that is moved inside the cryostat by another set of sprayers flowing GAr only. Part of the boil-off gas is re-condensed inside the condenser and it then flows back as liquid to feed the LAr sprayers. The balance is vented during the process.
+%
+Simulations have shown that this cool-down method can maintain the cool down requirements of the detector, as listed in Table~\ref{tab:cryogen-install-params} , and those of the cryostat, which are less stringent. The required cooling rate is determined by the maximum stress that detector components can tolerate. For example, the 150 $\mu$m APA wires will cool much more rapidly than the APA frames. A temperature-monitoring system will be used to control the temperature difference across the cryostat and the detector.
 
 %%%%%%%%%%%%%%%%%%%%%
 \paragraph{Filling}
 
-Once the cryostat and the TPC are cold, LAr is introduced in the cryostat through the cryostat filling pipework. Argon is transferred directly from the LAr storage tank after passing thorough the LAr filtration system for purification. The filling process will take place over three to four weeks.
+Once the cryostat and the TPC are cold, LAr is introduced in the cryostat through the cryostat filling pipework. Argon is transferred directly from the LAr storage tank after passing thorough the LAr filtration system for purification. The filling process will take place over three to four weeks if two trucks per day are delivered; if only one truck per day is delivered, it will take twice as long.
 
 %%%%%%%%%%%%%%%%%%%%%
 \paragraph{Steady state operations}
@@ -274,8 +278,8 @@ Total & 8.0 \\
 
 The cryostat is designed with one penetration below the liquid level for external pumps used to transfer LAr from it to the purification system. The pumps are inserted into a valve box that is an integral part of the proximity cryogenics. The pump suction must be located at a minimum distance (normally about 1.5 to 2.0 m) below the lowest liquid level at which they are to pump in order to prevent cavitation and vapor-entrapment. There are two pumps for continuous operation during maintenance, but only one is expected to be in service at any moment in time.
 
-The liquid-argon volume will turn over every 5.5 days, which corresponds to 1.67 kg/s (72 l/min) of flow rate. As a point of comparison, ICARUS T600 has a maximum turn-over rate of eight to ten days. In principle it is possible to operate both pumps at the same time and double the flow rate, should it be needed.\\
-%
+The liquid-argon volume will turn over every 5.5 days, which corresponds to 1.67 kg/s (72 l/min) of flow rate. As a point of comparison, ICARUS T600 has a maximum turn-over rate of eight to ten days. 
+
 The multiple-pump arrangement provides a high level of redundancy, which will extend the maintenance-free operating period of the cryostat.
 
 The liquid purification system, located nearby the cryostat, consists of two sets of three filter vessels containing molecular-sieve (1) and copper media (2) filters. They have been arranged in this configuration to reduce the size of the valve box containing them. Each molecular-sieve filter is 0.4 m in diameter by 0.9 m tall and contains 80 kg of media. Each copper filter is 0.6 m in diameter by 1.3 m tall and contains 298 kg of media. The filters are sized to provide effective media usage at low pressure drop over the expected range of flow rates. They are used during the filling and normal operations.
@@ -318,7 +322,7 @@ The pressure inside the cryostat is maintained within a very narrow range by a s
 %%%%%%%%%%%%%%%%%%%%%
 \paragraph{Normal Operations}
 
-The pressure-control valves are sized and set to control the internal cryostat pressure under normal operating conditions to the nominal design pressure of 0.113 MPa. Fluctuations within the range 0.105 MPa (50 mBarg) to 0.120 MPa (200 mBarg) will be allowed. Excursions 
+The pressure-control valves are sized and set to control the internal cryostat pressure under normal operating conditions to the nominal design pressure of 0.113 MPa. Fluctuations within the range 0.105 MPa (80 mBarg) to 0.120 MPa (230 mBarg) will be allowed. Excursions 
 of a few percent (exact values to be determined) above or below these levels will set off alarms to alert the operator to intervene. Further excursion may result in automatic (executive) actions. These actions may include stopping the LAr circulation pumps (to reduce the heat ingress to the cryostat), increasing the argon flow rate through the condenser, increasing the LN2 flow through the heat exchanger inside the condenser, powering down heat sources within the cryostat (e.g., detector electronics), venting some of the GAr to reduce the pressure in a controlled way. Eventually, if the pressure continues to rise, it will trigger the Pressure Safety Valves (PSVs) to operate. 
 
 If the pressure decreases, we can introduce fresh GAr in the cryostat through the GAr make-up line, a dedicated GAr feed line that takes argon directly from the outside supply.
@@ -328,8 +332,8 @@ Table \ref{tab:cryostat-norm-pressures} summarizes the cryostat pressures during
 %
 \begin{cdrtable}[Cryostat pressures during normal operations]{lc}{cryostat-norm-pressures}{Cryostat pressures during normal operations}
 Cryostat part & Pressure\\ \toprowrule
-Vessel ullage maximum operating pressure & 0.121 MPa (200 mBarg)\\ \colhline
-Relief valve set pressure & 0.135 MPa (350 mBarg)\\ \colhline
+Vessel ullage maximum operating pressure & 0.120 MPa (230 mBarg)\\ \colhline
+Relief valve set pressure & 0.135 MPa (380 mBarg)\\ \colhline
 Warm structure design working pressure & 0.135 MPa (350 mBarg) \\ 
 \end{cdrtable}
 
