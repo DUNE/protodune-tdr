@@ -5,21 +5,25 @@
 %\section{Anode Plane Assemblies}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cathode Plane Assemblies (CPA)}
+\section{Cathode Plane Assembly (CPA)}
 \label{sec:cpa}
 
 %\subsection{Scope, requirements and design considerations}
 \subsection{Scope and requirements}
 
-\fixme{Need to clarify language: One CPA plane (7m x 6m) made up of six CPAs (or CPA columns), each CPA made up of 3 vertically stacked CPA modules. Each module made up of resistive panel in frame. Anne to do.}
+\fixme{Need to clarify language: One CPA plane (7m x 6m) = 1 CPA, made up of six CPA columns, each CPA column made up of 3 vertically stacked CPA modules. Each module made up of resistive panel in frame. Anne to do.}
 
-The cathode plane is located in the middle of the TPC, dividing the detector into two equal-distance drift volumes. The cathode plane's 7\,m $\times$ 6\,m area is made up of six columnar \textit{cathode plane assemblies (CPAs)}, each of which is constructed of three vertically stacked \textit{CPA modules}. The cathode plane therefore consists of 18 CPA modules. 
+The cathode plane, also called the cathode plane assembly, or CPA, is located in the middle of the TPC, dividing the detector into two equal-distance drift volumes. The cathode plane's 7\,m $\times$ 6\,m area is made up of six \textit{CPA columns}, each of which is constructed of three vertically stacked \textit{CPA modules}. The CPA therefore consists of 18 CPA modules. 
 
-The cathode plane is connected to the high voltage feedthrough through a receptacle, called the \textit{HV cup}, at the east end, \fixme{Saleve side?} and biased at $-$180\,kV.   It provides the bias voltage and current to all the field cage modules (top, bottom and end walls) (Section~\ref{detcompsec-fc}) through electrical interconnects.  It also mechanically supports six pairs of top/bottom field cage modules. The cathode plane is suspended by insulating bars from the CPA installation rail.
+The scope of the CPA includes:
 
-%  It is connected to the high voltage feedthrough through a receptacle, called the \textit{HV cup}, at the east end, \fixme{Saleve side?} and biased at $-$180\,kV.  The cathode plane is constructed from six columnar cathode plane assemblies (CPAs) to form the 7\,m $\times$ 6\,m area.  It provides the bias voltage and current to all the field cage modules (top, bottom and end walls) through electrical interconnects.  It also mechanically supports six pairs of top/bottom field cage modules. The cathode plane is suspended by insulating bars from the CPA installation rail.
+\begin{itemize}
+\item 18 CPA modules, each with a frame, resistive cathode sheet, field-shaping strips, metallic buttons, pin-and-slot connections
+\item HV bus between CPA columns
+\item HV cup
+\item CPA frame electrodes?
+\end{itemize}
 
-\fixme{Gina underlined `bias' in `bias voltage' above and in first bullet point; not sure why (Anne)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Requirements}
@@ -32,7 +36,7 @@ The CPA plane is required to:
 \item limit the electric field exposed to LAr to under 30~kV/cm 
 \item prevent damage to the TPC, including its readout electronics, in case of a HV discharge anywhere on the cathode,
 \item provide constant bias voltage and current to all attached field cage (FC) resistor divider chains,
-\item support the full weight of the four connected top/bottom field cage modules plus a person on the bottom CPA \fixme{CPA or FC?} during installation,
+\item support the full weight of the four connected top/bottom FC modules plus a person on the bottom CPA \fixme{not FC?} during installation,
 \item accommodate cryostat roof movement between warm and LAr-filled states,
 \item be constructed in a modular form that can be easily installed in the cryostat,
 \item accommodate Photon Detection System (PDS) calibration features, and
@@ -53,19 +57,21 @@ Study has shown (DUNE docdb 1320) \fixme{cite properly} a cathode plane made of 
 
 %The solution adopted in the single phase TPC design is to make the entire cathode plane out of highly resistive material such that it has a very long discharge time constant compared to an all metal construction.  In an event of high voltage breakdown at any given location on the cathode, the sudden change in voltage only occurs in a relatively localized area.  The rest of the cathode surface maintains its original bias voltage, and gradually discharges to ground through the large resistivity of the cathode material.  This greatly reduces the instantaneous charge injection to the front end electronics.
 
-Among the possible solutions, the single-phase TPC design has adopted one in which the entire cathode plane is made out of highly resistive material such that it has a very long discharge time constant compared to an all metal construction.  In the event of HV breakdown at a given location on the cathode plane, the sudden change in voltage is restricted to the CPA module in question, \fixme{true?} a relatively localized area.  The rest of the cathode plane maintains its original bias voltage, and gradually discharges to ground through the large resistivity of the cathode material.  This greatly reduces the instantaneous charge injection to the front-end electronics.
+Among the possible solutions, the DUNE-SP TPC design has adopted one in which the entire cathode plane is made out of highly resistive material such that it has a very long discharge time constant compared to an all metal construction.  In the event of HV breakdown at a given location on the cathode plane, the sudden change in voltage is restricted to the CPA module in question, \fixme{true?} a relatively localized area.  The rest of the CPA maintains its original bias voltage, and gradually discharges to ground through the large resistivity of the cathode material.  This greatly reduces the instantaneous charge injection to the front-end electronics.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{CPA plane design}
+\subsection{CPA design}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Overview}
 
 %The cathode plane design has evolved through several iterations over the years.  The design chosen for the ProtoDUNE-SP TPC is an array of moderately sized modules constructed from strong FR4 (the fire-retardant version of G10) frames holding thin FR4 sheets laminated with a commercial resistive Kapton film on both sides.   Compared with the size of an APA, the CPA modules are 1/2 in width (1.16\,m) and 1/3 in height (2\,m).   Each module has four FR4 bars holding a 3mm thick FR4 sheet with resistive coating.  The thickness of the FR4 bars is 6cm.  The surfaces of the bars facing the APAs are covered by another set of resistive FR4 strip with a different bias voltage such that these FR4 bars do not cause any distortion in the drift field beyond the resistive surfaces.
 
-The cathode plane design chosen for the ProtoDUNE-SP TPC is an array of 18 moderately sized modules constructed from strong FR4 (the fire-retardant version of G10) frames holding thin FR4 sheets laminated with a commercial resistive Kapton film on both sides.   Compared with the size of an APA, the CPA modules are 1/2 in wide (1.16\,m) and 1/3 in high (2\,m).  
-\fixme{this makes no sense to me.  There is no such thing as an APA module, therefore we should compare APA to CPA, not to CPA module. What's with the 1/2 in and 1.16 m? I vote to delete prev sentence.}
+The cathode plane design chosen for the ProtoDUNE-SP TPC is an array of 18 moderately sized modules constructed from strong FR4 (the fire-retardant version of G10) frames holding thin FR4 sheets laminated with a commercial resistive Kapton film on both sides.   Each CPA module is 1.16\,m wide and 2\,m high, and stack to form six CPA columns 6\,m high.  The six-column-wide CPA has the same dimensions as each of the two APA planes, with a width of about 7\,m.
+
+%Compared with the size of an APA, the CPA modules are 1/2 in wide (1.16\,m) and 1/3 in high (2\,m).  
+%\fixme{this makes no sense to me.  There is no such thing as an APA module, therefore we should compare APA to CPA, not to CPA module. What's with the 1/2 in and 1.16 m? I vote to delete prev sentence.}
 
 Each module has four FR4 bars holding a 3-mm-thick FR4 sheet with resistive coating.  The thickness of the FR4 bars is 6~cm. 
 \fixme{clarify bar versus sheet}
@@ -73,15 +79,15 @@ Each module has four FR4 bars holding a 3-mm-thick FR4 sheet with resistive coat
  %these FR4 
  the bars cause no distortion in the drift field beyond the resistive surfaces.
 
+Each CPA column is suspended under the cathode support rail by a single insulating FR4 bar.  On the top and bottom edges of a CPA, there are two hinges supporting the partial weight of the top and bottom field cage modules.   Adjacent CPAs are aligned through pin-and-slot connections to maintain co-planarity while allowing minor relative vertical shift due to cryostat roof movement.
 
-A CPA is constructed from the three CPA modules, forming a single column. \fixme{compare sizes here} Each CPA is suspended under the cathode support rail by a single insulating FR4 bar.  On the top and bottom edges of a CPA, there are two hinges supporting the partial weight of the top and bottom field cage modules.   Adjacent CPAs are aligned through pin-and-slot connections to maintain co-planarity while allowing minor relative vertical shift due to cryostat roof movement.
+The electrical connectivity of the resistive panels vertically along each CPA is maintained by several tabs through the edge frames.  There is no direct electrical connection across the CPA columns. 
+%Instead, each adjacent pair is interconnected by a ``high-voltage bus''.  \fixme{this must be wrong - there must be a bus only on the outer edges of the outer columns}
+%
+The HV bus is a loop of a HV cable placed along the outer edges of the entire cathode plane, hidden between the field-shaping strip overhang and the main cathode resistive sheet.  This cable must be capable of withstanding the full cathode bias voltage to prevent direct arcing to (and as a result, recharging) a cathode panel having a discharge to ground. 
+The HV bus makes redundant connections to the resistive panels across CPA columns. \fixme{but only at the top and bottom?}  It also provides a low-resistance path for the FC resistive divider chains around the cathode edges.
 
-The electrical connectivity of the resistive panels vertically along each CPA is maintained by several tabs through the edge frames.  Across the columns, there is no direct electrical connection between the panels.  Instead, they are interconnected by the ``high-voltage bus''. 
-
-The high-voltage bus is a loop of a HV cable placed along the outer edges of the entire cathode plane, hidden between the field-shaping strip overhang and the main cathode resistive sheet.  This cable must be capable of withstanding the full cathode bias voltage to prevent direct arcing to (and as a result, recharging) a cathode panel having a discharge to ground. 
-\fixme{clarify previous sentence} The HV bus makes redundant connections to the resistive panels across CPAs. \fixme{but only at the top and bottom?}  It also provides a low-resistance path for the field cage resistive divider chains around the cathode edges.
-
-The outer edges of the cathode plane facing the cryostat wall are populated with the same metal profiles, with insulating polyethylene caps, as used in the field cage.  This eliminates the need for a special design of the most crucial regions of the cathode plane: the edges of the CPA now look just like a continuation of the field cage.  Since these profiles are the only objects facing grounded surfaces, they are the most likely candidates to have HV discharges to ground.   To limit peak current flow, these edge profiles are resistively connected to the main cathode panels through their laminated resistive surfaces.  
+The outer edges of the cathode plane facing the cryostat wall are populated with the same metal profiles, with insulating polyethylene caps, as used in the field cage.  This eliminates the need for a special design of the most crucial regions of the cathode plane: the edges of the CPA now look just like a continuation of the FC.  Since these profiles are the only objects facing grounded surfaces, they are the most likely candidates to have HV discharges to ground.   To limit peak current flow, these edge profiles are resistively connected to the main cathode panels through their laminated resistive surfaces.  
 
 \begin{cdrfigure}[Resistive surface CPA concept]{cpa-concept}{The resistive surface CPA concept showing  
  a 3D model of a corner of the cathode with major components.} 
@@ -90,6 +96,12 @@ The outer edges of the cathode plane facing the cryostat wall are populated with
 
 \fixme{figure \ref{fig:cpa-concept} is not referenced}
 
+%rom beginning:
+The CPA is connected to the HV feedthrough through a receptacle, called the \textit{HV cup}, at the east end, \fixme{Saleve side?} and biased at $-$180\,kV.   It provides the bias voltage and current to all the FC modules (top, bottom and end walls) (Section~\ref{detcompsec-fc}) through electrical interconnects.  It also mechanically supports six pairs of top/bottom FC modules. The CPA is suspended by insulating bars from the CPA installation rail.
+
+%  It is connected to the high voltage feedthrough through a receptacle, called the \textit{HV cup}, at the east end, \fixme{Saleve side?} and biased at $-$180\,kV.  The cathode plane is constructed from six columnar cathode plane assemblies (CPAs) to form the 7\,m $\times$ 6\,m area.  It provides the bias voltage and current to all the field cage modules (top, bottom and end walls) through electrical interconnects.  It also mechanically supports six pairs of top/bottom field cage modules. The cathode plane is suspended by insulating bars from the CPA installation rail.
+
+\fixme{Gina underlined `bias' in `bias voltage' above and in first bullet point; not sure why (Anne)}
 
 %%%%%%%%%%%%%
 %\subsubsection{Resistive material}
