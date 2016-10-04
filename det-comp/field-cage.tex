@@ -17,21 +17,32 @@
 
 In the TPC, each pair of facing cathode and anode planes forms an electron-drift region. A field
 cage (FC) must completely surround the four open sides of this region to provide the necessary boundary
-conditions to ensure a uniform electric field within, unaffected by the presence of the cryostat walls.
+conditions to ensure a uniform electric field within, unaffected by the presence of the cryostat walls.  The scope of the FC includes:
 
+\begin{itemize}
+\item six top FC assemblies
+\item six bottom FC assemblies
+\item four end-wall panels, each of which consist of four (side) assemblies
+\item I-beams that form a support structure for the top and bottom FC assemblies
+\item ground plane (GP), six GP panels per CPA module
+\item resistive divider chain that interconnects the parallel metal profiles in each FC assembly
+\item G10 connection pieces
+\item beam plug (or interface to it?)
+\end{itemize}
+\fixme{check this scope list}
 
 The FC is required to:
 \begin{itemize}
-\item provide the nominal drift field of 500V/cm;
-\item withstand $-$180kV near the cathode;
-\item define the drift distance between the APAs and CPAs to <1~cm;
-\item limit the electric field in the LAr volume to under 30~kV/cm;
+\item provide the nominal drift field of 500\,V/cm;
+\item withstand $-$180\,kV near the cathode;
+\item define the drift distance between the APAs and CPAs to <1\,cm;
+\item limit the electric field in the LAr volume to under 30\,kV/cm;
 \item miminize the peak energy transfer in case of a HV discharge anywhere on the field cage or cathode;
 \item provide redundancy in the resistor divider chain;
 \item maintain the divider current much greater than the ionization current in the TPC drift cell, yet less than the power supply current limit when all dividers are connected in parallel;
 \item be modular in form such that they can be easily installed in the cryostat;
 \item provide support for the beam plug; \fixme{The beam plug is not defined anywhere in this document; it is just referred to several times}
-\item support a 200-lb. person standing on the support beam of the bottom field cage module; and
+\item support a 200-lb. person standing on the support beam of the bottom FC module; and
 \item prevent any trapped volume of liquid.
 \end{itemize}
 
@@ -43,16 +54,13 @@ four end-wall panels, one at each vertical edge of the two drift regions, see Fi
 Each endwall panel consists of four assemblies in ``landscape'' orientation, stacked vertically.
 FC assemblies are constructed from pultruded G10 I-beams and box beams that support extruded field-shaping aluminum profiles. The support structure for each of the top and bottom FC assemblies consists of two main I-beams that are 3.6~m long, and three cross I-beams that brace the main I-beams for structural stability. The main I-beams have cutouts to hold the field-shaping profiles. 
 
-
-
 \begin{cdrfigure}[An end wall field cage module]{fc-endwall_module}{A view of an end wall field cage module}
 %\includegraphics[width=0.6\linewidth]{tpc_fc_endwall_module.png}
 \end{cdrfigure}
 
+Aside from the profiles themselves, the nuts and bolts holding them, and the ground plane panels, all FC components are made of insulating material. The material selected for these structural components is fiberglass-reinforced plastic (FRP), which prevents binding when the structure is at cryogenic temperatures. The ground plane panels are made of stainless steel. 
 
-Aside from the profiles themselves, the nuts and bolts holding them, and the ground planes, all FC components are made of insulating material. The material selected for these structural components is fiberglass-reinforced plastic (FRP), which prevents binding when the structure is at cryogenic temperatures. The ground planes are made of stainless steel. 
-
-The inward-facing face of the ground planes are approximately 20~cm away from the top of the field-shaping profiles. The ground planes are mounted at a fixed distance from the field shaping profiles by standoffs, as shown in Figure~\ref{fig:fc-with-ground-planes}, which shows ground planes over I-beams and cross beams.
+The inward-facing side of the ground planes are approximately 20~cm away from the top of the field-shaping profiles. The ground planes are mounted at a fixed distance from the field shaping profiles by standoffs, as shown in Figure~\ref{fig:fc-with-ground-planes}, which shows ground planes over I-beams and cross beams.
 
 \begin{cdrfigure}[The field cage with ground planes]{fc-with-ground-planes}{The field cage with ground planes}
 \includegraphics[width=0.8\linewidth]{fc-with-ground-planes}
@@ -66,7 +74,7 @@ the metal profiles are neither mechanically nor electrically connected. Gaps bet
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electrical design}
 
-Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm E field limit with 180-kV bias.  However, It becomes challenging to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Several commercially available roll-formed metal profiles were studied and appear to meet these requirements. \fixme{what's challenging about it then?}
+Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm electric field limit with 180-kV bias.  However, It becomes challenging to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Several commercially available roll-formed metal profiles were studied and appear to meet these requirements. \fixme{what's challenging about it then?}
 
 Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CPA and a top/bottom field cage module pair.
 
@@ -74,15 +82,15 @@ Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CP
 \includegraphics[width=0.8\linewidth]{tpc_fc_schematic.png}
 \end{cdrfigure}
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{FC and GP modules}
 
 In order to confine the electric field in the liquid argon region, a grounded metallic plane is installed between the upper field cage module and the liquid-gas interface. 
 Each of the six top FC modules is attached to six ground plane (GP) panels, aligned 
-along their long (2,318-mm) dimension. The planes are connected to the FC beam with additional 
+along their long %(2,318-mm) 
+(2.3-m) dimension. The planes are connected to the FC beam 
+\fixme{GP panels are connected to I-beam supporting an FC assembly?}
+with additional 
 G10 pieces that are also used to connect adjoining GP panels. 
 Figure~\ref{fig:fc-panel-endwall-frame} shows a top/bottom FC panel with the frame and 
 Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled FC+GP module.
@@ -96,7 +104,7 @@ Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled FC+GP module.
 \end{cdrfigure}
 
 The electrical continuity between consecutive panels can be made 
-with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. 
+with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. \fixme{which is it?} 
 As for most detector systems, the GP is  referenced to the detector ground, located at the cryostat top.
 
 The GP panels are installed on their corresponding (top) FC modules in the clean room outside the cryostat. %, to facilitate the connections. 
