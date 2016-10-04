@@ -90,7 +90,7 @@ Cold cable bundles                                           & 120, 1 per FEMB  
 Signal flange                                                     & 6, 1 per APA                              & 128 $\times$ 20  (i.e., 2,560)      \\   \colhline
 CE feedthrough                            & 6, 1 per APA                             &128 $\times$ 20         \\   \colhline
 Warm interface boards (WIB)         & 30, 5 per APA                             & (128 $\times$ 20) /5 (i.e., 512)        \\   \colhline
- Warm electronics plates (WEC)      & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
+ Warm electronics crates (WEC)      & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
  Power and timing cards (PTC)       & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
 Passive backplane (PTB)                & 2                                              &   ?? \\   \colhline
 MPOD  power supplies (chassis???)                     & 2, 1 per 3 APAs                        &   \SI{15360}/2   \\  
@@ -133,7 +133,7 @@ are insulated from each other. Each frame is electrically connected to the cryos
 point on the CE feedthrough board in the signal flange where the cables exit the cryostat. Mechanical suspension of the APAs 
 is accomplished using insulated supports. 
 
-The analog portion of the FEMB contains eight front-end (FE) ASICS configured as 16-channel 
+The analog portion of the FEMB contains eight front-end (FE) ASICs configured as 16-channel 
 digitizing charge amplifiers. Input amplifiers on the ASICs have their Common terminals connected 
 to the APA frame.  All power-return leads and cable shields 
 are connected to both the Common plane of the FEMB and to the signal flange.
@@ -168,7 +168,7 @@ transparent configuration.
 As described in Section~\ref{subsec:apa_phys_desc}
 \fixme{right section reference?}
  the filtering of wire-bias voltages and AC coupling of wire signals passing
-onto the charge amplifier circuits is done on  CR boards that plug inbetween the APA wire-board stacks and FEMBs.
+onto the charge amplifier circuits is done on Capacitance-Resistance (CR) boards that plug inbetween the APA wire-board stacks and FEMBs.
 
 Each CR board includes single R-C filters for the X- and U-plane wire-bias voltages. In addition, each board has 48 
 pairs of bias resistors and AC coupling capacitors for X-plane wires, and 40 pairs for the U-plane wires. The coupling capacitors block DC while passing AC 
@@ -412,7 +412,7 @@ ProtoDUNE-SP, there is a crate only on one side).}
 
 The current design of the signal flange includes a T-shaped pipe, separate PCB feedthroughs for the CE and PDS cables, and
 an attached crate for the TPC warm electronics, as shown in Figure~\ref{fig:tpcce_signal_FT}.
-The wire-bias voltage cables connect to standard SHV connectors machined directly into the CE feedthrough,
+The wire-bias voltage cables connect to standard SHV (safe high voltage) connectors machined directly into the CE feedthrough,
 ensuring no electrical connection between the wire-bias voltages and other signals passing through the signal flange.
 Each CE feedthrough serves the bias/power/digital IO needs of one APA, as shown 
 in Figure~\ref{fig:tpcce_cable_routing}.  
