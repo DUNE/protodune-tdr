@@ -1,12 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{PDS electronics}\label{sec:pds-elec-daq}
 
-\fixme{this section needs some language editing}
 
-Scintillation light from LAr comes from the two different excited 
+Scintillation light from LAr comes from two different excited 
 states with lifetimes of about 6 ns and 1.6 $\mu$s. 
-Only a limited amount of light is collected by this system, so we 
-assume the electronics must be designed to collect the light 
+Only a limited amount of light is collected, so the electronics are designed to collect the light 
 from both excited states. A summary of the general requirements 
 for the system, including initial requirements from a 
 physics performance perspective, are given in Table~\ref{tab:fee_req}.
@@ -24,22 +22,15 @@ Time Resolution                   & Better than 30 ns wrt event time zero ("t0")
  Calibration                          & On-board Charge Injection  \\ \colhline
  Timing                                 & Events time-stamped using NO$\nu$A Timing or equivalent syst.  \\    \end{cdrtable}
 
-%
-The plans for the electronics for the photon detection subsystem 
-include a baseline design with several options 
-that remain R\&D activities.   
 
-In the baseline plan, there are no front-end electronics in the cold volume.  
+There are no PDS front-end electronics in the LAr cold volume.  
 The un-amplified signals from the SiPMs 
-are transmitted to outside the cryostat %on cables 
+are transmitted directly to outside the cryostat %on cables 
 for processing and digitization, with
 the advantage that the infrastructure required for inside the cryostat is 
 reduced (power, data cables, precision clocks, data protocols, etc.).  
-%
-A custom module, called the SiPM Signal Processor (SSP), receives the SiPM signals. % has been designed and built 
-%for preprocessing for trigger and data acquisition (DAQ) in the front-end.
-%to perform signal processing in the front-end as preprocessing for trigger and data acquisition (DAQ). 
-%The module is called the SiPM Signal Processor (SSP).  
+A custom module, called the SiPM Signal Processor (SSP), receives the SiPM signals outside
+the cryostat.
 
 An SSP consists of 12 readout channels packaged in a self-contained 
 1U module.  
@@ -75,29 +66,24 @@ A block diagram of the system is shown in Fig.~\ref{fig:PD_fig-e-3}.
   \includegraphics[width=0.8\textwidth]{PD_fig-e-3.png}
 \end{cdrfigure}
 %
-In the simplest mode of operation, the module can perform waveform capture, 
-using either an internal trigger or an external trigger.  
+In the simplest mode of operation, the module performs waveform capture, 
+using either an internal  or  external trigger.  
 Up to 2046 waveform samples may be read out for each event.  When waveform 
 readouts overlap the device can be configured to offset, 
 truncate or completely suppress the overlapping waveform.  
 Pile-up events can also be suppressed.  
 
-Generally, the SSP performs pipelined processing.  
-The module has been designed to support several different triggering schemes, 
-including self-triggered, use of an external trigger, or use an 
-external gate to readout all events within a time-window.  
+
 In order for the events measured in the photon detector to be matched up 
 with the corresponding events in the TPC, the front-end electronics 
 attaches a timestamp to the data as it is acquired.  
 The timestamp is unique, and has a correspondence with the timestamps in 
 the TPC electronics processing.  
-The timestamp in the SSP is applied to the event data as it is digitized, 
-and becomes part of the data as the processing proceeds.  
+The timestamp in the SSP is applied to the event data as it is digitized. 
 In the case where zero-suppression and data sparsification are used, 
 the timestamp on accepted data remains intact.  
 To achieve this, the TPC and PD electronics must be synchronized, 
-including timestamp counter resets, and a known and stable calibration between 
-the corresponding timing resolution of the ADC conversion in the two systems.  
+including timestamp counter resets, based on a known and stable calibration for the timing resolution of the ADC conversion between the two systems.  
 
 A Xilinx Zynq FPGA, onboard the MicroZed system-on-module, handles the 
 slow control and event data transfer.  
@@ -115,8 +101,8 @@ The timing resolution of the signals has been measured to be better than 3 ns.
 The full-differential signal processing in the front-end circuitry 
 is important in achieving this result.
 
-The baseline plan assumes that three SiPM signals can be ganged 
-together into one readout channel. 
-By using a multi-conductor cable with four twisted pairs, this 
-results in one cable per PD consisting of 12 SiPMs.      
+As noted previously, three PDS SiPM signals are ganged 
+together into a single readout channel. 
+A multi-conductor cable with four twisted pairs is used to read out PDS modules,
+each of which incorporates  12 SiPMs.      
 

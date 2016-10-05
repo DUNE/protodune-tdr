@@ -13,7 +13,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Scope, Requirements and Design Parameters}
 \subsection{Scope and requirements} 
-\fixme{Add scope}
 
 In the TPC, each pair of facing cathode and anode planes forms an electron-drift region. A field
 cage (FC) must completely surround the four open sides of this region to provide the necessary boundary
@@ -23,13 +22,18 @@ conditions to ensure a uniform electric field within, unaffected by the presence
 \item six top FC assemblies
 \item six bottom FC assemblies
 \item four end-wall panels, each of which consist of four (side) assemblies
-\item I-beams that form a support structure for the top and bottom FC assemblies
-\item ground plane (GP), six GP panels per CPA module
-\item resistive divider chain that interconnects the parallel metal profiles in each FC assembly
-\item G10 connection pieces
-\item beam plug (or interface to it?)
 \end{itemize}
-\fixme{check this scope list}
+
+Each assembly is made up of
+\begin{itemize}
+\item parallel metallic profiles
+\item a resistive divider chain that interconnects the parallel metal profiles  to provide voltage step-down
+\item FR4 I-beams that form a support structure for the top and bottom assemblies
+\item ground planes (GP) for the top and bottom assemblies, six GP panels per FC module
+\end{itemize}
+In addition, the FC includes 
+ FR4 pieces to make connections to the CPA and APAs, and a 
+cylindrical beam plug that gets inserted into the end-wall panel where the beam enters the cryostat.
 
 The FC is required to:
 \begin{itemize}
@@ -74,7 +78,7 @@ the metal profiles are neither mechanically nor electrically connected. Gaps bet
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electrical design}
 
-Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm electric field limit with 180-kV bias.  However, It becomes challenging to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Several commercially available roll-formed metal profiles were studied and appear to meet these requirements. \fixme{what's challenging about it then?}
+Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm electric field limit with 180-kV bias.  However, It becomes challenging to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Fortunately, several commercially available roll-formed metal profiles were studied and appear to meet these requirements. 
 
 Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CPA and a top/bottom field cage module pair.
 
@@ -83,19 +87,18 @@ Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CP
 \end{cdrfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{FC and GP modules}
+\subsection{FC assemblies and GP modules}
 
-In order to confine the electric field in the liquid argon region, a grounded metallic plane is installed between the upper field cage module and the liquid-gas interface. 
-Each of the six top FC modules is attached to six ground plane (GP) panels, aligned 
+In order to confine the electric field in the liquid argon region, a grounded metallic plane is installed between the upper FC assemlies and the liquid-gas interface, and also between the lower FC assemblies and the bottom of the cryostat. 
+Each of the six top FC assemblies has six ground plane (GP) panels attached to it, aligned 
 along their long %(2,318-mm) 
-(2.3-m) dimension. The planes are connected to the FC beam 
-\fixme{GP panels are connected to I-beam supporting an FC assembly?}
+(2.3-m) dimension. The GPs are connected to the FC I-beam 
 with additional 
 G10 pieces that are also used to connect adjoining GP panels. 
-Figure~\ref{fig:fc-panel-endwall-frame} shows a top/bottom FC panel with the frame and 
+Figure~\ref{fig:fc-panel-endwall-frame} shows a top/bottom FC assembly with the frame and 
 Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled FC+GP module.
 
-\begin{cdrfigure}[Top/bottom FC panel with endwall frame]{fc-panel-endwall-frame}{A top/bottom FC panel with the frame}
+\begin{cdrfigure}[Top/bottom FC panel with endwall frame]{fc-panel-endwall-frame}{A top/bottom FC assembly with the frame}
 \includegraphics[width=0.8\linewidth]{fc-panel-endwall-frame}
 \end{cdrfigure}
 
@@ -107,8 +110,6 @@ The electrical continuity between consecutive panels can be made
 with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. \fixme{which is it?} 
 As for most detector systems, the GP is  referenced to the detector ground, located at the cryostat top.
 
-The GP panels are installed on their corresponding (top) FC modules in the clean room outside the cryostat. %, to facilitate the connections. 
-The description of how the top/bottom FC modules are assembled and connected to the CPA before insertion in the cryostat is provided in Section  \fixme{need to find and add reference}.
 
 Further GP panels need to be attached to the top FC module:
 \fixme{This little list needs work. Not clear which FC modules are intended or what these smaller GP panels are like compared to the other GP panels. Anne}
@@ -149,20 +150,29 @@ In addition to the mechanical connection, the ground side of the divider chain m
 \subsubsection{FC to beam plug}
 \label{subsec:fc-beamplug}
 
-The beam plug is designed to displace the passive LAr layer between the TPC field cage and the inner cryostat membrane. 
-\fixme{displace how?}As illustrated in Figure~\ref{fig:beamplug}, it is a cylidrical glass-fiber composite pressure vessel about 50cm in length and  22cm in diameter. It is filled with dry nitrogen gas via a stainless steel line that extends to the top of the cryostat. The pressure inside the beam plug is maintained externally up to 25 psi from room to LAr temperatures. A pressure relief valve (or burst disk) is installed on the nitrogen fill line on the top of the cryostat (externally) to ensure the pressure inside the beam plug does not exceed the safety level. The component-level view of the beam plug is shown in Figure~\ref{fig:beamplug_components}.  The beam plug is secured to the field cage support structure as described in Section~\ref{subsec:fc-beamplug}. The front portion of the beam plug extends 5~cm beyond the profiles to inside the active region of the TPC through an opening on the field cage. The field cage support is designed with sufficient strength and stiffness to support the weight of the beam plug while it is suspended in air. 
-When the cryostat is filled with LAr, the beam plug is roughly neutrally buoyant.  The total internal volume of the beam plug is about 16 liters. 
+%The beam plug is installed between the field cage and primary membrane where the charged particle beam enters the cryostat. Its main function is to displace about 45 cm of passive LAr layer in that region to allow the particle beam to enter the active TPC region with minimal upstream material interactions. 
 
-The requirements on the acceptable leak rate is between $7.8\times 10^{-5}$ scc/s to $15.6\times 10^{-5}$ scc/s. This is a very conservative leak rate and is roughly equivalent to 15\% of the nitrogen in the beam plug leaked over a period of a year.
-  In a worst case scenario with all the nitrogen in the beam plug leaking into the LAr cryostat, the increase in concentration is about 0.1 ppm, which is still a factor of 10 below the acceptable level as specified by light detection requirements.
+To minimize the material interactions of the particle beam in the cryostat upstream of the TPC, a volume of LAr along the beam path (between the cryostat membrane and the FC) is displaced, and replaced by a less dense volume of dry nitrogen gas. The gas is contained in the \textit{beam plug}, a cylindrical glass-fiber composite pressure vessel, about 50\,cm in length and 22\,cm in diameter.
+It is illustrated in Figure~\ref{fig:beamplug}.
+
+The beam plug is filled via a stainless steel line that extends to the top of the cryostat. 
+A pressure relief valve (or burst disk) is installed on the nitrogen fill line on the top of the cryostat (externally) to ensure the pressure inside the beam plug does not exceed the safety level of 25\,psi. The component-level view of the beam plug is shown in Figure~\ref{fig:beamplug_components}.  The beam plug is secured to the FC support structure as described in Section~\ref{subsec:fc-beamplug}. The front portion of the beam plug extends  through an opening in the FC 5\,cm into the active region of the TPC. The FC support is designed with sufficient strength and stiffness to support the weight of the beam plug while it is suspended in air.  When the cryostat is filled with LAr, the beam plug is roughly neutrally buoyant.  The total internal volume of the beam plug is about 16 liters. 
+
+%As illustrated in Figure~\ref{fig:beamplug}, it is a cylidrical glass-fiber composite pressure vessel about 50cm in length and  22cm in diameter. It is filled with dry nitrogen gas via a stainless steel line that extends to the top of the cryostat. The pressure inside the beam plug is maintained externally up to 25 psi from room to LAr temperatures. A pressure relief valve (or burst disk) is installed on the nitrogen fill line on the top of the cryostat (externally) to ensure the pressure inside the beam plug does not exceed the safety level. The component-level view of the beam plug is shown in Figure~\ref{fig:beamplug_components}.  The beam plug is secured to the field cage support structure as described in Section~\ref{subsec:fc-beamplug}. The front portion of the beam plug extends 5~cm beyond the profiles to inside the active region of the TPC through an opening on the field cage. The field cage support is designed with sufficient strength and stiffness to support the weight of the beam plug while it is suspended in air.  When the cryostat is filled with LAr, the beam plug is roughly neutrally buoyant.  The total internal volume of the beam plug is about 16 liters. 
+
+The requirements on the acceptable leak rate is between $7.8\times 10^{-5}$ scc/s to $15.6\times 10^{-5}$ scc/s. This is very conservative and is roughly equivalent to leakage of  15\% the nitrogen in the beam plug over a period of a year.
+  In the worst-case scenario in which all the nitrogen in the beam plug leaks into the LAr cryostat, the increase in concentration is about 0.1\,ppm, which is still a factor of 10 below the acceptable level, as specified by light detection requirements.
   \fixme{need some reference with details for this requirement}
-  At nominal operation, the voltage difference across the beam plug (between the first and the last grading ring) is 165kV. 
-  To minimize risk of electrical discharges, the beam plug is divided into sections and each section is bonded to stainless steel conductive grading rings. The grading rings are connected in series with two parallel path of resistor chains. There are 7 grading rings. The ring that is closest to the field cage is electrically connected to one of the field cage profiles. 
-  The last ring near the cryostat wall is grounded to the stainless steel membrane via a short grounding cable. 
-  The type and value of the resistor is still under evaluation. A likely candidate is the high voltage Super Mox 15G$\Omega$ resistor by OHMITE. The maximum total power dissipated by the resistor chain is about 0.6W.
+  At nominal operation, the voltage difference across the beam plug (between the first and the last grading ring) is 165\,kV. 
+
+    To minimize risk of electrical discharges, the beam plug is divided into sections, each of which is bonded to stainless steel conductive grading rings. The seven grading rings are connected in series with two parallel paths of resistor chains. The ring closest to the FC is electrically connected to one of the FC profiles. 
+  The ring nearest the cryostat wall is grounded to the cryostat inner membrane via a short grounding cable. 
+  The type and value of the resistor is still under evaluation.
+  \fixme{still?}
+  A likely candidate is the high-voltage Super Mox 15G$\Omega$ resistor by OHMITE. The maximum total power dissipated by the resistor chain is about 0.6\,W.
 
 
-\begin{cdrfigure}[Beam plug]{beamplug}{The beam plug is a  composite pressure vessel filled with dry nitrogen gas. The vessel is about 50cm in length and about 22cm in diameter. The pressure vessel is divided into sections with each section bonded to a stainless steel grading ring. The grading rings are connected by two parallel paths of resistor chain.}
+\begin{cdrfigure}[Beam plug]{beamplug}{The beam plug is a  composite pressure vessel filled with dry nitrogen gas. The vessel is about 50\,cm in length and about 22\,cm in diameter. The pressure vessel is divided into sections with each section bonded to a stainless steel grading ring. The grading rings are connected by two parallel paths of resistor chain.}
   \includegraphics[width=0.6\textwidth]{beamplug.png}
 \end{cdrfigure}
 
@@ -170,29 +180,21 @@ The requirements on the acceptable leak rate is between $7.8\times 10^{-5}$ scc/
   \includegraphics[width=0.7\textwidth]{beamplug_components.png}
 \end{cdrfigure}
 
-The metal electrode rings are spaced at regular intervals and interspersed with composite tube sections. The shape of the rings has been designed to minimize high electric field corners. The results of the field calculations are shown in Figures~\ref{fig:beamplug_ring1} and~\ref{fig:beamplug_ring2}. The average field in the vicinity of the beam plug is about 4.4 kV/cm. The maximum field of 15.7 kV/cm is on the electrode ring surface. In all regions the field is well below the 30 kV/cm limit.
+The metal electrode rings are spaced at regular intervals and interspersed with composite tube sections. The shape of the rings has been designed to minimize high electric field corners. The results of the field calculations are shown in Figures~\ref{fig:beamplug_ring1} and~\ref{fig:beamplug_ring2}. The average field in the vicinity of the beam plug is about 4.4\,kV/cm. The maximum field of 15.7\,kV/cm is on the electrode ring surface. In all regions the field is well below the 30 kV/cm limit.
 \fixme{citation to doc describing limit would be good}
 
-\begin{cdrfigure}[Beam plug electrodes]{beamplug_ring1}{Electric field calculation of the electrode ring design. The average field in the beam plug region is about 4.4 kV/cm. The maximum field of 15.7 kV/cm is on the electrode ring surface. }
+\begin{cdrfigure}[Beam plug electrodes]{beamplug_ring1}{Electric field calculation of the electrode ring design. The average field in the beam plug region is about 4.4 kV/cm. The maximum field of 15.7\,kV/cm is on the electrode ring surface. }
   \includegraphics[width=0.85\textwidth]{beamplug_ring1.pdf}
 \end{cdrfigure}
 
-\begin{cdrfigure}[Beam plug electrode]{beamplug_ring2}{Electric field calculation near the vicinity of the electrode. The shape of the ring minimizes the high field region near the joints between the electrode, LAr, and composite shell. The field is well below the 30 kV/cm limit in all regions.}
+\begin{cdrfigure}[Beam plug electrode]{beamplug_ring2}{Electric field calculation near the vicinity of the electrode. The shape of the ring minimizes the high field region near the joints between the electrode, LAr, and composite shell. The field is well below the 30-kV/cm limit in all regions.}
   \includegraphics[width=0.5\textwidth]{beamplug_ring2.pdf}
 \end{cdrfigure}
 
-The beam plug is installed between the field cage and primary membrane where the charged particle beam enters the cryostat. Its main function is to displace about 45 cm of passive LAr layer in that region to allow the particle beam to enter the active TPC region with minimal upstream material interactions. The beam plug is mounted onto one of the field cage support structures as shown in Figures~\ref{fig:beamplug-fc} and~\ref{fig:beamplug-fc2}. The support structure is designed with sufficient  strength and stiffness to support the weight of the beam plug.
+The beam plug is mounted onto one of the field cage support structures as shown in Figures~\ref{fig:beamplug-fc} and~\ref{fig:beamplug-fc2}. The support structure is designed with sufficient  strength and stiffness to support the weight of the beam plug.
 \begin{cdrfigure}[Beam plug to CPA connection]{beamplug-fc}{Beam plug to field cage interface.}
 \includegraphics[width=0.75\linewidth]{beamplug-fc.pdf}
 \end{cdrfigure}
 \begin{cdrfigure}[Beam plug to CPA connection]{beamplug-fc2}{Cutaway sideview of the beam plug to field cage interface.}
 \includegraphics[width=0.5\linewidth]{beamplug-fc2.pdf}
 \end{cdrfigure}
-
-%%%%%%%%%%%  4 oct; Anselmo said the below is a repeat %%%%%%%%%%%%%
-
-%\paragraph{Field cage resistor divider chain with beam plug}
-%The resistor divider chain of the beam plug is tied to the main field cage profile. To maintain the 3 kV voltage drop across all field cage profiles, a second resistor divider board is added in parallel to the nominal board for the first 5 field cage profiles closest to the CPA. This modification is only needed for the field cage panel with the beam plug attached. The circuit diagram for the proposed scheme and the resistor values are shown in Figure~\ref{fig:beamplug_resistordivider}.
-%\begin{cdrfigure}[Beam plug resistor divider chain]{beamplug_resistordivider}{The resistor divider circuit for the end-wall field cage panel with the beam plug. The proposed resistor values for the main, parallel divider boards, and the beam plug are given in the tables.}
-%  \includegraphics[width=0.85\textwidth]{beamplug_resistordivider.pdf}
-%\end{cdrfigure}
