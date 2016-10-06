@@ -1,4 +1,4 @@
-\section{Offline Processing of the Experimental and Simulated Data}
+\section{Offline data processing} % of the Experimental and Simulated Data}
 \label{sec:protodune-offline}
 
 The data to be processed by the offline system can be classified as follows:
@@ -6,17 +6,17 @@ The data to be processed by the offline system can be classified as follows:
 
 \item A variety of calibration data derived from experimental data, including dedicated calibration
 runs where necessary, and/or subsamples of data collected specifically for calibration
-purposes during normal running conditions,
+purposes during normal running conditions;
 
 \item Processed experimental data, which may exist in several parallel branches corresponding to
 different reconstruction algorithms being applied, with the purpose of evaluating the performance
-of the different algorithms,
+of the different algorithms;
 
-\item Monte Carlo (MC) data, which will contain multiple event samples to cover various event types
-and other conditions during the measurements with protoDUNE
+\item Monte Carlo (MC) data, which contain multiple event samples to cover various event types
+and other conditions during data-taking; and %the measurements with protoDUNE
 
 \item Data derived from MC events, and produced with a variety of tracking and pattern recognition algorithms
-in order to create a basis for the detector characterization
+in order to create a basis for the detector characterization.
 
 \end{itemize}
 
@@ -24,37 +24,38 @@ in order to create a basis for the detector characterization
 \subsection{Production processing}
 \label{sec:prod-process}
 
-The production processing will likely have more than one processing step,
-thus multiplying the data volume.  The volume of the derived data is assumed to be smaller than that for the raw data.
-Given the considerations for the anticipated raw data volume presented above,
-the current plan is to provision $\sim$10\,PB of tape storage to keep the raw and processed data. This includes
-two copies of the raw data at 3~pb each, and two passes of derived data at 1~pb each, and 2~pb of simulation samples.
+The production processing will likely have \fixme{typically has?} more than one processing step,
+thus \fixme{creating derived data and} multiplying the data volume.  The volume of the derived data is assumed to be smaller than that for the raw data.
+Given the anticipated raw data volume, %considerations for the anticipated raw data volume presented above,
+the %current 
+plan is to provision $\sim$10\,PB of tape storage to keep the raw and processed data. This includes
+two copies of the raw data at 3~pb each, two passes of derived data at 1\,PB each, and 2\,PB of simulation samples.
 One copy of the raw data may be included as part of the output of the reconstruction, for convenience in comparing
 raw and reconstructed data objects while also serving the purpose of providing a backup copy of the raw data.
 
-For efficient processing, disk storage will be necessary to provide access to the data stored on tape.
-Extrapolating from experience running Monte Carlo for previous DUNE MC campaigns,
-it is estimated that  a few hundred TB of continuously available disk space will be needed for samples that are repeatedly
-accessed, as well as ntuples for user analysis.  The offline system will take advantage of the shared dCache resource
+For efficient processing, disk storage is necessary to provide access to the data stored on tape.
+Extrapolating from experience running MC for previous DUNE MC campaigns,
+it is estimated that  a few hundred TB of continuously available disk space is needed for samples that are repeatedly
+accessed, as well as ntuples for user analysis.  The offline system takes advantage of the shared dCache resource \fixme{dcache reference needed}
 at Fermilab in order to provide efficient access to the data stored on tape.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Prompt Processing}
+\subsection{Prompt processing}
 \label{sec:prompt_processing}
 
-In the present context, \textit{Prompt Processing} means a number of fast signal processing and reconstruction processes
-(also called ``express stream'' sometimes) which process a fraction of raw data. Its main purpose is to aid in QA of the data
-and produce quick calibrations which may be necessary for detailed monitoring of the detector. As one example,
+In the present context, \textit{prompt processing} refers to a number of fast signal-processing and reconstruction processes
+(also called ``express stream'') that process a fraction of the raw data. Its main purpose is to aid in QA of the data
+and produce quick calibrations that may be necessary for detailed monitoring of the detector. For example,
 calculating the frequency spectra of noise and monitoring its level, evolution and other characteristics is an important aspect of ensuring
 the stability of the readout chain.
 
-A limited number of metrics will be calculated in order to make the process as quick as possible, enabling
+A limited number of metrics are calculated in order to make the process as quick as possible, enabling
 the operators to take action should the QA process indicate a potential problem in the detector or the data.
 
 Processing roughly 1\% of the data stream collected by the detector is predicted to
 be enough to meet the most important goals of prompt processing. 
 The general strategy is to locate some of the prompt processing capability at CERN, at a scale adequate for the mid-range
-data taking scenario such as presented in Table\, \ref{tab:goldi}. An estimated 300 cores
-will be needed to cope with processing at that rate.
+data-taking scenario, such as presented in Table~\ref{tab:goldi}. An estimated 300 cores
+are needed to cope with processing at that rate.
 

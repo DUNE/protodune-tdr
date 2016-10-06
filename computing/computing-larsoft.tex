@@ -1,14 +1,17 @@
-\section{LArSoft framework}
+\section{The LArSoft framework for simulation and reconstruction} 
 
 \fixme{cross check with description in DAQ section;  there is some tolerable (?) overlap}
 LArSoft~\cite{larsoft-web} is a suite of tools for simulating and
 reconstructing data collected from LArTPC detectors.  It is
 built on the \textit{art}~\cite{art-web} event-processing framework.  The
-main features of the \textit{art} framework are its configurability by
-human-readable and editable control files which use the Fermilab
-Hierarchical Control Language (FHiCL), the scheduling of executing of
-program modules which are of five types: event sources, filters,
-data-product producers, analyzers, and output.  Common utilities that
+main features of the \textit{art} framework are 
+its configurability by
+human-readable and editable control files (that use the Fermilab
+Hierarchical Control Language (\textit{FHiCL})), and
+the scheduling of 
+program module execution. The modules are of five types: event sources, filters,
+data-product producers, analyzers, and output.  
+Common utilities that
 can be accessed by any program module at any time are called \textit{services}.
 
 The \textit{art} framework defines the input/output structure of
@@ -16,10 +19,10 @@ ROOT-formatted files using TTrees to store the data, metadata, and
 provenance information.  The provenance information consists of the
 contents of the FHiCL documents used to steer the processing of the
 job that created a file, and those of input files and parents.  
+\fixme{give some adjective before `file' e.g., `output'?}
 
-The
-\textit{ art} framework's division of the simulation and reconstruction
-jobs into modular pieces allows many developers to contribute to an
+The \textit{ art} framework's division of the simulation and reconstruction
+jobs into modular pieces allows multiple developers to contribute to an
 effort, and to test their ideas in isolation before integrating them
 into a larger system.  Because the data read in from an event is
 placed in read-only memory, analyzers can program with confidence that
@@ -35,14 +38,14 @@ Section~\ref{sec:larsoftsim}, and event reconstruction, the details of
 which are presented in Section~\ref{sec:larsoftreco}.  
 
 The \textit{art}
-framework and LArSoft source code are publicly available and pre-built
+framework and LArSoft source code are publicly available, and pre-built
 versions are provided~\cite{scisoft-web} for supported versions of Linux and Mac
 OS~X.  Tools for compiling the framework and
 applications are also provided, along with all of the required
 dependencies, including the gnu C++ compiler.  The versions of the
 software and its dependencies are managed by the UNIX Product Support (UPS) system,
 which allows easy version selection, setup and configuration of the LArSoft
-environment on computers with many versions already installed, such as
+environment on computers with previous versions already installed, such as
 those at Fermilab.  
 
 LArSoft is under rapid development by both the
