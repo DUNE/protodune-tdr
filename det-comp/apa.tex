@@ -10,18 +10,18 @@
 Anode Plane Assemblies (APAs) are the detector elements utilized to sense ionization created by charged particles traversing the liquid argon volume inside the single-phase TPC.  The scope of the APAs includes:
 \begin{itemize}
 \item framework of lightweight, rectangular stainless steel tubing;
-\item a mesh layer attached directly to the APA frame;
+\item a mesh layer attached directly to both sides of the APA frame;
 \item layers of sense and shielding wires wrapped at varying angles relative to each other;
 \item stacked head electronics boards, which are wire boards for anchoring the wires at the top (head) of the APA;
 \item capacitive-resistive (CR) boards that link the wire boards to the CE;
 \item side and foot boards along the other three edges of the APA with notches and pins to hold the wires in place;
-\item glue and solder;
+%\item glue and solder;
 \item modular boxes to hold the CE;
 \item comb wire supports, mounted on cross braces distributed along the length of the APA, to prevent wire deflection; and
 \item pin/slot pairs on the side edges of adjacent APAs to maintain coplanarity.
 \end{itemize}
 
-The initial physics performance requirements that drive the design of the APA are listed in Table~\ref{tab:physicsrequirements}.  These are chosen to enablehigh-efficiency reconstruction throughout the entire active volume of the LArTPC.  
+The initial physics performance requirements that drive the design of the APA are listed in Table~\ref{tab:physicsrequirements}.  These are chosen to enable high-efficiency reconstruction throughout the entire active volume of the LArTPC.  
 
 \begin{cdrtable}[APA Physics Requirements]{lr}{physicsrequirements}{Preliminary physics requirements that motivate APA design parameters.}   
 Requirement & Value  \\ \toprowrule
@@ -45,12 +45,14 @@ The ability to identify minimum-ionizing particles (MIPs) is a function of sever
 
 The fine wire spacing of the APA enables excellent precision in identifying the location of any vertices in an event (e.g., the primary vertex in a neutrino interaction, or gamma conversion points in a $\pi^{0}$ decay), which has a direct impact on reconstruction efficiency. It is required to reach a vertex resolution of $\sim$1.5 cm along each coordinate direction.  In practice, the resolution on the drift-coordinate ($x$) of a vertex or hit will be better than that on its location in the $y$-$z$ plane, due to the combination of drift-velocity and electronics sampling-rate.
 
+\fixme{we haven't define the coordinate system; is x along the drift direction?}
 
 %%%%%%%%%%%%%%%%
 \subsection{APA design overview}
+\label{sec:apa-design-overview}
 
 An APA is constructed from a framework of lightweight, rectangular stainless steel tubing, with a fine mesh covering the rectangular area within the frame, on both sides, that defines a uniform ground across the frame. Along the length of the frame and around it, over the mesh layer, layers of sense and shielding wires are strung or wrapped at varying angles relative to each other, as illustrated in  Figure~\ref{fig:tpc_apa1}. The wires are terminated on  boards that anchor them and also provide the connections to the cold electronics. The APAs are 2.3\,m wide, 6.3\,m high, and 12\,cm thick.  
-The size of the APAs is chosen for fabrication purposes and to be compatible with over-the-road shipping, and eventual transport to the 4850 level at SURF and installation into the membrane cryostat of a detector module, where sufficient shock absorbers and clearances are taken into account at each stage.  The dimensions are also chosen such that an integral number of electronic readout channels and boards fill in the full area of the APA. The modularity of the APAs allows them to be built and tested at off-site production facilities, decoupling their manufacturing time from the construction of the membrane cryostat. 
+The size of the APAs is chosen for fabrication purposes, compatibility with over-the-road shipping, and for eventual transport to the 4850 level at SURF and installation into the membrane cryostat of a detector module. Sufficient shock absorption and clearances are taken into account at each stage.  The dimensions are also chosen such that an integral number of electronic readout channels and boards fill in the full area of the APA. The modularity of the APAs allows them to be built and tested at off-site production facilities, decoupling their manufacturing time from the construction of the membrane cryostat. 
 As mentioned above, the principal design parameters are listed in Table~\ref{tab:apaparameters}.
 
 \begin{cdrtable}[APA Design Parameters]{lr}{apaparameters}{APA Design Parameters.}   
@@ -78,9 +80,9 @@ Photon Detector Slots & 10 \\
 %The wire planes are layered over a ``mesh layer''  attached directly to the APA frame that defines an equipotential plane over the surface area of the frame. 
 %The front-end electronics boards are mounted on one end of the APA frame and are protected by a metal enclosure.
 Starting from the outermost wire layer, 
-there is first a shielding (grid) plane, followed by two induction planes, and finally the collection plane. All wire layers span the entire height of the APA frame. The wrapping of the induction layers is illustrated in  Figure~\ref{fig:tpc_apa1}.
+there is first a shielding (grid) plane, followed by two induction planes, and finally the collection plane. All wire layers span the entire height of the APA frame. The layout of the wire layers is illustrated in  Figure~\ref{fig:tpc_apa1}.
 
-\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta), the induction layers; and X (blue), the collection layer, to accentuate their angular relationships to the frame and to each other.  The induction layers are connected electrically across both sides of the APA.  The grid layer wires (not shown), run vertically, parallel to the X layer wires.  The mesh is not shown.}
+\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta), the induction layers; and X (blue), the collection layer, to accentuate their angular relationships to the frame and to each other.  The induction layers are connected electrically across both sides of the APA.  The grid layer (G) wires (not shown), run vertically, parallel to the X layer wires;  separate sets of G and X wires are strung on the two sides of the APA.  The mesh is not shown.}
 \includegraphics[width=0.8\textwidth, angle=90]{figures/tpc_apa1.png} 
 \end{cdrfigure}
 
@@ -258,8 +260,8 @@ The combs are made from 0.5-mm-thick G10 with slots cut into it.  The comb for t
 
 Periodic holes along the length of the strip allow the use of pins to accurately position each successive strip with respect to the previous one.  A series of jigs is used to create and install these combs.  One jig aligns the first strip to the base strip during gluing.  Another jig locates this assembly on the frame as it is glued in place. A third jig locates each successive comb using these holes (labeled registration holes in Figure~\ref{fig:tpc_apa_supportcombmodel}).
 
-The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs.  They are not, however, deliberately glued at the combs.  
-\fixme{they are deliberately NOT glued...? clarify}
+The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs.  They are deliberately not glued at the combs.  
+%\fixme{they are deliberately NOT glued...? clarify}
 
 
 
@@ -269,14 +271,15 @@ The wire openings in the comb stack are small enough that the wires are accurate
 %%%%%%%%%%%%
 \subsubsection{CE boxes}
 
-Pins extending outward from the CR boards provide connections from the APA to the CE, which are housed in small, modular boxes that provide shielding.
+Pins extending outward from the CR boards provide connections from the APA to the modularly designed CE, and the CE modules are housed in small boxes that provide shielding.
 The CE boxes are illustrated in Figure~\ref{fig:tpc_apa_electronicsmountingdiagram}. 
 %The design being developed for attaching the CE to the APAs consists of small boxes, 
-Each board stack has one CE box installed near it that holds the CE for the stack.  
+Each board stack has one CE box installed near it that holds the CE module for the stack.  
 
-Putting the electronics in small modules simplifies installation and replacement, and also helps with the collection of argon gas generated by the warm electronic components.  These modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
+Putting the electronics in small boxes simplifies installation and replacement, and also helps with the collection of argon gas generated by the warm electronic components.  The CE modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
 
-\begin{cdrfigure}[APA Electronics Mounting Design]{tpc_apa_electronicsmountingdiagram}{Solid model of revised, modular, cold electronics boxes.}
+\begin{cdrfigure}[Solid model of modular CE boxes]{tpc_apa_electronicsmountingdiagram}{Solid model of %revised, 
+modular CE boxes.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_electronicsmountingdiagram.png} 
 \end{cdrfigure}
 
