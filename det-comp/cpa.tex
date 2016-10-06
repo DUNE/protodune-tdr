@@ -17,8 +17,8 @@ The scope of the CPA includes:
 
 \begin{itemize}
 \item 18 CPA modules, each with a frame and resistive cathode panel, %, field-shaping strips, metallic buttons, pin-and-slot connections
-\item HV bus, and
-\item HV cup, a receptacle for the HV feedthrough.
+\item HV bus connecting the CPA columns and modules, and
+\item HV cup for receiving input from the power supply.
 %\item CPA frame electrodes?
 \end{itemize}
 
@@ -44,8 +44,8 @@ The CPA plane is required to:
 \subsection{Design considerations}
 
 
-In a single-phase DUNE far detector module (DUNE-SP), the cathode planes are planned to be 12\,m tall by nearly 60\,m long.  When biased to the nominal voltage of $-$180\,kV, each cathode plane stores more than 100\,J of energy. If this energy were to be released  suddenly and completely in a high-voltage discharge event, it could greatly affect the integrity of the detector elements, including the sensitive front-end electronics.  
-Study has shown~\cite{cathode-hv-1320} that a cathode plane made of interconnected metallic electrodes would present significant risk to the front-end ASICs due to the charge injection through the capacitive coupling between the cathode and the anode wires in such an event.  
+For the DUNE-SP far detector, the cathode planes are planned to be 12\,m tall by nearly 60\,m long.  When biased to the nominal voltage of $-$180\,kV, each of these cathode planes stores more than 100\,J of energy. If this energy were to be released  suddenly and completely in a high-voltage discharge event, it could greatly affect the integrity of the detector elements, including the sensitive front-end electronics.  
+Study has shown~\cite{cathode-hv-1320} that a cathode plane made of interconnected metallic electrodes would present significant risk to the front-end ASICs based on the potential charge injection through the capacitive coupling between the cathode and the anode wires originating from such an event.  
 
 To address this issue, the entire cathode plane is made out of highly resistive material such that it has a very long discharge time constant.  In the event of HV breakdown at a given location on the cathode plane, the sudden change in voltage is restricted to  a relatively localized area on the CPA module in question.  The rest of the CPA maintains its original bias voltage, and gradually discharges to ground through the large resistivity of the cathode material.  This greatly reduces the instantaneous charge injection to the front-end electronics.
 
@@ -66,7 +66,7 @@ The cathode plane design chosen for the ProtoDUNE-SP TPC is an array of 18 moder
 Each CPA column is suspended under the cathode support rail by a single insulating FR4 bar.  On the top and bottom edges of a CPA, two hinges support the partial weight of the top and bottom field cage modules.   Adjacent CPAs are aligned through pin-and-slot connections to maintain co-planarity while allowing minor relative vertical shift due to cryostat roof movement.
 
 The electrical connectivity of the resistive panels vertically along each CPA column is maintained by several tabs through the edge frames.  There is no direct electrical connection across the CPA columns. 
-The HV bus is a loop of a HV cable placed along the outer edges of the entire cathode plane and horizontally between the CPA modules across the columns. Along the perimeter it is hidden between the field-shaping strip overhang and the main cathode resistive sheet.  This cable must be capable of withstanding the full cathode bias voltage to prevent direct arcing to (and as a result, recharging) a cathode panel having a discharge to ground. 
+The HV bus is a loop of a HV cable placed along the outer edges of the entire cathode plane and horizontally between the CPA modules across the columns. Along the perimeter it is hidden between the field-shaping strip overhang and the main cathode resistive sheet.  This cable must be capable of withstanding the full cathode bias voltage to prevent direct arcing to (and as a result, the recharging of) a CPA panel that discharges to ground. 
 The HV bus makes redundant connections to the resistive panels across CPA columns.  It also provides a low-resistance path for the FC resistive divider chains around the cathode edges.
 \fixme{check prev pgraph}
 
@@ -78,7 +78,7 @@ The outer edges of the cathode plane facing the cryostat wall are populated with
 \end{cdrfigure}
 
 %rom beginning:
-The CPA is connected to the HV feedthrough through a receptacle, called the \textit{HV cup}, at the back end of the cryostat (with respect to the beam entrance) and biased at $-$180\,kV.   It provides this voltage and the required current to all the FC modules (top, bottom and end walls) through electrical interconnects (Section~\ref{detcompsec-fc}).  It also mechanically supports six pairs of top/bottom FC modules. The CPA is suspended by insulating bars from the CPA installation rail.
+The CPA is connected to the HV feedthrough through a receptacle, called the \textit{HV cup}, at the back end of the cryostat (with respect to the beam entrance) and biased at $-$180\,kV.   It provides this voltage and the required current to all the FC modules (top, bottom and end walls) through electrical interconnects (Section~\ref{detcompsec-fc}). The CPA is suspended by insulating bars from the CPA installation rail.  It also mechanically supports six pairs of top/bottom FC modules.
 
 
 %%%%%%%%%%%%%
@@ -114,16 +114,16 @@ Figures~\ref{fig:cpa-geometry} and~\ref{fig:cpa-view2} show the basic geometry o
 \end{cdrfigure}
 
 
-{\it Deformation and stress due to pressure from circulating LAr}
+\textit{Deformation and stress due to pressure from circulating LAr}
 
 Calculations indicate that a uniform 2-Pa pressure 
   applied to the resistive panels  during cooldown will result in 0.090~inch deflections of the panel at its center.  The entire TPC (i.e., the CPA/FC/APA assembly) will displace 8.8~mm laterally as a result of the net force from this pressure.  
 
-{\it Thermal considerations}
+\textit{Thermal considerations}
 
 When the CPA modules are cooled, their width will shrink by 0.9~mm.  The supporting stainless steel beam will shrink by 1.6~mm over the width of the CPA.  If the CPA supports are rigidly attached to the supporting stainless steel beam, then an interference of 0.7~mm (the difference) will occur.  To prevent this interference and ensure contact between CPAs after cooldown, an initial gap of 0.7~mm between CPAs is required.  
 
-The steel beam between the CPA and APA will shrink by 5.2~mm relative to the field cage length when cooled to LAr temperature.  The joint between the FC and the CPA must be able to accommodate this shrinkage.
+The steel beam between the CPA and APA will shrink by 5.2~mm relative to the field cage length when cooled to LAr temperature.  The joint between the FC and the CPA is designed to accommodate this shrinkage.
 
 
 
@@ -135,19 +135,15 @@ The frames of these modules are bolted together using tongue-and-groove connecti
 \fixme{are the ``buttons'' called something else in the figures? }
 
 %There are six 6\,m tall CPA modules in  ProtoDUNE-SP.  
-Each CPA is suspended from the cathode rail using a central lifting bar.  Due to the roof movement between the warm and cold phases of the cryostat as it is cooled, each CPA is expected to move $\sim$2~mm relative to its neighbors.  Several pin-and-slot connections are implemented at the long edges of the CPA columns to ensure the co-planarity of the modules and yet allow small vertical displacement.  A low-resistance
-``high voltage bus''  interconnects the resistive cathode surfaces across the columns to maintain a uniform voltage across the cathode surface.
+Each CPA is suspended from the cathode rail using a central lifting bar.  Due to the roof movement between the warm and cold phases of the cryostat as it is cooled, each CPA is expected to move $\sim$2~mm relative to its neighbors.  Several pin-and-slot connections are implemented at the long edges of the CPA columns to ensure the co-planarity of the modules while allowing for a small vertical displacement.  
 
 The HV bus provides the high voltage to the FC
-circuit and cathodes with a voltage drop much less than 0.1\% of the
-cathode voltage. The location of the bus with respect to the CPA frame is shown in Figure~\ref{fig:HVbusmodel}. The field-shaping electrodes on the faces of the CPA module
+circuits and CPA modules with a voltage drop much less than 0.1\% of the
+default voltage. The location of the bus with respect to the CPA frame is shown in Figure~\ref{fig:HVbusmodel}. The field-shaping electrodes on the faces of the CPA module
 frames are part of the FC circuit, described in Section~\ref{detcompsec-fc}. 
 FC electrodes on the outer edges of the
 CPA are held at the cathode potential to provide field
-uniformity and to protect the HV bus from discharge.  The feedthrough
-connects to a HV cup on one side of a CPA at one end of
-the cathode plane.  Interconnection of the bus between CPAs is made
-through HV cables passed through the CPA frames. 
+uniformity and to protect the HV bus from discharge.  
 
 \begin{cdrfigure}[Model of the HV bus]{HVbusmodel}{A perspective view of CPA frame showing the location of the HV bus cable and attachments to the HV cup and resistive cathode, with CPA frame electrodes omitted to make HV bus visible.}
 \includegraphics[height=0.35\textheight]{DUNE_SP_CPA_Design_Update-slide17-mod}

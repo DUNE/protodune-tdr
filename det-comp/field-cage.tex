@@ -14,7 +14,7 @@
 %\subsection{Scope, Requirements and Design Parameters}
 \subsection{Scope and requirements} 
 
-In the TPC, each pair of facing cathode and anode planes forms an electron-drift region. A field
+In the TPC, each pair of facing cathode and anode planes form an electron-drift region. A field
 cage (FC) must completely surround the four open sides of this region to provide the necessary boundary
 conditions to ensure a uniform electric field within, unaffected by the presence of the cryostat walls.  The scope of the FC includes:
 
@@ -31,9 +31,10 @@ Each assembly is made up of
 \item FR4 I-beams that form a support structure for the top and bottom assemblies; and
 \item ground planes (GP) for the top and bottom assemblies, six GP panels per FC module.
 \end{itemize}
-In addition, the FC includes 
- FR4 pieces to make connections to the CPA and APAs, and a 
-cylindrical beam plug that gets inserted into the end-wall panel where the beam enters the cryostat.
+
+In addition, the FC assemblies include FR4 pieces to make the mechanical connections to the CPA and APAs.
+One end-wall assembly is specially configured to accommodate the
+cylindrical beam plug, which displaces the LAr in the region where the beam enters the cryostat.
 
 The FC is required to:
 \begin{itemize}
@@ -53,8 +54,8 @@ The FC is required to:
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mechanical design}
 
-The FC has six top and six bottom FC assemblies, arranged three along each horizontal edge of the two drift regions. It has 
-four end-wall panels (each made up of four end-wall assemblies), one at each vertical edge of the two drift regions, see Figure~\ref{fig:fc-overview} and~\ref{fig:fc-endwall_module}.
+The FC has six top and six bottom FC assemblies, arranged in sets of three along each horizontal boundary of the two drift regions. It has 
+four end-wall panels (each made up of four end-wall assemblies), one covering each vertical boundary of the two drift regions, shown in Figures~\ref{fig:fc-overview} and~\ref{fig:fc-endwall_module}.
 Each endwall panel consists of four assemblies in ``landscape'' orientation, stacked vertically.
 FC assemblies are constructed from pultruded G10 I-beams and box beams that support extruded field-shaping aluminum profiles. The support structure for each of the top and bottom FC assemblies consists of two main I-beams that are 3.6~m long, and three cross I-beams that brace the main I-beams for structural stability. The main I-beams have cutouts to hold the field-shaping profiles. 
 
@@ -65,7 +66,7 @@ FC assemblies are constructed from pultruded G10 I-beams and box beams that supp
 Aside from the profiles themselves, the nuts and bolts holding them, and the ground plane panels, all FC components are made of insulating material. The material selected for these structural components is fiberglass-reinforced plastic (FRP), which prevents binding when the structure is at cryogenic temperatures. The ground plane panels are made of stainless steel. 
 
 The inward-facing side of the ground planes are approximately 20~cm away from the top of the field-shaping profiles, mounted at this fixed distance % from the field shaping profiles 
-by standoffs. Figure~\ref{fig:fc-with-ground-planes} shows a set of ground planes over I-beams and cross beams attached to a FC assembly.
+by standoffs. Figure~\ref{fig:fc-with-ground-planes} shows a set of ground planes situated over the I-beams and cross beams attached to a FC assembly.
 
 \begin{cdrfigure}[The field cage with ground planes]{fc-with-ground-planes}{The field cage with ground planes}
 \includegraphics[width=0.8\linewidth]{fc-with-ground-planes}
@@ -79,7 +80,7 @@ the metal profiles are neither mechanically nor electrically connected. Gaps bet
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electrical design}
 
-Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm electric field limit with 180-kV bias.  However, It becomes challenging to reduce the clearance between the FC and ground in order to make more efficient use of liquid argon.  This requires an electrode with a low profile, rounded edges, no trapped volume, and low cost.  Fortunately, several commercially available roll-formed metal profiles were studied and appear to meet these requirements. 
+Given a large standoff distance between the FC and the grounded cryostat wall, it is relatively easy to design a FC that meets the 30-kV/cm electric field limit with 180-kV bias.  However, as this distance is reduced to increase the active detector volume, the design becomes more challenging.  Optimizing the active detector volume requires the use of electrodes with low profiles, rounded edges, no trapped volumes, and low cost.  Fortunately, several commercially available roll-formed metal profiles were studied and appear to meet these requirements. 
 
 Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CPA and a top/bottom field cage module pair.
 
@@ -90,14 +91,14 @@ Figure~\ref{fig:fc-schematic} is a schematic of the electrical design of  the CP
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Top/bottom FC assemblies and GP modules}
 
-In order to confine the electric field in the liquid argon region, a grounded metallic plane is installed between the upper FC assemblies and the liquid-gas interface, and also between the lower FC assemblies and the bottom of the cryostat. 
+In order to confine the electric field in the active LAr region, a grounded metallic plane is installed between the upper FC assemblies and the liquid-gas interface, and also between the lower FC assemblies and the bottom of the cryostat. 
 Each of the six top FC assemblies has six ground plane (GP) panels attached to it, aligned 
 along their long %(2,318-mm) 
 (2.3-m) dimension. The GPs are connected to the FC I-beam 
 with additional 
-G10 pieces that are also used to connect adjoining GP panels. 
-Figure~\ref{fig:fc-panel-endwall-frame} shows a top/bottom FC assembly with the frame and 
-Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled FC+GP module.
+G10 support pieces that are also used to connect adjoining GP panels. 
+Figure~\ref{fig:fc-panel-endwall-frame} shows the frame of a top/bottom FC assembly and 
+Figure~\ref{fig:fc_full} shows a 3D model of a fully assembled FC module with attached GP panels.
 
 \begin{cdrfigure}[Top/bottom FC panel with endwall frame]{fc-panel-endwall-frame}{A top/bottom FC assembly with the frame}
 \includegraphics[width=0.8\linewidth]{fc-panel-endwall-frame}
@@ -107,21 +108,21 @@ Figure~\ref{fig:fc_full} shows a 3D model of one fully assembled FC+GP module.
 \includegraphics[width=0.8\linewidth]{tpc_topFC.png}
 \end{cdrfigure}
 
-The electrical continuity between consecutive panels can be made 
-with metallic screws (with holes on the planes edges) or with looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. \fixme{which is it?} 
-As for most detector systems, the GP is  referenced to the detector ground, located at the cryostat top.
+The electrical connections between consecutive panels are to be made 
+with either metallic screws (using holes on the planes edges) or looser connections, e.g., copper strips, that better adapt to the shrinking of the structure during cooldown. 
+The GP panels are connected directly to the detector ground, referenced from the top of the cryostat.
 
 
-Further GP panels need to be attached to the top FC module:
-\fixme{This little list needs work. Not clear which FC modules are intended or what these smaller GP panels are like compared to the other GP panels. Anne}
+In addition to the six primary GP panels attached to the the top FC modules,
 \begin{itemize}
-\item Smaller panels have to be connected on the modules on one side of the CPA so that, once in position, they 
+\item Smaller panels are to be connected to the modules on one side of the CPA so that, once in position, they 
 cover the CPA frame. Their dimensions are 
-still to be defined, depending on the final design of the CPA hanging scheme. Such \fixme{the same pieces are connected, or similar ones are?} pieces should also be connected to the modules covering the opposite drift region, when in final position.
+still to be defined, depending on the final design of the CPA hanging scheme. These pieces will also connect to the top FC modules covering the opposite drift region, once in their final position.
 \item An additional 
-set of small panels should be installed on the outer modules of the FC to extend the GP over the vertical FC walls, which 
-further constrains the electric field in these regions. A FEA 
-shows that the optimized overhang distance is 20~cm, provided LAr is at 40~mm above the bottom of the GP. The maximal residual field in this configuration is of the order of 13~kV/cm, with less than 1~kV/cm field in the gas phase.
+set of small panels is installed on the outer top FC modules of the FC to extend the GP coverage over the end-wall FC 
+assemblies to further constrain the electric field in these regions. A FEA 
+shows that the optimized overhang distance is 20~cm, provided that the surface of the LAr is 40\,mm above the GP. 
+In this configuration, the maximal residual field is of the order of 13~kV/cm, with no greater than 1\,kV/cm fields in the gass ullage at the top of the cryostat.
 \end{itemize}
 
 %%%%%%%%%%%%
@@ -129,10 +130,10 @@ shows that the optimized overhang distance is 20~cm, provided LAr is at 40~mm ab
 
 \subsubsection{FC to CPA}
 
-On the top and bottom of the TPC, hinges connect each field cage module to two CPA columns.  This design allows the FC modules to be pre-attached to the CPAs during installation, and prevents accidental damage to the APA wire plane when raising the field cage module to connect 
-to the APA.
+On the top and bottom of the TPC, hinges connect each FC module to two CPA columns. These hinges allow the FC modules to be pre-attached to the CPAs during installation, preventing accidental damage to the APA wire planes when FC modules are raised and connected to the APAs.
 
-The end-wall field cage modules are hung from the CPA and APA support rails.  They do not have strong mechanical coupling to the CPAs and APAs, however, at least four resistive divider chains must be connected to the CPA's HV bus. \fixme{clarify how HV bus and FC are related, I'm sure it's explained elsewhere, but this sentence feels unconnected to FC. Anne}
+The end-wall FC assemblies are hung from the CPA and APA support rails.  There is no strong mechanical coupling 
+between the end-wall FC assemblies and the CPAs or APAs. However, the end-wall FC module resistive divider chains do have an electrical connection to the HV bus on the CPA plane.
 
 \begin{cdrfigure}[CPA to field cage connection]{cpa-fc-connection}{A top field cage module (grey) connected to two CPA modules (brown)}
 \includegraphics[width=0.8\linewidth]{tpc_fc_cpa_connection.png}
@@ -142,8 +143,8 @@ The end-wall field cage modules are hung from the CPA and APA support rails.  Th
 %%%%%%%%%%%%
 \subsubsection{FC to APA}
 
-The I-beams of the top/bottom field cage modules are designed to be latched onto the mating brackets on the APAs.  The design details are currently being developed.   
-In addition to the mechanical connection, the ground side of the divider chain must be connected to the APA's frame ground. 
+The I-beams of the top/bottom FC modules are designed to be latched onto  mating brackets on the APAs.  
+In addition to the mechanical connection, the ground side of the divider chain must be connected to the APA's frame ground.  There is also an electrical connection between the FC module resistor divider chains, and ground is referenced from the APA frame.
 
 %%%%%%%%%%%%
 \subsubsection{FC to beam plug}

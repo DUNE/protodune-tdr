@@ -6,7 +6,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope and requirements}
 
-
 Anode Plane Assemblies (APAs) are the detector elements utilized to sense ionization created by charged particles traversing the liquid argon volume inside the single-phase TPC.  The scope of the APAs includes:
 \begin{itemize}
 \item framework of lightweight, rectangular stainless steel tubing;
@@ -140,7 +139,7 @@ CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 
 %\paragraph{Dimensions}
 
-The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces are 2~in $\times$ 3~in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique is used to ensure that electrons that are drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
+The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
 \begin{cdrfigure}[APA dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framedrawing.png} 
@@ -170,10 +169,10 @@ The mesh is clamped around the perimeter of the opening and then pulled tight (b
 %%%%%%%%%%%%
 \subsubsection{Head electronics boards}
 
-At the head end of the APA, stacks of \textit{head} electronics boards (referred to as ``wire boards'') are arrayed to anchor the wires.  They also provide the connection between the wires and the %data acquisition electronics -- usually called the 
+At the head end of the APA, stacks of electronics boards (referred to as ``wire boards'') are arrayed to anchor the wires.  They also provide the connection between the wires and the %data acquisition electronics -- usually called the 
 cold electronics.
 
-All APA wires are terminated on wire boards, which are stacked along the electronics end of the APA frame; see Figure~\ref{fig:tpc_apa_boardstack}. 
+All APA wires are terminated on the wire boards, which are stacked along the electronics end of the APA frame; see Figure~\ref{fig:tpc_apa_boardstack}. 
 Attachment of the wire boards begins with the X plane (innermost). After the X-plane wires are strung top to bottom along each side of the APA frame, they are soldered and epoxied to their wire boards and trimmed. The remaining wire board layers are attached as each layer is wound.  The main CR boards (capacitive-resistive), which provide DC bias and AC coupling to the wires, are attached to the bottom of the wire board stack. They are described in Section~\ref{sec:crboards}.
 
 \begin{cdrfigure}[APA Board Stack]{tpc_apa_boardstack}{Left: View of the APA wire board stack, as seen from the top/side. The wire board layers can be seen at the bottom-left of the illustration, X on the bottom (it doesn't go all the way back, but extends farther forward and has the main CR board attached), followed by U, V, then G (which doesn't go all the way forward, and has its own CR board attached).  Right: the same stack viewed from below.  }
@@ -183,13 +182,14 @@ Attachment of the wire boards begins with the X plane (innermost). After the X-p
 
 \fixme{figure \ref{fig:tpc_apa_boardstack} needs labeling}
 
-The outermost G-plane wire boards connect adjacent groups of four wires together, and bias each group through an R-C filter, for which the components are on special CR boards  %The filter components are located on daughter boards 
-that are attached after the wire plane is strung. The X, U and V layers of wires are connected to the CE modules (housed in boxes mounted on the APA) either directly or through DC-blocking capacitors. The X and U planes have wires individually biased through 50-M$\Omega$ resistors. Electronic components for the X- and U-plane wires are located on a common CR board. \fixme{checking: X and U, not U and V?}
+The outermost G-plane wire boards connect adjacent groups of four wires together, and bias each group through an R-C filter whose components are placed on special CR boards  %The filter components are located on daughter boards 
+that are attached after the wire plane is strung. The X, U and V layers of wires are connected to the CE (housed in boxes mounted on the APA) either directly or through DC-blocking capacitors. The X and U planes have wires individually biased through 50-M$\Omega$ resistors. Electronic components for the X- and U-plane wires are located on a common CR board. \fixme{checking: X and U, not U and V?}
 
 Mill-Max pins and sockets provide electrical connections between circuit boards within a stack. They are pressed into the circuit boards and are not repairable if damaged. To minimize the possibility of damaged pins, the boards are designed so that the first wire board attached to the frame has only sockets. All boards attached subsequently contain pins that plug into previously mounted boards. This process eliminates exposure of any pins to possible damage during winding, soldering, or trimming processes.
 
-Ten stacks of wire boards are installed across the width of each side at the head of the APA.  The X-layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48.  Each board stack, therefore, has 176 wires but only X, V and U are signal layers, so there are 128 signal channels in each stack.  With a total of 20 stacks per APA, this results in 2,560 signal channels per APA and a total of \SI{3520} wires starting at the top of the APA and ending at the bottom.  There is a total of $\sim$23.4 km total of wire on the two surfaces of each APA.  Many of the capacitors and resistors that in principle could be on these wire boards are instead
-placed on the CR board to improve their accessibility in case of component failure.   Figure~\ref{fig:tpc_apa_electronics_connectiondiagram} depicts the connection between the elements of the APA electrical circuit. \fixme{this figure could use some labelling}
+Ten stacks of wire boards are installed across the width of each side along the head of the APA.  The X-layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48 wires.  Each board stack, therefore, has 176 wires but only only 128 signal channels since the G wires are not read out.  
+With a total of 20 stacks per APA, this results in 2,560 signal channels per APA and a total of \SI{3520} wires starting at the top of the APA and ending at the bottom.  There is a total of $\sim$23.4 km of wire on the two surfaces of each APA.  Many of the capacitors and resistors that in principle could be on these wire boards are instead
+placed on the attached CR boards to improve their accessibility in case of component failure.   Figure~\ref{fig:tpc_apa_electronics_connectiondiagram} depicts the connections between the different elements of the APA electrical circuit. \fixme{this figure could use some labelling}
 
 At the head end of the APA, the wire-plane spacing is set by the thickness of these wire boards.  The first layer's wires solder to the surface of the first board, the second layer's wires to the surface of the second board, and so on.  For installation, temporary toothed-edge boards beyond these wire boards align and hold the wires until they are soldered to pads on the wire boards.  After soldering, the extra wire is snipped off. 
 
@@ -201,20 +201,23 @@ At the head end of the APA, the wire-plane spacing is set by the thickness of th
 \subsubsection{CR boards}
 \label{sec:crboards}
 
-The CR boards carry a bias resistor and a DC-blocking capacitor for each wire in the X and U planes. \fixme{checking: X and U, not U and V?} These boards are attached to the board stacks after fabrication of all wire planes.  Electrical connections to the board stack are made though Mil-Max pins that plug into the X-plane wire boards. Connections to the CE modules are made through a pair of 96-pin Samtec connectors.
+The CR boards carry a bias resistor and a DC-blocking capacitor for each wire in the X and U planes. \fixme{checking: X and U, not U and V?} These boards are attached to the board stacks after fabrication of all wire planes.  Electrical connections to the board stack are made though Mil-Max pins that plug into the wire boards. Connections from the CR boards to the CE are made through a pair of 96-pin Samtec connectors.
 
 Surface-mount bias resistors on the CR boards have resistance of 50\,M$\Omega$ are constructed with a thick film on a ceramic substrate. Rated for 2.0-kV operation, the resistors measure 0.12 $\times$ 0.24 inches. Other ratings include operation from $-$55 to +155 C, 5\% tolerance, and 100-ppm/C temperature coefficient.
 
-The selected DC-blocking capacitors have capacitance of 3.9\,nF and are rated for 2.0-kV operation. Measuring 0.22 $\times$ 0.25\,inches across and 0.10\,inches high, the capacitors feature flexible terminals to comply with PC board expansion and contraction. They are designed to withstand 1,000 thermal cycles between $-$55 and +125 C. Tolerance is also 5\%.
+The selected DC-blocking capacitors have capacitance of 3.9\,nF and are rated for 2.0-kV operation. Measuring 0.22 $\times$ 0.25\,inches across and 0.10\,inches high, the capacitors feature flexible terminals to comply with PC board expansion and contraction. They are designed to withstand 1,000 thermal cycles %between $-$55 and +125 C. 
+between the extremes of the operating temperature range. Tolerance is also 5\%.
 
-In addition to the bias and DC-blocking capacitors, the CR board includes two R-C filters for the bias voltage. The resistors are of the same type used for biasing except with a resistance of 2\,M$\Omega$. Capacitors are 47\,nF at 2\,kV. Very few choices exist for surface-mount capacitors of this type, and they are exceptionally large. %Currently the plan is to use 
-Polyester or Polypropylene film capacitors that are known to perform well at cryogenic temperatures will be used.
+\fixme{Eric has question mark on the temp range}
+
+In addition to the bias and DC-blocking capacitors for all X- and V-plane wires, the CR board includes two R-C filters for the bias voltages. The resistors are of the same type used for wire biasing except with a resistance of 2\,M$\Omega$. Capacitors are 47\,nF at 2\,kV. Very few choices exist for surface-mount capacitors of this type, and they are exceptionally large. %Currently the plan is to use 
+Polyester or Polypropylene film capacitors that are known to perform well at cryogenic temperatures are used.
 
 
 %%%%%%%%%%%%
 \subsubsection{Side and foot boards}
 
-The boards along the sides and foot of the APA have notches, pins or other location features to hold the wires in the correct position as they wrap around the edge from one side of the APA to the other.
+The boards along the sides and foot of the APA have notches, pins and other location features to hold the wires in the correct position as they wrap around the edge from one side of the APA to the other.
 
 G10 circuit board material is ideal for these side and foot boards due to its physical properties alone, but it has an additional advantage: a number of hole or slot features in the edge boards provide access to the underlying frame.  In order that these openings are not covered by wires, the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces, and the section of wire between the pads is snipped out (Figure~\ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards. 
 
@@ -230,6 +233,7 @@ G10 circuit board material is ideal for these side and foot boards due to its ph
 The placement of the angled wires are fixed by pins 
 as shown in the right-hand picture of Figure~\ref{fig:tpc_apa_sideboardphoto}.  The wires make a partial wrap around the pin as they change direction from the face of the APA to the edge.  The longitudinal wires aren't pulled to the side so they can't be pulled against a pin.  Their positions are fixed %located 
 by teeth with slots, as shown in the left-hand picture in Figure~\ref{fig:tpc_apa_sideboardphoto}. 
+\fixme{Eric has question on `longitudinal' is it vertical X and G plane?}
 	
 The polymer used for the strips is Vectra e130i (a trade name for 30$\%$ glass filled liquid crystal polymer or LCP). It retains its strength at cryogenic temperature and has a CTE similar enough to G10 that differential expansion/contraction is not a problem.
 
@@ -245,7 +249,9 @@ Gray epoxy 2216 by 3M is used for the glue.  It is strong, widely used (therefor
 
 %\paragraph{Purpose}
 
-Some wire segments are quite long; for instance, the longitudinal wires extend from one end of the APA to the other without going around a side -- a length of 6\,m.  Even the diagonal wires across the middle of the APA are 3.9\,m long.  To prevent deflection from gravity, electrostatic forces, or liquid drag from moving argon, the wires are supported at regular locations along the length of the APA.  This is done with \textit{combs} mounted on each of the four cross braces that are  %evenly 
+Some wire segments are quite long; for instance, the longitudinal wires 
+\fixme{Eric has question on `longitudinal' is it vertical X and G plane?}
+extend from one end of the APA to the other without going around a side -- a length of 6\,m.  Even the diagonal wires across the middle of the APA are 3.9\,m long.  To prevent deflection from gravity, electrostatic forces, or liquid drag from moving argon, the wires are supported at regular locations along the length of the APA.  This is done with \textit{combs} mounted on each of the four cross braces that are  %evenly 
 regularly spaced along the length of the APA.  This keeps the longest unsupported wire length under 1.6\,m.
 
 The nominal wire tension is 5\,N but even the 1.6-m-long wires could fall to 3\,N of tension before the wire, held horizontally, would deviate 150\,microns -- one wire diameter.  During operation the wires are either vertical or 35.7$^{\circ}$ from vertical, so the actual deviation would be less.
@@ -260,8 +266,7 @@ The combs are made from 0.5-mm-thick G10 with slots cut into it.  The comb for t
 
 Periodic holes along the length of the strip allow the use of pins to accurately position each successive strip with respect to the previous one.  A series of jigs is used to create and install these combs.  One jig aligns the first strip to the base strip during gluing.  Another jig locates this assembly on the frame as it is glued in place. A third jig locates each successive comb using these holes (labeled registration holes in Figure~\ref{fig:tpc_apa_supportcombmodel}).
 
-The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs.  They are deliberately not glued at the combs.  
-%\fixme{they are deliberately NOT glued...? clarify}
+The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs, and therefore the gluing of wires into the combs is not required.
 
 
 
@@ -276,7 +281,9 @@ The CE boxes are illustrated in Figure~\ref{fig:tpc_apa_electronicsmountingdiagr
 %The design being developed for attaching the CE to the APAs consists of small boxes, 
 Each board stack has one CE box installed near it that holds the CE module for the stack.  
 
-Putting the electronics in small boxes simplifies installation and replacement, and also helps with the collection of argon gas generated by the warm electronic components.  The CE modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
+Putting the electronics in small boxes simplifies installation and replacement, and also helps with the collection 
+\fixme{dissipation?}
+of argon gas generated by the warm electronic components.  The CE modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
 
 \begin{cdrfigure}[Solid model of modular CE boxes]{tpc_apa_electronicsmountingdiagram}{Solid model of %revised, 
 modular CE boxes.}
@@ -286,7 +293,7 @@ modular CE boxes.}
 %%%%%%%%%%%%
 \subsubsection{Adjacent APAs}
 
-A constraint is needed between adjacent APAs to keep them in co-planar.  It is also important that this constraint not apply a vertical load to adjacent APAs.  The constraint takes the form of 
+A constraint is needed between adjacent APAs to keep them co-planar.  It is also important that this constraint not apply a vertical load to adjacent APAs.  The constraint takes the form of 
  a pair of protruding pins on one edge of the APA (one high and one low) and a pair of matching slots %on the other edge 
 on the edge of the adjacent APA
 to engage the pins (Figure~\ref{fig:tpc_apa_pinslotdrawing}). The pins have steel cores for strength.
@@ -295,6 +302,6 @@ to engage the pins (Figure~\ref{fig:tpc_apa_pinslotdrawing}). The pins have stee
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_pinslotdrawing.png} 
 \end{cdrfigure}
 
-Electronics noise concerns have made it desirable to isolate APAs from each other.  Therefore, the alignment pins have G10 sleeves over their steel cores where they contact the frame of the adjacent APA.
+Electronics noise concerns have made it desirable to isolate APAs from each other.  Therefore, the alignment pins have G10 sleeves covering their steel cores at places where they come into contact with the frame of the adjacent APA.
 
 

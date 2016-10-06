@@ -2,9 +2,9 @@
 \section{Beamline instrumentation}
 \label{sec:beaminstruments}
 
-The H4 beamline will be instrumented with a number of beamline monitors to provide information 
+The H4 beamline will be instrumented with a number of beamline detectors to provide information 
  about the beam profile, position, momentum, particle identification, and trigger capability. 
-This section discusses the reference design for the beam monitors. 
+This section discusses the reference design for the beam instrumentation. 
 %\fixme{Is `baseline design' the right term to use?}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -89,6 +89,7 @@ In summary:
 \item {\bf 2-3~GeV/c} : one Cherenkov, filled with CO$_2$ low
   pressure, discriminates electrons; second Cherenkov, filled with
   Freon 12, tags pions; kaons content in this range is very low or negligible.
+  ToF is needed to identify protons.
 \item {\bf 3-4~GeV/c} : one Cherenkov, filled with CO$_2$ at low
   pressure, discriminates electrons; second  Cherenkov, filled with
   Freon 12, tags pions; ToF is needed for kaon/proton discrimination
@@ -98,25 +99,27 @@ In summary:
   discriminated by reconstruction.
 \end{itemize}
 
-  From table \ref{tab:beampartcomp} it is evident that the kaon content of the beam is negligible at least below 2~GeV/c, thus  only pion-proton separation is needed at low energies. Figure~\ref{fig:toftau} shows the ToF resolution needed to distinguish among particle species at the $4\sigma$ level as a function of the particle momentum, assuming a 23-m-long path. To distinguish pions from protons below 2~GeV/c, a 1-ns resolution is enough, while 300~ps are necessary for kaon-proton separation up to  4~GeV/c. It should also be noted that a ToF system with a $\sim$100-ps resolution would allow identification of protons from other hadrons up to 7~GeV; this would release the need for a % so that the 
+  From table \ref{tab:beampartcomp} it is evident that the kaon content of the beam is negligible at least below 2\,GeV/c, thus  only pion-proton separation is needed at low energies. Figure~\ref{fig:toftau} shows the ToF resolution needed to distinguish among particle species at the $4\sigma$ level as a function of the particle momentum, assuming a 28-m-long path. To distinguish pions from protons below 2\,GeV/c, a 1-ns resolution is enough, while 300~ps are necessary for kaon-proton separation up to  4\,GeV/c. It should also be noted that a ToF system with a $\sim$100-ps resolution would allow identification of protons from other hadrons up to 7\,GeV; this would release the need for a % so that the 
   high-pressure CO$_2$ Cherenkov. %could be avoided. 
   Conversely, covering %in order to cover 
   the full energy range up to 7~GeV for all hadron  types would require a ToF system with a resolution better than 40~ps. % would be needed.
 In the following, two (possibly complementary) ToF systems are described.
-\begin{cdrfigure}[Required ToF resolution]{toftau}{Required ToF resolution to  distinguish among particle species at the $4\sigma$ level as a function of the particle momentum, assuming a 23~m long path. }
+\begin{cdrfigure}[Required ToF resolution]{toftau}{Required ToF resolution to  distinguish among particle species at the $4\sigma$ level as a function of the particle momentum, assuming a 28-m long path. (The figure shows 23\,m; it needs to be updated.) }
 \includegraphics[width=0.65\textwidth]{toftaulow.pdf}
 \end{cdrfigure}
 
-\paragraph{pLAPPD Time-of-flight system}
+\paragraph{pLAPPD time-of-flight system}
 Fermilab is testing a ToF system from Argonne National Laboratory that would utilize  
-6 $\times$ 6 cm$^2$
+6 $\times$ 6 cm$^2$ prototype
 large-area picosecond photodetectors (pLAPPDs), as shown in Figure \ref{fig:pLAPPD}.
  The microchannel plates based devices
 are capable of $< 50$ ps resolution with gains of $10^6-10^7$,
 mm position resolution along one axis, and slightly worse resolution
 along the other axis.  The photodetector is mounted on a readout
 board, and the relevant exterior dimensions are 165.1~mm $\times$ 109.3~mm and a
-thickness of 16~mm. The active area is defined by the four squares visible in Figure \ref{fig:pLAPPD}, and amounts to about 31~cm$^2$. Tests of these devices in the LArIAT beam are underway, to precisely assess the efficiency and timing capabilities of such a system. Larger area pLAPPD can be made to match the H4 beam profile.
+thickness of 16~mm. The active area is defined by the four squares visible in Figure \ref{fig:pLAPPD}, and amounts to about 31~cm$^2$. Tests of these devices in the Fermilab test beam facility (FTBF) are underway, to precisely assess the efficiency and timing capabilities of such a system. 
+The pulses from the pLAPPDs will be read out by a fast waveform digitizer and the tests at the FTBF include the development of an artDAQ-based DAQ and potentially a ToF trigger module capable of providing a particle trigger to the ProtoDUNE-SP DAQ.
+Larger area pLAPPD can be made to match the H4 beam profile.
 \begin{cdrfigure}[pLAPPD]{pLAPPD}{Photo of one pLAPPD device as proposed for the H2 and H4 beamlines.}
 \includegraphics[width=0.65\textwidth]{LAPPD.pdf}
 \end{cdrfigure}
@@ -135,57 +138,22 @@ The set of beam detectors considered for instrumenting the H4 tertiary beamline 
  five beam monitors (two for tracking and three for spectrometry), two ToF devices, and two high density or pressure gas Cherenkov detectors. The selection of the beam detector configuration in the beamline depends on the type of beam (electron of hadron), and on the beam momentum range. For the electron beam and for low momenta hadron beams the amount of detector material along the beamline may result in particle energy degradation and significant reduction of the beam rate delivered at the active detector due to scattering outside the beam pipe. A FLUKA\cite{fluka05,Fluka15} simulation was used to evaluate these effects accounting for the 
  detector materials in the beamline, and materials of the beam window, cryostat and beam plug. Figure~\ref{fig:matblfull} shows the cumulative increase of the material budget along the tertiary beam line from the target to the TPC, expressed in terms of fraction of radiation length (red line - total  $0.6X_0$) and of interaction length (black line - total  $0.15 \lambda_I$). The average energy loss for a mip is about 28~MeV.
  The largest contribution to the energy-loss and energy degradation is due to the high pressure Cherenkov detectors and to the pLAPPD. Except for a low-pressure Cherenkov counter for electron discrimination, the high pressure Cherenkov are not necessary at low hadron beam momenta  and can be removed or just emptied. Scintillating fiber beam monitors can replace the pLAPPD as ToF devices for the lowest-momentum beam. 
-  Figure~\ref{fig:matblfull} shows the evolution of the material budget with a full instrumentation, assuming pLAPPD for ToF. The total, including the beam window, would add $0.6X_0$, 0.15 interaction lengths, and an energy loss for a mip of 28~MeV.
+
+  
  \begin{cdrfigure}[Material budget]{matblfull}{Material budget in the beamline, as a function of the distance from the center of the detector (in cm). The red line describes the amount of $X_0$, the black line the amount of interaction length, both read on the left axis. The black dotted line is the average energy lost by a mip particle, and is read on the right axis (in MeV). Vertical lines show the positions of the various beam monitors (in between the two blue lines are the 3 devices for spectrometry, ``bm'' is the last beam monitor, ``bw'' is the starting point of the beam window).}  
 \includegraphics[width=0.65\textwidth]{blfuhcnwrayplo.pdf}
 \end{cdrfigure}
  
- Scattering of low-energy pions and protons in crossing the detector material significantly reduces their content in the low momenta hadron beam reaching the detector active volume.  Figure~\ref{fig:1GeVtof} shows examples of the beam degradation due to materials at 1~GeV/c; the rate of pions arriving at the detector is reduced by a factor of 2.5, and the energy spread rises to 1.2\%. The rate of protons 
- %stopping in the detector 
- is reduced by a factor of 4, and the energy spread amounts to 2\% rms. 
-  \begin{cdrfigure}[Effect of materials at  1GeV]{1GeVtof}{Effect of materials at  1GeV/c. Left: $\pi$ beam, energy of the particle entering in the detector, in three conditions: with  beam monitors, with beam monitors and pLAPPD for ToF, with the whole beamline filled with air (and no instrumentation). Right: proton beam, energy deposited by protons stopping in the LAr active volume, in three conditions: without instrumentation (the beam window is always present), with the scintillators only, and with scintillators plus pLAPPD for ToF.}
-\includegraphics[width=0.45\textwidth]{pi1p0gev_innw.pdf}
-\includegraphics[width=0.45\textwidth]{p1gevstopnoqnw.pdf}
-\end{cdrfigure}
-
-%%%%% prev version %%%%%%%%%%%
-%The choice of the ToF system, and the actual configuration of the beamline at different beam momenta  depend also on the material budget. 
-
-%As described in the following, some of the instrumentation will have to be removed, or at least emptied, when operating below $\approx$~2 GeV. Also, the ToF system will be different for the low-energy range.
-
-%Summarizing the required instrumentation, the ``full'' beamline will  include five beam monitors (two for tracking and three for spectrometry), two ToF devices, and two 2-m-long Cherenkovs at high density or pressure. The material budget would be much too high for operation at low momenta (below 2~GeV/c),  and in general for operation with electron beams.  
-A full FLUKA\cite{fluka05,Fluka15}  simulation of materials in the beamline and of the ProtoDUNE-SP detector, including the beam window details, has been used to evaluate the effect of materials; it is presented here. 
-%\fixme{Should also mention that a second simulation was performed using GEANT 4 and that consistent results were obtained. }
-%\fixme{ I saw no GEANT4 simulation with the beam instrumentation, except the one, very recent, from Nikos. And I would like to keep the ``materials etc'' simulations on the Protodune side, not on the Beam group. Conversely, I saw at the workshop strange GEANT4 results with a wrong geometry of the beam window. If you refer to the old work done last year, the materials have changed.}
-%Earlier material studies with FLUKA have been compared with GEANT4-based results and good agreement was found. More recent GEANT4-based studies are still in progress.
-
-%Since the final layout of the beamline optics was delivered only recently, the simulations presented here assume a straight line with an initially parallel beam, deflected only by scattering. Particles are assumed to be ``lost'' when scattered outside of the beam pipe. Inclusion of the beamline's magnetic elements is underway. 
- 
-
-%The largest energy-loss contribution comes from the Cherenkov detectors and from the ToF system. Cherenkovs are not particularly useful for low energies (except a low-pressure one for electron discrimination), and can be easily removed from the beamline and either substituted with a section of vacuum pipe, or emptied.  
-%In a configuration without Cherenkovs, the pLAPPD devices plus monitors would still account for almost  $0.2X_0$. Besides energy degradation, scattering of low-energy particles would  further degrade the pion and proton content of the beam.  Figure~\ref{fig:1GeVtof} shows examples of the beam degradation due to materials at 1~GeV/c; the rate of pions arriving at the detector is reduced by a factor of 2.5, and the energy spread rises to 1.2\%. The rate of protons stopping in the detector is reduced by a factor of 4, and the energy spread amounts to 2\% rms. This calculation is done in optimistic conditions, i.e., neglecting the efficiency loss due to the small active area of the pLAPPD devices.
-%
-%To overcome this problem, it is foreseen to use scintillating fibers as ToF devices for the lowest-energy beams (<2~GeV), and pLAPPD above 2~GeV.
- %  This will require reconfiguration of the beamline, and needs to be carefully considered in the run plan, but is known to be feasible. %it is feasible.  
-
-%It should also be noted that good enough performance of the (combined) ToF system could preclude the need for high-pressure  Cherenkov counters. 
-%a good performance of the (combined) ToF system could avoid the use of high pressure  Cherenkov counters. 
-%This option is not considered here, but %could represent an important simplification in case
-\fixme{``could simplify the configuration, and can be considered if'' }
-% the pLAPPD tests demonstrate a resolution of $\approx$20ps.
-
-%
-
+ Scattering of low-energy pions and protons in crossing the detector material significantly reduces their content in the low-momenta hadron beam reaching the detector active volume. For example, at 1~GeV/c the rate of pions arriving at the detector is reduced by a factor of 2.5, and the rate of protons 
+ is reduced by a factor of 4. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection {Trigger and data acquisition}
 
 The beam instrumentation can provide a trigger signal, built from the coincidence of the two last beam monitors, vetoed by the electron-tagging Cherenkov for low-energy beams. 
-%\fixme{``The beam instrumentation will provide a trigger signal, built from the coincidence of the two last beam monitors. For low-energy beams, the electron-tagging Cherenkov will provide a veto.''? (otherwise it makes reader wonder about everything besides low-energy)}  
 A trigger mask, providing the status of the other counters, can also be provided. 
  Synchronization of the detector data acquisition (DAQ) with the beam instrumentation DAQ will be ensured by a common time stamp through a White Rabbit network.
- %White Rabbit is a fully deterministic Ethernet-based network for general purpose data transfer and synchronization. It can synchronize over 1000 nodes with sub-ns accuracy over fiber lengths of up to 10~km. It is developed and widely used at CERN.  \fixme{citation recommended}
 
 Beam instrumentation data will be read out independently on a separate DAQ stream. However,  
 the beam data fragments corresponding to  events with a valid trigger from both beam and ProtoDUNE-SP will be merged online with the detector data.

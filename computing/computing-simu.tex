@@ -10,8 +10,8 @@ counters, and time-of-flight-counters -- are fully simulated as described in
 Section~\ref{sec:beaminstruments}. Cosmic-ray
 events are simulated either with the CRY~\cite{cry, cry2} event generator or
 CORSIKA~\cite{Heck:1998vt}.  Neutrino scattering events are simulated
-using GENIE~\cite{Andreopoulos:2009rq}.  While neutrino scattering events are very
-rare in protoDUNE-SP, the extrapolation of the performance of
+using GENIE~\cite{Andreopoulos:2009rq}.  While neutrino scattering events will be very
+rare in the detector, the extrapolation of the performance of
 the detector to the FD will require simulating neutrino scattering
 events.  A dedicated generator in LArSoft simulates
 radionuclide decay products which can be overlaid on other events.
@@ -29,7 +29,7 @@ are numbered and named in the GDML files, with conventions followed by
 the LArSoft simulation code.
 
 The active volume of the detector is divided into cubes 300~$\mu$m on
-a side, called voxels.  GEANT4 tracks particles through the argon.
+a side, called \textit{voxels}.  GEANT4 tracks particles through the argon.
 Each step ends on a voxel boundary, allowing the simulation of small-scale
 physics processes such as delta-ray emission and showering at a level
 of detail smaller than the intrinsic resolution of the detector.   While GEANT4
@@ -44,45 +44,52 @@ yield for each step.
 
 An alternate simulation based on FLUKA~\cite{Fluka15, Ferrari:2005zk, Battistoni:2009zzb} 
 is being interfaced into LArSoft.
-FLUKA provides a Monte Carlo simulation of neutrino-nucleus interactions as well as
+FLUKA provides a MC simulation of neutrino-nucleus interactions as well as
 detailed modeling of particles traversing the detector, configurably replacing the
 functionality of both GENIE and GEANT in the simulation.  The availability of alternatives
 allows for better flexibility in tuning the models to the data, as well as a basis of
 estimating systematic uncertainty.
 
 The average specific energy loss for a minimum-ionizing particle (MIP)
-is approximately 2.12~MeV/cm.  The $W$-value for ionization is 23.6~eV
-per electron-ion pair, and the $W$-value for scintillation is 19.5~eV
+is approximately 2.12\,MeV/cm.  The $W$-value for ionization is 23.6~eV
+per electron-ion pair, and the $W$-value for scintillation is 19.5\,eV
 per photon, resulting in tens of thousands of drifting electrons and
 photons per cm of charged-particle track in the detector.  It is
-impractical to simulate the paths of each of these electrons and
-photons using GEANT4, and computational techniques are incorporated
+impractical to simulate the paths of each of these electrons and 
+photons using GEANT4, and \fixme{therefore?} computational techniques are incorporated
 into LArSoft to achieve a high simulation speed while preserving
-accuracy.  The electrons are propagated by LArSoft-specific tools
+accuracy.  The electrons are propagated by LArSoft-specific tools,
+including a tool that integrates over the distributions created by longitudinal
+and transverse diffusion, 
+and a geometry tool that indicates the wire locations that record charge, assuming uniform wire spacing.
+\fixme{The prev sentence replaces this:
+The electrons are propagated by LArSoft-specific tools
 including an integral over the distributions created by longitudinal
 and transverse diffusion, and the wire locations on which to record
 the charge passing or collecting are looked up from the geometry
-assuming uniform spacing.  The effect of charge loss due to attachment
-of electrons to impurities (the effect of the electron lifetime), is
+assuming uniform spacing. 
+}
+The effect of charge loss due to attachment
+of electrons to impurities (the effect of the electron lifetime), \fixme{that affects the lifetime?}  is
 implemented in this step.  
-Effects due to space charge are simulated using a smoothly-parameterized
+Effects due to space charge are simulated using a smoothly parameterized
 map of
 distortions in the apparent position components $(x,y,z)$ of the charge
 deposits as
 functions of the true position.
 This map can be made using SPaCE~\cite{Mooney:2015kke}, a
-program that traces particle trajectories in liquid argon based on the
+program that traces particle trajectories in LAr based on the
 electric field calculated using Poisson's equation, a given
 space-charge density map, and the boundary conditions provided by the
 cathodes, anodes, and field cages.  It is anticipated that the
 space-charge distortions in ProtoDUNE-SP may be as large as
-20~cm~\cite{Mooney:2015kke}. \fixme{I took this out because I don't think it's discussed in this document. Anne``Space charge effects and resulting field distortions for protoDUNE are discussed in Section~\ref{sec:SCEintro}.''}
+20\,cm~\cite{Mooney:2015kke}. \fixme{I took this out because I don't think it's discussed in this document. Anne``Space charge effects and resulting field distortions for protoDUNE are discussed in Section~\ref{sec:SCEintro}.''}
 
 
-Photon propagation is simulated using a library which contains the
+Photon propagation is simulated using a library that contains the
 probabilities of observing a photon emitted at a particular point in
 space by a particular photon detector.  Here, the space is divided
-into cubical voxels 6~cm on a side, and the library is indexed by photon
+into cubical voxels 6\,cm on a side, and the library is indexed by photon
 detector element. 
 % For the far detector, the lookup library model may
 %not scale appropriately, taking too much memory to store
@@ -102,13 +109,14 @@ arrival times to make simulated waveforms.  The detector field
 response functions are simulated using GARFIELD~\cite{garfield}, but
 they will be validated with real data, as the simulation contains
 oversimplifications, such as inadequate modeling of induction signals.  
+
 The electronics gain is applied so that the
 simulated signals match the expected responses.  Simulated noise is
 then added, and the result is quantized to reproduce the behavior of a
 12-bit ADC, including realistic pedestals and saturation.  A similar
 process is followed to simulate the response of the photon detectors,
 given the arrival times of the photons.  Functionality exists within
-LArSoft to overlay Monte-Carlo-simulated particles with raw digits in
+LArSoft to overlay MC-simulated particles with raw digits in
 the data in order to simulate pileup of cosmics and other beam
 interaction particles. The simulated raw digits are then written to
 compressed ROOT files for further analysis.
