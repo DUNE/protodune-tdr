@@ -139,22 +139,29 @@ further propagation, e.g., the 2-MHz sampling signal for the cold ADCs.
 \subsubsection{Trigger}
 
 The baseline trigger solution for ProtoDUNE-SP is the Central Trigger Board
-(CTB). The CTB is designed to receive triggers from various subsystems
-(Photon Detection System, Beam Instrumentation, SPS spill signal, veto
-signals, etc.).  Up to 100 input channels are provided.  It combines
-these into a global trigger based on a configurable input mask (or
-more sophisticated algorithm, if desired).  It provides functionality
-to globally time-stamp triggers, keep event counts, and provide artDAQ-compatible 
-(see Section~\ref{sec:daq-ev-build})
- header information with trigger type and error conditions.
-Internally generated triggers and calibration pulses allow for testing
-the board itself and the end-points receiving the trigger signals.
+(CTB). The triggers expected for the CTB are a beam minimum bias trigger,
+an electron beam trigger.  If possible, a $\pi$/K/p will also be added.
+The CTB provides a means to select the most interesting physics events
+during the beam spill and suppress inter-spill background events (or
+events so busy to prohibit accurate reconstruction).  The final trigger
+selection will be driven by ProtoDUNE's physics goals.  The CTB is
+designed to receive triggers from various subsystems (Photon Detection
+System, Beam Instrumentation, SPS spill signal, veto signals, etc.).
+Up to 100 input channels are provided.  It combines these into a global
+trigger based on a configurable input mask (or more sophisticated
+algorithm, if desired).  It provides functionality to globally
+time-stamp triggers, keep event counts, and provide artDAQ-compatible
+(see Section~\ref{sec:daq-ev-build}) header information with trigger type
+and error conditions.  Internally generated triggers and calibration
+pulses allow for testing the board itself and the end-points receiving
+the trigger signals.
 
-The CTB is based on the MicroZed development board~\cite{avnet:microzed}, which comprises a
-Xilinx Zynq-7000 System-on-Chip (SoC), 1-GB DDR3 RAM, Gigabit Ethernet,
-and 115 I/O ports.  The Programmable Logic of the Zynq-7000 is used to
-perform fast triggering operations, whilst the Processing System is used
-to interface to the readout and controls systems.
+The CTB is based on the MicroZed development board~\cite{avnet:microzed},
+which comprises a Xilinx Zynq-7000 System-on-Chip (SoC), 1-GB DDR3 RAM,
+Gigabit Ethernet, and 115 I/O ports.  The Programmable Logic of the
+Zynq-7000 is used to perform fast triggering operations, whilst the
+Processing System is used to interface to the readout and controls
+systems.
 
 Configuration and operation is performed using an XML file which is sent
 to the CTB.  This allows for fast reconfiguration of the CTB without
