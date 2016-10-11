@@ -539,16 +539,16 @@ supported from the back end of the feedthrough.
 
 \begin{cdrfigure}[PTC and timing]{tpcce_wib_timing}{Power and Timing Card (PTC) 
 and timing distribution to the WIB and FEMBs.}
-\includegraphics[width=0.5\linewidth]{tpcce_wib_timing.jpg}
+\includegraphics[width=0.5\linewidth]{tpcce_wib_timing.pdf}
 \end{cdrfigure}
 
 The PTC provides a bidirectional fiber interface to the
-timing system.  The received data is separated into clock and
-data using a clock/data separator.  The clock and data
+timing system.  The clock and data
 streams are separately fanned-out to the five WIBs as shown in
 Figure~\ref{fig:tpcce_wib_timing}. The PTC fans the clocks out to the WIB over the
 PTB, which is a passive backplane attached directly to the PTC and
-WIBs.
+WIBs.  The received clock on the WIB is separated into clock and
+data using a clock/data separator.
 
 \begin{cdrfigure}[WIB and LV power]{tpcce_wib_power}{LV power distribution 
 to the WIB and FEMBs. 200~W is for a fully-loaded crate 
