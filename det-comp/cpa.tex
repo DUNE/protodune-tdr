@@ -65,10 +65,11 @@ The cathode plane design chosen for the ProtoDUNE-SP TPC is an array of 18 moder
 
 Each CPA column is suspended under the cathode support rail by a single insulating FR4 bar.  On the top and bottom edges of a CPA, two hinges support the partial weight of the top and bottom field cage modules.   Adjacent CPAs are aligned through pin-and-slot connections to maintain co-planarity while allowing minor relative vertical shift due to cryostat roof movement.
 
-The electrical connectivity of the resistive panels vertically along each CPA column is maintained by several tabs through the edge frames.  There is no direct electrical connection across the CPA columns. 
-The HV bus is a loop of a HV cable placed along the outer edges of the entire cathode plane and horizontally between the CPA modules across the columns. Along the perimeter it is hidden between the field-shaping strip overhang and the main cathode resistive sheet.  This cable must be capable of withstanding the full cathode bias voltage to prevent direct arcing to (and as a result, the recharging of) a CPA panel that discharges to ground. 
-The HV bus makes redundant connections to the resistive panels across CPA columns.  It also provides a low-resistance path for the FC resistive divider chains around the cathode edges.
-\fixme{check prev pgraph}
+The electrical connectivity of the resistive panels within a CPA column is maintained by several tabs through the edge frames.  There is no direct electrical connection across the CPA columns. 
+Instead, the voltage is passed from one column to another through embedded cables in the CPA panels referred to collectively as the HV bus.  Redundant connections in the HV bus between CPA columns are used to ensure reliability.  
+The HV bus also provides a low-resistance path for the voltage needed to operate the FC resistive divider chains.
+The required connections to the FC modules are made at the edges of the cathode plane. 
+Along the perimeter of the CPA, the HV bus cables are hidden between the field-shaping strip overhang and the main cathode resistive sheet.  The cables must be capable of withstanding the full cathode bias voltage to prevent direct arcing to (and as a result, the recharging of) a CPA panel that discharges to ground. 
 
 The outer edges of the cathode plane facing the cryostat wall are populated with the same metal profiles, with insulating polyethylene caps, as used in the field cage.  This eliminates the need for a special design of the most crucial regions of the cathode plane: the edges of the CPA now look just like a continuation of the FC.  Since these profiles are the only objects facing grounded surfaces, they are the most likely candidates to have HV discharges to ground.   To limit peak current flow, these edge profiles are resistively connected to the main cathode panels through their laminated resistive surfaces.  The resistive surface concept is illustrated in Figure~\ref{fig:cpa-concept}.
 
@@ -77,7 +78,7 @@ The outer edges of the cathode plane facing the cryostat wall are populated with
 \includegraphics[width=\linewidth]{tpc_cpa_concept_leftonly}
 \end{cdrfigure}
 
-%rom beginning:
+
 The CPA is connected to the HV feedthrough through a receptacle, called the \textit{HV cup}, at the back end of the cryostat (with respect to the beam entrance) and biased at $-$180\,kV.   It provides this voltage and the required current to all the FC modules (top, bottom and end walls) through electrical interconnects (Section~\ref{detcompsec-fc}). The CPA is suspended by insulating bars from the CPA installation rail.  It also mechanically supports six pairs of top/bottom FC modules.
 
 
@@ -85,7 +86,7 @@ The CPA is connected to the HV feedthrough through a receptacle, called the \tex
 %\subsubsection{Resistive material}
 
 The main criteria for the selection of Kapton as the resistive material to be used to coat the CPA module panels are: %for the CPA modules are: 
-\begin{itemize}	
+\begin{itemize}
 \item surface resistivity range,
 \item compatibility with cryogenic temperatures,
 \item robustness to HV discharges, 

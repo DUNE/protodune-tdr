@@ -33,12 +33,11 @@ and its corresponding electronics input.
 front-end electronics as mounted on an APA.
   Top: The front-end electronics is shown in the red circle.
  Bottom: Cross section view showing the layered wire boards. Mounting hardware between the front-end electronics 
-and the APA fin is not shown.}
+and the APA is not shown.}
 \includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_1.pdf}
 \includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_2.pdf}
 \end{cdrfigure}
 
-\fixme{Figure~\ref{fig:tpcce_FEMBonAPA}: APA fin is not defined}
 The CE signal processing is implemented in ASIC chips using CMOS technology,
 which has been demonstrated to perform well at cryogenic temperatures,
 and includes amplification, shaping, digitization, buffering, and multiplexing (MUX) of the signals.
@@ -86,14 +85,16 @@ Front-End Mother Board (FEMB)                         & 120, 20 per APA         
 FE ASIC chip                                & 120 $\times$ 8, 8 per FEMB      & 16          \\   \colhline
 ADC ASIC chip                             & 120 $\times$ 8, 8 per FEMB      & 16          \\   \colhline
 FEMB FPGA                                  & 120, 1 per FEMB                         & 128          \\   \colhline
-Cold cable bundles                                           & 120, 1 per FEMB                        & 128      \\   \colhline
-Signal flange                                                     & 6, 1 per APA                              & 128 $\times$ 20  (i.e., 2,560)      \\   \colhline
+Cold cable bundles                     & 120, 1 per FEMB                        & 128      \\   \colhline
+Signal flange                                & 6, 1 per APA                              & 128 $\times$ 20  (i.e., 2,560)  \\   \colhline
 CE feedthrough                            & 6, 1 per APA                             &128 $\times$ 20         \\   \colhline
 Warm interface boards (WIB)         & 30, 5 per APA                             & (128 $\times$ 20) /5 (i.e., 512)        \\   \colhline
- Warm electronics crates (WEC)      & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
+ Warm electronics crates (WEC)     & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
  Power and timing cards (PTC)       & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
-Passive backplane (PTB)                & 2                                              &   ?? \\   \colhline
-MPOD  power supplies (chassis???)                     & 2, 1 per 3 APAs                        &   \SI{15360}/2   \\  
+Passive backplane (PTB)                & 6, 1 per APA                             & 128 $\times$ 20 \\   \colhline
+MPOD LV power supplies               & 6, 1 per APA                        &   128 $\times$ 20   \\    \colhline
+MPOD wire-bias power supplies    & 6, 1 per APA                        &   128 $\times$ 20   \\   \colhline
+MPOD power supply chassis          &  2, 1 per  3 APAs       &            \SI{15360}/2   \\
 \end{cdrtable}
 
 \fixme{check Table~\ref{tab:ce-components} ; there are some missing numbers}
@@ -134,15 +135,14 @@ point on the CE feedthrough board in the signal flange where the cables exit the
 is accomplished using insulated supports. 
 
 The analog portion of the FEMB contains eight front-end (FE) ASICs configured as 16-channel 
-digitizing charge amplifiers. Input amplifiers on the ASICs have their Common terminals connected 
+digitizing charge amplifiers. Input amplifiers on the ASICs have their ground terminals connected 
 to the APA frame.  All power-return leads and cable shields 
-are connected to both the Common plane of the FEMB and to the signal flange.
+are connected to both the ground plane of the FEMB and to the signal flange.
 
-Filtering circuits for the APA wire-bias voltages are locally referenced to the Common plane of the FEMBs through low-impedance 
+Filtering circuits for the APA wire-bias voltages are locally referenced to the ground plane of the FEMBs through low-impedance 
 electrical connections. This approach ensures a ground-return path in close proximity to the 
 bias-voltage and signal paths. The close proximity of the current paths minimizes the size of potential loops to further 
 suppress noise pickup.
-\fixme{what's the Common plane? not defined. And why is ``Common'' capitalized (twice)?}
 
 Photon detector signals, described in Section~\ref{sec:pd_system}, are carried directly on shielded, 
 twisted-pair cables to the signal flange. The cable shields are connected to the 
@@ -370,7 +370,7 @@ Each FEMB is enclosed in a Faraday box to provide shielding from noise.
 As shown in Figure~\ref{fig:tpcce_box}, the Faraday box is designed to make the electrical connection 
 between the FEMB and the APA frame. %, as defined in Section~\ref{subsec:ele_design}. Not sure what section to reference.
  Mounting 
-hardware inside the Faraday box connects the common plane of the FEMB to the box casing. The
+hardware inside the Faraday box connects the ground plane of the FEMB to the box casing. The
 box casing is electrically connected to the APA frame via twisted conducting wire (not 
 shown in Figure~\ref{fig:tpcce_box}). This is the only point of contact between the FEMB and
 APA, except for the input amplifier circuits connected to the CR board, which also terminate to
@@ -477,7 +477,7 @@ analog motherboard and one to the FPGA mezzanine). In total, 20 wire bundles
  bring LV power to the FEMBs associated with one APA.
 
 Eight of the 16 wires are power feeds, as described in Figure~\ref{fig:tpcce_lv_req}. The other eight wires
-are attached to the common of the input amplifier circuits, as described in Section~\ref{subsec:ce_wire_bias}.
+are attached to the grounds of the input amplifier circuits, as described in Section~\ref{subsec:ce_wire_bias}.
 For
 a single FEMB, the resistance is $<30$~m$\Omega$ at RT or $<10$~m$\Omega$ at LAr temperature. Each APA has a copper cross-section of approximately $80~\mathrm{mm}^2$, with
 a resistance $<1.5$~m$\Omega$ at RT or $<0.5$~m$\Omega$ at LAr temperature.

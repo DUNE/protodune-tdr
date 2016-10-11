@@ -98,7 +98,6 @@ for ProtoDUNE-SP. For instance, absolute time-stamping with respect to an
 external GPS reference is not required.
 
 An FPGA-based master unit 
-\fixme{is this part of the DAQ?}
 receives a high-quality clock signal 
 (from a quartz crystal oscillator or external source) 
 and external signals from the
@@ -122,18 +121,14 @@ endpoints.
 
 Endpoints decode the timing signal into separate clock and data
 signals using a commercial clock-data recovery ASIC ~\cite{siliconlabs:Si5344}, which in turn
-feeds a low-bandwidth PLL \fixme{define} in order to remove any remaining jitter in
+feeds a low-bandwidth phase-locked loop (PLL) in order to remove any remaining jitter in
 the clock and provide phase adjustment. The data stream employs 8b/10b
 encoding, ensuring sufficient transitions in the timing signal for clock
 recovery and correct operation of optical links, and uses scrambling
 of idle patterns to minimize electromagnetic interference (EMI).
  A common firmware block is used to
 decode the timing protocol, which is incorporated into the overall
-firmware design for the receiving FPGA in each DAQ component. This
-block provides a cycle counter, several independent trigger, calibration and 
-synchronization signals, and a general-purpose packet data output \fixme{ packet of data output?} to each endpoint.
-The cycle counter is used to generate low-frequency timing signals for
-further propagation, e.g., the 2-MHz sampling signal for the cold ADCs.
+firmware design of the receiving FPGA in each DAQ component. 
 
 %%%%%%%%%%%%%%%%%% 
 \subsubsection{Trigger}
@@ -181,43 +176,30 @@ The beam instrumentation is described in Section~\ref{sec:beaminstruments}.
 The beam instrumentation DAQ and the DAQ for ProtoDUNE-SP
 have separate timing systems.  A common GPS clock is used to keep both
 systems synchronized relative to each other.  A common endpoint receives time stamps 
-from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE-SP timing system
+from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE-SP timing system, which 
 are used to create a matching table from the two systems.  
-\fixme{what does the `both' refer to?}
 Data from the beam
-instrumentation are acquired continuously via a separate DAQ path. \fixme{separate from the actual data?}  Triggered
-data for ProtoDUNE-SP have both the TPC, PDS, and beam instrumentation data and 
-the timestamps and trigger information of both. \fixme{here `both' seems to refer to 3 things}
+instrumentation are acquired continuously via a separate DAQ path.  Triggered
+data for ProtoDUNE-SP includes TPC, PDS, and beam instrumentation data, as well as
+the timestamps and trigger information associated with each. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{TPC data readout}
 
 The readout of the TPC wires, prior to being received by PCs in
 the back-end DAQ, consists of  CE on the APAs
-inside the cryostat and electronics outside
-the cryostat, both directly on the cryostat flange and in a rack (the
-warm electronics).  This section
-addresses the warm part of the TPC
-readout and describes how it receives data from the CE (the Front-End
-Boards), manipulates the data, and delivers them to the back-end DAQ.
+inside the cryostat and the warm electronics outside
+the cryostat on the flange.  CE data are received on the WIBs
+which are housed in the WECs, situated on the top of the flanges.
 
-From an electronics point-of-view, the flange (one per APA) consists of a
-5-slot ``crate,'' where the connectors on the warm side of the feedthrough 
-form the ``back-plane'' into which the boards plug when inserted
-into the crate assembly. 
-\fixme{crate vs crate assembly?}
-  These connectors and the boards that plug
-into them (warm interface boards, WIBs) serve to send the power,
-timing, and configuration down to the FEBs \fixme{define} and receive the high-speed
-signals from the FEBs. From a data standpoint, each WIB receives the
+Each WIB receives the
 data from four FEBs over sixteen 1.25-Gbps data lines, and multiplexes
 these data to four 5-Gbps (or two 10 Gbps) lines that are sent over
-optical fiber to the DAQ.
+optical fibers to the DAQ.
 
-Two systems are used to receive data from the WIBs.  The baseline
-solution is based on Reconfigurable Computing Elements (RCE) and 
-read out data from five APAs.  An alternative exploratory prototype based on
-the Front-End-Link-EXchange (FELIX) system is used to readout the sixth APA.
+Two systems are used to receive data from the WIBs.  The default system
+ is based on Reconfigurable Computing Elements (RCE) and a proposed alternative system is based on
+the Front-End-Link-EXchange (FELIX) technology. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{RCE-based readout}
@@ -375,8 +357,6 @@ is modeled and configured using the JCOP paradigm (data points).
 \subsection{Interface of the DAQ to the online storage}
 \label{sec:DAQ_online_interface}
 
-\fixme{This could use a bit of introduction, so I'm moving things around a bit, e.g., start with}
-
 The software framework for
 interfacing with the electronics, building events, writing data files,
 and providing an interface to online monitoring of data as they are
@@ -389,7 +369,7 @@ pair of 10\,Gbit/sec NIC provide the CPU and networking needed to
 build events, collect basic metadata, and send the data to storage and
 online monitoring.  The Event Builders assemble data fragments into self-consistent events and perform basic data integrity checks before writing records out.
 
-\fixme{end Anne's intro}
+\fixme{define NIC}
 
 Table~\ref{tab:goldi} indicates a nominal trigger rate of 25\,Hz for
 the mid-range scenario. 
@@ -462,14 +442,6 @@ consists of an
 \texttt{art::Analyzer} module which interfaces with the artDAQ framework and
 owns instances of further classes, each designed to handle different aspects
 of the monitoring.  
-%\fixme{whatever the current baseline is should be described as the ProtoDUNE-SP default; where apronpriate it is fine to also describe alternates; as written it appears that we don't know what the system will look like for ProtoDUNE-SP which is not good. }
-
-%\begin{cdrfigure}[Online Monitoring software framework]{OnlineMonitoringFramework}{
-    %Class diagram showing the baseline online monitoring framework. 
-    %\fixme{This figure may be too detailed and specific when the text seems to suggest that we don't quite know yet what things will look like. Consider to make less technical and show idea and fewer details }
-    %}
-  %\includegraphics[width=0.8\textwidth]{online_monitoring_software.png}
-%\end{cdrfigure}
 
 The DataReformatters restructure the data to allow for efficient subsequent
 analysis and provide a standard interface to the methods, which look through
@@ -477,11 +449,7 @@ the events.  These reformatted objects are passed to MonitoringData, which
 owns all of the data products (\texttt{TTree}s, \texttt{TH1}s, \texttt{TGraph}s,
 etc.) output from the monitoring software and provides methods for filling
 them when required.  Finally, the online event displays are
-written as part of the monitoring framework, so the EventDisplay class was
-responsible for this.  \fixme{prev sentence is awkward}
-%This particular functionality will possibly be handled
-%differently in ProtoDUNE-SP.
-%\fixme{same comment as above - this is not a 35t detector TDR}
+contained within the monitoring framework using the EventDisplay class.
 
 The output is then saved in a common area for offline access and for syncing
 with a web server. This is hosted at CERN and allows for remote

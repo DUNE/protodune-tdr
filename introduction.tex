@@ -15,14 +15,13 @@ ProtoDUNE-SP prototypes the designs of most of the single-phase DUNE far detecto
 by ICARUS; its T600 detector, split into two half-modules of about 375\,t total LAr mass each, was preceded by the 14-t ``10-m$^3$'' prototype. 
 
 The detector elements, consisting of the time projection chamber (TPC), the cold electronics (CE), and the photon detection system (PDS), are housed in a cryostat that contains the LAr target material. The cryostat, a free-standing steel-framed vessel with an insulated double membrane, is based on the technology used for liquefied natural gas (LNG) storage and transport. 
-A cryogenics system maintains the LAr at a stable temperature of about 89\,K and at the required purity level \fixme{add ``of n ppb or ppt''} through a closed-loop process that recovers the evaporated argon, recondenses and filters it, and returns it to the cryostat. 
+A cryogenics system maintains the LAr at a stable temperature of about 89\,K and at the required purity level  through a closed-loop process that recovers the evaporated argon, recondenses and filters it, and returns it to the cryostat. 
 
 The construction and operation of ProtoDUNE-SP will serve to validate the membrane cryostat technology and associated cryogenics, and the networking and computing infrastructure that will handle the data and simulated data sets.
 A charged-particle beam test will enable critical calibration measurements necessary for precise calorimetry. It will also enable the collection of invaluable data sets for optimizing the event reconstruction algorithms -- i.e., for finding interaction vertices and for particle identification -- and ultimately for quantifying and reducing systematic uncertainties for the DUNE far detector. These measurements are expected to significantly improve the physics reach of the DUNE experiment.
 
-Given its technical challenges, its importance to the DUNE experiment and the timeframe in which it must operate, ProtoDUNE-SP requires
-\fixme{and has in place?}  a strong organizational structure and a collaborative effort from most of the DUNE collaboration including U.S. National laboratories and university groups, CERN and international partners in the EU and Latin America. \fixme{Asia?}
-
+Given its technical challenges, its importance to the DUNE experiment and the timeframe in which it must operate, ProtoDUNE-SP has put in place a strong organizational structure incorporating 
+contributions from a large number of DUNE collaboration institutes. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The ProtoDUNE-SP detector}
@@ -42,12 +41,10 @@ Uniformity of the electric field is guaranteed by the surrounding FC.
 
 The CE, mounted onto the APA frame, and thus immersed in LAr, amplifies and continuously digitizes the induced signals on the sense wires at several MHz, and transmits these waveforms to the Data Acquisition system (DAQ). From the DAQ the data are  transmitted through the buffer to disk, then to the central CERN Tier-0 Computing Center, and finally to other partner sites for processing and analysis.  
 
-The modular PDS is integrated into the APAs. Each PDS module (referred to as a PD) consists of a thin, wavelength-shifting radiator plate mounted on a wavelength-shifting, bar-shaped light guide. The plates are coated with a
-layer of tetraphenyl-butadiene (TPB) that converts incoming VUV (128 nm) 
+The modular PDS is integrated into the APAs. Each PDS module (referred to as a PD) consists of a bar-shaped light guide and
+a wavelength-shifting layer (surface-coating or mounted radiator plate). The wavelength-shifting layer converts incoming VUV (128 nm) 
 scintillation photons to longer-wavelength photons, in the visible blue range. Some of the converted photons are emitted into the bar, a fraction of which are then internally reflected to the bar's end where they are detected by silicon photomultipliers (SiPMs).
 Each APA frame is designed with ten bays into which PDs are inserted after the TPC wires have been strung. This  allows for final assembly at the integration area (in a clean room) at the CERN NP prior to installation inside the cryostat. 
-
-\fixme{can we give rough percentages of the photons emitted into the bar and then internally reflected?}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,8 +54,9 @@ Each APA frame is designed with ten bays into which PDs are inserted after the T
 The ProtoDUNE-SP test program at CERN has two very clear primary goals. First, it will benchmark the principal technical solutions for the DUNE SP far detector components and, if they are found to be fully adequate, to endorse them. 
 Operating the detector in real experimental conditions and for an extended period will allow for a full characterization of the components, including the membrane cryostat and the cooling and purification circuit, the APA design and the layout of its cold read-out electronics, the HV system, and the PDS and its warm read-out electronics.
 %
-Secondly, ProtoDUNE-SP will perform the measurements needed to understand, and quantify to the extent possible, the systematic uncertainties that will affect the DUNE oscillation measurements. This second goal anticipates physics outcomes that will be relevant independent of the Far Detector.
-\fixme{independent of DUNE itself?}
+Secondly, ProtoDUNE-SP will perform the measurements needed to understand, and quantify to the extent possible, the systematic uncertainties that will affect the DUNE oscillation measurements. %This second goal anticipates physics outcomes that will be relevant independent of the Far Detector.
+%\fixme{of more general interest -- to wider community, make physics measurements 
+In many cases these measurements will produce physics results that are of interest to the wider community.
 
 The construction and operation of ProtoDUNE-SP are thus indispensable steps toward the first DUNE Far Detector module, DUNE-SP. ProtoDUNE-SP will allow the collaboration to validate and benchmark the far detector engineering, to test and validate associated infrastructure requirements, and ultimately to extend the physics reach of the experiment. 
 
@@ -81,76 +79,46 @@ ProtoDUNE-SP will be the largest experiment to date to take data with cold elect
 %all the rebar in the concrete floor interconnected and then this network 
 connected to the building ground bus, will provide a fairly good ground. The cryostat itself is isolated from the building ground, and all the mechanical/electrical connections have dielectric breaks. DUNE-SP, in contrast, will be installed a mile underground in a very dry mine, and better isolation from the environment is expected. ProtoDUNE-SP will test the ground isolation and shielding under conservative conditions.
 
-\fixme{check previous paragraph. Anne}
-
 The FC and cathode planes are full-scale prototypes, 
 %final far detector elements. As the ProtoDUNE-SP detector is designed with full-scale field cages 
 %the maximum drift distance and corresponding high voltage will be the same as planned for the far detector. 
 with the same maximum drift distance and corresponding high voltage.
 This allows ProtoDUNE-SP to use the same HV feedthrough and drift-field configuration as is planned for DUNE-SP. The cryostat dimensions are selected to be the same for both ProtoDUNEs %as the Dual-Phase (DP) cryostat in order to only need to design one cryostat and cryogenics system. 
 to leverage the same cryostat and cryogenics system designs. 
-In order to fit the ProtoDUNE-SP TPC in the cryostat, the wall-to-cathode plane distance is slightly smaller than in DUNE-SP, making this setup a conservative test of the HV design. The ground planes above and below 
-the detector make the actual mechanical geometry inside the 
-cryostat on the top and bottom irrelevant for issues related to high voltage. \fixme{not sure what prev sentence is trying to convey} This preserves the freedom to tailor the DUNE-SP far detector cryogenics system as needed in order to optimize the purification without compromising the validity of the ProtoDUNE-SP results. %test. 
-
-
-Testing these components under nominal operating conditions is extremely important, as this is the first instance of LArTPCs operating with a resistive cathode % or the field cage 
+In order to fit the ProtoDUNE-SP TPC in the cryostat, the wall-to-cathode plane distance is slightly smaller than in DUNE-SP, making this setup a conservative test of the HV design. 
+Testing the TPC components under the most likely operating conditions for DUNE-SP is extremely important, as this is the first test of the updated LArTPC design, which incorporates a resistive cathode 
 and FC construction with metal profiles and fiberglass I-beam support. 
-If ProtoDUNE-SP wishes a second run with a shorter drift distance in order to reduce the effects of space charge, the FC can be shortened to set a 2.5-m maximum drift distance.
-\fixme{can we drop prev pgraph?}
 
-ProtoDUNE-SP offers a unique platform to validate and possibly optimize the cryogenics design for DUNE-SP. The DUNE 35-t prototype was the first membrane cryostat to achieve high-purity operation, but it was limited to roughly $3e^{-lifetime}$\,ms. This is substantially worse than the MicroBooNE experiment's  $\sim$10\,ms or the lifetimes seen at ICARUS at the end of its last run. \fixme{want to leave this as is?}
-
-\fixme{next pgraph seems like too much 35-t info; can we just say what pdune-sp will do to improve this?}
-There are several possible causes for a shorter electron lifetime.  A third of the 35-t cryostat roof is covered with a hatch that is not insulated, but designed with radiation shields. As the dominant source of contamination is the transfer of impurities in the gas ullage to the liquid, the gas circulation in the ullage and the impact of the hatch are important factors in the cryostat/cryogenics design. The purity monitors inside the 35-t cryostat also indicated that the liquid was not well mixed; it exhibited substantially higher purity at the bottom of the cryostat, indicating that the liquid feed and temperature need to be optimized.  
-
-%The ProtoDUNE-SP cryostat design does not have a hatch for the detector installation; instead a temporary construction opening (TCO) is used (similar to ProtoDUNE-DP). %The Single-Phase detector moved to 
-%ProtoDUNE-SP adopted this option after encountering difficulties in the mechanical design of the hatch for the DP 1$\times$1$\times$3 cryostat, 
-%\fixme{need citation}
-%and based on the recommendations from the cryostat design team.  
-%This design also eliminates one potential source of contamination to the liquid argon. 
-%\fixme{What source and how?}
-%It should be pointed out that with a 3-ms lifetime and a 2.25-ms maximum drift time, roughly half the charge generated near the cathode is lost before it reaches the anode. Efforts to improve the electron lifetime will improve the detector performance.  Cryogenics design improvements are that the Proto-DUNE-SP detector will not have a hatch in the ullage, all cryostat penetrations will be designed with gas purge to prevent contaminates from migrating from warm surfaces to the ullage volume, and the cryostat/cryogenics system will be modeled in order to understand the liquid and gas flows inside the cryostat. ProtoDUNE-SP will provide an excellent test bed to validate the cryogenics design for DUNE. 
-
-As the dominant source of contamination is the transfer of impurities in the gas ullage to the liquid, the gas circulation in the ullage and the impact of the hatch are important factors in the cryostat/cryogenics design. Several design improvements are in place. First, Proto-DUNE-SP replaces the hatch in the ullage with a temporary construction opening (TCO) in the side of the cryostat. All cryostat penetrations are designed with gas purge to prevent contaminates from migrating from warm surfaces to the ullage volume, and the the liquid and gas flows inside the cryostat are being modeled. This is expected to provide an excellent test bed to validate the cryogenics design for DUNE-SP. 
+ProtoDUNE-SP also offers a unique platform to validate and possibly optimize the cryogenics design for DUNE-SP. 
+All cryostat penetrations are designed with gas purge to prevent contaminates from migrating from warm surfaces to the ullage volume, and the the liquid and gas flows inside the cryostat are being modeled. This is expected to provide an excellent test bed to validate the cryogenics design for DUNE-SP. 
 
 %The installation process has many similarities to the far detector installation but also many differences. Both installation plans now call for inserting the equipment through a TCO. ProtoDUNE-SP will prototype the tooling and procedures for transporting an APA and transferring it to a suspended rail system. Similarly, the assembly and transport processes of the cathode planes and top/bottom field cages will be developed. Neither the hanging of one APA from the other nor the of moving a 12-m-tall stacked module will be tested. Likewise, the CPA is only 6~m tall, not 12~m. One major change in the installation was driven by the need to install the end walls with the TCO closure and the beam interface. \fixme{clarify prev sentence}Due to the tight space inside the cryostat, the rail structure on which the detector is hung will most likely be different for the final detector. Despite these differences, the experience gained in installing the ProtoDUNE-SP detector will be invaluable in planning the DUNE far detector installation. 
 
-ProtoDUNE-SP will prototype the tooling and procedures for transporting APAs and transferring them to a suspended rail system. Similarly, the assembly and transport processes of the CPAs and top/bottom FC assemblies are being developed. ProtoDUNE-SP will not have the capability to test the hanging of one APA/CPA from another or the of moving a 12-m-tall stacked module. Due to the tight space inside the cryostat, the rail structure on which the detector is hung will most likely be different for DUNE-SP. Despite these differences, the experience gained in installing the ProtoDUNE-SP detector will be invaluable in planning the DUNE-SP installation. 
+ProtoDUNE-SP will prototype the tooling and procedures for transporting APAs and transferring them to a suspended rail system. Similarly, the assembly and transport processes of the CPAs and top/bottom FC assemblies are being developed.  Due to space constraints inside the cryostat, the rail structure on which the detector is hung will most likely be different for DUNE-SP. Despite these differences, the experience gained in installing the ProtoDUNE-SP detector will be invaluable in planning the DUNE-SP installation. 
 
 %Finally, one significant difference between the ProtoDUNE-SP detector and DUNE-SP is the integration of the test beam. This requires a penetration into the cryostat and a LAr displacement plug that bridges the gap between the membrane cryostat wall and the FC. As this element bridges the HV, careful design is required. To ensure that the displacement plug does not compromise the ProtoDUNE-SP operation, a dedicated HV test at Fermilab is planned that will test the final beam plug in the exact field configuration planned for ProtoDUNE-SP.
 
-Integration of the test beam with ProtoDUNE-SP is quite different from the neutrino beam integration planned for DUNE-SP. To minimize the material interactions of the particle beam in the ProtoDUNE-SP cryostat upstream of the TPC, a volume of LAr along the beam path (between the cryostat membrane and the FC) is displaced, and replaced by a less dense volume of dry nitrogen gas. This requires a penetration into the cryostat to install a  beam plug. To ensure that the displacement plug does not compromise the ProtoDUNE-SP operation, a dedicated HV test at Fermilab is planned that will test the final beam plug in the exact field configuration planned for ProtoDUNE-SP.
+Integration of the test beam with ProtoDUNE-SP is quite different from the neutrino beam integration planned for DUNE-SP. To minimize the material interactions of the particle beam in the ProtoDUNE-SP cryostat upstream of the TPC, a volume of LAr along the beam path (between the cryostat membrane and the FC) is displaced, and replaced by a less dense volume of dry nitrogen gas. This requires a penetration into one of the FC assemblies to install a  beam plug. To ensure that the displacement plug does not compromise the ProtoDUNE-SP operation, a dedicated HV test at Fermilab is planned that will test the final beam plug in the exact field configuration planned for ProtoDUNE-SP.
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Physics}
 
-\fixme{The separation of physics vs engr goals may not be quite right yet}
-
-The use of a well defined test beam of charged particles of known type and incident  energy will significantly enhance the understanding of the ultimate performance of the LArTPC technology and boost the optimization of event reconstruction, particle identification (PID) algorithms and calorimetric energy measurements.  The beam measurements will serve both as a calibration data set to tune the Monte Carlo simulations and as a reference data set for the DUNE experiment. 
+The use of the CERN charged-particle beams of known particle type and incident energy provide the means to achieve a better understanding of the interaction processes occuring within a argon target and help to optimize event reconstruction techniques, particle identification algortihms, and calorimetric energy measurements.   
+The beam measurements will also provide a calibration data set for tuning the Monte Carlo simulations and a reference data set for the DUNE experiment. 
 
 Pion and proton beams in an energy range from about one to a few GeV will be used primarily to study hadronic interaction mechanisms and secondary particle production.  At higher energies, these beams will be used to study shower reconstruction and energy calibration. Electrons will be used to benchmark and tune electron/photon separation algorithms, to study electromagnetic cascade processes and to calibrate electromagnetic showers at higher energies. Charged kaons produced in the tertiary beamline are rare but are copiously produced by the pion beam interactions inside the detector. These will be extremely useful for characterizing kaon identification efficiency for proton decay sensitivity studies.  Samples of stopping muons with Michel electrons from muon decay (or without them, in the case of negative muon capture) will be used for energy calibrations in the low-energy range of the SN neutrino events and for the development of charge-sign determination methods. 
 
-A cumulative ProtoDUNE-SP test-beam run period of eight weeks is assumed, but it depends on the extent of beamline sharing with other users at EHN1. The run will take place prior to the long shutdown of the LHC in late 2018 (LS2). 
-\fixme{check 8 weeks}
+A cumulative ProtoDUNE-SP test-beam run period of 16 weeks is assumed, but it depends on the extent of beamline sharing with other users at EHN1. The run will take place prior to the long shutdown of the LHC in late 2018 (LS2). 
 
 ProtoDUNE-SP will acquire cosmic data during periods with no beam. A dedicated external trigger system consisting of arrays of scintillator paddles, suitably positioned and arranged in \textit{coincidence} trigger logic, 
 will select specific classes of cosmic muon events. Dedicated runs, e.g., runs looking for long muon tracks crossing the entire detector at large zenith angles, allow for an overall test of the detector performance and the DAQ. Runs looking for muons stopping inside the LAr volume and the accumulation of accurate Michel electron spectra may be useful for energy calibration purposes in the low-energy range.
 
-
 It is important to note that ProtoDUNE-SP offers much beyond calibration  and detector performance characterization.  The LArTPC simultaneously features precise 3D tracking and accurate measurement of energy deposited. Its large active volume allows for good containment of the hadronic and electromagnetic interaction products in the few GeV range. These capabilities have never before been combined in one detector.  The unprecedented event reconstruction capability combined with the exposure of the detector's large active volume to the CERN charged-particle beams open the way to a truly rich program of new physics investigations into particle interaction processes. 
 
-
- Hadronic ($\pi$, K and $p$) interactions on an Ar target around one GeV produce low-multiplicity final states rather than ``hadron showers,'' 
- and 1-GeV electrons  (with critical energy $\simeq 30$ MeV in Ar) produce low-populated cascades, with only a few tens of secondary energetic electrons (positrons). \fixme{I don't see relationship between this sentence and next. Maybe need a ``therefore'' in next sentence?}
-Exploitation of ``TPC/imaging-aided calorimetric measurements'' in this energy range may allow investigation of 
-energy deposition mechanisms and reconstruction methods where the usual hadronic and electromagnetic shower concepts and features are either not well defined or cannot be applied.
-Calorimetric measurements of the energy deposited can be accomplished,  whenever possible, for each individual secondary particle/track thanks to the imaging capabilities of this type of detector.
-\fixme{the `wherever possible' makes the sentence meaningless; please clarify}
+  Hadronic ($\pi$, K and $p$) interactions on an Ar target around one GeV produce low-multiplicity final states rather than ``hadron showers,'' and similarily 1-GeV electrons  (with critical energy $\simeq 30$ MeV in Ar) produce low-populated cascades, with only a few tens of secondary energetic electrons (positrons).
+``TPC/imaging-aided calorimetric measurements'' will allow investigations of energy deposition mechanisms in this energy range where the standard hadronic and electromagnetic shower concepts and features are either not well defined or cannot be applied.
+The calorimetric measurement of the total energy deposited can, in fact, be accomplished, by detecting and summing over the energy deposited by each individual secondary particle/track thanks to the imaging capabilities of the LArTPC.
 In particular, the determination of the electromagnetic  content in hadron-initiated cascades, $\pi^0$ multiplicity, and the energy fraction carried as a function of primary hadron incident energy will be of interest.
-
-\fixme{This whole last paragraph is somehow not gripping me; could it be clarified and then maybe put above the previous paragraph (which would make a better conclusion.}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Run plan}
@@ -162,8 +130,7 @@ Beam simulations show that the hadron rates at
 energies below 1~GeV/c are low. Moreover, low-energy beams are more
 subject to degradation by materials in the
 beamline.  The optimization of the run plan factors in the beam composition and particle rates of the H4 beamline, and 
-also particle interaction topologies in the ProtoDUNE-SP detector. Full FLUKA~%\cite{fluka05,Fluka15}
-\fixme{cite fluka05,Fluka15}
+also particle interaction topologies in the ProtoDUNE-SP detector. Full 
 simulations of particle transport in the ProtoDUNE-SP detector, including the
 beam window, have been performed.
 
@@ -180,7 +147,7 @@ showers.
 \begin{cdrfigure}[Energy at interaction]{pandpiint}{Kinetic energy of
     particles at the point of interaction in the ProtoDUNE-SP active
     volume, for different beam momenta. Histograms are normalized to one particle injected in the
-    beamline acceptance. FLUKA simulations include the beam window
+    beamline acceptance. Simulations include the beam window
     materials, beams are considered as monochromatic and
     parallel. Left: protons, Right: pions.}
   \includegraphics[width=0.49\textwidth]{pvarie_intene.pdf}

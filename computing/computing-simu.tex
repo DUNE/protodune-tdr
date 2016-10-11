@@ -56,21 +56,15 @@ per electron-ion pair, and the $W$-value for scintillation is 19.5\,eV
 per photon, resulting in tens of thousands of drifting electrons and
 photons per cm of charged-particle track in the detector.  It is
 impractical to simulate the paths of each of these electrons and 
-photons using GEANT4, and \fixme{therefore?} computational techniques are incorporated
+photons using GEANT4, and therefore computational techniques are incorporated
 into LArSoft to achieve a high simulation speed while preserving
 accuracy.  The electrons are propagated by LArSoft-specific tools,
 including a tool that integrates over the distributions created by longitudinal
 and transverse diffusion, 
 and a geometry tool that indicates the wire locations that record charge, assuming uniform wire spacing.
-\fixme{The prev sentence replaces this:
-The electrons are propagated by LArSoft-specific tools
-including an integral over the distributions created by longitudinal
-and transverse diffusion, and the wire locations on which to record
-the charge passing or collecting are looked up from the geometry
-assuming uniform spacing. 
-}
+
 The effect of charge loss due to attachment
-of electrons to impurities (the effect of the electron lifetime), \fixme{that affects the lifetime?}  is
+of electrons to impurities (i.e., the effect of the electron lifetime),  is
 implemented in this step.  
 Effects due to space charge are simulated using a smoothly parameterized
 map of
@@ -83,7 +77,7 @@ electric field calculated using Poisson's equation, a given
 space-charge density map, and the boundary conditions provided by the
 cathodes, anodes, and field cages.  It is anticipated that the
 space-charge distortions in ProtoDUNE-SP may be as large as
-20\,cm~\cite{Mooney:2015kke}. \fixme{I took this out because I don't think it's discussed in this document. Anne``Space charge effects and resulting field distortions for protoDUNE are discussed in Section~\ref{sec:SCEintro}.''}
+20\,cm~\cite{Mooney:2015kke}. 
 
 
 Photon propagation is simulated using a library that contains the

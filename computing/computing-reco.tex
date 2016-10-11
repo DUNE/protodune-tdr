@@ -18,30 +18,23 @@ depending on the targeted physics deliverable.
 For current large LArTPC detectors, noise filtering is applied to improve
 the signal-to-noise ratio.  A
 large component of the noise in existing LArTPC experiments is from coherent sources -- sources that
-affect many neighboring wires and/or neighboring readout channels.
-(Channels from different planes may be interleaved in the front-end
+affect many neighboring wires and/or neighboring readout channels
+(channels from different planes may be interleaved in the front-end
 electronics).  
-\fixme{prev sentence in parens sounds like it's for a particular expt}
-The contribution from coherent noise to a measured ADC value on a channel can be estimated from the data on nearby channels at the same time, and subtracted out.
+The contribution from coherent noise to a measured ADC value on a channel can be estimated from the data on nearby channels in the same time slice, and subtracted out.
 However, this procedure reduces the signal as
 well as the noise, in a manner that depends on the angle of the track or
 shower with respect to the drift field.  
-\fixme{prev sentence replaces: A drawback of this procedure is that signals also arrive on neighboring
-channels at the same time, and this procedure reduces the signal as
-well as the noise, in a manner that depends on the angle of a track or
-shower with respect to the drift field.
-}
+
 Procedures that first
 identify signal hits and protect them from distortion~\cite{microboone-noise} 
 are under study. With software noise filtering, MicroBooNE~\cite{noise_filter}
 has achieved excellent noise levels, consistent with expectations, based on 
 the design specification of the cold electronics. 
-\fixme{THEIR cold electronics?}
   In MicroBooNE, various 
 sources of noise have been identified and hardware upgrades 
 are ongoing to eliminate them.   Once noise has been removed,
 signals will be processed to recover the ionization charge.
-\fixme{No longer in doc? ``as described in Section~\ref{sec:tpc-signal-calibration}.''}
 
 Hits are identified by seeking deconvoluted signals exceeding
 thresholds that are adjusted to minimize the creation of false noise
@@ -61,8 +54,8 @@ Because the wire angle
 is chosen such that each induction wire intersects each collection-plane
 wire at most one time, only two views are needed in order to identify
 hits and resolve ambiguities.  A separate LArSoft module compares the
-hits in the collection and induction views and assigns choices to
-remove ambiguity.  \fixme{choices?}
+hits in the collection and induction views to
+resolve ambiguities.  
 
 Physics analyses are most sensitive with a full 3D reconstruction of the
 event -- the primary vertex (if there is one), the tracks and the showers.
@@ -77,7 +70,7 @@ LineCluster~\cite{linecluster}, and TrajCluster~\cite{trajcluster}.
 %%%%%%%%%
 \subsection{Performance}
 
-The performance metrics are efficiency, purity, and completeness.  The
+Algorithm performance metrics are efficiency, purity, and completeness.  The
 efficiency of the algorithm is defined as the fraction of true particles that
 match reconstructed objects within the bounds of pre-specified
 criteria, such as matching position and length and the type of object
@@ -91,7 +84,6 @@ expressed as a fraction of total true hits in that object.
 Particle-level and event-level performance metrics include particle identification
 and misidentification rates, shower energy resolution, and energy scale offsets.
 
-\fixme{What is the type of performance discussed in the first pgraph? (as opposed to particle- and event-level)}
 
 %%%%
 \subsubsection{EMShower}
@@ -130,7 +122,7 @@ reconstructs vertices in 3D, reconstructs tracks in 3D,
 reconstructs showers in 3D, performs a ``mop-up'' step in 2D and 3D, and finally performs
 full event-building in 3D.
 %PANDORA proceeds by clustering hits in 2D, reconstructing vertices in 3D, reconstructing tracks in 3D, reconstructing showers in 3D, a mop-up step in 2D and 3D, followed by full event building in 3D.
-\fixme{ILC - int'l linear collider?}
+\fixme{ILC - int'l linear collider? add to acronyms}
 
 %Old Text
 %Plots of the efficiency and completeness for muons in charged-current $\nu_{\mu}$
@@ -286,10 +278,3 @@ will improve the track reconstruction.}
  \includegraphics[width=0.9\textwidth]{Tracking_2.png}
 \end{cdrfigure}
 
-\fixme{Something like the following could go into a summary of the document; the other chapters don't include a summary like this.}
-\pdsp run will collect a large amount of raw data % from a detector constructed with full-size DUNE far detector components, installed in a test beam.  These data 
-that will provide a tremendous opportunity
-to test the detector design, to test and optimize data processing and reconstruction techniques, and
-to measure the properties of particle interactions in LAr.  While the reconstruction
-algorithms are still under development, the richness of the information provided by the detector
-promises new opportunities to study the physics processes of charged particle and neutrino scatters.

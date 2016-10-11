@@ -85,13 +85,11 @@ during the cooling process. %phase.
 \subsubsection{Level Meters}
 	Reliable LAr level determination is required in the $\pm$20~cm around the nominal LAr surface level. Commercially available liquid-level sensors provide high-reliability monitoring. These are available in multiple technologies, %y types, 
 	including solid-state electro-optical, %conductivity, 
-	conductive, capacitive and piezo-resonant. Although the technology choice has not been made%yet, however 
+	conductive, capacitive and piezo-resonant. Although the technology choice has not been made, %yet, however 
 	designated ports on the top of the cryostat are available for this instrumentation.
-The vertical temperature gradient device will provide a coarse level reading during filling and 
- a differential pressure transducer will also provide additional indication about LAr level.
+In the absence of these devices, the  vertical temperature gradient device will provide a coarse level reading during filling, and some information about the steady-state LAr level will be available from the 
+differential pressure transducer.
  
- \fixme{the temp gradient device provides ``coarse'' measurement, but this device provides ``reliable'' measurement, not ``precise'' measurement. Pls clarify}
-
 %%%%%%%%%
 \subsubsection{Pressure Sensors}
 	Precise measurement of pressure in the GAr ullage is necessary. A number of pressure sensors, including a differential pressure transducer, are planned, %foreseen 
@@ -107,17 +105,17 @@ The design of the ProtoDUNE-SP safety and control system is largely based on the
 \item	The Detector Safety System (DSS) %ensures the safety of the experiment by 
 performs temperature surveys and monitors interlocks.
 \end{itemize}
-The system provides a graphical user interface to visualize the trends of monitored values, the alarms, and to control the \fixme{operation of the?} experiment. A web interface allows remote monitoring of the behavior of the experiment. 
-\fixme{relating `control the experiment' and `monitor behavior of experiment,' it seems out of order. Can you start with monitor and then say control?}
+The system provides a graphical user interface to visualize the trends of monitored values and any alarm conditions.
+ A web interface allowsfor remote monitoring. 
 
 The physical interface of the control system is located at the level of the outer flanges on the cryostat. \fixme{Where is this shown?}
 % While 
  CERN EP/DT-DI will take care of connecting the control system to the flanges and interfacing to the cryogenics control infrastructure for information and signal exchange. 
 The ProtoDUNE-SP experiment is responsible for all sensors, power distribution, etc., inside the cryostat, % are part of the experiment's responsibilities 
-as well as for defining the system specifications, I/O parameters and control \& safety logics. \fixme{logic or logistics?}
+as well as for defining the system specifications, I/O parameters and control and safety logic. 
  
-The supervisory control of the system and data acquisition (SCADA) will be developed, tested and provided by CERN EP/DT-DI.	%CERN will develop and test the SCADA supervisor for ProtoDUNE-SP.
-\fixme{still `will be developed'?}
+The supervisory control of the system and data acquisition (SCADA) is being developed, tested and provided by CERN EP/DT-DI.	%CERN will develop and test the SCADA supervisor for ProtoDUNE-SP.
+
 
 Figure \ref{fig:dcsdesign} shows the general architecture of the control and safety system for ProtoDUNE-SP, including the PCS, the DCS and the DSS.
 %The system is subdivided into the Process Control System, the Detector Control System and the Detector Safety System described above.
