@@ -6,16 +6,20 @@
 
 %This section outlines the data acquisition (DAQ) for ProtoDUNE-SP.
 The data acquisition (DAQ) system is shown in Figure~\ref{fig:daq-overview} along with its
-interfaces to the cold electronics, beam instrumentation, and online
-computing systems.
-\fixme{Figure~\ref{fig:daq-overview} requires significant zooming to read.  Need a simpler 
-diagram initially to show the major pieces, and only the DAQ pieces. Also some descriptive text; relate the physical components to data rates and such.}
-\fixme{List components: timing, trigger, throttle systems, FPGA-based master, etc.}
+interfaces to the cold electronics, beam instrumentation, and offline
+computing systems.  
 
-\begin{cdrfigure}[DAQ Overview]{daq-overview}{Detailed overview of the
-DAQ system, its interconnections, data flow, timing and control signals,
-and the interfaces to the electronics and online computing systems}
-        \includegraphics[angle=90,width=0.70\textwidth]{daq-overview-dia.pdf}
+\begin{cdrfigure}[DAQ Overview]{daq-overview}{Overview of the
+DAQ system, its interconnections, data flow, timing and trigger signals,
+and the interfaces to the electronics and offline computing systems.  DAQ elements are shown in bold. The TPC Readout (RCE and FELIX) accept
+data from the TPC Warm Electronics at total rate of 480\,Gb/s, where it is compressed and 
+selected based on trigger information.  Triggered data is then sent to the artDAQ event builder farm, and subsequently 
+stored to disk with a parallel sample sent for online monitoring.  Triggers are formed from inputs 
+from the beam instrumentation, photon detection and cosmic ray tagger systems and forwarded
+to the timing system which broadcasts the synchronous trigger and clock signals to the electronics and DAQ systems.
+}
+        %\includegraphics[angle=90,width=0.52\textwidth]{daq-overview-dia.pdf}
+        \includegraphics[width=1.0\textwidth]{daq-overview-dia.pdf}
 \end{cdrfigure}
 
 %The requirements for the DAQ system are definedby the physics requirements of  ProtoDUNE-SP, with constraints from thefront-end electronics and assumed bandwidth and storage requirementsfrom the online and offline computing systems.  The baseline triggerrate during the SPS spill is taken to be 25 Hz.  Cosmic data will alsobe acquired at an appropriate rate such that bandwidth and processing priority are given to beam data.
@@ -32,7 +36,7 @@ with dedicated triggers (such as PID)  from the beam instrumentation. The latter
 Parameters of the data collection plan are listed in Table~\ref{tab:goldi}. The lossless 
 compression factor cited
 in the table is based on the assumption that the signal-to-noise level 
-is similar to or better than that achieved by MicroBooNE. \fixme{needs citation}
+is achievable when compared that achieved by MicroBooNE\cite{uboone-noise}.
 
 
 \begin{cdrtable}[Parameters defining data rate and volume in the ``most likely'' scenario]{ll}{goldi}{Parameters defining data rate and volume in the ``most likely'' scenario v5\,\cite{data_spreadsheet}. The buffer depth includes both
@@ -94,8 +98,7 @@ checks of its own function. In addition, the timing system acts as a
 data source, providing a record of triggers received, distributed, or
 throttled. The system is designed to meet the full eventual requirements
 of the DUNE experiment, but needs only a subset of that functionality
-for ProtoDUNE-SP. For instance, absolute time-stamping with respect to an
-external GPS reference is not required.
+for ProtoDUNE-SP. 
 
 An FPGA-based master unit 
 receives a high-quality clock signal 
@@ -134,14 +137,14 @@ firmware design of the receiving FPGA in each DAQ component.
 \subsubsection{Trigger}
 
 The baseline trigger solution for ProtoDUNE-SP is the Central Trigger Board
-(CTB). The triggers expected for the CTB are a beam minimum bias trigger,
-an electron beam trigger, and, if possible, a $\pi$/K/p will also be added.
+(CTB). The triggers expected for the CTB are a beam minimum-bias trigger,
+an electron beam trigger, and, if possible, a $\pi$/K/p trigger will also be added.
 The CTB provides a means to select the most interesting physics events
 during the beam spill and suppress inter-spill background events (or
 events so busy to prohibit accurate reconstruction).  The final trigger
 selection will be driven by ProtoDUNE's physics goals.  The CTB is
 designed to receive triggers from various subsystems (Photon Detection
-System, Beam Instrumentation, SPS spill signal, veto signals, etc.).
+System, Beam Instrumentation, SPS spill signal, etc.).
 Up to 100 input channels are provided.  It combines these into a global
 trigger based on a configurable input mask (or more sophisticated
 algorithm, if desired).  It provides functionality to globally
@@ -175,9 +178,8 @@ distributed via the timing system.
 The beam instrumentation is described in Section~\ref{sec:beaminstruments}.
 The beam instrumentation DAQ and the DAQ for ProtoDUNE-SP
 have separate timing systems.  A common GPS clock is used to keep both
-systems synchronized relative to each other.  A common endpoint receives time stamps 
-from both WhiteRabbit (for the beam instrumentation) and the ProtoDUNE-SP timing system, which 
-are used to create a matching table from the two systems.  
+systems synchronized relative to each other.  Global GPS timestamps are used
+in both systems to match data sets.  
 Data from the beam
 instrumentation are acquired continuously via a separate DAQ path.  Triggered
 data for ProtoDUNE-SP includes TPC, PDS, and beam instrumentation data, as well as
@@ -213,7 +215,7 @@ Xilinx Zynq family and contains a full Linux processor system on the chip
 accompanied by 1\,GByte of DRAM.   The primary processing functions of the
 RCEs are compression (and/or zero-suppression) and buffering
 of the raw data and then sending data to the back-end upon the receipt of
-an external trigger.  Each COB carries eight RCEs, all connected to each
+an external trigger.  Each COB carries eight RCEs for data processing, all connected to each
 other via an on-board 10-Gbps Ethernet switch, which also sends data out
 of the COB to the back-end DAQ PCs.
 
@@ -288,7 +290,7 @@ to embed experiment-specific code (called ``fragment generators''),
 designed both to upload configuration values to hardware and to read
 out the hardware. For ProtoDUNE-SP, the full DAQ consists of 87+ 
 boardreaders, in charge of the 60 RCEs, 24 SSPs, the timing system, 
-the Penn Trigger Board, and at least one for the beam instrumentation.
+the Central Trigger Board, and at least one for the beam instrumentation.
 %For testing purposes whenno hardware is available, fragment generators are available whichdon't actually interface to true hardware, but instead perform usefulfunctions such as read in existing output files, extract theirfragments and send them downstream (serving as a "playback" mechanism,essentially) as well as model pathological behavior such as sudden,precipitous increases in data rate or unexpected dropoffs in upstreamdata flow.  (Shorten per Eric J)
 For testing purposes, fragment generators can perform useful
 functions such as providing a ``playback" mechanism,'' and modeling sudden or unexpected data flow events.
@@ -350,7 +352,7 @@ processed using an implementation of the ELK (elastic search, logstash,
 kibana \cite{elastic:kibana}) stack. 
  The internal configuration of DAQ applications are
 carried out using the mechanisms provided by artDAQ. The overall system
-is modeled and configured using the JCOP paradigm (data points).
+is modeled and configured using the JCOP paradigm of data-points.
 
 
 %%%%%%%%%%%%%%% Tom's stuff
@@ -365,11 +367,10 @@ acquired is \textit{artdaq}~\cite{artdaq}.
 Computers running BoardReader processes read out
 the RCEs and SSPs and transmit data to a set of computers running EventBuilder processes.
 These computers and a
-pair of 10\,Gbit/sec NIC provide the CPU and networking needed to
+pair of 10\,Gbit/sec Network Interface Cards (NICs) provide the CPU and networking needed to
 build events, collect basic metadata, and send the data to storage and
 online monitoring.  The Event Builders assemble data fragments into self-consistent events and perform basic data integrity checks before writing records out.
 
-\fixme{define NIC}
 
 Table~\ref{tab:goldi} indicates a nominal trigger rate of 25\,Hz for
 the mid-range scenario. 
@@ -385,15 +386,15 @@ be provisioned in order to acquire and store the data from these
 systems.  
 
 The network speed of all computers in the DAQ
-chain is anticipated to be 20\,Gbits/sec. 
+chain is anticipated to be 20\,Gbit/sec. 
  Computers running nearline
 processing of subsets of the data, which are generally CPU-bound, may
-be connected with 1\,GBit/sec links.  
+be connected with 1\,Gbit/sec links.  
 %The software framework forinterfacing with the electronics, building events, writing data files,and providing an interface to online monitoring of data as it isacquired is \textit{artdaq}~\cite{artdaq}.
 
 
 Given that each RCE reads out 256 channels of the TPC, 60 RCEs
-need to be active.  For the PDS, 24 SSPs are used.  At least two computers 
+need to be active.  For the PDS, 24 SSPs are used.  At least four computers 
 running BoardReader processes are therefore used to read out
 the RCEs and transmit the data to the EventBuilder processes.
 %These computers and a
@@ -466,7 +467,7 @@ It also utilizes offline software (LArSoft) to provide, for example,
 reconstruction, facilitating a more complete monitoring of much more complex
 information.
 
-Once an output data file has been closed by the DAQ, it can be processed by the
+Once an output data file has been closed by the DAQ and sent offline, it can be processed by the
 nearline system.  A LArSoft job is initially run over the events to perform
 reconstruction and extract information from the data.  The output of this,
 along with the output of other runs, is then analyzed by a separate automated
