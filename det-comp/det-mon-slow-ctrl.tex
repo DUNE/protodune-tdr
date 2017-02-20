@@ -24,15 +24,15 @@ constraints and assumptions of the control system, and its general structure and
 A number of %monitoring 
 devices and sensors will be located inside the cryostat for either periodic or continuous monitoring of %detection of some fundamental parameters of 
 the LAr as well as the GAr in the ullage, %content 
-and for the monitoring of the detector functionality.
+and for the monitoring of the state of the detector.
 
 \fixme{A short section on requirements here would be useful}
 
 %%%%%%%%%
 \subsubsection{Purity Monitors} 
-Three purity monitors (PrM) with sensitivity in the ppt range will be used for the direct determination of the impurity content of the LAr inside the ProtoDUNE-SP cryostat. These PrMs have been generously provided by ICARUS~\cite{Ica-PrM-TM} 
-\fixme{Can't find citation in bib file}
-after being decommissioned from the T600. The design has been replicated for MicroBooNE and other R\&D test experiments at FNAL. Inside the ProtoDUNE-SP the monitors are arranged in a single vertical string located behind the APA planes on the Jura side (see Figure~\ref{fig:cryo-side-names}). The string hangs from the large blanking flange on the manhole, and ports with ConFlat sealing on the blanking flange will be made available for HV/Signal/OptFiber feedthroughs. The string is about 7~m long, with the three PrMs strung at different heights: one near the LAr surface, one at mid-height, and one at the very bottom near the LAr-return manifold, %for the return LAr distribution 
+Three purity monitors (PrM) with sensitivity to electron drift lifetimes in the few-millisecond range
+ will be used for the direct determination of the impurity content of the LAr inside the ProtoDUNE-SP cryostat. These PrMs have been generously provided by ICARUS~\cite{Amerio:2004ze} %{Ica-PrM-TM} 
+after being decommissioned from the T600. The design has been used with small modifications for MicroBooNE and other R\&D test experiments at FNAL. Inside the ProtoDUNE-SP the monitors are arranged in a single vertical line located behind the APA planes on the Jura side (see Figure~\ref{fig:cryo-side-names}). Two of the monitors hang from the large blanking flange on the manhole, while the lowest one is attached to the cryostat floor. Ports with ConFlat sealing on the blanking flange will be made available for HV/Signal/OptFiber feedthroughs. One monitor is near the LAr surface, another is at mid-height, and a third is at the very bottom near the LAr-return manifold, %for the return LAr distribution 
 for monitoring the purity of the LAr entering the cryostat after the filtration process.  
 
 \begin{cdrfigure}[A purity monitor from ICARUS T600 ]{IcaPrM}{Picture of a purity monitor from the ICARUS T600, now available for installation in the ProtoDUNE-SP detector}
@@ -41,38 +41,35 @@ for monitoring the purity of the LAr entering the cryostat after the filtration 
 
 \fixme{ Figure \ref{fig:IcaPrM} was not referenced; I added one. It's pretty, but not very informative. It could use more description like ``the 16(?) divisions in the device are the whatever, and the connection on the right is ...'' Or we could take it out.}
 
-The three PrMs, one of which is pictured in Figure~\ref{fig:IcaPrM}, are currently being refurbished with new gold photocathode and new quartz fiber. The drift length  (25~cm) is the same for all them. Using parts of another (available) PrM to extend the drift length of one of the three (e.g., to 40~cm) for more precise measurements of the longer $e-$ lifetimes is currently %considered as an open option.
-under consideration.
+The three PrMs, one of which is pictured in Figure~\ref{fig:IcaPrM}, are currently being refurbished with new gold photocathode and new quartz fiber. The drift length  (25~cm) is the same for all them. Using parts of another (available) PrM to extend the drift length of one of the three (e.g., to 40~cm) for more precise measurements of the longer $e-$ lifetimes is currently \fixme{under consideration.}
 The mechanical structure of the string, the anchorage to the manhole flange at the top end, and the fastening of the string at the bottom %are subject of a detailed ongoing engineering study. 
-are still under study.
-An additional PrM at the bottom on the opposite side of the cryostat would be useful for %comparing 
-%with the response from the other PrM at the same height and thus 
-%checking %the uniformity of 
-monitoring variations in the quality of 
-the LAr at that level, and providing information for the fluid-dynamics computation inside the cryostat. \\
+are \fixme{still under study.}
+Installation of a purity monitor using a port available just after the filtration system is under active consideration.  \fixme{under consideration.}
+
+%%%%%%%%%
+\subsubsection{Analytic Equipment}
+
+The provision of a system of commercial gas analyzers with ppb or better sensitivity for water and oxygen and with 0.1 ppm sensitivity for nitrogen is \fixme{under consideration.}This system would be used to monitor the effectiveness of the original purge of the cryostat, to certify deliveries of make-up argon, and to monitor the state of the argon under operations. Connections to both the liquid and the ullage in the cryostat, and to various points in the external cryogenic systems would be provided via a switch-yard of valves. 
 
 %%%%%%%%%
 \subsubsection{Vertical Temperature Gradient Monitor}
 
-	Precise monitoring of the temperature gradient as a function of LAr depth is %considered highly important as 
-	an important input for fluid dynamics modeling and simulations. The installation of a set of devices with precision better than 50~mK
-	%the precise measurement of the LAr temperature across 
-	along the entire height of the LAr volume %inside the cryostat 
+	Precise measurements of the temperature gradient as a function of LAr depth could be
+	an important input for fluid dynamics modeling and simulations. The installation of two sets of devices along the  height of the LAr volume 
 	has recently  been included in the internal instrumentation plan  for this purpose.
 %	A precision better than 50~mK in the temperature measurement is assumed as target requirement for the device. 
-	Commercial calibrated resistance temperature detectors (RTDs -- Pt100 or Pt1000) with 15-mK precision at LAr temperature are well suited to this application, however the temperature probe wiring and signal transport outside the cryostat require extreme care in order to maintain % is necessary to prevent spoiling 
-	the intrinsic precision of the probe.
+	Commercial calibrated resistance temperature detectors (RTDs -- Pt100 or Pt1000) with 15-mK precision at LAr temperature may be well suited to this application, recognizing that the temperature probe wiring and signal transport outside the cryostat require extreme care in order to maintain  the intrinsic precision of the probe.
 	
-The %current base option  
-design for this device consists of a series of 25 Pt100 probes positioned at $\sim$30~cm intervals %distance between one another 
-along a $\sim$7.5-m-long rigid string hanging behind the APA plane from %the flange %on one of 
+One device consists of a series of Pt100 probes positioned at $\sim$30-to-50\,cm intervals %distance between one 
+behind the APA plane from %the flange %on one of 
 an available port %on the top side 
-at the top of the cryostat. A special multi-pin FT is mounted on the flange %is necessary 
+at the top of the cryostat. A multi-pin feedthrough is mounted on the flange %is necessary 
 for the signal extraction and readout from a temperature controller.  
-Again, the mechanical structure, including the cable routing up to the multi-pin FT, is still subject to a detailed engineering study.
+The mechanical structure, including the cable routing up to the feedthrough, is \fixme{still subject to a detailed engineering study.} A second string of temperature monitors is being proposed for another position in the cryostat nearer the HV field cage. \fixme{proposed?}
 %Also in this case, the engineering study of the mechanical structure has to be developed in detail, including cables routing up to the multi-pin FT. \\
-A number of RTDs will also be positioned on the APAs and on the cryostat walls at different heights to monitor the temperature %drop 
-during the cooling process. %phase.
+A number of RTDs will also be positioned on the cryostat walls at different heights to monitor the temperature %drop 
+during the cooling process, and mounted (somewhere) to measure the temperature of the inlet and exhaust argon. 
+\fixme{where? mounted near the argon inlet and exhaust feedthroughs to measure the temperature there?} 
 
 %%%%%%%%%
 \subsubsection{Webcams}
@@ -87,7 +84,7 @@ during the cooling process. %phase.
 	including solid-state electro-optical, %conductivity, 
 	conductive, capacitive and piezo-resonant. Although the technology choice has not been made, %yet, however 
 	designated ports on the top of the cryostat are available for this instrumentation.
-In the absence of these devices, the  vertical temperature gradient device will provide a coarse level reading during filling, and some information about the steady-state LAr level will be available from the 
+Information about the steady-state LAr level will be available from the 
 differential pressure transducer.
  
 %%%%%%%%%

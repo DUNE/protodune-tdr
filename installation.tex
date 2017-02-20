@@ -5,9 +5,9 @@
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Overview}
 
-As detector materials are brought into EHN1, they are passed into the SAS through its removable roof, then transported through a set of large doors from the SAS into the clean room, where they are tested and assembled. When ready, each assembled detector component passes through a temporary construction opening (TCO) in the cryostat for installation.
-While material is lowered into the SAS from the gallery floor, the doors to the clean room remain closed to reduce contamination of the filtered air in the clean room.
-Once the roof of the SAS is closed, these doors can be opened to move the material into the clean room. 
+As detector materials are brought into EHN1, they are passed into the sas through its removable roof, then transported through a set of large doors from the sas into the clean room, where they are tested and assembled. When ready, each assembled detector component passes through a temporary construction opening (TCO) in the cryostat for installation.
+While material is lowered into the sas from the gallery floor, the doors to the clean room remain closed to reduce contamination of the filtered air in the clean room.
+Once the roof of the sas is closed, these doors can be opened to move the material into the clean room. 
 
 The activities that will take place in the clean room include:
 \begin{itemize}
@@ -30,11 +30,11 @@ The APAs will be delivered to EHN1 in containers as shipped from the production 
 %the orientation from which it was shipped.  The lifting strap and fixtures will be removed for the lower edge of the APA. 
 %This orientation of the APA is shown in Figure~\ref{fig:apa-tooling}.
 
-\begin{cdrfigure}[The APA with the special tooling attached]{apa-tooling}{The APA with the lifting tooling attached.  The right image shows the orientation of the APA as delivered, the left shows the orientation when it is lowered into the material SAS. }
+\begin{cdrfigure}[The APA with the special tooling attached]{apa-tooling}{The APA with the lifting tooling attached.  The left image shows the orientation of the APA as delivered, the right shows the orientation when it is lowered into the material sas. }
 \includegraphics[width=0.7\linewidth]{apa-tooling}
 \end{cdrfigure}
 
-Once the APA is removed from the container and properly oriented, the lifting strap and fixtures will be removed from the lower edge of the APA, the roof hatch on the material SAS for 
+Once the APA is removed from the container and properly oriented, the lifting strap and fixtures will be removed from the lower edge of the APA, the roof hatch on the material sas for 
  the clean room will be opened, and the APA will be lowered through the hatch.  The APA will then be transferred to a rolling trolley attached to a series of rails, and moved into the clean room via these rails.  These spaces and rails are described in more detail in Chapter~\ref{ch:spacereq}. 
 
 Once in the clean room, the APA will go through a series of acceptance tests for both electrical integrity and wire tension.  It will also be inspected for broken wires or any other damage that could have resulted from shipment.  
@@ -54,20 +54,17 @@ five from each direction.  This is shown in Figure~\ref{fig:pds-install}.  Once 
 \label{subsec:ce_install}
 
 Once the PD installation is complete 20 CE units are installed at the top of the APA frame.  Each CE unit consists of an electronics enclosure that contains the TPC read-out electronics inside.  Each unit also includes a bundle of cables that connect the electronics to the outside of the cryostat via the flange on the feedthrough port.  %Because access to the CE is not possible after the cryostat is sealed, a full complement of tests will be performed during the development stage and before the final installation -- move to QA
-The location of the CE units on the APA is shown in Figure~\ref{fig:ce-install}.  These units will be connected via matching electrical connectors on the FEMB and the CR board mounted on the APA.  There will also be mechanical fasteners to hold the enclosure to brackets supported by the APA frame.  %Each of the CE units will be tested once installed to check connectivity.  
+The location of the CE units on the APA is shown in Figure~\ref{fig:ce-install}.  These units will be connected via matching electrical connectors on the FEMB and the CR board mounted on the APA.  There will also be mechanical fasteners to hold the enclosure to brackets supported by the APA frame.  
 
 \begin{cdrfigure}[CE installation]{ce-install}{CE installation}
 \includegraphics[width=0.7\linewidth]{ce-installation}
 \end{cdrfigure}
 
-After the APA has been fully integrated with the PDS and CE, it will be moved via the rails in the clean room to the integrated cold test stand.  This test stand, shown in Figure~\ref{fig:cold-test-stand-open}, is a large insulated box that is light-tight for PD testing and has a Faraday shield for CE testing.  At the top of the box is a crossing tube, similar to those in the cryostat, with a ConFlat fitting that accepts the warm-cold interface flange for the PD and CE cable connections.  To prepare for the series of warm electronics tests, the PD and CE cables will be routed and connected to their flanges, the APA will be moved inside the test stand box, and the end cap that completes the Faraday cage will be installed closing the box.  %The warm tests are described in   \fixme{XXsectionXX}
+After the APA has been fully integrated with the PDS and CE, it will be moved via the rails in the clean room to the integrated cold test stand.  This test stand, shown in Figure~\ref{fig:cold-test-stand-open}, is a large insulated box that is light-tight for PD testing and has a Faraday shield for CE testing.  At the top of the box is a crossing tube, similar to those in the cryostat, with a ConFlat fitting that accepts the warm-cold interface flange for the PD and CE cable connections.  To prepare for the series of warm electronics tests, the PD and CE cables will be routed and connected to their flanges, the APA will be moved inside the test stand box, and the end cap that completes the Faraday cage will be installed closing the box.  
 
 A first set of tests at room temperature will be performed. Once the warm tests are complete, the inner volume of the box will be purged with dry gas and the volume will be slowly cooled, using cold nitrogen gas, to a temperature of approximately 100 $^\circ$K.  The rate of cooldown must be less than 10 $^\circ$K/hr, the same foreseen for the cryostat cooldown.  The cooldown system is designed to maintain the inner volume near 100 $^\circ$K for approximately 48 hours. A full set of tests at a temperature 
 close to operation LAr temperature will be performed for detectors functionality (APA and PD) and electronic noise assessment.  
-%The cold testing can take place during any of the three phases, i.e, during the cooldown period, the 48 hr ``cold'' period, or during the warmup.  
 After the cold test procedure is complete and the detector slowly warmed up back to room temperature, the box is opened, cables are disconnected and secured and the APA is extracted from the box on the rail system in the clean room. 
-%has been purged of nitrogen with room air, it will be opened, the APA removed and the cables disconnected and secured for movement on the rail system.   
-%\fixme{why the cold testing can be done during cooldown or warm up could use some explanation. Why do you need to get down to 100 degrees when a warmer temperature would suffice, for example? Anne}
 \begin{cdrfigure}[Cold test stand]{cold-test-stand-open}{A model of the integrated cold test stand in the ProtoDUNE-SP clean room in EHN1.}
 \includegraphics[width=0.7\linewidth]{cold-test-stand-open}
 \end{cdrfigure}
@@ -85,35 +82,16 @@ The cables from each of the CE and PDs on the APA are then routed and connected 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Cathode Plane Assemblies (CPAs)}
 
-%\section{Assembly  and Installation }
-
-%\fixme{Jack will revise this} 
-
 Individual CPA modules will be delivered to EHN1 in containers as shipped from the production sites.  Each CPA module weights roughly 24~kg and will be lifted out of the shipping crate by hand. % and will not require and special fixtures. 
 %
 %Individual CPA panels will be assembled off site and shipped to CERN in the horizontal position.  Each panel weights roughly 24 kgs and therefore can be lifted out of the shipping crate by hand and will not require and special fixtures.
 %
 Three CPA modules will be placed on a flat surface and screwed/pinned together to form a CPA column. 
-%\fixme{Do they come down to the SAS and into the clean room first, like the APAs? The FC does, so the CPAs must too, but it's not stated} 
-  The crane %\fixme{inside the cryostat?} 
+  The crane  
   then will be attached at the top end of the CPA column with appropriate lifting straps and shackles.  The assembled CPA column will be lifted to the vertical position.  
 %The load transfer from the crane hook to the installation rail still needs to be determined.  
-Once the successive CPA column is formed, it is brought together with the previous one within 1~mm along their (vertical) length. % (see thermal discussion in \fixme{Section 7}).
-This alignment is provided by two pins located on the side of the CPA that will fit into a vertical slot on the side of the next CPA. Six CPAs columns locked together will eventually form the cathode plane and moved inside the cryostat through the TCO and positioned parallel to the APA plane at the design drift distance.
-\fixme{FLC: it would be desirable to have a picture of the CPA here}
-%%% FLC: I think this detail is not necessary %%%%%%
-%The CPA %plane may
-%will not hang vertically %after being hung 
-%if the strap is not perfectly centered. %on center.  
-%This can be corrected when the FC is mounted to a pair of CPAs % planes.  
-%since the connection points on the FC are fixed and will therefore %tie the CPAs together and 
-%force the CPAs %them 
-%to hang vertically %because the assembly of the CPA planes and FC then becomes 
-%as together they become a two-point support structure.  
-
-%\fixme{I vote to remove the following sentence. Anne - I agree FLC}
-%During assembly the FC will be hung from the CPA.  In a worst case scenario, the two FCs will be mounted on one side of the CPA first which will cause the CPA to rotate 2.9'' due to the offset loading.  
-
+Once the successive CPA column is formed, it is brought together with the previous one within 1~mm along their (vertical) length. 
+This alignment is provided by two pins located on the side of the CPA that will fit into a vertical slot on the side of the next CPA. Six CPAs columns locked together will eventually form the cathode plane and moved inside the cryostat through the TCO and positioned parallel to the APA plane at the design drift distance. Refer back to Figures~\ref{fig:cpa-concept} and~\ref{fig:cpa-view2} in Section~\ref{sec:cpa}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -123,22 +101,17 @@ This alignment is provided by two pins located on the side of the CPA that will 
 
 Three basic elements comprise the FC: the top, bottom and end-wall FC assemblies.  
 The top and bottom FC assemblies are basically mirror assemblies that are hinged from the top and bottom of the CPAs. % modules.  
-Figure~\ref{fig:fc-assy} (left) shows a top/bottom FC assembly.  
-The ground plane covers one side of the field shaping profiles.  
+Figure~\ref{fig:fc-assy} (left) shows a top/bottom FC assembly in which the ground plane covers one side of the field shaping profiles.  
 The right hand image in the figure shows the CPA pair with top and bottom field cages attached.
-%The right-hand image in the figure shows a top and bottom FC attached only to one side of the CPA. % module.  
 These will be attached to both sides for the ProtoDUNE-SP installation.  
-%\fixme{I don't find this image very illuminating. And how do you have a top and bottom attached to one side? Anne}
-\begin{cdrfigure}[Top/bottom FC assembly]{fc-assy}{Top/bottom FC assembly. }
+\begin{cdrfigure}[Top/bottom FC assembly]{fc-assy}{Left: top or bottom FC assembly (they are symmetrical). Right: side view of a CPA pair with four field cages (two top and two bottom) attached.}
 \includegraphics[width=.75\linewidth]{top-bottom-fc-assembly}
 \includegraphics[width=0.23\linewidth]{fc-assy-vertical}
 \end{cdrfigure}
-\fixme{In the text it says right side image shows CPA pair, in caption the correction implies that it shows the FC. I can't tell which. Anne}
 
 The end-wall FC assembly is constructed from four stacked end-wall FC modules.  Figure~\ref{fig:fc-end-wall-panel} shows one of the end-wall FC modules.  Four of these modules will be stacked and connected together to build the end-wall.  
 The stacking will be done by the overhead hoist near the TCO in the clean room.  Once the end wall is complete, it will be moved into the cryostat on the rails in the clean room and positioned on the appropriate beam in the DSS. 
-%\fixme{Do we need to mention DSS for the APAs or CPAs?}  
-The end-wall is supported by a spreader bar that is in turn supported from the beam. The spreader can swivel about the support point;  this is necessary for positioning the end-wall with respect to the APA and CPA. % in the installation process.  
+The end-wall is supported by a spreader bar that is in turn supported from the beam. The spreader can swivel about the support point;  this is necessary for positioning the end-wall with respect to the APA and CPA.  
 
 \begin{cdrfigure}[FC end wall panel]{fc-end-wall-panel}{FC end wall panel }
 \includegraphics[width=.48\linewidth]{fc-end-wall-panel}
@@ -146,16 +119,15 @@ The end-wall is supported by a spreader bar that is in turn supported from the b
 
 The sequence of installation for the FC components is as follows:
 \begin{itemize}
-\item After the first row of APAs is installed and translated to the Sal\`{e}ve (south) side of the cryostat, the beam \fixme{which beam?} is bolted into place. The two end walls for the Sal\`{e}ve-side drift volume will be constructed and moved inside the cryostat supported 
-by B bridge beam. The configuration of bridge beams is shown in Figure~\ref{fig:dss-install2}.
-\item As the CPAs are constructed outside the cryostat, both the top and bottom FC assemblies are attached on both sides, top and bottom.  This combination of FC and CPA is then moved into the cryostat and supported by the C bridge beam. See Figure~\ref{fig:deploy-fc-saleve-drift}.
+\item After the first row of APAs is installed and translated to the Sal\`{e}ve (south) side of the cryostat, bridge beam A is bolted into place. The two end walls for the Sal\`{e}ve-side drift volume will be constructed and moved inside the cryostat supported 
+by bridge beam B. The configuration of bridge beams is shown in Figure~\ref{fig:dss-install2}.
+\item As the CPAs are constructed outside the cryostat, both the top and bottom FC assemblies are attached on both sides, top and bottom.  This combination of FC and CPA is then moved into the cryostat and supported by bridge beam C. See Figure~\ref{fig:deploy-fc-saleve-drift}.
 This is done three times to get all into position.
-\item Once beam C  has been bolted into positon the end walls can be mounted on the end-wall hangers and the spreader bars removed.  The field cages in the Sal\`{e}ve-side drift can be deployed as shown in Figure~\ref{fig:fc-assy}.
-\item After the second row of APAs is installed and translated to the Jura (north) side of the cryostat, the two end-walls for the Jura-side drift are constructed and moved inside the cryostat supported by the D bridge beam. 
+\item Once beam C  has been bolted into positon the end walls can be mounted on the end-wall hangers and the spreader bars removed.  The field cages in the Sal\`{e}ve-side drift can be deployed as shown in Figure~\ref{fig:deploy-fc-saleve-drift}.
+\item After the second row of APAs is installed and translated to the Jura (north) side of the cryostat, the two end-walls for the Jura-side drift are constructed and moved inside the cryostat supported by bridge beam D. 
 \item Once all the TPC components have been moved into the cryostat the TCO is closed.
 \item Once the TCO is closed, the end walls in the Jura-side drift are placed into position on the end-wall hangers and the fields cages are deployed.
 \end{itemize}
-\fixme{Anne updated the bullet points per Bill Miller 2/16/17}
 \begin{cdrfigure}[Field cages deployed in Sal\`{e}ve-side drift]{deploy-fc-saleve-drift}{Field cages deployed in the Sal\`{e}ve-side drift}
 \includegraphics[width=0.48\linewidth]{deploy-fc-saleve-drift}
 \end{cdrfigure}
