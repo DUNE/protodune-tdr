@@ -64,9 +64,9 @@ The components of the CE system are the
 between the APA and the signal flanges (cold cables);
 \item Signal flanges with a CE feedthrough to pass the data, clock/control signals, 
 LV power, and APA wire-bias voltages between the inside and outside of the cryostat;
-\item Warm electronics crates (WECs) that are mounted on the signal flanges and contain the warm interface boards (WIBs)
+\item Warm interface electronics crates (WIECs) that are mounted on the signal flanges and contain the warm interface boards (WIBs)
 and Power and timing cards (PTCs) for further processing and distribution of the signals entering/exiting the cryostat;
-\item Fiber cables for transmitting data and clock/control signals between the WECs and the data acquisition 
+\item Fiber cables for transmitting data and clock/control signals between the WIECs and the data acquisition 
 (DAQ) and slow control systems;
 \item Cables for LV power and wire-bias voltages between the signal flange and external power supplies (warm cables); and
 \item LV power supplies for the CE and bias-voltage power supplies for the APAs.
@@ -89,22 +89,21 @@ Cold cable bundles                     & 120, 1 per FEMB                        
 Signal flange                                & 6, 1 per APA                              & 128 $\times$ 20  (i.e., 2,560)  \\   \colhline
 CE feedthrough                            & 6, 1 per APA                             &128 $\times$ 20         \\   \colhline
 Warm interface boards (WIB)         & 30, 5 per APA                             & (128 $\times$ 20) /5 (i.e., 512)        \\   \colhline
- Warm electronics crates (WEC)     & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
+ Warm interface electronics crates (WIEC)     & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
  Power and timing cards (PTC)       & 6, 1 per APA                             & 128 $\times$ 20         \\   \colhline
 Passive backplane (PTB)                & 6, 1 per APA                             & 128 $\times$ 20 \\   \colhline
-MPOD LV power supplies               & 6, 1 per APA                        &   128 $\times$ 20   \\    \colhline
-MPOD wire-bias power supplies    & 6, 1 per APA                        &   128 $\times$ 20   \\   \colhline
-MPOD power supply chassis          &  2, 1 per  3 APAs       &            \SI{15360}/2   \\
+LV power mainframe               & 2                        &   7,680   \\    \colhline
+LV supply modules          &  6, 1 per APA       &  128 $\times$ 20            \\
+Wire-bias mini-crate               & 2                        &   7,680   \\    \colhline
+Wire-bias supply modules    & 6, 1 per APA                        &   128 $\times$ 20   \\   \colhline
 \end{cdrtable}
-
-\fixme{check Table~\ref{tab:ce-components} ; there are some missing numbers}
-
 
 The most significant requirements for the CE are listed here. The CE shall:
 
 \begin{itemize}	
 \item Provide the means to read out the TPC wires and transmit their data in a useful format to the DAQ.
-\item Operate for the life of the facility without significant loss of function.
+\item Operate for the life of the facility without significant loss of function
+\item Dead or unusable channels at $<$~1$\%$, causing $>$~97$\%$ of the fiducial volume to be observed by all 3 active wire planes.
 \item Record the channel waveforms continuously without dead time.
 \item Be constructed only from materials that are compatible with high-purity LAr.
 \item Provide sufficient precision and range in the digitization to:
@@ -112,7 +111,7 @@ The most significant requirements for the CE are listed here. The CE shall:
 \item Discriminate electrons from photon conversions;
 \item Optimize the reconstruction of high- and low-energy tracks from accelerator-neutrino interactions;
 \item Distinguish a Minimum Ionizing Particle (MIP) from noise with a signal-to-noise ratio $>$ 9:1;
-\item Measure  ionization up to 15 times that of a MIP particle, so that stopping kaons from proton decay can be identified.
+\item Measure ionization up to 15 times that of a MIP particle, so that stopping kaons from proton decay can be identified.
 \end{itemize}
 \item Ensure that all power supplies have: 
 \begin{itemize}
@@ -149,6 +148,12 @@ twisted-pair cables to the signal flange. The cable shields are connected to the
 cryostat at a second feedthrough, the PDS feedthrough, and to the PCB shield layer on the photon detectors. There is no 
 electrical connection between the cable shields and the APA frame except at the signal flange.
 
+The frequency domain of the TPC wire and photon detector signals are separate. The wire readout digitizes at 2~MHz 
+with $<$~500~kHz bandwidth at 1 $\mathrm{\mu}$sec peaking time, while the photon readout operates at 150~MHz 
+with $>$~10~MHz bandwidth. They are separated from the clock frequency (50~MHz) and common noise frequencies 
+through the FE ASIC and cabling designs. All clock signals are transmitted differentially with individual shield 
+to avoid the interference to power lines. 
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Distribution of APA wire-bias voltages}
@@ -168,7 +173,7 @@ transparent configuration.
 
 As described in Section~\ref{subsubsec:apa_wire_anchor}
  the filtering of wire-bias voltages and AC coupling of wire signals passing
-onto the charge amplifier circuits is done on Capacitance-Resistance (CR) boards that plug inbetween the APA wire-board stacks and FEMBs.
+onto the charge amplifier circuits is done on Capacitance-Resistance (CR) boards that plug in between the APA wire-board stacks and FEMBs.
 Each CR board includes single R-C filters for the X- and U-plane wire-bias voltages. In addition, each board has 48 
 pairs of bias resistors and AC coupling capacitors for X-plane wires, and 40 pairs for the U-plane wires. The coupling capacitors block DC while passing AC 
 signals to the CE motherboards.
@@ -183,13 +188,13 @@ coupling capacitors.
 Groups of four wires are tied together to share single
 bias resistors and filter capacitors. These CR boards do not connect to the charge amplifier circuits on the FEMB.
 
-The amplifier circuits 
-have input impedance of 50\,$\Omega$ using 22-nF coupling capacitors. 
-Clamping diodes limit the input voltage received at the amplifier circuits to between zero and +1.8 Volts.
+Clamping diodes limit the input voltage received at the amplifier circuits to between 1.8V~$\pm$~U$\_$D, where U$\_$D
+is the breakdown voltage of the diode $\sim$0.7V.
+The amplifier circuit has a 22-nF coupling capacitor at input to avoid leakage current from the protection clamping diodes. 
 
 Coupling capacitors for the X-plane and U-plane wires are required to block DC bias voltages.
 However they also impact the efficiency of the detector circuits.
-The sense wires are expected to have 200 pF of capacitance to the APA frame.
+The sense wires are expected to have $\sim200$~pF of capacitance to the APA frame.
 Induced or collected charges are effectively divided between the wire capacitance and the coupling capacitor.
 To achieve a charge-calibration accuracy of 0.5 percent or better,
 the coupling capacitors must be 4.7\,nF at ten percent tolerance, or 2.2\,nF at five percent tolerance.
@@ -281,7 +286,7 @@ LN2 = liquid nitrogen}
 \includegraphics[width=0.45\linewidth]{tpcce_enc_25mV.jpg}
 \end{cdrfigure}
 
-Figure~\ref{fig:tpcce_enc} shows the measured Equivalent Noise Charge (ENC) versus 
+Figure~\ref{fig:tpcce_enc} shows the measured Equivalent Noise Charge (ENC) as a function of 
 filter-time constant (peaking time) for two different gains, where ENC is the value of charge 
 (in electrons) injected across the detector capacitance that would produce at the output of the 
 shaping amplifier a signal whose amplitude equals the output R.M.S. noise. These measurments
@@ -301,7 +306,7 @@ stability of the peaking time demonstrate the high stability of the
 passive components as a function of temperature. Channel-to-channel and chip-to-chip
 variation in the calibration capacitor are typically less than 1\%. 
 
-The ADC ASIC design is also implementd using the CMOS process (0.18~$\mu$m and 1.8V).
+The ADC ASIC design is also implemented using the CMOS process (0.18~$\mu$m and 1.8V).
 The layout of the ADC ASIC is shown in Figure~\ref{fig:tpcce_ADC_ASIC}. 
 The ADC ASIC is a complex design with 320,000 transistors, while the FE ASIC has 16,000.
 The transistor design work has been done following the rules for long cryo-lifetime.
@@ -364,7 +369,11 @@ On the WIBs, the data is further MUXed by 4:1 and transmitted over optical
 fibers to the DAQ system described in Section~\ref{sec:DAQ_online_interface}.
 
 The FPGA on the mezzanine card is also responsible for communicating with the
-DAQ and timing systems and providing the clock and control signals required by the FE and ADC ASICs.
+DAQ and timing systems and providing the clock and control signals required by the FE and ADC ASICs. 
+By default the cold FPGA will load firmware from a cold flash onboard the FEMB. The remote update of 
+FPGA firmware via JTAG chain is available through the WIB, with 4 differential cables to each FEMB 
+from the WIB. In addition, the cold flash can be programmed remotely. In the case that faulty firmware 
+is identified in-situ by slow control and monitoring, an update of the firmware will be initiated.
 
 Each FEMB is enclosed in a Faraday box to provide shielding from noise. 
 As shown in Figure~\ref{fig:tpcce_box}, the Faraday box is designed to make the electrical connection 
@@ -389,8 +398,8 @@ ground at the APA frame, as shown in Figure~\ref{fig:tpcce_cr_board}.
 All cold cables originating from inside the cryostat connect to the outside warm electronics through PCB board feedthroughs
 installed in the signal flanges that are distributed along the cryostat roof (Figure~\ref{fig:tpcce_FT_InternalCableRoute}).
 The TPC data rate per APA, with an overall 32:1 MUX and 80 $\sim$1~Gbps data channels per APA,
-is sufficiently low that the signals can be driven over copper LVDS tansmission lines.
-Additional LVDS transmission lines are available for the distribution of clock signals and control information,
+is sufficiently low that the LVDS signals can be driven over copper twin-axial transmission lines.
+Additional transmission lines are available for the distribution of LVDS clock signals and I$^2$C control information,
 which are transmitted at a lower bit rate.
 Optical fiber is employed externally from the WIBs on the signal flange to the DAQ and slow control systems.
 
@@ -408,7 +417,7 @@ ProtoDUNE-SP, there is a crate only on one side).}
 \includegraphics[width=0.6\linewidth]{tpcce_signal_FT.pdf}
 \end{cdrfigure}
 
-The current design of the signal flange includes a T-shaped pipe, separate PCB feedthroughs for the CE and PDS cables, and
+The design of the signal flange includes a T-shaped pipe, separate PCB feedthroughs for the CE and PDS cables, and
 an attached crate for the TPC warm electronics, as shown in Figure~\ref{fig:tpcce_signal_FT}.
 The wire-bias voltage cables connect to standard SHV (safe high voltage) connectors machined directly into the CE feedthrough,
 ensuring no electrical connection between the wire-bias voltages and other signals passing through the signal flange.
@@ -434,14 +443,14 @@ to transmit the following differential signals:
 
 \begin{itemize}
     \item 4$\times$1.2~Gbps high-speed data
-    \item One 50~MHz system clock
+    \item One 100~MHz clock
     \item One 2~MHz CONVERT clock
-    \item 2 I2C control and configure
+    \item 2 I$^2$C control and configure
     \item 4 single-ended JTAG programming for the FPGA
 \end{itemize}
 
 The selected cables are Samtec 26~AWG twin-axial bundles with Samtec HSEC08 connectors to both
-the FEMB mezzanine board and the signal flange. 
+the FEMB mezzanine board and the signal flange. Each twin-axial pair is separately shielded.
 The HSEC08
 connectors lock into place with tabs on each side of the connector. A sample of the Samtec cable with
 THV outer jacket has passed outgassing tests in the LAr Materials Test Stand at Fermilab.
@@ -461,33 +470,27 @@ data over 25~m (DUNE length) RT Samtec 26AWG cable with active recovery.}
 \end{cdrfigure}
 
 Figure~\ref{fig:tpcce_samtec_results} shows results from the cable 
-validation testing. The eye diagrams show the edges of the differential signals after 
+validation testing. The cable connectors through the signal feed-through are emulated in the test stand with 
+proper connectors and a test PCB. The eye diagrams show the edges of the differential signals after 
 LVDS transmission over the specified cable types and lengths. The height of eye diagram shows the size 
 of the recovered signal in mV and the slope of the rising and falling edges are jitter in picoseconds (ps). 
 An eye diagram is sufficient to show that the edges of the differential signals can
 be recovered, but not enough to demonstrate the bit error rate (BER). However, the Samtec 26~AWG cable has 
 also passed a BER test, transmitting $10^{13}$ bits without error.
 
-
-
-LV power is passed from the signal flange to the FEMB by bundles of 16 Samtec 
+LV power is passed from the signal flange to the FEMB by bundles of 18 Samtec 
 20~AWG twisted-pair wires, as shown in Figure~\ref{fig:tpcce_cable_routing}. One IPD1 connector
-attaches all 16 wires at the signal flange, and two IPD1 connectors are attached to the FEMB (one to the
+attaches all 18 wires at the signal flange, and two IPD1 connectors are attached to the FEMB (one to the
 analog motherboard and one to the FPGA mezzanine). In total, 20 wire bundles 
  bring LV power to the FEMBs associated with one APA.
 
-Eight of the 16 wires are power feeds, as described in Figure~\ref{fig:tpcce_lv_req}. The other eight wires
+Nine of the 18 wires are power feeds; the other nine wires
 are attached to the grounds of the input amplifier circuits, as described in Section~\ref{subsec:ce_wire_bias}.
-For
-a single FEMB, the resistance is $<30$~m$\Omega$ at RT or $<10$~m$\Omega$ at LAr temperature. Each APA has a copper cross-section of approximately $80~\mathrm{mm}^2$, with
-a resistance $<1.5$~m$\Omega$ at RT or $<0.5$~m$\Omega$ at LAr temperature.
-
-\begin{cdrfigure}[LV power feed wire specifications]{tpcce_lv_req}{Samtec LV power feed wire 
-specifications.}
-\includegraphics[width=4in]{tpcce_lv_req.pdf}
-\end{cdrfigure}
-
-%\fixme{Eric questions whether figure~\ref{fig:tpcce_lv_req} is needed}
+For a single FEMB, the resistance is measured to be $<30$~m$\Omega$ at RT or $<10$~m$\Omega$ at 
+LAr temperature. Each APA has a copper cross-section of approximately $80~\mathrm{mm}^2$, with a 
+resistance $<1.5$~m$\Omega$ at RT or $<0.5$~m$\Omega$ at LAr temperature. The power loss 
+on the 7 meter LV cables to each FEMB is ~0.1W at room temperature, or ~2W per APA, and will be 
+further reduced when operating in LAr.
 
 The wire-bias voltage cables are required to deliver voltages up to a few thousand Volts and currents up to a few
 milliAmps.
@@ -508,11 +511,11 @@ a small mounted board near the electron diverter that also houses wire-bias volt
 \subsection{Warm interface electronics}
 \label{subsec:warm_interface_elec}
 
-The warm interface electronics are housed in warm electronics crates (WECs)
-attached directly to the signal flange.  The WEC shown in Figure~\ref{fig:tpcce_ceflange_sbnd} 
+The warm interface electronics are housed in warm interface electronics crates (WIECs)
+attached directly to the signal flange.  The WIEC shown in Figure~\ref{fig:tpcce_ceflange_sbnd} 
 contains one
 Power and Timing Card (PTC), up to five Warm Interface Boards (WIBs) and a passive
-backplane (PTB), which fans out signals and LV power from the PTC to the WIBs.
+Power and Timing Backplane (PTB), which fans out signals and LV power from the PTC to the WIBs.
 
 \begin{cdrfigure}[Conceptual design of signal flange]{tpcce_ceflange_sbnd}{Exploded view of 
 the signal flange for SBND (ProtoDUNE-SP has five WIBs).}
@@ -551,18 +554,19 @@ WIBs.  The received clock on the WIB is separated into clock and
 data using a clock/data separator.
 
 \begin{cdrfigure}[WIB and LV power]{tpcce_wib_power}{LV power distribution 
-to the WIB and FEMBs. 200~W is for a fully-loaded crate 
+to the WIB and FEMBs. 250~W is for a fully-loaded crate 
 with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
-\includegraphics[width=0.6\linewidth]{tpcce_wib_power.pdf}
+\includegraphics[width=0.6\linewidth]{tpcce_wib_power.pdf} %REPLACE THIS IMAGE
 \end{cdrfigure}
 
 The PTC also receives LV power for all cold
-electronics connected through the signal flange, approximately 200~W at 12~V for a
-fully-loaded flange (five~WIB + 20~FEMB). The LV power is then fanned out
-on the PTB to each WIB, which provides the necessary DC/DC conversions and fans
+electronics connected through the signal flange, approximately 250~W at 48~V for a
+fully-loaded flange (one~PTC, five~WIB, and 20~FEMB). The LV power is then stepped down
+to 12~V via a DC/DC converter onboard the PTC and fanned out
+on the PTB to each WIB, which provides the necessary 12V DC/DC conversions and fans
 the LV power out to each of the cold FEMBs supplied by that WIB, 
 as shown in Figure~\ref{fig:tpcce_wib_power}. The 
-majority of the 200W drawn by a full flange is dissipated in the LAr
+majority of the 250W drawn by a full flange is dissipated in the LAr
 by the cold FEMB.
 
 
@@ -595,8 +599,8 @@ oscillator. The GT variant of the Arria V
 transceivers can drive the high-speed data to the DAQ system up to
 10.3125~Gbps per link,  implying that all data from
 two FEMB (2$\times$5~Gbps) could be transmitted on a single link. However, it is planned to
-use a QSPF socket on the WIB to deliver $\sim$5~Gbps on four optical fibers 
-(one fiber per FEMB) to two RCEs. \fixme{write out} The FPGA has an additional Gbps Ethernet
+use a QSPF socket on the WIB to deliver $\sim$5~Gbps on four optical fiber pairs 
+(one fiber pair per FEMB) to two RCEs. \fixme{write out} The FPGA has an additional Gbps Ethernet
 transceiver I/O based on the 125~MHz clock, which provides real-time digital data readout to the slow control system.
 
 
@@ -606,68 +610,72 @@ transceiver I/O based on the 125~MHz clock, which provides real-time digital dat
 \subsection{External Power and Cables}
 \label{subsec:ce_feedthrough_power}
 
-The LV power to the FEMB and WIB is supplied by Weiner MPOD power supplies. 
-\fixme{define MPOD}
+The LV power to the FEMB and WIB is supplied by two Weiner PL506 mainframe power supplies.
 The CE power-per-channel is about 25~mW in the LAr.
 Including power for the WIB, a fully loaded WIB (one WIB plus four FEMBs) requires
-12V and draws approximately 3.3~Amps. Therefore, the full electronics for one APA (five WIBs + 20 FEMBs) 
-requires 12~V and draws approximately 16~Amps, for a total power of almost 200~W, as 
+12V and draws up to approximately 4~Amps. Therefore, the full electronics for one APA (one PTC, five WIBs, and 20 FEMBs) 
+requires 12~V and draws approximately 20~Amps, for a total power of almost 250~W, as 
 described in Section~\ref{subsec:warm_interface_elec}.
 
-Each MPOD LV power unit has two DSUB37 connectors, each with four channels of LV output, including negative
-and positive sense wires. %as shown in Figure~\ref{fig:tpcce_mpod_top}. 
-Each channel has three pins
-of negative output and three pins of positive output. Five of the eight channels
-provide the 12~V/3.3~A to each WIB via the PTC, and one channel provides LV power 
-to the PTC itself, with two of the eight channels unused.
+Each PL506 LV power mainframe is configured with 3 MEH-30/60 modules which
+operate at 30-60V/13.5A/650W maximum capacity. Using 10~AWG cable, a .8V drop is expected along the cable with a
+required power of 306.12W out of 650W available. %as shown in Figure~\ref{fig:tpcce_mpod_top}. 
+Therefore, one MEH-30/60 module will supply the 250W to one APA at 48V, with the 48/12V conversion done by the PTC. 
+Four wires will be used for each module, two 10~AWG,
+shielded, twisted pair for the power and return, two 20~AWG, shielded, twisted pair for the sense. Sense line fusing will be
+provided on the PTC card. This fusing would serve as
+a final protection. The primary protection would come from the Over Current protection
+on the LV supply modules, which is set above the $\sim$20~Amps. The LV power cable uses FCi micro TCA connectors, 
+shown in Figure~\ref{fig:tpcce_power_conn}.
+
+
+%Each channel has three pins
+%of negative output and three pins of positive output. Five of the eight channels
+%provide the 12~V/3.3~A to each WIB via the PTC, and one channel provides LV power 
+%to the PTC itself, with two of the eight channels unused.
 
 %\begin{cdrfigure}[MPOD DSUB37 top connector]{tpcce_mpod_top}{MPOD DSUB37 top connector.}
 %\includegraphics[width=1.0\linewidth]{tpcce_mpod_top.png}
 %\end{cdrfigure}
 
-Each MPOD wire-bias voltage unit supplies the wire-bias voltages to eight SHV connectors 
-at the signal flange. One MPOD chassis contains three LV and three wire-bias units, and can
-supply all the LV and wire-bias power to three APAs worth of cold electronics. Therefore,
-a total of two MPOD chassis are required for the detector.
+%Each of the three output pins on
+%each channel are tied together in parallel 
+%going to one wire large enough to carry the full supply voltage. Fuses can optionally be 
+%populated on each output pin as shown in Figure~\ref{fig:tpcce_fused_cable}; however, if
+%fusing is not selected, the pins will be connected with 0~$\Omega$ resistors.
 
-
-The LV power cable uses DSUB37 connectors. The bottom of the fuse PCB at the MPOD 
-end of the cable is shown in Figure~\ref{fig:tpcce_fused_cable}. Each of the three output pins on
-each channel are tied together in parallel 
-going to one wire large enough to carry the full supply voltage. Fuses can optionally be 
-populated on each output pin as shown in Figure~\ref{fig:tpcce_fused_cable}; however, if
-fusing is not selected, the pins will be connected with 0~$\Omega$ resistors. This fusing would serve as
-a final protection. The primary protection would come from the Over Current protection
-on the MPOD, which is set above the 3.3~A required by each WIB, but below the
-combined fuse value.
-
-\begin{cdrfigure}[Bottom of the fuse PCB]{tpcce_fused_cable}{Bottom of the fuse PCB at the MPOD end of the cable.}
-\includegraphics[width=0.7\linewidth]{tpcce_fused_cable.png}
+\begin{cdrfigure}[Micro TCA power connectors]{tpcce_power_conn}{FCi micro TCA power connector at the PTC end of the cable.}
+%\includegraphics[width=0.7\linewidth]{tpcce_power_connector.png} 
 \end{cdrfigure}
+\fixme{REPLACE THIS IMAGE}
 
-The five separate 12~V/3.3~A channels to the WIBs are delivered to the PTC using two normal DSUB37 connectors to
-attach the LV power cable. The fusing for the sense wires is implemented on the PTC.
+Two wire-bias mini-crates supply the wire-bias voltages to all 6 signal feedthroughs. Each mini-crate 
+contains three wire-bias HV modules, with each module supplying all the wire-bias power to one APA via
+8 SHV connector feedthroughs at the CE flange.
+%Therefore, a total of two MPOD chassis are required for the detector.
 
 Each APA requires three wire-bias voltage connections 
 at $+$820V, $-$370V, and $-$665V, as described in Section~\ref{subsec:ce_wire_bias}.
+The remaining five wire-bias voltage lines supply 1$\sim$1.5~kV to the field cage terminations (3)
+and electron diverters (2).
 The current on each of these supplies is expected to be zero at normal operation.
 However the ripple voltage on the supply must be carefully controlled 
 to avoid noise injection into the front-end electronics.
 
-RG-58 coaxial cables connect the wire bias voltages from the MPOD to the standard SHV
+RG-58 coaxial cables connect the wire bias voltages from the mini-crate to the standard SHV
 connectors machined directly into the CE feedthrough, so there is no electrical connection between 
-the LV power and data connectors and wire-bias voltages. The length of the cables from the Weiner MPODs
+the LV power and data connectors and wire-bias voltages. The length of the cables from the Weiner mainframe
 to the signal flanges is estimated to be 18~meters.
 
 
-Optical fibers provide the connections between the WECs, which act as
+Optical fibers provide the connections between the WIECs, which act as
 Faraday-shielded boxes, to the DAQ and slow control systems.
 Each WIB uses QSFP sockets for 
 four pairs of fiber, %as described in Section~\ref{subsubsec:warm_interface_board}, 
-implying a total of 120 optical data fibers for the 30 WIB boards in the system. The optical fibers from
+implying a total of 120 optical data lines for the 30 WIB boards in the system. The optical fibers from
 the signal flanges to the DAQ room are estimated to be 30$-$40~m in length.
 
 Duplex LC optical fiber is under consideration for transmitting the one GIG-E connection from each
 WIB to the slow control system. The WIB reports the current draw from each FEMB to the slow control system, while the 
-current draw for each WIB is monitored at the MPOD itself.
+current draw for each APA is monitored at the mainframe itself.
 
