@@ -40,7 +40,7 @@ The \textit{External Cryogenics} includes the systems used for the storage and e
 \item The receiving facilities for LAr and LN2 tanker trucks;
 \item The cryogenics transfer lines to deliver LAr and LN2 to the Proximity Cryogenics (in the vicinity of the cryostat);
 \item The ambient vaporizer and transfer lines to deliver GAr to the cryostat for the piston purge and the GAr make-up; and
-\item The regeneration system for the LAr purification (with GAr and GAr/H2 cylinders).
+\item The regeneration system for the LAr purification (with GAr from the vaporizer and H2 from an H2 bottle, mixed before being sent to the LAr purification).
 \end{itemize}
 %
 The \textit{Proximity Cryogenics} takes the cryogens from the External Cryogenics and delivers them to the Internal Cryogenics under the required pressure, temperature, purity and mass flow rate. It encompasses:
@@ -72,7 +72,7 @@ The cryogenic systems for all four projects are developed jointly with a standar
 
 %(FLC: I think not necessary here)The conceptual design for these cryogenic systems has been completed and an Invitation to Tender has been issued for the completion of the design, the fabrication, the delivery, the installation and the testing of all four systems, including the ProtoDUNE Single Phase detector. The replies to the tender have been received and CERN is negotiating with the potential suppliers, with the goal to award a contract after the CERN Finance Committee meeting scheduled for September. 
 
-During all phases, CERN codes and standards will guide the design, procurement and installation phases of the ProtoDUNE Single Phase cryogenics. The planned work process will provide for reviews throughout all phases of the project to guarantee stringent adherence to the safety and scientific requirements.
+During all phases, CERN codes and standards will guide the design, procurement and installation phases of the ProtoDUNE Single Phase cryogenics. The planned work process provides for reviews throughout all phases of the project to guarantee stringent adherence to the safety and scientific requirements.
 
 %%%%%%%%%%
 
@@ -88,15 +88,15 @@ of requirements is available at \cite{DUNE_FD_cryogenics_req}.
 A selection of the most relevant requirements is presented here:
 %
 \begin{itemize}
-\item Cryo-se-4: The system shall allow recirculation and purification of the liquid argon inventory to achieve the needed LAr purity to meet the scientific requirement (less than 10 day/volume change based on ICARUS experience).
-\item  Cryo-se-6: The purification system shall be capable of removing contaminants form the LAr prior to filling and shall maintain purity during operation.
-\item  LArFD-L2-se-44: Electron lifetime greater than 3 ms (maximum drift time at nominal field is 2.25 ms).
-\item  Cryo-se-5: The system shall provide an argon gas boil off and reliquefaction system.
-\item Cryo-se-16: The cryogenics system shall not allow sources of argon gas reliquefaction inside the cryostat, e.g. uninsulated pipes carrying liquid argon.
-\item  Cryo-se-25: The cryostat and cryogenic systems shall be designed for using the piston-purge technique (introducing heavy gas at the bottom and taking out exhaust from the top) for removing initial electronegative impurities.
-\item  Cryo-se-8: The cryogenics system shall not introduce unwanted noise into the electronics.
-\item  Cryo-se-10: The cryogenics system shall provide a stable environment in the cryostat for the detector.
-\item  Cryo-se-28:The cryogenics system shall be designed in accordance with the cryostat to maintain a single phase in the entire liquid argon volume at a stable temperature. The chosen temperature is 88.3 K $\pm$ 1 K.
+\item Cryosys-013: The system shall allow recirculation and purification of the liquid argon inventory to achieve the needed LAr purity to meet the scientific requirement (less than 10 day/volume change based on ICARUS experience).
+\item  Cryosys-016: The purification system shall be capable of removing contaminants form the LAr prior to filling and shall maintain purity during operation.
+\item  FD-tpc-006: Electron lifetime greater than 3 ms (maximum drift time at nominal field is 2.25 ms).
+\item  Cryosys-015: The system shall provide an argon gas boil off and reliquefaction system.
+\item Cryosys-026: The cryogenics system shall not allow sources of argon gas reliquefaction inside the cryostat, e.g. uninsulated pipes carrying liquid argon.
+\item  Cryosys-021: The cryostat and cryogenic systems shall be designed for using the piston-purge technique (introducing heavy gas at the bottom and taking out exhaust from the top) for removing initial electronegative impurities.
+\item  Cryosys-019: The cryogenics system shall not introduce unwanted noise into the electronics.
+\item  Cryosys-022: The cryogenics system shall provide a stable environment in the cryostat for the detector.
+\item  Cryosys-023:The cryogenics system shall be designed in accordance with the cryostat to maintain a single phase in the entire liquid argon volume at a stable temperature. The chosen temperature is 88.3 K $\pm$ 1 K.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -144,7 +144,7 @@ A 50 m$^3$ vertical dewar (40-t LN2 capacity) will allow for receipt of LN2 deli
 
 Two LAr recirculation pumps are placed outside of the membrane cryostat to circulate liquid from the bottom of the tank through the purifier and then back to the tank to ensure the needed LAr purity. 
 %
-The purification filters are located in the vicinity of the cryostat. The filters contain dual media, a molecular sieve for removal of water and a copper coated catalyst media for oxygen removal. There is one gas filter that is used during the purge in closed loop phase and two liquid filters used during the filling and normal operations to continuously purify the bulk of the LAr inside the cryostat. Associated with the filters, there will be regeneration equipment such as heaters and a Ar/H2 mix. 
+The purification filters are located in the vicinity of the cryostat. The filters contain dual media, a molecular sieve for removal of water and a copper coated catalyst media for oxygen removal. There is one gas filter that is used during the purge in closed loop phase and two liquid filters used during the filling and normal operations to continuously purify the bulk of the LAr inside the cryostat. Associated with the filters, there will be regeneration equipment such as heaters, a GAr supply, a H2 bottle, and a way to mix GAr and H2. 
 %
 Before the Ar is returned to the cryostat, the LAr flows into a phase separator: the liquid is taken from the bottom and delivered to the cryostat, while the gas is returned to the condenser.
 
@@ -235,11 +235,11 @@ This section briefly describes the main features of the various parts of the cry
 The external cryogenics comprises the Liquid Argon and Liquid Nitrogen receiving facilities, the LAr/GAr and LN2 distribution systems, the Argon/Hydrogen mixture to regenerate the LAr/GAr purification filters and the mechanical filters on the LAr filling line.
 
 The cryostat will hold an inventory of 760 ton of liquid argon. The standard grade specification for argon is a minimum purity of 99.995\%, allowing a maximum concentration of 5.0 ppm for O2 and 10.5 ppm for H2O. 
-\fixme{This implies that N2 is at the level of 30-35 ppm - way too bad for the Scintillation Light .. practically unacceptable, as it would imply a loss of ~70\% of the light due to N2 quenching.}
+\fixme{This implies that N2 is at the level of 30-35 ppm -- way too bad for the Scintillation Light .. practically unacceptable, as it would imply a loss of $\sim$70\% of the light due to N2 quenching.}
 This is designated as Grade 4.5 in the gas-supply industry. Requiring higher-purity product might increase the cost and push out the schedule. Suppliers may also decide not to quote for such an amount of a higher purity fluid. Therefore, standard product will be procured.
 
 Facilities are required for the offloading of LN2 and LAr road tankers. Vehicle access and hard-surfaced driving areas are being constructed adjacent to the LN2/LAr dewars and the LAr/LN2-supply pipes. A LAr storage dewar will hold the contents of a road tanker in order to minimize off-loading time. Road tankers will connect to a manifold and will use their on-board pumps to transfer the LAr to the storage dewar.  The LAr will be stored and transported as a liquid inside the cryostat during the filling process. 
-A battery of fourteen (14) 12-bottle racks containing 1.5\% Hydrogen (by volume) and a balance of Argon will be stored outside the building as well. They will be used to regenerate the LAr and GAr purification filters as needed.
+A bottle containing 100\% Hydrogen (H2) will be stored outside the building as well and connected to a GAr line coming from the storage dewar. The GAr/H2 mixture  will be used to regenerate the LAr and GAr purification filters as needed.
 %
 One 1-micron mechanical filter is located on the LAr feed line. It prevents dirt and impurities from the LAr supply to enter the purification system and the cryostat.
 
