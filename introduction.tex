@@ -20,6 +20,8 @@ A cryogenics system maintains the LAr at a stable temperature of about 89\,K and
 The construction and operation of ProtoDUNE-SP will serve to validate the membrane cryostat technology and associated cryogenics, and the networking and computing infrastructure that will handle the data and simulated data sets.
 A charged-particle beam test will enable critical calibration measurements necessary for precise calorimetry. It will also enable the collection of invaluable data sets for optimizing the event reconstruction algorithms -- i.e., for finding interaction vertices and for particle identification -- and ultimately for quantifying and reducing systematic uncertainties for the DUNE far detector. These measurements are expected to significantly improve the physics reach of the DUNE experiment.
 
+The timescale for the validation of the basic TPC design is driven by the schedule for the major LBNC and DOE reviews of the DUNE TDR that will take place in 2019. This sets the requirement for ProtoDUNE-SP data collection in 2018. 
+
 Given its technical challenges, its importance to the DUNE experiment and the timeframe in which it must operate, ProtoDUNE-SP has put in place a strong organizational structure incorporating 
 contributions from a large number of DUNE collaboration institutes. 
 
@@ -50,18 +52,29 @@ Each APA frame is designed with ten bays into which PDs are inserted after the T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Goals of ProtoDUNE-SP}
 \label{intro:goals}
+ProtoDUNE-SP has four principal goals, all of which are essential parts of the DUNE far detector development program:
+\begin{itemize}
+\item Prototype the production and installation procedures for the single-phase far detector design.
+\item Validate the design from the perspective of basic detector performance; this can be achieved with cosmic-ray data. 
+This is the critical step from the perspective of establishing the design for the DUNE TDRs, which will undergo LBNC and DOE reviews in 2019.
+\item Accumulate large samples of test-beam data to understand/calibrate the response of the detector to different particle species. 
+\item Demonstrate the long-term operational stability of the detector as part of the risk mitigation program ahead of the construction of the first \ktadj{10} far detector module.
+\end{itemize}
+Commissioning and successfully bringing the detector into operation and maintaining it in a stable operating condition over a period of %the order of (1-3) 
+one-to-three months would allow for validation of the design through a full characterization of the detector components, including the membrane cryostat and the cooling and purification circuit, the APA design and the layout of its cold read-out electronics, the HV system, and the PDS and its warm read-out electronics. This can be achieved by collecting cosmic-ray data. 
 
-The ProtoDUNE-SP test program at CERN has two very clear primary goals. First, it will benchmark the principal technical solutions for the DUNE SP far detector components and, if they are found to be fully adequate, to endorse them. 
-Operating the detector in real experimental conditions and for an extended period will allow for a full characterization of the components, including the membrane cryostat and the cooling and purification circuit, the APA design and the layout of its cold read-out electronics, the HV system, and the PDS and its warm read-out electronics.
-%
-Secondly, ProtoDUNE-SP will perform the measurements needed to understand, and quantify to the extent possible, the systematic uncertainties that will affect the DUNE oscillation measurements. %This second goal anticipates physics outcomes that will be relevant independent of the Far Detector.
-%\fixme{of more general interest -- to wider community, make physics measurements 
-In many cases these measurements will produce physics results that are of interest to the wider community.
+The large samples of test-beam data of different particle species would allow for a more in-depth understanding the response of the detector and could ultimately be used for calibration purposes. The analysis of the test-beam data will involve strong feedback 
+\fixme{require strong communication?}
+between reconstruction, detector simulation, and hadronic modeling. Three types of systematic effects will be addressed: (1) a detailed understanding of energy scale and energy resolution for electromagnetic and hadronic showers; (2) the detector response to different particle species, including %measuring 
+the impact of recombination effects as a function of angle; and (3) improved modeling of the interactions of hadrons in argon, which will provide constraints to the GEANT4 physics models.  A run period of approximately three months in the test beam is considered sufficient, assuming stable operation under good beam conditions. The aim is to accumulate these data before the start of LS2 (Jul-Oct, 2018). 
 
-The construction and operation of ProtoDUNE-SP are thus indispensable steps toward the first DUNE Far Detector module, DUNE-SP. ProtoDUNE-SP will allow the collaboration to validate and benchmark the far detector engineering, to test and validate associated infrastructure requirements, and ultimately to extend the physics reach of the experiment. 
+The liquid argon technology is, however, sufficiently new that it would be highly desirable to perform a long-term test of ProtoDUNE-SP, extending beyond the start of LS2, to reduce risks associated with the extended operation of the DUNE far detector modules. This argues for cosmic-ray operation in 2019 and most likely 2020. This extended running period would be an important component of our risk mitigation strategy for the overall DUNE detector construction effort. \fixme{construction not operation?}
 
+\fixme{Anne's rewrite (check against orig below): }
+The precise number of beam events required to meet the DUNE oscillation analysis physics goals cannot yet be determined. Ongoing detailed studies aim to quantify estimates
+regarding the level at which systematics in DUNE oscillation measurements can be constrained through analysis of ProtoDUNE test-beam data. Although these measurements are not the primary driver of the beam time request, it should be noted that the run duration will depend heavily upon actual detector performance and the beam quality (i.e., precision in particle momentum, impact position, beam PID), and that large uncertainties will remain until both ProtoDUNE-SP and the H4 beamline are commissioned. For all these reasons, beam operation after LS2 cannot be excluded.
 
-
+Orig pgraph: Ongoing detailed studies aim to quantitative statements regarding the level at which systematics in DUNE oscillation measurements can be constrained through analysis of ProtoDUNE test-beam data. The precise number of beam events that are required to meet the DUNE oscillation analysis physics goals thus cannot be determined at this stage - but this it is not driving the beam time request. It should be noted that the run duration will heavily depend upon actual detector performance and the beam quality (precision in particle momentum, impact position, beam PID) and until the commissioning of both LArTPC detector and H4 beam-line, there will be large uncertainties. For all these reasons, beam operation after LS2 cannot be excluded.
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Detector engineering validation}  
@@ -73,11 +86,21 @@ ProtoDUNE-SP is designed such that it will provide information on the actual far
 %As an example, the APA modules are full-scale pre-production modules for the far detector. The full-scale APA modules have 20 front-end readout board instrumenting each and 10 integrated photon detector paddles. The ground connections between the electronics, the APA mechanical structure, the photon detectors, and the detector support structure are the same as those proposed for DUNE SP detector. ProtoDUNE-SP is instrumented with three APAs along each wall; this will test for cross talk between the middle APA and its neighbors. However, some practical limitations have required compromise in the ProtoDUNE-SP design. The far detector is designed with a 12-m-high TPC, based on a two-APA-high layout in which the bottom APA is hung from the top APA. Given the space available and the cost of the cryogenics infrastructure, it is not practical to have a 12-m-high test experiment. For these reasons the ProtoDUNE-SP TPC is one APA high. The collaboration will test the mechanical process of installing the two-APA detector configuration, along with the related cabling, separately.
 The APAs are full-scale pre-production modules for the far detector.  The ground connections between the electronics, the APA mechanical structure, the photon detectors, and the detector support structure are the same as those proposed for DUNE-SP. ProtoDUNE-SP is instrumented with three APAs along each wall; this will test for cross talk between the middle APA and its neighbors. Whereas DUNE-SP is designed with a 12-m-high TPC, based on a two-APA-high layout, ProtoDUNE-SP TPC is one APA high, due to practical limitations. The collaboration will test the mechanical process of installing the two-APA detector configuration, along with the related cabling, separately.
 
-The cold readout electronics design is based on the DUNE-SP cryogenic front-end pre-amp/shaper chip and ADC.  The dedicated ASIC for serializing the data and providing a 1-GB/s link is not yet available, therefore an FPGA emulating its functionality is used; it is mounted on a dedicated mezzanine board. All the analog components, the conversion to digital, and the grounding/power distribution for the final electronics can be tested in this configuration. 
+%%%%%% begin anne
+Since there is no charge amplification in the liquid, the electronics is required to be extremely sensitive. The cold readout electronics design is based on the DUNE-SP cryogenic front-end pre-amp/shaper chip and ADC.  The front-end ASIC design is essentially the final design that will be used in the first DUNE-SP module. However, the cold ADC ASIC is not the final version, and the dedicated ASIC (COLDATA) for serializing the data and providing a 1-GB/s link is not yet available. Given the schedule constraints for ProtoDUNE-SP, an FPGA that emulates its functionality will be used with the existing electronics chain. % too much detail --; it is mounted on a dedicated mezzanine board. 
+All the analog components, the conversion to digital, and the grounding/power distribution for the final electronics can be tested in this configuration.  In the event further optimization of the ASICs (ADC an COLDATA) is required based on the ProtoDUNE-SP findings, it can be implemented before the start of production in 2020. 
 
-ProtoDUNE-SP will be the largest experiment to date to take data with cold electronics, allowing high-statistics detailed studies of the performance. In the event further optimization of the ASICs is required based on the ProtoDUNE-SP findings, it can be implemented before the start of production in 2020. Since there is no charge amplification in the liquid, the electronics is required to be extremely sensitive. The grounding and shielding are therefore critical, and the designs are as similar as is practical to those of DUNE-SP. The building ground in ENH1, with the interconnected rebar in the concrete floor 
+The grounding and shielding are critical, and the designs are as similar as is practical to those of DUNE-SP. The building ground in ENH1, with the interconnected rebar in the concrete floor 
 %all the rebar in the concrete floor interconnected and then this network 
 connected to the building ground bus, will provide a fairly good ground. The cryostat itself is isolated from the building ground, and all the mechanical/electrical connections have dielectric breaks. DUNE-SP, in contrast, will be installed a mile underground in a very dry mine, and better isolation from the environment is expected. ProtoDUNE-SP will test the ground isolation and shielding under conservative conditions.
+%%%%%% end anne
+%Flavio's original
+%The cold readout electronics design is based on the DUNE-SP cryogenic front-end pre-amp/shaper chip and ADC.  The front-end ASIC is essentially the final design. However, the cold ADC ASIC is not the final version and the dedicated ASIC (COLDATA) for serializing the data and providing a 1-GB/s link is not yet available, therefore an FPGA emulating its functionality is used; it is mounted on a dedicated mezzanine board. All the analog components, the conversion to digital, and the grounding/power distribution for the final electronics can be tested in this configuration. 
+
+%The timescale for the validation of the basic TPC design is driven by the schedule for the major LBNC and DOE reviews of the DUNE TDR that will take place in 2019. This sets the requirement for protoDUNE-SP data collection in 2018.  \fixme{already said}The existing electronics chain is the only option for meeting this requirement. In the event further optimization of the ASICs (ADC an COLDATA) is required based on the ProtoDUNE-SP findings, it can be implemented before the start of production in 2020. 
+
+%Since there is no charge amplification in the liquid, the electronics is required to be extremely sensitive. The grounding and shielding are therefore critical, and the designs are as similar as is practical to those of DUNE-SP. The building ground in ENH1, with the interconnected rebar in the concrete floor connected to the building ground bus, will provide a fairly good ground. The cryostat itself is isolated from the building ground, and all the mechanical/electrical connections have dielectric breaks. DUNE-SP, in contrast, will be installed a mile underground in a very dry mine, and better isolation from the environment is expected. ProtoDUNE-SP will test the ground isolation and shielding under conservative conditions.
+%%% end Flavio's orig
 
 The FC and cathode planes are full-scale prototypes, 
 %final far detector elements. As the ProtoDUNE-SP detector is designed with full-scale field cages 
@@ -99,6 +122,9 @@ ProtoDUNE-SP will prototype the tooling and procedures for transporting APAs and
 %Finally, one significant difference between the ProtoDUNE-SP detector and DUNE-SP is the integration of the test beam. This requires a penetration into the cryostat and a LAr displacement plug that bridges the gap between the membrane cryostat wall and the FC. As this element bridges the HV, careful design is required. To ensure that the displacement plug does not compromise the ProtoDUNE-SP operation, a dedicated HV test at Fermilab is planned that will test the final beam plug in the exact field configuration planned for ProtoDUNE-SP.
 
 Integration of the test beam with ProtoDUNE-SP is quite different from the neutrino beam integration planned for DUNE-SP. To minimize the material interactions of the particle beam in the ProtoDUNE-SP cryostat upstream of the TPC, a volume of LAr along the beam path (between the cryostat membrane and the FC) is displaced, and replaced by a less dense volume of dry nitrogen gas. This requires a penetration into one of the FC assemblies to install a  beam plug. To ensure that the displacement plug does not compromise the ProtoDUNE-SP operation, a dedicated HV test at Fermilab is planned that will test the final beam plug in the exact field configuration planned for ProtoDUNE-SP.
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Physics}
@@ -166,6 +192,14 @@ the hadron beam spectrum and rates are assumed as given in Tables~\ref{tab:beamp
 \item { Trigger rate for electron in hadron beam is prescaled to 0.5~Hz}
 \item { Data collection efficiency = 50\%}
 \end{itemize}
+
+The question whether H2 and H4 tertiary beamlines at EHN1 can run simultaneously has not yet been resolved 
+(to our knowledge). \fixme{Seems like we should find out whether it's resolved yet. If not resolved I would say:} 
+
+It has not yet been determined whether the H2 and H4 tertiary beamlines at EHN1 can run simultaneously, or 
+%It is also not clear
+ whether the secondary beam (upstream the target of the H4 beamline) will be shared with other users. Therefore, we have assumed a collection efficiency of 50\%. 
+ \fixme{If resolved, then restate accordingly.}
 
 It is planned to run the H4 beamline in two modes: the first configuration is optimized for the production of hadrons and the second configuration is optimized for the production of high-purity electrons. Even in the hadron mode, the beam is still dominated by electrons, especially for low beam momenta. However, the electrons in the hadron beam are not particularly ``clean'' due to the amount of materials in the beamline from the particle identification (PID) instrumentations.  The proposal is to heavily prescale the electron events using PID (e.g., Threshold Cherenkov counters) trigger while running in hadron mode. The PID systems that contribute significantly to the material budget will be removed when %we reconfigure 
 the beamline is reconfigured for electron beam.  Various run plan scenarios are under investigation. One of the scenarios is shown in Tables~\ref{tab:HadRunPlan} and ~\ref{tab:ElecRunPlan}. Similar values are expected for the negative beam sample. 
