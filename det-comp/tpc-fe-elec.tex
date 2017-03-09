@@ -231,125 +231,16 @@ Each APA is instrumented with 20 FEMBs, for a total of 2,560 channels per APA.
 The FEMBs plug directly into the APA CR boards, making the connections from the U- and V-plane induction wires and 
 X-plane collection wires to the charge amplifier circuits as short as possible.
 
-The analog mother board is instrumented with eight 16-channel FE ASICs,
-eight 16-channel ADC ASICs, LV power regulators, and input-signal protection circuits.
-The 16-channel FE ASIC provides amplification and pulse shaping.
-The 16-channel ADC ASIC comprises  12-bit digitizers performant at speeds up to 2 MS/s, local buffering,
-and an 8:1 MUX stage with two pairs of serial readout lines in parallel.
-
- 
-   (Figure~\ref{fig:tpcce_CMBpix}).
-% following pgraph moved up 9/27   
-Each FE ASIC channel has a charge amplifier circuit with a gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
-(full scale charge of 55, 100, 180 and 300~fC),
-a high-order anti-aliasing filter with adjustable time
-constant (peaking time 0.5, 1, 2, and 3 $\mathrm{\mu}$s),
-an option to enable AC coupling,
-and a baseline adjustment for operation with either the collecting (200~mV) or the non-collecting (900~mV) wires.
-Shared among the 16 channels in the FE ASIC are the bias circuits, programming registers,
-a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
-The estimated power dissipation of FE ASIC is about 6~mW per channel at 1.8~V supply.
-
-The FE ASIC layout is shown in Figure~\ref{fig:tpcce_ADC_ASIC}.
-The ASIC was implemented using the commercial CMOS process (0.18~$\mu$m and 1.8~V), which 
-is expected to be available for at least another 10~years. 
-The charge amplifier input MOSFET is a p-channel biased at 2~mA with a L/W (channel length/width) ratio
-of 0.27~$\mu$m / 10~$\mu$m, followed by dual cascade stages.
-The charge amplification and shaping filter have digitally programmable gain and peaking time
-(as specified in Section~\ref{subsec:fe_arch}).
-Each channel also implements a high-performance output driver,
-which can be used to drive a long cable, but is disabled when interfaced to an ADC ASIC to reduce the power consumption.
-The ASIC integrates a band-gap reference (BGR) to generate all the internal bias voltages and currents.
-This guarantees a high stability of the operating point over a wide range of
-temperatures, including cryogenic.
-The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
-
-Prototypes have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
-During testing the circuits have been cycled multiple times
-between the two temperatures and operated without any change in performance.
-Figure~\ref{fig:tpcce_shaper_out} shows the measured pulse response, both as a function
-of temperature and the programmable settings of the chip.
-These results are in close agreement with simulations and indicate
-that both the analog and the digital circuits and interface operate as
-expected in a cryogenic environment.
-
-\begin{cdrfigure}[Measured pulse response with details]{tpcce_shaper_out}{Measured pulse response with
- details on gain, peaking time and baseline adjustments}
-\includegraphics[width=\linewidth]{tpcce_shaper_out.pdf}
-\end{cdrfigure}
-
-\begin{cdrfigure}[Measured ENC vs filter time constant]{tpcce_enc}{
-Measured ENC vs filter time constant from the latest prototype version of the FEMB
-for two different gains, 14~mV/fC and 25~mV/fC. RT = room temperature and 
-LN2 = liquid nitrogen}
-\includegraphics[width=0.45\linewidth]{tpcce_enc_14mV.jpg}
-\includegraphics[width=0.45\linewidth]{tpcce_enc_25mV.jpg}
-\end{cdrfigure}
-
-Figure~\ref{fig:tpcce_enc} shows the measured Equivalent Noise Charge (ENC) as a function of 
-filter-time constant (peaking time) for two different gains, where ENC is the value of charge 
-(in electrons) injected across the detector capacitance that would produce at the output of the 
-shaping amplifier a signal whose amplitude equals the output R.M.S. noise. These measurments
-were made with prototype FEMBs at both RT and submerged in LN2 with a wire-simulating input capacitance of $C_f~=~150$~pF.
-In LN2, for peaking times $>$1~$\mu$s, less than 600~e$^{-}$ was measured. For comparison,
-a MIP travelling perpendicularly to the wire plane in the direction of wire spacing is
-expected to deposit $\sim$~10,000~e$^{-}$ on the collection wires, for a worst-case
-S:N$\sim$16:1.
-
-Each channel is equipped with an injection capacitor which can be used
-for test and calibration and can be enabled or disabled through a
-dedicated register. The injection capacitance has been measured using 
-a calibrated external capacitor. The measurements show
-that the calibration capacitance is extremely stable, changing from
-184~fF at RT to 183~fF at 77~K. This result and the measured
-stability of the peaking time demonstrate the high stability of the
-passive components as a function of temperature. Channel-to-channel and chip-to-chip
-variation in the calibration capacitor are typically less than 1\%. 
-
-The ADC ASIC design is also implemented using the CMOS process (0.18~$\mu$m and 1.8V).
-The layout of the ADC ASIC is shown in Figure~\ref{fig:tpcce_ADC_ASIC}. 
-The ADC ASIC is a complex design with 320,000 transistors, while the FE ASIC has 16,000.
-The transistor design work has been done following the rules for long cryo-lifetime.
-Shared among the 16 channels in the ADC ASIC are the bias circuits, programming registers,
-an 8:1 MUX, and the digital interface.
-The estimated power dissipation of FE ASIC is below 5~mW per channel at 1.8~V supply.
-  
-
-\begin{cdrfigure}[The layout of the 16-channel ADC ASIC]{tpcce_ADC_ASIC}{The layout of the 16-channel ADC ASIC}
-\includegraphics[width=\linewidth]{tpcce_ADC_ASIC_pinout.jpg} % New one
-\end{cdrfigure}
-
-The ADC ASIC has an input buffer with offset compensation to match the output of the FE ASIC.
-The input buffer first samples the input signal (with a range of 0.2~V to 1.6~V),
-then provides a current output after compensating for offset voltage error.
-This current output is then supplied to the ADC which converts the input to digital in two phases.
-The MSB (Most Significant Bit) 6~bits are first determined followed by the LSB (Least Significant Bit) 6~bits.
-After the conversion the thermometer code is converted to binary and latched.
-The output of ADC channel 16 can be monitored externally.
-The data from the 16 ADCs are transferred in parallel to the FIFO block.
-The built-in FIFO is 32~bits wide and 192~bits long,
-and has full and empty indicator flags, needed for interfacing to the FPGA.
-The ADC along with the input buffers are biased internally using a bias generator and a bandgap voltage reference.
-The bandgap voltage (VBGR) can be monitored and/or controlled externally.
-It can be put in the low-power sleep mode, and woken up in less than 1~$\mu$s.
-
-Prototypes have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
-During these tests the circuits have been temperature-cycled multiple times.
-The effective resolution with reference to the input referred noise is $\sim$11.6~bits at both 300~K and 77~K.
-The differential non-linearity (DNL) is less than 4 LSBs for 99\% of ADC bins at both 300~K and 77~K.
-
- 
- 
- The ADC outputs are passed to the FPGA mezzanine board for transmission to the warm electronics
- located on the outside of the signal flange.
-The FPGA has four 4:1 MUX circuits that combine the 16 serial lines from the eight ADC
-channels into four serial lines of 32 channels each, and 
-four $\sim$1.2 Gigabit-per-second (Gbps) serial drivers that drive the data in each
-line over cold cables to the WIBs.
-
 \begin{cdrfigure}[The CE Architecture]{tpcce_schem}{The CE Architecture. The basic unit is the 128-channel FEMB.}
 \includegraphics[width=0.9\linewidth]{tpcce_schem.pdf}
 \end{cdrfigure}
+
+The analog mother board is instrumented with eight 16-channel FE ASICs,
+eight 16-channel ADC ASICs, LV power regulators, and input-signal protection circuits.
+The 16-channel FE ASIC provides amplification and pulse shaping.
+The 16-channel ADC ASIC comprises 12-bit digitizers performaning at speeds up to 2 MS/s, local buffering,
+and an 8:1 MUX stage with two pairs of serial readout lines in parallel. The 2016 prototype version of
+the FEMB is shown in Figure~\ref{fig:tpcce_CMBpix}.
 
 \begin{cdrfigure}[The Front End Mother Board (FEMB), as used in an early set of tests]{tpcce_CMBpix}
 {The Front End Mother Board (FEMB), as used in the early set of tests.
@@ -364,21 +255,141 @@ line over cold cables to the WIBs.
 \includegraphics[width=0.45\linewidth]{tpcce_CMBpix_3.pdf}
 \end{cdrfigure}
 
-The data are passed through the signal flange to the WIBs on copper cables utilizing LV differential signaling (LVDS).
+\subsubsection{Front-End ASIC}
+ 
+Each FE ASIC channel has a charge amplifier circuit with a programmable gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
+(full scale charge of 55, 100, 180 and 300~fC),
+a high-order anti-aliasing filter with programmable time
+constant (peaking time 0.5, 1, 2, and 3 $\mathrm{\mu}$s),
+an option to enable AC coupling,
+and a baseline adjustment for operation with either the collecting (200~mV) or the non-collecting (900~mV) wires.
+Shared among the 16 channels in the FE ASIC are the bias circuits, programming registers,
+a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
+The estimated power dissipation of FE ASIC is about 6~mW per channel at 1.8~V supply.
+
+The FE ASIC layout is shown in Figure~\ref{fig:tpcce_FE_ASIC}.
+The ASIC was implemented using the commercial CMOS process (0.18~$\mu$m and 1.8~V), which 
+is expected to be available for at least another 10~years. 
+The charge amplifier input MOSFET is a p-channel biased at 2~mA with a L/W (channel length/width) ratio
+of 0.27~$\mu$m / 10~$\mu$m, followed by dual cascade stages.
+
+\begin{cdrfigure}[The layout of the 16-channel FE ASIC]{tpcce_FE_ASIC}{The layout of the 16-channel FE ASIC}
+\includegraphics[width=\linewidth]{tpcce_FE_ASIC_pinout.jpg}
+\end{cdrfigure}
+
+Each channel also implements a high-performance output driver,
+which can be used to drive a long cable, but is disabled when interfaced to an ADC ASIC to reduce the power consumption.
+The ASIC integrates a band-gap reference (BGR) to generate all the internal bias voltages and currents.
+This guarantees a high stability of the operating point over a wide range of
+temperatures, including cryogenic.
+The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
+
+Each FE ASIC channel is equipped with an injection capacitor which can be used
+for test and calibration and can be enabled or disabled through a
+dedicated register. The injection capacitance has been measured using 
+a calibrated external capacitor. The measurements show
+that the calibration capacitance is extremely stable, changing from
+184~fF at RT to 183~fF at 77~K. This result and the measured
+stability of the peaking time demonstrate the high stability of the
+passive components as a function of temperature. Channel-to-channel and chip-to-chip
+variation in the calibration capacitor are typically less than 1\%. 
+
+Prototype ASICs have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
+During testing the circuits have been cycled multiple times
+between the two temperatures and operated without any change in performance.
+Figure~\ref{fig:tpcce_shaper_out} shows the measured pulse response, both as a function
+of temperature and the programmable settings of the chip.
+These results are in close agreement with simulations and indicate
+that both the analog and the digital circuits and interface operate as
+expected in a cryogenic environment.
+
+\begin{cdrfigure}[Measured pulse response with details]{tpcce_shaper_out}{Measured pulse response with
+ details on gain, peaking time and baseline adjustments}
+\includegraphics[width=\linewidth]{tpcce_shaper_out.pdf}
+\end{cdrfigure}
+
+\subsubsection{ADC ASIC}
+
+The ADC ASIC design is also implemented using the CMOS process (0.18~$\mu$m and 1.8V).
+The layout of the ADC ASIC is shown in Figure~\ref{fig:tpcce_ADC_ASIC}. 
+The ADC ASIC is a complex design with 320,000 transistors, while the FE ASIC has 16,000.
+The transistor design work has been done following the rules for long cryo-lifetime.
+Shared among the 16 channels in the ADC ASIC are the bias circuits, programming registers,
+an 8:1 MUX, and the digital interface.
+The estimated power dissipation of ADC ASIC is below 5~mW per channel at 1.8~V supply.
+  
+\begin{cdrfigure}[The layout of the 16-channel ADC ASIC]{tpcce_ADC_ASIC}{The layout of the 16-channel ADC ASIC}
+\includegraphics[width=\linewidth]{tpcce_ADC_ASIC_pinout.jpg} % New one
+\end{cdrfigure}
+
+The ADC ASIC has an input buffer with offset compensation to match the output of the FE ASIC.
+The input buffer first samples the input signal (with a range of 0.2~V to 1.6~V),
+then provides a current output after compensating for offset voltage error.
+This current output is then supplied to the ADC which converts the input to digital in two phases.
+The MSB (Most Significant Bit) 6~bits are first determined followed by the LSB (Least Significant Bit) 6~bits.
+
+After the conversion the code is converted to binary and latched.
+The output of ADC channel 16 can be monitored externally.
+The data from the 16 ADCs are transferred in parallel to the FIFO block.
+The built-in FIFO is 32~bits wide and 192~bits long,
+and has full and empty indicator flags, needed for interfacing to the FPGA.
+The ADC along with the input buffers are biased internally using a bias generator and a bandgap voltage reference.
+The bandgap voltage (VBGR) can be monitored and/or controlled externally.
+It can be put in the low-power sleep mode, and woken up in less than 1~$\mu$s.
+
+Prototypes have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
+During these tests the circuits have been temperature-cycled multiple times.
+The effective resolution with reference to the input referred noise is $\sim$11.6~bits at both 300~K and 77~K.
+The differential non-linearity (DNL) is less than 4 LSBs for 99\% of ADC bins at both 300~K and 77~K.
+
+\subsubsection{Cold FPGA}
+
+The ADC ASIC data are passed to the FPGA mezzanine board for transmission to the warm electronics
+located on the outside of the signal flange.
+The FPGA has four 4:1 MUX circuits that combine the 16 serial lines from the eight ADC
+channels into four serial lines of 32 channels each, and 
+four $\sim$1.2 Gigabit-per-second (Gbps) serial drivers that drive the data in each
+line over cold cables to the WIBs.
+The data are transmitted to the signal flange and WIBs on copper cables utilizing LV differential signaling (LVDS).
 On the WIBs, the data is further MUXed by 4:1 and transmitted over optical
 fibers to the DAQ system described in Section~\ref{sec:DAQ_online_interface}.
 
 The FPGA on the mezzanine card is also responsible for communicating with the
-DAQ and timing systems and providing the clock and control signals required by the FE and ADC ASICs. 
-By default the cold FPGA will load firmware from a cold flash onboard the FEMB. The remote update of 
+control and timing systems from the WIB and providing the clock and control signals required by the FE and ADC ASICs. 
+By default the FPGA will load firmware from a cold flash onboard the FEMB. The remote update of 
 FPGA firmware via JTAG chain is available through the WIB, with 4 differential cables to each FEMB 
 from the WIB. In addition, the cold flash can be programmed remotely. In the case that faulty firmware 
 is identified in-situ by slow control and monitoring, an update of the firmware will be initiated.
 
+The FPGA and all other electrical components on the FEMB
+assembly have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature on 
+prototype FEMB. During these tests the FEMB have been both temperature-cycled and power-cycled at
+cryogenic temperature multiple times.
+
+Figure~\ref{fig:tpcce_enc} shows the measured Equivalent Noise Charge (ENC) as a function of 
+filter-time constant (peaking time) for two different gains as measured on a prototype FEMB. ENC is the value of charge 
+(in electrons) injected across the detector capacitance that would produce at the output of the 
+shaping amplifier a signal whose amplitude equals the output R.M.S. noise. These measurments
+were made with the prototype FEMB at both RT and submerged in LN2 with a wire-simulating input capacitance of $C_f~=~150$~pF
+(equivalent to approximately 7 meter sense wire load).
+In LN2, for peaking times $>$1~$\mu$s, less than 600~e$^{-}$ was measured. For comparison,
+a MIP travelling perpendicularly to the wire plane in the direction of wire spacing is
+expected to deposit $\sim$~10,000~e$^{-}$ on the collection wires, for a worst-case
+S:N$\sim$16:1.
+
+\begin{cdrfigure}[Measured ENC vs filter time constant]{tpcce_enc}{
+Measured ENC vs filter time constant from the latest prototype version of the FEMB
+for two different gains, 14~mV/fC and 25~mV/fC. RT = room temperature and 
+LN2 = liquid nitrogen}
+\includegraphics[width=0.45\linewidth]{tpcce_enc_14mV.jpg}
+\includegraphics[width=0.45\linewidth]{tpcce_enc_25mV.jpg}
+\end{cdrfigure}
+
+\subsubsection{CE Box}
+
 Each FEMB is enclosed in a Faraday box to provide shielding from noise. 
 As shown in Figure~\ref{fig:tpcce_box}, the Faraday box is designed to make the electrical connection 
-between the FEMB and the APA frame. %, as defined in Section~\ref{subsec:ele_design}. Not sure what section to reference.
- Mounting 
+between the FEMB and the APA frame, as defined in Section~\ref{subsec:groundshield}. Mounting 
 hardware inside the Faraday box connects the ground plane of the FEMB to the box casing. The
 box casing is electrically connected to the APA frame via twisted conducting wire (not 
 shown in Figure~\ref{fig:tpcce_box}). This is the only point of contact between the FEMB and
