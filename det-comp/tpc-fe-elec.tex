@@ -14,7 +14,7 @@
 %\section{HV components}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{TPC Front-end Electronics}
+\section{TPC front-end electronics}
 %\chapter{Cold Electronics}
 \label{ch:ce}
 
@@ -29,8 +29,8 @@ The DUNE single-phase TPC read-out electronics are referred to as the ``Cold Ele
 mounted directly on the APA, as shown in Figure~\ref{fig:tpcce_FEMBonAPA}, thus reducing channel capacitance and noise by minimizing the length of the connection between an anode wire
 and its corresponding electronics input.
 
-\begin{cdrfigure}[The front-end electronics mounted on an APA]{tpcce_FEMBonAPA}{The 
-front-end electronics as mounted on an APA.
+\begin{cdrfigure}[Front-end (FE) electronics mounted on an APA]{tpcce_FEMBonAPA}{The 
+front-end (FE) electronics as mounted on an APA.
   Top: The front-end electronics is shown in the red circle.
  Bottom: Cross section view showing the layered wire boards. Mounting hardware between the front-end electronics 
 and the APA is not shown.}
@@ -221,7 +221,7 @@ If possible they will be identical to those used for the bias resistors and coup
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Front-End Mother Board}
+\subsection{Front-end mother board (FEMB)}
 \label{subsec:fe_arch}
 
 The main component of the CE architecture, illustrated in Figure~\ref{fig:tpcce_schem}, is the 
@@ -231,7 +231,7 @@ Each APA is instrumented with 20 FEMBs, for a total of 2,560 channels per APA.
 The FEMBs plug directly into the APA CR boards, making the connections from the U- and V-plane induction wires and 
 X-plane collection wires to the charge amplifier circuits as short as possible.
 
-\begin{cdrfigure}[The CE Architecture]{tpcce_schem}{The CE Architecture. The basic unit is the 128-channel FEMB.}
+\begin{cdrfigure}[The CE architecture]{tpcce_schem}{The CE architecture. The basic unit is the 128-channel FEMB.}
 \includegraphics[width=0.9\linewidth]{tpcce_schem.pdf}
 \end{cdrfigure}
 
@@ -242,7 +242,7 @@ The 16-channel ADC ASIC comprises 12-bit digitizers performaning at speeds up to
 and an 8:1 MUX stage with two pairs of serial readout lines in parallel. The 2016 prototype version of
 the FEMB is shown in Figure~\ref{fig:tpcce_CMBpix}.
 
-\begin{cdrfigure}[The Front End Mother Board (FEMB), as used in an early set of tests]{tpcce_CMBpix}
+\begin{cdrfigure}[The front-end mother board (FEMB), as used in an early set of tests]{tpcce_CMBpix}
 {The Front End Mother Board (FEMB), as used in the early set of tests.
   {\bf Top:} The analog mother board, showing four ADC ASICs and four FE ASICs surface mounted.
   The other side of the board has another four ADC and FE ASICs.
@@ -273,7 +273,7 @@ is expected to be available for at least another 10~years.
 The charge amplifier input MOSFET is a p-channel biased at 2~mA with a L/W (channel length/width) ratio
 of 0.27~$\mu$m / 10~$\mu$m, followed by dual cascade stages.
 
-\begin{cdrfigure}[The layout of the 16-channel FE ASIC]{tpcce_FE_ASIC}{The layout of the 16-channel FE ASIC}
+\begin{cdrfigure}[Layout of the 16-channel FE ASIC]{tpcce_FE_ASIC}{The layout of the 16-channel FE ASIC}
 \includegraphics[width=\linewidth]{tpcce_FE_ASIC_pinout.jpg}
 \end{cdrfigure}
 
@@ -414,14 +414,14 @@ Additional transmission lines are available for the distribution of LVDS clock s
 which are transmitted at a lower bit rate.
 Optical fiber is employed externally from the WIBs on the signal flange to the DAQ and slow control systems.
 
-\begin{cdrfigure}[Conceptual design of CE feedthrough]{tpcce_FT_InternalCableRoute}{
+\begin{cdrfigure}[CE feedthrough configuration and internal cable routing]{tpcce_FT_InternalCableRoute}{
 The CE feedthrough configuration and internal cable routing. The left panel shows a cutaway view of the cryostat.
 The right panel shows more detail at the Faraday boxes.}
 \includegraphics[width=7in]{tpcce_FT_InternalCableRoute.pdf}
 \end{cdrfigure}
 
 
-\begin{cdrfigure}[Conceptual design of CE feedthrough]{tpcce_signal_FT}{
+\begin{cdrfigure}[Conceptual design of TPC CE feedthrough]{tpcce_signal_FT}{
 TPC CE feedthrough. The WIBs are seen edge-on in the left panel,
 and in an oblique side-view in the right panel, which also shows the warm crate for a DUNE module in a cutaway view (for 
 ProtoDUNE-SP, there is a crate only on one side).}
@@ -551,7 +551,7 @@ supported from the back end of the feedthrough.
 %\subsubsection{Power and Timing Card}
 %\label{subsubsec:power_timing_card}
 
-\begin{cdrfigure}[PTC and timing]{tpcce_wib_timing}{Power and Timing Card (PTC) 
+\begin{cdrfigure}[Power and Timing Card (PTC) and timing distribution]{tpcce_wib_timing}{Power and Timing Card (PTC) 
 and timing distribution to the WIB and FEMBs.}
 \includegraphics[width=0.5\linewidth]{tpcce_wib_timing.pdf}
 \end{cdrfigure}
@@ -564,8 +564,8 @@ PTB, which is a passive backplane attached directly to the PTC and
 WIBs.  The received clock on the WIB is separated into clock and
 data using a clock/data separator.
 
-\begin{cdrfigure}[WIB and LV power]{tpcce_wib_power}{LV power distribution 
-to the WIB and FEMBs. 250W is for a fully-loaded crate 
+\begin{cdrfigure}[LV power distribution to the Warm Interface Boards and FEMBs]{tpcce_wib_power}{LV power distribution 
+to the WIB and FEMBs. 250\,W is for a fully-loaded crate 
 with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
 \includegraphics[width=0.6\linewidth]{tpcce_wib_power.pdf} %REPLACE THIS IMAGE
 \end{cdrfigure}
@@ -621,7 +621,7 @@ provides real-time digital data readout to the slow control system.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection{External Power and Cables}
+\subsection{External power and cables}
 \label{subsec:ce_feedthrough_power}
 
 The LV power to the FEMB and WIB is supplied by two Weiner PL506 mainframe power supplies.

@@ -22,7 +22,7 @@ Anode Plane Assemblies (APAs) are the detector elements utilized to sense ioniza
 
 The initial physics performance requirements that drive the design of the APA are listed in Table~\ref{tab:physicsrequirements}.  These are chosen to enable high-efficiency reconstruction throughout the entire active volume of the LArTPC.  
 
-\begin{cdrtable}[APA Physics Requirements]{lr}{physicsrequirements}{Preliminary physics requirements that motivate APA design parameters.}   
+\begin{cdrtable}[Prelim physics requirements that motivate APA design parameters]{lr}{physicsrequirements}{Preliminary physics requirements that motivate APA design parameters.}   
 Requirement & Value  \\ \toprowrule
 MIP Identification & 100$\%$ efficiency \\ \colhline
 High efficiency for charge reconstruction & $>$90$\%$ for $>$100 MeV \\ \colhline
@@ -54,7 +54,7 @@ An APA is constructed from a framework of lightweight, rectangular stainless ste
 The size of the APAs is chosen for fabrication purposes, compatibility with over-the-road shipping, and for eventual transport to the 4850 level at SURF and installation into the membrane cryostat of a detector module. Sufficient shock absorption and clearances are taken into account at each stage.  The dimensions are also chosen such that an integral number of electronic readout channels and boards fill in the full area of the APA. The modularity of the APAs allows them to be built and tested at off-site production facilities, decoupling their manufacturing time from the construction of the membrane cryostat. 
 As mentioned above, the principal design parameters are listed in Table~\ref{tab:apaparameters}.
 
-\begin{cdrtable}[APA Design Parameters]{lr}{apaparameters}{APA Design Parameters.}   
+\begin{cdrtable}[APA design parameters]{lr}{apaparameters}{APA design parameters}   
 Parameter & Value  \\ \toprowrule
 Active Height & 5.920 m\\ \colhline
 Active Width & 2.295 m\\ \colhline
@@ -82,7 +82,7 @@ In that talk, he has the G plane wire spacing at 4.5 mm, and the wire plane spac
 Starting from the outermost wire layer, 
 there is first a shielding (grid) plane, followed by two induction planes, and finally the collection plane. All wire layers span the entire height of the APA frame. The layout of the wire layers is illustrated in  Figure~\ref{fig:tpc_apa1}.
 
-\begin{cdrfigure}[APA Diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta), the induction layers; and X (blue), the collection layer, to accentuate their angular relationships to the frame and to each other.  The induction layers are connected electrically across both sides of the APA.  The grid layer (G) wires (not shown), run vertically, parallel to the X layer wires;  separate sets of G and X wires are strung on the two sides of the APA.  The mesh is not shown.}
+\begin{cdrfigure}[APA diagram]{tpc_apa1}{Sketch of a ProtoDUNE-SP APA. This shows only portions of each of the three wire layers, U (green), V (magenta), the induction layers; and X (blue), the collection layer, to accentuate their angular relationships to the frame and to each other.  The induction layers are connected electrically across both sides of the APA.  The grid layer (G) wires (not shown), run vertically, parallel to the X layer wires;  separate sets of G and X wires are strung on the two sides of the APA.  The mesh is not shown.}
 \includegraphics[width=0.8\textwidth, angle=90]{figures/tpc_apa1.png} 
 \end{cdrfigure}
 
@@ -149,7 +149,7 @@ The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 
 \end{cdrfigure}
 \fixme{COMMENT from Justin: it would be good if the dimensions of the upper figure had the same precision as the numbers in the text, i.e. 6.06 m and 2.30 m. (Anne agrees, but we're not updating figures right now.)}
 
-\begin{cdrfigure}[APA Bolted Joint Drawing]{tpc_apa_boltedjointdrawing}{A model of the bolted joint.  The holes on the top of the tube are for access to tighten the screws.  The heads actually tighten against the lower hole, inside the tube.}
+\begin{cdrfigure}[APA bolted joint drawing]{tpc_apa_boltedjointdrawing}{A model of the bolted joint.  The holes on the top of the tube are for access to tighten the screws.  The heads actually tighten against the lower hole, inside the tube.}
 \includegraphics[width=0.4\textwidth]{figures/tpc_apa_boltedjointdrawing.png} 
 \end{cdrfigure}
 
@@ -157,7 +157,7 @@ A fine mesh screen is glued directly to the steel frame surface, over the frame 
 
 The mesh is clamped around the perimeter of the opening and then pulled tight (by opening and closing clamps as needed during the process).  When the mesh is taut, a 25-mm-wide strip is masked off around the opening and glue is applied through the mesh to attach it to the steel.  Although measurements have shown that this gives good electrical contact between the mesh and the frame, a deliberate electrical connection is also made.  Figure~\ref{fig:tpc_apa_fullsizemeshdrawing} depicts the mesh application setup for a full-size ProtoDUNE-SP APA.
 
-\begin{cdrfigure}[APA Full-Size Mesh Drawing]{tpc_apa_fullsizemeshdrawing}{The mesh clamping jig for the full size APA. }
+\begin{cdrfigure}[APA full-size mesh drawing]{tpc_apa_fullsizemeshdrawing}{The mesh clamping jig for the full size APA. }
 \includegraphics[width=0.8\textwidth]{figures/tpc_apa_fullsizemeshdrawing.png} 
 \end{cdrfigure}
 
@@ -178,7 +178,7 @@ cold electronics.
 All APA wires are terminated on the wire boards, which are stacked along the electronics end of the APA frame; see Figure~\ref{fig:tpc_apa_boardstack}. 
 Attachment of the wire boards begins with the X plane (innermost). After the X-plane wires are strung top to bottom along each side of the APA frame, they are soldered and epoxied to their wire boards and trimmed. The remaining wire board layers are attached as each layer is wound.  The main CR boards (capacitive-resistive), which provide DC bias and AC coupling to the wires, are attached to the bottom of the wire board stack. %They are described here.
 
-\begin{cdrfigure}[APA Board Stack]{tpc_apa_boardstack}{Left: View of the APA wire board stack, as seen from the top/side. The wire board layers can be seen at the bottom-left of the illustration, X on the bottom (it doesn't go all the way back, but extends farther forward and has the main CR board attached), followed by U, V, then G (which doesn't go all the way forward, and has its own CR board attached).  Right: the same stack viewed from below.  }
+\begin{cdrfigure}[APA board stack]{tpc_apa_boardstack}{Left: View of the APA wire board stack, as seen from the top/side. The wire board layers can be seen at the bottom-left of the illustration, X on the bottom (it doesn't go all the way back, but extends farther forward and has the main CR board attached), followed by U, V, then G (which doesn't go all the way forward, and has its own CR board attached).  Right: the same stack viewed from below.  }
 \includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_top.png}
 \includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_bottom.png}
 \end{cdrfigure}
@@ -225,12 +225,12 @@ The boards along the sides and foot of the APA have notches, pins and other loca
 
 G10 circuit board material is ideal for these side and foot boards due to its physical properties alone, but it has an additional advantage: a number of hole or slot features in the edge boards provide access to the underlying frame.  In order that these openings are not covered by wires, the sections of wire that would go over the openings are replaced by traces on the boards.  After the wires are wrapped, the wires over the opening are soldered to pads at the ends of the traces, and the section of wire between the pads is snipped out (Figure~\ref{fig:tpc_apa_sideboardmodel}).  These traces are easily and economically added to the boards by the many commercial fabricators who make circuit boards. 
 
-\begin{cdrfigure}[APA Side Board Model]{tpc_apa_sideboardmodel}{Model of board with wires showing how traces connect wires around openings in the side boards.  The wires are wound straight over the openings, then soldered to pads at the ends of the traces.  After soldering the sections between the pads are trimmed away.}
+\begin{cdrfigure}[APA side board model]{tpc_apa_sideboardmodel}{Model of board with wires showing how traces connect wires around openings in the side boards.  The wires are wound straight over the openings, then soldered to pads at the ends of the traces.  After soldering the sections between the pads are trimmed away.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_sideboardmodel.png} 
 \end{cdrfigure}
 
 
-\begin{cdrfigure}[APA Side Board Photo]{tpc_apa_sideboardphoto}{Boards with injection molded tooth strips glued on.  The left shows an end board with teeth for fixing the position of the longitudinal wires.  The teeth there form small notches. The right is a side board for fixing the position of the angled wires where the wires are angled around a pin.}
+\begin{cdrfigure}[APA side board photo]{tpc_apa_sideboardphoto}{Boards with injection molded tooth strips glued on.  The left shows an end board with teeth for fixing the position of the longitudinal wires.  The teeth there form small notches. The right is a side board for fixing the position of the angled wires where the wires are angled around a pin.}
 \includegraphics[width=0.7\textwidth]{figures/tpc_apa_sideboardphoto.png} 
 \end{cdrfigure}
 
@@ -262,7 +262,7 @@ The nominal wire tension is 5\,N but even the 1.6-m-long wires could fall to 3\,
 
 The combs are made from 0.5-mm-thick G10 with slots cut into it.  The comb for the lowest layer is glued to a base strip that is glued to the frame.  After each layer is wound, another comb strip is glued to the tips of the teeth of the previous one to position the wires in the next layer.  Each successive comb holds the previous layer of wires in the bottom of its slots (Figure~\ref{fig:tpc_apa_supportcombmodel}).
 
-\begin{cdrfigure}[APA Support Comb Model]{tpc_apa_supportcombmodel}{A model of the combs showing how they stack.  After winding a layer, the comb for the next layer is put in place.  Each comb holds the wires from the previous layer in its slots.}
+\begin{cdrfigure}[APA support comb model]{tpc_apa_supportcombmodel}{A model of the combs showing how they stack.  After winding a layer, the comb for the next layer is put in place.  Each comb holds the wires from the previous layer in its slots.}
 \includegraphics[width=0.7\textwidth]{figures/tpc_apa_supportcombmodel.png} 
 \end{cdrfigure}
 
@@ -303,7 +303,7 @@ A constraint is needed between adjacent APAs to keep them co-planar.  It is also
 on the edge of the adjacent APA
 to engage the pins (Figure~\ref{fig:tpc_apa_pinslotdrawing}). The pins have steel cores for strength.
 
-\begin{cdrfigure}[APA Interconnect Drawing]{tpc_apa_pinslotdrawing}{The pin/slot constraint.  The pin screws into an insert in the outside frame member of one APA and engages a slot in the outside frame member of the adjacent APA.}
+\begin{cdrfigure}[APA interconnect drawing]{tpc_apa_pinslotdrawing}{The pin/slot constraint.  The pin screws into an insert in the outside frame member of one APA and engages a slot in the outside frame member of the adjacent APA.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_pinslotdrawing.png} 
 \end{cdrfigure}
 
