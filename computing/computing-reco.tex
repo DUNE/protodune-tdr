@@ -64,7 +64,7 @@ segments, 2D reconstruction identifies clusters and tracks
 in each view separately, and 3D hypotheses for
 the event are constructed by comparing the 2D clusters
 in the separate planes.  The 2D clustering algorithms currently in
-use are the Blurred Clustering Algorithm~\cite{blurredclustering},
+use are the Blurred Clustering Algorithm~\cite{blurredcluster},
 LineCluster~\cite{linecluster}, and TrajCluster~\cite{trajcluster}.  
 
 %%%%%%%%%
@@ -159,7 +159,9 @@ distribution of the difference between the reconstructed muon track length and t
 
 Another approach to 3D reconstruction in LArTPC detectors is referred to as the \textit{Projection Matching Algorithm
 (PMA)}~\cite{pma_algorithm}. PMA was primarily developed as a technique for 3D reconstruction
-of individual particle trajectories (trajectory fits)~\cite{icarus3dreco}. Instead of
+of individual particle trajectories (trajectory fits)~\cite{icarus3dreco}. 
+\fixme{missing citation icarus3dreco}
+Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
 the 2D projection of the predicted trajectory of a particle with the observed data. Association
 of hits between the 2D planes is not needed in this approach, improving its performance in
