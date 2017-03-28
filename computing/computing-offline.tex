@@ -24,20 +24,27 @@ in order to create a basis for the detector characterization.
 \subsection{Production processing}
 \label{sec:prod-process}
 
-The production processing has more than one processing step,
-thus creating derived data and multiplying the data volume.  The volume of the derived data is assumed to be smaller than that for the raw data.
+The production processing includes multiple steps, %has more than one processing step,
+thus creating derived data and multiplying the data volume.  The volume of the derived data is assumed to be smaller than that of the raw data.
 Given the anticipated raw data volume, %considerations for the anticipated raw data volume presented above,
 the %current 
-plan is to provision $\sim$10\,PB of tape storage to keep the raw and processed data. This includes
-two copies of the raw data at 3~pb each, two passes of derived data at 1\,PB each, and 2\,PB of simulation samples.
-One copy of the raw data may be included as part of the output of the reconstruction, for convenience in comparing
-raw and reconstructed data objects while also serving the purpose of providing a backup copy of the raw data.
+plan is to provision $\sim$10\,PB of tape storage. %to keep the raw and processed data. 
+This accommodates %includes
+two copies of the raw data at 3\,PB each, two passes of derived data at 1\,PB each, and 2\,PB of simulation samples.
+One copy 
+\fixme{one of the two listed copies? or an extra copy (which wouldn't fit)?}
+of the raw data may be included as part of the output of the reconstruction, for convenience in comparing
+raw and reconstructed data objects while also serving %the purpose of providing 
+as a backup copy. % of the raw data.
 
 For efficient processing, disk storage is necessary to provide access to the data stored on tape.
-Extrapolating from experience running MC for previous DUNE MC campaigns,
-it is estimated that  a few hundred TB of continuously available disk space is needed for samples that are repeatedly
-accessed, as well as ntuples for user analysis.  The offline system takes advantage of the shared dCache resource \fixme{dcache reference needed}
-at Fermilab in order to provide efficient access to the data stored on tape.
+\fixme{not clear: Data is on tape. To process it, you need efficient access. Does this happen by copying data to disk, then process accesses it from disk?}
+%Extrapolating from 
+Based on %experience running MC for 
+previous DUNE Monte Carlo campaigns, %it is estimated that 
+a few hundred TB of continuously available disk space will be sufficient for samples that are repeatedly
+accessed and for ntuples for user analysis.  The offline system takes advantage of the shared dCache resource \fixme{dcache reference needed}
+at Fermilab in order to provide efficient access to the data stored on tape. \fixme{we've just talked about getting them onto disk...}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,17 +52,21 @@ at Fermilab in order to provide efficient access to the data stored on tape.
 \label{sec:prompt_processing}
 
 In the present context, \textit{prompt processing} refers to a number of fast signal-processing and reconstruction processes
-(also called ``express stream'') that process a fraction of the raw data. Its main purpose is to aid in QA of the data
-and produce quick calibrations that may be necessary for detailed monitoring of the detector. For example,
-calculating the frequency spectra of noise and monitoring its level, evolution and other characteristics is an important aspect of ensuring
-the stability of the readout chain.
+(also called \textit{express stream}) that %process 
+operate on a fraction of the raw data. Its main purpose is to aid in QA of the data
+and produce quick calibrations %that may be necessary 
+for detailed monitoring of the detector. For example, to ensure the stability of the readout chain, prompt processing can 
+calculate the frequency spectra of noise and to monitor its level, evolution and other characteristics.
+%calculating the frequency spectra of noise and monitoring its level, evolution and other characteristics is an important aspect of ensuring the stability of the readout chain.
 
-A limited number of metrics are calculated in order to make the process as quick as possible, enabling
-the operators to take action should the QA process indicate a potential problem in the detector or the data.
+To make the process as quick as possible, the number of calculated metrics is limited. This enables
+the operators to take prompt action in case a potential problem is indicated in the detector or the data.
+%A limited number of metrics are calculated in order to make the process as quick as possible, enabling
+%the operators to take action should the QA process indicate a potential problem in the detector or the data.
 
-Processing roughly 1\% of the data stream collected by the detector is predicted to
-be enough to meet the most important goals of prompt processing. 
+To meet the most important QA goals, it is sufficient to limit processing to roughly 1\% of the collected data stream. 
 The general strategy is to locate some of the prompt processing capability at CERN, at a scale adequate for the mid-range
 data-taking scenario, such as presented in Table~\ref{tab:goldi}. An estimated 300 cores
 are needed to cope with processing at that rate.
+
 
