@@ -10,10 +10,12 @@ counters, and time-of-flight-counters -- are fully simulated as described in
 Section~\ref{sec:beaminstruments}. Cosmic-ray
 events are simulated either with the CRY~\cite{cry, cry2} event generator or
 CORSIKA~\cite{Heck:1998vt}.  Neutrino scattering events are simulated
-using GENIE~\cite{Andreopoulos:2009rq}.  While neutrino scattering events will be very
+using GENIE~\cite{Andreopoulos:2009rq}; while these %neutrino scattering 
+events will be very
 rare in the detector, the extrapolation of the performance of
-the detector to the FD will require simulating neutrino scattering
-events.  A dedicated generator in LArSoft simulates
+the \fixme{add: ProtoDUNE-SP}
+detector to the FD will require simulating them. %neutrino scattering events.  
+A dedicated generator in LArSoft simulates
 radionuclide decay products which can be overlaid on other events.
 
 The detector geometry is coded in GDML files~\cite{Agostinelli:2002hh} that are
@@ -29,12 +31,12 @@ are numbered and named in the GDML files, with conventions followed by
 the LArSoft simulation code.
 
 The active volume of the detector is divided into cubes 300~$\mu$m on
-a side, called \textit{voxels}.  GEANT4 tracks particles through the argon.
-Each step ends on a voxel boundary, allowing the simulation of small-scale
-physics processes such as delta-ray emission and showering at a level
+a side, called \textit{voxels}.  GEANT4 tracks particles through the argon with
+each step ending on a voxel boundary. This allows the simulation of small-scale
+physics processes, such as delta-ray emission and showering, at a level
 of detail smaller than the intrinsic resolution of the detector.   While GEANT4
 calculates the energy deposited by each particle for each step, the
-simulation of ionization and scintillation photon emission 
+simulation of ionization and scintillation-photon emission 
 is performed using one of two algorithms in LArSoft:  a dedicated parameterization that
 depends on the electric field in the liquid argon and the ionization
 density~\cite{Birks:1964zz}, or  NEST~\cite{Szydagis:2011tk}, which is tuned to
@@ -47,7 +49,7 @@ is being interfaced into LArSoft.
 FLUKA provides a MC simulation of neutrino-nucleus interactions as well as
 detailed modeling of particles traversing the detector, configurably replacing the
 functionality of both GENIE and GEANT in the simulation.  The availability of alternatives
-allows for better flexibility in tuning the models to the data, as well as a basis of
+allows for better flexibility in tuning the models to the data, as well as a basis for
 estimating systematic uncertainty.
 
 The average specific energy loss for a minimum-ionizing particle (MIP)

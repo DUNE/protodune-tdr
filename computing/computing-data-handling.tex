@@ -42,9 +42,11 @@ taken during the planned SPS run is 3\,PB.
 
 A conceptual diagram of the raw data flow is presented in Figure~\ref{fig:raw_concept}. It shows the general logic
 of the data flow and does not rely on assumptions of specific technical implementations. 
-It also reflects the central role of CERN EOS in the raw data management scheme, which is motivated by the experience
+It also reflects the central role of the CERN storage service \textit{EOS} in the raw data management scheme, which is motivated by the experience
 and architecture of the LHC experiments.
-\fixme{what's EOS?}
+\fixme{the use of which is motivated by the experience gained from the LHC experiments
+and the similarity of ProtoDUNE's software architecture to theirs?}
+
 
 EOS serves as the staging area from which the data are committed to CASTOR (a hierarchical storage management system developed at CERN)
 and from which data are transmitted to a number of endpoints including principal data centers such as Fermilab and others.
