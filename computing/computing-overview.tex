@@ -1,15 +1,29 @@
 \section{Overview}
 
-This chapter outlines the technical design of the offline computing system and introduces the software
-that will be used to simulate and reconstruct ProtoDUNE-SP data.
+This chapter outlines the technical design of the offline computing
+system and introduces the software that will be used to simulate,
+reduce and reconstruct ProtoDUNE-SP data.
 
-The data rate and the total data volume are the main factors influencing the design choices and scale of the offline computing system.   The system provides resources necessary for data distribution, processing, and analysis on the grid\cite{data_managm_sys}.  
+The data rate and volume will substantial over the relatively short
+run and this drives many design choices for the offline computing
+system.  The system provides resources necessary for data
+distribution, processing, and analysis on the
+grid\cite{data_managm_sys}.
 
-The planned data processing steps include  
-calibration, reconstruction, ntuplizing and user analysis.
-Multiple passes through this chain will be required for final results, as
-calibrations, algorithms, and ntuple definitions are expected to evolve.
+All raw data will be saved to tape after being transferred to central
+CERN and FNAL computing facilities (Section~\ref{sec:raw_concept}).
+During this, the metadata and storage locations for all raw data files
+will be captured in a file catalog system.
 
-A fraction of the data will be subject to \textit{prompt processing}, which performs partial reconstruction of the data for QA/QC purposes
-with a short turnaround time (see\,\ref{sec:prompt_processing}). 
- A metadata and file catalog system is necessary for managing the data.
+A small portion of the data will be immediately processed for  
+data quality monitoring (DQM) purposes (see Section~\ref{sec:prompt_processing}).
+%
+The processing steps on the full data sample (see
+Section~\ref{sec:prod-process}) include ADC-level corrections,
+potential excess-noise filtering, signal processing, reduction,
+calibration, reconstruction, summarizing and final user analysis.
+Multiple passes through this chain will be required for final results,
+as calibrations, algorithms, and summary definitions are expected to
+evolve.  Details on the software framework, event simulation and
+reconstruction are covered in the final sections.
+
