@@ -217,17 +217,16 @@ Instead of performing pattern recognition directly on each of the 2D views (drif
 time versus wire number), the first step of the WireCell reconstruction is to 
 perform 3D imaging with time, geometry, and charge information. 
 The algorithm takes advantage of this % timing, geometry, and charge 
-information to suppress the effects of electronic noise;
-Hits from  different wire planes arriving in different time 
-slices cannot be associated with each other. 
-\fixme{cannot be associated because it's impossible, or are not allowed to be associated and the 3D imaging process accomplishes this? Please clarify}
-(The definition
-of \textit{hit} is based on signal strength after charge extraction %(described in Sec.~\ref{sec:tpc-signal-calibration}) 
-in a 2-$\mu$s time slice.) Hits
-from wires that do not cross in a region consistent with the charge deposition cannot be associated with each other. 
-Hits from different wire planes
-with different signal strengths are unlikely to be associated with each other. 
-Use of the charge information takes advantage of the fact that in a LArTPC with induction planes,
+information to suppress the effects of electronic noise.
+%
+Often, noise will lead to a fluctuation in a waveform which may be
+large enough to mimic a signal.  The algorithm combats this by
+requiring any potential signal to be consistent across multiple wires,
+given their geometry, in their charge across time.  Many of the
+fluctuations due to noise will fail this consistency requirement and
+be rejected while true signal will satisfy it.
+%
+Use of the charge and time information in this manner takes advantage of the fact that in a LArTPC with induction planes,
 each of the wire planes, in principle, detects the same ionization electrons as the other planes. 
 Figure~\ref{fig:quality} shows an example of the improvement of WireCell 3D imaging
 over the more traditional approach. 
