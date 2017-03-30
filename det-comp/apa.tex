@@ -40,7 +40,7 @@ Electron Angular Resolution & $<$1$^{\circ}$ \\
 Electron Energy Scale Uncertainty & $<$5$\%$\\
 \end{cdrtable}
 
-\fixme{add drawing ahead of this table showing TPC coordinate system; per Justin}
+%\fixme{add drawing ahead of this table showing TPC coordinate system; per Justin}
 
 The ability to identify minimum-ionizing particles (MIPs) is a function of several detector parameters, including argon purity, drift distance, diffusion, wire pitch, and Equivalent Noise Charge (ENC).  It is required that MIPs originating anywhere inside the active volume of the detector be reconstructed with 100$\%$ efficiency.   The choice of wire pitch (i.e., $\sim$5 mm), combined with the design values of the other high-level parameters, listed in Table~\ref{tab:apaparameters},  is expected to enable  this  efficiency.
 
@@ -140,14 +140,12 @@ CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 
 %\paragraph{Dimensions}
 
-The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
-
-\fixme{Justin: describe electron deflection technique }
+The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
 \begin{cdrfigure}[APA dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components. }
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_framedrawing.png} 
 \end{cdrfigure}
-\fixme{COMMENT from Justin: it would be good if the dimensions of the upper figure had the same precision as the numbers in the text, i.e. 6.06 m and 2.30 m. (Anne agrees, but we're not updating figures right now.)}
+%\fixme{COMMENT from Justin: it would be good if the dimensions of the upper figure had the same precision as the numbers in the text, i.e. 6.06 m and 2.30 m. (Anne agrees, but we're not updating figures right now.)}
 
 \begin{cdrfigure}[APA bolted joint drawing]{tpc_apa_boltedjointdrawing}{A model of the bolted joint.  The holes on the top of the tube are for access to tighten the screws.  The heads actually tighten against the lower hole, inside the tube.}
 \includegraphics[width=0.4\textwidth]{figures/tpc_apa_boltedjointdrawing.png} 
@@ -161,7 +159,7 @@ The mesh is clamped around the perimeter of the opening and then pulled tight (b
 \includegraphics[width=0.8\textwidth]{figures/tpc_apa_fullsizemeshdrawing.png} 
 \end{cdrfigure}
 
-\fixme{COMMENT from Justin: this jig is currently being redesigned. If the design changes significantly, we should remember to update this picture.}
+%\fixme{COMMENT from Justin: this jig is currently being redesigned. If the design changes significantly, we should remember to update this picture.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,7 +181,7 @@ Attachment of the wire boards begins with the X plane (innermost). After the X-p
 \includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_bottom.png}
 \end{cdrfigure}
 
-\fixme{figure \ref{fig:tpc_apa_boardstack} needs labeling}
+%\fixme{figure \ref{fig:tpc_apa_boardstack} needs labeling}
 
 The outermost G-plane wire boards connect adjacent groups of four wires together, and bias each group through an R-C filter whose components are placed on special CR boards  %The filter components are located on daughter boards 
 that are attached after the wire plane is strung. The X, U and V layers of wires are connected to the CE (housed in boxes mounted on the APA) either directly or through DC-blocking capacitors. The X and U planes have wires individually biased through 50-M$\Omega$ resistors. Electronic components for the X- and U-plane wires are located on a common CR board. 
@@ -192,7 +190,7 @@ Mill-Max pins and sockets provide electrical connections between circuit boards 
 
 Ten stacks of wire boards are installed across the width of each side along the head of the APA.  The X-layer board in each stack has room for 48 wires, the V layer has 40 wires, the U layer 40 wires and the G layer 48 wires.  Each board stack, therefore, has 176 wires but only 128 signal channels since the G wires are not read out.  
 With a total of 20 stacks per APA, this results in 2,560 signal channels per APA and a total of \SI{3520} wires starting at the top of the APA and ending at the bottom.  There is a total of $\sim$23.4 km of wire on the two surfaces of each APA.  Many of the capacitors and resistors that in principle could be on these wire boards are instead
-placed on the attached CR boards to improve their accessibility in case of component failure.   Figure~\ref{fig:tpc_apa_electronics_connectiondiagram} depicts the connections between the different elements of the APA electrical circuit. \fixme{this figure could use some labelling}
+placed on the attached CR boards to improve their accessibility in case of component failure.   Figure~\ref{fig:tpc_apa_electronics_connectiondiagram} depicts the connections between the different elements of the APA electrical circuit. %\fixme{this figure could use some labelling}
 
 At the head end of the APA, the wire-plane spacing is set by the thickness of these wire boards.  The first layer's wires solder to the surface of the first board, the second layer's wires to the surface of the second board, and so on.  For installation, temporary toothed-edge boards beyond these wire boards align and hold the wires until they are soldered to pads on the wire boards.  After soldering, the extra wire is snipped off. 
 
@@ -212,7 +210,7 @@ Performance of these resistors at LAr temperature is verified through additional
 The selected DC-blocking capacitors have capacitance of 3.9\,nF and are rated for 2.0-kV operation. Measuring 0.22 $\times$ 0.25\,inches across and 0.10\,inches high, the capacitors feature flexible terminals to comply with PC board expansion and contraction. They are designed to withstand 1,000 thermal cycles  
 between the extremes of the operating temperature range. Tolerance is also 5\%.
 
-\fixme{Eric has question mark on the temp range}
+%\fixme{Eric has question mark on the temp range}
 
 In addition to the bias and DC-blocking capacitors for all X- and U-plane wires, the CR board includes two R-C filters for the bias voltages. The resistors are of the same type used for wire biasing except with a resistance of 2\,M$\Omega$. Capacitors are 47\,nF at 2\,kV. Very few choices exist for surface-mount capacitors of this type, and they are exceptionally large. %Currently the plan is to use 
 Polyester or Polypropylene film capacitors that are known to perform well at cryogenic temperatures are used.
@@ -270,10 +268,28 @@ Periodic holes along the length of the strip allow the use of pins to accurately
 
 The wire openings in the comb stack are small enough that the wires are accurately positioned at the combs, and therefore the gluing of wires into the combs is not required.
 
-%%%%%%%%%%%%
-\subsection{Cabling}
-\fixme{Justin: Something that’s being discussed a lot at the moment is how the APAs will be cabled up. Is there a section somewhere else in the TDR that covers cabling? 
-(It’s fine for it to be in a different section, but I think it’s important that it’s covered in the TDR.) (Anne says I don't find this topic covered. Not sure we need a full subsection or not, but am putting this here as a placeholder) }
+%%%%%%%%%%
+\subsubsection{Electron diverter}
+\label{sec:apa:electrondiverter}
+ 
+The active aperture of the collecting plane wires is 2300\,mm wide, while the APA modules are installed at a 2320\,mm pitch.  This leaves a 20\,mm gap between two adjacent APAs that is occupied by the stacks of wire wrapping boards and some clearance space. Electrons from the ionizing tracks drifting over the gap have an ill-defined trajectory; some get lost and some land on the wrong wire and create unexpected signal waveforms.  To control the drift path of electrons over this gap, a set of ``electron diverter’’ electrodes installed between APAs would nudge the incoming electrons away from the gap, towards a wire in the active aperture. 
+ 
+The electron diverter is a set of thin printed circuit boards with two strip electrodes sticking above the first wire plane.  The two electrodes are biased at %more 
+negative voltages with respect to to the natural potential at their locations.  A repulsive force from these electrodes pushes the incoming electrons away s%o they do not land in 
+from the inactive gap.  Figure~\ref{fig:tpc_apa_e_diverter} illustrates the principle. The left plot shows the E-field lines near the symmetry plane between two APAs, where about 10\,mm band of field lines land on the edge of the boards holding the wrapped wires.  The right plot shows the field lines with the electron diverter installed (at the left edge of the plot), where all field lines are pushed to the active region.
+
+\begin{cdrfigure}[Field maps of the region near the inactive gap of an APA]{tpc_apa_e_diverter}{Left: field map of the region near the inactive gap of an APA without the electron diverter; Right: field map with the electron diverter in place.
+Electric field lines are shown in black, equipotential contours are in white, and electric field strength is represented in color gradient.}
+\includegraphics[width=0.9\textwidth]{tpc_apa_e_diverter} 
+\end{cdrfigure}
+
+ 
+The leading edge of the diverter board is 25\,mm above the grid plane.  The first electrode is flush with the leading edge of the board, and the second electrode just clear the grid plane.  Both of them are 5\,mm wide.  The leading electrode is biased at a nominal voltage of $-$2300\,V, and the inner electrode is biased at -1300\,V.     Figure\ref{fig:tpc_apa_e_diverter_on_apa.png} shows the electron diverter boards mounted on a side of an APA.  A total of 10 boards are screwed onto the APA frame using existing tapped holes.  The topmost board has low pass RC network to filter the voltages fed to the electrodes.  These boards will be installed on two APAs on one side of the drift, leaving the other drift volume without such a feature, for comparison.
+ 
+ \begin{cdrfigure}[]{tpc_apa_e_diverter_on_apa}{A view of a corner of an APA with a full set of electron diverter boards installed.  The first board in the foreground (at the top of the APA) has the bias voltage connectors and RC filtering network.  The rest of the boards are interconnected to the first boards through copper wires soldered to the ends of the strip electrodes.}
+\includegraphics[width=0.9\textwidth]{tpc_apa_e_diverter_on_apa} 
+\end{cdrfigure}
+
 
 %%%%%%%%%%%%
 \subsection{Interconnection features}
@@ -287,7 +303,7 @@ The CE boxes are illustrated in Figure~\ref{fig:tpc_apa_electronicsmountingdiagr
 Each board stack has one CE box installed near it that holds the CE module for the stack.  
 
 Putting the electronics in small boxes simplifies installation and replacement, and also helps with the dissipation 
-\fixme{getting rid of}
+%\fixme{getting rid of}
 of argon gas generated by the warm electronic components.  The CE modules are mounted in such a way that any of them can be removed from a single side of the APA after APA installation.
 
 \begin{cdrfigure}[Solid model of modular CE boxes]{tpc_apa_electronicsmountingdiagram}{Solid model of %revised, 
