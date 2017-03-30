@@ -1,18 +1,21 @@
 \section{Overview}
 
-This chapter outlines the technical design of the offline computing
+This section outlines the technical design of the offline computing
 system and introduces the software that will be used to simulate,
 reduce and reconstruct ProtoDUNE-SP data.
+\fixme{reduce?}
 
-The data rate and volume will substantial over the relatively short
+The data rate and volume will substantial
+ \fixme{substantially do something?}
+  over the relatively short
 run and this drives many design choices for the offline computing
 system.  The system provides resources necessary for data
 distribution, processing, and analysis on the
-grid\cite{data_managm_sys}.
+grid~\cite{data_managm_sys}.
 
 All raw data will be saved to tape after being transferred to central
 CERN and FNAL computing facilities (Section~\ref{sec:raw_concept}).
-During this, the metadata and storage locations for all raw data files
+During this stage, the metadata and storage locations for all raw data files
 will be captured in a file catalog system.
 
 A small portion of the data will be immediately processed for  
@@ -21,9 +24,11 @@ data quality monitoring (DQM) purposes (see Section~\ref{sec:prompt_processing})
 The processing steps on the full data sample (see
 Section~\ref{sec:prod-process}) include ADC-level corrections,
 potential excess-noise filtering, signal processing, reduction,
-calibration, reconstruction, summarizing and final user analysis.
+calibration, reconstruction, summarizing, and final user analysis.
 Multiple passes through this chain will be required for final results,
 as calibrations, algorithms, and summary definitions are expected to
-evolve.  Details on the software framework, event simulation and
-reconstruction are covered in the final sections.
+evolve.  
+
+Details on the software framework, event simulation and
+reconstruction are covered toward the end of this section.
 
