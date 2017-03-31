@@ -29,7 +29,7 @@ contributions from a large number of DUNE collaboration institutes.
 \section{The ProtoDUNE-SP detector}
 \label{intro:detector}
 
-The ProtoDUNE-SP TPC, illustrated in Figure~\ref{fig:protodune-sp-tpc-touramanis} comprises two drift volumes, defined by  a central cathode plane that is flanked by two anode planes, each at a distance of 3.6~m, and a field cage (FC) that surrounds the entire active volume. The active volume is 6~m high, 7~m wide and 7.2~m deep (along the drift direction).
+The ProtoDUNE-SP TPC, illustrated in Figure~\ref{fig:protodune-sp-tpc} comprises two drift volumes, defined by  a central cathode plane that is flanked by two anode planes, each at a distance of 3.6~m, and a field cage (FC) that surrounds the entire active volume. The active volume is 6~m high, 7~m wide and 7.2~m deep (along the drift direction).
 Each anode plane is constructed of three adjacent Anode Plane Assemblies (APAs) that are each 6~m high by 2.3~m wide in the installed position. Each APA consists of a frame that holds three parallel planes of sense and shielding wires; the wires of each plane are
 oriented at different angles with respect to those on the other planes to enable 3D reconstruction.  The wire pitch for all wire planes is 4.5~mm, and each APA holds a total of 2,560 wires. 
 
@@ -37,8 +37,8 @@ The cathode plane, called the Cathode Plane Assembly (CPA) is an array of 18 (si
 The CPA is held at $-$180\,kV providing the 500-V/cm drift field in the 3.6-m-deep drift regions. 
 Uniformity of the electric field is guaranteed by the surrounding FC.
  
-\begin{cdrfigure}[Major components of the ProtoDUNE-SP TPC]{protodune-sp-tpc-touramanis}{The major components of the ProtoDUNE-SP TPC. Note that the field cage shows a vertical stack of three FC assemblies; the design now calls for a stack of four.}
-\includegraphics[width=0.9\textwidth]{protodune-sp-tpc-touramanis}
+\begin{cdrfigure}[Major components of the ProtoDUNE-SP TPC]{protodune-sp-tpc}{The major components of the ProtoDUNE-SP TPC. }
+\includegraphics[width=0.9\textwidth]{protodune-sp-tpc}
 \end{cdrfigure}
 
 The CE, mounted onto the APA frame, and thus immersed in LAr, amplifies and continuously digitizes the induced signals on the sense wires at several MHz, and transmits these waveforms to the Data Acquisition system (DAQ). From the DAQ the data are  transmitted through the buffer to disk, then to the central CERN Tier-0 Computing Center, and finally to other partner sites for processing and analysis.  
@@ -67,7 +67,7 @@ The large samples of test-beam data of different particle species would allow fo
 between reconstruction, detector simulation, and hadronic modeling. Three types of systematic effects will be addressed: (1) a detailed understanding of energy scale and energy resolution for electromagnetic and hadronic showers; (2) the detector response to different particle species, including %measuring - OK
 the impact of recombination effects as a function of angle; and (3) improved modeling of the interactions of hadrons in argon, which will provide constraints to the GEANT4 physics models.  A run period of approximately three months in the test beam is considered sufficient, assuming stable operation under good beam conditions. The aim is to accumulate these data before the start of LS2 (Jul-Oct, 2018). 
 
-The liquid argon technology is, however, sufficiently new that it would be highly desirable to perform a long-term test of ProtoDUNE-SP, extending beyond the start of LS2, to reduce risks associated with the extended operation of the DUNE far detector modules. This argues for cosmic-ray operation in 2019 and most likely 2020. This extended running period would be an important component of our risk mitigation strategy for the overall DUNE detector construction effort. \fixme{construction not operation? - it is: construction}
+The liquid argon technology is, however, sufficiently new that it would be highly desirable to perform a long-term test of ProtoDUNE-SP, extending beyond the start of LS2, to reduce risks associated with the extended operation of the DUNE far detector modules. This argues for cosmic-ray operation in 2019 and most likely 2020. This extended running period would be an important component of our risk mitigation strategy for the overall DUNE detector construction effort. 
 
 %\fixme{(Anne) rewrite (check against orig below): }
 %The idea here is that since ongoing studies are not completed yet (regarding the level at which systematics in DUNE oscillation measurements can be constrained through analysis of ProtoDUNE test-beam data) => the precise n. of event to take cannot be determined right now.  
@@ -182,7 +182,7 @@ In particular, the determination of the electromagnetic  content in hadron-initi
 \section{The ProtoDUNE-SP Run plan}
 \label{sec:runplan}
 
-\fixme{May need some intro/transition content here since this section was just moved in from a different part of the document}
+%\fixme{May need some intro/transition content here since this section was just moved in from a different part of the document}
 
 Beam simulations show that the hadron rates at 
 energies below 1~GeV/c are low. Moreover, low-energy beams are more

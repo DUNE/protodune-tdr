@@ -56,8 +56,8 @@ As mentioned above, the principal design parameters are listed in Table~\ref{tab
 
 \begin{cdrtable}[APA design parameters]{lr}{apaparameters}{APA design parameters}   
 Parameter & Value  \\ \toprowrule
-Active Height & 5.920 m\\ \colhline
-Active Width & 2.295 m\\ \colhline
+Active Height & 5.984 m\\ \colhline
+Active Width & 2.300 m\\ \colhline
 Wire Pitch (U,V) & 4.67 mm\\ \colhline
 Wire Pitch (X,G) & 4.79 mm\\ \colhline
 Wire Position Tolerance & 0.5 mm \\ \colhline
@@ -75,9 +75,6 @@ Frame Planarity & 5 mm \\ \colhline
 Photon Detector Slots & 10 \\
 \end{cdrtable}
 
-\fixme{Justin: The reference I always use for wire pitches is a talk by Christos from last April:
-https://indico.cern.ch/event/516637/contributions/2029960/attachments/1259510/1860698/SPSC-121-protoDUNE-SP.pdf
-In that talk, he has the G plane wire spacing at 4.5 mm, and the wire plane spacing at 4.8 mm, which are slightly different from the numbers in the Table here. I don’t know myself which numbers are right, but since there’s a slight discrepancy here I want to flag these up as something to be checked.}
 
 Starting from the outermost wire layer, 
 there is first a shielding (grid) plane, followed by two induction planes, and finally the collection plane. All wire layers span the entire height of the APA frame. The layout of the wire layers is illustrated in  Figure~\ref{fig:tpc_apa1}.
@@ -140,10 +137,10 @@ CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 
 %\paragraph{Dimensions}
 
-The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_framedrawing}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
+The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_frame}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
-\begin{cdrfigure}[APA dimensions]{tpc_apa_framedrawing}{An APA showing overall dimensions and main components. }
-\includegraphics[width=0.9\textwidth]{figures/tpc_apa_framedrawing.png} 
+\begin{cdrfigure}[APA dimensions]{tpc_apa_frame}{An APA showing overall dimensions and main components. }
+\includegraphics[width=0.9\textwidth]{figures/tpc_apa_frame} 
 \end{cdrfigure}
 %\fixme{COMMENT from Justin: it would be good if the dimensions of the upper figure had the same precision as the numbers in the text, i.e. 6.06 m and 2.30 m. (Anne agrees, but we're not updating figures right now.)}
 
@@ -174,7 +171,7 @@ cold electronics.
 All APA wires are terminated on the wire boards, which are stacked along the electronics end of the APA frame; see Figure~\ref{fig:tpc_apa_boardstack}. 
 Attachment of the wire boards begins with the X plane (innermost). After the X-plane wires are strung top to bottom along each side of the APA frame, they are soldered and epoxied to their wire boards and trimmed. The remaining wire board layers are attached as each layer is wound.  The main CR boards (capacitive-resistive), which provide DC bias and AC coupling to the wires, are attached to the bottom of the wire board stack. %They are described here.
 
-\begin{cdrfigure}[APA board stack]{tpc_apa_boardstack}{Left: View of the APA wire board stack, as seen from the top/side. The wire board layers can be seen at the bottom-left of the illustration, X on the bottom (it doesn't go all the way back, but extends farther forward and has the main CR board attached), followed by U, V, then G (which doesn't go all the way forward, and has its own CR board attached).  Right: the same stack viewed from below.  }
+\begin{cdrfigure}[APA board stack]{tpc_apa_boardstack}{Left: View of the APA wire board stack, as seen from the top/side. The wire board layers can be seen at the bottom-left of the illustration, X on the bottom (it doesn't go all the way back, but extends farther forward and has the main CR board attached), followed by U, V, then G (which doesn't go all the way forward, and has its own CR board attached). Due to a redesign not reflected in this figure, the pins, shown as pointing up, now lay along the board. Right: the same stack viewed from below. }
 \includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_top.png}
 \includegraphics[width=0.45\textwidth]{figures/tpc_apa_boardstack_bottom.png}
 \end{cdrfigure}
@@ -192,7 +189,7 @@ placed on the attached CR boards to improve their accessibility in case of compo
 
 At the head end of the APA, the wire-plane spacing is set by the thickness of these wire boards.  The first layer's wires solder to the surface of the first board, the second layer's wires to the surface of the second board, and so on.  For installation, temporary toothed-edge boards beyond these wire boards align and hold the wires until they are soldered to pads on the wire boards.  After soldering, the extra wire is snipped off. 
 
-\begin{cdrfigure}[APA wire board connection to electronics]{tpc_apa_electronics_connectiondiagram}{Diagram of the connection between the APA wires, viewed from the APA edge. The set of wire boards within a stack can be seen on both sides of the APA, with the CR board extending further to the right, providing a connection to the cold electronics, which are housed in the boxes at the far right of the figure}.
+\begin{cdrfigure}[APA wire board connection to electronics]{tpc_apa_electronics_connectiondiagram}{Diagram of the connection between the APA wires, viewed from the APA edge. The set of wire boards within a stack can be seen on both sides of the APA, with the CR board extending further to the right, providing a connection to the cold electronics, which are housed in the boxes at the far right of the figure. Due to a redesign not reflected in this figure, an additional board now sits between the CR board and the CE boxes.}
 \includegraphics[width=0.7\textwidth]{figures/tpc_apa_electronics_connectiondiagram.png}
 \end{cdrfigure}
 
@@ -226,7 +223,7 @@ G10 circuit board material is ideal for these side and foot boards due to its ph
 \end{cdrfigure}
 
 
-\begin{cdrfigure}[APA side board photo]{tpc_apa_sideboardphoto}{Boards with injection molded tooth strips glued on.  The left shows an end board with teeth for fixing the position of the longitudinal wires.  The teeth there form small notches. The right is a side board for fixing the position of the angled wires where the wires are angled around a pin.}
+\begin{cdrfigure}[APA side board photo]{tpc_apa_sideboardphoto}{Boards with injection molded tooth strips glued on.  The left shows an end board with teeth for fixing the position of the longitudinal wires.  The teeth there form small notches. The right is a side board for fixing the position of the angled wires where the wires are angled around a pin. (These boards are prototype test pieces and are not used in the production APAs.)}
 \includegraphics[width=0.7\textwidth]{figures/tpc_apa_sideboardphoto.png} 
 \end{cdrfigure}
 
@@ -285,7 +282,8 @@ Electric field lines are shown in black, equipotential contours are in white, an
  
 The leading edge of the diverter board is 25\,mm above the grid plane.  The first electrode is flush with the leading edge of the board, and the second electrode just clears the grid plane.  Both of them are 5\,mm wide.  The leading electrode is biased at a nominal voltage of $-$2300\,V, and the inner is biased at -1300\,V.     Figure\ref{fig:tpc_apa_e_diverter_on_apa.png} shows the electron diverter boards mounted on a side of an APA.  A total of 10 boards are screwed onto the APA frame using existing tapped holes.  The topmost board has low pass RC network to filter the voltages fed to the electrodes.  These boards will be installed on two APAs on one side of the drift, leaving the other drift volume without such a feature, for comparison.
  
- \begin{cdrfigure}[Corner of APA with electron diverter boards installed]{tpc_apa_e_diverter_on_apa}{A view of a corner of an APA with a full set of electron diverter boards installed.  The first board in the foreground (at the top of the APA) has the bias voltage connectors and RC filtering network.  The rest of the boards are interconnected to the first boards through copper wires soldered to the ends of the strip electrodes.}
+ \begin{cdrfigure}[Corner of APA with electron diverter boards installed]{tpc_apa_e_diverter_on_apa}{A view of a corner of an APA with a full set of electron diverter boards installed (along right-hand edge in diagram).  The first board, with its end at the top of the APA (the top of the APA is in the foreground) has the bias voltage connectors and RC filtering network (brown with blue connectors protruding).  The reddish-brown strips on the boards are the strip electrodes. The rest of the boards (delineated by blue lines) are interconnected %to the first boards 
+ through copper wires soldered to the ends of the strip electrodes.}
 \includegraphics[width=0.9\textwidth]{tpc_apa_e_diverter_on_apa} 
 \end{cdrfigure}
 
@@ -318,7 +316,7 @@ A constraint is needed between adjacent APAs to keep them co-planar.  It is also
 on the edge of the adjacent APA
 to engage the pins (Figure~\ref{fig:tpc_apa_pinslotdrawing}). The pins have steel cores for strength.
 
-\begin{cdrfigure}[APA interconnect drawing]{tpc_apa_pinslotdrawing}{The pin/slot constraint.  The pin screws into an insert in the outside frame member of one APA and engages a slot in the outside frame member of the adjacent APA.}
+\begin{cdrfigure}[APA interconnect drawing]{tpc_apa_pinslotdrawing}{The pin/slot constraint.  The pin screws into an insert in the outside frame member of one APA and engages a slot in the outside frame member of the adjacent APA. An insulating sleeve surrounds the guiding pin to ensure electrical isolation between the APAs.}
 \includegraphics[width=0.9\textwidth]{figures/tpc_apa_pinslotdrawing.png} 
 \end{cdrfigure}
 

@@ -26,17 +26,14 @@
 
 
 The DUNE single-phase TPC read-out electronics are referred to as the ``Cold Electronics'' (CE) because they reside in LAr,
-mounted directly on the APA, as shown in Figure~\ref{fig:tpcce_FEMBonAPA}, thus reducing channel capacitance and noise by minimizing the length of the connection between an anode wire
+mounted directly on the APA, %, as shown in Figure~\ref{fig:tpcce_FEMBonAPA}, 
+thus reducing channel capacitance and noise by minimizing the length of the connection between an anode wire
 and its corresponding electronics input.
 
-\begin{cdrfigure}[Front-end (FE) electronics mounted on an APA]{tpcce_FEMBonAPA}{The 
-front-end (FE) electronics as mounted on an APA.
-  Top: The front-end electronics is shown in the red circle.
- Bottom: Cross section view showing the layered wire boards. Mounting hardware between the front-end electronics 
-and the APA is not shown.}
-\includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_1.pdf}
-\includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_2.pdf}
-\end{cdrfigure}
+%removed per Bo \begin{cdrfigure}[Front-end (FE) electronics mounted on an APA]{tpcce_FEMBonAPA}{The 
+%...
+%\includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_1.pdf}
+%\includegraphics[width=0.8\linewidth]{tpcce_CMBonAPA_2.pdf}
 
 The CE signal processing is implemented in ASIC chips using CMOS technology,
 which has been demonstrated to perform well at cryogenic temperatures,
@@ -180,7 +177,8 @@ signals to the CE motherboards.
 
 \begin{cdrfigure}[APA wire bias schematic diagram]{tpcce_cr_board}{APA wire bias 
 schematic diagram, including the Capacitance-Resistance (CR) board.}
-\includegraphics[width=0.9\linewidth]{tpcce_cr_board.pdf}
+%\includegraphics[width=0.9\linewidth]{tpcce_cr_board.pdf}
+\includegraphics[width=0.9\linewidth]{tpc_wire_bias_scheme_20170317}
 \end{cdrfigure}
 
 Separate CR boards include a single R-C filter for the G-plane wires and 12 pairs of bias resistors and
@@ -249,7 +247,7 @@ the FEMB is shown in Figure~\ref{fig:tpcce_CMBpix}.
   Except for anticipated small modifications, this board is essentially the final version.
   {\bf Middle:} The FPGA mezzanine, used in place of the digital ASIC mezzanine for the early set of tests.
   {\bf Bottom:} The complete FEMB assembly as used in the early set of tests.
-  The cable shown in the high-speed data, clock, and control cable.}
+  The cable shown in the high-speed data, clock, and control cable. The middle and bottom photos are from an SBND version, which uses a different output data connector and a different input connection orientation.}
 \includegraphics[width=0.65\linewidth]{tpcce_CMBpix_1.pdf}
 \includegraphics[width=0.65\linewidth]{tpcce_CMBpix_2.pdf}
 \includegraphics[width=0.45\linewidth]{tpcce_CMBpix_3.pdf}
