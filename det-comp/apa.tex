@@ -159,8 +159,6 @@ The mesh is clamped around the perimeter of the opening and then pulled tight (b
 \includegraphics[width=0.8\textwidth]{figures/tpc_apa_fullsizemeshdrawing.png} 
 \end{cdrfigure}
 
-%\fixme{COMMENT from Justin: this jig is currently being redesigned. If the design changes significantly, we should remember to update this picture.}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Anchoring elements and wire boards}
@@ -272,11 +270,12 @@ The wire openings in the comb stack are small enough that the wires are accurate
 \subsubsection{Electron diverter}
 \label{sec:apa:electrondiverter}
  
-The active aperture of the collecting plane wires is 2300\,mm wide, while the APA modules are installed at a 2320\,mm pitch.  This leaves a 20\,mm gap between two adjacent APAs that is occupied by the stacks of wire wrapping boards and some clearance space. Electrons from the ionizing tracks drifting over the gap have an ill-defined trajectory; some get lost and some land on the wrong wire and create unexpected signal waveforms.  To control the drift path of electrons over this gap, a set of ``electron diverter’’ electrodes installed between APAs would nudge the incoming electrons away from the gap, towards a wire in the active aperture. 
+The active aperture of the collecting plane wires is 2300\,mm wide, while the APA modules are installed at a 2320\,mm pitch.  This leaves a 20\,mm gap between two adjacent APAs that is occupied by the stacks of wire wrapping boards and some clearance space. Electrons from the ionizing tracks drifting over the gap have an ill-defined trajectory; some get lost and some land on the wrong wire and create unexpected signal waveforms.  A set of \textit{electron diverters} installed between APAs would nudge the incoming electrons away from the gap, towards %a wire in the active aperture. 
+an active collection wire. It is planned to install electron diverters between some of the ProtoDUNE-SP APAs to determine whether they should be included in the DUNE-SP detector design.
  
-The electron diverter is a set of thin printed circuit boards with two strip electrodes sticking above the first wire plane.  The two electrodes are biased at %more 
-negative voltages with respect to to the natural potential at their locations.  A repulsive force from these electrodes pushes the incoming electrons away s%o they do not land in 
-from the inactive gap.  Figure~\ref{fig:tpc_apa_e_diverter} illustrates the principle. The left plot shows the E-field lines near the symmetry plane between two APAs, where about 10\,mm band of field lines land on the edge of the boards holding the wrapped wires.  The right plot shows the field lines with the electron diverter installed (at the left edge of the plot), where all field lines are pushed to the active region.
+The electron diverter is a set of thin printed circuit boards with two strip electrodes sticking up from the first wire plane.  The two electrodes are biased at %more 
+negative voltages with respect to to the natural potential at their locations.  A repulsive force from these electrodes pushes the incoming electrons away %so they do not land in 
+from the inactive gap.  Figure~\ref{fig:tpc_apa_e_diverter} illustrates the principle. The left plot shows the E-field lines near the symmetry plane between two APAs, where a roughly 10-mm band of field lines land on the edge of the boards holding the wrapped wires.  The right plot shows the field lines with the electron diverter installed (at the left edge of the plot); here, all field lines are pushed to the active region.
 
 \begin{cdrfigure}[Field maps of the region near the inactive gap of an APA]{tpc_apa_e_diverter}{Left: field map of the region near the inactive gap of an APA without the electron diverter; Right: field map with the electron diverter in place.
 Electric field lines are shown in black, equipotential contours are in white, and electric field strength is represented in color gradient.}
@@ -284,7 +283,7 @@ Electric field lines are shown in black, equipotential contours are in white, an
 \end{cdrfigure}
 
  
-The leading edge of the diverter board is 25\,mm above the grid plane.  The first electrode is flush with the leading edge of the board, and the second electrode just clear the grid plane.  Both of them are 5\,mm wide.  The leading electrode is biased at a nominal voltage of $-$2300\,V, and the inner electrode is biased at -1300\,V.     Figure\ref{fig:tpc_apa_e_diverter_on_apa.png} shows the electron diverter boards mounted on a side of an APA.  A total of 10 boards are screwed onto the APA frame using existing tapped holes.  The topmost board has low pass RC network to filter the voltages fed to the electrodes.  These boards will be installed on two APAs on one side of the drift, leaving the other drift volume without such a feature, for comparison.
+The leading edge of the diverter board is 25\,mm above the grid plane.  The first electrode is flush with the leading edge of the board, and the second electrode just clears the grid plane.  Both of them are 5\,mm wide.  The leading electrode is biased at a nominal voltage of $-$2300\,V, and the inner is biased at -1300\,V.     Figure\ref{fig:tpc_apa_e_diverter_on_apa.png} shows the electron diverter boards mounted on a side of an APA.  A total of 10 boards are screwed onto the APA frame using existing tapped holes.  The topmost board has low pass RC network to filter the voltages fed to the electrodes.  These boards will be installed on two APAs on one side of the drift, leaving the other drift volume without such a feature, for comparison.
  
  \begin{cdrfigure}[Corner of APA with electron diverter boards installed]{tpc_apa_e_diverter_on_apa}{A view of a corner of an APA with a full set of electron diverter boards installed.  The first board in the foreground (at the top of the APA) has the bias voltage connectors and RC filtering network.  The rest of the boards are interconnected to the first boards through copper wires soldered to the ends of the strip electrodes.}
 \includegraphics[width=0.9\textwidth]{tpc_apa_e_diverter_on_apa} 

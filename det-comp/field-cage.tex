@@ -121,23 +121,25 @@ cover the CPA frame.
 %  \end{itemize}
 %%
 
-%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Interfaces to other TPC components}
 
+%%%%%%%%%%%%
 \subsubsection{FC to CPA and APA}
 
-On each of the top and bottom FC assembly, a pair of hinges connect each FC module to two CPA columns. These hinges allow the FC modules to be pre-attached to the CPAs during installation, preventing accidental damage to the APA wire planes when FC modules are raised or lowered and connected to the APAs.  The mechanical connection between a top/bottom FC module and the APA is maintained by a pair of custom designed latches that transfer the load of the FC module to the APA without impart a bending moment.
+On each of the top and bottom FC assemblies, a pair of hinges connects each FC module to two CPA columns. These hinges allow the FC modules to be pre-attached to the CPAs during installation, preventing accidental damage to the APA wire planes when FC modules are raised or lowered and connected to the APAs.  The mechanical connection between a top/bottom FC module and the APA is maintained by a pair of custom-designed latches that transfer the load of the FC module to the APA without imparting a bending moment.
 
 The end-wall FC assemblies are hung from the CPA and APA support rails.  There is no rigid mechanical connection 
 between the end-wall FC assemblies and the CPAs or APAs. 
 
-Each top and bottom FC module have one electrical connection to the CPA and one to the APA. Even though each end-wall FC assembly has a resistive divider chain, once the four assemblies form the end wall panel, the four divider chains are consolidate into one connection to the APA and one to the CPA to minimize access requirements at different heights. 
+Each top and bottom FC module has one electrical connection each to the APA and the CPA. Even though each end-wall FC assembly has a resistive divider chain, once these four assemblies form the end-wall panel, the four divider chains are also consolidated into one connection each to the APA and the CPA to minimize \fixme{simplify?} access requirements at different heights. 
 
-\begin{cdrfigure}[CPA to field cage connection]{cpa-fc-connection}{A top field cage module (grey) connected to two CPA modules (brown)}
+\begin{cdrfigure}[CPA to field cage connection]{cpa-fc-connection}{A top field cage module (grey) connected to two CPA modules underneath (brown)}
 \includegraphics[width=0.8\linewidth]{tpc_fc_cpa_connection.png}
 \end{cdrfigure}
 
-The voltage on the last field cage electrode near the APA is about -5.5kV at the nominal 500V/cm drift field. A nominal step down resistor is used to bring this voltage to about -1\,kV and form a dual purpose bias/monitoring point.  A HV cable connects this point to an SHV feedthrough on the TPC signal feedthrough flange, enables us to either monitoring the field cage divider current, or fine tuning the drift field near the APAs.  
+The voltage on the last field cage electrode near the APA is about $-$5.5\,kV at the nominal 500-V/cm drift field. A nominal step-down resistor is used to bring this voltage to about $-$1\,kV and form a dual-
+purpose bias/monitoring point.  A HV cable connects this point to an SHV feedthrough on the TPC signal feedthrough flange, which enables either monitoring of the field cage divider current, or fine tuning of the drift field near the APAs.  
 
 %%%%%%%%%%%%
 \subsubsection{FC to beam plug}

@@ -445,7 +445,7 @@ The DataReformatters restructure the data to allow for efficient subsequent
 analysis and provide a standard interface to the methods, which look through
 the events.  These reformatted objects are passed to MonitoringData, which
 owns all of the data products (\texttt{TTree}s, \texttt{TH1}s, \texttt{TGraph}s,
-etc.) output from the monitoring software and provides methods for filling
+etc.) and output from the monitoring software, and provides methods for filling
 them when required.  Finally, the online event displays are
 contained within the monitoring framework using the EventDisplay class.
 
