@@ -14,10 +14,11 @@ little data.  Running these algorithms on commodity cluster hardware
 is more cost effective.  To manage these jobs, a special purpose system
 called the ``protoDUNE prompt processing system'' (p3s) is developed.
 Unlike traditional batch systems it limits maximum latency to provide
-results at the cost of 100\% data throughput.  The p3s is portable to
-many native batch systems, user configurable to allow directed graphs
-of many jobs to execute in parallel making efficient use of the
-available hardware resources. \fixme{can't parse unambiguously}
+results at the cost of 100\% data throughput.  The p3s is portable to many 
+native batch systems and is fully
+  user-configurable.  It can run multiple independent sets of multiple
+  interdependent jobs, and run them in parallel -- to the
+  extent allowed by available CPU resources and while satisfying dependency information.
 
 The prompt processing is expected to sample about 1\% of the most
 immediate data just after it is saved by the DAQ and is available to the
