@@ -1,4 +1,4 @@
-\section{Data Acquisition (DAQ)} 
+\section{Data acquisition (DAQ)} 
 \label{sec:daq}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -420,13 +420,14 @@ of the data flow management at this level.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Online monitoring}
+\label{sec:daq_online_monitoring}
 
 In addition to the monitoring of the operations of the DAQ system, the
 quality of the data taken by the detectors has to be constantly monitored.
 This assurance is provided by the online monitoring system.
 This subsection describes the baseline monitoring framework for ProtoDUNE-SP.  
 The final implementation is subject to change, but will likely be similarly
-linked to artDAQ and LArSoft as described here.
+linked to artDAQ and LArSoft (introduced in Section~\ref{sec:comp:larsoft}) as described here.
 
 The online monitoring framework runs as a DAQ process and therefore is
 able to provide data quality assurance in real-time. ArtDAQ splits the  
@@ -453,3 +454,25 @@ with a web server. This is hosted at CERN and allows for remote
 monitoring of the experiment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
+%=======
+%\subsubsection{Nearline monitoring}
+
+%The nearline monitoring is designed to provide complementary information to
+%that given by the online system. It runs separately as a series of automated
+%shell scripts and provides feedback on a slower timescale than the online
+%monitoring, thus allowing for a broader view of the quality of data over time.
+%It also utilizes offline software (LArSoft) to provide, for example,
+%reconstruction, facilitating a more complete monitoring of much more complex
+%information.
+
+%Once an output data file has been closed by the DAQ and sent offline, it can be processed by the
+%nearline system.  A LArSoft job is initially run over the events to perform
+%reconstruction and extract information from the data.  The output of this,
+%along with the output of other runs, is then analyzed by a separate automated
+%job, to form the high-level view of the data for monitoring.\\
+%%
+%Similarly to the online framework, %there will be 
+%an interface for this system
+%with the web allows for remote access of the information.
+
+

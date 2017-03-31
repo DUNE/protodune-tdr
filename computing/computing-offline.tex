@@ -1,61 +1,95 @@
-\section{Offline data processing} % of the Experimental and Simulated Data}
-\label{sec:protodune-offline}
-
-The data to be processed by the offline system can be classified as follows:
-\begin{itemize}
-
-\item A variety of calibration data derived from experimental data, including dedicated calibration
-runs where necessary, and/or subsamples of data collected specifically for calibration
-purposes during normal running conditions;
-
-\item Processed experimental data, which may exist in several parallel branches corresponding to
-different reconstruction algorithms being applied, with the purpose of evaluating the performance
-of the different algorithms;
-
-\item Monte Carlo (MC) data, which contain multiple event samples to cover various event types
-and other conditions during data-taking; and %the measurements with protoDUNE
-
-\item Data derived from MC events, and produced with a variety of tracking and pattern recognition algorithms
-in order to create a basis for the detector characterization.
-
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Production processing}
-\label{sec:prod-process}
-
-The production processing has more than one processing step,
-thus creating derived data and multiplying the data volume.  The volume of the derived data is assumed to be smaller than that for the raw data.
-Given the anticipated raw data volume, %considerations for the anticipated raw data volume presented above,
-the %current 
-plan is to provision $\sim$10\,PB of tape storage to keep the raw and processed data. This includes
-two copies of the raw data at 3~pb each, two passes of derived data at 1\,PB each, and 2\,PB of simulation samples.
-One copy of the raw data may be included as part of the output of the reconstruction, for convenience in comparing
-raw and reconstructed data objects while also serving the purpose of providing a backup copy of the raw data.
-
-For efficient processing, disk storage is necessary to provide access to the data stored on tape.
-Extrapolating from experience running MC for previous DUNE MC campaigns,
-it is estimated that  a few hundred TB of continuously available disk space is needed for samples that are repeatedly
-accessed, as well as ntuples for user analysis.  The offline system takes advantage of the shared dCache resource \fixme{dcache reference needed}
-at Fermilab in order to provide efficient access to the data stored on tape.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Prompt processing}
+\section{Prompt Processing for Data Quality Monitoring}
 \label{sec:prompt_processing}
 
-In the present context, \textit{prompt processing} refers to a number of fast signal-processing and reconstruction processes
-(also called ``express stream'') that process a fraction of the raw data. Its main purpose is to aid in QA of the data
-and produce quick calibrations that may be necessary for detailed monitoring of the detector. For example,
-calculating the frequency spectra of noise and monitoring its level, evolution and other characteristics is an important aspect of ensuring
-the stability of the readout chain.
+As described in Section~\ref{sec:daq_online_monitoring}, the first
+point at which data quality monitoring occurs is directly inside the
+DAQ Online Monitoring (OM).  The DAQ computing cluster hardware is
+relatively high performance and has access to the full, high-rate data
+stream.  As such it is ideal for monitoring algorithms which require
+small amounts of CPU and a large fraction of the data.
 
-A limited number of metrics are calculated in order to make the process as quick as possible, enabling
-the operators to take action should the QA process indicate a potential problem in the detector or the data.
+On the other end of this spectrum, some monitoring algorithms have
+large CPU requirements but produce meaningful feedback on relatively
+little data.  Running these algorithms on commodity cluster hardware
+is more cost effective.  To manage these jobs, a special purpose system
+called the ``protoDUNE prompt processing system'' (p3s) is developed.
+Unlike traditional batch systems it limits maximum latency to provide
+results at the cost of 100\% data throughput.  The p3s is portable to
+many native batch systems, user configurable to allow directed graphs
+of many jobs to execute in parallel making efficient use of the
+available hardware resources. \fixme{can't parse unambiguously}
 
-Processing roughly 1\% of the data stream collected by the detector is predicted to
-be enough to meet the most important goals of prompt processing. 
-The general strategy is to locate some of the prompt processing capability at CERN, at a scale adequate for the mid-range
-data-taking scenario, such as presented in Table~\ref{tab:goldi}. An estimated 300 cores
-are needed to cope with processing at that rate.
+The prompt processing is expected to sample about 1\% of the most
+immediate data just after it is saved by the DAQ and is available to the
+hardware on which it runs.  An initial estimate finds that at least
+300 dedicated cores will be required to achieve this.  This estimate
+must be refined as a comprehensive list of monitoring algorithms is
+developed.
+
+The prompt jobs are developed in the familiar form of offline software
+modules to LArSoft (Section~\ref{sec:comp:larsoft}).  The processing is expected to include algorithms
+from signal processing through to full reconstruction.  Due to the
+sharing of the underlying art framework in both prompt processing jobs and
+DAQ OM modules, it will be easy to migrate algorithms between the two
+contexts in the case of computer-hardware resource constraints.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Production processing}
+\label{sec:protodune-offline}
+
+The second major user of the raw data is the production processing.
+It will make several passes of 100\% of the raw data over time as
+algorithms improve.  It has two major stages, data reduction and 
+event reconstruction, which finally feeds into user analysis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Data reduction}
+\label{sec:datareduc}
+
+The initial steps of production processing can be factored out into a
+specific stage in order to allow a vastly reduced data set to be
+produced which retains all signal information.  This data reduction
+stage consists of about 20\% of the total production processing CPU
+time.
+
+It consists of four major steps.  First, it applies any ADC-level
+corrections followed by a software noise filter if excess noise is
+encountered.  These first two steps alone will allow a
+$6\times - 8\times$ compression factor due to reduction of information
+entropy that results from removal of excess noise.  The third step applies signal
+processing.  This crucially deconvolves the detector field response
+functions from the waveforms and identifies the signal regions of
+interest (signal-ROI).  In particular, this allows the otherwise small
+induction-plane signals to become unipolar and rise above the inherent
+noise floor.  By definition, the signal-ROI selection rejects portions
+of waveforms that are indistinguishable from noise and thus carry no
+signal information.  It is this selection that provides the bulk of
+the reduction.  Finally, the oversampling of the data is no longer
+required and is removed while keeping safely below the Nyquist limit
+and the data is packed, compressed and saved to file.  This reduction
+targets only the TPC data; all other raw fragments are simply
+copied to the output file.
+
+The reduced TPC data is more than 400 times smaller than the raw
+input. This translates to reducing the 3\,PB of data described in
+table~\ref{tab:goldi} to only 6.5\,TB.  This relatively small data set
+can then be more easily transferred to the remaining, high-CPU part of
+the production processing chain and it facilitates sharing of the data
+in general.  Independent of the output of the data reduction, the full
+raw data will be still archived to tap at CERN and FNAL as described
+in Section~\ref{sec:raw_concept} so that as data reduction techniques
+improve they can be rerun, and if any special studies require it, they
+may have access to the full raw waveforms.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reconstruction processing}
+\label{sec:prod-process}
+
+Starting with the signal-ROI there are two basic approaches to
+reconstruction, which are described in detail in the following
+sections.  The first starts with fitting multiple Gaussian
+distributions to the waveforms and the second to retaining their
+binned structure.
 

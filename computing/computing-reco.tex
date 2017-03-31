@@ -48,7 +48,7 @@ summing the ADC counts.
 
 The hits are associated with DAQ channels 
 not wire segments, since, due to the wrapping of the induction-plane
-wires in the APA's, the location of the % there is ambiguity of where the
+wires in the APAs, the location of the % there is ambiguity of where the
 charge deposition contributing to the hit is ambiguous. %was deposited.  
 Because the wire angle
 is chosen such that each induction wire intersects each collection-plane
@@ -64,7 +64,7 @@ segments, 2D reconstruction identifies clusters and tracks
 in each view separately, and 3D hypotheses for
 the event are constructed by comparing the 2D clusters
 in the separate planes.  The 2D clustering algorithms currently in
-use are the Blurred Clustering Algorithm~\cite{blurredclustering},
+use are the Blurred Clustering Algorithm~\cite{blurredcluster},
 LineCluster~\cite{linecluster}, and TrajCluster~\cite{trajcluster}.  
 
 %%%%%%%%%
@@ -99,7 +99,7 @@ reconstruction for photons that are produced inside the detector.  A
 distribution of reconstructed $\pi^0$ masses in Monte Carlo is shown
 in Figure~\ref{fig:pizeromass}.
 
-\begin{cdrfigure}[The reconstructed invariant masses of $\pi^0$ candidates in
+\begin{cdrfigure}[Reconstructed invariant masses of $\pi^0$ candidates in
   MC]{pizeromass}{The reconstructed invariant masses of $\pi^0$ candidates in
   Monte Carlo using the BlurredCluster and EMShower algorithms.}
 \includegraphics[width=0.8\textwidth]{pizeromass}
@@ -111,32 +111,18 @@ in Figure~\ref{fig:pizeromass}.
 The reconstruction framework PANDORA~\cite{Marshall:2015rfa} also works by
 building up a 3D picture from 2D
 reconstructed objects.  PANDORA is a flexible framework developed for
-ILC detector simulation, and provides a convenient way to develop
+International Linear Collider (ILC) detector simulation, and provides a convenient way to develop
 algorithms for reconstructing particles.  In all, more than 80
 algorithms, each targeting a specific topology, have been incorporated
-into PANDORA to date.  Multiple passes through reconstructing the data
-are possible.  Different criteria for clustering hits into tracks and
-showers may be applied when seeking cosmic rays for removal rather than for
+into PANDORA to date.  PANDORA allows multiple reconstruction passes through the data.  
+%Multiple passes through reconstructing the data are possible. 
+Different criteria for clustering hits into tracks and
+showers may be applied when seeking to remove cosmic rays %rather 
+than when
 identifying signal events.  PANDORA follows a process that clusters hits in 2D,
 reconstructs vertices in 3D, reconstructs tracks in 3D,
-reconstructs showers in 3D, performs a ``mop-up'' step in 2D and 3D, and finally performs
+reconstructs showers in 3D, performs a \textit{mop-up} step in 2D and 3D, and finally performs
 full event-building in 3D.
-%PANDORA proceeds by clustering hits in 2D, reconstructing vertices in 3D, reconstructing tracks in 3D, reconstructing showers in 3D, a mop-up step in 2D and 3D, followed by full event building in 3D.
-\fixme{ILC - int'l linear collider? add to acronyms}
-
-%Old Text
-%Plots of the efficiency and completeness for muons in charged-current $\nu_{\mu}$
-%events in MicroBooNE using PANDORA are shown in Figure~\ref{fig:muonpandoraperf}.
-%The resolution of vertex-finding is shown in
-%Figure~\ref{fig:pandoraresolution}.
-
-%\begin{cdrfigure}[Performance of PANDORA for muons in CC
-%  $\nu_mu$ events in MicroBooNE. ]{muonpandoraperf}{The performance of PANDORA for muons in charged-current
-%  $\nu_mu$ events in MicroBooNE. }
-%%\includegraphics[width=0.95\textwidth]{muonpandoraperf.png}\end{cdrfigure}
-%\end{cdrfigure}
-%\fixme{Include figure of PANDORA performance for muons.  Efficiency and
-%completeness (purity too if we can get the plot).}
 
 
 Plots of the efficiency, the completeness, and the  difference between the true and reconstructed
@@ -144,10 +130,9 @@ track lengths for single muons with momentum between 300\,MeV and 5\,GeV in the~
 shown in Figure~\ref{fig:muonpandoraperf}.  The PANDORA algorithm performs very well, although a small
 inefficiency occurs in the current algorithm's ability to match track segments from one APA's drift volume to another.
 
-\begin{cdrfigure}[Performance of the PANDORA reconstruction algorithm for single muons with momentum between 300~MeV$/c$
-and 5~GeV/$c$.]{muonpandoraperf}{Performance of the PANDORA reconstruction algorithm for single muons with 
-momentum between 300~MeV$/c$ and 5~GeV/$c$.  The left-hand figure shows the tracking efficiency as a function of
-muon momentum, the middle figure shows the distribution of tracking completeness, and the right-hand figure shows the
+\begin{cdrfigure}[PANDORA reconstruction, single muons, 300~MeV$/c$ < $p$ < 5~GeV/$c$]{muonpandoraperf}{Performance of the PANDORA reconstruction algorithm for single muons with 
+momentum between 300~MeV$/c$ and 5~GeV/$c$.  The top left-hand figure shows the tracking efficiency as a function of
+muon momentum, the top right-hand figure shows the distribution of tracking completeness, and the bottom figure shows the
 distribution of the difference between the reconstructed muon track length and the true track length.}
 \includegraphics[width=0.45\textwidth]{mu_eff_pandora.pdf}
 \includegraphics[width=0.45\textwidth]{trk_completeness_pandora.pdf}
@@ -160,7 +145,9 @@ distribution of the difference between the reconstructed muon track length and t
 
 Another approach to 3D reconstruction in LArTPC detectors is referred to as the \textit{Projection Matching Algorithm
 (PMA)}~\cite{pma_algorithm}. PMA was primarily developed as a technique for 3D reconstruction
-of individual particle trajectories (trajectory fits)~\cite{icarus3dreco}. Instead of
+of individual particle trajectories (trajectory fits)~\cite{pma_algorithm} %\cite{icarus3dreco}. 
+%\fixme{missing citation icarus3dreco, so Anne changed it to pma_algorithm}
+Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
 the 2D projection of the predicted trajectory of a particle with the observed data. Association
 of hits between the 2D planes is not needed in this approach, improving its performance in
@@ -182,8 +169,7 @@ Plots of the efficiency, the completeness, and the  difference between the true 
 track lengths for single muons with momentum between 300\,MeV and 5\,GeV in the~\pdsp geometry are
 shown in Figure~\ref{fig:muonpmaperf}.  
 
-\begin{cdrfigure}[Performance of the PMA reconstruction algorithm for single muons with momentum between 300~MeV/c
-and 5~GeV/c.]{muonpmaperf}{Performance of the PMA reconstruction algorithm for single muons with 
+\begin{cdrfigure}[PMA reconstruction, single muons, 300\,MeV/c < $p$ < 5\,GeV/c]{muonpmaperf}{Performance of the PMA reconstruction algorithm for single muons with 
 momentum between 300~MeV/c and 5~GeV/c.  The left-hand figure shows the tracking efficiency as a function of
 muon momentum, the middle figure shows the distribution of tracking completeness, and the right-hand figure shows the
 distribution of the difference between the reconstructed muon track length and the true track length.}
@@ -207,7 +193,7 @@ cosmic-ray muons, respectively.
 \begin{cdrfigure}[Vertex resolution for
   inelastic interaction of $\pi^\pm$ on Ar where a $\pi^0$ is produced]{PMApioninteraction}{Vertex position resolution in cm in $x$, $y$, and $z$ and 3D for the
   inelastic interaction of charged pions on liquid argon nuclei in events in which a $\pi^0$ is produced, in
-  \pdsp, using the PMA algorithm.\fixme{increase size of stat box entries; if possible remove "temp" header}}
+  \pdsp, using the PMA algorithm.}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dx.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx_dy.png}
 \includegraphics[width=0.45\textwidth]{pi0_vtx_dz.png}\includegraphics[width=0.45\textwidth]{figures/pi0_vtx3d.png}
 \end{cdrfigure}
@@ -226,21 +212,21 @@ cosmic-ray muons, respectively.
 %%%%
 \subsubsection{WireCell}
 
-WireCell~\cite{wire-cell} adopts a very different approach from the 
-aforementioned algorithms and is a new reconstruction method under development.
-Instead of directly doing pattern recognition on each of the 2D views (drift 
+WireCell~\cite{wire-cell}, a new reconstruction method under development, adopts a very different approach from the aforementioned algorithms .
+Instead of performing pattern recognition directly on each of the 2D views (drift 
 time versus wire number), the first step of the WireCell reconstruction is to 
 perform 3D imaging with time, geometry, and charge information. 
 The algorithm takes advantage of this % timing, geometry, and charge 
-information in order to suppress the effects of electronic noise.
-Hits from  different wire planes arriving in different time 
-slices cannot be associated with each other. (The definition
-of \textit{hit} is based on signal strength after charge extraction %(described in Sec.~\ref{sec:tpc-signal-calibration}) 
-in a 2-$\mu$s time slice.) Hits
-from wires that do not cross in a region consistent with the charge deposition cannot be associated with each other. 
-Hits from different wire planes
-with different signal strengths are unlikely to be associated with each other. 
-Use of the charge information takes advantage of the fact that in a LArTPC with induction planes,
+information to suppress the effects of electronic noise.
+%
+Often, noise will lead to a fluctuation in a waveform which may be
+large enough to mimic a signal.  The algorithm combats this by
+requiring any potential signal to be consistent across multiple wires,
+given their geometry, in their charge across time.  Many of the
+fluctuations due to noise will fail this consistency requirement and
+be rejected while true signal will satisfy it.
+%
+Use of the charge and time information in this manner takes advantage of the fact that in a LArTPC with induction planes,
 each of the wire planes, in principle, detects the same ionization electrons as the other planes. 
 Figure~\ref{fig:quality} shows an example of the improvement of WireCell 3D imaging
 over the more traditional approach. 

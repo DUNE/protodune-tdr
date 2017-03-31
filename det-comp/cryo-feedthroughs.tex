@@ -5,15 +5,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope and requirements}
-\fixme{This may need some massaging to put `scope and req' at the beginning of this section}
 
 The cryostat consists of a steel warm outer structure, layers of insulation and an inner cold membrane.  The outer %steel warm 
 structure (shown in Figure~\ref{fig:warm-vessel-layout}), which provides %represents 
 the mechanical support for the  %inner membrane cold cryostat 
 membrane and its insulation,  consists of vertical beams that alternate with a web of metal frames. It is constructed to %capable of 
-withstand the hydrostatic pressure of the liquid argon, the pressure of the gas volumes and %all possible 
-satisfies the external constraints. %The steel warm structure for NP04 is shown in Figure~\ref{fig:warm-vessel-layout}.
-In particular, this structure is to be constructed in EHN1 without any mechanical attachment to the floor or the building side walls.  \fixme{what are the ext constraints? Also, the text on the figure is too small; is it intended to indicate what each color is? Can you clarify and make sure each part/color is labeled?}
+withstand the hydrostatic pressure of the liquid argon and the pressure of the gas volumes, and %all possible 
+to satisfy the external constraints. %The steel warm structure for NP04 is shown in Figure~\ref{fig:warm-vessel-layout}.
+In particular, this structure is to be constructed in EHN1 without any mechanical attachment to the floor or the building side walls.  
 %
 \begin{cdrfigure}[Warm vessel layout]{warm-vessel-layout}{Warm vessel layout showing the various major components}
   \includegraphics[width=1.\textwidth]{warm-vessel-layout}
@@ -31,11 +30,11 @@ ensure that all crossing penetrations are arranged as requested and that there i
 A secondary membrane is located within the insulation layer. The cold vessel is based on the GTT membrane technology~\cite{gtt}.   Thermal requirements call for 
 a thickness of 800\,mm, including the insulation, and the primary and secondary membranes. These two membranes provide a first and second level of containment. There is no requirement at this point for additional containment at the level of the warm steel structure. The SS skin of 10-mm thickness between the warm structure and the insulation provides an effective gas enclosure, which allows control of the argon atmosphere inside the insulation volume.
 All necessary information can be found in~\cite{edms1}. 
-The 3D detailed CAD model is visible in~\cite{edms2}. 
+The 3D detailed CAD model is visible in~\cite{edms2}. \fixme{Check if these two references are still valid (per David M)}
 
 Prior to installation of the GTT insulation and %cold liquid 
-inner membranes, the gas tightness of the SS 10-mm membrane will be measured and verified by CERN using dye penetrant analysis, local vacuum-bag techniques, and He leak %leaks sniffing 
-detection at the level of the natural He present in the atmosphere ($\sim2-3 \times 10^{-6} mbar/l/sec$). A report will be presented to GTT.
+inner membranes, the gas tightness of the SS 10-mm membrane was measured and verified by CERN using dye penetrant analysis, local vacuum-bag techniques, and He leak %leaks sniffing 
+detection at the level of the natural He present in the atmosphere ($\sim2-3 \times 10^{-6} mbar/l/sec$). A report was presented to GTT. \fixme{David asks: is this correct?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Storage characteristics}
@@ -72,9 +71,9 @@ and the overall outer dimensions of the warm structure.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cold GTT vessel}
+\subsection{Cold \textit{GTT} vessel}
 
-The GTT cold vessel is installed inside the warm support structure, which includes the stainless steel gas enclosure membrane. The cold vessel consists of a thermal insulation, a primary corrugated stainless steel membrane, as well as a secondary thin membrane, to provide primary and secondary liquid containment. A cross sectional view of the insulation and membrane layers is shown in Figure~\ref{fig:xsec-insulation-layers}.
+The cold vessel from GTT is installed inside the warm support structure, which includes the stainless steel gas enclosure membrane. The cold vessel consists of a thermal insulation, a primary corrugated stainless steel membrane, as well as a secondary thin membrane, to provide primary and secondary liquid containment. A cross sectional view of the insulation and membrane layers is shown in Figure~\ref{fig:xsec-insulation-layers}.
 
 \begin{cdrfigure}[Cross section of insulation layers on membranes]{xsec-insulation-layers}{Cross section of insulation layers on membranes}
   \includegraphics[width=0.8\textwidth]{xsec-insulation-layers}
@@ -129,12 +128,12 @@ Thermal and stress analyses are being conducted in collaboration with GTT. These
 The total amount of material in this design, including the primary membrane, and assuming a 0.3~mm G10 thickness on both sides of the Nomex sandwich and a 0.3-mm-thick steel beam window, is equivalent to 10\% of a radiation length. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Roof signal, services and supports penetrations}
+\subsection{Roof signal, services and support penetrations}
 
 The penetrations through the cryostat have been arranged by position and diameter. %(see Section 8). 
 Most of the penetrations are placed on the ceiling of the cryostat. They have been differentiated into two main groups according to their function and the thermal stresses they will be submitted to. The classification determines whether penetrations can be used to support the weight of the detector or not.
 The penetrations on the roof of the NP04 cryostat are detailed in Table~\ref{tab:roofpenetrations}.  
-A 3D CAD model to identify all positions can be found at~\cite{edms4} and in an associated drawing~\cite{edms5}.
+A 3D CAD model to identify all positions can be found at~\cite{edms4} and in an associated drawing~\cite{edms5}. \fixme{Check these two references per David}
 
 
 \begin{cdrtable}[Cryostat penetrations, roof]{llll}{roofpenetrations}{Cryostat penetrations in roof and on side.}
@@ -159,12 +158,12 @@ TCO - side:&   \num{1200}\si{mm} $\times$ \num{7300}\si{mm} & \\ \colhline
  &  crossing tube diameter & \SI{152}{mm}\\ \colhline
  &   crossing tube diameter & \SI{125}{mm}\\ \colhline
  &   crossing tube diameter & \SI{250}{mm}\\ \colhline
- Cryogenic pipes -- north side: &  crossing tube diameter & \SI{168}{mm}\\ 
+ Cryogenic pipes -- north side: &  crossing tube diameter & \SI{350}{mm}\\ 
 \end{cdrtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Mechanical mounts and supports}
-\subsection{Detector Support Structure (DSS)}
+\subsection{Detector support structure (DSS)}
 
 
 Prior to the installation of the TPC, the detector support structure DSS is installed inside the cryostat.  The DSS is shown in Figure~\ref{fig:dss-install}.  It is positioned near the ceiling and is supported by nine penetrations through the cold side of the membrane extending up to the warm structure of the cryostat.  The warm structure of the cryostat supports all of the loads from the detector.  The DSS consists of two layers of I beams.  The top (yellow) layer is oriented in the y direction and designated as the Y beams and the bottom (purple) layer is oriented in the x direction and designated as the X beams. \\
@@ -178,10 +177,10 @@ The X beams have the ability to translate on rolling trolleys in the Y direction
 to fix the X beams on the beam side is to limit the movement of the beam side of the TPC with respect to the membrane wall since
 the beam plug is mounted at this side of the TPC.  
 
-\begin{cdrfigure}[Detector support system]{dss-install}{Detector support system}
+\begin{cdrfigure}[Detector support system (DSS)]{dss-install}{Detector support system}
 \includegraphics[width=0.8\textwidth]{detector-support-system-xy}
 \end{cdrfigure}
 
-\begin{cdrfigure}[DSS showing full set of beams]{dss-install2}{DSS showing full set of beams}
+\begin{cdrfigure}[DSS showing full set of beams]{dss-install2}{DSS showing full set of beams; the horizontal (X) beams in the figure are called \textit{bridge beams} and the vertical (Y) beams are called \textit{runway} beams. }
  \includegraphics[width=0.6\textwidth]{dss-full-set-of-beams}
 \end{cdrfigure}
