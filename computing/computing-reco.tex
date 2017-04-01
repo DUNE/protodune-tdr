@@ -86,6 +86,41 @@ and misidentification rates, shower energy resolution, and energy scale offsets.
 
 
 %%%%
+\subsection{Electromagnetic and track-like components separation}
+
+Pattern recognition in LArTPC data has proven to be a hard problem. One of the
+fundamental issues for the currently used reconstruction algorithms is distinction
+between electromagnetic (EM) and track-like components of the event. Properties of
+EM-like and track-like objects are significantly different and dedicated
+reconstruction algorithms should be applied to each of them. Also, physics
+quantities extracted from these two classes of objects are different. However,
+currently developed algorithmical approaches to the separation of EM activity are
+not sufficiently efficient. The recently developed approach based on convolutional
+neural networks (CNN) results with very promising performance and may become the
+base for the higher level reconstruction in ProtoDUNE.
+
+With the proposed approach each ionization charge contribution may be classified
+separately. It is treated as a “point” in the 2D “image” of the event composed of
+devolnoluted ADC waveforms. Only a close surrounding to the classified point is used,
+which allows to keep the classification relatively insensitive to the topology,
+therefore energy and PID of incident primary particle in the event. The classification
+is applied before hit and reconstruction.
+
+Current implementation allows to combine single point classification with the standard
+clustering algorithms in order to improve the classification of entire objects
+recognized in the event. EM component selection was also integrated with the Projection
+Matching Algotighm (PMA, see further in text), allowing for the correct application of
+the tracking and vertexing algorithm to the track-like component for which the PMA
+algorithm was designed. Further integration with other reconstruction algorithms is
+ongoing.
+
+Performance of the CNN-based selection is illustrated in Fig.A. where the input, 2D
+projection of the event is compared to the result of classification in the single event.
+Results of the selection of EM component in a large sample of events is illustrated in
+Fig.B. for two values of test beam momentum, 1 GeV/c and 4 GeV/c.
+
+
+%%%%
 \subsubsection{EMShower}
 
 The EMShower package~\cite{emshowerpackage} takes the output of the
