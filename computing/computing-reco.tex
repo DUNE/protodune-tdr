@@ -114,10 +114,29 @@ the tracking and vertexing algorithm to the track-like component for which the P
 algorithm was designed. Further integration with other reconstruction algorithms is
 ongoing.
 
-Performance of the CNN-based selection is illustrated in Fig.A. where the input, 2D
-projection of the event is compared to the result of classification in the single event.
-Results of the selection of EM component in a large sample of events is illustrated in
-Fig.B. for two values of test beam momentum, 1 GeV/c and 4 GeV/c.
+Performance of the CNN-based selection is illustrated in Figure~\ref{fig:cnnemseloneevent}.
+where the input, 2D projection of the event is compared to the result of classification
+in the single event. Results of the selection of EM component in a large sample of events
+is illustrated in Figure~\ref{fig:cnnemselinsamples}. for two values of test beam momentum,
+1~GeV$/c$ and 4~GeV$/c$.
+
+\begin{cdrfigure}[CNN-based EM selection in pion event]{cnnemseloneevent}{CNN-based
+selection of the electromagnetic component of events: deconvoluted ADC waveforms used
+as the input to the algorithm (left plot); selected electromagnetic (blue) and
+track—like (red) activity (right plot). Positive pion in the ProtoDUNE test beam at
+3~GeV$/c$ is shown (the particle track incoming from the left).}
+\includegraphics[width=0.45\textwidth]{cnn_1__evd.twq-proj.1.8303.jpg}
+\includegraphics[width=0.45\textwidth]{cnn_2__output_pip2p5GeV_clu_em.jpg}
+\end{cdrfigure}
+
+\begin{cdrfigure}[CNN-based EM selection in pion samples]{cnnemselinsamples}{ADC area
+in hits selected with CNN as electromagnetic activity versus ADC area in hits selected
+with MC truth information as originating from electron tracks: simulated in ProtoDUNE
+geometry events with positive pion in the test beam at momentum 1~GeV$/c$ (left) and
+4~GeV$/c$ (right).}
+\includegraphics[width=0.45\textwidth]{cnn_3__pi_1GeV.jpg}
+\includegraphics[width=0.45\textwidth]{cnn_4__pi_4GeV.jpg}
+\end{cdrfigure}
 
 
 %%%%
