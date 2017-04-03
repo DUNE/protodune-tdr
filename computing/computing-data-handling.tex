@@ -9,29 +9,20 @@ provides details on these %above
 numbers and a few alternative running conditions.
 Table~\ref{tab:goldi} summarizes the nominal estimates.
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}[h]{|r|l|}
-    \hline
-    Parameter & estimate  \\
-    \hline
+\begin{cdrtable}[Raw data storage parameter estimates]{lr}{goldi}{Estimates of nominal raw data parameters driving the design for the raw data storage and management.}   
+Parameter & estimate  \\ \toprowrule
     In-spill trigger rate & 25 Hz \\
     Avg. trigger rate & 10 Hz \\
     Channels & 15,360 \\
     Readout time & 5 ms \\
-    Compression & $4\times$ \\
-    \hline
+    Compression & $4\times$ \\ \colhline
     Compressed event & 60 MByte  \\
     Instantaneous rate & 1.5 GByte/sec \\
     Average rate & 600 MByte/sec \\
-    \hline
+    \colhline
     Total triggers & 52 M \\
     Total volume & 3 PB  \\
-    \hline
-  \end{tabular}
-  \caption{Estimates of nominal raw data parameters driving the design for the raw data storage and management.}
-  \label{tab:goldi}
-\end{table}
+\end{cdrtable}
 
 The average trigger rate over the entire beam cycle assumes that one
 out-of-spill trigger from the Cosmic Ray Trigger (CRT) system (Section~\ref{sec:beam:muontagger}) 
