@@ -114,16 +114,16 @@ the tracking and vertexing algorithm to the track-like component for which the P
 algorithm was designed. Further integration with other reconstruction algorithms is
 ongoing.
 
-Performance of the CNN-based selection is illustrated in Figure~\ref{fig:cnnemseloneevent}.
-where the input, 2D projection of the event is compared to the result of classification
-in the single event. Results of the selection of EM component in a large sample of events
-is illustrated in Figure~\ref{fig:cnnemselinsamples}. for two values of test beam momentum,
-1~GeV$/c$ and 4~GeV$/c$.
+Performance of the CNN-based selection is illustrated in Figure~\ref{fig:cnnemseloneevent}
+where the input, a 2D projection of the event, is compared to the result of classification
+in the single event. Results of the selection of the EM component in a large sample of events
+is illustrated in Figure~\ref{fig:cnnemselinsamples} for two values of test beam momentum,
+1\,GeV$/c$ and 4\,GeV$/c$.
 
 \begin{cdrfigure}[CNN-based EM selection in pion event]{cnnemseloneevent}{CNN-based
 selection of the electromagnetic component of events: deconvoluted ADC waveforms used
-as the input to the algorithm (left plot); selected electromagnetic (blue) and
-track-like (red) activity (right plot). Positive pion in the ProtoDUNE test beam at
+as the input to the algorithm (left); selected electromagnetic (blue) and
+track-like (red) activity (right). Positive pion in the ProtoDUNE test beam at
 2.5~GeV$/c$ is shown (the particle track incoming from the left). All parts are
 correctly recognized in this event.}
 \includegraphics[width=0.45\textwidth]{cnn_1__evd.png}
@@ -200,8 +200,7 @@ distribution of the difference between the reconstructed muon track length and t
 
 Another approach to 3D reconstruction in LArTPC detectors is referred to as the \textit{Projection Matching Algorithm
 (PMA)}~\cite{pma_algorithm}. PMA was primarily developed as a technique for 3D reconstruction
-of individual particle trajectories (trajectory fits)~\cite{pma_algorithm} %\cite{icarus3dreco}. 
-%\fixme{missing citation icarus3dreco, so Anne changed it to pma_algorithm}
+of individual particle trajectories (trajectory fits). 
 Instead of
 building up a 3D hypothesis from 2D clusters, it starts with the 3D hypothesis and compares
 the 2D projection of the predicted trajectory of a particle with the observed data. Association
