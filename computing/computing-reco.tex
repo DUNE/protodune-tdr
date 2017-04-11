@@ -58,8 +58,9 @@ hits in the collection and induction views to
 resolve ambiguities.  
 
 Physics analyses are most sensitive with a full 3D reconstruction of the
-event -- the primary vertex (if there is one), the tracks and the showers.
-ProtoDUNE-SP is implementing several approaches to achieve this. Once hits are identified on wire
+event -- the primary vertex (if there is one), the tracks, and the showers are 3D objects.
+ProtoDUNE-SP is implementing several approaches to achieve an optimal 
+3D reconstruction. Once hits are identified on wire
 segments, 2D reconstruction identifies clusters and tracks
 in each view separately, and 3D hypotheses for
 the event are constructed by comparing the 2D clusters
@@ -88,36 +89,58 @@ and misidentification rates, shower energy resolution, and energy scale offsets.
 %%%%
 \subsubsection{Electromagnetic and track-like components separation}
 
-Pattern recognition in LArTPC data has proven to be a hard problem. One of the
-fundamental issues for the currently used reconstruction algorithms is distinction
-between electromagnetic (EM) and track-like components of the event. Properties of
-EM-like and track-like objects are significantly different and dedicated
-reconstruction algorithms should be applied to each of them. Also, physics
-quantities extracted from these two classes of objects are different. However,
-currently developed algorithmic approaches to the separation of EM activity are
-not sufficiently efficient. The recently developed approach based on convolutional
-neural networks (CNN) results with very promising performance and may become the
-base for the higher level reconstruction in ProtoDUNE.
+%Pattern recognition in LArTPC data has proven to be a hard problem. One of the
+%fundamental issues in the currently used reconstruction algorithms is distinguishing
+%between electromagnetic (EM) and track-like components of an event. Properties of
+%EM-like and track-like objects are significantly different, and dedicated
+%reconstruction algorithms should be applied to each of them. Also, physics
+%quantities extracted from these two classes of objects are different. However,
+%currently developed algorithmic approaches to the separation of EM activity are
+%not sufficiently efficient. The recently developed approach based on convolutional
+%neural networks (CNN) results with very promising performance and may become the
+%base for the higher level reconstruction in ProtoDUNE.
 
-With the proposed approach each ionization charge contribution may be classified
-separately. It is treated as a "point" in the 2D "image" of the event composed of
-deconvoluted ADC waveforms. Only a close surrounding to the classified point is used,
-which allows to keep the classification relatively insensitive to the topology,
-therefore energy and PID of incident primary particle in the event. The classification
-is applied before hit and reconstruction.
+Using current reconstruction algorithms, it is challenging to distinguish
+between electromagnetic (EM) and track-like components of an event. Since the properties of
+EM-like and track-like objects  (and the classes of objects extracted from them) are significantly different,  dedicated
+reconstruction algorithms should be applied to each of them. A recently developed approach,
+based on a convolutional neural network (CNN), promises good performance and may be used for higher-level reconstruction in ProtoDUNE.  %updated per TRJ
 
-Current implementation allows to combine single point classification with the standard
+
+%With the proposed approach each ionization charge contribution may be classified
+%separately. It is treated as a "point" in the 2D "image" of the event composed of
+%deconvoluted ADC waveforms. Only a close surrounding to the classified point is used,
+%which allows to keep the classification relatively insensitive to the topology,
+%therefore energy and PID of incident primary particle in the event. The classification
+%%is applied before hit and reconstruction.
+
+The CNN analyzes each point separately in the 2D image of data from a LArTPC to see if it can be classified as a candidate for a track traversal or an EM shower.  At each point in the
+image, the deconvoluted ADC value is analyzed, and nearby points are also input to the CNN, in order to provide context.
+Distant points are not included, which keeps the classification relatively insensitive to the topology.  This classification
+is performed before downstream algorithms, which identify hits, clusters, tracks and vertices, are applied. 
+
+
+%Current implementation allows to combine single point classification with the standard
+%clustering algorithms in order to improve the classification of entire objects
+%recognized in the event. EM component selection was also integrated with the Projection
+%Matching Algorithm (PMA, see further in text), allowing for the correct application of
+%the tracking and vertexing algorithm to the track-like component for which the PMA
+%algorithm was designed. Further integration with other reconstruction algorithms is
+%ongoing.
+
+The current implementation combines single-point classification with standard
 clustering algorithms in order to improve the classification of entire objects
-recognized in the event. EM component selection was also integrated with the Projection
-Matching Algorithm (PMA, see further in text), allowing for the correct application of
+recognized in the event. The CNN-based EM component selection was also integrated with the Projection
+Matching Algorithm (PMA, see Section~\ref{sec:comp:reco:pma}), allowing for the application of
 the tracking and vertexing algorithm to the track-like component for which the PMA
 algorithm was designed. Further integration with other reconstruction algorithms is
 ongoing.
 
-Performance of the CNN-based selection is illustrated in Figure~\ref{fig:cnnemseloneevent}
-where the input, a 2D projection of the event, is compared to the result of classification
-in the single event. Results of the selection of the EM component in a large sample of events
-is illustrated in Figure~\ref{fig:cnnemselinsamples} for two values of test beam momentum,
+The performance of the CNN-based selection is illustrated in Figure~\ref{fig:cnnemseloneevent}
+where the input, a 2D projection of the event, is compared with the result of classification
+in the single event.  The performance of the EM selection algorithm is summarized in Figure~\ref{fig:cnnemselinsamples}  using the
+sum of the deconvoluted ADC values for points selected as EM-like candidates, compared with 
+MC truth as a figure of merit, for charged pion events with two values of test beam momentum,
 1\,GeV$/c$ and 4\,GeV$/c$.
 
 \begin{cdrfigure}[CNN-based EM selection in pion event]{cnnemseloneevent}{CNN-based
@@ -130,11 +153,12 @@ correctly recognized in this event.}
 \includegraphics[width=0.45\textwidth]{cnn_2__output_pip2p5GeV_clu_em.png}
 \end{cdrfigure}
 
-\begin{cdrfigure}[CNN-based EM selection in pion samples]{cnnemselinsamples}{ADC area
-in hits selected with CNN as electromagnetic activity versus ADC area in hits selected
-with MC truth information as originating from electron tracks: simulated in ProtoDUNE
-geometry events with positive pion in the test beam at momentum 1~GeV$/c$ (left) and
-4~GeV$/c$ (right).}
+\begin{cdrfigure}[CNN-based EM selection in pion samples]{cnnemselinsamples}{Summed hit 
+ADC areas for hits selected by the CNN as originating from electromagnetic activity
+versus the summed hit ADC areas for hits selected with MC truth information as originating 
+from electron tracks.
+This comparison is shown for simulated ProtoDUNE-SP events with a $\pi^+$ with a momentum of
+1~GeV/$c$ (left) and 4~GeV/$c$ (right).}
 \includegraphics[width=0.45\textwidth]{cnn_3__pi_1GeV.png}
 \includegraphics[width=0.45\textwidth]{cnn_4__pi_4GeV.png}
 \end{cdrfigure}
@@ -197,6 +221,7 @@ distribution of the difference between the reconstructed muon track length and t
 
 %%%%
 \subsubsection{PMA}
+\label{sec:comp:reco:pma}
 
 Another approach to 3D reconstruction in LArTPC detectors is referred to as the \textit{Projection Matching Algorithm
 (PMA)}~\cite{pma_algorithm}. PMA was primarily developed as a technique for 3D reconstruction
