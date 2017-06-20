@@ -1,0 +1,219 @@
+\begin{thebibliography}{10}
+
+\bibitem{cryo-mat-db}
+{E.D. Marquardt, J.P. Le, and Ray Radebaugh}, ``{Cryogenic Material Properties
+  Database},'' tech. rep., 2010.
+\newblock \url{http://www.cryogenics.nist.gov/Papers/Cryo_Materials.pdf}.
+
+\bibitem{cathode-hv-1320}
+``{Cathode HV Discharge Mitigation Design}.''
+  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=1320}.
+
+\bibitem{Rayleigh}
+I.~N. {\em et~al.}, ``{Attenuation length measurements of scintillation light
+  in liquid rare gases and their mixtures using an improved reflection
+  suppresser},'' {\em Nucl. Instrum. Meth. in Phys. Resrch}, vol.~A384,
+  p.~380–386, 2004.
+
+\bibitem{Machado:2016jqe}
+A.~A. Machado and E.~Segreto, ``{ARAPUCA a new device for liquid argon
+  scintillation light detection},'' {\em JINST}, vol.~11, no.~02, p.~C02004,
+  2016.
+
+\bibitem{uboone-noise}
+{The MicroBooNE Collaboration}, ``{Noise Characterization and Filtering in the
+  MicroBooNE TPC},'' tech. rep., 2016.
+\newblock
+  \url{https://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1016-PUB.pdf}.
+
+\bibitem{data_spreadsheet}
+``Data scenarios spreadsheet.'' DUNE DocDB 1086.
+
+\bibitem{siliconlabs:Si5344}
+Silicon Labs, {\em Si5342/5344/5345/5346/5347 Jitter Attenuating Clocks}, 7
+  2016.
+\newblock Rev. D.
+
+\bibitem{avnet:microzed}
+Avnet, {\em MicroZed Hardware User's Guide}, 1 2015.
+\newblock v1.6.
+
+\bibitem{slac:rce}
+R.~Herbst, ``Design of the slac rce platform: A general purpose atca based data
+  acquisition system,'' {\em IEEE}, vol.~978, no.~1-4799-6097-2/14, 2015.
+
+\bibitem{fnal:art}
+C.~Green, J.~Kowalkowski, M.~Paterno, M.~Fischler, L.~Garren, and Q.~Lu, ``{The
+  art framework},'' {\em J. Phys. Conf. Ser.}, vol.~396, p.~022020, 2012.
+
+\bibitem{elastic:kibana}
+{Elasticsearch}, ``{Kibana - data analytics and visualisation tool},'' tech.
+  rep.
+\newblock \url{https://www.elastic.co/products/kibana}.
+
+\bibitem{artdaq}
+M.~Paterno, ``artdaq: An event filtering framework for fermilab experiments.''
+  \url{http://cd-docdb.fnal.gov/0049/004907/003/artdaq-talk.pdf}.
+
+\bibitem{xrootd}
+``{XRootD, high performance, scalable fault tolerant access to data
+  repositories}.''
+\newblock \url{http://xrootd.org/}.
+
+\bibitem{docdb1212}
+``Design of the data management system for the protodune experiment.'' DUNE
+  DocDB 1212.
+
+\bibitem{gtt}
+``{GTT Membrane Technologies}.''
+  \url{http://www.gtt-training.co.uk/gtt-membrane-technologies/}.
+
+\bibitem{edms1}
+``{EHN1-warm cryostat functional specification}.''
+  \url{https://edms.cern.ch/document/1531438/3}.
+
+\bibitem{edms2}
+``{EHN1-warm cryostat current drawings}.''
+  \url{https://edms.cern.ch/document/1531439/3}.
+
+\bibitem{edms4}
+``{EHN1-protoDUNE-penetrations}.''
+  \url{https://edms.cern.ch/document/1543241/3}.
+
+\bibitem{edms5}
+``{PROTODUNE PENETRATIONS}.'' \url{https://edms.cern.ch/document/1581898/0}.
+
+\bibitem{DUNE_FD_cryogenics_req}
+``{LBNF-DUNE Requirements}.''
+  \url{https://web.fnal.gov/project/LBNF/SitePages/Requirements%20Traceback%20Structure.aspx}
+  .
+
+\bibitem{lar1-nd-35-ton-talk}
+{Montanari, D.}, ``{LBNE 35 ton proto Talk at LAr1-ND Meeting},'' tech. rep.,
+  2014.
+\newblock \url{http://lbne2-docdb.fnal.gov/cgi-bin/ShowDocument?docid=8626}.
+
+\bibitem{CFD_verification-lapd}
+``{LAPD Purge and Recirculation Plots}.''
+  \url{http://lartpc-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=706}.
+
+\bibitem{Amerio:2004ze}
+S.~Amerio {\em et~al.}, ``{Design, construction and tests of the ICARUS T600
+  detector},'' {\em Nucl. Instrum. Meth.}, vol.~A527, pp.~329--410, 2004.
+
+\bibitem{data_managm_sys}
+``{Design of the Data Management System for the ProtoDUNE Experiment (DUNE
+  doc-db 1212)}.''
+  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=1212}.
+
+\bibitem{qian-viren-reduc}
+B.~V. X.~Qian, ``{Proposed Initial Data Reduction for protoDUNE/SP}.''
+  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=2089}, 2017.
+
+\bibitem{larsoft-web}
+``{LArSoft Collaboration, Software for LArTPCs}.'' \url{http://larsoft.org}.
+
+\bibitem{art-web}
+``{The art Event Processing Framework}.'' \url{http://art.fnal.gov}.
+
+\bibitem{Agostinelli:2002hh}
+S.~Agostinelli {\em et~al.}, ``{Geant4: A Simulation toolkit},'' {\em Nucl.
+  Instrum. Meth.}, vol.~A506, pp.~250--303, 2003.
+
+\bibitem{scisoft-web}
+``{Scientific Software for Relocatable UPS }.''
+  \url{http://http://scisoft.fnal.gov/}.
+
+\bibitem{cry}
+{Chris Hagmann, David Lange, Jerome Verbeke, Doug Wright}, ``{Proton-induced
+  Cosmic-ray Cascades in the Atmosphere},'' tech. rep.
+\newblock \url{http://nuclear.llnl.gov/simulation/doc_cry_v1.7/cry.pdf}.
+
+\bibitem{Heck:1998vt}
+D.~Heck, G.~Schatz, T.~Thouw, J.~Knapp, and J.~N. Capdevielle, ``{CORSIKA: A
+  Monte Carlo code to simulate extensive air showers},'' 1998.
+
+\bibitem{Andreopoulos:2009rq}
+C.~Andreopoulos {\em et~al.}, ``{The GENIE Neutrino Monte Carlo Generator},''
+  {\em Nucl. Instrum. Meth.}, vol.~A614, pp.~87--104, 2010.
+
+\bibitem{gegede}
+``{General Geometry Description (GGD)}.''
+  \url{https://github.com/brettviren/gegede}.
+
+\bibitem{Birks:1964zz}
+J.~B. Birks, {\em {The Theory and practice of scintillation counting}}.
+\newblock 1964.
+
+\bibitem{Szydagis:2011tk}
+M.~Szydagis, N.~Barry, K.~Kazkaz, J.~Mock, D.~Stolp, M.~Sweany, M.~Tripathi,
+  S.~Uvarov, N.~Walsh, and M.~Woods, ``{NEST: A Comprehensive Model for
+  Scintillation Yield in Liquid Xenon},'' {\em JINST}, vol.~6, p.~P10002, 2011.
+
+\bibitem{Fluka15}
+G.~Battistoni, T.~T. B{\"o}hlen, F.~Cerutti, P.~W. Chin, L.~S. Esposito,
+  A.~Fass\`o, A.~Ferrari, A.~Lechner, A.~Empl, A.~Mairani, A.~Mereghetti, P.~G.
+  Ortega, J.~Ranft, S.~Roesler, P.~R. Sala, V.~Vlachoudis, and G.~Smirnov,
+  ``Overview of the {FLUKA} code,'' {\em Annals of Nuclear Energy}, vol.~82,
+  p.~10, 2015.
+
+\bibitem{Ferrari:2005zk}
+A.~Ferrari, P.~R. Sala, A.~Fasso, and J.~Ranft, ``{FLUKA: A multi-particle
+  transport code (Program version 2005)},'' 2005.
+
+\bibitem{Battistoni:2009zzb}
+G.~Battistoni, P.~R. Sala, M.~Lantz, A.~Ferrari, and G.~Smirnov, ``{Neutrino
+  interactions with FLUKA},'' {\em Acta Phys. Polon.}, vol.~B40,
+  pp.~2491--2505, 2009.
+
+\bibitem{Mooney:2015kke}
+M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
+  Effects},'' in {\em {Meeting of the APS Division of Particles and Fields (DPF
+  2015) Ann Arbor, Michigan, USA, August 4-8, 2015}}, 2015.
+
+\bibitem{garfield}
+ \url{http://garfield.web.cern.ch/garfield/}.
+
+\bibitem{microboone-noise}
+``{Noise Characterization and Filtering in the MicroBooNE TPC}.''
+  \url{http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1016-PUB.pdf}.
+
+\bibitem{noise_filter}
+ MicroBooNE noise filtering technot, doc-db:5730
+  \url{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5730}.
+
+\bibitem{blurredcluster}
+ \url{http://larsoft.org/single-record/?pdb=110}.
+
+\bibitem{linecluster}
+``{The Cluster Crawler Suite Technical Manual}.''
+  \url{http://microboone-docdb.fnal.gov/cgi-bin/ShowDocument?docid=2831}.
+
+\bibitem{trajcluster}
+``{TrajCluster: A 2D Cluster Finder }.''
+  \url{https://cdcvs.fnal.gov/redmine/attachments/download/34265/TrajCluster%20Technical%20Note.pdf}.
+
+\bibitem{emshowerpackage}
+ \url{http://larsoft.org/single-record/?pdb=113}.
+
+\bibitem{Marshall:2015rfa}
+J.~S. Marshall and M.~A. Thomson, ``{The Pandora Software Development Kit for
+  Pattern Recognition},'' {\em Eur. Phys. J.}, vol.~C75, no.~9, p.~439, 2015.
+
+\bibitem{pma_algorithm}
+ \url{http://larsoft.org/single-record/?pdb=102}.
+
+\bibitem{pma_cosmic_mu}
+L.~Whitehead, ``{Cosmic muon reconstruction in ProtoDUNE-SP using PMA}.''
+  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=2780}, 2017.
+
+\bibitem{wire-cell}
+ \url{http://www.phy.bnl.gov/wire-cell/}.
+
+\bibitem{STIC}
+T.~Harion, K.~Briggl, H.~Chen, P.~Fischer, A.~Gil, V.~Kiworra, M.~Ritzert,
+  H.~C. Schultz-Coulon, W.~Shen, and V.~Stankova, ``Stic - a mixed mode silicon
+  photomultiplier readout asic for time-of-flight applications,'' {\em Journal
+  of Instrumentation}, vol.~9, no.~02, p.~C02003, 2014.
+
+\end{thebibliography}
