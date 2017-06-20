@@ -51,7 +51,7 @@ shown schematically in Figure~\ref{fig:tpcce_cr_board}.
 
 \begin{cdrfigure}[Connections between signal flange and APA]{tpcce_apa_flange}{Connections between
 the signal flange and APA.}
-\includegraphics[width=0.4\linewidth]{tpcce_apa_flange.pdf}
+\includegraphics[width=0.4\linewidth]{tpcce_apa_flange}
 \end{cdrfigure}
 
 The components of the CE system are the:
@@ -230,7 +230,7 @@ The FEMBs plug directly into the APA CR boards, making the connections from the 
 X-plane collection wires to the charge amplifier circuits as short as possible.
 
 \begin{cdrfigure}[The CE architecture]{tpcce_schem}{The CE architecture. The basic unit is the 128-channel FEMB.}
-\includegraphics[width=0.9\linewidth]{tpcce_schem.pdf}
+\includegraphics[width=0.9\linewidth]{tpcce_schem}
 \end{cdrfigure}
 
 The analog mother board is instrumented with eight 16-channel FE ASICs,
@@ -272,7 +272,7 @@ The charge amplifier input MOSFET is a p-channel biased at 2~mA with a L/W (chan
 of 0.27~$\mu$m / 10~$\mu$m, followed by dual cascade stages.
 
 \begin{cdrfigure}[Layout of the 16-channel FE ASIC]{tpcce_FE_ASIC}{The layout of the 16-channel FE ASIC}
-\includegraphics[width=\linewidth]{tpcce_FE_ASIC_pinout.jpg}
+\includegraphics[width=\linewidth]{tpcce_FE_ASIC_pinout}
 \end{cdrfigure}
 
 Each channel also implements a high-performance output driver,
@@ -303,7 +303,7 @@ expected in a cryogenic environment.
 
 \begin{cdrfigure}[Measured pulse response with details]{tpcce_shaper_out}{Measured pulse response with
  details on gain, peaking time and baseline adjustments}
-\includegraphics[width=\linewidth]{tpcce_shaper_out.pdf}
+\includegraphics[width=\linewidth]{tpcce_shaper_out}
 \end{cdrfigure}
 
 \subsubsection{ADC ASIC}
@@ -317,7 +317,7 @@ an 8:1 MUX, and the digital interface.
 The estimated power dissipation of ADC ASIC is below 5~mW per channel at 1.8~V supply.
   
 \begin{cdrfigure}[The layout of the 16-channel ADC ASIC]{tpcce_ADC_ASIC}{The layout of the 16-channel ADC ASIC}
-\includegraphics[width=\linewidth]{tpcce_ADC_ASIC_pinout.jpg} % New one
+\includegraphics[width=\linewidth]{tpcce_ADC_ASIC_pinout} % New one
 \end{cdrfigure}
 
 The ADC ASIC has an input buffer with offset compensation to match the output of the FE ASIC.
@@ -379,8 +379,8 @@ S:N$\sim$16:1.
 Measured ENC vs filter time constant from the latest prototype version of the FEMB
 for two different gains, 14~mV/fC and 25~mV/fC. RT = room temperature and 
 LN2 = liquid nitrogen}
-\includegraphics[width=0.45\linewidth]{tpcce_enc_14mV.jpg}
-\includegraphics[width=0.45\linewidth]{tpcce_enc_25mV.jpg}
+\includegraphics[width=0.45\linewidth]{tpcce_enc_14mV}
+\includegraphics[width=0.45\linewidth]{tpcce_enc_25mV}
 \end{cdrfigure}
 
 \subsubsection{CE Box}
@@ -395,8 +395,8 @@ APA, except for the input amplifier circuits connected to the CR board, which al
 ground at the APA frame, as shown in Figure~\ref{fig:tpcce_cr_board}.
 
 \begin{cdrfigure}[Faraday box for the FEMB]{tpcce_box}{Faraday box for the FEMB.}
-\includegraphics[width=3in]{tpcce_box_1.pdf}
-\includegraphics[width=3in]{tpcce_box_2.pdf}
+\includegraphics[width=3in]{tpcce_box_1}
+\includegraphics[width=3in]{tpcce_box_2}
 \end{cdrfigure}
 
 %
@@ -415,7 +415,7 @@ Optical fiber is employed externally from the WIBs on the signal flange to the D
 \begin{cdrfigure}[CE feedthrough configuration and internal cable routing]{tpcce_FT_InternalCableRoute}{
 The CE feedthrough configuration and internal cable routing. The left panel shows a cutaway view of the cryostat.
 The right panel shows more detail at the Faraday boxes.}
-\includegraphics[width=7in]{tpcce_FT_InternalCableRoute.pdf}
+\includegraphics[width=7in]{tpcce_FT_InternalCableRoute}
 \end{cdrfigure}
 
 
@@ -432,7 +432,7 @@ Each CE feedthrough serves the bias/power/digital IO needs of one APA, as shown
 in Figure~\ref{fig:tpcce_cable_routing}.  
 
 \begin{cdrfigure}[TPC cable routing scheme]{tpcce_cable_routing}{TPC cable routing scheme for three APA section.}
-\includegraphics[width=0.9\linewidth]{tpcce_cable_routing.pdf}
+\includegraphics[width=0.9\linewidth]{tpcce_cable_routing}
 \end{cdrfigure}
 
 A program for minimizing potential contamination of the LAr from the cable plant contained within the ullage
@@ -473,7 +473,7 @@ from cable validation testing. {\bf Top Left:} 50~MHz system clock over 25~m RT
 the heavier, prohibitively expensive Gore 24AWG cable. {\bf Top Right:} 1~Gbps data over 
 7~m (ProtoDUNE length) RT Samtec 26AWG cable without active recovery by equalizers. {\bf Bottom Right} 1~Gbps
 data over 25~m (DUNE length) RT Samtec 26AWG cable with active recovery.}
-\includegraphics[width=0.9\linewidth]{tpcce_samtec_results.pdf}
+\includegraphics[width=0.9\linewidth]{tpcce_samtec_results}
 \end{cdrfigure}
 
 Figure~\ref{fig:tpcce_samtec_results} shows results from the cable 
@@ -525,7 +525,7 @@ Power and Timing Card (PTC), up to five Warm Interface Boards (WIBs) and a passi
 Power and Timing Backplane (PTB), which fans out signals and LV power from the PTC to the WIBs.
 
 \begin{cdrfigure}[Exploded view of the signal flange]{tpcce_ceflange_dune}{Exploded view of the ProtoDUNE-SP signal flange.}
-\includegraphics[width=0.9\linewidth]{tpcce_ceflange_dune.jpg}
+\includegraphics[width=0.9\linewidth]{tpcce_ceflange_dune}
 \end{cdrfigure}
 
 The WIB is the interface between the
@@ -548,7 +548,7 @@ supported from the back end of the feedthrough.
 
 \begin{cdrfigure}[Power and Timing Card (PTC) and timing distribution]{tpcce_wib_timing}{Power and Timing Card (PTC) 
 and timing distribution to the WIB and FEMBs.}
-\includegraphics[width=0.5\linewidth]{tpcce_wib_timing.pdf}
+\includegraphics[width=0.5\linewidth]{tpcce_wib_timing}
 \end{cdrfigure}
 
 The PTC provides a bidirectional fiber interface to the
@@ -562,7 +562,7 @@ data using a clock/data separator.
 \begin{cdrfigure}[LV power distribution to the Warm Interface Boards and FEMBs]{tpcce_wib_power}{LV power distribution 
 to the WIB and FEMBs. 250\,W is for a fully-loaded crate 
 with the majority of the power dissipated by the 20 cold FEMBs in the LAr.}
-\includegraphics[width=0.6\linewidth]{tpcce_wib_power.pdf} %REPLACE THIS IMAGE
+\includegraphics[width=0.6\linewidth]{tpcce_wib_power} %REPLACE THIS IMAGE
 \end{cdrfigure}
 
 The PTC also receives LV power for all cold
@@ -596,7 +596,7 @@ clock required by the cold electronics.
 
 \begin{cdrfigure}[Warm Interface Board]{tpcce_dune_wib}{Warm interface board (WIB). Note 
 that front panel inputs include a LEMO connector and alternate inputs for LV power.}
-\includegraphics[width=0.9\linewidth]{tpcce_dune_wib.jpg}
+\includegraphics[width=0.9\linewidth]{tpcce_dune_wib}
 \end{cdrfigure}
 
 The FPGA on the WIB is an Altera Arria V GT variant, which requires a
@@ -654,7 +654,7 @@ shown in Figure~\ref{fig:tpcce_power_conn}.
 %fusing is not selected, the pins will be connected with 0~$\Omega$ resistors.
 
 \begin{cdrfigure}[Micro TCA power connectors]{tpcce_power_conn}{FCi micro TCA power connector at the PTC end of the cable.}
-\includegraphics[width=0.7\linewidth]{tpcce_power_connector.png} % REPLACE THIS IMAGE
+\includegraphics[width=0.7\linewidth]{tpcce_power_connector} % REPLACE THIS IMAGE
 \end{cdrfigure}
 
 Two wire-bias mini-crates supply the wire-bias voltages to all 6 signal feedthroughs. Each mini-crate 
