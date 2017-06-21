@@ -269,6 +269,7 @@
 
 % Use to include authorlist in PDF format
 \usepackage{pdfpages}
+\usepackage{authblk}
 
 %for \lesssim symbol
 \usepackage{amsfonts}
