@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
 \bibitem{cryo-mat-db}
 {E.D. Marquardt, J.P. Le, and Ray Radebaugh}, ``{Cryogenic Material Properties
@@ -12,37 +12,46 @@
 \bibitem{Rayleigh}
 I.~N. {\em et~al.}, ``{Attenuation length measurements of scintillation light
   in liquid rare gases and their mixtures using an improved reflection
-  suppresser},'' {\em Nucl. Instrum. Meth. in Phys. Resrch}, vol.~A384,
-  pp.~380--386, 2004.
+  suppresser},'' {\em Nucl. Instrum. Meth. in Phys. Resrch} {\bfseries A384}
+  (2004) 380--386.
 
 \bibitem{Machado:2016jqe}
 A.~A. Machado and E.~Segreto, ``{ARAPUCA a new device for liquid argon
-  scintillation light detection},'' {\em JINST}, vol.~11, no.~02, p.~C02004,
-  2016.
+  scintillation light detection},''
+\href{http://dx.doi.org/10.1088/1748-0221/11/02/C02004}{{\em JINST} {\bfseries
+  11} no.~02, (2016) C02004}.
+%%CITATION = JINST,11,C02004;%%.
 
 \bibitem{Acciarri:2017sde}
-R.~Acciarri {\em et~al.}, ``{Noise Characterization and Filtering in the
-  MicroBooNE Liquid Argon TPC},'' 2017, 1705.07341.
+{\bfseries MicroBooNE} Collaboration, R.~Acciarri {\em et~al.}, ``{Noise
+  Characterization and Filtering in the MicroBooNE Liquid Argon TPC},''
+\href{http://arxiv.org/abs/1705.07341}{{\ttfamily arXiv:1705.07341
+  [physics.ins-det]}}.
+%%CITATION = ARXIV:1705.07341;%%.
 
 \bibitem{data_spreadsheet}
 ``Data scenarios spreadsheet.'' DUNE DocDB 1086.
 
 \bibitem{siliconlabs:Si5344}
-Silicon Labs, {\em Si5342/5344/5345/5346/5347 Jitter Attenuating Clocks}, 7
+Silicon Labs, {\em Si5342/5344/5345/5346/5347 Jitter Attenuating Clocks}, 7,
   2016.
 \newblock Rev. D.
 
 \bibitem{avnet:microzed}
-Avnet, {\em MicroZed Hardware User's Guide}, 1 2015.
+Avnet, {\em MicroZed Hardware User's Guide}, 1, 2015.
 \newblock v1.6.
 
 \bibitem{slac:rce}
 R.~Herbst, ``Design of the slac rce platform: A general purpose atca based data
-  acquisition system,'' {\em IEEE}, vol.~978, no.~1-4799-6097-2/14, 2015.
+  acquisition system,'' {\em IEEE} {\bfseries 978} no.~1-4799-6097-2/14, (2015)
+  . \url{http://slac.stanford.edu/pubs/slacpubs/16000/slac-pub-16182.pdf}.
 
 \bibitem{fnal:art}
 C.~Green, J.~Kowalkowski, M.~Paterno, M.~Fischler, L.~Garren, and Q.~Lu, ``{The
-  art framework},'' {\em J. Phys. Conf. Ser.}, vol.~396, p.~022020, 2012.
+  art framework},''
+\href{http://dx.doi.org/10.1088/1742-6596/396/2/022020}{{\em J. Phys. Conf.
+  Ser.} {\bfseries 396} (2012) 022020}.
+%%CITATION = 00462,396,022020;%%.
 
 \bibitem{elastic:kibana}
 {Elasticsearch}, ``{Kibana - data analytics and visualisation tool},'' tech.
@@ -55,8 +64,7 @@ M.~Paterno, ``artdaq: An event filtering framework for fermilab experiments.''
 
 \bibitem{xrootd}
 ``{XRootD, high performance, scalable fault tolerant access to data
-  repositories}.''
-\newblock \url{http://xrootd.org/}.
+  repositories}.''. \url{http://xrootd.org/}.
 
 \bibitem{docdb1212}
 ``Design of the data management system for the protodune experiment.'' DUNE
@@ -96,8 +104,11 @@ M.~Paterno, ``artdaq: An event filtering framework for fermilab experiments.''
   \url{http://lartpc-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=706}.
 
 \bibitem{Amerio:2004ze}
-S.~Amerio {\em et~al.}, ``{Design, construction and tests of the ICARUS T600
-  detector},'' {\em Nucl. Instrum. Meth.}, vol.~A527, pp.~329--410, 2004.
+{\bfseries ICARUS} Collaboration, S.~Amerio {\em et~al.}, ``{Design,
+  construction and tests of the ICARUS T600 detector},''
+\href{http://dx.doi.org/10.1016/j.nima.2004.02.044}{{\em Nucl. Instrum. Meth.}
+  {\bfseries A527} (2004) 329--410}.
+%%CITATION = NUIMA,A527,329;%%.
 
 \bibitem{data_managm_sys}
 ``{Design of the Data Management System for the ProtoDUNE Experiment (DUNE
@@ -116,8 +127,11 @@ B.~V. X.~Qian, ``{Proposed Initial Data Reduction for protoDUNE/SP}.''
 ``{The art Event Processing Framework}.'' \url{http://art.fnal.gov}.
 
 \bibitem{Agostinelli:2002hh}
-S.~Agostinelli {\em et~al.}, ``{Geant4: A Simulation toolkit},'' {\em Nucl.
-  Instrum. Meth.}, vol.~A506, pp.~250--303, 2003.
+{\bfseries GEANT4} Collaboration, S.~Agostinelli {\em et~al.}, ``{Geant4: A
+  Simulation toolkit},''
+\href{http://dx.doi.org/10.1016/S0168-9002(03)01368-8}{{\em Nucl. Instrum.
+  Meth.} {\bfseries A506} (2003) 250--303}.
+%%CITATION = NUIMA,A506,250;%%.
 
 \bibitem{scisoft-web}
 ``{Scientific Software for Relocatable UPS }.''
@@ -129,12 +143,16 @@ S.~Agostinelli {\em et~al.}, ``{Geant4: A Simulation toolkit},'' {\em Nucl.
 \newblock \url{http://nuclear.llnl.gov/simulation/doc_cry_v1.7/cry.pdf}.
 
 \bibitem{Heck:1998vt}
-D.~Heck, G.~Schatz, T.~Thouw, J.~Knapp, and J.~N. Capdevielle, ``{CORSIKA: A
-  Monte Carlo code to simulate extensive air showers},'' 1998.
+D.~Heck, G.~Schatz, T.~Thouw, J.~Knapp, and J.~N. Capdevielle,
+``{CORSIKA: A Monte Carlo code to simulate extensive air showers},''.
+%%CITATION = FZKA-6019;%%.
 
 \bibitem{Andreopoulos:2009rq}
 C.~Andreopoulos {\em et~al.}, ``{The GENIE Neutrino Monte Carlo Generator},''
-  {\em Nucl. Instrum. Meth.}, vol.~A614, pp.~87--104, 2010, 0905.2517.
+  \href{http://dx.doi.org/10.1016/j.nima.2009.12.009}{{\em Nucl. Instrum.
+  Meth.} {\bfseries A614} (2010) 87--104},
+\href{http://arxiv.org/abs/0905.2517}{{\ttfamily arXiv:0905.2517 [hep-ph]}}.
+%%CITATION = ARXIV:0905.2517;%%.
 
 \bibitem{gegede}
 ``{General Geometry Description (GGD)}.''
@@ -143,33 +161,50 @@ C.~Andreopoulos {\em et~al.}, ``{The GENIE Neutrino Monte Carlo Generator},''
 \bibitem{Birks:1964zz}
 J.~B. Birks, {\em {The Theory and practice of scintillation counting}}.
 \newblock 1964.
+\newblock
+\url{http://www.slac.stanford.edu/spires/find/books/www?cl=QCD928:B52}.
+\newblock
+%%CITATION = INSPIRE-48340;%%.
 
 \bibitem{Szydagis:2011tk}
 M.~Szydagis, N.~Barry, K.~Kazkaz, J.~Mock, D.~Stolp, M.~Sweany, M.~Tripathi,
   S.~Uvarov, N.~Walsh, and M.~Woods, ``{NEST: A Comprehensive Model for
-  Scintillation Yield in Liquid Xenon},'' {\em JINST}, vol.~6, p.~P10002, 2011,
-  1106.1613.
+  Scintillation Yield in Liquid Xenon},''
+  \href{http://dx.doi.org/10.1088/1748-0221/6/10/P10002}{{\em JINST} {\bfseries
+  6} (2011) P10002},
+\href{http://arxiv.org/abs/1106.1613}{{\ttfamily arXiv:1106.1613
+  [physics.ins-det]}}.
+%%CITATION = ARXIV:1106.1613;%%.
 
 \bibitem{Fluka15}
 G.~Battistoni, T.~T. B{\"o}hlen, F.~Cerutti, P.~W. Chin, L.~S. Esposito,
   A.~Fass\`o, A.~Ferrari, A.~Lechner, A.~Empl, A.~Mairani, A.~Mereghetti, P.~G.
   Ortega, J.~Ranft, S.~Roesler, P.~R. Sala, V.~Vlachoudis, and G.~Smirnov,
-  ``Overview of the {FLUKA} code,'' {\em Annals of Nuclear Energy}, vol.~82,
-  p.~10, 2015.
+  ``Overview of the {FLUKA} code,'' {\em Annals of Nuclear Energy} {\bfseries
+  82} (2015) 10.
 
 \bibitem{Ferrari:2005zk}
-A.~Ferrari, P.~R. Sala, A.~Fasso, and J.~Ranft, ``{FLUKA: A multi-particle
-  transport code (Program version 2005)},'' 2005.
+A.~Ferrari, P.~R. Sala, A.~Fasso, and J.~Ranft,
+``{FLUKA: A multi-particle transport code (Program version 2005)},''.
+%%CITATION = CERN-2005-010;%%.
 
 \bibitem{Battistoni:2009zzb}
 G.~Battistoni, P.~R. Sala, M.~Lantz, A.~Ferrari, and G.~Smirnov, ``{Neutrino
-  interactions with FLUKA},'' {\em Acta Phys. Polon.}, vol.~B40,
-  pp.~2491--2505, 2009.
+  interactions with FLUKA},''
+{\em Acta Phys. Polon.} {\bfseries B40} (2009) 2491--2505.
+%%CITATION = APPOA,B40,2491;%%.
 
 \bibitem{Mooney:2015kke}
 M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
   Effects},'' in {\em {Meeting of the APS Division of Particles and Fields (DPF
-  2015) Ann Arbor, Michigan, USA, August 4-8, 2015}}, 2015, 1511.01563.
+  2015) Ann Arbor, Michigan, USA, August 4-8, 2015}}.
+\newblock 2015.
+\newblock \href{http://arxiv.org/abs/1511.01563}{{\ttfamily arXiv:1511.01563
+  [physics.ins-det]}}.
+\newblock
+\url{http://inspirehep.net/record/1402959/files/arXiv:1511.01563.pdf}.
+\newblock
+%%CITATION = ARXIV:1511.01563;%%.
 
 \bibitem{garfield}
  \url{http://garfield.web.cern.ch/garfield/}.
@@ -190,8 +225,12 @@ M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
 
 \bibitem{Marshall:2015rfa}
 J.~S. Marshall and M.~A. Thomson, ``{The Pandora Software Development Kit for
-  Pattern Recognition},'' {\em Eur. Phys. J.}, vol.~C75, no.~9, p.~439, 2015,
-  1506.05348.
+  Pattern Recognition},''
+  \href{http://dx.doi.org/10.1140/epjc/s10052-015-3659-3}{{\em Eur. Phys. J.}
+  {\bfseries C75} no.~9, (2015) 439},
+\href{http://arxiv.org/abs/1506.05348}{{\ttfamily arXiv:1506.05348
+  [physics.data-an]}}.
+%%CITATION = ARXIV:1506.05348;%%.
 
 \bibitem{pma_algorithm}
  \url{http://larsoft.org/single-record/?pdb=102}.
@@ -208,6 +247,7 @@ L.~Whitehead, ``{Cosmic muon reconstruction in ProtoDUNE-SP using PMA}.''
 T.~Harion, K.~Briggl, H.~Chen, P.~Fischer, A.~Gil, V.~Kiworra, M.~Ritzert,
   H.~C. Schultz-Coulon, W.~Shen, and V.~Stankova, ``Stic - a mixed mode silicon
   photomultiplier readout asic for time-of-flight applications,'' {\em Journal
-  of Instrumentation}, vol.~9, no.~02, p.~C02003, 2014.
+  of Instrumentation} {\bfseries 9} no.~02, (2014) C02003.
+  \url{http://stacks.iop.org/1748-0221/9/i=02/a=C02003}.
 
-\end{thebibliography}
+\end{thebibliography}\endgroup
