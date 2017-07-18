@@ -20,11 +20,9 @@ A.~A. Machado and E.~Segreto, ``{ARAPUCA a new device for liquid argon
   scintillation light detection},'' {\em JINST}, vol.~11, no.~02, p.~C02004,
   2016.
 
-\bibitem{uboone-noise}
-{The MicroBooNE Collaboration}, ``{Noise Characterization and Filtering in the
-  MicroBooNE TPC},'' tech. rep., 2016.
-\newblock
-  \url{https://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1016-PUB.pdf}.
+\bibitem{Acciarri:2017sde}
+R.~Acciarri {\em et~al.}, ``{Noise Characterization and Filtering in the
+  MicroBooNE Liquid Argon TPC},'' 2017.
 
 \bibitem{data_spreadsheet}
 ``Data scenarios spreadsheet.'' DUNE DocDB 1086.
@@ -173,14 +171,6 @@ M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
 
 \bibitem{garfield}
  \url{http://garfield.web.cern.ch/garfield/}.
-
-\bibitem{microboone-noise}
-``{Noise Characterization and Filtering in the MicroBooNE TPC}.''
-  \url{http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1016-PUB.pdf}.
-
-\bibitem{noise_filter}
- MicroBooNE noise filtering technot, doc-db:5730
-  \url{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5730}.
 
 \bibitem{blurredcluster}
  \url{http://larsoft.org/single-record/?pdb=110}.
