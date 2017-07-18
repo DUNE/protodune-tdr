@@ -7,13 +7,13 @@
 
 \bibitem{cathode-hv-1320}
 ``{Cathode HV Discharge Mitigation Design}.''
-  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=1320}.
+  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=1320}.
 
 \bibitem{Rayleigh}
 I.~N. {\em et~al.}, ``{Attenuation length measurements of scintillation light
   in liquid rare gases and their mixtures using an improved reflection
   suppresser},'' {\em Nucl. Instrum. Meth. in Phys. Resrch}, vol.~A384,
-  p.~380–386, 2004.
+  pp.~380--386, 2004.
 
 \bibitem{Machado:2016jqe}
 A.~A. Machado and E.~Segreto, ``{ARAPUCA a new device for liquid argon
@@ -22,7 +22,7 @@ A.~A. Machado and E.~Segreto, ``{ARAPUCA a new device for liquid argon
 
 \bibitem{Acciarri:2017sde}
 R.~Acciarri {\em et~al.}, ``{Noise Characterization and Filtering in the
-  MicroBooNE Liquid Argon TPC},'' 2017.
+  MicroBooNE Liquid Argon TPC},'' 2017, 1705.07341.
 
 \bibitem{data_spreadsheet}
 ``Data scenarios spreadsheet.'' DUNE DocDB 1086.
@@ -102,11 +102,12 @@ S.~Amerio {\em et~al.}, ``{Design, construction and tests of the ICARUS T600
 \bibitem{data_managm_sys}
 ``{Design of the Data Management System for the ProtoDUNE Experiment (DUNE
   doc-db 1212)}.''
-  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=1212}.
+  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=1212}.
 
 \bibitem{qian-viren-reduc}
 B.~V. X.~Qian, ``{Proposed Initial Data Reduction for protoDUNE/SP}.''
-  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=2089}, 2017.
+  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=2089},
+  2017.
 
 \bibitem{larsoft-web}
 ``{LArSoft Collaboration, Software for LArTPCs}.'' \url{http://larsoft.org}.
@@ -133,7 +134,7 @@ D.~Heck, G.~Schatz, T.~Thouw, J.~Knapp, and J.~N. Capdevielle, ``{CORSIKA: A
 
 \bibitem{Andreopoulos:2009rq}
 C.~Andreopoulos {\em et~al.}, ``{The GENIE Neutrino Monte Carlo Generator},''
-  {\em Nucl. Instrum. Meth.}, vol.~A614, pp.~87--104, 2010.
+  {\em Nucl. Instrum. Meth.}, vol.~A614, pp.~87--104, 2010, 0905.2517.
 
 \bibitem{gegede}
 ``{General Geometry Description (GGD)}.''
@@ -146,7 +147,8 @@ J.~B. Birks, {\em {The Theory and practice of scintillation counting}}.
 \bibitem{Szydagis:2011tk}
 M.~Szydagis, N.~Barry, K.~Kazkaz, J.~Mock, D.~Stolp, M.~Sweany, M.~Tripathi,
   S.~Uvarov, N.~Walsh, and M.~Woods, ``{NEST: A Comprehensive Model for
-  Scintillation Yield in Liquid Xenon},'' {\em JINST}, vol.~6, p.~P10002, 2011.
+  Scintillation Yield in Liquid Xenon},'' {\em JINST}, vol.~6, p.~P10002, 2011,
+  1106.1613.
 
 \bibitem{Fluka15}
 G.~Battistoni, T.~T. B{\"o}hlen, F.~Cerutti, P.~W. Chin, L.~S. Esposito,
@@ -167,7 +169,7 @@ G.~Battistoni, P.~R. Sala, M.~Lantz, A.~Ferrari, and G.~Smirnov, ``{Neutrino
 \bibitem{Mooney:2015kke}
 M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
   Effects},'' in {\em {Meeting of the APS Division of Particles and Fields (DPF
-  2015) Ann Arbor, Michigan, USA, August 4-8, 2015}}, 2015.
+  2015) Ann Arbor, Michigan, USA, August 4-8, 2015}}, 2015, 1511.01563.
 
 \bibitem{garfield}
  \url{http://garfield.web.cern.ch/garfield/}.
@@ -188,14 +190,16 @@ M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
 
 \bibitem{Marshall:2015rfa}
 J.~S. Marshall and M.~A. Thomson, ``{The Pandora Software Development Kit for
-  Pattern Recognition},'' {\em Eur. Phys. J.}, vol.~C75, no.~9, p.~439, 2015.
+  Pattern Recognition},'' {\em Eur. Phys. J.}, vol.~C75, no.~9, p.~439, 2015,
+  1506.05348.
 
 \bibitem{pma_algorithm}
  \url{http://larsoft.org/single-record/?pdb=102}.
 
 \bibitem{pma_cosmic_mu}
 L.~Whitehead, ``{Cosmic muon reconstruction in ProtoDUNE-SP using PMA}.''
-  \url{http://docs.dunescience.org:8080/cgi-bin/ShowDocument?docid=2780}, 2017.
+  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=2780},
+  2017.
 
 \bibitem{wire-cell}
  \url{http://www.phy.bnl.gov/wire-cell/}.
