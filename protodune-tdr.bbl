@@ -7,7 +7,7 @@
 
 \bibitem{cathode-hv-1320}
 ``{Cathode HV Discharge Mitigation Design}.''
-  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=1320}.
+  \url{https://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=1320}.
 
 \bibitem{Rayleigh}
 I.~N. {\em et~al.}, ``{Attenuation length measurements of scintillation light
@@ -66,9 +66,10 @@ M.~Paterno, ``artdaq: An event filtering framework for fermilab experiments.''
 ``{XRootD, high performance, scalable fault tolerant access to data
   repositories}.''. \url{http://xrootd.org/}.
 
-\bibitem{docdb1212}
-``Design of the data management system for the protodune experiment.'' DUNE
-  DocDB 1212.
+\bibitem{data_managm_sys}
+``{Design of the Data Management System for the ProtoDUNE Experiment (DUNE
+  doc-db 1212)}.''
+  \url{https://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=1212}.
 
 \bibitem{gtt}
 ``{GTT Membrane Technologies}.''
@@ -110,14 +111,9 @@ M.~Paterno, ``artdaq: An event filtering framework for fermilab experiments.''
   {\bfseries A527} (2004) 329--410}.
 %%CITATION = NUIMA,A527,329;%%.
 
-\bibitem{data_managm_sys}
-``{Design of the Data Management System for the ProtoDUNE Experiment (DUNE
-  doc-db 1212)}.''
-  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=1212}.
-
 \bibitem{qian-viren-reduc}
-B.~V. X.~Qian, ``{Proposed Initial Data Reduction for protoDUNE/SP}.''
-  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=2089},
+X.~Qian and B.~Viren, ``{Proposed Initial Data Reduction for protoDUNE/SP}.''
+  \url{https://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=2089},
   2017.
 
 \bibitem{larsoft-web}
@@ -134,8 +130,7 @@ B.~V. X.~Qian, ``{Proposed Initial Data Reduction for protoDUNE/SP}.''
 %%CITATION = NUIMA,A506,250;%%.
 
 \bibitem{scisoft-web}
-``{Scientific Software for Relocatable UPS }.''
-  \url{http://http://scisoft.fnal.gov/}.
+``{Scientific Software for Relocatable UPS }.'' \url{http://scisoft.fnal.gov/}.
 
 \bibitem{cry}
 {Chris Hagmann, David Lange, Jerome Verbeke, Doug Wright}, ``{Proton-induced
@@ -207,10 +202,12 @@ M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
 %%CITATION = ARXIV:1511.01563;%%.
 
 \bibitem{garfield}
- \url{http://garfield.web.cern.ch/garfield/}.
+R.~Veenhof, ``Users manual for garfield - simulation of gaseous detectors.''
+  \url{http://garfield.web.cern.ch/garfield/}.
 
 \bibitem{blurredcluster}
- \url{http://larsoft.org/single-record/?pdb=110}.
+{\bfseries LArSoft} Collaboration
+  \url{http://larsoft.org/single-record/?pdb=110}.
 
 \bibitem{linecluster}
 ``{The Cluster Crawler Suite Technical Manual}.''
@@ -218,10 +215,11 @@ M.~Mooney, ``{The MicroBooNE Experiment and the Impact of Space Charge
 
 \bibitem{trajcluster}
 ``{TrajCluster: A 2D Cluster Finder }.''
-  \url{https://cdcvs.fnal.gov/redmine/attachments/download/34265/TrajCluster%20Technical%20Note.pdf}.
+  \url{https://cdcvs.fnal.gov/redmine/documents/1026}.
 
 \bibitem{emshowerpackage}
- \url{http://larsoft.org/single-record/?pdb=113}.
+{\bfseries LArSoft} Collaboration
+  \url{http://larsoft.org/single-record/?pdb=113}.
 
 \bibitem{Marshall:2015rfa}
 J.~S. Marshall and M.~A. Thomson, ``{The Pandora Software Development Kit for
@@ -233,11 +231,12 @@ J.~S. Marshall and M.~A. Thomson, ``{The Pandora Software Development Kit for
 %%CITATION = ARXIV:1506.05348;%%.
 
 \bibitem{pma_algorithm}
- \url{http://larsoft.org/single-record/?pdb=102}.
+{\bfseries LArSoft} Collaboration
+  \url{http://larsoft.org/single-record/?pdb=102}.
 
 \bibitem{pma_cosmic_mu}
 L.~Whitehead, ``{Cosmic muon reconstruction in ProtoDUNE-SP using PMA}.''
-  \url{http://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=2780},
+  \url{https://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=2780},
   2017.
 
 \bibitem{wire-cell}
